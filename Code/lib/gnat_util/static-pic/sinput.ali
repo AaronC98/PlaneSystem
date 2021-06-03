@@ -1,0 +1,982 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U sinput%b		sinput.adb		cad175dc NE OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W atree%s		atree.adb		atree.ali
+W debug%s		debug.adb		debug.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.byte_order_mark%s  g-byorma.adb		g-byorma.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W opt%s			opt.adb			opt.ali
+W output%s		output.adb		output.ali  AD
+W scans%s		scans.adb		scans.ali
+W system%s		system.ads		system.ali
+W system.memory%s	s-memory.adb		s-memory.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W system.wch_con%s	s-wchcon.adb		s-wchcon.ali
+W tree_io%s		tree_io.adb		tree_io.ali
+W unchecked_conversion%s
+W unchecked_deallocation%s
+W widechar%s		widechar.adb		widechar.ali
+
+U sinput%s		sinput.ads		97339089 BN EE OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W alloc%s		alloc.ads		alloc.ali
+W casing%s		casing.adb		casing.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W namet%s		namet.adb		namet.ali
+W system%s		system.ads		system.ali
+W table%s		table.adb		table.ali
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D aspects.ads		20190518044710 bc94048b aspects%s
+D atree.ads		20190518044709 2c9e949c atree%s
+D atree.adb		20190518044709 3ab87b63 atree%b
+D casing.ads		20190518044709 9b922bd9 casing%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D einfo.ads		20190518044709 0cc0e22d einfo%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-byorma.ads		20190518041256 2b13b02c gnat.byte_order_mark%s
+D g-hesorg.ads		20190518041255 106922da gnat.heap_sort_g%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D namet.ads		20190518044709 b520bebe namet%s
+D namet.adb		20190518044709 64106062 namet%b
+D nlists.ads		20190518044709 0f3f40a5 nlists%s
+D nlists.adb		20190518044709 75b2fe96 nlists%b
+D opt.ads		20190518044710 3d2ce478 opt%s
+D output.ads		20190518044709 a916e413 output%s
+D scans.ads		20190518044709 8b26a439 scans%s
+D sinfo.ads		20190518044709 4a0f957d sinfo%s
+D sinput.ads		20190518044709 573062f0 sinput%s
+D sinput.adb		20190518044709 d9451392 sinput%b
+D snames.ads		20190518132638 5f03100c snames%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20190518041256 ed88f8fb system.storage_elements%b
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcnv.ads		20190518041255 0fb7baf3 system.wch_cnv%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D uintp.ads		20190518044709 c6012b27 uintp%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D urealp.ads		20190518044709 e500ee51 urealp%s
+D widechar.ads		20190518044709 afb9abd7 widechar%s
+D widechar.adb		20190518044709 7acfb26a widechar%b
+G a e
+G c s s s [s sinput 70 1 none]
+G c Z s b [debug_source_name sinput 295 13 none]
+G c Z s b [file_name sinput 296 13 none]
+G c Z s b [file_type sinput 297 13 none]
+G c Z s b [first_mapped_line sinput 298 13 none]
+G c Z s b [full_debug_name sinput 299 13 none]
+G c Z s b [full_file_name sinput 300 13 none]
+G c Z s b [full_ref_name sinput 301 13 none]
+G c Z s b [identifier_casing sinput 302 13 none]
+G c Z s b [inlined_body sinput 303 13 none]
+G c Z s b [inherited_pragma sinput 304 13 none]
+G c Z s b [inlined_call sinput 305 13 none]
+G c Z s b [instance sinput 306 13 none]
+G c Z s b [keyword_casing sinput 307 13 none]
+G c Z s b [last_source_line sinput 308 13 none]
+G c Z s b [license sinput 309 13 none]
+G c Z s b [num_sref_pragmas sinput 310 13 none]
+G c Z s b [reference_name sinput 311 13 none]
+G c Z s b [source_checksum sinput 312 13 none]
+G c Z s b [source_first sinput 313 13 none]
+G c Z s b [source_last sinput 314 13 none]
+G c Z s b [source_text sinput 315 13 none]
+G c Z s b [template sinput 316 13 none]
+G c Z s b [unit sinput 317 13 none]
+G c Z s b [time_stamp sinput 318 13 none]
+G c Z s b [set_keyword_casing sinput 320 14 none]
+G c Z s b [set_identifier_casing sinput 321 14 none]
+G c Z s b [set_license sinput 322 14 none]
+G c Z s b [set_unit sinput 323 14 none]
+G c Z s b [last_source_file sinput 325 13 none]
+G c Z s b [num_source_files sinput 328 13 none]
+G c Z s b [initialize sinput 331 14 none]
+G c Z s b [lock sinput 334 14 none]
+G c Z s b [unlock sinput 337 14 none]
+G c Z s b [instantiation sinput 402 13 none]
+G c Z s b [backup_line sinput 503 14 none]
+G c Z s b [build_location_string sinput 510 14 none]
+G c Z s b [build_location_string sinput 519 13 none]
+G c Z s b [check_for_bom sinput 522 14 none]
+G c Z s b [get_column_number sinput 530 13 none]
+G c Z s b [get_logical_line_number sinput 535 13 none]
+G c Z s b [get_logical_line_number_img sinput 546 13 none]
+G c Z s b [get_physical_line_number sinput 551 13 none]
+G c Z s b [get_source_file_index sinput 558 13 none]
+G c Z s b [instantiation_depth sinput 564 13 none]
+G c Z s b [line_start sinput 568 13 none]
+G c Z s b [line_start sinput 572 13 none]
+G c Z s b [num_source_lines sinput 578 13 none]
+G c Z s b [register_source_ref_pragma sinput 583 14 none]
+G c Z s b [original_location sinput 597 13 none]
+G c Z s b [instantiation_location sinput 605 13 none]
+G c Z s b [comes_from_inlined_body sinput 611 13 none]
+G c Z s b [comes_from_inherited_pragma sinput 618 13 none]
+G c Z s b [top_level_location sinput 625 13 none]
+G c Z s b [physical_to_logical sinput 631 13 none]
+G c Z s b [skip_line_terminators sinput 639 14 none]
+G c Z s b [sloc_range sinput 674 14 none]
+G c Z s b [source_offset sinput 688 13 none]
+G c Z s b [write_location sinput 693 14 none]
+G c Z s b [wl sinput 703 14 none]
+G c Z s b [write_time_stamp sinput 707 14 none]
+G c Z s b [tree_read sinput 710 14 none]
+G c Z s b [tree_write sinput 714 14 none]
+G c Z s b [clear_source_file_table sinput 718 14 none]
+G c Z s s [source_file_recordIP sinput 794 9 none]
+G c Z s s [init sinput__source_file 142 17 895_4]
+G c Z s s [last sinput__source_file 149 16 895_4]
+G c Z s s [release sinput__source_file 156 17 895_4]
+G c Z s s [free sinput__source_file 168 17 895_4]
+G c Z s s [set_last sinput__source_file 175 17 895_4]
+G c Z s s [increment_last sinput__source_file 184 17 895_4]
+G c Z s s [decrement_last sinput__source_file 188 17 895_4]
+G c Z s s [append sinput__source_file 192 17 895_4]
+G c Z s s [append_all sinput__source_file 200 17 895_4]
+G c Z s s [set_item sinput__source_file 203 17 895_4]
+G c Z s s [save sinput__source_file 215 16 895_4]
+G c Z s s [restore sinput__source_file 219 17 895_4]
+G c Z s s [tree_write sinput__source_file 223 17 895_4]
+G c Z s s [tree_read sinput__source_file 226 17 895_4]
+G c Z s s [table_typeIP sinput__source_file 110 12 895_4]
+G c Z s s [saved_tableIP sinput__source_file 241 12 895_4]
+G c Z s s [reallocate sinput__source_file 58 17 895_4]
+G c Z s s [tree_get_table_address sinput__source_file 63 16 895_4]
+G c Z s s [to_address sinput__source_file 72 16 895_4]
+G c Z s s [to_pointer sinput__source_file 73 16 895_4]
+G c Z s s [init sinput__instances 142 17 906_4]
+G c Z s s [last sinput__instances 149 16 906_4]
+G c Z s s [release sinput__instances 156 17 906_4]
+G c Z s s [free sinput__instances 168 17 906_4]
+G c Z s s [set_last sinput__instances 175 17 906_4]
+G c Z s s [increment_last sinput__instances 184 17 906_4]
+G c Z s s [decrement_last sinput__instances 188 17 906_4]
+G c Z s s [append sinput__instances 192 17 906_4]
+G c Z s s [append_all sinput__instances 200 17 906_4]
+G c Z s s [set_item sinput__instances 203 17 906_4]
+G c Z s s [save sinput__instances 215 16 906_4]
+G c Z s s [restore sinput__instances 219 17 906_4]
+G c Z s s [tree_write sinput__instances 223 17 906_4]
+G c Z s s [tree_read sinput__instances 226 17 906_4]
+G c Z s s [table_typeIP sinput__instances 110 12 906_4]
+G c Z s s [saved_tableIP sinput__instances 241 12 906_4]
+G c Z s s [reallocate sinput__instances 58 17 906_4]
+G c Z s s [tree_get_table_address sinput__instances 63 16 906_4]
+G c Z s s [to_address sinput__instances 72 16 906_4]
+G c Z s s [to_pointer sinput__instances 73 16 906_4]
+G c Z s b [alloc_line_tables sinput 918 14 none]
+G c Z s b [add_line_tables_entry sinput 925 14 none]
+G c Z s b [trim_lines_table sinput 934 14 none]
+G c Z s b [set_source_file_index_table sinput 939 14 none]
+G c Z s b [set_dope sinput 953 14 none]
+G c Z s b [free_dope sinput 961 14 none]
+G c Z s b [free_source_buffer sinput 964 14 none]
+G c Z s s [Tlines_table_typeBIP sinput 766 4 none]
+G c Z s s [Tlogical_lines_table_typeBIP sinput 776 4 none]
+G c Z s s [dope_recIP sinput 945 9 none]
+G c Z b b [to_address sinput 63 13 none]
+G c Z b b [to_address sinput 66 13 none]
+G c Z b b [to_pointer sinput 69 13 none]
+G c Z b b [to_pointer sinput 72 13 none]
+G c Z b b [Tsource_file_index_tableBIP sinput 92 4 none]
+G c Z b b [free sinput 327 14 none]
+G c Z b b [free sinput 330 14 none]
+G r c none [s sinput 70 1 none] [write_str output 130 14 none]
+G r c none [s sinput 70 1 none] [write_int output 123 14 none]
+G r c none [s sinput 70 1 none] [write_eol output 113 14 none]
+G r c none [s sinput 70 1 none] [set_standard_error output 77 14 none]
+G r c none [s sinput 70 1 none] [set_standard_output output 84 14 none]
+G r i none [s sinput 70 1 none] [table table 59 12 none]
+G r c none [initialize sinput 331 14 none] [write_str output 130 14 none]
+G r c none [initialize sinput 331 14 none] [write_int output 123 14 none]
+G r c none [initialize sinput 331 14 none] [write_eol output 113 14 none]
+G r c none [initialize sinput 331 14 none] [set_standard_error output 77 14 none]
+G r c none [initialize sinput 331 14 none] [set_standard_output output 84 14 none]
+G r c none [lock sinput 334 14 none] [write_str output 130 14 none]
+G r c none [lock sinput 334 14 none] [write_int output 123 14 none]
+G r c none [lock sinput 334 14 none] [write_eol output 113 14 none]
+G r c none [lock sinput 334 14 none] [set_standard_error output 77 14 none]
+G r c none [lock sinput 334 14 none] [set_standard_output output 84 14 none]
+G r c none [unlock sinput 337 14 none] [write_str output 130 14 none]
+G r c none [unlock sinput 337 14 none] [write_int output 123 14 none]
+G r c none [unlock sinput 337 14 none] [write_eol output 113 14 none]
+G r c none [unlock sinput 337 14 none] [set_standard_error output 77 14 none]
+G r c none [unlock sinput 337 14 none] [set_standard_output output 84 14 none]
+G r c none [build_location_string sinput 510 14 none] [append namet 389 14 none]
+G r c none [build_location_string sinput 510 14 none] [append namet 376 14 none]
+G r c none [build_location_string sinput 510 14 none] [append namet 380 14 none]
+G r c none [build_location_string sinput 510 14 none] [append namet 383 14 none]
+G r s bounded_string [build_location_string sinput 519 13 none] [bounded_stringIP namet 151 9 none]
+G r c none [build_location_string sinput 519 13 none] [append namet 389 14 none]
+G r c none [build_location_string sinput 519 13 none] [append namet 376 14 none]
+G r c none [build_location_string sinput 519 13 none] [append namet 380 14 none]
+G r c none [build_location_string sinput 519 13 none] [append namet 383 14 none]
+G r c none [build_location_string sinput 519 13 none] [to_string namet 339 13 none]
+G r c none [check_for_bom sinput 522 14 none] [set_standard_error output 77 14 none]
+G r c none [check_for_bom sinput 522 14 none] [write_line output 137 14 none]
+G r c none [check_for_bom sinput 522 14 none] [set_standard_output output 84 14 none]
+G r c none [get_column_number sinput 530 13 none] [is_start_of_wide_char widechar 93 13 none]
+G r c none [get_column_number sinput 530 13 none] [skip_wide widechar 88 14 none]
+G r c none [get_logical_line_number_img sinput 546 13 none] [add_nat_to_name_buffer namet 592 14 none]
+G r c none [skip_line_terminators sinput 639 14 none] [skip_wide widechar 88 14 none]
+G r c none [skip_line_terminators sinput 639 14 none] [write_str output 130 14 none]
+G r c none [skip_line_terminators sinput 639 14 none] [write_int output 123 14 none]
+G r c none [skip_line_terminators sinput 639 14 none] [write_eol output 113 14 none]
+G r i none [sloc_range sinput 674 14 none] [traverse_proc atree 627 14 none]
+G r c none [sloc_range sinput 674 14 none] [sloc atree 678 13 none]
+G r i none [sloc_range sinput 674 14 none] [traverse_func atree 601 13 none]
+G r c none [sloc_range sinput 674 14 none] [original_node atree 1157 13 none]
+G r c none [sloc_range sinput 674 14 none] [field5 atree__unchecked_access 1212 16 none]
+G r c none [sloc_range sinput 674 14 none] [nkind atree 657 13 none]
+G r c none [sloc_range sinput 674 14 none] [present atree 673 13 none]
+G r c none [sloc_range sinput 674 14 none] [next nlists 162 14 none]
+G r c none [sloc_range sinput 674 14 none] [first nlists 124 13 none]
+G r c none [sloc_range sinput 674 14 none] [field4 atree__unchecked_access 1209 16 none]
+G r c none [sloc_range sinput 674 14 none] [field3 atree__unchecked_access 1206 16 none]
+G r c none [sloc_range sinput 674 14 none] [field1 atree__unchecked_access 1200 16 none]
+G r c none [sloc_range sinput 674 14 none] [field2 atree__unchecked_access 1203 16 none]
+G r c none [write_location sinput 693 14 none] [write_str output 130 14 none]
+G r c none [write_location sinput 693 14 none] [write_name namet 563 14 none]
+G r c none [write_location sinput 693 14 none] [write_char output 106 14 none]
+G r c none [write_location sinput 693 14 none] [write_int output 123 14 none]
+G r c none [write_location sinput 693 14 none] [is_start_of_wide_char widechar 93 13 none]
+G r c none [write_location sinput 693 14 none] [skip_wide widechar 88 14 none]
+G r c none [wl sinput 703 14 none] [write_str output 130 14 none]
+G r c none [wl sinput 703 14 none] [write_name namet 563 14 none]
+G r c none [wl sinput 703 14 none] [write_char output 106 14 none]
+G r c none [wl sinput 703 14 none] [write_int output 123 14 none]
+G r c none [wl sinput 703 14 none] [is_start_of_wide_char widechar 93 13 none]
+G r c none [wl sinput 703 14 none] [skip_wide widechar 88 14 none]
+G r c none [wl sinput 703 14 none] [write_eol output 113 14 none]
+G r c none [write_time_stamp sinput 707 14 none] [write_char output 106 14 none]
+G r c none [write_time_stamp sinput 707 14 none] [write_str output 130 14 none]
+G r c none [tree_read sinput 710 14 none] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read sinput 710 14 none] [write_str output 130 14 none]
+G r c none [tree_read sinput 710 14 none] [write_int output 123 14 none]
+G r c none [tree_read sinput 710 14 none] [write_eol output 113 14 none]
+G r c none [tree_read sinput 710 14 none] [set_standard_error output 77 14 none]
+G r c none [tree_read sinput 710 14 none] [set_standard_output output 84 14 none]
+G r c none [tree_read sinput 710 14 none] [tree_read_data tree_io 76 14 none]
+G r c none [tree_write sinput 714 14 none] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write sinput 714 14 none] [tree_write_data tree_io 108 14 none]
+G r c none [clear_source_file_table sinput 718 14 none] [write_str output 130 14 none]
+G r c none [clear_source_file_table sinput 718 14 none] [write_int output 123 14 none]
+G r c none [clear_source_file_table sinput 718 14 none] [write_eol output 113 14 none]
+G r c none [clear_source_file_table sinput 718 14 none] [set_standard_error output 77 14 none]
+G r c none [clear_source_file_table sinput 718 14 none] [set_standard_output output 84 14 none]
+G r c none [init sinput__source_file 142 17 895_4] [write_str output 130 14 none]
+G r c none [init sinput__source_file 142 17 895_4] [write_int output 123 14 none]
+G r c none [init sinput__source_file 142 17 895_4] [write_eol output 113 14 none]
+G r c none [init sinput__source_file 142 17 895_4] [set_standard_error output 77 14 none]
+G r c none [init sinput__source_file 142 17 895_4] [set_standard_output output 84 14 none]
+G r c none [release sinput__source_file 156 17 895_4] [write_str output 130 14 none]
+G r c none [release sinput__source_file 156 17 895_4] [write_int output 123 14 none]
+G r c none [release sinput__source_file 156 17 895_4] [write_eol output 113 14 none]
+G r c none [release sinput__source_file 156 17 895_4] [set_standard_error output 77 14 none]
+G r c none [release sinput__source_file 156 17 895_4] [set_standard_output output 84 14 none]
+G r c none [set_last sinput__source_file 175 17 895_4] [write_str output 130 14 none]
+G r c none [set_last sinput__source_file 175 17 895_4] [write_int output 123 14 none]
+G r c none [set_last sinput__source_file 175 17 895_4] [write_eol output 113 14 none]
+G r c none [set_last sinput__source_file 175 17 895_4] [set_standard_error output 77 14 none]
+G r c none [set_last sinput__source_file 175 17 895_4] [set_standard_output output 84 14 none]
+G r c none [increment_last sinput__source_file 184 17 895_4] [write_str output 130 14 none]
+G r c none [increment_last sinput__source_file 184 17 895_4] [write_int output 123 14 none]
+G r c none [increment_last sinput__source_file 184 17 895_4] [write_eol output 113 14 none]
+G r c none [increment_last sinput__source_file 184 17 895_4] [set_standard_error output 77 14 none]
+G r c none [increment_last sinput__source_file 184 17 895_4] [set_standard_output output 84 14 none]
+G r c none [append sinput__source_file 192 17 895_4] [write_str output 130 14 none]
+G r c none [append sinput__source_file 192 17 895_4] [write_int output 123 14 none]
+G r c none [append sinput__source_file 192 17 895_4] [write_eol output 113 14 none]
+G r c none [append sinput__source_file 192 17 895_4] [set_standard_error output 77 14 none]
+G r c none [append sinput__source_file 192 17 895_4] [set_standard_output output 84 14 none]
+G r c none [append_all sinput__source_file 200 17 895_4] [write_str output 130 14 none]
+G r c none [append_all sinput__source_file 200 17 895_4] [write_int output 123 14 none]
+G r c none [append_all sinput__source_file 200 17 895_4] [write_eol output 113 14 none]
+G r c none [append_all sinput__source_file 200 17 895_4] [set_standard_error output 77 14 none]
+G r c none [append_all sinput__source_file 200 17 895_4] [set_standard_output output 84 14 none]
+G r c none [set_item sinput__source_file 203 17 895_4] [write_str output 130 14 none]
+G r c none [set_item sinput__source_file 203 17 895_4] [write_int output 123 14 none]
+G r c none [set_item sinput__source_file 203 17 895_4] [write_eol output 113 14 none]
+G r c none [set_item sinput__source_file 203 17 895_4] [set_standard_error output 77 14 none]
+G r c none [set_item sinput__source_file 203 17 895_4] [set_standard_output output 84 14 none]
+G r c none [save sinput__source_file 215 16 895_4] [write_str output 130 14 none]
+G r c none [save sinput__source_file 215 16 895_4] [write_int output 123 14 none]
+G r c none [save sinput__source_file 215 16 895_4] [write_eol output 113 14 none]
+G r c none [save sinput__source_file 215 16 895_4] [set_standard_error output 77 14 none]
+G r c none [save sinput__source_file 215 16 895_4] [set_standard_output output 84 14 none]
+G r c none [tree_write sinput__source_file 223 17 895_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write sinput__source_file 223 17 895_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read sinput__source_file 226 17 895_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read sinput__source_file 226 17 895_4] [write_str output 130 14 none]
+G r c none [tree_read sinput__source_file 226 17 895_4] [write_int output 123 14 none]
+G r c none [tree_read sinput__source_file 226 17 895_4] [write_eol output 113 14 none]
+G r c none [tree_read sinput__source_file 226 17 895_4] [set_standard_error output 77 14 none]
+G r c none [tree_read sinput__source_file 226 17 895_4] [set_standard_output output 84 14 none]
+G r c none [tree_read sinput__source_file 226 17 895_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate sinput__source_file 58 17 895_4] [write_str output 130 14 none]
+G r c none [reallocate sinput__source_file 58 17 895_4] [write_int output 123 14 none]
+G r c none [reallocate sinput__source_file 58 17 895_4] [write_eol output 113 14 none]
+G r c none [reallocate sinput__source_file 58 17 895_4] [set_standard_error output 77 14 none]
+G r c none [reallocate sinput__source_file 58 17 895_4] [set_standard_output output 84 14 none]
+G r c none [init sinput__instances 142 17 906_4] [write_str output 130 14 none]
+G r c none [init sinput__instances 142 17 906_4] [write_int output 123 14 none]
+G r c none [init sinput__instances 142 17 906_4] [write_eol output 113 14 none]
+G r c none [init sinput__instances 142 17 906_4] [set_standard_error output 77 14 none]
+G r c none [init sinput__instances 142 17 906_4] [set_standard_output output 84 14 none]
+G r c none [release sinput__instances 156 17 906_4] [write_str output 130 14 none]
+G r c none [release sinput__instances 156 17 906_4] [write_int output 123 14 none]
+G r c none [release sinput__instances 156 17 906_4] [write_eol output 113 14 none]
+G r c none [release sinput__instances 156 17 906_4] [set_standard_error output 77 14 none]
+G r c none [release sinput__instances 156 17 906_4] [set_standard_output output 84 14 none]
+G r c none [set_last sinput__instances 175 17 906_4] [write_str output 130 14 none]
+G r c none [set_last sinput__instances 175 17 906_4] [write_int output 123 14 none]
+G r c none [set_last sinput__instances 175 17 906_4] [write_eol output 113 14 none]
+G r c none [set_last sinput__instances 175 17 906_4] [set_standard_error output 77 14 none]
+G r c none [set_last sinput__instances 175 17 906_4] [set_standard_output output 84 14 none]
+G r c none [increment_last sinput__instances 184 17 906_4] [write_str output 130 14 none]
+G r c none [increment_last sinput__instances 184 17 906_4] [write_int output 123 14 none]
+G r c none [increment_last sinput__instances 184 17 906_4] [write_eol output 113 14 none]
+G r c none [increment_last sinput__instances 184 17 906_4] [set_standard_error output 77 14 none]
+G r c none [increment_last sinput__instances 184 17 906_4] [set_standard_output output 84 14 none]
+G r c none [append sinput__instances 192 17 906_4] [write_str output 130 14 none]
+G r c none [append sinput__instances 192 17 906_4] [write_int output 123 14 none]
+G r c none [append sinput__instances 192 17 906_4] [write_eol output 113 14 none]
+G r c none [append sinput__instances 192 17 906_4] [set_standard_error output 77 14 none]
+G r c none [append sinput__instances 192 17 906_4] [set_standard_output output 84 14 none]
+G r c none [append_all sinput__instances 200 17 906_4] [write_str output 130 14 none]
+G r c none [append_all sinput__instances 200 17 906_4] [write_int output 123 14 none]
+G r c none [append_all sinput__instances 200 17 906_4] [write_eol output 113 14 none]
+G r c none [append_all sinput__instances 200 17 906_4] [set_standard_error output 77 14 none]
+G r c none [append_all sinput__instances 200 17 906_4] [set_standard_output output 84 14 none]
+G r c none [set_item sinput__instances 203 17 906_4] [write_str output 130 14 none]
+G r c none [set_item sinput__instances 203 17 906_4] [write_int output 123 14 none]
+G r c none [set_item sinput__instances 203 17 906_4] [write_eol output 113 14 none]
+G r c none [set_item sinput__instances 203 17 906_4] [set_standard_error output 77 14 none]
+G r c none [set_item sinput__instances 203 17 906_4] [set_standard_output output 84 14 none]
+G r c none [save sinput__instances 215 16 906_4] [write_str output 130 14 none]
+G r c none [save sinput__instances 215 16 906_4] [write_int output 123 14 none]
+G r c none [save sinput__instances 215 16 906_4] [write_eol output 113 14 none]
+G r c none [save sinput__instances 215 16 906_4] [set_standard_error output 77 14 none]
+G r c none [save sinput__instances 215 16 906_4] [set_standard_output output 84 14 none]
+G r c none [tree_write sinput__instances 223 17 906_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write sinput__instances 223 17 906_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read sinput__instances 226 17 906_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read sinput__instances 226 17 906_4] [write_str output 130 14 none]
+G r c none [tree_read sinput__instances 226 17 906_4] [write_int output 123 14 none]
+G r c none [tree_read sinput__instances 226 17 906_4] [write_eol output 113 14 none]
+G r c none [tree_read sinput__instances 226 17 906_4] [set_standard_error output 77 14 none]
+G r c none [tree_read sinput__instances 226 17 906_4] [set_standard_output output 84 14 none]
+G r c none [tree_read sinput__instances 226 17 906_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate sinput__instances 58 17 906_4] [write_str output 130 14 none]
+G r c none [reallocate sinput__instances 58 17 906_4] [write_int output 123 14 none]
+G r c none [reallocate sinput__instances 58 17 906_4] [write_eol output 113 14 none]
+G r c none [reallocate sinput__instances 58 17 906_4] [set_standard_error output 77 14 none]
+G r c none [reallocate sinput__instances 58 17 906_4] [set_standard_output output 84 14 none]
+G r c none [add_line_tables_entry sinput 925 14 none] [write_str output 130 14 none]
+G r c none [add_line_tables_entry sinput 925 14 none] [write_int output 123 14 none]
+G r c none [add_line_tables_entry sinput 925 14 none] [write_eol output 113 14 none]
+X 5 alloc.ads
+42K9*Alloc 167e10 25|63w6 899r31 900r31 910r31 911r31 26|117r23
+83N4*Lines_Increment 26|117r29
+128N4*Source_File_Initial 25|899r37 910r37
+129N4*Source_File_Increment 25|900r37 911r37
+X 7 atree.ads
+44K9*Atree 4321e10 26|35w6 35r20
+591E9*Traverse_Result 591e56 26|941r45 950r45
+591n42*OK_Orig{591E9} 26|965r17
+627u14*Traverse_Proc 26|944r33
+678V13*Sloc{46|220I12} 26|954s13 955s16 956s23 959s16 960s16 961s23 971s14
+. 972s14
+1157V13*Original_Node{46|397I9} 26|951s37
+X 8 atree.adb
+2658V16 Traverse[7|601]{7|595E12} 2523b13[26|944]
+X 9 casing.ads
+35K9*Casing 98e11 25|64w6 64r18
+48E9*Casing_Type 63e5 25|302r48 307r48 320r50 321r50 817r27 818r27 26|1279r48
+. 1299r45 1363r50 1368r47
+X 10 debug.ads
+36K9*Debug 256e10 26|36w6 36r20
+54b4*Debug_Flag_D{boolean} 26|119r13
+X 12 gnat.ads
+34K9*GNAT 57e9 26|43r6 43r32
+X 13 g-byorma.ads
+66K14*Byte_Order_Mark 100e25 26|43w11 43r37
+68E9*BOM_Kind 84e15 26|270r13
+69n7*UTF8_All{68E9} 26|292r15
+70n7*UTF16_LE{68E9} 26|300r15
+71n7*UTF16_BE{68E9} 26|299r15
+72n7*UTF32_LE{68E9} 26|308r15
+73n7*UTF32_BE{68E9} 26|307r15
+84n7*Unknown{68E9} 26|315r15
+86U14*Read_BOM 26|289s7
+90b7 XML_Support{boolean} 26|289r32
+X 17 namet.ads
+37K9*Namet 768e10 25|65w6 65r18
+151R9*Bounded_String 157e14 25|511r20 26|239r20 259r13
+169a4*Name_Buffer{string} 26|478r14
+170i4*Name_Len{natural} 26|476r7 478r32
+188I9*Name_Id<integer>
+341V14*"+"=341:62{string} 26|262s14
+376U14*Append 26|249s10
+380U14*Append 26|250s10
+383U14*Append 26|254s10
+389U14*Append 26|248s10
+563U14*Write_Name 26|1178s13
+592U14*Add_Nat_To_Name_Buffer 26|477s7
+624I9*File_Name_Type<188I9> 25|295r48 296r48 299r48 300r48 301r48 311r48
+. 584r28 585r28 795r27 796r27 797r27 798r27 799r27 800r27 26|787r28 788r28
+. 1239r48 1249r40 1264r46 1269r45 1274r44 1319r45
+629i4*No_File{624I9} 26|799r23
+X 21 opt.ads
+50K9*Opt 2414e8 26|37w6 37r20
+450b4*Debug_Generated_Code{boolean} 26|803r17
+1673b4*Upper_Half_Encoding{boolean} 26|297m13
+1951i4*Wide_Character_Encoding_Method{42|94I9} 26|296m13
+X 22 output.ads
+44K9*Output 213e11 26|38w6 38r20
+77U14*Set_Standard_Error 26|302s13 310s13
+84U14*Set_Standard_Output 26|304s13 312s13
+106U14*Write_Char 26|1179s13 1181s13 1187s16 1206s10 1207s10 1211s7 1212s7
+. 1213s7 1215s7 1216s7 1217s7 1219s7 1220s7 1221s7 1223s7 1224s7 1225s7 1227s7
+. 1228s7 1229s7 1231s7 1232s7
+113U14*Write_Eol 26|122s13 1418s7
+123U14*Write_Int 26|121s13 1180s13 1182s13
+130U14*Write_Str 26|120s13 1168s10 1171s10 1185s16 1203s10
+137U14*Write_Line 26|303s13 311s13
+X 23 scans.ads
+37K9*Scans 537e10 26|39w6 39r20
+376i4*Scan_Ptr{46|220I12} 26|277r23 293m13 293r25 294r41 295r35
+386i4*Current_Line_Start{46|220I12} 26|295m13
+410i4*First_Non_Blank_Location{46|220I12} 26|294m13
+X 25 sinput.ads
+70K9*Sinput 760E4 967l5 967e11 26|52b14 352r7 1421l5 1421t11
+72E9*Type_Of_File 84e15 297r48 812r27 26|1254r40
+75n7*Src{72E9}
+78n7*Config{72E9}
+81n7*Def{72E9}
+84n7*Preproc{72E9}
+87I9*Instance_Id<46|59I9> 88r30 306r48 398r36 760r30 801r27 908r31 26|1244r39
+88i4*No_Instance_Id{87I9} 760c4 26|339r29 606r39 1019r29 1054r29 1136r29
+97E9*License_Type 115e20 309r48 322r50 816r27 26|1309r38 1373r40
+98n7*Unknown{97E9}
+101n7*Restricted{97E9}
+105n7*GPL{97E9}
+110n7*Modified_GPL{97E9}
+115n7*Unrestricted{97E9}
+287I12*SFI{46|575I9} 289r31 295r36 296r36 297r36 298r36 299r36 300r36 301r36
+. 302r36 303r36 304r36 305r36 306r36 307r36 308r36 309r36 310r36 311r36 312r36
+. 313r36 314r36 315r36 316r36 317r36 318r36 320r41 321r41 322r41 323r41 402r32
+. 26|613r32 1239r36 1244r27 1249r28 1254r28 1259r36 1264r34 1269r33 1274r32
+. 1279r36 1284r35 1289r31 1294r31 1299r33 1304r35 1309r26 1314r35 1319r33
+. 1324r34 1329r31 1334r30 1339r30 1344r27 1344r39 1349r29 1354r23 1363r41
+. 1368r38 1373r31 1378r28
+289i4*System_Source_File_Index{287I12}
+295V13*Debug_Source_Name{17|624I9} 295>32 731r19 26|1178s25 1239b13 1242l8
+. 1242t25
+295i32 S{287I12} 26|1239b32 1241r33
+296V13*File_Name{17|624I9} 296>32 726r19 26|1249b13 1252l8 1252t17
+296i32 S{287I12} 26|1249b24 1251r33
+297V13*File_Type{72E9} 297>32 728r19 26|1254b13 1257l8 1257t17
+297i32 S{287I12} 26|1254b24 1256r33
+298V13*First_Mapped_Line{46|162I9} 298>32 736r19 26|1259b13 1262l8 1262t25
+298i32 S{287I12} 26|1259b32 1261r33
+299V13*Full_Debug_Name{17|624I9} 299>32 732r19 26|1264b13 1267l8 1267t23
+299i32 S{287I12} 26|1264b30 1266r33
+300V13*Full_File_Name{17|624I9} 300>32 727r19 26|1269b13 1272l8 1272t22
+300i32 S{287I12} 26|1269b29 1271r33
+301V13*Full_Ref_Name{17|624I9} 301>32 730r19 26|1274b13 1277l8 1277t21
+301i32 S{287I12} 26|1274b28 1276r33
+302V13*Identifier_Casing{9|48E9} 302>32 744r19 26|1279b13 1282l8 1282t25
+302i32 S{287I12} 26|1279b32 1281r33
+303V13*Inlined_Body{boolean} 303>32 746r19 26|1289b13 1292l8 1292t20
+303i32 S{287I12} 26|1289b27 1291r33
+304V13*Inherited_Pragma{boolean} 304>32 747r19 26|1284b13 1287l8 1287t24
+304i32 S{287I12} 26|1284b31 1286r33
+305V13*Inlined_Call{46|220I12} 305>32 745r19 26|1294b13 1297l8 1297t20
+305i32 S{287I12} 26|1294b27 1296r33
+306V13*Instance{87I9} 306>32 733r19 26|1244b13 1247l8 1247t16
+306i32 S{287I12} 26|1244b23 1246r33
+307V13*Keyword_Casing{9|48E9} 307>32 743r19 26|1299b13 1302l8 1302t22
+307i32 S{287I12} 26|1299b29 1301r33
+308V13*Last_Source_Line{46|172I9} 308>32 742r19 26|1304b13 1307l8 1307t24
+308i32 S{287I12} 26|1304b31 1306r33
+309V13*License{97E9} 309>32 734r19 26|1309b13 1312l8 1312t15
+309i32 S{287I12} 26|1309b22 1311r33
+310V13*Num_SRef_Pragmas{46|62I12} 310>32 735r19 26|1314b13 1317l8 1317t24
+310i32 S{287I12} 26|1314b31 1316r33
+311V13*Reference_Name{17|624I9} 311>32 729r19 26|248s23 1319b13 1322l8 1322t22
+311i32 S{287I12} 26|1319b29 1321r33
+312V13*Source_Checksum{46|68M9} 312>32 741r19 26|1324b13 1327l8 1327t23
+312i32 S{287I12} 26|1324b30 1326r33
+313V13*Source_First{46|220I12} 313>32 738r19 26|759s24 759s48 1329b13 1332l8
+. 1332t20
+313i32 S{287I12} 26|1329b27 1331r33
+314V13*Source_Last{46|220I12} 314>32 739r19 26|1334b13 1337l8 1337t19
+314i32 S{287I12} 26|1334b26 1336r33
+315V13*Source_Text{46|200P9} 315>32 737r19 26|1339b13 1342l8 1342t19
+315i32 S{287I12} 26|1339b26 1341r33
+316V13*Template{46|575I9} 316>32 748r19 26|754s23 756s26 1344b13 1347l8 1347t16
+316i32 S{287I12} 26|1344b23 1346r33
+317V13*Unit{46|564I9} 317>32 749r19 26|1354b13 1357l8 1357t12
+317i32 S{287I12} 26|1354b19 1356r33
+318V13*Time_Stamp{46|613A9} 318>32 740r19 26|1198s39 1349b13 1352l8 1352t18
+318i32 S{287I12} 26|1349b25 1351r33
+320U14*Set_Keyword_Casing 320>37 320>46 751r19 26|1368b14 1371l8 1371t26
+320i37 S{287I12} 26|1368b34 1370r26
+320e46 C{9|48E9} 26|1368b43 1370r47
+321U14*Set_Identifier_Casing 321>37 321>46 752r19 26|1363b14 1366l8 1366t29
+321i37 S{287I12} 26|1363b37 1365r26
+321e46 C{9|48E9} 26|1363b46 1365r50
+322U14*Set_License 322>37 322>46 26|1373b14 1376l8 1376t19
+322i37 S{287I12} 26|1373b27 1375r26
+322e46 L{97E9} 26|1373b36 1375r40
+323U14*Set_Unit 323>37 323>46 26|1378b14 1381l8 1381t16
+323i37 S{287I12} 26|1378b24 1380r26
+323i46 U{46|564I9} 26|1378b33 1380r37
+325V13*Last_Source_File{46|575I9} 754r19 26|670b13 673l8 673t24
+328V13*Num_Source_Files{46|62I12} 755r19 26|721b13 724l8 724t24
+331U14*Initialize 26|352s14 600b14 607l8 607t18
+334U14*Lock 26|711b14 715l8 715t12
+337U14*Unlock 26|1405b14 1409l8 1409t14
+340i4*Main_Source_File{46|575I9}
+398U22 Process 398>31 398>49 26|662s10
+398i31 Id{87I9}
+398i49 Inst_Sloc{46|220I12}
+399u14*Iterate_On_Instances 26|659b14 664l8 664t28
+402V13*Instantiation{46|220I12} 402>28 26|613b13 621l8 621t21 638s18 652s14
+. 750s13 755s19 1184s16 1186s32
+402i28 S{287I12} 26|613b28 614r59
+414i4*Current_Source_File{46|575I9} 26|794r59 891r43
+419i4*Current_Source_Unit{46|564I9}
+424i4*Source_gnat_adc{46|575I9} 26|602m7
+427p4*Source{46|200P9} 26|277r15 859r35 863r13 880r21 900r13
+503U14*Backup_Line 503=27 26|199b14 232l8 232t19
+503i27 P{46|220I12} 26|199b27 200r69 207m7 207r12 209r10 213r15 214r18 215m13
+. 215r18 219r18 220m13 220r18 226r13 227r23 228r23 230m10 230r15
+510U14*Build_Location_String 511=7 512>7 26|238b14 256l8 256t29 261s7
+511r7 Buf{17|151R9} 26|239b7 248m18 249m18 250m18 254m18
+512i7 Loc{46|220I12} 26|240b7 242r27
+519V13*Build_Location_String{string} 519>36 26|258b13 263l8 263t29
+519i36 Loc{46|220I12} 26|258b36 261r35
+522U14*Check_For_BOM 26|269b14 321l8 321t21
+530V13*Get_Column_Number{46|178I9} 530>32 26|401b13 446l8 446t25 1182s29
+530i32 P{46|220I12} 26|401b32 414r10 418r43 420r27 423r20
+535V13*Get_Logical_Line_Number{46|162I9} 536>7 26|250s28 452b13 466l8 466t31
+. 477s36 1180s29
+536i7 P{46|220I12} 26|453b7 456r65 458r70
+546V13*Get_Logical_Line_Number_Img{string} 547>7 26|472b13 479l8 479t35
+547i7 P{46|220I12} 26|473b7 477r61
+551V13*Get_Physical_Line_Number{46|172I9} 552>7 26|458s44 485b13 534l8 534t32
+552i7 P{46|220I12} 26|486b7 502r10 508r42 509r19
+558V13*Get_Source_File_Index{46|575I9} 558>36 559r19 26|200s46 248s39 361s34
+. 372s34 418s20 456s42 508s19 540b13 594l8 594t29 637s18 652s29 680s46 748s20
+. 981s46 1175s48
+558i36 S{46|220I12} 26|540b36 553r22 554r32 555r32 556r32 558r26 570r28 576r31
+. 585r10 586r50
+564V13*Instantiation_Depth{46|62I12} 564>34 26|627b13 644l8 644t27
+564i34 S{46|220I12} 26|627b34 633r15
+568V13*Line_Start{46|220I12} 568>25 26|420s15 679b13 697l8 697t18
+568i25 P{46|220I12} 26|679b25 680r69 688r12
+572V13*Line_Start{46|220I12} 573>7 574>7 26|699b13 705l8 705t18
+573i7 L{46|172I9} 26|700b7 704r49
+574i7 S{46|575I9} 26|701b7 704r33
+578V13*Num_Source_Lines{46|62I12} 578>31 756r19 26|730b13 733l8 733t24
+578i31 S{46|575I9} 26|730b31 732r38
+583U14*Register_Source_Ref_Pragma 584>7 585>7 586>7 587>7 26|786b14 830l8
+. 830t34
+584i7 File_Name{17|624I9} 26|787b7 799r10 801r32 805r38
+585i7 Stripped_File_Name{17|624I9} 26|788b7 800r32 804r38
+586i7 Mapped_Line{46|62I12} 26|789b7 812r56 825r34
+587i7 Line_After_Pragma{46|172I9} 26|790b7 823r32 826r16
+597V13*Original_Location{46|220I12} 597>32 26|739b13 762l8 762t25
+597i32 S{46|220I12} 26|739b32 744r10 745r17 748r43 751r20 759r20
+605V13*Instantiation_Location{46|220I12} 605>37 606r19 26|252s17 650b13 653l8
+. 653t30 1000s20
+605i37 S{46|220I12} 26|650b37 652r52
+611V13*Comes_From_Inlined_Body{boolean} 611>38 612r19 26|370b13 375l8 375t31
+611i38 S{46|220I12} 26|370b38 372r57
+618V13*Comes_From_Inherited_Pragma{boolean} 618>42 619r19 26|359b13 364l8
+. 364t35
+618i42 S{46|220I12} 26|359b42 361r57
+625V13*Top_Level_Location{46|220I12} 625>33 26|992b13 1005l8 1005t26
+625i33 S{46|220I12} 26|992b33 997r17
+631V13*Physical_To_Logical{46|162I9} 632>7 633>7 26|768b13 780l8 780t27
+632i7 Line{46|172I9} 26|769b7 776r38 778r42
+633i7 S{46|575I9} 26|770b7 772r59
+639U14*Skip_Line_Terminators 640=7 641<7 26|855b14 906l8 906t29
+640i7 P{46|220I12} 26|856b7 859r43 863r21 864m13 864r18 866m13 866r18 870m10
+. 870r15 873m10 873r15 880m29 900r21 901r21 903r39
+641b7 Physical{boolean} 26|857b7 874m10 894m10
+674U14*Sloc_Range 674>26 674<39 674<44 26|939b14 974l8 974t18
+674i26 N{46|397I9} 26|939b26 971r20 972r20 973r17
+674i39 Min{46|220I12} 26|939b39 954r27 956m16 971m7
+674i44 Max{46|220I12} 26|939b44 959r30 961m16 972m7
+688V13*Source_Offset{46|62I12} 688>28 26|980b13 986l8 986t21
+688i28 S{46|220I12} 26|980b28 981r69 985r19
+693U14*Write_Location 693>30 26|1165b14 1186s16 1191l8 1191t22 1417s7
+693i30 P{46|220I12} 26|1165b30 1167r10 1170r13 1175r71 1180r54 1182r48
+703U14*wl 703>18 704r24 26|1415b14 1419l8 1419t10
+703i18 P{46|220I12} 26|1415b18 1417r23
+707U14*Write_Time_Stamp 707>32 26|1197b14 1233l8 1233t24
+707i32 S{46|575I9} 26|1197b32 1198r51
+710U14*Tree_Read 26|1011b14 1111l8 1111t17
+714U14*Tree_Write 26|1117b14 1159l8 1159t18
+718U14*Clear_Source_File_Table 26|333b14 353l8 353t31
+766A9 Lines_Table_Type(46|220I12)<46|172I9> 773r39 26|160r38 328r7 1397r21
+773P9 Lines_Table_Ptr(766A9) 829r21 26|64r32 70r41 155r19 328r25 489r15
+776A9 Logical_Lines_Table_Type(46|162I9)<46|172I9> 785r47 26|331r7 819r25
+785P9 Logical_Lines_Table_Ptr(776A9) 835r29 26|67r32 73r41 157r27 331r33
+794R9 Source_File_Record 847e14 855r8 892r8 896r31 919r24 926r18 26|100r18
+. 150r24 337r18 360r13 371r13 455r13 561r16 614r13 772r13 794r13 890r14 1017r17
+. 1050r17 1086r24 1128r17
+795i7*File_Name{17|624I9} 856r7 26|1251r36
+796i7*Reference_Name{17|624I9} 857r7 26|800m14 1321r36
+797i7*Debug_Source_Name{17|624I9} 858r7 26|804m17 1241r36
+798i7*Full_Debug_Name{17|624I9} 859r7 26|805m17 1266r36
+799i7*Full_File_Name{17|624I9} 860r7 26|1271r36
+800i7*Full_Ref_Name{17|624I9} 861r7 26|801m14 1276r36
+801i7*Instance{87I9} 862r7 26|339r18 619r38 1019r18 1054r18 1136r18 1246r36
+802i7*Num_SRef_Pragmas{46|62I12} 863r7 26|179r12 461r14 775r14 808m14 808r38
+. 811r14 1063r21 1145r21 1316r36
+803i7*First_Mapped_Line{46|162I9} 864r7 26|812m14 1261r36
+804p7*Source_Text{46|200P9} 887r7 26|202r45 340m38 342m29 343m18 419r44 569r41
+. 572r32 573r32 682r45 1020m38 1033m29 1034m18 1077m21 1102m24 1102r42 1103m34
+. 1154r21 1341r36
+805i7*Source_First{46|220I12} 865r7 26|204r45 570r37 572r56 576r40 684r45
+. 841r39 983r45 1073r42 1075r40 1076r51 1100r40 1154r36 1155r49 1331r36
+806i7*Source_Last{46|220I12} 866r7 26|573r55 576r60 839r61 1073r60 1076r29
+. 1100r56 1155r27 1336r36
+807m7*Source_Checksum{46|68M9} 867r7 26|1326r36
+808i7*Last_Source_Line{46|172I9} 868r7 26|113r12 116r20 126m9 126r31 127r15
+. 512r45 732r41 826r41 901r42 1057r45 1059r32 1064r35 1139r32 1146r35 1306r36
+. 1388r56
+809i7*Template{46|575I9} 869r7 26|1087r47 1346r36
+810i7*Unit{46|564I9} 870r7 26|1356r36 1380m29
+811a7*Time_Stamp{46|613A9} 871r7 26|1351r36
+812e7*File_Type{72E9} 872r7 26|1256r36
+813i7*Inlined_Call{46|220I12} 873r7 26|617r21 1296r36
+814b7*Inlined_Body{boolean} 874r7 26|374r18 616r14 1291r36
+815b7*Inherited_Pragma{boolean} 875r7 26|363r18 616r34 1286r36
+816e7*License{97E9} 876r7 26|1311r36 1375m29
+817e7*Keyword_Casing{9|48E9} 877r7 26|1301r36 1370m29
+818e7*Identifier_Casing{9|48E9} 878r7 26|1281r36 1365m29
+823i7*Sloc_Adjust{46|220I12} 879r7 26|509r49
+829p7*Lines_Table{773P9} 888r7 26|129r9 164r12 169r54 175m12 346m21 510r45
+. 704r36 901r27 1022r21 1023r46 1024m21 1055m18 1060r41 1092m21 1092r39 1140r42
+. 1393m29 1395r46
+835p7*Logical_Lines_Table{785P9} 889r7 26|135r12 141r12 141r42 180r15 184r46
+. 190m15 347m21 464r21 778r21 815r14 816m14 823r11 827r14 1027r21 1028r46
+. 1029m21 1056m18 1065r44 1093m21 1093r47 1147r45
+840i7*Lines_Table_Max{46|172I9} 880r7 26|113r33 121r31 176m12 818r27 1398m29
+846i7*Index{46|575I9} 881r7
+853i4 AS{46|65I12} 887r49 888r39 888r49 889r39 889r49 892r45
+895K12 Source_File[43|59] 26|202r18 204r18 335r21 337r45 351r7 361r15 372r15
+. 419r17 456r23 509r23 510r19 512r19 559r35 559r56 561r43 603r7 614r40 672r14
+. 682r18 684r18 704r14 713r7 714r7 723r19 723r44 732r19 772r40 794r40 839r36
+. 841r14 891r24 983r18 1015r16 1015r37 1017r44 1041r7 1048r16 1048r37 1050r44
+. 1087r26 1119r7 1126r16 1126r37 1128r44 1241r14 1246r14 1251r14 1256r14
+. 1261r14 1266r14 1271r14 1276r14 1281r14 1286r14 1291r14 1296r14 1301r14
+. 1306r14 1311r14 1316r14 1321r14 1326r14 1331r14 1336r14 1341r14 1346r14
+. 1351r14 1356r14 1365r7 1370r7 1375r7 1380r7 1388r34 1393r7 1395r24 1398r7
+. 1407r7 1408r7
+906K12 Instances[43|59] 26|604r7 605r7 606r22 619r17 661r21 662r22 1042r7
+. 1120r7
+918U14 Alloc_Line_Tables 919=7 920>7 26|114s10 149b14 193l8 193t25 1057s16
+919r7 S{794R9} 26|150b7 164r10 169r52 175m10 176m10 179r10 180r13 184r44
+. 190m13
+920i7 New_Max{46|62I12} 26|151b7 160r28 176r53
+925U14 Add_Line_Tables_Entry 926=7 927>7 26|99b14 143l8 143t29 903s13
+926r7 S{794R9} 26|100b7 113r10 113r31 115m13 116r18 121r29 126m7 126r29 127r13
+. 129r7 135r10 141r10 141r40
+927i7 P{46|220I12} 26|101b7 129r29
+934U14 Trim_Lines_Table 934>32 26|1387b14 1399l8 1399t24
+934i32 S{46|575I9} 26|1387b32 1388r53 1393r26 1395r43 1398r26
+939U14 Set_Source_File_Index_Table 939>43 26|836b14 849l8 849t35 1109s10
+939i43 Xnew{46|575I9} 26|836b43 839r55 841r33 845r43
+945R9 Dope_Rec 947e14 949r8 950r8 951r32 26|930r53 1100r28
+946i7*First<46|59I9>
+946i14*Last<46|59I9>
+948N4 Dope_Rec_Size 949r26 950r31
+951P9 Dope_Ptr(945R9) 954r40 26|913r40 926r14 930r63 1099r38
+953U14 Set_Dope 954>7 954>29 26|912b14 923l8 923t16 1103s22
+954m7 Src{28|67M9} 26|913b7 920r28
+954p29 New_Dope{951P9} 26|913b29 922r15
+961U14 Free_Dope 961>25 26|342s16 925b14 933l8 933t17 1033s16
+961m25 Src{28|67M9} 26|925b25 929r28
+964U14 Free_Source_Buffer 964=34 26|340s16 381b14 395l8 395t26 1020s16
+964p34 Src{46|200P9} 26|381b34 388r65 394m7
+X 26 sinput.adb
+63V13 To_Address[48|20]{28|67M9} 169s40 1023s32 1395s12
+66V13 To_Address[48|20]{28|67M9} 184s32 1028s32
+69V13 To_Pointer[48|20]{25|773P9} 165s23 169s12 1393s44
+72V13 To_Pointer[48|20]{25|785P9} 181s34 183s34 816s37
+92a4 Source_File_Index_Table(46|575I9) 586r20 845m10
+103i7 LL{46|172I9} 127m7 129r22 141r33 141r63
+153M15 size_t{31|48M9} 159r27 160r20
+155p7 New_Table{25|773P9} 165m10 168m10 172r10 175r31
+157p7 New_Logical_Table{25|785P9} 181m13 183m13 187r13 190r38
+159m7 New_Size{153M15} 165r49 169r68 181r60 184r68
+200i7 Sindex{46|575I9} 202r37 204r37
+201p7 Src{46|200P9} 213r10 214r13 219r13 227r18 228r18
+203i7 Sfirst{46|220I12} 209r14 226r17
+242i7 Ptr{46|220I12} 248r62 250r53 252m10 252r41 253r20
+259r7 Buf{17|151R9} 261m30 261r30 262r15
+270e7 BOM{13|68E9} 289m27 291r12
+271i7 Len{natural} 289m22 293r48
+272a7 Tst{string} 286m10 289r17
+273e7 C{character} 277m10 282r13 286r21
+276i11 J{integer} 277r46 286r15
+327U14 Free[49|20] 346s13
+330U14 Free[49|20] 347s13
+335i11 X<46|59I9> 337r64
+337r13 S{25|794R9} 339r16 340r36 342r27 343r16 346r19 347r19
+360r7 SIE{25|794R9} 363r14
+371r7 SIE{25|794R9} 374r14
+385V16 To_Source_Buffer_Ptr_Var[48|20]{46|199P9} 388s39
+388p7 Temp{46|199P9} 393m17 393r17
+390U17 Free_Ptr[49|20] 393s7
+402i7 S{46|220I12} 420m10 423r16 424r21 426m16 426r21 432r24 432r71 434m32
+. 434r32 440m16 440r21
+403i7 C{46|178I9} 421m10 425m16 425r22 433m16 433r21 439m16 439r21 444r17
+404i7 Sindex{46|575I9} 418m10 419r36
+405p7 Src{46|200P9} 419m10 424r16 432r19 432r66 434r27
+455r7 SFR{25|794R9} 461r10 464r17
+458i7 L{46|172I9} 462r38 464r42
+488i7 Sfile{46|575I9} 508m10 509r42 510r38 512r38
+489p7 Table{25|773P9} 510m10 517r22 523r25
+490i7 Lo{46|172I9} 511m10 515r21 527m19
+491i7 Hi{46|172I9} 512m10 515r26 518m16 522r25
+492i7 Mid{46|172I9} 515m13 517r29 518r22 522r19 523r32 525r26 527r25
+493i7 Loc{46|220I12} 509m10 517r16 523r19
+541i7 Result{46|575I9} 559r25 561r62 586m10 588m10 593r14
+543U17 Assertions 546b17 580l11 580t21 591s21
+552b10 Special{boolean} 558r47 575r20
+561r10 SFR{25|794R9} 569r37 570r33 572r28 572r52 573r28 573r51 576r36 576r56
+614r7 SIE{25|794R9} 616r10 616r30 617r17 619r34
+628i7 Sind{46|575I9} 637m10 638r33
+629i7 Sval{46|220I12} 633m7 637r41 638m10 639r20
+630i7 Depth{46|62I12} 634m7 640m10 640r19 643r14
+661i11 J<46|59I9> 662r19 662r39
+680i7 Sindex{46|575I9} 682r37 684r37
+681p7 Src{46|200P9} 690r18 691r18
+683i7 Sfirst{46|220I12} 689r17
+685i7 S{46|220I12} 688m7 689r13 690r23 691r23 693m10 693r15 696r14
+740i7 Sindex{46|575I9} 748m10 750r28 754r33 759r38
+741i7 Tindex{46|575I9} 754m13 755r34 756m16 756r36 759r62
+772r7 SFR{25|794R9} 775r10 778r17
+792M15 size_t{31|48M9} 818r15
+794r7 SFR{25|794R9} 800r10 801r10 804r13 805r13 808r10 808r34 811r10 812r10
+. 815r10 816r10 818r23 823r7 826r37 827r10
+796i7 ML{46|162I9} 825m7 827r41 828m10 828r16
+826i11 J<integer> 827r35
+837i7 Ind{46|59I9} 843m7 845r35 847m10 847r17
+838i7 SP{46|220I12} 841m7 842r22 843r19 844r13 846m10 846r16
+839i7 SL{46|220I12} 844r19
+859e7 Chr{character} 862r10 869r13 872r13 872r30
+890r10 S{25|794R9} 901r25 901r40 903r36
+917m7 Dope{28|67M9} 918m27 918r27 920m11 920r11 922m7
+926p7 Dope{25|951P9} 927m27 927r27 929m11 929r11 932m13 932r13
+930U17 Free[49|20] 932s7
+941V16 Process{7|591E9} 941>25 944r48 950b16 966l11 966t18
+941i25 N{46|397I9} 950b25 951r52
+944U17 Traverse[7|627] 8|2657b14 26|973s7
+951i10 Orig{46|397I9} 954r19 955r22 956r29 959r22 960r22 961r29
+981i7 Sindex{46|575I9} 983r37
+982i7 Sfirst{46|220I12} 985r23
+993i7 Oldloc{46|220I12} 999m10 1000r44 1004r14
+994i7 Newloc{46|220I12} 997m7 999r20 1000m10 1001r20
+1015i11 J<46|59I9> 1017r63
+1017r13 S{25|794R9} 1019r16 1020r36 1022r19 1023r44 1024r19 1027r19 1028r44
+. 1029r19 1033r27 1034r16
+1048i11 J<46|59I9> 1050r63 1109r39
+1050r13 S{25|794R9} 1054r16 1055r16 1056r16 1057r35 1057r43 1059r30 1060r39
+. 1063r19 1064r33 1065r42 1073r40 1073r58 1075r38 1076r27 1076r49 1077r19
+. 1087r45 1092r19 1093r19 1100r38 1100r54 1102r22 1103r32
+1059i20 J<integer> 1060r54
+1064i23 J<integer> 1065r65
+1072p19 T{46|199P9} 1075r35 1077r36
+1086r19 ST{25|794R9} 1092r36 1093r44 1102r39
+1099p22 Dope{25|951P9} 1103r55
+1126i11 J<46|59I9> 1128r63
+1128r13 S{25|794R9} 1136r16 1139r30 1140r40 1145r19 1146r33 1147r43 1154r19
+. 1154r34 1155r25 1155r47
+1139i20 J<integer> 1140r55
+1146i23 J<integer> 1147r66
+1175i13 SI{46|575I9} 1178r44 1184r31 1186r47
+1198a7 T{46|613A9} 1202r10 1206r22 1207r22 1211r19 1212r19 1215r19 1216r19
+. 1219r19 1220r19 1223r19 1224r19 1227r19 1228r19 1231r19 1232r19
+1199i7 P{natural} 1204m10 1208m10 1211r22 1212r22 1215r22 1216r22 1219r22
+. 1220r22 1223r22 1224r22 1227r22 1228r22 1231r22 1232r22
+1388i7 Max{46|62I12} 1397r14 1398r70
+X 28 system.ads
+37K9*System 25|66w6 954r13 961r31 26|45r6 46r6 47r6 47r26 54r15 913r13 917r14
+. 919r11 920r34 925r31 928r11 929r34 1397r55 28|174e11
+67M9*Address 25|954r20 961r38 26|64r49 67r57 70r32 73r32 913r20 917r21 920r41
+. 925r38 929r41
+71N4*Storage_Unit 26|161r62 820r57 1397r62
+X 31 s-memory.ads
+45K16*Memory 26|46w13 153r25 165r35 169r24 181r46 184r16 792r25 817r13 1023r19
+. 1028r19 1394r10 1396r12 31|107e18
+48M9*size_t 26|153r32 792r32 1396r19
+53V13*Alloc{28|67M9} 26|165s42 181s53 817s20 31|103i<c,__gnat_malloc>22
+68U14*Free 26|1023s26 1028s26 31|104i<c,__gnat_free>22
+76V13*Realloc{28|67M9} 26|169s31 184s23 1394s17 31|105i<c,__gnat_realloc>22
+X 36 s-stoele.ads
+42K16*Storage_Elements 26|45w13 919r18 928r18 36|117e28
+76V14*"+"{28|67M9} 26|920s32 929s32
+X 42 s-wchcon.ads
+41K16*WCh_Con 26|47w13 47r33 42|220e19
+94I9*WC_Encoding_Method<short_short_integer>
+134i4*WCEM_UTF8{94I9} 26|296r47
+X 43 table.ads
+46K9*Table 25|67w6 895r31 906r29 43|248e10
+50+12 Table_Component_Type 25|896r7 907r7
+51I12 Table_Index_Type 25|897r7 908r7
+53*7 Table_Low_Bound{51I12} 25|898r7 909r7
+54i7 Table_Initial{46|65I12} 25|899r7 910r7
+55i7 Table_Increment{46|62I12} 25|900r7 911r7
+56a7 Table_Name{string} 25|901r7 912r7
+59k12*Table 25|895r37 906r35 43|247e13
+110A12*Table_Type(46|145I9)<25|87I9>
+113A15*Big_Table_Type{110A12[25|895]}<46|575I9>
+121P12*Table_Ptr(113A15[25|895])
+125p7*Table{121P12[25|895]} 26|202r30[25|895] 204r30[25|895] 337r57[25|895]
+. 361r27[25|895] 372r27[25|895] 419r29[25|895] 456r35[25|895] 509r35[25|895]
+. 510r31[25|895] 512r31[25|895] 561r55[25|895] 614r52[25|895] 619r27[25|906]
+. 662r31[25|906] 662r32[25|906] 682r30[25|895] 684r30[25|895] 704r26[25|895]
+. 732r31[25|895] 772r52[25|895] 794r52[25|895] 839r48[25|895] 841r26[25|895]
+. 891r36[25|895] 983r30[25|895] 1017r56[25|895] 1050r56[25|895] 1087r38[25|895]
+. 1128r56[25|895] 1241r26[25|895] 1246r26[25|895] 1251r26[25|895] 1256r26[25|895]
+. 1261r26[25|895] 1266r26[25|895] 1271r26[25|895] 1276r26[25|895] 1281r26[25|895]
+. 1286r26[25|895] 1291r26[25|895] 1296r26[25|895] 1301r26[25|895] 1306r26[25|895]
+. 1311r26[25|895] 1316r26[25|895] 1321r26[25|895] 1326r26[25|895] 1331r26[25|895]
+. 1336r26[25|895] 1341r26[25|895] 1346r26[25|895] 1351r26[25|895] 1356r26[25|895]
+. 1365r19[25|895] 1370r19[25|895] 1375r19[25|895] 1380r19[25|895] 1388r46[25|895]
+. 1393r19[25|895] 1395r36[25|895] 1398r19[25|895]
+132b7*Locked{boolean} 26|714m19[25|895] 1407m19[25|895]
+142U17*Init 26|603s19[25|895] 604s17[25|906]
+149V16*Last{46|575I9} 26|335s33[25|895] 559s68[25|895] 606s32[25|906] 661s31[25|906]
+. 672s26[25|895] 723s31[25|895] 1015s49[25|895] 1048s49[25|895] 1126s49[25|895]
+156U17*Release 26|713s19[25|895] 1408s19[25|895]
+168U17*Free 26|351s19[25|895]
+172i7*First{46|575I9} 26|559r47[25|895] 723r56[25|895] 1015r28[25|895] 1048r28[25|895]
+. 1126r28[25|895]
+192U17*Append 26|605s17[25|906]
+223U17*Tree_Write 26|1119s19[25|895] 1120s17[25|906]
+226U17*Tree_Read 26|1041s19[25|895] 1042s17[25|906]
+X 45 tree_io.ads
+45K9*Tree_IO 26|40w6 40r20 45|128e12
+76U14*Tree_Read_Data 26|1075s19
+91U14*Tree_Read_Int 26|1060s19 1065s22
+108U14*Tree_Write_Data 26|1153s16
+118U14*Tree_Write_Int 26|1140s19 1147s22
+X 46 types.ads
+52K9*Types 25|68w6 68r18 46|948e10
+59I9*Int<integer> 26|93r13 93r33 116r13 121r24 586r45 723r14 723r39 837r13
+. 843r14 1057r38 1060r34 1065r37 1076r22 1076r44 1140r35 1147r38 1155r20
+. 1155r42 1180r24 1182r24
+62I12*Nat{59I9} 25|87r28 310r48 328r37 564r57 578r61 586r28 688r51 802r27
+. 920r17 26|151r17 250r23 477r31 627r57 630r15 721r37 730r61 732r14 789r28
+. 980r51 985r14 1314r47 1388r22 1388r29
+65I12*Pos{59I9} 25|853r18
+68M9*Word 25|312r48 807r27 26|1324r46
+91e4*EOF{character} 26|282r17 900r27
+145I9*Text_Ptr<59I9>
+148A9*Text_Buffer(character)<145I9>
+162I9*Logical_Line_Number<integer> 25|298r48 536r30 633r40 777r38 803r27
+. 26|453r30 462r17 770r40 776r17 796r12 812r35 825r13 1259r48
+169i4*No_Line_Number{162I9} 26|823r58
+172I9*Physical_Line_Number<integer> 25|308r48 552r30 573r11 587r28 632r14
+. 767r13 777r13 808r27 840r25 26|103r12 176r31 458r20 486r30 490r15 491r15
+. 492r15 700r11 769r14 790r28 1304r47 1398r48
+178I9*Column_Number<short_integer> 25|530r55 26|401r55 403r16
+187N4*Source_Align 26|93r44 586r55 842r29 843r25 846r21
+192A12*Source_Buffer{148A9}<145I9> 26|391r33 1073r25
+199P9*Source_Buffer_Ptr_Var(192A12) 26|386r50 388r14 391r48 1072r32
+200P9*Source_Buffer_Ptr(192A12) 25|315r48 427r13 804r27 964r47 26|201r25
+. 381r47 386r31 405r16 681r25 1339r42
+205V13*Null_Source_Buffer_Ptr{boolean} 26|569s13
+220I12*Source_Ptr{145I9} 25|305r48 313r48 314r48 398r61 402r44 503r38 512r13
+. 519r42 530r36 536r11 547r11 552r11 558r40 564r38 568r29 568r48 574r37 597r36
+. 597r55 605r41 605r60 611r42 618r46 625r37 625r56 640r25 674r54 688r32 693r34
+. 703r22 767r38 805r27 806r27 813r27 823r21 907r31 927r11 946r21 948r36 26|101r11
+. 199r38 203r25 240r13 242r13 258r42 277r34 293r36 359r46 370r42 401r36 402r16
+. 453r11 473r11 486r11 493r15 540r40 613r44 627r38 629r15 650r41 650r60 679r29
+. 679r48 683r25 685r16 701r37 739r36 739r55 838r13 839r22 856r25 939r54 980r32
+. 982r25 992r37 992r56 993r16 994r16 1165r34 1294r43 1329r43 1334r42 1415r22
+227i4*No_Location{220I12} 26|253r26 553r26 558r30 585r14 605r25 639r27 744r15
+. 750r38 755r45 955r30 960r30 1001r29 1167r14 1184r38
+236i4*Standard_Location{220I12} 26|554r36 1170r18
+242i4*Standard_ASCII_Location{220I12} 26|555r36
+245i4*System_Location{220I12} 26|556r36
+397I9*Node_Id<integer> 25|674r30 26|939r30 941r29 950r29 951r26
+564I9*Unit_Number_Type<59I9> 25|317r48 323r50 419r26 810r27 26|1354r35 1378r37
+575I9*Source_File_Index<59I9> 25|287r19 316r48 325r37 340r23 414r26 424r22
+. 558r59 574r11 578r35 633r14 707r36 809r27 846r15 897r31 934r36 939r50 26|93r62
+. 200r25 404r16 488r15 540r59 541r16 628r15 670r37 680r25 701r11 730r35 740r16
+. 741r16 770r14 836r50 981r25 1175r27 1197r36 1387r36
+578i4*No_Source_File{575I9} 25|340r44 414r47 424r43 26|602r26
+609N4*Time_Stamp_Length 25|871r48
+613A9*Time_Stamp_Type<string>(character)<integer> 25|318r48 811r27 26|1198r20
+. 1349r41
+783X4*Unrecoverable_Error 26|305r19 313r19
+X 48 unchconv.ads
+20v10*Unchecked_Conversion 26|49w6 64r10 67r10 70r10 73r10 386r9
+X 49 unchdeal.ads
+20u11*Unchecked_Deallocation 26|50w6 327r26 330r26 391r9 930r29
+X 51 widechar.ads
+39K9*Widechar 26|41w6 41r20 51|101e13
+88U14*Skip_Wide 26|434s16 880s10
+93V13*Is_Start_Of_Wide_Char{boolean} 26|432s43
+

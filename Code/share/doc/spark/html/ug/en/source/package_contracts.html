@@ -1,0 +1,862 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>5.3. Package Contracts &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5.4. Type Contracts" href="type_contracts.html" />
+    <link rel="prev" title="5.2. Subprogram Contracts" href="subprogram_contracts.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="type_contracts.html" title="5.4. Type Contracts"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="subprogram_contracts.html" title="5.2. Subprogram Contracts"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../spark_2014.html" accesskey="U">5. Overview of SPARK Language</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5.3. Package Contracts</a><ul>
+<li><a class="reference internal" href="#state-abstraction">5.3.1. State Abstraction</a><ul>
+<li><a class="reference internal" href="#basic-state-abstraction">5.3.1.1. Basic State Abstraction</a></li>
+<li><a class="reference internal" href="#special-cases-of-state-abstraction">5.3.1.2. Special Cases of State Abstraction</a></li>
+<li><a class="reference internal" href="#state-in-the-private-part">5.3.1.3. State In The Private Part</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#package-initialization">5.3.2. Package Initialization</a></li>
+<li><a class="reference internal" href="#package-initial-condition">5.3.3. Package Initial Condition</a></li>
+<li><a class="reference internal" href="#interfaces-to-the-physical-world">5.3.4. Interfaces to the Physical World</a><ul>
+<li><a class="reference internal" href="#volatile-variables">5.3.4.1. Volatile Variables</a></li>
+<li><a class="reference internal" href="#properties-of-volatile-variables">5.3.4.2. Properties of Volatile Variables</a></li>
+<li><a class="reference internal" href="#external-state-abstraction">5.3.4.3. External State Abstraction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="subprogram_contracts.html"
+                        title="previous chapter">5.2. Subprogram Contracts</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="type_contracts.html"
+                        title="next chapter">5.4. Type Contracts</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/package_contracts.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="package-contracts">
+<span id="id1"></span><h1>5.3. Package Contracts<a class="headerlink" href="#package-contracts" title="Permalink to this headline">¶</a></h1>
+<p>Subprograms are not the only entities to bear contracts in SPARK. Package
+contracts are made up of various optional parts:</p>
+<ul class="simple">
+<li>The <cite>state abstraction</cite> specifies how global variables defined in the package
+are referred to abstractly where they are not visible. Aspect
+<code class="docutils literal"><span class="pre">Abstract_State</span></code> introduces abstract names and aspect <code class="docutils literal"><span class="pre">Refined_State</span></code>
+specifies the mapping between these names and global variables.</li>
+<li>The <cite>package initialization</cite> introduced by aspect <code class="docutils literal"><span class="pre">Initializes</span></code> specifies
+which global data (global variables and abstract state) defined in the
+package is initialized at package startup.</li>
+<li>The <cite>package initial condition</cite> introduced by aspect <code class="docutils literal"><span class="pre">Initial_Condition</span></code>
+specifies the properties holding after package startup.</li>
+</ul>
+<p>Package startup (a.k.a. package <cite>elaboration</cite> in Ada RM) consists in the
+evaluation of all declarations in the package specification and implementation,
+in particular the evaluation of constant declarations and those variable
+declarations which contain an initialization expression, as well as the
+statements sometimes given at the end of a package body that are precisely
+executed at package startup.</p>
+<div class="section" id="state-abstraction">
+<span id="id2"></span><h2>5.3.1. State Abstraction<a class="headerlink" href="#state-abstraction" title="Permalink to this headline">¶</a></h2>
+<p>[SPARK]</p>
+<p>The state abstraction of a package specifies a mapping between abstract names
+and concrete global variables defined in the package. State abstraction allows
+to define <a class="reference internal" href="subprogram_contracts.html#subprogram-contracts"><span class="std std-ref">Subprogram Contracts</span></a> at an abstract level that does not depend
+on a particular choice of implementation (see <a class="reference internal" href="subprogram_contracts.html#state-abstraction-and-contracts"><span class="std std-ref">State Abstraction and Contracts</span></a>), which is better both for maintenance (no need to change contracts)
+and scalability of analysis (contracts can be much smaller).</p>
+<div class="section" id="basic-state-abstraction">
+<h3>5.3.1.1. Basic State Abstraction<a class="headerlink" href="#basic-state-abstraction" title="Permalink to this headline">¶</a></h3>
+<p>One abstract name may be mapped to more than one concrete variable, but no two
+abstract names can be mapped to the same concrete variable. When state
+abstraction is specified on a package, all non-visible global variables defined
+in the private part of the package specification and in its implementation
+should be mapped to abstract names. Thus, abstract names correspond to a
+partitioning of the non-visible global variables defined in the package.</p>
+<p>The simplest use of state abstraction is to define a single abstract name
+(conventionally called <code class="docutils literal"><span class="pre">State</span></code>) to denote all non-visible global variables
+defined in the package. For example, consider package <code class="docutils literal"><span class="pre">Account</span></code> defining a
+global variable <code class="docutils literal"><span class="pre">Total</span></code> in its implementation, which is abstracted as
+<code class="docutils literal"><span class="pre">State</span></code>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="n">State</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+
+<span class="k">package body </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Refined_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="n">Total</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Total</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The aspect <code class="docutils literal"><span class="pre">Refined_State</span></code> maps each abstract name to a list of concrete
+global variables defined in the package. The list can be simply <code class="docutils literal"><span class="pre">null</span></code> to
+serve as placeholder for future definitions of global variables. Instead of
+concrete global variables, one can also use abstract names for the state of
+nested packages and private child packages, whose state is considered to be
+also defined in the parent package.</p>
+<p>If global variable <code class="docutils literal"><span class="pre">Total</span></code> is defined in the private part of <code class="docutils literal"><span class="pre">Account</span></code>&#8216;s
+package specification, then the declaration of <code class="docutils literal"><span class="pre">Total</span></code> must use the special
+aspect <code class="docutils literal"><span class="pre">Part_Of</span></code> to declare its membership in abstract state <code class="docutils literal"><span class="pre">State</span></code>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="n">State</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="o">...</span>
+<span class="kr">private</span><span class="p"></span>
+  <span class="n">Total</span> <span class="o">:</span> <span class="n">Integer</span> <span class="kr">with</span><span class="p"> </span><span class="n">Part_Of</span> <span class="o">=&gt;</span> <span class="n">State</span><span class="p">;</span>
+  <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This ensures that <code class="docutils literal"><span class="pre">Account</span></code>&#8216;s package specification can be checked by
+GNATprove even if its implementation is not in SPARK, or not available for
+analysis, or not yet developed.</p>
+<p>A package with state abstraction must have a package body that states how
+abstract states are refined in aspect <code class="docutils literal"><span class="pre">Refined_State</span></code>, unless the package
+body is not in SPARK. If there is no other reason for the package to have a
+body, then one should use <code class="docutils literal"><span class="pre">pragma</span> <span class="pre">Elaborate_Body</span></code> in the package spec to make
+it legal for the package to have a body on which to express state refinement.</p>
+<p>In general, an abstract name corresponds to multiple global variables defined
+in the package. For example, we can imagine adding global variables to log
+values passed in argument to procedure <code class="docutils literal"><span class="pre">Add_To_Total</span></code>, that are also mapped to
+abstract name <code class="docutils literal"><span class="pre">State</span></code>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="n">State</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+
+<span class="k">package body </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Refined_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Total</span><span class="p">,</span> <span class="n">Log</span><span class="p">,</span> <span class="n">Log_Size</span><span class="o">))</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Total</span>    <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="n">Log</span>      <span class="o">:</span> <span class="n">Integer_Array</span><span class="p">;</span>
+   <span class="n">Log_Size</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>We can also imagine defining different abstract names for the total and the log:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span><span class="p">,</span> <span class="n">Internal_State</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+
+<span class="k">package body </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Refined_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="n">Total</span><span class="p">,</span>
+                    <span class="n">Internal_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Log</span><span class="p">,</span> <span class="n">Log_Size</span><span class="o">))</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Total</span>    <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="n">Log</span>      <span class="o">:</span> <span class="n">Integer_Array</span><span class="p">;</span>
+   <span class="n">Log_Size</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The abstract names defined in a package are visible everywhere the package name
+itself is visible:</p>
+<ul class="simple">
+<li>in the scope where the package is declared, for a locally defined package</li>
+<li>in units that have a clause <code class="docutils literal"><span class="pre">with</span> <span class="pre">&lt;package&gt;;</span></code></li>
+<li>in units that have a clause <code class="docutils literal"><span class="pre">limited</span> <span class="pre">with</span> <span class="pre">&lt;package&gt;;</span></code></li>
+</ul>
+<p>The last case allows subprograms in two packages to mutually reference the
+abstract state of the other package in their data and flow dependencies.</p>
+</div>
+<div class="section" id="special-cases-of-state-abstraction">
+<h3>5.3.1.2. Special Cases of State Abstraction<a class="headerlink" href="#special-cases-of-state-abstraction" title="Permalink to this headline">¶</a></h3>
+<p>Global constants with a statically known value are not part of a package&#8217;s
+state. On the contrary, <cite>constant with variable inputs</cite> are constants whose
+value depends on the value of either a variable or a subprogram
+parameter. Since they participate in the flow of information between variables,
+constants with variable inputs are treated like variables: they are part of a
+package&#8217;s state, and they must be listed in its state refinement whenever they
+are not visible. For example, constant <code class="docutils literal"><span class="pre">Total_Min</span></code> is not part of the state
+refinement of package <code class="docutils literal"><span class="pre">Account</span></code> below, while constant with variable inputs
+<code class="docutils literal"><span class="pre">Total_Max</span></code> is part of it:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Refined_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Total</span><span class="p">,</span> <span class="n">Total_Max</span><span class="o">))</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Total</span>     <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="n">Total_Min</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">Total_Max</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Integer</span> <span class="o">:=</span> <span class="n">Compute_Total_Max</span><span class="o">(...)</span><span class="p">;</span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Global variables are not always the only constituents of a package&#8217;s state. For
+example, if a package P contains a nested package N, then N&#8217;s state is part of
+P&#8217;s state. As a consequence, if N is hidden, then its state must be listed in
+P&#8217;s refinement. For example, we can nest <code class="docutils literal"><span class="pre">Account</span></code> in the body of the
+<code class="docutils literal"><span class="pre">Account_Manager</span></code> package as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Account_Manager</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="n">State</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account_Manager</span><span class="p">;</span>
+
+<span class="k">package body </span><span class="nf">Account_Manager</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Refined_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="n">Account.State</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">package </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="n">State</span>
+   <span class="kr">is</span><span class="p"></span>
+      <span class="o">...</span>
+   <span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account_Manager</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="state-in-the-private-part">
+<h3>5.3.1.3. State In The Private Part<a class="headerlink" href="#state-in-the-private-part" title="Permalink to this headline">¶</a></h3>
+<p>Global variables and nested packages which themselves contain state may be
+declared in the private part of a package. For each such global variable and
+nested package state, it is mandatory to identify, using aspect <code class="docutils literal"><span class="pre">Part_Of</span></code>,
+the abstract state of the enclosing package of which it is a constituent:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Account_Manager</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Totals</span><span class="p">,</span> <span class="n">Details</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="o">...</span>
+<span class="kr">private</span><span class="p"></span>
+   <span class="n">Total_Accounts</span> <span class="o">:</span> <span class="n">Integer</span> <span class="kr">with</span><span class="p"> </span><span class="n">Part_Of</span> <span class="o">=&gt;</span> <span class="n">Totals</span><span class="p">;</span>
+
+   <span class="k">package </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="kr">with</span><span class="p"> </span><span class="n">Part_Of</span> <span class="o">=&gt;</span> <span class="n">Details</span><span class="o">)</span>
+   <span class="kr">is</span><span class="p"></span>
+      <span class="n">Total</span> <span class="o">:</span> <span class="n">Integer</span> <span class="kr">with</span><span class="p"> </span><span class="n">Part_Of</span> <span class="o">=&gt;</span> <span class="n">Totals</span><span class="p">;</span>
+      <span class="o">...</span>
+   <span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account_Manager</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The purpose of using <code class="docutils literal"><span class="pre">Part_Of</span></code> is to enforce that each constituent of an
+abstract state is known at the declaration of the constituent (not having to
+look at the package body), which is useful for both code understanding and tool
+analysis (including compilation).</p>
+<p>As the state of a private child package is logically part of its parent
+package, aspect <code class="docutils literal"><span class="pre">Part_Of</span></code> must also be specified in that case:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">private</span><span class="p"> </span><span class="k">package </span><span class="nf">Account_Manager.Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="kr">with</span><span class="p"> </span><span class="n">Part_Of</span> <span class="o">=&gt;</span> <span class="n">Details</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Total</span> <span class="o">:</span> <span class="n">Integer</span> <span class="kr">with</span><span class="p"> </span><span class="n">Part_Of</span> <span class="o">=&gt;</span> <span class="n">Totals</span><span class="p">;</span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account_Manager.Account</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Aspect <code class="docutils literal"><span class="pre">Part_Of</span></code> can also be specified on a generic package instantiation
+inside a private part, to specify that all the state (visible global variables
+and abstract states) of the package instantiation is a constituent of an
+abstract state of the enclosing package:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Account_Manager</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Totals</span><span class="p">,</span> <span class="n">Details</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="o">...</span>
+<span class="kr">private</span><span class="p"></span>
+   <span class="k">package </span><span class="nf">Account</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Generic_Account</span> <span class="o">(</span><span class="n">Max_Total</span><span class="o">)</span> <span class="kr">with</span><span class="p"> </span><span class="n">Part_Of</span> <span class="o">=&gt;</span> <span class="n">Details</span><span class="p">;</span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account_Manager</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="package-initialization">
+<span id="id3"></span><h2>5.3.2. Package Initialization<a class="headerlink" href="#package-initialization" title="Permalink to this headline">¶</a></h2>
+<p>[SPARK]</p>
+<p>The package initialization specifies which global data (global variables,
+constant with variable inputs, and
+abstract state) defined in the package is initialized at package startup. The
+corresponding global variables may either be initialized at declaration, or by
+the package body statements. Thus, package initialization can be seen as the
+output data dependencies of the package elaboration procedure generated by the
+compiler.</p>
+<p>For example, we can specify that the state of package <code class="docutils literal"><span class="pre">Account</span></code> is
+initialized at package startup as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="n">State</span><span class="p">,</span>
+  <span class="n">Initializes</span>    <span class="o">=&gt;</span> <span class="n">State</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Then, unless <code class="docutils literal"><span class="pre">Account</span></code>&#8216;s implementation is not in SPARK, it should
+initialize the corresponding global variable <code class="docutils literal"><span class="pre">Total</span></code> either at declaration:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Refined_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="n">Total</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Total</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>or in the package body statements:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Refined_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="n">Total</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Total</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="o">...</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Total</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>These initializations need not correspond to direct assignments, but may be
+performed in a call, for example here to procedure <code class="docutils literal"><span class="pre">Init_Total</span></code> as seen in
+<a class="reference internal" href="subprogram_contracts.html#state-abstraction-and-dependencies"><span class="std std-ref">State Abstraction and Dependencies</span></a>. A mix of initializations at
+declaration and in package body statements is also possible.</p>
+<p>Package initializations also serve as dependency contracts for global
+variables&#8217; initial values. That is, if the initial value of a global variable,
+state abstraction, or constant with variable inputs listed in a package
+initialization depends on the value of a variable defined outside the
+package, then this dependency must be listed in the package&#8217;s initialization.
+For example, we can initialize <code class="docutils literal"><span class="pre">Total</span></code> by reading the value of an external
+variable:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="n">State</span><span class="p">,</span>
+  <span class="n">Initializes</span>    <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="n">External_Variable</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+
+<span class="k">package body </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Refined_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="n">Total</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Total</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="n">External_Variable</span><span class="p">;</span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="package-initial-condition">
+<span id="id4"></span><h2>5.3.3. Package Initial Condition<a class="headerlink" href="#package-initial-condition" title="Permalink to this headline">¶</a></h2>
+<p>[SPARK]</p>
+<p>The package initial condition specifies the properties holding after package
+startup.  Thus, package initial condition can be seen as the postcondition of
+the package elaboration procedure generated by the compiler.  For example, we
+can specify that the value of <code class="docutils literal"><span class="pre">Total</span></code> defined in package <code class="docutils literal"><span class="pre">Account</span></code>&#8216;s
+implementation is initially zero:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Abstract_State</span>    <span class="o">=&gt;</span> <span class="n">State</span><span class="p">,</span>
+  <span class="n">Initial_Condition</span> <span class="o">=&gt;</span> <span class="n">Get_Total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">function </span><span class="nf">Get_Total</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This is ensured either by initializing <code class="docutils literal"><span class="pre">Total</span></code> with value zero at
+declaration, or by assigning the value zero to <code class="docutils literal"><span class="pre">Total</span></code> in the package body
+statements, as seen in <a class="reference internal" href="#package-initialization"><span class="std std-ref">Package Initialization</span></a>.</p>
+<p>When the program is compiled with assertions (for example with switch
+<code class="docutils literal"><span class="pre">-gnata</span></code> in GNAT), the initial condition of a package is checked at run
+time after package startup. An exception is raised if the initial condition
+fails.</p>
+<p>When a package is analyzed with GNATprove, it checks that the initial
+condition of a package cannot fail. GNATprove also analyzes the initial
+condition expression to ensure that it is free from run-time errors, like any
+other assertion.</p>
+</div>
+<div class="section" id="interfaces-to-the-physical-world">
+<span id="id5"></span><h2>5.3.4. Interfaces to the Physical World<a class="headerlink" href="#interfaces-to-the-physical-world" title="Permalink to this headline">¶</a></h2>
+<p>[SPARK]</p>
+<div class="section" id="volatile-variables">
+<h3>5.3.4.1. Volatile Variables<a class="headerlink" href="#volatile-variables" title="Permalink to this headline">¶</a></h3>
+<p>Most embedded programs interact with the physical world or other programs
+through so-called <cite>volatile</cite> variables, which are identified as volatile to
+protect them from the usual compiler optimizations. In SPARK, volatile
+variables are also analyzed specially, so that possible changes to their value
+from outside the program are taken into account, and so that changes to their
+value from inside the program are also interpreted correctly (in particular for
+checking flow dependencies).</p>
+<p>For example, consider package <code class="docutils literal"><span class="pre">Volatile_Or_Not</span></code> which defines a volatile
+variable <code class="docutils literal"><span class="pre">V</span></code> and a non-volatile variable <code class="docutils literal"><span class="pre">N</span></code>, and procedure
+<code class="docutils literal"><span class="pre">Swap_Then_Zero</span></code> which starts by swapping the values of <code class="docutils literal"><span class="pre">V</span></code> and <code class="docutils literal"><span class="pre">N</span></code>
+before zeroing them out:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Volatile_Or_Not</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Initializes</span> <span class="o">=&gt;</span> <span class="n">V</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">V</span> <span class="o">:</span> <span class="n">Integer</span> <span class="kr">with</span><span class="p"> </span><span class="n">Volatile</span><span class="p">;</span>
+   <span class="n">N</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Swap_Then_Zero</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">N</span><span class="p">,</span> <span class="n">V</span><span class="o">))</span><span class="p">,</span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">V</span> <span class="o">=&gt;</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span> <span class="o">=&gt;</span> <span class="kr">null</span><span class="p">,</span> <span class="kr">null</span><span class="p"> </span><span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Volatile_Or_Not</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Volatile_Or_Not</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Swap_Then_Zero</span> <span class="kr">is</span><span class="p"></span>
+      <span class="n">Tmp</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Integer</span> <span class="o">:=</span> <span class="n">V</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="c">--  Swap values of V and N</span>
+      <span class="n">V</span> <span class="o">:=</span> <span class="n">N</span><span class="p">;</span>
+      <span class="n">N</span> <span class="o">:=</span> <span class="n">Tmp</span><span class="p">;</span>
+      <span class="c">--  Zero out values of V and N</span>
+      <span class="n">V</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="n">N</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Swap_Then_Zero</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Volatile_Or_Not</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Compare the difference in contracts between volatile variable <code class="docutils literal"><span class="pre">V</span></code> and
+non-volatile variable <code class="docutils literal"><span class="pre">N</span></code>:</p>
+<ul class="simple">
+<li>The <a class="reference internal" href="#package-initialization"><span class="std std-ref">Package Initialization</span></a> of package <code class="docutils literal"><span class="pre">Volatile_Or_Not</span></code> mentions
+<code class="docutils literal"><span class="pre">V</span></code> although this variable is not initialized at declaration or in the
+package body statements. This is because a volatile variable is assumed to be
+initialized.</li>
+<li>The <a class="reference internal" href="subprogram_contracts.html#flow-dependencies"><span class="std std-ref">Flow Dependencies</span></a> of procedure <code class="docutils literal"><span class="pre">Swap_Then_Zero</span></code> are very
+different for <code class="docutils literal"><span class="pre">V</span></code> and <code class="docutils literal"><span class="pre">N</span></code>. If both variables were not volatile, the
+correct contract would state that both input values are not used with <code class="docutils literal"><span class="pre">null</span>
+<span class="pre">=&gt;</span> <span class="pre">(V,</span> <span class="pre">N)</span></code> and that both output values depend on no inputs with <code class="docutils literal"><span class="pre">(V,</span> <span class="pre">N)</span> <span class="pre">=&gt;</span>
+<span class="pre">null</span></code>. The difference lies with the special treatment of volatile variable
+<code class="docutils literal"><span class="pre">V</span></code>: as its value may be read at any time, the intermediate value <code class="docutils literal"><span class="pre">N</span></code>
+assigned to <code class="docutils literal"><span class="pre">V</span></code> on line 8 of <code class="docutils literal"><span class="pre">volatile_or_not.adb</span></code> needs to be mentioned
+in the flow dependencies for output <code class="docutils literal"><span class="pre">V</span></code>.</li>
+</ul>
+<p>GNATprove checks that <code class="docutils literal"><span class="pre">Volatile_Or_Not</span></code> and <code class="docutils literal"><span class="pre">Swap_Then_Zero</span></code> implement
+their contract, and it issues a warning on the first assignment to <code class="docutils literal"><span class="pre">N</span></code>:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>volatile_or_not.adb:9:09: warning: unused assignment
+volatile_or_not.ads:3:03: info: flow dependencies proved
+volatile_or_not.ads:9:06: info: data dependencies proved
+volatile_or_not.ads:10:06: info: flow dependencies proved
+</pre></div>
+</div>
+<p>This warning points to a real issue, as the intermediate value of <code class="docutils literal"><span class="pre">N</span></code> is not
+used before <code class="docutils literal"><span class="pre">N</span></code> is zeroed out on line 12. But note that no warning is issued
+on the similar first assignment to <code class="docutils literal"><span class="pre">V</span></code>, because the intermediate value of
+<code class="docutils literal"><span class="pre">V</span></code> may be read outside the program before <code class="docutils literal"><span class="pre">V</span></code> is zeroed out on line 11.</p>
+<p>Note that in real code, the memory address of the volatile variable is set
+through aspect <code class="docutils literal"><span class="pre">Address</span></code> or the corresponding representation clause, so that
+it can be read or written outside the program.</p>
+</div>
+<div class="section" id="properties-of-volatile-variables">
+<span id="id6"></span><h3>5.3.4.2. Properties of Volatile Variables<a class="headerlink" href="#properties-of-volatile-variables" title="Permalink to this headline">¶</a></h3>
+<p>Not all volatile variables are read and written outside the program, sometimes
+they are only read or only written outside the program. For example, the log
+introduced in <a class="reference internal" href="#state-abstraction"><span class="std std-ref">State Abstraction</span></a> could be implemented as an output port
+for the program logging the information, and as an input port for the program
+performing the logging. Two aspects are defined in SPARK to distinguish these
+different properties of volatile variables:</p>
+<ul class="simple">
+<li>Aspect <code class="docutils literal"><span class="pre">Async_Writers</span></code> indicates that the value of the variable may be
+changed at any time (asynchronously) by hardware or software outside the
+program.</li>
+<li>Aspect <code class="docutils literal"><span class="pre">Async_Readers</span></code> indicates that the value of the variable may be read
+at any time (asynchronously) by hardware or software outside the program.</li>
+</ul>
+<p>Aspect <code class="docutils literal"><span class="pre">Async_Writers</span></code> has an effect on GNATprove&#8216;s proof: two successive
+reads of such a variable may return different results. Aspect <code class="docutils literal"><span class="pre">Async_Readers</span></code>
+has an effect on GNATprove&#8216;s flow analysis: an assignment to such a variable
+always has a potential effect, even if the value is never read in the program,
+since an external reader might actually read the value assigned.</p>
+<p>These aspects are well suited to model respectively a sensor and a display, but
+not an input stream or an actuator, for which the act of reading or writing has
+an effect that should be reflected in the flow dependencies. Two more aspects
+are defined in SPARK to further refine the previous properties of volatile
+variables:</p>
+<ul class="simple">
+<li>Aspect <code class="docutils literal"><span class="pre">Effective_Reads</span></code> indicates that reading the value of the variable
+has an effect (for example, removing a value from an input stream). It can
+only be specified on a variable that also has <code class="docutils literal"><span class="pre">Async_Writers</span></code> set.</li>
+<li>Aspect <code class="docutils literal"><span class="pre">Effective_Writes</span></code> indicates that writing the value of the variable
+has an effect (for example, sending a command to an actuator). It can only be
+specified on a variable that also has <code class="docutils literal"><span class="pre">Async_Readers</span></code> set.</li>
+</ul>
+<p>Both aspects <code class="docutils literal"><span class="pre">Effective_Reads</span></code> and <code class="docutils literal"><span class="pre">Effective_Writes</span></code> have an effect on
+GNATprove&#8216;s flow analysis: reading the former or writing the latter is
+modelled as having an effect on the value of the variable, which needs to be
+reflected in flow dependencies. Because reading a variable with
+<code class="docutils literal"><span class="pre">Effective_Reads</span></code> set has an effect on its value, such a variable cannot be
+only a subprogram input, it must be also an output.</p>
+<p>For example, the program writing in a log each value passed as argument to
+procedure <code class="docutils literal"><span class="pre">Add_To_Total</span></code> may model the output port <code class="docutils literal"><span class="pre">Log_Out</span></code> as a volatile
+variable with <code class="docutils literal"><span class="pre">Async_Readers</span></code> and <code class="docutils literal"><span class="pre">Effective_Writes</span></code> set:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Logging_Out</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Total</span>   <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="n">Log_Out</span> <span class="o">:</span> <span class="n">Integer</span> <span class="kr">with</span><span class="p"> </span><span class="n">Volatile</span><span class="p">,</span> <span class="n">Async_Readers</span><span class="p">,</span> <span class="n">Effective_Writes</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">Total</span><span class="p">,</span> <span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">Log_Out</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Total</span> <span class="o">=&gt;+</span> <span class="n">Incr</span><span class="p">,</span> <span class="n">Log_Out</span> <span class="o">=&gt;</span> <span class="n">Incr</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Logging_Out</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Logging_Out</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Total</span> <span class="o">:=</span> <span class="n">Total</span> <span class="o">+</span> <span class="n">Incr</span><span class="p">;</span>
+      <span class="n">Log_Out</span> <span class="o">:=</span> <span class="n">Incr</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Add_To_Total</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Logging_Out</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>while the logging program may model the input port <code class="docutils literal"><span class="pre">Log_In</span></code> as a volatile
+variable with <code class="docutils literal"><span class="pre">Async_Writers</span></code> and <code class="docutils literal"><span class="pre">Effective_Reads</span></code> set:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Logging_In</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Log_In</span> <span class="o">:</span> <span class="n">Integer</span> <span class="kr">with</span><span class="p"> </span><span class="n">Volatile</span><span class="p">,</span> <span class="n">Async_Writers</span><span class="p">,</span> <span class="n">Effective_Reads</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Integer_Array</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Positive</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+   <span class="n">Log</span>      <span class="o">:</span> <span class="n">Integer_Array</span><span class="p">;</span>
+   <span class="n">Log_Size</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Get</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Log</span><span class="p">,</span> <span class="n">Log_Size</span><span class="p">,</span> <span class="n">Log_In</span><span class="o">))</span><span class="p">,</span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">((</span><span class="n">Log_Size</span><span class="p">,</span> <span class="n">Log_In</span><span class="o">)</span> <span class="o">=&gt;+</span> <span class="kr">null</span><span class="p">,</span> <span class="n">Log</span> <span class="o">=&gt;+</span> <span class="o">(</span><span class="n">Log_Size</span><span class="p">,</span> <span class="n">Log_In</span><span class="o">))</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Logging_In</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Logging_In</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Get</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Log_Size</span> <span class="o">:=</span> <span class="n">Log_Size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="n">Log</span> <span class="o">(</span><span class="n">Log_Size</span><span class="o">)</span> <span class="o">:=</span> <span class="n">Log_In</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Get</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Logging_In</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove checks the specified data and flow dependencies on both programs.</p>
+<p>A volatile variable on which none of the four aspects <code class="docutils literal"><span class="pre">Async_Writers</span></code>,
+<code class="docutils literal"><span class="pre">Async_Readers</span></code>, <code class="docutils literal"><span class="pre">Effective_Reads</span></code> or <code class="docutils literal"><span class="pre">Effective_Writes</span></code> is set is
+assumed to have all four aspects set to <code class="docutils literal"><span class="pre">True</span></code>. A volatile variable on which
+some of the four aspects are set to <code class="docutils literal"><span class="pre">True</span></code> is assumed to have the remaining
+ones set to <code class="docutils literal"><span class="pre">False</span></code>. See SPARK RM 7.1.3 for details.</p>
+</div>
+<div class="section" id="external-state-abstraction">
+<span id="id7"></span><h3>5.3.4.3. External State Abstraction<a class="headerlink" href="#external-state-abstraction" title="Permalink to this headline">¶</a></h3>
+<p>Volatile variables may be part of <a class="reference internal" href="#state-abstraction"><span class="std std-ref">State Abstraction</span></a>, in which case the
+volatility of the abstract name must be specified by using aspect <code class="docutils literal"><span class="pre">External</span></code>
+on the abstract name, as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="kr">with</span><span class="p"> </span><span class="n">External</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>An external state may represent both volatile variables and non-volatile ones,
+for example:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Account</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Refined_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Total</span><span class="p">,</span> <span class="n">Log</span><span class="p">,</span> <span class="n">Log_Size</span><span class="o">))</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Total</span>    <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="n">Log</span>      <span class="o">:</span> <span class="n">Integer_Array</span> <span class="kr">with</span><span class="p"> </span><span class="n">Volatile</span><span class="p">;</span>
+   <span class="n">Log_Size</span> <span class="o">:</span> <span class="n">Natural</span> <span class="kr">with</span><span class="p"> </span><span class="n">Volatile</span><span class="p">;</span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Account</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The different <a class="reference internal" href="#properties-of-volatile-variables"><span class="std std-ref">Properties of Volatile Variables</span></a> may also be specified in the
+state abstraction, which is then used by GNATprove to refine the
+analysis. For example, the program writing in a log seen in the previous
+section can be rewritten to abstract global variables as follows:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Logging_Out_Abstract</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="kr">with</span><span class="p"> </span><span class="n">External</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Async_Readers</span><span class="p">,</span> <span class="n">Effective_Writes</span><span class="o">))</span><span class="p">,</span>
+  <span class="n">Initializes</span> <span class="o">=&gt;</span> <span class="n">State</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">State</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;+</span> <span class="n">Incr</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Logging_Out_Abstract</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Logging_Out_Abstract</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Refined_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Log_Out</span><span class="p">,</span> <span class="n">Total</span><span class="o">))</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Total</span>   <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">Log_Out</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span> <span class="kr">with</span><span class="p"> </span><span class="n">Volatile</span><span class="p">,</span> <span class="n">Async_Readers</span><span class="p">,</span> <span class="n">Effective_Writes</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Refined_Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">Total</span><span class="p">,</span> <span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">Log_Out</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Refined_Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Total</span> <span class="o">=&gt;+</span> <span class="n">Incr</span><span class="p">,</span> <span class="n">Log_Out</span> <span class="o">=&gt;</span> <span class="n">Incr</span><span class="o">)</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Total</span> <span class="o">:=</span> <span class="n">Total</span> <span class="o">+</span> <span class="n">Incr</span><span class="p">;</span>
+      <span class="n">Log_Out</span> <span class="o">:=</span> <span class="n">Incr</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Add_To_Total</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Logging_Out_Abstract</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>while the logging program seen in the previous section may be rewritten to
+abstract global variables as follows:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Logging_In_Abstract</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="kr">with</span><span class="p"> </span><span class="n">External</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Async_Writers</span><span class="p">,</span> <span class="n">Effective_Reads</span><span class="o">))</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Get</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">State</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;+</span> <span class="n">null</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Logging_In_Abstract</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Logging_In_Abstract</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Refined_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Log_In</span><span class="p">,</span> <span class="n">Log</span><span class="p">,</span> <span class="n">Log_Size</span><span class="o">))</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Log_In</span> <span class="o">:</span> <span class="n">Integer</span> <span class="kr">with</span><span class="p"> </span><span class="n">Volatile</span><span class="p">,</span> <span class="n">Async_Writers</span><span class="p">,</span> <span class="n">Effective_Reads</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Integer_Array</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Positive</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+   <span class="n">Log</span>      <span class="o">:</span> <span class="n">Integer_Array</span> <span class="o">:=</span> <span class="o">(</span><span class="kr">others</span><span class="p"> </span><span class="o">=&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">Log_Size</span> <span class="o">:</span> <span class="n">Natural</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Get</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Refined_Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Log</span><span class="p">,</span> <span class="n">Log_Size</span><span class="p">,</span> <span class="n">Log_In</span><span class="o">))</span><span class="p">,</span>
+     <span class="n">Refined_Depends</span> <span class="o">=&gt;</span> <span class="o">((</span><span class="n">Log_Size</span><span class="p">,</span> <span class="n">Log_In</span><span class="o">)</span> <span class="o">=&gt;+</span> <span class="kr">null</span><span class="p">,</span> <span class="n">Log</span> <span class="o">=&gt;+</span> <span class="o">(</span><span class="n">Log_Size</span><span class="p">,</span> <span class="n">Log_In</span><span class="o">))</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Log_Size</span> <span class="o">:=</span> <span class="n">Log_Size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="n">Log</span> <span class="o">(</span><span class="n">Log_Size</span><span class="o">)</span> <span class="o">:=</span> <span class="n">Log_In</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Get</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Logging_In_Abstract</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove checks the specified data and flow dependencies on both programs.</p>
+<p>An external abstract state on which none of the four aspects <code class="docutils literal"><span class="pre">Async_Writers</span></code>,
+<code class="docutils literal"><span class="pre">Async_Readers</span></code>, <code class="docutils literal"><span class="pre">Effective_Reads</span></code> or <code class="docutils literal"><span class="pre">Effective_Writes</span></code> is set is
+assumed to have all four aspects set to <code class="docutils literal"><span class="pre">True</span></code>. An external abstract state on
+which some of the four aspects are set to <code class="docutils literal"><span class="pre">True</span></code> is assumed to have the
+remaining ones set to <code class="docutils literal"><span class="pre">False</span></code>. See SPARK RM 7.1.2 for details.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="type_contracts.html" title="5.4. Type Contracts"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="subprogram_contracts.html" title="5.2. Subprogram Contracts"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../spark_2014.html" >5. Overview of SPARK Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

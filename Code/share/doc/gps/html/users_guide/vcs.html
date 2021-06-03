@@ -1,0 +1,615 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>11. Version Control System &#8212; GPS 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/adacore.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="12. Tools" href="tools.html" />
+    <link rel="prev" title="10. Debugging" href="debugging.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tools.html" title="12. Tools"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="debugging.html" title="10. Debugging"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">11. Version Control System</a><ul>
+<li><a class="reference internal" href="#setting-up-projects-for-version-control">11.1. Setting up projects for version control</a></li>
+<li><a class="reference internal" href="#finding-file-status-project-view">11.2. Finding file status (<span class="guilabel">Project</span> view)</a></li>
+<li><a class="reference internal" href="#the-vcs-perspective">11.3. The VCS Perspective</a></li>
+<li><a class="reference internal" href="#the-commits-view">11.4. The Commits view</a><ul>
+<li><a class="reference internal" href="#viewing-modified-files">11.4.1. Viewing modified files</a></li>
+<li><a class="reference internal" href="#committing-files">11.4.2. Committing files</a></li>
+<li><a class="reference internal" href="#actions-in-the-commits-view">11.4.3. Actions in the Commits view</a></li>
+<li><a class="reference internal" href="#the-commits-view-local-toolbar">11.4.4. The Commits view local toolbar</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-history-view">11.5. The History view</a><ul>
+<li><a class="reference internal" href="#list-of-all-past-commits">11.5.1. List of all past commits</a></li>
+<li><a class="reference internal" href="#graph-of-past-history">11.5.2. Graph of past history</a></li>
+<li><a class="reference internal" href="#details-on-selected-commits">11.5.3. Details on selected commits</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-branches-view">11.6. The Branches view</a><ul>
+<li><a class="reference internal" href="#git-and-the-branches-view">11.6.1. Git and the Branches view</a></li>
+<li><a class="reference internal" href="#cvs-and-the-branches-view">11.6.2. CVS and the Branches view</a></li>
+<li><a class="reference internal" href="#subversion-and-the-branches-view">11.6.3. Subversion and the Branches view</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-diff-view">11.7. The Diff View</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="debugging.html"
+                        title="previous chapter">10. Debugging</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tools.html"
+                        title="next chapter">12. Tools</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/vcs.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="version-control-system">
+<span id="id1"></span><h1>11. Version Control System<a class="headerlink" href="#version-control-system" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">Version control systems (VCS) are used to keep previous versions of
+your files, so that you can refer to them at any point in the future.</p>
+<p>GPS provides integration with a number of such systems. It tries to
+provide a similar GUI interface for all of them, while preserving
+their specific vocabulary and features.</p>
+<div class="section" id="setting-up-projects-for-version-control">
+<h2>11.1. Setting up projects for version control<a class="headerlink" href="#setting-up-projects-for-version-control" title="Permalink to this headline">¶</a></h2>
+<p>GPS does not come with any version control system. Instead, it expects
+that you already have such a system install on your machine. In some
+cases, it is able to automatically recognize them. In other cases, you
+will need to edit your project file as described below.</p>
+<p>GPS has built in support for the following VCS systems:</p>
+<ul>
+<li><p class="first"><span class="guilabel">None</span></p>
+<p>Disables version control support in GPS:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="n">Default</span> <span class="ow">is</span>
+   <span class="n">package</span> <span class="n">IDE</span> <span class="ow">is</span>
+      <span class="k">for</span> <span class="n">VCS_Kind</span> <span class="n">use</span> <span class="s2">&quot;None&quot;</span><span class="p">;</span>
+   <span class="n">end</span> <span class="n">IDE</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Default</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><span class="guilabel">Auto</span>  (default)</p>
+<p>Let GPS guess the correct version control system:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="n">Default</span> <span class="ow">is</span>
+   <span class="n">package</span> <span class="n">IDE</span> <span class="ow">is</span>
+      <span class="k">for</span> <span class="n">VCS_Kind</span> <span class="n">use</span> <span class="s2">&quot;Auto&quot;</span><span class="p">;</span>
+   <span class="n">end</span> <span class="n">IDE</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Default</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><span class="guilabel">CVS</span></p>
+<p id="index-1">The Concurrent Version System.  To use this, you must have a
+<strong class="program">patch</strong> tool, which usually comes with CVS.
+GPS is automatically able to recognize that your project is using
+this system, but looking for a <code class="file docutils literal"><span class="pre">CVS</span></code> directory in the root
+directory of your project. You can also force it by setting the
+following in your project:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="n">Default</span> <span class="ow">is</span>
+   <span class="n">package</span> <span class="n">IDE</span> <span class="ow">is</span>
+      <span class="k">for</span> <span class="n">VCS_Kind</span> <span class="n">use</span> <span class="s2">&quot;CVS&quot;</span><span class="p">;</span>
+   <span class="n">end</span> <span class="n">IDE</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Default</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This can of course be done via the graphical project editor in
+GPS.</p>
+</li>
+<li><p class="first"><span class="guilabel">Subversion</span></p>
+<p id="index-2">The Subversion version control system.
+As for CVS, GPS will automatically recognize that your project is
+using subversion by looking for a <code class="file docutils literal"><span class="pre">.svn</span></code> directory in the root
+directory of your project. You can also force it by setting the
+following in your project:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="n">Default</span> <span class="ow">is</span>
+   <span class="n">package</span> <span class="n">IDE</span> <span class="ow">is</span>
+      <span class="k">for</span> <span class="n">VCS_Kind</span> <span class="n">use</span> <span class="s2">&quot;Subversion&quot;</span><span class="p">;</span>
+   <span class="n">end</span> <span class="n">IDE</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Default</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><span class="guilabel">git</span></p>
+<p id="index-3">Distributed fast source code management. Again, GPS will automatically
+recognize this by looking for a <code class="file docutils literal"><span class="pre">.git</span></code> directory in your project,
+but you can force this with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="n">Default</span> <span class="ow">is</span>
+   <span class="n">package</span> <span class="n">IDE</span> <span class="ow">is</span>
+      <span class="k">for</span> <span class="n">VCS_Kind</span> <span class="n">use</span> <span class="s2">&quot;git&quot;</span><span class="p">;</span>
+   <span class="n">end</span> <span class="n">IDE</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Default</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Previous versions of GPS supported a larger range of systems, but these
+have not been ported to the new code yet. Please let us know whether there
+is interest in doing so:</p>
+<ul class="simple">
+<li><span class="guilabel">ClearCase</span></li>
+<li><span class="guilabel">ClearCase Native</span></li>
+<li><span class="guilabel">Mercurial</span></li>
+</ul>
+<p>Most of the version control code in GPS is generic, and customized for
+each system via one small python plugin. As a result, it should be possible
+to add support for other systems, by creating such plugins. Take a look
+at the files in the directory <code class="file docutils literal"><span class="pre">prefix/share/gps/plug-ins/vcs2</span></code> in
+your GPS install.</p>
+<p>As mentioned before, GPS automatically attempts to guess the correct
+version system you are using. This is similar to having the following
+declaration in your project:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="n">Default</span> <span class="ow">is</span>
+   <span class="n">package</span> <span class="n">IDE</span> <span class="ow">is</span>
+      <span class="k">for</span> <span class="n">VCS_Kind</span> <span class="n">use</span> <span class="s2">&quot;auto&quot;</span><span class="p">;</span>
+   <span class="n">end</span> <span class="n">IDE</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Default</span><span class="p">;</span>
+</pre></div>
+</div>
+<p id="index-4">Note: you must be sure VCS commands can be launched without needing to
+enter a password.</p>
+<p>In general, you will be have loaded one root project in GPS, but this
+is turn imports many other projects. Each of these can use its own
+version control system (so you can mix git and subversion for instance
+if your sources come from different places), or even the same system
+but for a different repository (so you could be cloning multiple git
+repositories).</p>
+<p>If you have a setup with multiple systems, GPS will show special buttons
+in the local toolbars of the views to let you select which is the one to
+use for the operations (fetching the history, committing,...) These
+operations only apply to one system at a time, you cannot do a single
+commit with files that belong to multiple systems (although you can do
+a single commit for files that belong to multiple projects, provided
+these projects all use the same system and same repository).</p>
+</div>
+<div class="section" id="finding-file-status-project-view">
+<h2>11.2. Finding file status (<span class="guilabel">Project</span> view)<a class="headerlink" href="#finding-file-status-project-view" title="Permalink to this headline">¶</a></h2>
+<p>Most of the times, you will be using GPS on a project that already exists
+and for which version control has already been setup.</p>
+<p>For such a project, the first task is to find out what is the status of
+the files, i.e. whether they are locally modified, up-to-date, whether
+you have created new files but not yet added them to version control,
+and so on.</p>
+<p>To make this convenient, GPS displays this information in a number of
+places, via a small icon and appropriate tooltips.</p>
+<ul>
+<li><p class="first">The <span class="guilabel">editor</span> status bar</p>
+<img alt="_images/vcs-editor.png" src="_images/vcs-editor.png" />
+<p>Whenever you are editing a file, GPS displays a small icon in the
+status bar that indicates its current status as seen by GPS. If you
+hover the mouse, it will show a textual status. In this screenshot,
+the file has been modified locally, but not committed yet into the
+version control system (git in this case).</p>
+<p>Clicking on this icon will change to the <a class="reference internal" href="#the-vcs-perspective"><span class="std std-ref">The VCS Perspective</span></a>.</p>
+</li>
+<li><p class="first">The <span class="guilabel">Project</span> view</p>
+<img alt="_images/vcs-project_view.png" src="_images/vcs-project_view.png" />
+<p>The <span class="guilabel">Project</span> view is convenient to see all your source
+files, grouped by projects and optionally directories. GPS will
+show the same icon as the editor next to the name of each file, so
+that you can easily see their status. Again, the tooltip would show
+the textual status.</p>
+</li>
+<li><p class="first">The <span class="guilabel">Files</span> view</p>
+<p>This view is similar to the <span class="guilabel">Project</span> view, but groups
+files as they are organized on the disk. GPS will try to guess the
+best system here, but there might be ambiguities when the same
+directory is shared among multiple projects which use a different
+VCS system or repository. We do not recommend this setup.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="the-vcs-perspective">
+<span id="id2"></span><h2>11.3. The VCS Perspective<a class="headerlink" href="#the-vcs-perspective" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/vcs-perspective.png" src="_images/vcs-perspective.png" />
+<p>To display all pertinent information on your files, GPS uses multiple
+views, as described below. Although you can open any of them whenever
+you want, via the <span class="menuselection">View</span> or
+<span class="menuselection">VCS</span> menus, the most
+convenient is to select the VCS perspective.</p>
+<p>This perspective was created to show all VCS related views, and hide
+unrelated views. As for all GPS perspectives, you can modify the way
+it looks, which views are displayed,... simply by opening new views
+or moving them around while this perspective is selected.</p>
+<p>See also <a class="reference internal" href="mdi.html#perspectives"><span class="std std-ref">Perspectives</span></a> for more information on how to manipulate
+them.</p>
+<p>There are multiple ways to switch to this VCS perspective: as always,
+you can use the toolbar&#8217;s perspective selector, or the
+<span class="menuselection">Window ‣ Perspectives</span> menu. The most convenient
+might be to click on the VCS status icon at the bottom of each
+editor.</p>
+<p>In all of these cases, GPS will change which windows are displayed
+on the screen. It will preserve your editors, but close all other
+views, and instead show the following:</p>
+<ul class="simple">
+<li>The <span class="guilabel">Project</span> view, used to check the status of all
+files</li>
+<li>The <span class="guilabel">Commits</span> view (<a class="reference internal" href="#the-commits-view"><span class="std std-ref">The Commits view</span></a>), used to
+select which files should be committed, and do the actual commit</li>
+<li>The <span class="guilabel">History</span> view (<a class="reference internal" href="#the-history-view"><span class="std std-ref">The History view</span></a>), to view
+all past commits</li>
+<li>The <span class="guilabel">Branches</span> view (<a class="reference internal" href="#the-branches-view"><span class="std std-ref">The Branches view</span></a>), to view
+various pieces of information about your repository, depending on
+which system you use.</li>
+</ul>
+</div>
+<div class="section" id="the-commits-view">
+<span id="id3"></span><h2>11.4. The Commits view<a class="headerlink" href="#the-commits-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/vcs-commits.png" src="_images/vcs-commits.png" />
+<p>The purpose of this view is to let you prepare and then commit your
+files.</p>
+<div class="section" id="viewing-modified-files">
+<h3>11.4.1. Viewing modified files<a class="headerlink" href="#viewing-modified-files" title="Permalink to this headline">¶</a></h3>
+<p>The view lists all files in your project, to the exception of up-to-date
+files (i.e. those files that have been checked out, and never touched
+locally), and ignored files (i.e. those files for which you have
+explicitly told the VCS that you will never want to commit them).</p>
+<p>By default, they are organized into three sections:</p>
+<ul>
+<li><p class="first">Staged files</p>
+<p>These files will be part of the next commit (see below)</p>
+</li>
+<li><p class="first">Modified but unstaged files</p>
+<p>These are locally modified files, which will not be part of the next
+commit, unless you stage them.</p>
+<p>It is possible for a file to be in both groups (on the screenshot, this
+is the case for <code class="file docutils literal"><span class="pre">vcs.rst</span></code>), when it had been
+modified, then staged, then further modified. If you are using git,
+the later modification have not been staged for commit, and git will
+only commit the first set of changes. Other systems like CVS and
+Subversion will always apply all current change to the file, no
+matter whether they were done before or after the staging operation.</p>
+</li>
+<li><p class="first">Untracked files</p>
+<p>These are files found in your directory, but that are unknown to the
+VCS. Sometimes these files should simply be ignored and never committed,
+but sometimes they will be newly created files that you should stage to
+include them in the next commit.</p>
+</li>
+</ul>
+<p>Various local configurations can be selected to change what is displayed
+in this view, take a look at the menu and the tooltips.</p>
+</div>
+<div class="section" id="committing-files">
+<h3>11.4.2. Committing files<a class="headerlink" href="#committing-files" title="Permalink to this headline">¶</a></h3>
+<p>Committing is always a three step process in GPS (this is exactly
+what git does natively, but also provides more flexibility for
+over systems).</p>
+<ul>
+<li><p class="first">First, you need to select which files will be part of the next
+commit. It is possible that you have been modifying unrelated
+source files, which you do not want to commit yet.</p>
+<p>This is called <strong>staging</strong> the files, and can be performed simply
+by clicking in the checkbox next to the file&#8217;s name, or by selecting
+multiple files at once and then clicking on the &#8220;stage&#8221; toolbar
+button.</p>
+<p>Staging files can be done at any point in time, not necessarily just
+before you commit. You can also stage files, exit GPS then restart,
+and GPS will remember which files had been staged.</p>
+</li>
+<li><p class="first">The second step is to provide a commit message. GPS will not let you
+do a commit without an actual message (most VCS systems don&#8217;t either).
+You can enter any message in the editor at the top of the
+<span class="guilabel">Commits</span> view.</p>
+<p>With git, the standard is to have one single short line first then an
+empty line, then a more extensive message. We recommend similar
+approaches for other systems. That first line is the one that will be
+displayed in the <span class="guilabel">History</span> (<a class="reference internal" href="#the-history-view"><span class="std std-ref">The History view</span></a>).</p>
+<p>Just like for staging files, you can edit this message at any point in
+time, so it is a useful way to explain your changes as you do them,
+even if you intend to do further changes before the actual commit.</p>
+</li>
+<li><p class="first">Finally, you just press the <span class="guilabel">Commit</span> button in the local
+toolbar. GPS will ask the VCS to do the actual commit, and then will
+refresh all views. All files that were modified and staged before are
+shown as no longer modified, for instance.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="actions-in-the-commits-view">
+<h3>11.4.3. Actions in the Commits view<a class="headerlink" href="#actions-in-the-commits-view" title="Permalink to this headline">¶</a></h3>
+<p>Double-clicking on a file will open an editor for that file.</p>
+<p>Clicking and keeping the mouse pressed on a file will open a <span class="guilabel">Diff</span>
+view showing the current changes to the file.</p>
+</div>
+<div class="section" id="the-commits-view-local-toolbar">
+<h3>11.4.4. The Commits view local toolbar<a class="headerlink" href="#the-commits-view-local-toolbar" title="Permalink to this headline">¶</a></h3>
+<p>The commits view contains a number of buttons in its toolbar. The
+exact set of buttons will depend on which VCS you are using, but here
+is some buttons that will be useful in a lot of cases:</p>
+<ul>
+<li><p class="first">On the left of the toolbar is a button to select the current VCS
+system, in case your projects uses multiple such systems, or multiple
+repositories with the same system. The commit and staging will always
+be done for the current system only.</p>
+<img alt="_images/vcs-selector.png" src="_images/vcs-selector.png" />
+<p>This button is hidden if you are using a single VCS system for all your
+projects.</p>
+</li>
+<li><p class="first">A button is provided to undo all local changes.</p>
+<p id="index-5">After confirmation, GPS will revert to the last commit, and cancel all
+changes you might have done locally. This works for all supported VCS.</p>
+</li>
+<li><p class="first">A button to refresh the contents of all VCS views</p>
+<p>This button is not needed if you do all operations from GPS, including
+editing files. But if you do operations outside of GPS&#8217;s control, you
+will need to manually resynchronize the views with what&#8217;s really in your
+VCS.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-history-view">
+<span id="id4"></span><h2>11.5. The History view<a class="headerlink" href="#the-history-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/vcs-history1.png" src="_images/vcs-history1.png" />
+<p>The purpose of this view is to show all past changes that you have done
+with your VCS.</p>
+<p>This view is divided into three parts:</p>
+<div class="section" id="list-of-all-past-commits">
+<h3>11.5.1. List of all past commits<a class="headerlink" href="#list-of-all-past-commits" title="Permalink to this headline">¶</a></h3>
+<p>For each commit, GPS displays the first line of the commit message.
+Optionally, you can configure the view to also show the author, the
+date, and the unique identifier for these commits.</p>
+<p>Depending on the VCS in use, GPS will also show the name of the
+branches associated with these commits, as well as specific tag names
+that might have been set.</p>
+<p>In particular, git shows the contents of all active branches, so the
+history is not so linear, and there is a wealth of information to show
+how the branches were split and joined in the past.</p>
+<p>When this is too much information, you can use the local configuration
+menu to only show the details for the current branch.</p>
+<p>A special line (added at the top in the screenshot above) is displayed
+in gray when there are local uncommitted changes in your working
+directory.</p>
+<p>By default, GPS only shows the first 2000 commits. If you want to see
+more, scroll to the bottom and click on the <span class="guilabel">Show more</span>
+buttons to download more entries.</p>
+</div>
+<div class="section" id="graph-of-past-history">
+<h3>11.5.2. Graph of past history<a class="headerlink" href="#graph-of-past-history" title="Permalink to this headline">¶</a></h3>
+<p>Next to the list of commits is a graph showing their relationships.
+Most of the times, this history is fairly linear, with each commit
+having one parent commit, and followed by another commit.</p>
+<p>But with some VCS like git, people might choose to use a lot more
+branches. They create a new branch to work on a specific feature, then
+merge it into the master branch when the feature is completed. It can
+become harder to follow the history in such a case.</p>
+<img alt="_images/vcs-history2.png" src="_images/vcs-history2.png" />
+<p>In this case, the graph becomes more useful, as shown in the screenshot
+above.</p>
+<p>But using the local configuration menu, you can also choose to only
+show commits that are related to branches (either because they are the
+beginning of a branch, or because they are a merge of two branches, or
+because they have a special name (tag or branch name) associated with
+them. All commits with a single parent and single child are hidden.</p>
+<img alt="_images/vcs-history3.png" src="_images/vcs-history3.png" />
+<p>When you are using git, commits that have not yet been pushed to the
+remote branch will be displayed with a filled circle to help you find
+out whether you need to push.</p>
+</div>
+<div class="section" id="details-on-selected-commits">
+<h3>11.5.3. Details on selected commits<a class="headerlink" href="#details-on-selected-commits" title="Permalink to this headline">¶</a></h3>
+<p>Whenever you select one or more commits, GPS will download their
+details and show those at the bottom of the <span class="guilabel">Commits</span>
+view.</p>
+<p>These details are those provided by the VCS, and generally include
+the author and date of the commit, as well as the full commit
+message and diff of what changes were made.</p>
+<img alt="_images/vcs-history-details.png" src="_images/vcs-history-details.png" />
+<p>The diff is syntax highlighted to make it more readable.</p>
+</div>
+</div>
+<div class="section" id="the-branches-view">
+<span id="id5"></span><h2>11.6. The Branches view<a class="headerlink" href="#the-branches-view" title="Permalink to this headline">¶</a></h2>
+<p>The purpose of this view is to display various pieces of information that
+are specific to each VCS.</p>
+<p>Most notably, it will let you interact with branches.</p>
+<p>Various actions are possible in this view, all of which depends on the
+VCS and which specific section of the view you interact with. Please
+check the tooltips that are shown when you leave the mouse over a line
+for a brief while to see what actions are possible. The actions are
+done via one of the following means:</p>
+<ul class="simple">
+<li>double-clicking on a line. This is the same as using the corresponding
+toolbar button.</li>
+<li>a long click on a line (click and then leave the mouse pressed for a
+short while). This is the same as using the <span class="guilabel">rename</span> toolbar
+button.</li>
+<li>clicking on the <span class="guilabel">[+]</span> button in the toolbar.</li>
+<li>clicking on the <span class="guilabel">[-]</span> button in the toolbar.</li>
+</ul>
+<div class="section" id="git-and-the-branches-view">
+<h3>11.6.1. Git and the Branches view<a class="headerlink" href="#git-and-the-branches-view" title="Permalink to this headline">¶</a></h3>
+<img alt="_images/vcs-branches-git.png" id="index-6" src="_images/vcs-branches-git.png" />
+<p>The screenshot above is for git. In this case, GPS displays the following
+pieces of information:</p>
+<ul>
+<li><p class="first">List of local branches</p>
+<p>For each branch, GPS displays the number of commits that have not yet
+been pushed to the remote branch, and conversely the number of changes
+that have been made in the remote branch but not yet applied to the
+local branch.</p>
+<p>Double-clicking on any of them will check it out and make it the current
+branch. If you have locally modified files at that time, git might
+refuse to do the checkout, and the error message will be displayed in
+GPS&#8217;s <span class="guilabel">Messages</span> view.</p>
+<p>A long click on any of the branch names will let you rename the branch.</p>
+<p>A click on <span class="guilabel">[+]</span> will create a new branch, starting from the
+selected one.</p>
+<p>A click on <span class="guilabel">[-]</span> will remove the selected branch if it is not
+the current one.</p>
+</li>
+<li><p class="first">List of remote branches</p>
+<p>These are the branches that exist in the git repository, that you can
+checkout locally by double-clicking on them. The branches are grouped
+by the name of the remote repository that contains this branch, since
+git is a distributed system.</p>
+<p>You can also delete a remote branch by clicking on <span class="guilabel">[-]</span>.</p>
+</li>
+<li><p class="first">List of Gerrit reviews</p>
+<p>If you are doing code reviews via Gerrit, GPS is able to download the
+list of patches pending review, as well as their current scores.</p>
+<p>Double-clicking on any of the patch will open the Gerrit page in a
+web browser.</p>
+<p>Clicking on <span class="guilabel">[+]</span> will cherry pick the patch and apply it to
+the local working directory.</p>
+<p>If you are not using Gerrit, this category will not be displayed.</p>
+</li>
+<li><p class="first">List of stashes</p>
+<p>In git, stashes are a way to temporary move away local changes to get
+back to a pristine working directory, without losing your current work.</p>
+<p>GPS displays the list of all stashes, and lets you create new stashes
+by clicking on <span class="guilabel">[+]</span> when the <span class="guilabel">STASHES</span> line is
+selected.</p>
+<p>Clicking on <span class="guilabel">[-]</span> will drop the selected stash, and you will
+lose the corresponding changes.</p>
+<p>Double-clicking on a stash will reapply it to the current working directory.
+It will not drop it though, so that you can also apply it to another
+branch.</p>
+</li>
+<li><p class="first">List of tags</p>
+<p>All tags that have been applied in your repository are also listed. You
+can create new tags by selecting the <span class="guilabel">TAGS</span> line and clicking
+on <span class="guilabel">[+]</span> line.</p>
+<p>You can remove tags by clicking on <span class="guilabel">[-]</span>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="cvs-and-the-branches-view">
+<h3>11.6.2. CVS and the Branches view<a class="headerlink" href="#cvs-and-the-branches-view" title="Permalink to this headline">¶</a></h3>
+<img alt="_images/vcs-branches-cvs.png" id="index-7" src="_images/vcs-branches-cvs.png" />
+<p>The screenshot above is for CVS. GPS displays far fewer information than
+for git, and only shows the tags.</p>
+<p>Double-clicking on any of the tag will check it out in the working
+directory.</p>
+<p>Clicking on <span class="guilabel">[-]</span> deletes the selected tag.</p>
+<p>Clicking on <span class="guilabel">[+]</span> while the <span class="guilabel">TAGS</span> line is selected
+will create a new tag.</p>
+</div>
+<div class="section" id="subversion-and-the-branches-view">
+<h3>11.6.3. Subversion and the Branches view<a class="headerlink" href="#subversion-and-the-branches-view" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="index-8"></span><img alt="_images/vcs-branches-svn.png" id="index-9" src="_images/vcs-branches-svn.png" />
+<p>GPS assumes a standard organization of the subversion repository, namely
+that there are three top-level directories:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;/</span><span class="n">trunk</span><span class="o">/</span><span class="n">project</span><span class="o">/</span>
+<span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;/</span><span class="n">tags</span><span class="o">/</span><span class="n">project</span><span class="o">/</span>
+<span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;/</span><span class="n">branches</span><span class="o">/</span><span class="n">project</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>If this is the organization you are also using, GPS is able to show the list
+of tags and branches in the <span class="guilabel">Branches</span> view.</p>
+<p>You can checkout a specific tag or branch by double-clicking on it.</p>
+</div>
+</div>
+<div class="section" id="the-diff-view">
+<span id="id6"></span><h2>11.7. The Diff View<a class="headerlink" href="#the-diff-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/vcs-diff.png" src="_images/vcs-diff.png" />
+<p>This view shows a simple color highlighted diff. The screenshot shows the
+changes currently done to this document...)</p>
+<p>This view is opened either by long clicking on a file name in the
+<span class="guilabel">Commits</span> view (<a class="reference internal" href="#the-commits-view"><span class="std std-ref">The Commits view</span></a>), or by selecting the
+menu <span class="menuselection">VCS ‣ Show all local changes</span>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tools.html" title="12. Tools"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="debugging.html" title="10. Debugging"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

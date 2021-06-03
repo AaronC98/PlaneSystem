@@ -1,0 +1,216 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U gnatcoll.coders.base64%b  gnatcoll-coders-base64.adb  997cd92c OO PK IU
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W gnatcoll.coders%s	gnatcoll-coders.adb	gnatcoll-coders.ali
+
+U gnatcoll.coders.base64%s  gnatcoll-coders-base64.ads  dcfd28d5 EE OO PF PK IU
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W gnatcoll.coders%s	gnatcoll-coders.adb	gnatcoll-coders.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-ioexce.ads		20190518041255 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D gnatcoll.ads		20190516174408 6a5da479 gnatcoll%s
+D gnatcoll-coders.ads	20190516174409 627b76f6 gnatcoll.coders%s
+D gnatcoll-coders-base64.ads  20190516174408 e4330c4b gnatcoll.coders.base64%s
+D gnatcoll-coders-base64.adb  20190516174408 7d4fd567 gnatcoll.coders.base64%b
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-finmas.ads		20190518041256 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041255 ede33ef8 system.pool_global%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20190518041256 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-stratt.ads		20190518041255 aedef97e system.stream_attributes%s
+D s-stratt.adb		20190518041256 56ef263e system.stream_attributes%b
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+G a e
+G c Z s b [total_in gnatcoll__coders__base64 39 24 none]
+G c Z s b [initialize gnatcoll__coders__base64 46 14 none]
+G c Z s b [transcode gnatcoll__coders__base64 55 25 none]
+G c Z s b [is_open gnatcoll__coders__base64 67 24 none]
+G c Z s b [total_out gnatcoll__coders__base64 70 24 none]
+G c Z s b [finished gnatcoll__coders__base64 74 24 none]
+G c Z s b [close gnatcoll__coders__base64 78 25 none]
+G c Z s b [initialize gnatcoll__coders__base64 84 14 none]
+G c Z s b [transcode gnatcoll__coders__base64 87 25 none]
+G c Z s b [is_open gnatcoll__coders__base64 96 24 none]
+G c Z s b [total_out gnatcoll__coders__base64 99 24 none]
+G c Z s b [finished gnatcoll__coders__base64 103 24 none]
+G c Z s b [close gnatcoll__coders__base64 107 25 none]
+G c Z s s [coder_typeDA gnatcoll__coders__base64 116 9 none]
+G c Z s s [coder_typeDF gnatcoll__coders__base64 116 9 none]
+G c Z s s [coder_typeIP gnatcoll__coders__base64 116 9 none]
+G c Z s s [encoder_typeDA gnatcoll__coders__base64 122 9 none]
+G c Z s s [encoder_typeDF gnatcoll__coders__base64 122 9 none]
+G c Z s s [encoder_typeIP gnatcoll__coders__base64 122 9 none]
+G c Z s s [decoder_typeDA gnatcoll__coders__base64 131 9 none]
+G c Z s s [decoder_typeDF gnatcoll__coders__base64 131 9 none]
+G c Z s s [decoder_typeIP gnatcoll__coders__base64 131 9 none]
+G c Z s s [Tbase64_encode_arrayBIP gnatcoll__coders__base64 114 4 none]
+G c Z b b [make_decoder gnatcoll__coders__base64 50 13 none]
+G c Z b b [Tdecoder_arrayBIP gnatcoll__coders__base64 48 4 none]
+X 5 a-stream.ads
+42M9*Stream_Element 11|48r33 259r33
+44I9*Stream_Element_Offset<long_long_integer> 10|58r25 60r25 90r25 92r25
+. 11|93r25 95r25 242r25 244r25
+51I12*Stream_Element_Count{44I9} 10|40r34 71r36 100r36 117r19 118r19 124r19
+. 11|132r26 191r34 201r36 324r36
+54A9*Stream_Element_Array(42M9)<44I9> 10|57r25 59r25 89r25 91r25 11|92r25
+. 94r25 241r25 243r25
+X 8 gnatcoll.ads
+24K9*GNATCOLL 27e13 10|28r9 137r5 11|24r14 347r5
+X 9 gnatcoll-coders.ads
+30K18*Coders 8|24k9 9|147e20 10|28r18 137r14 11|24r23 347r14
+32h9*Coder_Interface 10|36r36 116r36
+36E9*Flush_Mode 55e14 10|61r25 93r25 11|96r25 245r25
+55n7*Finish{36E9} 11|155r53 269r32
+58y13*Is_Open{boolean}
+63x14*Transcode
+89y13*Total_Out{5|51I12}
+93y13*Finished{boolean}
+97x14*Close
+X 10 gnatcoll-coders-base64.ads
+28K25*Base64 9|30k18 10|114E9 137l21 137e27 11|24b30 347l21 347t27
+30E9*Base64_Mode 30e35 49r17 11|28r29 78r15
+30n25*MIME{30E9} 49r32 11|29r15 59r27 60r44 78r30 82r31
+30n31*URL{30E9} 11|36r15 64r44
+36H9*Coder_Type<9|32R9> 9|58p13 63p14 89p13 93p13 97p14 10|39P24 40r15 43r29
+. 81r29 116c9 120e14 122r29 131r29 11|191r15
+39V24*Total_In{5|51I12}<9|85p13> 40>7 11|190b24 194l8 194t16
+40r7 Coder{36R9} 11|191b7 193r14
+43R9*Encoder_Type<36R9> 39P24 46p14 47r22 55P25 56r25 67P24 67r41 70P24 71r15
+. 74P24 74r42 78P25 78r47 122c9 129e14 11|76r22 80r24 91r25 181r41 201r15
+. 210r42 220r47
+46U14*Initialize 47=7 48>7 49>7 11|75b14 84l8 84t18
+47r7 Coder{43R9} 11|76b7 80m7 81m7 82m7 83m7
+48i7 Wrap{natural} 11|77b7 83r28 83r42
+49e7 Mode{30E9} 11|78b7 81r32 82r24
+55U25*Transcode<9|63p14> 56=7 57>7 58<7 59<7 60<7 61>7 11|90b25 175l8 175t17
+56r7 Coder{43R9} 11|91b7 110m10 110r29 115r18 122m10 122r25 130r13 130r37
+. 131r22 131r40 132r48 136r16 137m13 137r32 138r34 138r46 140r16 140r38 141r20
+. 142r23 144r19 146m19 155r23 156m13 158r18 160r46 161r46 166m13 168r16 170m13
+. 170r32 171m13 171r39
+57a7 In_Data{5|54A9} 11|92b7 127r19 154r26 172r31
+58i7 In_Last{5|44I9} 11|93b7 127m7 154r16 169m13 169r24 172r40
+59a7 Out_Data{5|54A9} 11|94b7 109m10 121m10 126r19 129r24
+60i7 Out_Last{5|44I9} 11|95b7 108m10 108r22 109r20 120m10 120r22 121r20 126m7
+. 129r13
+61e7 Flush{9|36E9} 11|96b7 155r44
+67V24*Is_Open{boolean}<9|58p13> 67>33 11|181b24 184l8 184t15
+67r33 Coder{43R9} 11|181b33 183r14
+70V24*Total_Out{5|51I12}<9|89p13> 71>7 11|200b24 204l8 204t17
+71r7 Coder{43R9} 11|201b7 203r14 203r32
+74V24*Finished{boolean}<9|93p13> 74>34 11|210b24 214l8 214t16
+74r34 Coder{43R9} 11|210b34 212r14 212r36 212r65 213r23 213r43
+78U25*Close<9|97p14> 78=32 11|220b25 223l8 223t13
+78r32 Coder{43R9} 11|220b32 222m7
+81R9*Decoder_Type<36R9> 39P24 84p14 84r41 87P25 88r25 96P24 96r41 99P24 100r15
+. 103P24 103r42 107P25 107r47 131c9 135e14 11|229r41 231r16 240r25 314r41
+. 324r15 333r42 342r47
+84U14*Initialize 84=26 11|229b14 233l8 233t18
+84r26 Coder{81R9} 11|229b26 231m7 232m7
+87U25*Transcode<9|63p14> 88=7 89>7 90<7 91<7 92<7 93>7 11|239b25 308l8 308t17
+88r7 Coder{81R9} 11|240b7 260m10 260r29 269r47 271m13 273r16 274r24 275m16
+. 286r31 290m19 291m19 295r22 297m19 298m19 301r27 302m19 305m13 305r31
+89a7 In_Data{5|54A9} 11|241b7 265r19 268r23 282r30
+90i7 In_Last{5|44I9} 11|242b7 265m7 268r13 281m13 281r24 282r39
+91a7 Out_Data{5|54A9} 11|243b7 259m10 264r19 267r24
+92i7 Out_Last{5|44I9} 11|244b7 258m10 258r22 259r20 264m7 267r13
+93e7 Flush{9|36E9} 11|245b7 269r23
+96V24*Is_Open{boolean}<9|58p13> 96>33 11|314b24 317l8 317t15
+96r33 Coder{81R9} 11|314b33 316r14
+99V24*Total_Out{5|51I12}<9|89p13> 100>7 11|323b24 327l8 327t17
+100r7 Coder{81R9} 11|324b7 326r14
+103V24*Finished{boolean}<9|93p13> 103>34 11|333b24 336l8 336t16
+103r34 Coder{81R9} 11|333b34 335r14 335r35
+107U25*Close<9|97p14> 107=32 11|342b25 345l8 345t13
+107r32 Coder{81R9} 11|342b32 344m7
+114A9 Base64_Encode_Array(character)<12|63M9> 123r35 11|28r53 63r19 63r51
+117i7 In_Count{5|51I12} 11|193r20 286r37 305m19 305r37
+118i7 Out_Count{5|51I12} 11|110m16 110r35 130r43 131r28 142r29 203r20 213r49
+. 260m16 260r35 326r20
+119b7 Finish{boolean} 11|140r22 155r29 156m19 212r20 269r53 271m19 335r20
+123p7 To_Char(114A9) 11|81m13 115r24 183r20 222m13
+124i7 Lines{5|51I12} 11|122m16 122r31 131r46 203r38
+125m7 Left{12|66M9} 11|138r40 160r52 161r52 171m19 171r45
+126i7 Left_Bits{integer} 11|136r22 137m19 137r38 138r52 140r44 158r24 166m19
+. 168r22 170m19 170r38 212r42
+127b7 Align{boolean} 11|82m13 141r26 213r29
+128i7 Wrap{natural} 11|83m13 130r19 132r54 144r25 146m25 212r71
+132m7 Bits{12|63M9} 11|274r30 290m25 295r28 297m25 301r33
+133b7 Has{boolean} 11|273r22 275m22 291m25 298m25 302m25 335r41
+134b7 Open{boolean} 11|232m13 316r20 344m13
+X 11 gnatcoll-coders-base64.adb
+28a4 Base64(10|114A9) 59r19 60r36 64r36 81r24
+44a4 Shift_1_2(integer) 295r55 297r51
+48A9 Decoder_Array(12|63M9)<5|42M9> 50r33 56r33 58r23 69r23
+50V13 Make_Decoder{48A9} 56b13 67l8 67t20 69s40
+58a14 Result{48A9} 60m13 64m13
+59m14 J{12|63M9} 60r51 60r59
+63m14 J{12|63M9} 64r50 64r59
+69a4 Decoder{48A9} 282r21
+98U17 Append 98>25 113b17 116l11 116t17 138s13 160s26 161s26
+98m25 Item{12|66M9} 113b25 115r45
+99U17 Append 99>25 106b17 111l11 111t17 115s10 152s13
+99e25 Item{character} 106b25 109r48
+100U17 Append_EOL 118b17 123l11 123t21 134s13 145s19
+247m7 Bits{12|63M9} 282m13 285r13 290r45 295r49 297r45 301r41
+248i7 State{integer} 286m13 288r18 295r66 297r62
+250U17 Append 250>25 256b17 261l11 261t17 274s16 294s19 301s19
+250m25 Item{12|63M9} 256b25 259r49
+X 12 interfac.ads
+38K9*Interfaces 10|26w6 112r8 12|184e15
+63M9*Unsigned_8 10|114r39 132r15 11|48r52 58r51 115r33 247r15 250r32 256r32
+. 285r21
+66M9*Unsigned_16 10|125r19 11|98r32 113r32 172r18
+81V13*Shift_Left{63M9} 11|290s33 297s33
+85V13*Shift_Right{63M9} 11|295s36
+101V13*Shift_Left{66M9} 11|160s34 161s34 171s27
+105V13*Shift_Right{66M9} 11|138s21
+

@@ -1,0 +1,765 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U aspects%b		aspects.adb		41c8eb06 OO PK
+W atree%s		atree.adb		atree.ali
+W einfo%s		einfo.adb		einfo.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.htable%s		g-htable.adb		g-htable.ali
+W nlists%s		nlists.adb		nlists.ali
+W sinfo%s		sinfo.adb		sinfo.ali
+W tree_io%s		tree_io.adb		tree_io.ali
+
+U aspects%s		aspects.ads		8903451d BN EE OO PK
+W namet%s		namet.adb		namet.ali
+W snames%s		snames.adb		snames.ali
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D aspects.ads		20190518044710 bc94048b aspects%s
+D aspects.adb		20190518044709 beb69845 aspects%b
+D atree.ads		20190518044709 2c9e949c atree%s
+D atree.adb		20190518044709 3ab87b63 atree%b
+D casing.ads		20190518044709 9b922bd9 casing%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D einfo.ads		20190518044709 0cc0e22d einfo%s
+D einfo.adb		20190518044709 ad5e25fd einfo%b
+D elists.ads		20190518044709 299e4c60 elists%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-hesorg.ads		20190518041255 106922da gnat.heap_sort_g%s
+D g-htable.ads		20190518041255 4b643b8d gnat.htable%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D namet.ads		20190518044709 b520bebe namet%s
+D nlists.ads		20190518044709 0f3f40a5 nlists%s
+D nlists.adb		20190518044709 75b2fe96 nlists%b
+D opt.ads		20190518044710 3d2ce478 opt%s
+D output.ads		20190518044709 a916e413 output%s
+D sinfo.ads		20190518044709 4a0f957d sinfo%s
+D sinfo.adb		20190518044709 61e0e836 sinfo%b
+D sinput.ads		20190518044709 573062f0 sinput%s
+D snames.ads		20190518132638 5f03100c snames%s
+D stand.ads		20190518044709 4852f602 stand%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-htable.ads		20190518041257 84c2b3ea system.htable%s
+D s-htable.adb		20190518041257 34c239ad system.htable%b
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-strhas.ads		20190518041255 269cd894 system.string_hash%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D uintp.ads		20190518044709 c6012b27 uintp%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D urealp.ads		20190518044709 e500ee51 urealp%s
+G a e
+G c Z s b [get_aspect_id aspects 542 13 none]
+G c Z s b [get_aspect_id aspects 547 13 none]
+G c Z s b [aspect_specifications aspects 863 13 none]
+G c Z s b [aspects_on_body_or_stub_ok aspects 877 13 none]
+G c Z s b [exchange_aspects aspects 881 14 none]
+G c Z s b [find_aspect aspects 886 13 none]
+G c Z s b [find_value_of_aspect aspects 890 13 none]
+G c Z s b [has_aspect aspects 896 13 none]
+G c Z s b [move_aspects aspects 899 14 none]
+G c Z s b [move_or_merge_aspects aspects 904 14 none]
+G c Z s b [permits_aspect_specifications aspects 915 13 none]
+G c Z s b [remove_aspects aspects 920 14 none]
+G c Z s b [same_aspect aspects 924 13 none]
+G c Z s b [set_aspect_specifications aspects 929 14 none]
+G c Z s b [tree_read aspects 939 14 none]
+G c Z s b [tree_write aspects 942 14 none]
+G c Z b b [set_aspect_specifications_no_check aspects 73 14 none]
+G c Z b b [as_hash aspects 90 13 none]
+G c Z b b [set aspects__aspect_specifications_hash_table 72 17 98_4]
+G c Z b b [reset aspects__aspect_specifications_hash_table 76 17 98_4]
+G c Z b b [get aspects__aspect_specifications_hash_table 79 16 98_4]
+G c Z b b [remove aspects__aspect_specifications_hash_table 83 17 98_4]
+G c Z b b [get_first aspects__aspect_specifications_hash_table 87 16 98_4]
+G c Z b b [get_next aspects__aspect_specifications_hash_table 92 16 98_4]
+G c Z b b [get_first aspects__aspect_specifications_hash_table 98 17 98_4]
+G c Z b b [get_next aspects__aspect_specifications_hash_table 105 17 98_4]
+G c Z b b [element_wrapperIP aspects__aspect_specifications_hash_table 232 12 98_4]
+G c Z b b [free aspects__aspect_specifications_hash_table 238 17 98_4]
+G c Z b b [set_next aspects__aspect_specifications_hash_table 241 17 98_4]
+G c Z b b [next aspects__aspect_specifications_hash_table 242 17 98_4]
+G c Z b b [get_key aspects__aspect_specifications_hash_table 243 17 98_4]
+G c Z b b [reset aspects__aspect_specifications_hash_table__tab 170 17 245_7_98_4]
+G c Z b b [set aspects__aspect_specifications_hash_table__tab 179 17 245_7_98_4]
+G c Z b b [get aspects__aspect_specifications_hash_table__tab 182 16 245_7_98_4]
+G c Z b b [present aspects__aspect_specifications_hash_table__tab 186 16 245_7_98_4]
+G c Z b b [set_if_not_present aspects__aspect_specifications_hash_table__tab 189 16 245_7_98_4]
+G c Z b b [remove aspects__aspect_specifications_hash_table__tab 194 17 245_7_98_4]
+G c Z b b [get_first aspects__aspect_specifications_hash_table__tab 198 16 245_7_98_4]
+G c Z b b [get_next aspects__aspect_specifications_hash_table__tab 203 16 245_7_98_4]
+G c Z b b [TtableBIP aspects__aspect_specifications_hash_table__tab 45 7 245_7_98_4]
+G c Z b b [get_non_null aspects__aspect_specifications_hash_table__tab 51 16 245_7_98_4]
+G c Z b b [ai_hash aspects 114 13 none]
+G c Z b b [set aspects__aspect_id_hash_table 72 17 122_4]
+G c Z b b [reset aspects__aspect_id_hash_table 76 17 122_4]
+G c Z b b [get aspects__aspect_id_hash_table 79 16 122_4]
+G c Z b b [remove aspects__aspect_id_hash_table 83 17 122_4]
+G c Z b b [get_first aspects__aspect_id_hash_table 87 16 122_4]
+G c Z b b [get_next aspects__aspect_id_hash_table 92 16 122_4]
+G c Z b b [get_first aspects__aspect_id_hash_table 98 17 122_4]
+G c Z b b [get_next aspects__aspect_id_hash_table 105 17 122_4]
+G c Z b b [element_wrapperIP aspects__aspect_id_hash_table 232 12 122_4]
+G c Z b b [free aspects__aspect_id_hash_table 238 17 122_4]
+G c Z b b [set_next aspects__aspect_id_hash_table 241 17 122_4]
+G c Z b b [next aspects__aspect_id_hash_table 242 17 122_4]
+G c Z b b [get_key aspects__aspect_id_hash_table 243 17 122_4]
+G c Z b b [reset aspects__aspect_id_hash_table__tab 170 17 245_7_122_4]
+G c Z b b [set aspects__aspect_id_hash_table__tab 179 17 245_7_122_4]
+G c Z b b [get aspects__aspect_id_hash_table__tab 182 16 245_7_122_4]
+G c Z b b [present aspects__aspect_id_hash_table__tab 186 16 245_7_122_4]
+G c Z b b [set_if_not_present aspects__aspect_id_hash_table__tab 189 16 245_7_122_4]
+G c Z b b [remove aspects__aspect_id_hash_table__tab 194 17 245_7_122_4]
+G c Z b b [get_first aspects__aspect_id_hash_table__tab 198 16 245_7_122_4]
+G c Z b b [get_next aspects__aspect_id_hash_table__tab 203 16 245_7_122_4]
+G c Z b b [TtableBIP aspects__aspect_id_hash_table__tab 45 7 245_7_122_4]
+G c Z b b [get_non_null aspects__aspect_id_hash_table__tab 51 16 245_7_122_4]
+G r c none [get_aspect_id aspects 547 13 none] [identifier sinfo 9745 13 none]
+G r c none [get_aspect_id aspects 547 13 none] [chars sinfo 9349 13 none]
+G r c none [aspect_specifications aspects 863 13 none] [has_aspects atree 651 13 none]
+G r c none [aspects_on_body_or_stub_ok aspects 877 13 none] [has_aspects atree 651 13 none]
+G r c none [aspects_on_body_or_stub_ok aspects 877 13 none] [first nlists 124 13 none]
+G r c none [aspects_on_body_or_stub_ok aspects 877 13 none] [present atree 673 13 none]
+G r c none [aspects_on_body_or_stub_ok aspects 877 13 none] [identifier sinfo 9745 13 none]
+G r c none [aspects_on_body_or_stub_ok aspects 877 13 none] [chars sinfo 9349 13 none]
+G r c none [aspects_on_body_or_stub_ok aspects 877 13 none] [next nlists 162 14 none]
+G r c none [exchange_aspects aspects 881 14 none] [has_aspects atree 651 13 none]
+G r c none [exchange_aspects aspects 881 14 none] [set_parent nlists 370 14 none]
+G r c none [find_aspect aspects 886 13 none] [is_type einfo 7584 13 none]
+G r c none [find_aspect aspects 886 13 none] [base_type einfo 7596 13 none]
+G r c none [find_aspect aspects 886 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [find_aspect aspects 886 13 none] [root_type einfo 7659 13 none]
+G r c none [find_aspect aspects 886 13 none] [full_view einfo 7151 13 none]
+G r c none [find_aspect aspects 886 13 none] [present atree 673 13 none]
+G r c none [find_aspect aspects 886 13 none] [is_private_type einfo 7574 13 none]
+G r c none [find_aspect aspects 886 13 none] [first_rep_item einfo 7147 13 none]
+G r c none [find_aspect aspects 886 13 none] [identifier sinfo 9745 13 none]
+G r c none [find_aspect aspects 886 13 none] [chars sinfo 9349 13 none]
+G r c none [find_aspect aspects 886 13 none] [nkind atree 657 13 none]
+G r c none [find_aspect aspects 886 13 none] [next_rep_item sinfo 11457 14 none]
+G r c none [find_aspect aspects 886 13 none] [parent atree 665 13 none]
+G r c none [find_aspect aspects 886 13 none] [has_aspects atree 651 13 none]
+G r c none [find_aspect aspects 886 13 none] [first nlists 124 13 none]
+G r c none [find_aspect aspects 886 13 none] [next nlists 162 14 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [is_type einfo 7584 13 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [base_type einfo 7596 13 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [root_type einfo 7659 13 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [full_view einfo 7151 13 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [present atree 673 13 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [is_private_type einfo 7574 13 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [first_rep_item einfo 7147 13 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [identifier sinfo 9745 13 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [chars sinfo 9349 13 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [nkind atree 657 13 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [next_rep_item sinfo 11457 14 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [parent atree 665 13 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [has_aspects atree 651 13 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [first nlists 124 13 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [next nlists 162 14 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [expression sinfo 9616 13 none]
+G r c none [find_value_of_aspect aspects 890 13 none] [aspect_rep_item sinfo 9310 13 none]
+G r c none [has_aspect aspects 896 13 none] [is_type einfo 7584 13 none]
+G r c none [has_aspect aspects 896 13 none] [base_type einfo 7596 13 none]
+G r c none [has_aspect aspects 896 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [has_aspect aspects 896 13 none] [root_type einfo 7659 13 none]
+G r c none [has_aspect aspects 896 13 none] [full_view einfo 7151 13 none]
+G r c none [has_aspect aspects 896 13 none] [present atree 673 13 none]
+G r c none [has_aspect aspects 896 13 none] [is_private_type einfo 7574 13 none]
+G r c none [has_aspect aspects 896 13 none] [first_rep_item einfo 7147 13 none]
+G r c none [has_aspect aspects 896 13 none] [identifier sinfo 9745 13 none]
+G r c none [has_aspect aspects 896 13 none] [chars sinfo 9349 13 none]
+G r c none [has_aspect aspects 896 13 none] [nkind atree 657 13 none]
+G r c none [has_aspect aspects 896 13 none] [next_rep_item sinfo 11457 14 none]
+G r c none [has_aspect aspects 896 13 none] [parent atree 665 13 none]
+G r c none [has_aspect aspects 896 13 none] [has_aspects atree 651 13 none]
+G r c none [has_aspect aspects 896 13 none] [first nlists 124 13 none]
+G r c none [has_aspect aspects 896 13 none] [next nlists 162 14 none]
+G r c none [move_aspects aspects 899 14 none] [has_aspects atree 651 13 none]
+G r c none [move_aspects aspects 899 14 none] [set_has_aspects atree 1026 14 none]
+G r c none [move_aspects aspects 899 14 none] [set_parent nlists 370 14 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [has_aspects atree 651 13 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [first nlists 124 13 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [present atree 673 13 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [next nlists 156 13 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [corresponding_spec_of_stub sinfo 9454 13 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [no atree 660 13 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [nkind atree 657 13 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [original_node atree 1157 13 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [nkind_in atree 688 13 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [new_list nlists 68 13 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [set_has_aspects atree 1026 14 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [set_parent nlists 370 14 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [remove nlists 320 14 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [append nlists 226 14 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [identifier sinfo 9745 13 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [chars sinfo 9349 13 none]
+G r c none [move_or_merge_aspects aspects 904 14 none] [is_empty_list nlists 206 13 none]
+G r c none [permits_aspect_specifications aspects 915 13 none] [nkind atree 657 13 none]
+G r c none [remove_aspects aspects 920 14 none] [has_aspects atree 651 13 none]
+G r c none [remove_aspects aspects 920 14 none] [set_has_aspects atree 1026 14 none]
+G r c none [set_aspect_specifications aspects 929 14 none] [set_has_aspects atree 1026 14 none]
+G r c none [set_aspect_specifications aspects 929 14 none] [set_parent nlists 370 14 none]
+G r c none [tree_read aspects 939 14 none] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read aspects 939 14 none] [set_has_aspects atree 1026 14 none]
+G r c none [tree_read aspects 939 14 none] [set_parent nlists 370 14 none]
+G r c none [tree_write aspects 942 14 none] [tree_write_int tree_io 118 14 none]
+G r c none [set_aspect_specifications_no_check aspects 73 14 none] [set_has_aspects atree 1026 14 none]
+G r c none [set_aspect_specifications_no_check aspects 73 14 none] [set_parent nlists 370 14 none]
+X 6 aspects.ads
+71K9*Aspects 945l5 945e12 7|40b14 713l5 713t12
+75E9*Aspect_Id 213e35 216r6 216r22 216r52 221r38 235r52 283r44 294r6 304r6
+. 304r45 307r6 319r38 413r35 542r51 547r53 653r35 821r48 843r52 886r46 892r12
+. 896r45 924r31 924r47 7|46r34 64r39 125r23 208r46 281r12 301r51 306r53 316r45
+. 372r18 511r39 511r53 640r31 640r47 710r13
+76n7*No_Aspect{75E9} 216r38 320r7 414r7 654r7 7|126r23 512r5 512r44
+77n7*Aspect_Abstract_State{75E9} 236r7 321r7 415r7 729r7 7|513r5 513r44
+78n7*Aspect_Address{75E9} 322r7 416r7 655r7 7|514r5 514r44
+79n7*Aspect_Alignment{75E9} 323r7 417r7 767r7 7|515r5 515r44
+80n7*Aspect_Annotate{75E9} 237r7 284r7 324r7 419r7 730r7 7|517r5 517r44
+81n7*Aspect_Async_Readers{75E9} 238r7 325r7 420r7 731r7 7|518r5 518r44
+82n7*Aspect_Async_Writers{75E9} 239r7 326r7 421r7 732r7 7|519r5 519r44
+83n7*Aspect_Attach_Handler{75E9} 327r7 425r7 658r7 7|523r5 523r44
+84n7*Aspect_Bit_Order{75E9} 328r7 426r7 770r7 7|524r5 524r44
+85n7*Aspect_Component_Size{75E9} 329r7 427r7 771r7 7|525r5 525r44
+86n7*Aspect_Constant_After_Elaboration{75E9} 240r7 330r7 428r7 733r7 7|526r5
+. 526r44
+87n7*Aspect_Constant_Indexing{75E9} 331r7 429r7 659r7 7|49r7 65r7 527r5 527r44
+88n7*Aspect_Contract_Cases{75E9} 241r7 332r7 430r7 734r7 7|528r5 528r44
+89n7*Aspect_Convention{75E9} 333r7 431r7 735r7 7|529r5 529r44
+90n7*Aspect_CPU{75E9} 334r7 432r7 660r7 7|530r5 530r44
+91n7*Aspect_Default_Component_Value{75E9} 335r7 433r7 664r7 7|531r5 531r44
+92n7*Aspect_Default_Initial_Condition{75E9} 336r7 434r7 736r7 7|532r5 532r44
+93n7*Aspect_Default_Iterator{75E9} 337r7 435r7 661r7 7|50r7 66r7 287r17 533r5
+. 533r44
+94n7*Aspect_Default_Storage_Pool{75E9} 338r7 436r7 662r7 7|534r5 534r44
+95n7*Aspect_Default_Value{75E9} 339r7 437r7 663r7 7|535r5 535r44
+96n7*Aspect_Depends{75E9} 242r7 340r7 438r7 737r7 844r7 7|536r5 536r44
+97n7*Aspect_Dimension{75E9} 243r7 341r7 439r7 738r7 7|537r5 537r44
+98n7*Aspect_Dimension_System{75E9} 244r7 342r7 440r7 739r7 7|538r5 538r44
+99n7*Aspect_Dispatching_Domain{75E9} 343r7 443r7 666r7 7|541r5 541r44
+100n7*Aspect_Dynamic_Predicate{75E9} 344r7 444r7 667r7 7|542r5
+101n7*Aspect_Effective_Reads{75E9} 245r7 345r7 445r7 741r7 7|543r5 543r44
+102n7*Aspect_Effective_Writes{75E9} 246r7 346r7 446r7 742r7 7|544r5 544r44
+103n7*Aspect_Extensions_Visible{75E9} 247r7 347r7 449r7 744r7 7|547r5 547r44
+104n7*Aspect_External_Name{75E9} 348r7 450r7 669r7 7|548r5 548r44
+105n7*Aspect_External_Tag{75E9} 349r7 451r7 670r7 7|549r5 549r44
+106n7*Aspect_Ghost{75E9} 249r7 350r7 453r7 745r7 7|551r5 551r44
+107n7*Aspect_Global{75E9} 250r7 351r7 454r7 746r7 845r7 7|552r5 552r44
+108n7*Aspect_Implicit_Dereference{75E9} 352r7 455r7 672r7 7|67r7 553r5 553r44
+109n7*Aspect_Initial_Condition{75E9} 353r7 461r7 748r7 7|559r5 559r44
+110n7*Aspect_Initializes{75E9} 354r7 462r7 749r7 7|560r5 560r44
+111n7*Aspect_Input{75E9} 222r7 355r7 463r7 677r7 7|561r5 561r44
+112n7*Aspect_Interrupt_Priority{75E9} 356r7 465r7 679r7 7|563r5
+113n7*Aspect_Invariant{75E9} 223r7 252r7 357r7 466r7 680r7 7|564r5 564r44
+. 622r44
+114n7*Aspect_Iterator_Element{75E9} 359r7 467r7 682r7 7|53r7 68r7 566r5 566r44
+115n7*Aspect_Iterable{75E9} 358r7 468r7 681r7 7|565r5 565r44
+116n7*Aspect_Link_Name{75E9} 360r7 469r7 683r7 7|567r5 567r44
+117n7*Aspect_Linker_Section{75E9} 361r7 470r7 684r7 7|568r5 568r44
+118n7*Aspect_Machine_Radix{75E9} 362r7 472r7 772r7 7|570r5 570r44
+119n7*Aspect_Max_Entry_Queue_Depth{75E9} 254r7 363r7 473r7 750r7 7|571r5
+. 571r44
+120n7*Aspect_Max_Queue_Length{75E9} 255r7 364r7 474r7 751r7 7|572r5 572r44
+121n7*Aspect_Object_Size{75E9} 256r7 365r7 479r7 773r7 7|578r5 578r44
+122n7*Aspect_Obsolescent{75E9} 366r7 480r7 754r7 7|577r5 577r44
+123n7*Aspect_Output{75E9} 224r7 367r7 481r7 688r7 7|579r5 579r44
+124n7*Aspect_Part_Of{75E9} 368r7 483r7 755r7 846r7 7|581r5 581r44
+125n7*Aspect_Post{75E9} 227r7 307r22 369r7 485r7 690r7 7|583r5 583r44 584r44
+126n7*Aspect_Postcondition{75E9} 370r7 486r7 691r7 7|584r5
+127n7*Aspect_Pre{75E9} 225r7 371r7 487r7 692r7 7|399r35 585r5 585r44 586r44
+128n7*Aspect_Precondition{75E9} 307r37 372r7 488r7 693r7 7|400r35 586r5
+129n7*Aspect_Predicate{75E9} 226r7 258r7 373r7 489r7 694r7 7|542r44 587r5
+. 587r44 612r44
+130n7*Aspect_Predicate_Failure{75E9} 374r7 490r7 695r7 7|588r5 588r44
+131n7*Aspect_Priority{75E9} 375r7 493r7 698r7 7|563r44 591r5 591r44
+132n7*Aspect_Read{75E9} 228r7 376r7 496r7 701r7 7|601r5 601r44
+133n7*Aspect_Refined_Depends{75E9} 377r7 497r7 756r7 822r7 7|594r5 594r44
+134n7*Aspect_Refined_Global{75E9} 378r7 498r7 757r7 823r7 7|595r5 595r44
+135n7*Aspect_Refined_Post{75E9} 379r7 499r7 758r7 824r7 7|596r5 596r44
+136n7*Aspect_Refined_State{75E9} 380r7 500r7 759r7 7|597r5 597r44
+137n7*Aspect_Relative_Deadline{75E9} 381r7 501r7 702r7 7|602r5 602r44
+138n7*Aspect_Scalar_Storage_Order{75E9} 261r7 382r7 505r7 775r7 7|603r5 603r44
+139n7*Aspect_Secondary_Stack_Size{75E9} 262r7 383r7 506r7 706r7 7|604r5 604r44
+140n7*Aspect_Simple_Storage_Pool{75E9} 264r7 384r7 509r7 709r7 7|607r5 607r44
+141n7*Aspect_Size{75E9} 385r7 511r7 776r7 7|609r5 609r44
+142n7*Aspect_Small{75E9} 386r7 512r7 777r7 7|610r5 610r44
+143n7*Aspect_SPARK_Mode{75E9} 387r7 513r7 760r7 825r7 7|611r5 611r44
+144n7*Aspect_Static_Predicate{75E9} 388r7 514r7 711r7 7|612r5
+145n7*Aspect_Storage_Pool{75E9} 389r7 515r7 712r7 7|613r5 613r44
+146n7*Aspect_Storage_Size{75E9} 390r7 516r7 778r7 7|614r5 614r44
+147n7*Aspect_Stream_Size{75E9} 391r7 517r7 713r7 7|615r5 615r44
+148n7*Aspect_Suppress{75E9} 392r7 518r7 714r7 7|616r5 616r44
+149n7*Aspect_Synchronization{75E9} 393r7 522r7 761r7 7|619r5 619r44
+150n7*Aspect_Test_Case{75E9} 269r7 285r7 394r7 523r7 762r7 7|620r5 620r44
+151n7*Aspect_Type_Invariant{75E9} 230r7 395r7 524r7 718r7 7|54r7 622r5
+152n7*Aspect_Unimplemented{75E9} 396r7 526r7 763r7 7|624r5 624r44
+153n7*Aspect_Unsuppress{75E9} 397r7 532r7 725r7 7|630r5 630r44
+154n7*Aspect_Value_Size{75E9} 275r7 398r7 533r7 779r7 7|632r5 632r44
+155n7*Aspect_Variable_Indexing{75E9} 399r7 534r7 726r7 7|56r7 70r7 631r5
+. 631r44
+156n7*Aspect_Volatile_Function{75E9} 276r7 400r7 538r7 764r7 7|636r5 636r44
+157n7*Aspect_Warnings{75E9} 277r7 401r7 539r7 765r7 826r7 7|637r5 637r44
+158n7*Aspect_Write{75E9} 229r7 402r7 540r7 727r7 7|638r5 638r44
+162n7*Aspect_All_Calls_Remote{75E9} 294r22 418r7 656r7 7|516r5 516r44
+163n7*Aspect_Elaborate_Body{75E9} 447r7 668r7 7|545r5 545r44
+164n7*Aspect_No_Elaboration_Code_All{75E9} 475r7 752r7 7|573r5 573r44
+165n7*Aspect_Preelaborate{75E9} 492r7 697r7 7|589r5 589r44
+166n7*Aspect_Pure{75E9} 494r7 699r7 7|592r5 592r44
+167n7*Aspect_Remote_Call_Interface{75E9} 503r7 704r7 7|599r5 599r44
+168n7*Aspect_Remote_Types{75E9} 504r7 705r7 7|69r7 600r5 600r44
+169n7*Aspect_Shared_Passive{75E9} 508r7 708r7 7|606r5 606r44
+170n7*Aspect_Universal_Data{75E9} 271r7 294r49 528r7 721r7 7|626r5 626r44
+179n7*Aspect_Asynchronous{75E9} 304r22 422r7 657r7 7|520r5 520r44
+180n7*Aspect_Atomic{75E9} 423r7 768r7 7|47r7 521r5 521r44 605r44
+181n7*Aspect_Atomic_Components{75E9} 424r7 769r7 7|48r7 522r5 522r44
+182n7*Aspect_Disable_Controlled{75E9} 441r7 740r7 7|539r5 539r44
+183n7*Aspect_Discard_Names{75E9} 442r7 665r7 7|51r7 540r5 540r44
+184n7*Aspect_Export{75E9} 448r7 743r7 7|546r5 546r44
+185n7*Aspect_Favor_Top_Level{75E9} 248r7 452r7 671r7 7|550r5 550r44
+186n7*Aspect_Independent{75E9} 457r7 673r7 7|555r5 555r44
+187n7*Aspect_Independent_Components{75E9} 458r7 674r7 7|52r7 556r5 556r44
+188n7*Aspect_Import{75E9} 456r7 747r7 7|554r5 554r44
+189n7*Aspect_Inline{75E9} 459r7 675r7 7|557r5 557r44 558r44
+190n7*Aspect_Inline_Always{75E9} 251r7 460r7 676r7 7|558r5
+191n7*Aspect_Interrupt_Handler{75E9} 464r7 678r7 7|562r5 562r44
+192n7*Aspect_Lock_Free{75E9} 253r7 471r7 685r7 7|569r5 569r44
+193n7*Aspect_No_Inline{75E9} 476r7 686r7 7|574r5 574r44
+194n7*Aspect_No_Return{75E9} 477r7 687r7 7|575r5 575r44
+195n7*Aspect_No_Tagged_Streams{75E9} 478r7 753r7 7|576r5 576r44
+196n7*Aspect_Pack{75E9} 482r7 774r7 7|580r5 580r44
+197n7*Aspect_Persistent_BSS{75E9} 257r7 484r7 689r7 7|582r5 582r44
+198n7*Aspect_Preelaborable_Initialization{75E9} 491r7 696r7 7|590r5 590r44
+199n7*Aspect_Pure_Function{75E9} 259r7 495r7 700r7 7|593r5 593r44
+200n7*Aspect_Remote_Access_Type{75E9} 260r7 502r7 703r7 7|598r5 598r44
+201n7*Aspect_Shared{75E9} 263r7 507r7 707r7 7|605r5
+202n7*Aspect_Simple_Storage_Pool_Type{75E9} 265r7 510r7 710r7 7|608r5 608r44
+203n7*Aspect_Suppress_Debug_Info{75E9} 266r7 519r7 715r7 7|617r5 617r44
+204n7*Aspect_Suppress_Initialization{75E9} 267r7 520r7 716r7 7|618r5 618r44
+205n7*Aspect_Thread_Local_Storage{75E9} 268r7 521r7 717r7 7|621r5 621r44
+206n7*Aspect_Unchecked_Union{75E9} 525r7 719r7 7|55r7 623r5 623r44
+207n7*Aspect_Universal_Aliasing{75E9} 270r7 527r7 720r7 7|625r5 625r44
+208n7*Aspect_Unmodified{75E9} 272r7 529r7 722r7 7|627r5 627r44
+209n7*Aspect_Unreferenced{75E9} 273r7 530r7 723r7 7|628r5 628r44
+210n7*Aspect_Unreferenced_Objects{75E9} 274r7 531r7 724r7 7|629r5 629r44
+211n7*Aspect_Volatile{75E9} 535r7 780r7 7|57r7 633r5 633r44
+212n7*Aspect_Volatile_Components{75E9} 536r7 781r7 7|634r5 634r44
+213n7*Aspect_Volatile_Full_Access{75E9} 537r7 782r7 7|58r7 635r5 635r44
+215E12*Aspect_Id_Exclude_No_Aspect{75E9}
+221a4*Class_Aspect_OK(boolean)
+235a4*Implementation_Defined_Aspect(boolean)
+283a4*No_Duplicates_Allowed(boolean)
+293E12*Library_Unit_Aspects{75E9} 405r7
+303E12*Boolean_Aspects{75E9} 404r7
+306E12*Pre_Post_Aspects{75E9}
+311E9*Aspect_Expression 315e21 319r52
+312n7*Expression{311E9} 321r44 322r44 323r44 324r44 327r44 328r44 329r44
+. 332r44 334r44 335r44 338r44 339r44 340r44 341r44 342r44 343r44 344r44 348r44
+. 349r44 351r44 353r44 354r44 356r44 357r44 358r44 360r44 361r44 362r44 363r44
+. 364r44 365r44 368r44 369r44 370r44 371r44 372r44 373r44 374r44 375r44 377r44
+. 378r44 379r44 380r44 381r44 382r44 383r44 385r44 386r44 388r44 390r44 391r44
+. 394r44 395r44 398r44
+313n7*Name{311E9} 331r44 333r44 337r44 352r44 355r44 359r44 367r44 376r44
+. 384r44 389r44 392r44 393r44 397r44 399r44 401r44 402r44
+314n7*Optional_Expression{311E9} 320r44 325r44 326r44 330r44 336r44 345r44
+. 346r44 347r44 350r44 366r44 396r44 400r44 404r44 405r44
+315n7*Optional_Name{311E9} 387r44
+319a4*Aspect_Argument(311E9)
+413a4*Aspect_Names(20|188I9) 7|711r33
+542V13*Get_Aspect_Id{75E9} 542>28 543r19 7|301b13 304l8 304t21
+542i28 Name{20|188I9} 7|301b28 303r40
+547V13*Get_Aspect_Id{75E9} 547>28 7|169s44 238s21 261s16 306b13 310l8 310t21
+. 396s26 416s26
+547i28 Aspect{47|397I9} 7|306b28 308r29 309r59
+612E9*Delay_Type 625e18 653r49
+613n7*Always_Delay{612E9} 654r46 655r46 656r46 657r46 658r46 659r46 660r46
+. 661r46 662r46 663r46 664r46 665r46 666r46 667r46 668r46 669r46 670r46 671r46
+. 672r46 673r46 674r46 675r46 676r46 677r46 678r46 679r46 680r46 681r46 682r46
+. 683r46 684r46 685r46 686r46 687r46 688r46 689r46 690r46 691r46 692r46 693r46
+. 694r46 695r46 696r46 697r46 698r46 699r46 700r46 701r46 702r46 703r46 704r46
+. 705r46 706r46 707r46 708r46 709r46 710r46 711r46 712r46 713r46 714r46 715r46
+. 716r46 717r46 718r46 719r46 720r46 721r46 722r46 723r46 724r46 725r46 726r46
+. 727r46
+617n7*Never_Delay{612E9} 729r46 730r46 731r46 732r46 733r46 734r46 735r46
+. 736r46 737r46 738r46 739r46 740r46 741r46 742r46 743r46 744r46 745r46 746r46
+. 747r46 748r46 749r46 750r46 751r46 752r46 753r46 754r46 755r46 756r46 757r46
+. 758r46 759r46 760r46 761r46 762r46 763r46 764r46 765r46
+625n7*Rep_Aspect{612E9} 767r46 768r46 769r46 770r46 771r46 772r46 773r46
+. 774r46 775r46 776r46 777r46 778r46 779r46 780r46 781r46 782r46
+653a4*Aspect_Delay(612E9)
+821a4*Aspect_On_Body_Or_Stub_OK(boolean) 7|169r17 398r19
+843a4*Aspect_On_Anonymous_Object_OK(boolean) 7|418r19
+863V13*Aspect_Specifications{47|446I9} 863>36 7|135b13 142l8 142t29 166s18
+. 193s38 194s38 259s25 329s41 352s21 379s24 434s28
+863i36 N{47|397I9} 7|135b36 137r23 138r55
+877V13*Aspects_On_Body_Or_Stub_OK{boolean} 877>41 7|148b13 177l8 177t34
+877i41 N{47|397I9} 7|148b41 155r35 156r29 157r42 166r41
+881U14*Exchange_Aspects 881>32 881>46 7|183b14 202l8 202t24
+881i32 N1{47|397I9} 7|183b32 186r41 191r23 193r61 197r29 198r51
+881i46 N2{47|397I9} 7|183b46 187r52 191r49 194r61 196r29 199r51
+886V13*Find_Aspect{47|397I9} 886>26 886>42 7|208b13 273l8 273t19 283s34 318s23
+886i26 Id{47|400I12} 7|208b26 215r16 219r19
+886e42 A{75E9} 7|208b42 220r26 224r67 238r44 261r39
+890V13*Find_Value_Of_Aspect{47|397I9} 891>7 892>7 7|279b13 295l8 295t28
+891i7 Id{47|400I12} 7|280b7 283r47
+892e7 A{75E9} 7|281b7 283r51 287r13
+896V13*Has_Aspect{boolean} 896>25 896>41 7|316b13 319l8 319t18
+896i25 Id{47|400I12} 7|316b25 318r36
+896e41 A{75E9} 7|316b41 318r40
+899U14*Move_Aspects 899>28 899>44 7|325b14 333l8 333t20
+899i28 From{47|397I9} 7|325b28 328r23 329r64 330r51 331r27
+899i44 To{47|397I9} 7|325b44 326r39 329r37
+904U14*Move_Or_Merge_Aspects 904>37 904>53 7|339b14 438l8 438t29
+904i37 From{47|397I9} 7|339b37 378r23 379r47 393r23 394r56 413r37 434r51
+. 435r29
+904i53 To{47|397I9} 7|339b53 351r26 352r44 358r40 359r30
+915V13*Permits_Aspect_Specifications{boolean} 915>44 7|186s10 187s21 252s14
+. 258s10 488b13 491l8 491t37 651s22 666s22
+915i44 N{47|397I9} 7|488b44 490r53
+920U14*Remove_Aspects 920>30 7|435s13 497b14 503l8 503t22
+920i30 N{47|397I9} 7|497b30 499r23 500r51 501r27
+924V13*Same_Aspect{boolean} 924>26 924>42 7|640b13 643l8 643t19
+924e26 A1{75E9} 7|640b26 642r32
+924e42 A2{75E9} 7|640b42 642r56
+929U14*Set_Aspect_Specifications 929>41 929>54 7|329s10 358s13 649b14 658l8
+. 658t33
+929i41 N{47|397I9} 7|649b41 651r53 652r39 655r24 656r22 657r45
+929i54 L{47|446I9} 7|649b54 653r22 656r19 657r48
+939U14*Tree_Read 7|678b14 688l8 688t17
+942U14*Tree_Write 7|694b14 705l8 705t18
+X 7 aspects.adb
+46a4 Base_Aspect(boolean) 220r13
+64a4 Inherited_Aspect(boolean) 224r49
+73U14 Set_Aspect_Specifications_No_Check 73>50 73>63 664b14 672l8 672t42
+. 686s10
+73i50 N{47|397I9} 664b50 666r53 669r24 670r22 671r45
+73i63 L{47|446I9} 664b63 667r22 670r19 671r48
+87I9 AS_Hash_Range<short_integer> 90r42 93r42 95r14 100r23
+90V13 AS_Hash{87I9} 90>22 93b13 96l8 96t15 104r23
+90i22 F{47|397I9} 93b22 95r29
+98K12 Aspect_Specifications_Hash_Table[33|70] 138r17 198r13 199r13 330r10
+. 500r10 657r7 671r7 698r7 703r10
+111I9 AI_Hash_Range<short_short_integer> 114r42 117r42 119r14 124r23
+114V13 AI_Hash{111I9} 114>22 117b13 120l8 120t15 128r23
+114i22 F{20|188I9} 117b22 119r29
+122K12 Aspect_Id_Hash_Table[33|70] 303r14 309r14 711r7
+149i7 Aspect{47|397I9} 167m7 168r22 169r59 173m16 173r16
+150i7 Aspects{47|446I9} 166m7 167r25
+193i13 L1{47|446I9} 196r25 199r55
+194i13 L2{47|446I9} 197r25 198r55
+209i7 Decl{47|397I9} 251m7 252r45 253m10 253r26 258r41 259r48
+210i7 Item{47|397I9} 235m7 236r22 237r20 238r36 240r20 243m25 243r25
+211i7 Owner{47|400I12} 215m7 221m13 221r33 224r33 225m13 225r33 228r30 228r66
+. 229m13 229r33 235r31 251r23
+212i7 Spec{47|397I9} 259m10 260r25 261r31 262r23 265m19 265r19
+283i7 Spec{47|397I9} 286r19 288r49 290r32
+340U17 Relocate_Aspect 340>34 347b17 367l11 367t26 402s19 419s19 425s16
+340i34 Asp{47|397I9} 347b34 365r18 366r18
+348i10 Asps{47|446I9} 352m13 357m13 358r44 366r23
+371i7 Asp{47|397I9} 379m10 380r25 385r31 396r41 402r36 416r41 419r36 425r33
+. 428m13
+372e7 Asp_Id{6|75E9} 396m16 398r46 399r26 400r26 416m16 418r50
+373i7 Next_Asp{47|397I9} 385m13 428r20
+444a4 Has_Aspect_Specifications_Flag(boolean) 490r14
+511a4 Canonical_Aspect(6|75E9) 642r14 642r38
+679i7 Node{47|397I9} 683m30 683r30 686r46
+680i7 List{47|446I9} 684m30 684r30 685r20 686r52
+695i7 Node{47|397I9} 698m51 698r51 700r31 703m53 703r53
+696i7 List{47|446I9} 698m57 701r31 702r20 703m59
+710e8 J{6|75E9} 711r47 711r51
+X 8 atree.ads
+44K9*Atree 7|32w6 32r20 8|4321e10
+651V13*Has_Aspects{boolean} 7|137s10 155s22 191s10 191s36 326s26 328s10 351s13
+. 378s10 499s10 652s26
+657V13*Nkind{25|8645E9} 7|156s22 237s13 308s22 393s16 490s46
+660V13*No{boolean} 7|394s24
+665V13*Parent{47|397I9} 7|251s15 253s18
+673V13*Present{boolean} 7|168s13 228s46 236s13 260s16 286s10 318s14 380s16
+688V13*Nkind_In{boolean} 7|412s19
+706V13*Nkind_In{boolean} 7|157s32
+1026U14*Set_Has_Aspects 7|331s10 359s13 501s10 655s7 669s7
+1157V13*Original_Node{47|397I9} 7|413s22
+X 12 einfo.ads
+37K9*Einfo 7|33w6 33r20 12|9617e10
+7016B12*B{boolean}
+7018I12*E{47|400I12}
+7021I12*N{47|397I9}
+7147V13*First_Rep_Item{7021I12} 7|235s15
+7151V13*Full_View{7018I12} 7|228s55 229s22
+7541V13*Is_Class_Wide_Type{7016E12} 7|224s13
+7574V13*Is_Private_Type{7016E12} 7|228s13
+7584V13*Is_Type{7016E12} 7|219s10
+7596V13*Base_Type{7018I12} 7|221s22
+7659V13*Root_Type{7018I12} 7|225s22
+X 15 gnat.ads
+34K9*GNAT 7|38r6 99r6 123r6 15|57e9
+X 17 g-htable.ads
+46K14*HTable 7|38w11 99r11 123r11 17|60e16
+55k20*Simple_HTable 7|99r18 123r18
+X 20 namet.ads
+37K9*Namet 6|67w6 67r19 20|768e10
+188I9*Name_Id<integer> 6|413r49 542r35 7|114r26 117r26 127r23 301r35
+192i4*No_Name{188I9} 6|414r46
+X 21 nlists.ads
+41K9*Nlists 7|34w6 34r20 21|396e11
+68V13*New_List{47|446I9} 7|357s21
+124V13*First{47|406I12} 7|167s18 259s18 379s17
+156V13*Next{47|406I12} 7|385s25
+162U14*Next 7|173s10 265s13
+206V13*Is_Empty_List{boolean} 7|434s13
+226U14*Append 7|366s10
+320U14*Remove 7|365s10
+370U14*Set_Parent 7|196s13 197s13 656s7 670s7
+X 25 sinfo.ads
+54K9*Sinfo 7|35w6 35r20 25|14019e10
+8645E9*Node_Kind 7|444r53 25|9039e23
+8812n7*N_Component_Declaration{8645E9} 7|446r7
+8813n7*N_Entry_Declaration{8645E9} 7|448r7
+8814n7*N_Expression_Function{8645E9} 7|451r7
+8815n7*N_Formal_Object_Declaration{8645E9} 7|454r7
+8816n7*N_Formal_Type_Declaration{8645E9} 7|456r7
+8817n7*N_Full_Type_Declaration{8645E9} 7|457r7
+8821n7*N_Object_Declaration{8645E9} 7|462r7
+8822n7*N_Protected_Type_Declaration{8645E9} 7|475r7
+8823n7*N_Private_Extension_Declaration{8645E9} 7|470r7
+8824n7*N_Private_Type_Declaration{8645E9} 7|471r7
+8825n7*N_Subtype_Declaration{8645E9} 7|482r7
+8839n7*N_Task_Type_Declaration{8645E9} 7|485r7
+8843n7*N_Package_Body_Stub{8645E9} 7|465r7
+8844n7*N_Protected_Body_Stub{8645E9} 7|474r7
+8845n7*N_Subprogram_Body_Stub{8645E9} 7|393r31 479r7
+8846n7*N_Task_Body_Stub{8645E9} 7|484r7
+8851n7*N_Function_Instantiation{8645E9} 7|458r7
+8852n7*N_Procedure_Instantiation{8645E9} 7|472r7
+8856n7*N_Package_Instantiation{8645E9} 7|467r7
+8860n7*N_Package_Body{8645E9} 7|158r45 464r7
+8861n7*N_Subprogram_Body{8645E9} 7|160r45 478r7
+8865n7*N_Protected_Body{8645E9} 7|159r45 473r7
+8866n7*N_Task_Body{8645E9} 7|161r45 483r7
+8871n7*N_Package_Declaration{8645E9} 7|466r7
+8872n7*N_Single_Task_Declaration{8645E9} 7|414r44 477r7
+8873n7*N_Subprogram_Declaration{8645E9} 7|480r7
+8878n7*N_Generic_Package_Declaration{8645E9} 7|459r7
+8879n7*N_Generic_Subprogram_Declaration{8645E9} 7|461r7
+8888n7*N_Exception_Renaming_Declaration{8645E9} 7|450r7
+8889n7*N_Object_Renaming_Declaration{8645E9} 7|463r7
+8890n7*N_Package_Renaming_Declaration{8645E9} 7|469r7
+8891n7*N_Subprogram_Renaming_Declaration{8645E9} 7|481r7
+8946n7*N_Formal_Abstract_Subprogram_Declaration{8645E9} 7|452r7
+8947n7*N_Formal_Concrete_Subprogram_Declaration{8645E9} 7|453r7
+8970n7*N_Abstract_Subprogram_Declaration{8645E9} 7|445r7
+8973n7*N_Aspect_Specification{8645E9} 7|237r28 308r39
+8992n7*N_Entry_Body{8645E9} 7|157r45 447r7
+8995n7*N_Exception_Declaration{8645E9} 7|449r7
+9004n7*N_Formal_Package_Declaration{8645E9} 7|455r7
+9020n7*N_Package_Specification{8645E9} 7|468r7
+9029n7*N_Single_Protected_Declaration{8645E9} 7|413r44 476r7
+9060E12*N_Body_Stub{8645E9} 7|156r35
+9094E12*N_Generic_Renaming_Declaration{8645E9} 7|460r7
+9310V13*Aspect_Rep_Item{47|397I9} 7|288s32
+9349V13*Chars{20|188I9} 7|309s40
+9454V13*Corresponding_Spec_Of_Stub{47|397I9} 7|394s28
+9616V13*Expression{47|397I9} 7|288s20 290s20
+9745V13*Identifier{47|397I9} 7|309s47
+11457U14*Next_Rep_Item 7|243s10
+X 28 snames.ads
+34K9*Snames 6|68w6 68r19 28|2255e11
+140i4*Name_Default_Value{20|188I9} 6|437r46
+141i4*Name_Default_Component_Value{20|188I9} 6|433r46
+142i4*Name_Dimension{20|188I9} 6|439r46
+143i4*Name_Dimension_System{20|188I9} 6|440r46
+144i4*Name_Disable_Controlled{20|188I9} 6|441r46
+145i4*Name_Dynamic_Predicate{20|188I9} 6|444r46
+146i4*Name_Static_Predicate{20|188I9} 6|514r46
+147i4*Name_Synchronization{20|188I9} 6|522r46
+148i4*Name_Unimplemented{20|188I9} 6|526r46
+393i4*Name_Annotate{20|188I9} 6|419r46
+414i4*Name_Default_Storage_Pool{20|188I9} 6|436r46
+416i4*Name_Discard_Names{20|188I9} 6|442r46
+429i4*Name_Favor_Top_Level{20|188I9} 6|452r46
+445i4*Name_Persistent_BSS{20|188I9} 6|484r46
+464i4*Name_SPARK_Mode{20|188I9} 6|513r46
+466i4*Name_Suppress{20|188I9} 6|518r46
+470i4*Name_Universal_Data{20|188I9} 6|528r46
+471i4*Name_Unsuppress{20|188I9} 6|532r46
+475i4*Name_Warnings{20|188I9} 6|539r46
+482i4*Name_Abstract_State{20|188I9} 6|415r46
+487i4*Name_All_Calls_Remote{20|188I9} 6|418r46
+491i4*Name_Async_Readers{20|188I9} 6|420r46
+492i4*Name_Async_Writers{20|188I9} 6|421r46
+493i4*Name_Asynchronous{20|188I9} 6|422r46
+494i4*Name_Atomic{20|188I9} 6|423r46
+495i4*Name_Atomic_Components{20|188I9} 6|424r46
+496i4*Name_Attach_Handler{20|188I9} 6|425r46
+503i4*Name_Constant_After_Elaboration{20|188I9} 6|428r46
+504i4*Name_Contract_Cases{20|188I9} 6|430r46
+506i4*Name_Convention{20|188I9} 6|431r46
+519i4*Name_Default_Initial_Condition{20|188I9} 6|434r46
+520i4*Name_Depends{20|188I9} 6|438r46
+528i4*Name_Effective_Reads{20|188I9} 6|445r46
+529i4*Name_Effective_Writes{20|188I9} 6|446r46
+532i4*Name_Elaborate_Body{20|188I9} 6|447r46
+533i4*Name_Export{20|188I9} 6|448r46
+539i4*Name_Extensions_Visible{20|188I9} 6|449r46
+542i4*Name_Ghost{20|188I9} 6|453r46
+543i4*Name_Global{20|188I9} 6|454r46
+547i4*Name_Import{20|188I9} 6|456r46
+552i4*Name_Independent{20|188I9} 6|457r46
+553i4*Name_Independent_Components{20|188I9} 6|458r46
+554i4*Name_Initial_Condition{20|188I9} 6|461r46
+555i4*Name_Initializes{20|188I9} 6|462r46
+556i4*Name_Inline{20|188I9} 6|459r46
+557i4*Name_Inline_Always{20|188I9} 6|460r46
+567i4*Name_Interrupt_Handler{20|188I9} 6|464r46
+574i4*Name_Invariant{20|188I9} 6|466r46
+581i4*Name_Linker_Section{20|188I9} 6|470r46
+595i4*Name_Max_Entry_Queue_Depth{20|188I9} 6|473r46
+596i4*Name_Max_Queue_Length{20|188I9} 6|474r46
+599i4*Name_No_Elaboration_Code_All{20|188I9} 6|475r46
+600i4*Name_No_Inline{20|188I9} 6|476r46
+601i4*Name_No_Return{20|188I9} 6|477r46
+602i4*Name_No_Tagged_Streams{20|188I9} 6|478r46
+603i4*Name_Obsolescent{20|188I9} 6|480r46
+606i4*Name_Pack{20|188I9} 6|482r46
+608i4*Name_Part_Of{20|188I9} 6|483r46
+610i4*Name_Post{20|188I9} 6|485r46
+611i4*Name_Postcondition{20|188I9} 6|486r46
+613i4*Name_Pre{20|188I9} 6|487r46
+614i4*Name_Precondition{20|188I9} 6|488r46
+615i4*Name_Predicate{20|188I9} 6|489r46
+616i4*Name_Predicate_Failure{20|188I9} 6|490r46
+617i4*Name_Preelaborable_Initialization{20|188I9} 6|491r46
+618i4*Name_Preelaborate{20|188I9} 6|492r46
+629i4*Name_Pure{20|188I9} 6|494r46
+630i4*Name_Pure_Function{20|188I9} 6|495r46
+631i4*Name_Refined_Depends{20|188I9} 6|497r46
+632i4*Name_Refined_Global{20|188I9} 6|498r46
+633i4*Name_Refined_Post{20|188I9} 6|499r46
+634i4*Name_Refined_State{20|188I9} 6|500r46
+635i4*Name_Relative_Deadline{20|188I9} 6|501r46
+636i4*Name_Remote_Access_Type{20|188I9} 6|502r46
+637i4*Name_Remote_Call_Interface{20|188I9} 6|503r46
+638i4*Name_Remote_Types{20|188I9} 6|504r46
+646i4*Name_Shared{20|188I9} 6|507r46
+647i4*Name_Shared_Passive{20|188I9} 6|508r46
+648i4*Name_Simple_Storage_Pool_Type{20|188I9} 6|510r46
+663i4*Name_Suppress_Debug_Info{20|188I9} 6|519r46
+664i4*Name_Suppress_Initialization{20|188I9} 6|520r46
+666i4*Name_Test_Case{20|188I9} 6|523r46
+670i4*Name_Thread_Local_Storage{20|188I9} 6|521r46
+673i4*Name_Type_Invariant{20|188I9} 6|524r46
+675i4*Name_Unchecked_Union{20|188I9} 6|525r46
+677i4*Name_Universal_Aliasing{20|188I9} 6|527r46
+678i4*Name_Unmodified{20|188I9} 6|529r46
+679i4*Name_Unreferenced{20|188I9} 6|530r46
+680i4*Name_Unreferenced_Objects{20|188I9} 6|531r46
+683i4*Name_Volatile{20|188I9} 6|535r46
+684i4*Name_Volatile_Components{20|188I9} 6|536r46
+685i4*Name_Volatile_Full_Access{20|188I9} 6|537r46
+686i4*Name_Volatile_Function{20|188I9} 6|538r46
+760i4*Name_External_Name{20|188I9} 6|450r46
+781i4*Name_Link_Name{20|188I9} 6|469r46
+908i4*Name_Address{20|188I9} 6|416r46
+911i4*Name_Alignment{20|188I9} 6|417r46
+916i4*Name_Bit_Order{20|188I9} 6|426r46
+923i4*Name_Component_Size{20|188I9} 6|427r46
+925i4*Name_Constant_Indexing{20|188I9} 6|429r46
+930i4*Name_Default_Iterator{20|188I9} 6|435r46
+944i4*Name_External_Tag{20|188I9} 6|451r46
+958i4*Name_Implicit_Dereference{20|188I9} 6|455r46
+961i4*Name_Iterator_Element{20|188I9} 6|467r46
+962i4*Name_Iterable{20|188I9} 6|468r46
+970i4*Name_Lock_Free{20|188I9} 6|471r46
+976i4*Name_Machine_Radix{20|188I9} 6|472r46
+992i4*Name_Object_Size{20|188I9} 6|479r46
+1000i4*Name_Priority{20|188I9} 6|493r46
+1012i4*Name_Scalar_Storage_Order{20|188I9} 6|505r46
+1016i4*Name_Size{20|188I9} 6|511r46
+1017i4*Name_Small{20|188I9} 6|512r46
+1018i4*Name_Storage_Size{20|188I9} 6|516r46
+1020i4*Name_Stream_Size{20|188I9} 6|517r46
+1038i4*Name_Value_Size{20|188I9} 6|533r46
+1039i4*Name_Variable_Indexing{20|188I9} 6|534r46
+1059i4*Name_Input{20|188I9} 6|463r46
+1081i4*Name_Output{20|188I9} 6|481r46
+1082i4*Name_Read{20|188I9} 6|496r46
+1083i4*Name_Write{20|188I9} 6|540r46
+1095i4*Name_Simple_Storage_Pool{20|188I9} 6|509r46
+1096i4*Name_Storage_Pool{20|188I9} 6|515r46
+1125i4*Name_CPU{20|188I9} 6|432r46
+1126i4*Name_Dispatching_Domain{20|188I9} 6|443r46
+1127i4*Name_Interrupt_Priority{20|188I9} 6|465r46
+1128i4*Name_Secondary_Stack_Size{20|188I9} 6|506r46
+X 30 system.ads
+67M9*Address
+X 33 s-htable.ads
+56I12 Header_Num 7|100r9 124r9
+59+12 Element 7|101r9 125r9
+62*7 No_Element{59+12} 7|102r9 126r9
+66+12 Key 7|103r9 127r9
+67V21 Hash{56I12} 7|104r9 128r9
+68V21 Equal{boolean} 7|105r9 129r9
+72U17*Set 7|198s46[98] 199s46[98] 657s40[98] 671s40[98] 711s28[122]
+79V16*Get{47|446I9} 7|138s50[98] 303s35[122] 309s35[122]
+83U17*Remove 7|330s43[98] 500s43[98]
+98U17*Get_First 7|698s40[98]
+105U17*Get_Next 7|703s43[98]
+X 35 s-memory.ads
+53V13*Alloc{30|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{30|67M9} 105i<c,__gnat_realloc>22
+X 46 tree_io.ads
+45K9*Tree_IO 7|36w6 36r20 46|128e12
+91U14*Tree_Read_Int 7|683s10 684s10
+118U14*Tree_Write_Int 7|700s10 701s10
+X 47 types.ads
+52K9*Types 6|69w6 69r19 47|948e10
+59I9*Int<integer> 7|683r25 684r25 700r26 701r26
+397I9*Node_Id<integer> 6|547r37 863r40 877r45 881r37 881r51 886r64 892r30
+. 899r35 899r49 904r44 904r58 915r48 920r34 929r45 7|73r54 90r26 93r26 103r23
+. 135r40 148r45 149r17 183r37 183r51 208r64 209r15 210r15 212r15 281r30 283r23
+. 306r37 325r35 325r49 339r44 339r58 340r40 347r40 371r18 373r18 488r48 497r34
+. 649r45 664r54 679r14 695r14
+400I12*Entity_Id{397I9} 6|886r31 891r12 896r30 7|208r31 211r15 280r12 316r30
+406I12*Node_Or_Entity_Id{397I9}
+412i4*Empty{397I9} 7|272r14 294r14 695r25
+446I9*List_Id<integer> 6|863r56 929r58 7|73r67 101r23 135r56 150r17 193r27
+. 194r27 348r17 649r58 664r67 680r14 696r14
+449i4*No_List{446I9} 7|102r23 140r17 653r27 667r27 685r27 702r27
+

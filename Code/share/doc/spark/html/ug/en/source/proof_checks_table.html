@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7.2.5.1. Messages reported by Proof &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7.2.5.2. Messages reported by Flow Analysis" href="flow_checks_table.html" />
+    <link rel="prev" title="7.2. How to View GNATprove Output" href="how_to_view_gnatprove_output.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="flow_checks_table.html" title="7.2.5.2. Messages reported by Flow Analysis"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="how_to_view_gnatprove_output.html" title="7.2. How to View GNATprove Output"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" >7. Formal Verification with GNATprove</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="how_to_view_gnatprove_output.html" accesskey="U">7.2. How to View GNATprove Output</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="how_to_view_gnatprove_output.html"
+                        title="previous chapter">7.2. How to View GNATprove Output</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="flow_checks_table.html"
+                        title="next chapter">7.2.5.2. Messages reported by Flow Analysis</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/proof_checks_table.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="messages-reported-by-proof">
+<h1>7.2.5.1. Messages reported by Proof<a class="headerlink" href="#messages-reported-by-proof" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="17%" />
+<col width="17%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Message Kind</th>
+<th class="head">CWE</th>
+<th class="head">Explanation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>run-time checks</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>divide by zero</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/369.html">369</a></td>
+<td>Check that the second operand of the division, mod or rem operation is different from zero.</td>
+</tr>
+<tr class="row-even"><td>index check</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/120.html">120</a></td>
+<td>Check that the given index is within the bounds of the array.</td>
+</tr>
+<tr class="row-odd"><td>overflow check</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/190.html">190</a></td>
+<td>Check that the result of the given integer arithmetic operation is within the bounds of the base type.</td>
+</tr>
+<tr class="row-even"><td>fp_overflow check</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/739.html">739</a></td>
+<td>Check that the result of the given floating point operation is within the bounds of the base type.</td>
+</tr>
+<tr class="row-odd"><td>range check</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/682.html">682</a></td>
+<td>Check that the given value is within the bounds of the expected scalar subtype.</td>
+</tr>
+<tr class="row-even"><td>predicate check</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/682.html">682</a></td>
+<td>Check that the given value respects the applicable type predicate.</td>
+</tr>
+<tr class="row-odd"><td>predicate check on default value</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/682.html">682</a></td>
+<td>Check that the default value for the type respects the applicable type predicate.</td>
+</tr>
+<tr class="row-even"><td>null pointer dereference</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/476.html">476</a></td>
+<td>Check that the given pointer is not null so that it can be dereferenced.</td>
+</tr>
+<tr class="row-odd"><td>null exclusion</td>
+<td>&nbsp;</td>
+<td>Check that the the subtype_indication of the allocator does not specify a null_exclusion</td>
+</tr>
+<tr class="row-even"><td>length check</td>
+<td>&nbsp;</td>
+<td>Check that the given array is of the length of the expected array subtype.</td>
+</tr>
+<tr class="row-odd"><td>discriminant check</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/136.html">136</a></td>
+<td>Check that the discriminant of the given discriminated record has the expected value. For variant records, this can happen for a simple access to a record field. But there are other cases where a fixed value of the discriminant is required.</td>
+</tr>
+<tr class="row-even"><td>tag check</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/136.html">136</a></td>
+<td>Check that the tag of the given tagged object has the expected value.</td>
+</tr>
+<tr class="row-odd"><td>ceiling priority in Interrupt_Priority</td>
+<td>&nbsp;</td>
+<td>Check that the ceiling priority specified for a protected object containing a procedure with an aspect Attach_Handler is in Interrupt_Priority.</td>
+</tr>
+<tr class="row-even"><td>use of an uninitialized variable</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/457.html">457</a></td>
+<td>Check that a variable is initialized</td>
+</tr>
+<tr class="row-odd"><td>interrupt is reserved</td>
+<td>&nbsp;</td>
+<td>Check that the interrupt specified by Attach_Handler is not reserved.</td>
+</tr>
+<tr class="row-even"><td>invariant check</td>
+<td>&nbsp;</td>
+<td>Check that the given value respects the applicable type invariant.</td>
+</tr>
+<tr class="row-odd"><td>invariant check on default value</td>
+<td>&nbsp;</td>
+<td>Check that the default value for the type respects the applicable type invariant.</td>
+</tr>
+<tr class="row-even"><td>ceiling priority protocol</td>
+<td>&nbsp;</td>
+<td>Check that the ceiling priority protocol is respected, i.e., when a task calls a protected operation, the active priority of the task is not higher than the priority of the protected object (Ada RM Annex D.3).</td>
+</tr>
+<tr class="row-odd"><td>task termination</td>
+<td>&nbsp;</td>
+<td>Check that the task does not terminate, as required by Ravenscar.</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><strong>assertions</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>initial condition</td>
+<td>&nbsp;</td>
+<td>Check that the initial condition of a package is true after elaboration.</td>
+</tr>
+<tr class="row-odd"><td>default initial condition</td>
+<td>&nbsp;</td>
+<td>Check that the default initial condition of a type is true after default initialization of an object of the type.</td>
+</tr>
+<tr class="row-even"><td>precondition</td>
+<td>&nbsp;</td>
+<td>Check that the precondition aspect of the given call evaluates to True.</td>
+</tr>
+<tr class="row-odd"><td>precondition of main</td>
+<td>&nbsp;</td>
+<td>Check that the precondition aspect of the given main procedure evaluates to True after elaboration.</td>
+</tr>
+<tr class="row-even"><td>postcondition</td>
+<td>&nbsp;</td>
+<td>Check that the postcondition aspect of the subprogram evaluates to True.</td>
+</tr>
+<tr class="row-odd"><td>refined postcondition</td>
+<td>&nbsp;</td>
+<td>Check that the refined postcondition aspect of the subprogram evaluates to True.</td>
+</tr>
+<tr class="row-even"><td>contract case</td>
+<td>&nbsp;</td>
+<td>Check that all cases of the contract case evaluate to true at the end of the subprogram.</td>
+</tr>
+<tr class="row-odd"><td>disjoint contract cases</td>
+<td>&nbsp;</td>
+<td>Check that the cases of the contract cases aspect are all mutually disjoint.</td>
+</tr>
+<tr class="row-even"><td>complete contract cases</td>
+<td>&nbsp;</td>
+<td>Check that the cases of the contract cases aspect cover the state space that is allowed by the precondition aspect.</td>
+</tr>
+<tr class="row-odd"><td>loop invariant</td>
+<td>&nbsp;</td>
+<td>Check that the loop invariant evaluates to True on all iterations of the loop.</td>
+</tr>
+<tr class="row-even"><td>loop invariant in first iteration</td>
+<td>&nbsp;</td>
+<td>Check that the loop invariant evaluates to True on the first iteration of the loop.</td>
+</tr>
+<tr class="row-odd"><td>loop invariant after first iteration</td>
+<td>&nbsp;</td>
+<td>Check that the loop invariant evaluates to True at each further iteration of the loop.</td>
+</tr>
+<tr class="row-even"><td>loop variant</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/835.html">835</a></td>
+<td>Check that the given loop variant decreases/increases as specified during each iteration of the loop. This implies termination of the loop.</td>
+</tr>
+<tr class="row-odd"><td>assertion</td>
+<td>&nbsp;</td>
+<td>Check that the given assertion evaluates to True.</td>
+</tr>
+<tr class="row-even"><td>raised exception</td>
+<td>&nbsp;</td>
+<td>Check that the raise statement can never be reached.</td>
+</tr>
+<tr class="row-odd"><td>Inline_For_Proof annotation</td>
+<td>&nbsp;</td>
+<td>Check that an Annotate pragma with the Inline_For_Proof identifier is correct.</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><strong>Liskov Substitution Principle</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>precondition weaker than class-wide precondition</td>
+<td>&nbsp;</td>
+<td>Check that the precondition aspect of the subprogram is weaker than its class-wide precondition.</td>
+</tr>
+<tr class="row-odd"><td>precondition not True while class-wide precondition is True</td>
+<td>&nbsp;</td>
+<td>Check that the precondition aspect of the subprogram is True if its class-wide precondition is True.</td>
+</tr>
+<tr class="row-even"><td>postcondition stronger than class-wide postcondition</td>
+<td>&nbsp;</td>
+<td>Check that the postcondition aspect of the subprogram is stronger than its class-wide postcondition.</td>
+</tr>
+<tr class="row-odd"><td>class-wide precondition weaker than overridden one</td>
+<td>&nbsp;</td>
+<td>Check that the class-wide precondition aspect of the subprogram is weaker than its overridden class-wide precondition.</td>
+</tr>
+<tr class="row-even"><td>class-wide postcondition stronger than overridden one</td>
+<td>&nbsp;</td>
+<td>Check that the class-wide postcondition aspect of the subprogram is stronger than its overridden class-wide postcondition.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="flow_checks_table.html" title="7.2.5.2. Messages reported by Flow Analysis"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="how_to_view_gnatprove_output.html" title="7.2. How to View GNATprove Output"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" >7. Formal Verification with GNATprove</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="how_to_view_gnatprove_output.html" >7.2. How to View GNATprove Output</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

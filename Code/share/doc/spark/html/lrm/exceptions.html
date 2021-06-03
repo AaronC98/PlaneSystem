@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>11. Exceptions &#8212; SPARK 2014 Reference Manual 2019</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="12. Generic Units" href="generic-units.html" />
+    <link rel="prev" title="10. Program Structure and Compilation Issues" href="program-structure-and-compilation-issues.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="generic-units.html" title="12. Generic Units"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="program-structure-and-compilation-issues.html" title="10. Program Structure and Compilation Issues"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">11. Exceptions</a><ul>
+<li><a class="reference internal" href="#exception-declarations">11.1. Exception Declarations</a></li>
+<li><a class="reference internal" href="#exception-handlers">11.2. Exception Handlers</a></li>
+<li><a class="reference internal" href="#raise-statements">11.3. Raise Statements</a></li>
+<li><a class="reference internal" href="#exception-handling">11.4. Exception Handling</a><ul>
+<li><a class="reference internal" href="#the-package-exceptions">11.4.1. The Package Exceptions</a></li>
+<li><a class="reference internal" href="#pragmas-assert-and-assertion-policy">11.4.2. Pragmas Assert and Assertion_Policy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="program-structure-and-compilation-issues.html"
+                        title="previous chapter">10. Program Structure and Compilation Issues</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="generic-units.html"
+                        title="next chapter">12. Generic Units</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/exceptions.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="exceptions">
+<span id="id1"></span><h1>11. Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="exception-declarations">
+<h2>11.1. Exception Declarations<a class="headerlink" href="#exception-declarations" title="Permalink to this headline">¶</a></h2>
+<p>No additions or restrictions</p>
+</div>
+<div class="section" id="exception-handlers">
+<h2>11.2. Exception Handlers<a class="headerlink" href="#exception-handlers" title="Permalink to this headline">¶</a></h2>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-exception-handlers-01">
+<li>Exception handlers are not permitted in SPARK 2014.</li>
+</ol>
+</div>
+<div class="section" id="raise-statements">
+<span id="etu-exception-handlers"></span><h2>11.3. Raise Statements<a class="headerlink" href="#raise-statements" title="Permalink to this headline">¶</a></h2>
+<p>Raise statements are in SPARK 2014, but must (as described below) be
+provably never executed.</p>
+<p class="centered">
+<strong><strong>Verification Rules</strong></strong></p><ol class="arabic" id="tu-raise-statements-01">
+<li><p class="first">A <code class="docutils literal"><span class="pre">raise_statement</span></code> introduces an obligation to prove that the statement
+will not be executed, much like the verification condition associated with</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">pragma</span> <span class="pre">Assert</span> <span class="pre">(False);</span></code></p>
+</div></blockquote>
+<p>[In other words, the verification conditions introduced for a raise
+statement are the same as those introduced for a run-time check
+which fails unconditionally.]</p>
+</li>
+</ol>
+</div>
+<div class="section" id="exception-handling">
+<span id="etu-raise-statements-vr"></span><h2>11.4. Exception Handling<a class="headerlink" href="#exception-handling" title="Permalink to this headline">¶</a></h2>
+<p>No additions or restrictions but exception handlers are not permitted in SPARK 2014.</p>
+<div class="section" id="the-package-exceptions">
+<h3>11.4.1. The Package Exceptions<a class="headerlink" href="#the-package-exceptions" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="pragmas-assert-and-assertion-policy">
+<h3>11.4.2. Pragmas Assert and Assertion_Policy<a class="headerlink" href="#pragmas-assert-and-assertion-policy" title="Permalink to this headline">¶</a></h3>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-pragmas-assert-and-assertion-policy-01">
+<li>The pragmas <code class="docutils literal"><span class="pre">Assertion_Policy</span></code>, <code class="docutils literal"><span class="pre">Suppress</span></code>, and <code class="docutils literal"><span class="pre">Unsuppress</span></code> are
+allowed in SPARK 2014, but have no effect on the generation of verification
+conditions. [For example, an array index value must be shown to be in
+bounds regardless of whether Index_Check is suppressed at the point
+of the array indexing.]</li>
+</ol>
+<ol class="arabic" id="tu-pragmas-assert-and-assertion-policy-02" start="2">
+<li><p class="first">The following SPARK 2014 defined aspects and pragmas are assertions and
+their <em>Boolean_</em><code class="docutils literal"><span class="pre">expressions</span></code> are assertion expressions:</p>
+<ul class="simple">
+<li>Assert_And_Cut;</li>
+<li>Assume;</li>
+<li>Contract_Cases;</li>
+<li>Default_Initial_Condition;</li>
+<li>Initial_Condition;</li>
+<li>Loop_Invariant;</li>
+<li>Loop_Variant; and</li>
+<li>Refined_Post.</li>
+</ul>
+<p>There is an <em>assertion_</em><code class="docutils literal"><span class="pre">aspect_mark</span></code> for each of these aspects
+and pragmas with the same identifier as the corresponding aspect or
+pragma. In addition, Ghost is a SPARK 2014 defined
+<em>assertion_</em><code class="docutils literal"><span class="pre">aspect_mark</span></code>.</p>
+<p>An implementation may introduce further implementation defined
+<em>assertion_</em><code class="docutils literal"><span class="pre">aspect_marks</span></code> some of which may apply to groups of
+these assertions.</p>
+</li>
+</ol>
+<span class="target" id="etu-pragmas-assert-and-assertion-policy"></span></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="generic-units.html" title="12. Generic Units"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="program-structure-and-compilation-issues.html" title="10. Program Structure and Compilation Issues"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

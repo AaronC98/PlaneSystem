@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7.5. How to Write Object Oriented Contracts &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7.6. How to Write Package Contracts" href="how_to_write_package_contracts.html" />
+    <link rel="prev" title="7.4. How to Write Subprogram Contracts" href="how_to_write_subprogram_contracts.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="how_to_write_package_contracts.html" title="7.6. How to Write Package Contracts"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="how_to_write_subprogram_contracts.html" title="7.4. How to Write Subprogram Contracts"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" accesskey="U">7. Formal Verification with GNATprove</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">7.5. How to Write Object Oriented Contracts</a><ul>
+<li><a class="reference internal" href="#object-oriented-code-without-dispatching">7.5.1. Object Oriented Code Without Dispatching</a></li>
+<li><a class="reference internal" href="#writing-contracts-on-dispatching-subprograms">7.5.2. Writing Contracts on Dispatching Subprograms</a></li>
+<li><a class="reference internal" href="#writing-contracts-on-subprograms-with-class-wide-parameters">7.5.3. Writing Contracts on Subprograms with Class-wide Parameters</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="how_to_write_subprogram_contracts.html"
+                        title="previous chapter">7.4. How to Write Subprogram Contracts</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="how_to_write_package_contracts.html"
+                        title="next chapter">7.6. How to Write Package Contracts</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/how_to_write_object_oriented_contracts.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-write-object-oriented-contracts">
+<span id="id1"></span><h1>7.5. How to Write Object Oriented Contracts<a class="headerlink" href="#how-to-write-object-oriented-contracts" title="Permalink to this headline">¶</a></h1>
+<p>Object Oriented Programming (OOP) may require the use of special
+<a class="reference internal" href="object_oriented_programming.html#class-wide-subprogram-contracts"><span class="std std-ref">Class-Wide Subprogram Contracts</span></a> for dispatching subprograms, so that
+GNATprove can check Liskov Substitution Principle on every overriding
+subprogram.</p>
+<div class="section" id="object-oriented-code-without-dispatching">
+<h2>7.5.1. Object Oriented Code Without Dispatching<a class="headerlink" href="#object-oriented-code-without-dispatching" title="Permalink to this headline">¶</a></h2>
+<p>In the special case where OOP is used without dispatching, it is possible to
+use the regular <a class="reference internal" href="subprogram_contracts.html#subprogram-contracts"><span class="std std-ref">Subprogram Contracts</span></a> instead of the special
+<a class="reference internal" href="object_oriented_programming.html#class-wide-subprogram-contracts"><span class="std std-ref">Class-Wide Subprogram Contracts</span></a>.</p>
+<p>For example, consider a variant of the <code class="docutils literal"><span class="pre">Logging</span></code> and <code class="docutils literal"><span class="pre">Range_Logging</span></code> units
+presented in <a class="reference internal" href="object_oriented_programming.html#class-wide-subprogram-contracts"><span class="std std-ref">Class-Wide Subprogram Contracts</span></a>, where no dispatching is
+allowed. Then, it is possible to use regular preconditions and postconditions
+as contracts, provided <code class="docutils literal"><span class="pre">Log_Type</span></code> is publicly declared as an untagged private
+type in both units:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Logging_No_Dispatch</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Max_Count</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="o">:=</span> <span class="mi">10_000</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Log_Count</span> <span class="kr">is</span><span class="p"> </span><span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="n">Max_Count</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Log_Type</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Log_Size</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Log_Count</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Init_Log</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Log_Type</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Log_Size</span> <span class="o">(</span><span class="n">Log</span><span class="o">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Append_To_Log</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Log_Type</span><span class="p">;</span> <span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">Log_Size</span> <span class="o">(</span><span class="n">Log</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">Max_Count</span><span class="p">,</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Log_Size</span> <span class="o">(</span><span class="n">Log</span><span class="o">)</span> <span class="o">=</span> <span class="n">Log_Size</span> <span class="o">(</span><span class="n">Log</span><span class="o">)</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="kr">private</span><span class="p"></span>
+
+   <span class="kr">subtype</span><span class="p"> </span><span class="n">Log_Index</span> <span class="kr">is</span><span class="p"> </span><span class="n">Log_Count</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="n">Max_Count</span><span class="p">;</span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Integer_Array</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Log_Index</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Log_Type</span> <span class="kr">is</span><span class="p"> </span><span class="kr">tagged</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">Log_Data</span> <span class="o">:</span> <span class="n">Integer_Array</span><span class="p">;</span>
+      <span class="n">Log_Size</span> <span class="o">:</span> <span class="n">Log_Count</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Log_Size</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Log_Count</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Log.Log_Size</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Logging_No_Dispatch</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Logging_No_Dispatch</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Logging_No_Dispatch;</span>
+
+<span class="k">package </span><span class="nf">Range_Logging_No_Dispatch</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Log_Type</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Log_Size</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Log_Count</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Log_Min</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Log_Max</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Init_Log</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Log_Type</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Log_Size</span> <span class="o">(</span><span class="n">Log</span><span class="o">)</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"></span>
+             <span class="n">Log_Min</span> <span class="o">(</span><span class="n">Log</span><span class="o">)</span> <span class="o">=</span> <span class="n">Integer</span><span class="na">&#39;Last</span> <span class="kr">and</span><span class="p"></span>
+             <span class="n">Log_Max</span> <span class="o">(</span><span class="n">Log</span><span class="o">)</span> <span class="o">=</span> <span class="n">Integer</span><span class="na">&#39;First</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Append_To_Log</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Log_Type</span><span class="p">;</span> <span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">Log_Size</span> <span class="o">(</span><span class="n">Log</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">Logging_No_Dispatch.Max_Count</span><span class="p">,</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Log_Size</span> <span class="o">(</span><span class="n">Log</span><span class="o">)</span> <span class="o">=</span> <span class="n">Log_Size</span> <span class="o">(</span><span class="n">Log</span><span class="o">)</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="mi">1</span> <span class="kr">and</span><span class="p"></span>
+             <span class="n">Log_Min</span> <span class="o">(</span><span class="n">Log</span><span class="o">)</span> <span class="o">=</span> <span class="n">Integer</span><span class="na">&#39;Min</span> <span class="o">(</span><span class="n">Log_Min</span> <span class="o">(</span><span class="n">Log</span><span class="o">)</span><span class="na">&#39;Old</span><span class="p">,</span> <span class="n">Incr</span><span class="o">)</span> <span class="kr">and</span><span class="p"></span>
+             <span class="n">Log_Max</span> <span class="o">(</span><span class="n">Log</span><span class="o">)</span> <span class="o">=</span> <span class="n">Integer</span><span class="na">&#39;Max</span> <span class="o">(</span><span class="n">Log_Max</span> <span class="o">(</span><span class="n">Log</span><span class="o">)</span><span class="na">&#39;Old</span><span class="p">,</span> <span class="n">Incr</span><span class="o">)</span><span class="p">;</span>
+
+<span class="kr">private</span><span class="p"></span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Log_Type</span> <span class="kr">is</span><span class="p"> </span><span class="kr">tagged</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+     <span class="n">Log</span> <span class="o">:</span> <span class="n">Logging_No_Dispatch.Log_Type</span><span class="p">;</span>
+     <span class="n">Min_Entry</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+     <span class="n">Max_Entry</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Log_Size</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Log_Count</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Log_Size</span> <span class="o">(</span><span class="n">Log.Log</span><span class="o">))</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Log_Min</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Log.Min_Entry</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">function </span><span class="nf">Log_Max</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Log.Max_Entry</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Range_Logging_No_Dispatch</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="writing-contracts-on-dispatching-subprograms">
+<h2>7.5.2. Writing Contracts on Dispatching Subprograms<a class="headerlink" href="#writing-contracts-on-dispatching-subprograms" title="Permalink to this headline">¶</a></h2>
+<p>Whenever dispatching is used, the contract that applies in proof to a
+dispatching call is the class-wide contract, defined as the first one present
+in the following list:</p>
+<ol class="arabic simple">
+<li>the class-wide precondition (resp. postcondition) attached to the subprogram</li>
+<li>or otherwise the class-wide precondition (resp. postcondition) being
+inherited by the subprogram from the subprogram it overrides</li>
+<li>or otherwise the default class-wide precondition (resp. postcondition) of
+<code class="docutils literal"><span class="pre">True</span></code>.</li>
+</ol>
+<p>For abstract subprograms (on interfaces or regular tagged types), only a
+class-wide contract can be specified. For other dispatching subprograms, it is
+possible to specify both a regular contract and a class-wide contract. In such
+a case, GNATprove uses the regular contract to analyze static calls to the
+subprogram and the class-wide contract to analyze dispatching calls to the
+subprogram, and it checks that the specific contract is a refinement of the
+class-wide contract, as explained in <a class="reference internal" href="object_oriented_programming.html#mixing-class-wide-and-specific-subprogram-contracts"><span class="std std-ref">Mixing Class-Wide and Specific Subprogram Contracts</span></a>.</p>
+<p>Let&#8217;s consider the various cases that may occur when overridding a subprogram:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Geometry</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Shape</span> <span class="kr">is</span><span class="p"> </span><span class="kr">tagged</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">Pos_X</span><span class="p">,</span> <span class="n">Pos_Y</span> <span class="o">:</span> <span class="n">Float</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Valid</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="n">Shape</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">is</span><span class="p"></span>
+     <span class="o">(</span><span class="n">S.Pos_X</span> <span class="kr">in</span><span class="p"> </span><span class="o">-</span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span> <span class="o">..</span> <span class="mi">100</span><span class="o">.</span><span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="n">S.Pos_Y</span> <span class="kr">in</span><span class="p"> </span><span class="o">-</span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span> <span class="o">..</span> <span class="mi">100</span><span class="o">.</span><span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Operate</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Shape</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span><span class="na">&#39;Class</span> <span class="o">=&gt;</span> <span class="n">Valid</span> <span class="o">(</span><span class="n">S</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Default</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Shape</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span><span class="na">&#39;Class</span> <span class="o">=&gt;</span> <span class="n">Valid</span> <span class="o">(</span><span class="n">S</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Default_Repeat</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Shape</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span><span class="na">&#39;Class</span> <span class="o">=&gt;</span> <span class="n">Valid</span> <span class="o">(</span><span class="n">S</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Default_No_Post</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Shape</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Rectangle</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Shape</span> <span class="kr">with</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">Len_X</span><span class="p">,</span> <span class="n">Len_Y</span> <span class="o">:</span> <span class="n">Float</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Valid</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="n">Rectangle</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">is</span><span class="p"></span>
+     <span class="o">(</span><span class="n">Valid</span> <span class="o">(</span><span class="n">Shape</span> <span class="o">(</span><span class="n">S</span><span class="o">))</span> <span class="kr">and</span><span class="p"> </span><span class="n">S.Len_X</span> <span class="kr">in</span><span class="p"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span> <span class="o">..</span> <span class="mi">10</span><span class="o">.</span><span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="n">S.Len_Y</span> <span class="kr">in</span><span class="p"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span> <span class="o">..</span> <span class="mi">10</span><span class="o">.</span><span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Operate</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Rectangle</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Default</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Rectangle</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Default_Repeat</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Rectangle</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span><span class="na">&#39;Class</span> <span class="o">=&gt;</span> <span class="n">Valid</span> <span class="o">(</span><span class="n">S</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Default_No_Post</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Rectangle</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span><span class="na">&#39;Class</span> <span class="o">=&gt;</span> <span class="n">Valid</span> <span class="o">(</span><span class="n">S</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Geometry</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>In package <code class="docutils literal"><span class="pre">Geometry</span></code>, a type <code class="docutils literal"><span class="pre">Shape</span></code> is derived in a type <code class="docutils literal"><span class="pre">Rectangle</span></code>. A
+function <code class="docutils literal"><span class="pre">Shape.Valid</span></code> defines what it is to be a valid shape. It is
+overridden by <code class="docutils literal"><span class="pre">Rectangle.Valid</span></code> which defines what it is to be a valid
+rectangle. Here, a valid rectangle is also a valid shape, but that need not be
+the case. Procedure <code class="docutils literal"><span class="pre">Set_Default</span></code> and its variants demonstrate the various
+configurations that can be found in practice:</p>
+<ol class="arabic simple">
+<li>The overridden subprogram <code class="docutils literal"><span class="pre">Shape.Set_Default</span></code> defines a class-wide
+contract (here only a postcondition), which is inherited in the overriding
+subprogram <code class="docutils literal"><span class="pre">Rectangle.Set_Default</span></code>. By the semantics of Ada, the
+postcondition of <code class="docutils literal"><span class="pre">Shape.Set_Default</span></code> calls <code class="docutils literal"><span class="pre">Shape.Valid</span></code>, while the
+inherited postcondition of <code class="docutils literal"><span class="pre">Rectangle.Set_Default</span></code> calls
+<code class="docutils literal"><span class="pre">Rectangle.Valid</span></code>.</li>
+<li>Both the overridden subprogram <code class="docutils literal"><span class="pre">Shape.Set_Default_Repeat</span></code> and the
+overriding subprogram <code class="docutils literal"><span class="pre">Rectangle.Set_Default_Repeat</span></code> define a class-wide
+contract (here only a postcondition). Here, since the contract is simply
+repeated, this is equivalent to case 1 above of inheriting the contract: the
+postcondition of <code class="docutils literal"><span class="pre">Shape.Set_Default_Repeat</span></code> calls <code class="docutils literal"><span class="pre">Shape.Valid</span></code>, while
+the postcondition of <code class="docutils literal"><span class="pre">Rectangle.Set_Default_Repeat</span></code> calls
+<code class="docutils literal"><span class="pre">Rectangle.Valid</span></code>.</li>
+<li>Only the overriding subprogram <code class="docutils literal"><span class="pre">Rectangle.Set_Default_No_Post</span></code> defines a
+class-wide contract (here only a postcondition). The default class-wide
+postcondition of <code class="docutils literal"><span class="pre">True</span></code> is used for the overridden
+<code class="docutils literal"><span class="pre">Shape.Set_Default_No_Post</span></code>.</li>
+</ol>
+<p>In case 1, the overriding subprogram satisfies Liskov Substitution Principle by
+construction, so GNATprove emits no check in that case. Note that this is not
+the same as saying that <code class="docutils literal"><span class="pre">Shape.Set_Default</span></code> and <code class="docutils literal"><span class="pre">Rectangle.Set_Default</span></code>
+have the same contract: here the two postconditions differ, as one calls
+<code class="docutils literal"><span class="pre">Shape.Valid</span></code>, while the other calls <code class="docutils literal"><span class="pre">Rectangle.Valid</span></code>.</p>
+<p>In case 2, GNATprove checks that Liskov Substitution Principle is verified
+between the contracts of the overridden and the overriding subprograms. Here,
+it checks that the postcondition of <code class="docutils literal"><span class="pre">Rectangle.Set_Default_Repeat</span></code> is
+stronger than the postcondition of <code class="docutils literal"><span class="pre">Shape.Set_Default_Repeat</span></code>.</p>
+<p>In case 3, GNATprove also checks that Liskov Substitution Principle is
+verified between the default contract of the overridden subprogram and the
+specified contract of the overriding subprograms. Here, only a postcondition is
+specified for <code class="docutils literal"><span class="pre">Rectangle.Set_Default_No_Post</span></code>, so it is indeed stronger than
+the default postcondition of <code class="docutils literal"><span class="pre">Shape.Set_Default_No_Post</span></code>.</p>
+<p>Hence the results of GNATprove&#8216;s analysis on this program:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>geometry.ads:34:20: info: class-wide postcondition is stronger than overridden one
+geometry.ads:37:20: info: class-wide postcondition is stronger than overridden one
+</pre></div>
+</div>
+<p>Let&#8217;s consider now calls to these subprograms in procedure <code class="docutils literal"><span class="pre">Use_Geometry</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Geometry</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Geometry;</span>
+
+<span class="k">procedure </span><span class="nf">Use_Geometry</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Shape</span><span class="na">&#39;Class</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">S.Set_Default</span><span class="p">;</span>
+   <span class="n">S.Operate</span><span class="p">;</span>
+
+   <span class="n">S.Set_Default_Repeat</span><span class="p">;</span>
+   <span class="n">S.Operate</span><span class="p">;</span>
+
+   <span class="n">S.Set_Default_No_Post</span><span class="p">;</span>
+   <span class="n">S.Operate</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Use_Geometry</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Here are the results of GNATprove&#8216;s analysis on this program:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>use_geometry.adb:8:05: info: precondition proved
+use_geometry.adb:11:05: info: precondition proved
+use_geometry.adb:14:05: medium: precondition might fail, cannot prove Valid (S) [possible explanation: call at line 13 should mention S (for argument S) in a postcondition]
+</pre></div>
+</div>
+<p>Parameter <code class="docutils literal"><span class="pre">S</span></code> is of class-wide type <code class="docutils literal"><span class="pre">Shape'Class</span></code>, so it can be dynamically
+of both types <code class="docutils literal"><span class="pre">Shape</span></code> or <code class="docutils literal"><span class="pre">Rectangle</span></code>. All calls on <code class="docutils literal"><span class="pre">S</span></code> are
+dispatching. In this program, GNATprove needs to check that the precondition
+of the calls to <code class="docutils literal"><span class="pre">Operate</span></code> is satisfied. As procedures <code class="docutils literal"><span class="pre">Shape.Set_Default</span></code>
+and <code class="docutils literal"><span class="pre">Shape.Set_Default_Repeat</span></code> state precisely this condition in
+postcondition, the precondition to the calls to <code class="docutils literal"><span class="pre">Operate</span></code> that follow can be
+proved. As procedure <code class="docutils literal"><span class="pre">Shape.Set_Default_No_Post</span></code> has no postcondition, the
+precondition to the last call to <code class="docutils literal"><span class="pre">Operate</span></code> cannot be proved. Note that these
+proofs take into account both possible types of <code class="docutils literal"><span class="pre">S</span></code>, for example:</p>
+<ul class="simple">
+<li>If <code class="docutils literal"><span class="pre">S</span></code> is dynamically a shape, then the call to <code class="docutils literal"><span class="pre">Shape.Set_Default</span></code> on
+line 7 ensures that <code class="docutils literal"><span class="pre">Shape.Valid</span></code> holds, which ensures that the
+precondition to the call to <code class="docutils literal"><span class="pre">Shape.Operate</span></code> is satisfied on line 8.</li>
+<li>If <code class="docutils literal"><span class="pre">S</span></code> is dynamically a rectangle, then the call to
+<code class="docutils literal"><span class="pre">Rectangle.Set_Default</span></code> on line 7 ensures that <code class="docutils literal"><span class="pre">Rectangle.Valid</span></code> holds,
+which ensures that the precondition to the call to <code class="docutils literal"><span class="pre">Rectangle.Operate</span></code> is
+satisfied on line 8.</li>
+</ul>
+</div>
+<div class="section" id="writing-contracts-on-subprograms-with-class-wide-parameters">
+<h2>7.5.3. Writing Contracts on Subprograms with Class-wide Parameters<a class="headerlink" href="#writing-contracts-on-subprograms-with-class-wide-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Subprograms with class-wide parameters are not in general dispatching
+subprograms, hence they are specified through regular <a class="reference internal" href="subprogram_contracts.html#subprogram-contracts"><span class="std std-ref">Subprogram Contracts</span></a>, not <a class="reference internal" href="object_oriented_programming.html#class-wide-subprogram-contracts"><span class="std std-ref">Class-Wide Subprogram Contracts</span></a>. Inside the regular
+contract, calls on primitive subprograms of the class-wide parameters are
+dispatching though, like in the code. For example, consider procedure
+<code class="docutils literal"><span class="pre">More_Use_Geometry</span></code> which takes four class-wide parameters of type
+<code class="docutils literal"><span class="pre">Shape'Class</span></code>, which can all be dynamically of both types <code class="docutils literal"><span class="pre">Shape</span></code> or
+<code class="docutils literal"><span class="pre">Rectangle</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Geometry</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Geometry;</span>
+
+<span class="k">procedure </span><span class="nf">More_Use_Geometry</span> <span class="o">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">S2</span><span class="p">,</span> <span class="n">S3</span><span class="p">,</span> <span class="n">S4</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Shape</span><span class="na">&#39;Class</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">S1.Valid</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">S1.Operate</span><span class="p">;</span>
+
+   <span class="kr">if</span><span class="p"> </span><span class="n">S2.Valid</span> <span class="kr">then</span><span class="p"></span>
+      <span class="n">S2.Operate</span><span class="p">;</span>
+   <span class="k">end if</span><span class="p">;</span>
+
+   <span class="n">S3.Set_Default</span><span class="p">;</span>
+   <span class="n">S3.Operate</span><span class="p">;</span>
+
+   <span class="n">S4.Operate</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">More_Use_Geometry</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The precondition of <code class="docutils literal"><span class="pre">More_Use_Geometry</span></code> specifies that <code class="docutils literal"><span class="pre">S1.Valid</span></code> holds,
+which takes into account both possible types of <code class="docutils literal"><span class="pre">S1</span></code>:</p>
+<ul class="simple">
+<li>If <code class="docutils literal"><span class="pre">S1</span></code> is dynamically a shape, then the precondition specifies that
+<code class="docutils literal"><span class="pre">Shape.Valid</span></code> holds, which ensures that the precondition to the call to
+<code class="docutils literal"><span class="pre">Shape.Operate</span></code> is satisfied on line 8.</li>
+<li>If <code class="docutils literal"><span class="pre">S1</span></code> is dynamically a rectangle, then the precondition specifies that
+<code class="docutils literal"><span class="pre">Rectangle.Valid</span></code> holds, which ensures that the precondition to the call to
+<code class="docutils literal"><span class="pre">Rectangle.Operate</span></code> is satisfied on line 8.</li>
+</ul>
+<p>Similarly, the test on <code class="docutils literal"><span class="pre">S2.Valid</span></code> on line 10 ensures that the precondition to
+the call to <code class="docutils literal"><span class="pre">S2.Operate</span></code> on line 11 is satisfied, and the call to
+<code class="docutils literal"><span class="pre">S3.Set_Default</span></code> on line 14 ensures through its postcondition that the
+precondition to the call to <code class="docutils literal"><span class="pre">S3.Operate</span></code> on line 15 is satisfied. But no
+precondition or test or call ensures that the precondition to the call to
+<code class="docutils literal"><span class="pre">S4.Operate</span></code> on line 17 is satisfied. Hence the results of GNATprove&#8216;s
+analysis on this program:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>more_use_geometry.adb:8:06: info: precondition proved
+more_use_geometry.adb:11:09: info: precondition proved
+more_use_geometry.adb:15:06: info: precondition proved
+more_use_geometry.adb:17:06: medium: precondition might fail, cannot prove Valid (S) [possible explanation: precondition of subprogram at line 3 should mention S4]
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="how_to_write_package_contracts.html" title="7.6. How to Write Package Contracts"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="how_to_write_subprogram_contracts.html" title="7.4. How to Write Subprogram Contracts"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" >7. Formal Verification with GNATprove</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

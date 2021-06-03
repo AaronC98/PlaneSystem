@@ -1,0 +1,1811 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3. The Menu Bar &#8212; GPS 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/adacore.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Multiple Document Interface" href="mdi.html" />
+    <link rel="prev" title="2. Description of the Main Window" href="main_window.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mdi.html" title="4. Multiple Document Interface"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="main_window.html" title="2. Description of the Main Window"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3. The Menu Bar</a><ul>
+<li><a class="reference internal" href="#the-file-menu">3.1. The File Menu</a></li>
+<li><a class="reference internal" href="#the-edit-menu">3.2. The Edit Menu</a></li>
+<li><a class="reference internal" href="#the-navigate-menu">3.3. The Navigate Menu</a></li>
+<li><a class="reference internal" href="#the-find-menu">3.4. The Find Menu</a></li>
+<li><a class="reference internal" href="#the-view-menu">3.5. The View Menu</a></li>
+<li><a class="reference internal" href="#the-code-menu">3.6. The Code Menu</a></li>
+<li><a class="reference internal" href="#the-vcs-menu">3.7. The VCS Menu</a></li>
+<li><a class="reference internal" href="#the-build-menu">3.8. The Build Menu</a></li>
+<li><a class="reference internal" href="#the-analyze-menu">3.9. The Analyze Menu</a></li>
+<li><a class="reference internal" href="#the-debug-menu">3.10. The Debug Menu</a></li>
+<li><a class="reference internal" href="#the-spark-menu">3.11. The SPARK Menu</a></li>
+<li><a class="reference internal" href="#the-codepeer-menu">3.12. The CodePeer Menu</a></li>
+<li><a class="reference internal" href="#the-window-menu">3.13. The Window Menu</a></li>
+<li><a class="reference internal" href="#the-help-menu">3.14. The Help Menu</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="main_window.html"
+                        title="previous chapter">2. Description of the Main Window</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mdi.html"
+                        title="next chapter">4. Multiple Document Interface</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/menus.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-menu-bar">
+<span id="index-0"></span><h1>3. The Menu Bar<a class="headerlink" href="#the-menu-bar" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/menubar.png" src="_images/menubar.png" />
+<p>GPS provides a standard menu bar giving access to all operations. However,
+it is usually easier to access a feature using the various contextual menus
+provided throughout GPS: these give direct access to the most relevant
+actions in the current context (for example, a project, directory, file, or
+entity). Contextual menus pop up when you click the right mouse button or
+use the special <code class="kbd docutils literal"><span class="pre">open</span> <span class="pre">contextual</span> <span class="pre">menu</span></code> key on most keyboards.</p>
+<p>You can access the following entries from the menu bar:</p>
+<blockquote>
+<div><ul class="simple">
+<li><span class="menuselection">File</span> (see <a class="reference internal" href="#the-file-menu"><span class="std std-ref">The File Menu</span></a>)</li>
+<li><span class="menuselection">Edit</span> (see <a class="reference internal" href="#the-edit-menu"><span class="std std-ref">The Edit Menu</span></a>)</li>
+<li><span class="menuselection">Navigate</span> (see <a class="reference internal" href="#the-navigate-menu"><span class="std std-ref">The Navigate Menu</span></a>)</li>
+<li><span class="menuselection">Find</span> (see <a class="reference internal" href="#the-find-menu"><span class="std std-ref">The Find Menu</span></a>)</li>
+<li><span class="menuselection">View</span> (see <a class="reference internal" href="#the-view-menu"><span class="std std-ref">The View Menu</span></a>)</li>
+<li><span class="menuselection">Code</span> (see <a class="reference internal" href="#the-code-menu"><span class="std std-ref">The Code Menu</span></a>)</li>
+<li><span class="menuselection">VCS</span> (see <a class="reference internal" href="#the-vcs-menu"><span class="std std-ref">The VCS Menu</span></a>)</li>
+<li><span class="menuselection">Build</span> (see <a class="reference internal" href="#the-build-menu"><span class="std std-ref">The Build Menu</span></a>)</li>
+<li><span class="menuselection">Analyze</span> (see <a class="reference internal" href="#the-analyze-menu"><span class="std std-ref">The Analyze Menu</span></a>)</li>
+<li><span class="menuselection">Debug</span> (see <a class="reference internal" href="#the-debug-menu"><span class="std std-ref">The Debug Menu</span></a>)</li>
+<li><span class="menuselection">SPARK</span> (see <a class="reference internal" href="#the-spark-menu"><span class="std std-ref">The SPARK Menu</span></a>)</li>
+<li><span class="menuselection">CodePeer</span> (see <a class="reference internal" href="#the-codepeer-menu"><span class="std std-ref">The CodePeer Menu</span></a>)</li>
+<li><span class="menuselection">Window</span> (see <a class="reference internal" href="#the-window-menu"><span class="std std-ref">The Window Menu</span></a>)</li>
+<li><span class="menuselection">Help</span> (see <a class="reference internal" href="#the-help-menu"><span class="std std-ref">The Help Menu</span></a>)</li>
+</ul>
+</div></blockquote>
+<div class="section" id="the-file-menu">
+<span id="index-1"></span><span id="id1"></span><h2>3.1. The File Menu<a class="headerlink" href="#the-file-menu" title="Permalink to this headline">¶</a></h2>
+<ul id="index-2">
+<li><p class="first"><span class="menuselection">File ‣ New Project...</span></p>
+<blockquote>
+<div><p>Open a dialog to create a new project from an existing template</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-3">
+<li><p class="first"><span class="menuselection">File ‣ Open Project...</span></p>
+<blockquote>
+<div><p>Open the Open Project dialog</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-4">
+<li><p class="first"><span class="menuselection">File ‣ Open Project from Host...</span></p>
+<blockquote>
+<div><p>Open remote project</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-5">
+<li><p class="first"><span class="menuselection">File ‣ Project ‣ Add Complex File Naming Conventions...</span></p>
+<blockquote>
+<div><p>Ask naming patterns to the user and run gnatname on the current project to add the files located in the project&#8217;s source directories matching these patterns to project&#8217;s sources files.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-6">
+<li><p class="first"><span class="menuselection">File ‣ Project ‣ Reload Project</span></p>
+<blockquote>
+<div><p>Recompute the list of source files for the project. This should be used whenever you create or remove files outside of GPS</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-7">
+<li><p class="first"><span class="menuselection">File ‣ New File</span></p>
+<blockquote>
+<div><p>Create a new empty editor</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-8">
+<li><p class="first"><span class="menuselection">File ‣ New File View</span></p>
+<blockquote>
+<div><p>Create a new view for the selected editor</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-9">
+<li><p class="first"><span class="menuselection">File ‣ Open File...</span></p>
+<blockquote>
+<div><p>Open an existing file</p>
+<p>Shortcut: F3</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-10">
+<li><p class="first"><span class="menuselection">File ‣ Open File from Host...</span></p>
+<blockquote>
+<div><p>Open a file from a remote host</p>
+<p>Shortcut: Ctrl+F3</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-11">
+<li><p class="first"><span class="menuselection">File ‣ Save</span></p>
+<blockquote>
+<div><p>Save the current editor</p>
+<p>Shortcut: Ctrl+S</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-12">
+<li><p class="first"><span class="menuselection">File ‣ Save As...</span></p>
+<blockquote>
+<div><p>Save the current editor with a different name</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-13">
+<li><p class="first"><span class="menuselection">File ‣ Save More ‣ All</span></p>
+<blockquote>
+<div><p>Save all modified files and projects</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-14">
+<li><p class="first"><span class="menuselection">File ‣ Save More ‣ Projects</span></p>
+<blockquote>
+<div><p>Save all modified projects to disk</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-15">
+<li><p class="first"><span class="menuselection">File ‣ Save More ‣ Desktop</span></p>
+<blockquote>
+<div><p>Save the layout of the desktop to a file, so that it is restored when GPS is restarted later with the same project</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-16">
+<li><p class="first"><span class="menuselection">File ‣ Change Directory...</span></p>
+<blockquote>
+<div><p>Change the current directory</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-17">
+<li><p class="first"><span class="menuselection">File ‣ Locations ‣ Export Locations to Editor</span></p>
+<blockquote>
+<div><p>Export all messages listed in the Locations view to an editor.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-18">
+<li><p class="first"><span class="menuselection">File ‣ Print</span></p>
+<blockquote>
+<div><p>Print the current editor</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-19">
+<li><p class="first"><span class="menuselection">File ‣ Close</span></p>
+<blockquote>
+<div><p>Close the currently selected window</p>
+<p>Shortcut: Ctrl+W</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-20">
+<li><p class="first"><span class="menuselection">File ‣ Close All</span></p>
+<blockquote>
+<div><p>Close all open windows, asking for confirmation when relevant</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-21">
+<li><p class="first"><span class="menuselection">File ‣ Close All Editors</span></p>
+<blockquote>
+<div><p>Save and close all source editors.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-22">
+<li><p class="first"><span class="menuselection">File ‣ Close All Editors except Current</span></p>
+<blockquote>
+<div><p>Save and close all source editors, except the curret one.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-23">
+<li><p class="first"><span class="menuselection">File ‣ Reset all perspectives</span></p>
+<blockquote>
+<div><p>Reset all perspectives for all projects to their default. This also closes all editors.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-24">
+<li><p class="first"><span class="menuselection">File ‣ Exit</span></p>
+<blockquote>
+<div><p>Exit GPS, after confirming whether to save modified files</p>
+<p>Shortcut: Ctrl+Q</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="the-edit-menu">
+<span id="index-25"></span><span id="id2"></span><h2>3.2. The Edit Menu<a class="headerlink" href="#the-edit-menu" title="Permalink to this headline">¶</a></h2>
+<ul id="index-26">
+<li><p class="first"><span class="menuselection">Edit ‣ Undo</span></p>
+<blockquote>
+<div><p>Undo the last command</p>
+<p>Shortcut: Ctrl+Z</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-27">
+<li><p class="first"><span class="menuselection">Edit ‣ Redo</span></p>
+<blockquote>
+<div><p>Redo the last command that was undone</p>
+<p>Shortcut: Ctrl+R</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-28">
+<li><p class="first"><span class="menuselection">Edit ‣ Cut</span></p>
+<blockquote>
+<div><p>Cut the current selection to the clipboard</p>
+<p>Shortcut: Shift+Delete or Ctrl+X</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-29">
+<li><p class="first"><span class="menuselection">Edit ‣ Copy</span></p>
+<blockquote>
+<div><p>Copy the current selection to the clipboard</p>
+<p>Shortcut: Ctrl+Insert or Ctrl+C</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-30">
+<li><p class="first"><span class="menuselection">Edit ‣ Paste</span></p>
+<blockquote>
+<div><p>Paste the contents of the clipboard into the current text area</p>
+<p>Shortcut: Shift+Insert or Ctrl+V</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-31">
+<li><p class="first"><span class="menuselection">Edit ‣ Paste Previous</span></p>
+<blockquote>
+<div><p>Cancel the previous Paste operation, and instead insert the text copied before through Copy To Clipboard</p>
+<p>Shortcut: Shift+Ctrl+Insert</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-32">
+<li><p class="first"><span class="menuselection">Edit ‣ Select All</span></p>
+<blockquote>
+<div><p>Select the whole contents of the editor</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-33">
+<li><p class="first"><span class="menuselection">Edit ‣ Cursors ‣ Add cursor and go down</span></p>
+<blockquote>
+<div><p>Shortcut: Shift+Alt+Down</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-34">
+<li><p class="first"><span class="menuselection">Edit ‣ Cursors ‣ Add cursor and go up</span></p>
+<blockquote>
+<div><p>Shortcut: Shift+Alt+Up</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-35">
+<li><p class="first"><span class="menuselection">Edit ‣ Cursors ‣ Cursor select next occurence of selection</span></p>
+<blockquote>
+<div><p>Shortcut: Shift+Ctrl+N</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-36">
+<li><p class="first"><span class="menuselection">Edit ‣ Cursors ‣ Cursor skip next occurence of selection</span></p>
+<blockquote>
+<div><p>Shortcut: Ctrl+Alt+N</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-37">
+<li><p class="first"><span class="menuselection">Edit ‣ Cursors ‣ Add cursors to all references of entity</span></p>
+<blockquote>
+<div><p>Shortcut: Shift+Ctrl+E</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-38">
+<li><p class="first"><span class="menuselection">Edit ‣ Insert File...</span></p>
+<blockquote>
+<div><p>Insert the contents of the file into the current editor</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-39">
+<li><p class="first"><span class="menuselection">Edit ‣ Compare ‣ Two Files...</span></p>
+<blockquote>
+<div><p>Compare two files</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-40">
+<li><p class="first"><span class="menuselection">Edit ‣ Compare ‣ Three Files...</span></p>
+<blockquote>
+<div><p>Compare three files</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-41">
+<li><p class="first"><span class="menuselection">Edit ‣ Increase Text Size</span></p>
+<blockquote>
+<div><p>Increase the size of fonts in the source editors.
+This impacts the corresponding preferences.</p>
+<p>Shortcut: Ctrl++</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-42">
+<li><p class="first"><span class="menuselection">Edit ‣ Decrease Text Size</span></p>
+<blockquote>
+<div><p>Decrease the size of fonts in the source editors.
+This impacts the corresponding preferences.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-43">
+<li><p class="first"><span class="menuselection">Edit ‣ Project Properties...</span></p>
+<blockquote>
+<div><p>Open the project properties editor</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-44">
+<li><p class="first"><span class="menuselection">Edit ‣ Preferences...</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Preferences&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="the-navigate-menu">
+<span id="index-45"></span><span id="id3"></span><h2>3.3. The Navigate Menu<a class="headerlink" href="#the-navigate-menu" title="Permalink to this headline">¶</a></h2>
+<ul id="index-46">
+<li><p class="first"><span class="menuselection">Navigate ‣ Back</span></p>
+<blockquote>
+<div><p>Goto previous location</p>
+<p>Shortcut: Shift+Ctrl+{</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-47">
+<li><p class="first"><span class="menuselection">Navigate ‣ Forward</span></p>
+<blockquote>
+<div><p>Goto next location</p>
+<p>Shortcut: Shift+Ctrl+}</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-48">
+<li><p class="first"><span class="menuselection">Navigate ‣ Goto Declaration</span></p>
+<blockquote>
+<div><p>Jump to the declaration of the current entity</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-49">
+<li><p class="first"><span class="menuselection">Navigate ‣ Goto Body</span></p>
+<blockquote>
+<div><p>Jump to the implementation/body of the current entity</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-50">
+<li><p class="first"><span class="menuselection">Navigate ‣ Goto Matching Delimiter</span></p>
+<blockquote>
+<div><p>Jump to the matching delimiter ()[]{}</p>
+<p>Shortcut: Ctrl+&#8217;</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-51">
+<li><p class="first"><span class="menuselection">Navigate ‣ Goto Line...</span></p>
+<blockquote>
+<div><p>Open a dialog to select a line to go to</p>
+<p>Shortcut: Ctrl+G</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-52">
+<li><p class="first"><span class="menuselection">Navigate ‣ Goto File Spec&lt;-&gt;Body</span></p>
+<blockquote>
+<div><p>Open the corresponding spec or body file</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-53">
+<li><p class="first"><span class="menuselection">Navigate ‣ Locate in Files view</span></p>
+<blockquote>
+<div><p>Display the files view, and expand nodes to show the selected file</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-54">
+<li><p class="first"><span class="menuselection">Navigate ‣ Add Bookmark</span></p>
+<blockquote>
+<div><p>Create a bookmark at the current location in the editor</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-55">
+<li><p class="first"><span class="menuselection">Navigate ‣ Start of Statement</span></p>
+<blockquote>
+<div><p>Move to the beginning of the current statement</p>
+<p>Shortcut: Alt+Up</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-56">
+<li><p class="first"><span class="menuselection">Navigate ‣ End of Statement</span></p>
+<blockquote>
+<div><p>Move to the end of the current statement</p>
+<p>Shortcut: Alt+Down</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-57">
+<li><p class="first"><span class="menuselection">Navigate ‣ Previous Subprogram</span></p>
+<blockquote>
+<div><p>Move to the previous subprogram</p>
+<p>Shortcut: Ctrl+Up</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-58">
+<li><p class="first"><span class="menuselection">Navigate ‣ Next Subprogram</span></p>
+<blockquote>
+<div><p>Move to the next subprogram</p>
+<p>Shortcut: Ctrl+Down</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-59">
+<li><p class="first"><span class="menuselection">Navigate ‣ Previous Locations Message</span></p>
+<blockquote>
+<div><p>Move to the previous message from the Locations window</p>
+<p>Shortcut: Ctrl+&lt;</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-60">
+<li><p class="first"><span class="menuselection">Navigate ‣ Next Locations Message</span></p>
+<blockquote>
+<div><p>Move to the next message from the Locations window</p>
+<p>Shortcut: Ctrl+&gt;</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="the-find-menu">
+<span id="index-61"></span><span id="id4"></span><h2>3.4. The Find Menu<a class="headerlink" href="#the-find-menu" title="Permalink to this headline">¶</a></h2>
+<ul id="index-62">
+<li><p class="first"><span class="menuselection">Find ‣ Find...</span></p>
+<blockquote>
+<div><p>Open the search dialog. If you have selected the preference Search/Preserve search context, the same context will be selected, otherwise the context is reset depending on the active window</p>
+<p>Shortcut: Ctrl+F</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-63">
+<li><p class="first"><span class="menuselection">Find ‣ Replace...</span></p>
+<blockquote>
+<div><p>Open the search dialog in the replace mode. If you have selected the preference Search/Preserve Search Context, the same context will be selected, otherwise the context is reset depending on the active window</p>
+<p>Shortcut: Shift+Ctrl+F</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-64">
+<li><p class="first"><span class="menuselection">Find ‣ Find Previous</span></p>
+<blockquote>
+<div><p>Find the previous occurrence of the search pattern</p>
+<p>Shortcut: Ctrl+P</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-65">
+<li><p class="first"><span class="menuselection">Find ‣ Find Next</span></p>
+<blockquote>
+<div><p>Find the next occurrence of the search pattern</p>
+<p>Shortcut: Ctrl+N</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-66">
+<li><p class="first"><span class="menuselection">Find ‣ Find Action</span></p>
+<blockquote>
+<div><p>Search amongst the GPS commands, and execute the selected one</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-67">
+<li><p class="first"><span class="menuselection">Find ‣ Find Bookmark</span></p>
+<blockquote>
+<div><p>Search amongst all bookmarks</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-68">
+<li><p class="first"><span class="menuselection">Find ‣ Find Build Target</span></p>
+<blockquote>
+<div><p>Search amongst build targets</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-69">
+<li><p class="first"><span class="menuselection">Find ‣ Find in Current Source</span></p>
+<blockquote>
+<div><p>Search for references in the current editor</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-70">
+<li><p class="first"><span class="menuselection">Find ‣ Find Entity</span></p>
+<blockquote>
+<div><p>Searches amonst entities defined in the project</p>
+<p>Shortcut: Ctrl+T</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-71">
+<li><p class="first"><span class="menuselection">Find ‣ Find File in Project</span></p>
+<blockquote>
+<div><p>Search amongst the source files of the project or the run time files of the compiler.
+The following syntax is supported to open a file at a specific location:</p>
+<blockquote>
+<div><p>&lt;b&gt;filename:line:column&lt;/b&gt;</p>
+</div></blockquote>
+<p>where the line and column are optional.
+Possible completions are found by testing the filename pattern with the base names of the source files, unless filename contains a &#8216;/&#8217; or &#8216;&#8217;, in which case the full name of the source file is used.</p>
+<p>Shortcut: Shift+F3</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-72">
+<li><p class="first"><span class="menuselection">Find ‣ Find Open Window</span></p>
+<blockquote>
+<div><p>Search amongst opened windows</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-73">
+<li><p class="first"><span class="menuselection">Find ‣ Find Plugin</span></p>
+<blockquote>
+<div><p>Search amongst the GPS plugins, and display the associated page in the preferences editor dialog.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-74">
+<li><p class="first"><span class="menuselection">Find ‣ Find Preference</span></p>
+<blockquote>
+<div><p>Search amongst the GPS preferences, and display the page containing it.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-75">
+<li><p class="first"><span class="menuselection">Find ‣ Find text in all sources</span></p>
+<blockquote>
+<div><p>Search in the contents of all source files of the projects</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-76">
+<li><p class="first"><span class="menuselection">Find ‣ Find All References</span></p>
+<blockquote>
+<div><p>List all references to the selected entity in the Locations window</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="the-view-menu">
+<span id="index-77"></span><span id="id5"></span><h2>3.5. The View Menu<a class="headerlink" href="#the-view-menu" title="Permalink to this headline">¶</a></h2>
+<ul id="index-78">
+<li><p class="first"><span class="menuselection">View ‣ Files</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Files&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-79">
+<li><p class="first"><span class="menuselection">View ‣ Project</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Project&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-80">
+<li><p class="first"><span class="menuselection">View ‣ Outline</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Outline&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-81">
+<li><p class="first"><span class="menuselection">View ‣ Bookmarks</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Bookmarks&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-82">
+<li><p class="first"><span class="menuselection">View ‣ Locations</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Locations&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-83">
+<li><p class="first"><span class="menuselection">View ‣ Messages</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Messages&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-84">
+<li><p class="first"><span class="menuselection">View ‣ Call Trees</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Call Trees&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-85">
+<li><p class="first"><span class="menuselection">View ‣ Clipboard</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Clipboard&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-86">
+<li><p class="first"><span class="menuselection">View ‣ File Switches</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Switches editor&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-87">
+<li><p class="first"><span class="menuselection">View ‣ Files</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Files&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-88">
+<li><p class="first"><span class="menuselection">View ‣ Learn</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Learn&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-89">
+<li><p class="first"><span class="menuselection">View ‣ Metrics</span></p>
+<blockquote>
+<div><p>Open the Metrics view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-90">
+<li><p class="first"><span class="menuselection">View ‣ Memory Usage</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Memory Usage&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-91">
+<li><p class="first"><span class="menuselection">View ‣ Remote</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Remote&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-92">
+<li><p class="first"><span class="menuselection">View ‣ Scenario</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Scenario&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul class="simple" id="index-93">
+<li><span class="menuselection">View ‣ Tasks</span></li>
+</ul>
+<ul id="index-94">
+<li><p class="first"><span class="menuselection">View ‣ VCS ‣ Commits</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Commits&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-95">
+<li><p class="first"><span class="menuselection">View ‣ VCS ‣ History</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;History&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-96">
+<li><p class="first"><span class="menuselection">View ‣ VCS ‣ Branches</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Branches&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-97">
+<li><p class="first"><span class="menuselection">View ‣ Windows</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Windows&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-98">
+<li><p class="first"><span class="menuselection">View ‣ Call Graph Browser</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Call Graph Browser&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-99">
+<li><p class="first"><span class="menuselection">View ‣ Dependency Browser</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Dependency Browser&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-100">
+<li><p class="first"><span class="menuselection">View ‣ Elaboration Circularities Browser</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Elaboration Circularities&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-101">
+<li><p class="first"><span class="menuselection">View ‣ Entity Browser</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Entity Browser&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-102">
+<li><p class="first"><span class="menuselection">View ‣ Project Browser</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Project Browser&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-103">
+<li><p class="first"><span class="menuselection">View ‣ Python Console</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Python&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-104">
+<li><p class="first"><span class="menuselection">View ‣ OS Shell</span></p>
+<blockquote>
+<div><p>Spawns the user&#8217;s shell as read from the environment variable SHELL</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-105">
+<li><p class="first"><span class="menuselection">View ‣ Auxiliary Builds</span></p>
+<blockquote>
+<div><p>Open the Auxiliary Builds console</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-106">
+<li><p class="first"><span class="menuselection">View ‣ Background Builds</span></p>
+<blockquote>
+<div><p>Open the Backgorund Builds console</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="the-code-menu">
+<span id="index-107"></span><span id="id6"></span><h2>3.6. The Code Menu<a class="headerlink" href="#the-code-menu" title="Permalink to this headline">¶</a></h2>
+<ul id="index-108">
+<li><p class="first"><span class="menuselection">Code ‣ Format Selection</span></p>
+<blockquote>
+<div><p>Automatically indent the current line or selection</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-109">
+<li><p class="first"><span class="menuselection">Code ‣ Selection ‣ Comment Lines</span></p>
+<blockquote>
+<div><p>Comment the selected lines</p>
+<p>Shortcut: Ctrl+-</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-110">
+<li><p class="first"><span class="menuselection">Code ‣ Selection ‣ Uncomment Lines</span></p>
+<blockquote>
+<div><p>Uncomment the selected lines</p>
+<p>Shortcut: Ctrl+_</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-111">
+<li><p class="first"><span class="menuselection">Code ‣ Selection ‣ Print</span></p>
+<blockquote>
+<div><p>Print the current selection</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-112">
+<li><p class="first"><span class="menuselection">Code ‣ Selection ‣ Refill</span></p>
+<blockquote>
+<div><p>Reformat selected lines or current paragraph so that the list are shorter than the grey line on the right</p>
+<p>Shortcut: Ctrl+=</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-113">
+<li><p class="first"><span class="menuselection">Code ‣ Selection ‣ Sort</span></p>
+<blockquote>
+<div><p>Sorts the current selection, in ascending order</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-114">
+<li><p class="first"><span class="menuselection">Code ‣ Selection ‣ Sort Reverse</span></p>
+<blockquote>
+<div><p>Sorts the current selection, in descending order</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-115">
+<li><p class="first"><span class="menuselection">Code ‣ Selection ‣ Move Right</span></p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Move the current selection chars characters to the right. If chars is</dt>
+<dd><p class="first last">negative, moves to the left. If there is no selection, indent the current
+line.</p>
+</dd>
+</dl>
+<p>Shortcut: Ctrl+Alt+&gt;</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-116">
+<li><p class="first"><span class="menuselection">Code ‣ Selection ‣ Move Left</span></p>
+<blockquote>
+<div><p>Shortcut: Ctrl+Alt+&lt;</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-117">
+<li><p class="first"><span class="menuselection">Code ‣ Selection ‣ Untabify</span></p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Replace tab characters in the current selection (or the whole buffer) with</dt>
+<dd><p class="first last">the correct amount of spaces. The tab stops are every n columns where n is
+specified by a preference in the Preferences dialog.</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-118">
+<li><p class="first"><span class="menuselection">Code ‣ Selection ‣ Comment box</span></p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Search backward for the first subprogram or package declaration. Before</dt>
+<dd><p class="first last">the start of this declaration, insert a comment box containing the name of
+the subprogram. This provides helpful separations between subprograms, and
+is similar to the style used in the GNAT compiler or GPS themselves</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-119">
+<li><p class="first"><span class="menuselection">Code ‣ Smart Completion</span></p>
+<blockquote>
+<div><p>Complete current identifier based on advanced entities database</p>
+<p>Shortcut: Ctrl+Space</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-120">
+<li><p class="first"><span class="menuselection">Code ‣ More Completion ‣ Expand Alias</span></p>
+<blockquote>
+<div><p>Expand the alias found just before the cursor</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-121">
+<li><p class="first"><span class="menuselection">Code ‣ More Completion ‣ Complete Identifier</span></p>
+<blockquote>
+<div><p>Complete current identifier based on the contents of the editor</p>
+<p>Shortcut: Ctrl+/</p>
+</div></blockquote>
+</li>
+</ul>
+<ul class="simple" id="index-122">
+<li><span class="menuselection">Code ‣ More Completion ‣ Complete Block</span></li>
+</ul>
+<ul id="index-123">
+<li><p class="first"><span class="menuselection">Code ‣ Fold All Blocks</span></p>
+<blockquote>
+<div><p>Fold all blocks (if, loops,...)</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-124">
+<li><p class="first"><span class="menuselection">Code ‣ Unfold All Blocks</span></p>
+<blockquote>
+<div><p>Unfold all blocks (if, loops,...)</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-125">
+<li><p class="first"><span class="menuselection">Code ‣ Edit with External Editor</span></p>
+<blockquote>
+<div><p>Edit the file with an external editor, as configued in the preferences</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-126">
+<li><p class="first"><span class="menuselection">Code ‣ Generate Body</span></p>
+<blockquote>
+<div><p>Run gnatstub on the selected Ada specification to generate a matching body file.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-127">
+<li><p class="first"><span class="menuselection">Code ‣ Pretty Print</span></p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Reformat the current Ada source file, and reload the</dt>
+<dd><p class="first last">reformated version. Specific formating options can be set in the project
+file</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-128">
+<li><p class="first"><span class="menuselection">Code ‣ Aliases...</span></p>
+<blockquote>
+<div><p>Open the aliases editor</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="the-vcs-menu">
+<span id="index-129"></span><span id="id7"></span><h2>3.7. The VCS Menu<a class="headerlink" href="#the-vcs-menu" title="Permalink to this headline">¶</a></h2>
+<ul id="index-130">
+<li><p class="first"><span class="menuselection">VCS ‣ Commits</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Commits&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-131">
+<li><p class="first"><span class="menuselection">VCS ‣ Branches</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Branches&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-132">
+<li><p class="first"><span class="menuselection">VCS ‣ View global history</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;History&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-133">
+<li><p class="first"><span class="menuselection">VCS ‣ View file history</span></p>
+<blockquote>
+<div><p>Show the History view and display the history of changes for the current file only.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul class="simple" id="index-134">
+<li><span class="menuselection">VCS ‣ Pull &amp; rebase</span></li>
+</ul>
+<ul class="simple" id="index-135">
+<li><span class="menuselection">VCS ‣ Pull</span></li>
+</ul>
+<ul id="index-136">
+<li><p class="first"><span class="menuselection">VCS ‣ Review</span></p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Push all local changes to Gerrit, so that they can be reviewed by</dt>
+<dd><p class="first last">other team members.</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-137">
+<li><p class="first"><span class="menuselection">VCS ‣ Push</span></p>
+<blockquote>
+<div><p>Push all changes to the remote repository.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-138">
+<li><p class="first"><span class="menuselection">VCS ‣ Show local changes for file</span></p>
+<blockquote>
+<div><p>Display the local changes for the current file</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-139">
+<li><p class="first"><span class="menuselection">VCS ‣ Show local changes for file (in editor)</span></p>
+<blockquote>
+<div><p>Display the local changes for the current file in an editor</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-140">
+<li><p class="first"><span class="menuselection">VCS ‣ Show all local changes</span></p>
+<blockquote>
+<div><p>Display all the local changes for the current version control system</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-141">
+<li><p class="first"><span class="menuselection">VCS ‣ Show last modification for lines</span></p>
+<blockquote>
+<div><p>For each line of the current file, show when the last modification was done</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-142">
+<li><p class="first"><span class="menuselection">VCS ‣ Hide last modification for lines</span></p>
+<blockquote>
+<div><p>Remove annotations done on each line of the current file that show when the last modification was done</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="the-build-menu">
+<span id="index-143"></span><span id="id8"></span><h2>3.8. The Build Menu<a class="headerlink" href="#the-build-menu" title="Permalink to this headline">¶</a></h2>
+<ul id="index-144">
+<li><p class="first"><span class="menuselection">Build ‣ Check Syntax</span></p>
+<blockquote>
+<div><p>Build target Check Syntax</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-145">
+<li><p class="first"><span class="menuselection">Build ‣ Check Semantic</span></p>
+<blockquote>
+<div><p>Build target Check Semantic</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-146">
+<li><p class="first"><span class="menuselection">Build ‣ Compile File</span></p>
+<blockquote>
+<div><p>Build target Compile File</p>
+<p>Shortcut: Shift+F4</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-147">
+<li><p class="first"><span class="menuselection">Build ‣ Project ‣ Build All</span></p>
+<blockquote>
+<div><p>Build target Build All</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-148">
+<li><p class="first"><span class="menuselection">Build ‣ Project ‣ Compile All Sources</span></p>
+<blockquote>
+<div><p>Build target Compile All Sources</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-149">
+<li><p class="first"><span class="menuselection">Build ‣ Project ‣ Build &lt;current file&gt;</span></p>
+<blockquote>
+<div><p>Build target Build &lt;current file&gt;</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-150">
+<li><p class="first"><span class="menuselection">Build ‣ Project ‣ Custom Build...</span></p>
+<blockquote>
+<div><p>Build target Custom Build...</p>
+<p>Shortcut: F9</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-151">
+<li><p class="first"><span class="menuselection">Build ‣ Clean ‣ Clean All</span></p>
+<blockquote>
+<div><p>Build target Clean All</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-152">
+<li><p class="first"><span class="menuselection">Build ‣ Clean ‣ Clean Root</span></p>
+<blockquote>
+<div><p>Build target Clean Root</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-153">
+<li><p class="first"><span class="menuselection">Build ‣ Run ‣ Custom...</span></p>
+<blockquote>
+<div><p>Build target Custom...</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-154">
+<li><p class="first"><span class="menuselection">Build ‣ Settings ‣ Toolchains</span></p>
+<blockquote>
+<div><p>Open the toolchains editor (for builds)</p>
+</div></blockquote>
+</li>
+</ul>
+<ul class="simple" id="index-155">
+<li><span class="menuselection">Build ‣ Recompute Xref Info</span></li>
+</ul>
+</div>
+<div class="section" id="the-analyze-menu">
+<span id="index-156"></span><span id="id9"></span><h2>3.9. The Analyze Menu<a class="headerlink" href="#the-analyze-menu" title="Permalink to this headline">¶</a></h2>
+<ul class="simple" id="index-157">
+<li><span class="menuselection">Analyze ‣ GNAThub ‣ Display GNAThub Analysis</span></li>
+</ul>
+<ul class="simple" id="index-158">
+<li><span class="menuselection">Analyze ‣ GNAThub ‣ Run...</span></li>
+</ul>
+<ul id="index-159">
+<li><p class="first"><span class="menuselection">Analyze ‣ Coverage ‣ Show Report</span></p>
+<blockquote>
+<div><p>Display the coverage report (must load data first)</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-160">
+<li><p class="first"><span class="menuselection">Analyze ‣ Coverage ‣ Load Data for All Projects</span></p>
+<blockquote>
+<div><p>Load coverage data for all projects</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-161">
+<li><p class="first"><span class="menuselection">Analyze ‣ Coverage ‣ Load Data for Current Project</span></p>
+<blockquote>
+<div><p>Load coverage data for current project</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-162">
+<li><p class="first"><span class="menuselection">Analyze ‣ Coverage ‣ Load Data for Current File</span></p>
+<blockquote>
+<div><p>Load coverage data for current file</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-163">
+<li><p class="first"><span class="menuselection">Analyze ‣ Coverage ‣ Clear Coverage from Memory</span></p>
+<blockquote>
+<div><p>Clear coverage information from memory</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-164">
+<li><p class="first"><span class="menuselection">Analyze ‣ Coverage ‣ Gcov ‣ Compute Coverage Files</span></p>
+<blockquote>
+<div><p>Run gcov to generate the coverage files</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-165">
+<li><p class="first"><span class="menuselection">Analyze ‣ Coverage ‣ Gcov ‣ Remove Coverage Files</span></p>
+<blockquote>
+<div><p>Cleanup the gcov coverage files</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-166">
+<li><p class="first"><span class="menuselection">Analyze ‣ Metrics ‣ Compute Metrics on Current File</span></p>
+<blockquote>
+<div><p>Launch GNAT metric on the current file</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-167">
+<li><p class="first"><span class="menuselection">Analyze ‣ Metrics ‣ Compute Metrics on Current Project</span></p>
+<blockquote>
+<div><p>Launch GNAT metric on the current project</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-168">
+<li><p class="first"><span class="menuselection">Analyze ‣ Metrics ‣ Compute Metrics on Current Project &amp; Subprojects</span></p>
+<blockquote>
+<div><p>Launch GNAT metric on the current project</p>
+</div></blockquote>
+</li>
+</ul>
+<ul class="simple" id="index-169">
+<li><span class="menuselection">Analyze ‣ Stack Analysis ‣ Analyze Stack Usage</span></li>
+</ul>
+<ul class="simple" id="index-170">
+<li><span class="menuselection">Analyze ‣ Stack Analysis ‣ Open Undefined Subprograms Editor</span></li>
+</ul>
+<ul class="simple" id="index-171">
+<li><span class="menuselection">Analyze ‣ Stack Analysis ‣ Load Last Stack Usage</span></li>
+</ul>
+<ul class="simple" id="index-172">
+<li><span class="menuselection">Analyze ‣ Stack Analysis ‣ Clear Stack Usage Information</span></li>
+</ul>
+<ul id="index-173">
+<li><p class="first"><span class="menuselection">Analyze ‣ Coding Standard ‣ Edit Rules File</span></p>
+<blockquote>
+<div><p>Edit the coding standard file</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-174">
+<li><p class="first"><span class="menuselection">Analyze ‣ Coding Standard ‣ Check Root Project &amp; Subprojects</span></p>
+<blockquote>
+<div><p>Check coding standard for the root project and its subprojects</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-175">
+<li><p class="first"><span class="menuselection">Analyze ‣ Coding Standard ‣ Check Root Project</span></p>
+<blockquote>
+<div><p>Check coding standard of the root project</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-176">
+<li><p class="first"><span class="menuselection">Analyze ‣ GNATtest ‣ Generate Unit Test Setup</span></p>
+<blockquote>
+<div><p>Run gnattest on root project</p>
+</div></blockquote>
+</li>
+</ul>
+<ul class="simple" id="index-177">
+<li><span class="menuselection">Analyze ‣ GNATtest ‣ Show not Implemented Tests</span></li>
+</ul>
+<ul id="index-178">
+<li><p class="first"><span class="menuselection">Analyze ‣ GNATtest ‣ Open Harness Project</span></p>
+<blockquote>
+<div><p>Open harness project for current project</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-179">
+<li><p class="first"><span class="menuselection">Analyze ‣ GNATtest ‣ Exit from Harness Project</span></p>
+<blockquote>
+<div><p>Return to user project from current harness project</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-180">
+<li><p class="first"><span class="menuselection">Analyze ‣ Documentation ‣ Generate Project</span></p>
+<blockquote>
+<div><p>Launch GNATdoc on the current project</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-181">
+<li><p class="first"><span class="menuselection">Analyze ‣ Documentation ‣ Generate Project &amp; Subprojects</span></p>
+<blockquote>
+<div><p>Launch GNATdoc on the project, recursively</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-182">
+<li><p class="first"><span class="menuselection">Analyze ‣ Documentation ‣ Generate Current File</span></p>
+<blockquote>
+<div><p>Launch GNATdoc on the current project</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="the-debug-menu">
+<span id="index-183"></span><span id="id10"></span><h2>3.10. The Debug Menu<a class="headerlink" href="#the-debug-menu" title="Permalink to this headline">¶</a></h2>
+<ul id="index-184">
+<li><p class="first"><span class="menuselection">Debug ‣ Initialize ‣ no main file</span></p>
+<blockquote>
+<div><p>Initialize the debugger, no file specified</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-185">
+<li><p class="first"><span class="menuselection">Debug ‣ Debug ‣ Connect to Board...</span></p>
+<blockquote>
+<div><p>Opens a simple dialog to connect to a remote board. This option is only relevant to cross debuggers.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-186">
+<li><p class="first"><span class="menuselection">Debug ‣ Debug ‣ Load File...</span></p>
+<blockquote>
+<div><p>Opens a file selection dialog that allows you to choose a program to debug. The program to debug is either an executable for native debugging, or a partially linked module for cross environments (e.g VxWorks).</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-187">
+<li><p class="first"><span class="menuselection">Debug ‣ Debug ‣ Add Symbols...</span></p>
+<blockquote>
+<div><p>Add the symbols from a given file/module. This corresponds to the gdb command add-symbol-file. This menu is particularly useful under VxWorks targets, where the modules can be loaded independently of the debugger.  For instance, if a module is independently loaded on the target (e.g. using windshell), it is absolutely required to use this functionality, otherwise the debugger won&#8217;t work properly.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-188">
+<li><p class="first"><span class="menuselection">Debug ‣ Debug ‣ Attach...</span></p>
+<blockquote>
+<div><p>Attach to a running process</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-189">
+<li><p class="first"><span class="menuselection">Debug ‣ Debug ‣ Detach</span></p>
+<blockquote>
+<div><p>Detach the application from the debugger</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-190">
+<li><p class="first"><span class="menuselection">Debug ‣ Debug ‣ Debug Core File...</span></p>
+<blockquote>
+<div><p>Debug a core file instead of a running process</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-191">
+<li><p class="first"><span class="menuselection">Debug ‣ Debug ‣ Kill</span></p>
+<blockquote>
+<div><p>Kill the debuggee process</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-192">
+<li><p class="first"><span class="menuselection">Debug ‣ Data ‣ Variables</span></p>
+<blockquote>
+<div><p>Open the Variables view for the debugger</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-193">
+<li><p class="first"><span class="menuselection">Debug ‣ Data ‣ Call Stack</span></p>
+<blockquote>
+<div><p>Open the Call Stack window for the debugger</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-194">
+<li><p class="first"><span class="menuselection">Debug ‣ Data ‣ Protection Domains</span></p>
+<blockquote>
+<div><p>Open the &#8216;Protection Domains&#8217; window for the debugger</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-195">
+<li><p class="first"><span class="menuselection">Debug ‣ Data ‣ Threads</span></p>
+<blockquote>
+<div><p>Open the &#8216;Threads&#8217; window for the debugger</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-196">
+<li><p class="first"><span class="menuselection">Debug ‣ Data ‣ Tasks</span></p>
+<blockquote>
+<div><p>Open the &#8216;Tasks&#8217; window for the debugger</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-197">
+<li><p class="first"><span class="menuselection">Debug ‣ Data ‣ Assembly</span></p>
+<blockquote>
+<div><p>Open the Assembly view for the debugger</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-198">
+<li><p class="first"><span class="menuselection">Debug ‣ Data ‣ Breakpoints</span></p>
+<blockquote>
+<div><p>Open the Breakpoints Editor for the debugger</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-199">
+<li><p class="first"><span class="menuselection">Debug ‣ Data ‣ Registers</span></p>
+<blockquote>
+<div><p>Open the Registers view for the debugger</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-200">
+<li><p class="first"><span class="menuselection">Debug ‣ Data ‣ Execution</span></p>
+<blockquote>
+<div><p>Open the Debugger Execution console</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-201">
+<li><p class="first"><span class="menuselection">Debug ‣ Data ‣ Examine Memory</span></p>
+<blockquote>
+<div><p>Examine the contents of the memory at the location of the selected variable</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-202">
+<li><p class="first"><span class="menuselection">Debug ‣ Data ‣ Display Local Variables</span></p>
+<blockquote>
+<div><p>Display the local variables in the Variables view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-203">
+<li><p class="first"><span class="menuselection">Debug ‣ Data ‣ Display Arguments</span></p>
+<blockquote>
+<div><p>Display the arguments of the current subprogram in the  Variables view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-204">
+<li><p class="first"><span class="menuselection">Debug ‣ Data ‣ Display Any Expression...</span></p>
+<blockquote>
+<div><p>Display the value of any expression in the Variables view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-205">
+<li><p class="first"><span class="menuselection">Debug ‣ Run...</span></p>
+<blockquote>
+<div><p>Choose the arguments to the program, and start running it</p>
+<p>Shortcut: F2</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-206">
+<li><p class="first"><span class="menuselection">Debug ‣ Step</span></p>
+<blockquote>
+<div><p>Execute until program reaches a new line of source code</p>
+<p>Shortcut: F5</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-207">
+<li><p class="first"><span class="menuselection">Debug ‣ Step Instruction</span></p>
+<blockquote>
+<div><p>Execute the program for one machine instruction only</p>
+<p>Shortcut: Shift+F5</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-208">
+<li><p class="first"><span class="menuselection">Debug ‣ Next</span></p>
+<blockquote>
+<div><p>Execute the program until the next source line, stepping over subprogram calls</p>
+<p>Shortcut: F6</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-209">
+<li><p class="first"><span class="menuselection">Debug ‣ Next Instruction</span></p>
+<blockquote>
+<div><p>Execute the program until the next machine instruction, stepping over subprogram calls</p>
+<p>Shortcut: Shift+F6</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-210">
+<li><p class="first"><span class="menuselection">Debug ‣ Finish</span></p>
+<blockquote>
+<div><p>Continue execution until selected stack frame returns</p>
+<p>Shortcut: F7</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-211">
+<li><p class="first"><span class="menuselection">Debug ‣ Continue</span></p>
+<blockquote>
+<div><p>Continue execution until next breakpoint.
+Start the debugger if not started yet</p>
+<p>Shortcut: F8</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-212">
+<li><p class="first"><span class="menuselection">Debug ‣ Interrupt</span></p>
+<blockquote>
+<div><p>Asynchronously interrupt the debuggee program</p>
+<p>Shortcut: Ctrl+Backslash</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-213">
+<li><p class="first"><span class="menuselection">Debug ‣ Terminate Current</span></p>
+<blockquote>
+<div><p>Terminate the current debugger</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-214">
+<li><p class="first"><span class="menuselection">Debug ‣ Terminate</span></p>
+<blockquote>
+<div><p>Terminate all running debugger</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="the-spark-menu">
+<span id="index-215"></span><span id="id11"></span><h2>3.11. The SPARK Menu<a class="headerlink" href="#the-spark-menu" title="Permalink to this headline">¶</a></h2>
+<ul id="index-216">
+<li><p class="first"><span class="menuselection">SPARK</span></p>
+<blockquote>
+<div><p>This menu is available if the SPARK toolset is installed on your system
+and available on your PATH. See <span class="menuselection">Help ‣ SPARK ‣
+Reference ‣ Using SPARK with GPS</span> for more details.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="the-codepeer-menu">
+<span id="index-217"></span><span id="id12"></span><h2>3.12. The CodePeer Menu<a class="headerlink" href="#the-codepeer-menu" title="Permalink to this headline">¶</a></h2>
+<ul id="index-218">
+<li><p class="first"><span class="menuselection">CodePeer</span></p>
+<blockquote>
+<div><p>This menu is available if the CodePeer toolset is installed on your
+system and available on your PATH. See your CodePeer documentation for
+more details.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="the-window-menu">
+<span id="index-219"></span><span id="id13"></span><h2>3.13. The Window Menu<a class="headerlink" href="#the-window-menu" title="Permalink to this headline">¶</a></h2>
+<ul class="simple" id="index-220">
+<li><span class="menuselection">Window ‣ Perspectives ‣ Default</span></li>
+</ul>
+<ul class="simple" id="index-221">
+<li><span class="menuselection">Window ‣ Perspectives ‣ Maximized Editors</span></li>
+</ul>
+<ul class="simple" id="index-222">
+<li><span class="menuselection">Window ‣ Perspectives ‣ Debug</span></li>
+</ul>
+<ul class="simple" id="index-223">
+<li><span class="menuselection">Window ‣ Perspectives ‣ CodePeer</span></li>
+</ul>
+<ul class="simple" id="index-224">
+<li><span class="menuselection">Window ‣ Perspectives ‣ Analyze</span></li>
+</ul>
+<ul class="simple" id="index-225">
+<li><span class="menuselection">Window ‣ Perspectives ‣ VCS</span></li>
+</ul>
+<ul class="simple" id="index-226">
+<li><span class="menuselection">Window ‣ Perspectives ‣ &lt;create new&gt;</span></li>
+</ul>
+<ul class="simple" id="index-227">
+<li><span class="menuselection">Window ‣ Split Side-by-Side</span></li>
+</ul>
+<ul class="simple" id="index-228">
+<li><span class="menuselection">Window ‣ Split Up-Down</span></li>
+</ul>
+<ul class="simple" id="index-229">
+<li><span class="menuselection">Window ‣ Floating</span></li>
+</ul>
+<ul class="simple" id="index-230">
+<li><span class="menuselection">Window ‣ Close</span></li>
+</ul>
+</div>
+<div class="section" id="the-help-menu">
+<span id="index-231"></span><span id="id14"></span><h2>3.14. The Help Menu<a class="headerlink" href="#the-help-menu" title="Permalink to this headline">¶</a></h2>
+<ul id="index-232">
+<li><p class="first"><span class="menuselection">Help ‣ Welcome</span></p>
+<blockquote>
+<div><p>Open (or reuse if it already exists) the &#8216;Welcome&#8217; view</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-233">
+<li><p class="first"><span class="menuselection">Help ‣ Contents</span></p>
+<blockquote>
+<div><p>Display a HTML page with a pointer to all documentation known to GPS</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-234">
+<li><p class="first"><span class="menuselection">Help ‣ GPS ‣ Welcome</span></p>
+<blockquote>
+<div><p>Load the documentation for &#8216;Welcome&#8217; into an external web browser</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-235">
+<li><p class="first"><span class="menuselection">Help ‣ GPS ‣ Tutorial</span></p>
+<blockquote>
+<div><p>Load the documentation for &#8216;GNAT Programming Studio Tutorial&#8217; into an external web browser</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-236">
+<li><p class="first"><span class="menuselection">Help ‣ GPS ‣ GPS User&#8217;s Guide</span></p>
+<blockquote>
+<div><p>Load the documentation for &#8216;GPS User&#8217;s Guide&#8217; into an external web browser</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-237">
+<li><p class="first"><span class="menuselection">Help ‣ GPS ‣ Python extensions</span></p>
+<blockquote>
+<div><p>Load the documentation for &#8216;GPS extensions for Python&#8217; into an external web browser</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-238">
+<li><p class="first"><span class="menuselection">Help ‣ GPS ‣ Release Notes</span></p>
+<blockquote>
+<div><p>Load the documentation for &#8216;GPS Release Notes&#8217; into an external web browser</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-239">
+<li><p class="first"><span class="menuselection">Help ‣ GNAT Runtime</span></p>
+<blockquote>
+<div><p>This menu is generated automatically, and provides
+pointers to the contents of the currently loaded runtime.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-240">
+<li><p class="first"><span class="menuselection">Help ‣ Python ‣ Python Tutorial</span></p>
+<blockquote>
+<div><p>Load the documentation for &#8216;Python tutorial&#8217; into an external web browser</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-241">
+<li><p class="first"><span class="menuselection">Help ‣ Python ‣ Python Library</span></p>
+<blockquote>
+<div><p>Load the documentation for &#8216;Python Library&#8217; into an external web browser</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-242">
+<li><p class="first"><span class="menuselection">Help ‣ Python ‣ PyGTK Tutorial</span></p>
+<blockquote>
+<div><p>Load the documentation for &#8216;PyGTK tutorial&#8217; into an external web browser</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-243">
+<li><p class="first"><span class="menuselection">Help ‣ Python ‣ PyGTK Reference Manual</span></p>
+<blockquote>
+<div><p>Load the documentation for &#8216;PyGTK Reference Manual&#8217; into an external web browser</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="index-244">
+<li><p class="first"><span class="menuselection">Help ‣ About</span></p>
+<blockquote>
+<div><p>Display the About dialog</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mdi.html" title="4. Multiple Document Interface"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="main_window.html" title="2. Description of the Main Window"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

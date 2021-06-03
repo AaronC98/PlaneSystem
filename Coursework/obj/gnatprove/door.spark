@@ -1,0 +1,341 @@
+{
+  "spark": [
+    {
+      "name": "door",
+      "sloc": [
+        {
+          "file": "door.ads",
+          "line": 1
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "door.OpenDoor",
+      "sloc": [
+        {
+          "file": "door.ads",
+          "line": 9
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "door.CloseDoor",
+      "sloc": [
+        {
+          "file": "door.ads",
+          "line": 13
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "door.CloseLockDoor",
+      "sloc": [
+        {
+          "file": "door.ads",
+          "line": 17
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+  ],
+  "proof": [
+    {
+      "file": "door.ads",
+      "line": 11,
+      "col": 14,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "door.OpenDoor",
+        "sloc": [
+          {
+            "file": "door.ads",
+            "line": 9
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "door.ads",
+      "check_line": 11,
+      "check_col": 14,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "door.ads",
+      "line": 15,
+      "col": 14,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "door.CloseDoor",
+        "sloc": [
+          {
+            "file": "door.ads",
+            "line": 13
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "door.ads",
+      "check_line": 15,
+      "check_col": 14,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "door.ads",
+      "line": 19,
+      "col": 14,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "door.CloseLockDoor",
+        "sloc": [
+          {
+            "file": "door.ads",
+            "line": 17
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "door.ads",
+      "check_line": 19,
+      "check_col": 14,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "door.OpenDoor",
+          "sloc": [
+            {
+              "file": "door.ads",
+              "line": 9
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "door.OpenDoor",
+          "sloc": [
+            {
+              "file": "door.ads",
+              "line": 9
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "door.OpenDoor",
+          "sloc": [
+            {
+              "file": "door.ads",
+              "line": 9
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "door.CloseLockDoor",
+          "sloc": [
+            {
+              "file": "door.ads",
+              "line": 17
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "door",
+          "sloc": [
+            {
+              "file": "door.ads",
+              "line": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "door.CloseLockDoor",
+          "sloc": [
+            {
+              "file": "door.ads",
+              "line": 17
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "door.CloseLockDoor",
+          "sloc": [
+            {
+              "file": "door.ads",
+              "line": 17
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "door.CloseDoor",
+          "sloc": [
+            {
+              "file": "door.ads",
+              "line": 13
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "door.CloseDoor",
+          "sloc": [
+            {
+              "file": "door.ads",
+              "line": 13
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "door.CloseDoor",
+          "sloc": [
+            {
+              "file": "door.ads",
+              "line": 13
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "timings": {
+    "marking": 2.95000005280599E-04,
+    "globals (basic)": 2.88000010186806E-04,
+    "globals/properties (advanced)": 4.80999995488673E-04,
+    "flow analysis": 4.55499999225140E-03,
+    "codepeer results": 9.00000031833770E-06,
+    "init_why_sections": 8.91999981831759E-04,
+    "translation of standard": 7.36600020900369E-03,
+    "translation of compilation unit": 4.20799991115928E-03,
+    "proof": 8.98482978343964E-01
+  }
+}

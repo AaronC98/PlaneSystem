@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Semantics of Floating Point Operations &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="SPARK architecture, quality assurance and maturity" href="quality_assurance.html" />
+    <link rel="prev" title="Portability Issues" href="portability_issues.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="quality_assurance.html" title="SPARK architecture, quality assurance and maturity"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="portability_issues.html" title="Portability Issues"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="portability_issues.html"
+                        title="previous chapter">Portability Issues</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="quality_assurance.html"
+                        title="next chapter">SPARK architecture, quality assurance and maturity</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/appendix/semantics_of_floating_point_operations.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="semantics-of-floating-point-operations">
+<span id="id1"></span><h1>Semantics of Floating Point Operations<a class="headerlink" href="#semantics-of-floating-point-operations" title="Permalink to this headline">¶</a></h1>
+<p>SPARK assumes that floating point operations are carried out in single
+precision (binary32) or double precision (binary64) as defined in the IEEE-754
+standard for floating point arithmetic. You should make sure that this is the
+case on your platform. For example, on x86 platforms, by default some
+intermediate computations may be carried out in extended precision, leading to
+unexpected results. With GNAT, you can specify the use of SSE arithmetic by
+using the compilation switches &#8220;-msse2 -mfpmath=sse&#8221; which cause all arithmetic
+to be done using the SSE instruction set which only provides 32-bit and 64-bit
+IEEE types, and does not provide extended precision. SSE arithmetic is also
+more efficient. Note that the ABI allows free mixing of units using the two
+types of floating-point, so it is not necessary to force all units in a program
+to use SSE arithmetic.</p>
+<p>SPARK considers the floating point values which represent positive, negative
+infinity or NaN as invalid. Proof obligations are generated that such values
+cannot occur.</p>
+<p>SPARK considers rounding on floating point arithmetic operations to follow
+Round-Nearest-Even (RNE) mode, where a real result is rounded to the nearest
+floating point value, and ties are resolved to the floating-point with a zero
+in the last place. This mode of rounding should be forced if needed on the
+hardware to be able to rely on the results of GNATprove regarding floating
+point arithmetic.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="quality_assurance.html" title="SPARK architecture, quality assurance and maturity"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="portability_issues.html" title="Portability Issues"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

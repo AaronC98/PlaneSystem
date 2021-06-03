@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>9. Compilation/Build &#8212; GPS 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/adacore.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10. Debugging" href="debugging.html" />
+    <link rel="prev" title="8. Searching and Replacing" href="searching.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="debugging.html" title="10. Debugging"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="searching.html" title="8. Searching and Replacing"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">9. Compilation/Build</a><ul>
+<li><a class="reference internal" href="#the-target-configuration-editor">9.1. The Target Configuration Editor</a><ul>
+<li><a class="reference internal" href="#the-targets-tree">9.1.1. The Targets tree</a></li>
+<li><a class="reference internal" href="#the-configuration-panel">9.1.2. The configuration panel</a></li>
+<li><a class="reference internal" href="#background-compilations">9.1.3. Background compilations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-build-mode">9.2. The Build Mode</a></li>
+<li><a class="reference internal" href="#working-with-two-compilers">9.3. Working with two compilers</a><ul>
+<li><a class="reference internal" href="#interaction-with-the-remote-mode">9.3.1. Interaction with the remote mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="searching.html"
+                        title="previous chapter">8. Searching and Replacing</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="debugging.html"
+                        title="next chapter">10. Debugging</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/compilation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="index-0"></span><div class="section" id="compilation-build">
+<span id="index-1"></span><span id="id1"></span><h1>9. Compilation/Build<a class="headerlink" href="#compilation-build" title="Permalink to this headline">¶</a></h1>
+<p>This chapter describes how to compile files, build executables, and run
+them.  Most capabilities can be accessed through the <span class="menuselection">Build</span>
+top-level menu or through the <span class="menuselection">Build</span> and
+<span class="menuselection">Run</span> contextual menu items, as described below.</p>
+<p>When GPS detects compiler messages, it adds entries to the
+<span class="guilabel">Locations</span> view, allowing you to easily navigate through the
+compiler messages (see <a class="reference internal" href="main_window.html#the-locations-view"><span class="std std-ref">The Locations View</span></a>) and even to automatically
+correct some errors or warnings (see <a class="reference internal" href="tools.html#code-fixing"><span class="std std-ref">Code Fixing</span></a>).</p>
+<p>In source editors, compiler messages also appear as icons on the side of
+each line that has a message. When the pointer is placed on these icons, a
+tooltip appears, listing the error messages posted on the corresponding
+line. When GPS can automatically correct the errors, clicking the icon
+applies the fix. These icons are removed when the corresponding entries are
+removed from <a class="reference internal" href="main_window.html#the-locations-view"><span class="std std-ref">The Locations View</span></a>.</p>
+<div class="section" id="the-target-configuration-editor">
+<span id="index-2"></span><span id="id2"></span><h2>9.1. The Target Configuration Editor<a class="headerlink" href="#the-target-configuration-editor" title="Permalink to this headline">¶</a></h2>
+<p>GPS provides an interface for launching operations such as building
+projects, compiling individual files, and performing syntax or semantic
+checks.  These operations all involve launching an external command and
+parsing the output for error messages. In GPS, these operations are called
+&#8220;Targets&#8221;, and can be configured either through the Target Configuration
+Editor, accessible from the <span class="menuselection">Edit ‣ Preferences...</span> menu,
+or through XML configuration.
+See <a class="reference internal" href="extending.html#customizing-build-targets-and-models"><span class="std std-ref">Customizing Build Targets and Models</span></a>.</p>
+<img alt="_images/target-configuration-editor.png" src="_images/target-configuration-editor.png" />
+<p>This editor is divided in two areas: on the left is a tree listing Targets
+and in the main area is a panel for configuring the Target which is
+currently selected in the tree.</p>
+<div class="section" id="the-targets-tree">
+<h3>9.1.1. The Targets tree<a class="headerlink" href="#the-targets-tree" title="Permalink to this headline">¶</a></h3>
+<p>The Tree contains a list of targets, organized by categories.</p>
+<p>On top of the tree are three buttons:</p>
+<ul class="simple">
+<li>The Add button creates a new target.</li>
+<li>The Remove button removes the currently selected target. Note that only
+user-defined targets can be removed; the default targets created by GPS
+cannot be removed.</li>
+<li>The Clone button creates a new user-defined target that is identical
+to the currently selected target.</li>
+</ul>
+</div>
+<div class="section" id="the-configuration-panel">
+<h3>9.1.2. The configuration panel<a class="headerlink" href="#the-configuration-panel" title="Permalink to this headline">¶</a></h3>
+<p>From the top of the configuration panel, you can select the Target model.
+That Model determines the graphical options available in the
+<span class="guilabel">Command line</span> frame.</p>
+<p>The <span class="guilabel">Revert</span> button resets all target settings to their original
+value.</p>
+<p>The <span class="guilabel">Options</span> frame contains a number of options available for
+all Targets.</p>
+<ul>
+<li><p class="first">The Launch mode selects the way the target is launched:</p>
+<ul>
+<li><p class="first">Manually:</p>
+<p>The target is launched when you click on the corresponding icon in the
+toolbar or activate the corresponding menu item.  In the latter case, a
+dialog is displayed, allowing final modifications of the command line.</p>
+</li>
+<li><p class="first">Manually with dialog:</p>
+<p>Same as Manually, but the dialog is always displayed.</p>
+</li>
+<li><p class="first">Manually with no dialog:</p>
+<p>Same as Manually, but the dialog is never displayed.</p>
+</li>
+<li><p class="first">On file save:</p>
+<p>The Target is launched automatically by GPS when a file is saved.  The
+dialog is never displayed.</p>
+</li>
+<li><p class="first">In background:</p>
+<p>The Target is launched automatically in the background after each
+modification in the source editor. See <a class="reference internal" href="#background-compilations"><span class="std std-ref">Background compilations</span></a>.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Icon:</p>
+<p>The icon to use for representing this target in the menus and in the
+toolbar. To use one of your icons, register icons using the
+<code class="samp docutils literal"><span class="pre">&lt;stock&gt;</span></code> XML customization node. (See
+<a class="reference internal" href="extending.html#adding-stock-icons"><span class="std std-ref">Adding custom icons</span></a>). Then use the &#8220;custom&#8221; choice and enter the ID
+of the icon into the text field.</p>
+</li>
+<li><p class="first">Target type:</p>
+<p>Type of target described. If empty or set to &#8220;Normal&#8221;, it represents a
+simple target. If set to another value, it represents multiple
+subtargets.  For example, if set to &#8220;main&#8221;, each subtarget corresponds to
+a Main source as defined in the currently loaded project.  Other custom
+values may be defined and handled via the <code class="samp docutils literal"><span class="pre">compute_build_targets</span></code>
+hook.</p>
+</li>
+</ul>
+<p>The <span class="guilabel">Display</span> frame indicates where the launcher for this target
+should be visible.</p>
+<ul>
+<li><p class="first">in the toolbar:</p>
+<p>When active, a button is displayed in the main toolbar that can be used
+to quickly launch a Target.</p>
+</li>
+<li><p class="first">in the main menu:</p>
+<p>Whether to display a menu item corresponding to the Target in the main
+GPS menu. By default, Targets in the &#8220;File&#8221; category are listed directly
+in the Build menu and Targets in other categories are listed in a submenu
+corresponding to the name of the category.</p>
+</li>
+<li><p class="first">in contextual menus for projects:</p>
+<p>Whether to display an item in the contextual menu for projects in the
+Project View</p>
+</li>
+<li><p class="first">in contextual menus for files:</p>
+<p>Whether to display an item in the contextual menus for files, for example
+in file items in the Project View or directly on source file editors.</p>
+</li>
+</ul>
+<p>The <span class="guilabel">Command line</span> contains a graphical interface for some
+configurable elements of the Target that are specific to the Model of this
+Target.</p>
+<p>The full command line is displayed at the bottom.  It may contain Macro
+Arguments. For example, if the command line contains the string &#8220;%PP&#8221;, GPS
+will expand this to the full path to the current project. For a full list
+of available Macros, see <a class="reference internal" href="extending.html#macro-arguments"><span class="std std-ref">Macro arguments</span></a>.</p>
+</div>
+<div class="section" id="background-compilations">
+<span id="id3"></span><h3>9.1.3. Background compilations<a class="headerlink" href="#background-compilations" title="Permalink to this headline">¶</a></h3>
+<p>GPS can launch compilation targets in the background. This means GPS
+launches the compiler on the current state of the file in the editor.</p>
+<p id="index-3">Error messages resulting from background compilations are not listed in the
+<span class="guilabel">Locations</span> or <span class="guilabel">Messages</span> views. The full list of
+messages are shown in the <span class="guilabel">Background Build</span> console, accessible
+from the <span class="menuselection">View ‣ Background Builds</span> menu.
+Error messages that contain a source location indication are shown as icons
+on the side of lines in editors and the exact location is highlighted
+directly in the editor. In both places, tooltips show the contents of the
+error messages.</p>
+<p>Messages from background compilations are removed automatically when either
+a new background compilation has finished or a non-background compilation
+is launched.</p>
+<p>GPS launches background compilations for all targets that have a
+<span class="guilabel">Launch mode</span> set to <span class="guilabel">In background</span> after you have made
+modifications in a source editor.  Background compilation is mostly useful
+for targets such as <code class="samp docutils literal"><span class="pre">Compile</span> <span class="pre">File</span></code> or <code class="samp docutils literal"><span class="pre">Check</span> <span class="pre">Syntax</span></code>. For
+targets that operate on Mains, the last main used in a non-background is
+considered, defaulting to the first main defined in the project hierarchy.</p>
+<p>Background compilations are not launched while GPS is already listing
+results from non-background compilations (i.e. as long as there are entries
+in the <span class="guilabel">Locations</span> view showing entries in the <span class="guilabel">Builder
+results</span> category).</p>
+</div>
+</div>
+<div class="section" id="the-build-mode">
+<span id="index-4"></span><span id="id4"></span><h2>9.2. The Build Mode<a class="headerlink" href="#the-build-mode" title="Permalink to this headline">¶</a></h2>
+<p>GPS provides an easy way to build your project with different options,
+through the mode selection, located in the <span class="guilabel">Scenario</span> view (see
+<a class="reference internal" href="main_window.html#scenario-view"><span class="std std-ref">Scenario view</span></a>).</p>
+<p>When the mode is set to &#8220;default&#8221;, GPS performs the build using the
+switches defined in the project. When the mode is set to another value,
+specialized parameters are passed to the builder. For example, the
+<strong class="program">gcov</strong> mode adds all the compilation parameters needed to
+instrument the generated objects and executables to work with the
+<strong class="program">gcov</strong> tool.</p>
+<p>In addition to changing the build parameters, changing the mode changes the
+output directory for objects and executables. For example, objects produced
+under the <code class="samp docutils literal"><span class="pre">debug</span></code> mode will be located in the <code class="file docutils literal"><span class="pre">debug</span></code>
+subdirectories of the object directories defined by the project.  This
+allows switching from one Mode to another without having to erase the
+objects pertaining to a different Mode.</p>
+<p>You can define new modes using XML customization, see
+<a class="reference internal" href="extending.html#customizing-build-targets-and-models"><span class="std std-ref">Customizing Build Targets and Models</span></a>.</p>
+<p>The Build Mode only affects builds done using recent versions of
+<strong class="program">gnatmake</strong> and <strong class="program">gprbuild</strong>. The Mode selection has no
+effect on builds done through Targets that launch other builders.</p>
+<span class="target" id="index-5"></span></div>
+<div class="section" id="working-with-two-compilers">
+<span id="index-6"></span><span id="id5"></span><h2>9.3. Working with two compilers<a class="headerlink" href="#working-with-two-compilers" title="Permalink to this headline">¶</a></h2>
+<p>This functionality is intended if your projects need to be compiled with a
+specific (old) version of the GNAT toolchain while you still need to take
+full advantage of up-to-date associated tools for non-compilation actions,
+such as checking the code against a coding standard, getting better
+cross-reference browsing in GPS, or computing metrics.</p>
+<p id="index-7">To configure GPS to handle two compiler toolchains, use the
+<span class="menuselection">Build ‣ Settings ‣ Toolchains</span> menu.  This opens a
+dialog from which you can activate the multiple-toolchains mode.</p>
+<img alt="_images/toolchains-config.jpg" src="_images/toolchains-config.jpg" />
+<p>In this dialog, two paths need to be configured: the compiler path and the
+tools path. The first is used to compile the code, while the second is used
+to run up-to-date tools in order to get more functionality or more accurate
+results.  GPS only enables the <span class="guilabel">OK</span> button when the two paths are
+set to different locations, as that is the only case where it makes sense
+to enable the multiple toolchains mode.</p>
+<p>You can also activate an automated cross-reference generation from this
+dialog. The cross-reference files are the <code class="file docutils literal"><span class="pre">.ali</span></code> files generated by
+the GNAT compiler together with the compiled object files. The <code class="file docutils literal"><span class="pre">.ali</span></code>
+files are used by GPS for several purposes, such as cross-reference
+browsing and documentation generation. Having those <code class="file docutils literal"><span class="pre">.ali</span></code> files
+produced by a recent compiler provides more accurate results for those
+purposes but might cause serious problems if an old compiler were to also
+read those <code class="file docutils literal"><span class="pre">.ali</span></code> files when compiling a project.</p>
+<p>If you activate the automated cross-reference generation, GPS generates
+those <code class="file docutils literal"><span class="pre">.ali</span></code> files using the compiler found in the tools path and
+places them in a directory distinct from the one used by the actual
+compiler. This allows GPS to take full benefit of up-to-date
+cross-reference files, while the old toolchain&#8217;s <code class="file docutils literal"><span class="pre">.ali</span></code> files
+remain untouched.</p>
+<p id="index-8">Cross-reference files generation does not output anything in the
+<span class="guilabel">Messages</span> view so as not to be confused with the output of the
+regular build process. If needed, you can see the output of the cross-ref
+generation command with the <span class="menuselection">View ‣ Auxiliary Builds</span> menu.</p>
+<div class="section" id="interaction-with-the-remote-mode">
+<h3>9.3.1. Interaction with the remote mode<a class="headerlink" href="#interaction-with-the-remote-mode" title="Permalink to this headline">¶</a></h3>
+<p>The ability to work with two compilers has impacts on the remote mode
+configuration: paths defined here are local paths so they have no meaning
+on the server side.  To handle the case of using a specific compiler
+version on the remote side while wanting up-to-date tools on the local
+side, GPS does the following when both a remote compilation server is
+defined and the multiple toolchains mode is in use:</p>
+<ul class="simple">
+<li>The compiler path is ignored when a remote build server is defined. All
+compilation actions are performed normally on the build server.</li>
+<li>The tools path is used and all related actions are performed on the local
+machine using this path.</li>
+<li>The cross-reference files are handled <strong class="program">rsync</strong> so they do not get
+overwritten during local and remote host synchronizations.  Otherwise,
+they would cause build and cross-reference generation actions to occur at
+the same time on the local machine and on remote server.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="debugging.html" title="10. Debugging"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="searching.html" title="8. Searching and Replacing"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

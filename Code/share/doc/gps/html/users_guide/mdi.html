@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4. Multiple Document Interface &#8212; GPS 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/adacore.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Editing Files" href="editing.html" />
+    <link rel="prev" title="3. The Menu Bar" href="menus.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="editing.html" title="5. Editing Files"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="menus.html" title="3. The Menu Bar"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. Multiple Document Interface</a><ul>
+<li><a class="reference internal" href="#window-layout">4.1. Window layout</a></li>
+<li><a class="reference internal" href="#selecting-windows">4.2. Selecting Windows</a></li>
+<li><a class="reference internal" href="#closing-windows">4.3. Closing Windows</a></li>
+<li><a class="reference internal" href="#splitting-windows">4.4. Splitting Windows</a></li>
+<li><a class="reference internal" href="#floating-windows">4.5. Floating Windows</a></li>
+<li><a class="reference internal" href="#moving-windows">4.6. Moving Windows</a></li>
+<li><a class="reference internal" href="#perspectives">4.7. Perspectives</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="menus.html"
+                        title="previous chapter">3. The Menu Bar</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="editing.html"
+                        title="next chapter">5. Editing Files</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/mdi.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="index-0"></span><div class="section" id="multiple-document-interface">
+<span id="index-1"></span><span id="id1"></span><h1>4. Multiple Document Interface<a class="headerlink" href="#multiple-document-interface" title="Permalink to this headline">¶</a></h1>
+<p>All windows (whether editors or views) that are part of the GPS environment
+are under control of what is commonly called a multiple document interface
+(MDI for short). This is a common paradigm where related windows are put
+into a larger window which is itself under control of the system or the
+windows manager.</p>
+<p>By default, no matter how many editors and views you opened, your system
+still sees only one window (on Windows systems, the task bar shows only one
+icon). You can organize the GPS windows in whatever way you want, all
+inside the GPS main window.  This section describes the capabilities GPS
+provides to help you do this.</p>
+<div class="section" id="window-layout">
+<h2>4.1. Window layout<a class="headerlink" href="#window-layout" title="Permalink to this headline">¶</a></h2>
+<p>The GPS main window is organized into various areas.  The most important
+distinction is between the central area (which usually occupies the most
+space) and the side areas (which include the top and bottom areas).  Some
+windows in the GPS area are restricted to either the central or the side
+areas.  You can split each area into smaller areas, as described below.
+Each area can contain any number of windows, organized into notebooks with
+tabs, possibly displaying names.  Right-clicking on a tab displays a
+contextual menu providing capabilities showing the <span class="guilabel">Tabs
+location</span> and <span class="guilabel">Tabs rotation</span>, which allows you to display the
+tabs on any side of the notebook or make them vertical if you want to save
+screen space.</p>
+<p>The central area can contain the source editors (which can only go there)
+as well as larger views like browsers.  The contents of the central area are
+preserved when switching perspectives (see below).</p>
+</div>
+<div class="section" id="selecting-windows">
+<span id="index-2"></span><span id="id2"></span><h2>4.2. Selecting Windows<a class="headerlink" href="#selecting-windows" title="Permalink to this headline">¶</a></h2>
+<p>Only one window is selected in GPS (the <strong>active window</strong>) at a time.
+Select a window by clicking on its tab, which becomes a different
+color, or selecting its name in the <span class="menuselection">Window</span> menu.  Or use
+the <span class="guilabel">Windows</span> view (see <a class="reference internal" href="main_window.html#the-windows-view"><span class="std std-ref">The Windows view</span></a>), which also provides
+a convenient mechanism for selecting multiple windows at once.</p>
+<p>Finally, you can select windows with the omni-search, the search field in
+the global toolbar. One of the contexts for the search is the list of
+opened windows. To make things more convenient, you can bind a key shortcut
+via the <span class="menuselection">Edit ‣ Preferences...</span> menu (the name of the
+action is <span class="menuselection">Search ‣ Global Search in context: Opened</span>).</p>
+<p>Any window whose name contains the specified letter matches the search field.
+For example, if you are currently editing the files <code class="file docutils literal"><span class="pre">unit1.adb</span></code> and
+<code class="file docutils literal"><span class="pre">file.adb</span></code>, pressing <code class="kbd docutils literal"><span class="pre">t</span></code> leaves only <code class="file docutils literal"><span class="pre">unit1.adb</span></code> selectable.</p>
+</div>
+<div class="section" id="closing-windows">
+<span id="index-3"></span><span id="id3"></span><h2>4.3. Closing Windows<a class="headerlink" href="#closing-windows" title="Permalink to this headline">¶</a></h2>
+<p>Wherever a window is displayed, you can close it by clicking the small
+<span class="guilabel">X</span> icon in its tab or selecting the window by clicking
+on its tab and selecting the <span class="menuselection">Window ‣ Close</span> menu.</p>
+<p>When you close a window, the focus is set to the window in the same
+notebook that previously had the focus. If you open an editor as a result
+of a cross-reference query, close that editor to go back to where you were.</p>
+<p id="index-4">Finally, you can close a window by right-clicking in the associated
+notebook tab (if the tabs are visible) and selecting <span class="guilabel">Close</span> in
+the contextual menu.</p>
+<p>There is a <span class="menuselection">Close all other editors</span> menu in the notebook tab
+when you are in an editor, which closes most windows except a single editor,
+the one you are using.</p>
+<span class="target" id="index-5"></span></div>
+<div class="section" id="splitting-windows">
+<span id="index-6"></span><span id="id4"></span><h2>4.4. Splitting Windows<a class="headerlink" href="#splitting-windows" title="Permalink to this headline">¶</a></h2>
+<p>You can split windows horizontally and vertically in any combination.  To
+do this requires at least two windows (for example text editors or
+browsers) present in a given notebook.  Select either the
+<span class="menuselection">Window ‣ Split Horizontally</span> or <span class="menuselection">Window
+‣ Split Vertically</span> menus to split the selected window. In the left
+(respectively, top) pane, the currently selected window is put on its
+own. The rest of the previously superimposed windows are put in the right
+(respectively, bottom) pane. You can further split these remaining windows
+to achieve any desired layout.</p>
+<p>You can resize any split windows by dragging the handles that separate
+them.</p>
+<p>You may want to bind the key shortcuts to the <span class="menuselection">Window ‣
+Split Horizontally</span> and <span class="menuselection">Window ‣ Split Vertically</span> menus
+using the key manager. If you want to achieve an effect similar to standard
+Emacs behavior (where <code class="kbd docutils literal"><span class="pre">control-x</span> <span class="pre">2</span></code> splits a window horizontally and
+<code class="kbd docutils literal"><span class="pre">control-x</span> <span class="pre">3</span></code> splits a window vertically), use the key manager
+(see <a class="reference internal" href="extending.html#the-key-shortcuts-editor"><span class="std std-ref">The Key Shortcuts Editor</span></a>).</p>
+<p><a class="reference internal" href="#moving-windows"><span class="std std-ref">Moving Windows</span></a> shows how to split windows using drag-and-drop, which
+is the fastest way.</p>
+<p>You can put several editors or browsers in the same area. In that case,
+they are grouped together in a notebook; select any of them by clicking on
+the corresponding tab.  If there are many windows, two small arrows appear
+on the right of the tabs.  Click these arrows to show the remaining tabs.</p>
+<p>GPS changes the color and size of the title (name) of a window in the
+notebook tab to indicate that the window content has been updated but the
+window is not visible.  This commonly occurs when new messages have been
+written in the <span class="guilabel">Messages</span> or <span class="guilabel">Console</span> views.</p>
+</div>
+<div class="section" id="floating-windows">
+<span id="index-7"></span><span id="id5"></span><h2>4.5. Floating Windows<a class="headerlink" href="#floating-windows" title="Permalink to this headline">¶</a></h2>
+<p>You may prefer to have several top-level windows under direct control of
+your system&#8217;s window manager.  For example, you want to benefit from some
+options your system might provide such as virtual desktops, different
+window decoration depending on the window&#8217;s type, transparent windows,
+and/or multiple screens.</p>
+<p id="index-8">You can make any window currently embedded in the MDI a <strong>floating window</strong>
+by selecting the window and selecting the <span class="menuselection">Window ‣
+Floating</span> menu. The window is detached and you can move it anywhere on your
+screen, even outside GPS&#8217;s main window.</p>
+<p>There are two ways to put a floating window back under control of GPS.  The
+most general method is to select the window using its title in the
+<span class="menuselection">Window</span> menu, and unselect <span class="menuselection">Window ‣
+Floating</span>.</p>
+<p id="index-9">The second method assumes you have set the preference
+<span class="guilabel">Destroy Floats</span> in the <span class="menuselection">Edit ‣
+Preferences...</span> menu to false.  If so, you can close the floating window
+by clicking the close button in the title bar; the window is put back
+in GPS&#8217;s main windows. If you want to close the window, you need to
+click the cross button in its title bar a second time.</p>
+<p id="index-10">GPS provides a mode where all windows are floating and the MDI area in the
+main window is invisible.  You may want to use this if you rely on windows
+handling facilities supported by your system or window manager that are not
+available in GPS, for example if you want to have windows on various
+virtual desktops and your window manager supports this.</p>
+<p>This mode is activated through the <span class="menuselection">Windows ‣ All
+Floating</span> preference.</p>
+</div>
+<div class="section" id="moving-windows">
+<span id="index-11"></span><span id="id6"></span><h2>4.6. Moving Windows<a class="headerlink" href="#moving-windows" title="Permalink to this headline">¶</a></h2>
+<p>Change the organization of windows at any time by selecting a notebook
+containing several editors or browsers and selecting one of the
+<span class="menuselection">Split</span> entries in the <span class="menuselection">Window</span> menu.</p>
+<p>You can also drag and drop the window within GPS.  Select an item
+to drag by selecting the notebook tab.  In that case, you can also
+reorder the windows within the notebook: select the tab, then start moving
+left or right to the window&#8217;s new position.  Your mouse must remain within
+the tab area or GPS will drop the window into another notebook.</p>
+<p>Here are the various places where you can drop a window:</p>
+<ul>
+<li><p class="first">Inside the MDI</p>
+<p>While the mouse button is pressed, the target area is highlighted and
+shows where the window would be put if you release the mouse button. The
+background color of the highlight indicates whether the window will be
+preserved or not when
+changing perspectives (for example, when starting a debug session). You
+can drag a window to one side of a notebook to split that notebook.</p>
+<p>If you drop a window all the way on a side of the area, the window will
+occupy the full width (or height) of the area.</p>
+<p>GPS will however restrict where windows can be placed: editors and most
+browsers, for instance, must go into the central area (the part that stays
+common when switching perspectives), whereas other views must stay on the
+sides (left, right, bottom or top) of that central area.
+The color of the highlight during a move (blue or brown) will indicate where
+the window can be dropped.</p>
+</li>
+<li><p class="first">System window</p>
+<p>If you drop a window outside of GPS (for example, on the background of
+your screen), GPS floats the window.</p>
+</li>
+</ul>
+<p id="index-12">Keeping the <code class="kbd docutils literal"><span class="pre">shift</span></code> key pressed while dropping the window results in a
+copy operation instead of a simple move, if possible. For example, if you
+drop an editor, a new view of the same editor is created, resulting in two
+views: the original one at its initial location and a second at the new
+location.</p>
+<p>If you keep the <code class="kbd docutils literal"><span class="pre">control</span></code> key pressed while dropping the window, all
+the windows in the same notebook are moved, instead of just the one you
+selected.  This is the fastest way to move a group of windows to a new
+location.</p>
+<span class="target" id="index-13"></span></div>
+<div class="section" id="perspectives">
+<span id="index-14"></span><span id="id7"></span><h2>4.7. Perspectives<a class="headerlink" href="#perspectives" title="Permalink to this headline">¶</a></h2>
+<p>GPS supports the concept of perspectives. These are activity-specific
+desktops, each with their own set of windows, but sharing some common
+windows like the editors.</p>
+<p>You can switch to a different perspective for different types of activities
+you want to perform (such as debugging or version control operations).  For
+example, when using the debugger, the default perspective consists of
+windows containing the call stack, data window, and the debugger console,
+each at the location you have set.  When you start the debugger again, you
+do not have to reopen these windows.</p>
+<span class="target" id="index-15"></span><p id="index-16">Each perspective has a name.  Switch perspectives by selecting the
+<span class="menuselection">Window ‣ Perspectives</span> menu.  Create a new perspective by
+selecting the <span class="menuselection">Window ‣ Perspectives ‣ Create New</span> menu.</p>
+<p>The most convenient way to change perspective, though, is to simply click
+on the button to the right of the main toolbar. By default, it shows the
+label &#8220;Default&#8221;, which is the name of the default perspective. Selecting
+any item in the popup window will switch to that perspective.</p>
+<p>GPS sometimes automatically changes perspectives. For example, if you start
+a debugger, it switches to the perspective called <span class="guilabel">Debug</span> if one
+exists. When the debugger terminates, you are switched back to the
+<span class="guilabel">Default</span> perspective, if one exists.</p>
+<p>When you leave a perspective, GPS automatically saves its contents
+(including which windows are opened and their location) so when you return
+to the same perspective you see the same layout.</p>
+<p id="index-17">When GPS exits, it saves the layout of all perspectives to a file
+<code class="file docutils literal"><span class="pre">perspectives6.xml</span></code> so it can restore them when you restart GPS. This
+behavior is controlled by the <span class="menuselection">General ‣ Save desktop on
+exit</span> preference, which you can disable.</p>
+<p>One difficulty in working with perspectives is knowing which windows are
+preserved when you switch to another perspective and which are hidden.  To
+help you determine this, there&#8217;s a central area where you can find all
+preserved windows.  It usually only contains editors (including those that
+you have split side by side). If you drop another window on top or to one
+side of an editor, that window is preserved when changing perspectives
+unless it is already in the new perspective.  The color of the highlight
+appearing on the screen while you drag tells you whether the window (if
+dropped at the current location) will be visible or hidden in other
+perspectives.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="editing.html" title="5. Editing Files"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="menus.html" title="3. The Menu Bar"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

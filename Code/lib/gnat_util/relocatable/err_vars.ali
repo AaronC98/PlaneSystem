@@ -1,0 +1,108 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U err_vars%s		err_vars.ads		fbb8363e EE OO PK
+W namet%s		namet.adb		namet.ali
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+W types%s		types.adb		types.ali
+W uintp%s		uintp.adb		uintp.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D err_vars.ads		20190518044709 572d4c83 err_vars%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D namet.ads		20190518044709 b520bebe namet%s
+D opt.ads		20190518044710 3d2ce478 opt%s
+D output.ads		20190518044709 a916e413 output%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-exctab.adb		20190518041256 c756f391 system.exception_table%b
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D uintp.ads		20190518044709 c6012b27 uintp%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+G a e
+X 7 err_vars.ads
+39K9*Err_Vars 158l5 158e13
+64i4*Error_Msg_Qual_Level{31|62I12}
+70b4*Warn_On_Instance{boolean}
+78i4*Raise_Exception_On_Error{31|62I12}
+87X4*Error_Msg_Exception
+90i4*Current_Error_Source_File{31|575I9}
+98b4*Warning_Doc_Switch{boolean}
+115i4*Error_Msg_Col{31|178I9}
+118i4*Error_Msg_Uint_1{32|48I9}
+119i4*Error_Msg_Uint_2{32|48I9}
+122i4*Error_Msg_Sloc{31|220I12}
+125i4*Error_Msg_Name_1{9|188I9}
+126i4*Error_Msg_Name_2{9|188I9}
+127i4*Error_Msg_Name_3{9|188I9}
+130i4*Error_Msg_File_1{9|624I9}
+131i4*Error_Msg_File_2{9|624I9}
+132i4*Error_Msg_File_3{9|624I9}
+135i4*Error_Msg_Unit_1{9|653I9}
+136i4*Error_Msg_Unit_2{9|653I9}
+139i4*Error_Msg_Node_1{31|397I9}
+140i4*Error_Msg_Node_2{31|397I9}
+143b4*Error_Msg_Warn{boolean}
+153a4*Error_Msg_String{string}
+154i4*Error_Msg_Strlen{natural}
+X 9 namet.ads
+37K9*Namet 7|35w6 35r17 9|768e10
+188I9*Name_Id<integer> 7|125r23 126r23 127r23
+624I9*File_Name_Type<188I9> 7|130r23 131r23 132r23
+653I9*Unit_Name_Type<188I9> 7|135r23 136r23
+X 12 system.ads
+67M9*Address
+X 16 s-memory.ads
+53V13*Alloc{12|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{12|67M9} 105i<c,__gnat_realloc>22
+X 31 types.ads
+52K9*Types 7|36w6 36r17 31|948e10
+59I9*Int<integer>
+62I12*Nat{59I9} 7|64r27 78r31
+145I9*Text_Ptr<59I9>
+178I9*Column_Number<short_integer> 7|115r20
+220I12*Source_Ptr{145I9} 7|122r21
+397I9*Node_Id<integer> 7|139r23 140r23
+575I9*Source_File_Index<59I9> 7|90r32
+578i4*No_Source_File{575I9} 7|90r53
+X 32 uintp.ads
+42K9*Uintp 7|37w6 37r17 32|565e10
+48I9*Uint<31|59I9> 7|118r23 119r23
+

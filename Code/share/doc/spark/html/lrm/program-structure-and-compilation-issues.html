@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>10. Program Structure and Compilation Issues &#8212; SPARK 2014 Reference Manual 2019</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="11. Exceptions" href="exceptions.html" />
+    <link rel="prev" title="9. Tasks and Synchronization" href="tasks-and-synchronization.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="exceptions.html" title="11. Exceptions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tasks-and-synchronization.html" title="9. Tasks and Synchronization"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">10. Program Structure and Compilation Issues</a><ul>
+<li><a class="reference internal" href="#separate-compilation">10.1. Separate Compilation</a><ul>
+<li><a class="reference internal" href="#compilation-units-library-units">10.1.1. Compilation Units - Library Units</a></li>
+<li><a class="reference internal" href="#context-clauses-with-clauses">10.1.2. Context Clauses - With Clauses</a><ul>
+<li><a class="reference internal" href="#abstract-views">10.1.2.1. Abstract Views</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#subunits-of-compilation-units">10.1.3. Subunits of Compilation Units</a></li>
+<li><a class="reference internal" href="#the-compilation-process">10.1.4. The Compilation Process</a></li>
+<li><a class="reference internal" href="#pragmas-and-program-units">10.1.5. Pragmas and Program Units</a></li>
+<li><a class="reference internal" href="#environment-level-visibility-rules">10.1.6. Environment-Level Visibility Rules</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#program-execution">10.2. Program Execution</a><ul>
+<li><a class="reference internal" href="#elaboration-control">10.2.1. Elaboration Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tasks-and-synchronization.html"
+                        title="previous chapter">9. Tasks and Synchronization</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="exceptions.html"
+                        title="next chapter">11. Exceptions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/program-structure-and-compilation-issues.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="program-structure-and-compilation-issues">
+<h1>10. Program Structure and Compilation Issues<a class="headerlink" href="#program-structure-and-compilation-issues" title="Permalink to this headline">¶</a></h1>
+<p>SPARK 2014 supports constructive, modular analysis. This means that analysis may be
+performed before a program is complete based on unit interfaces. For instance,
+to analyze a subprogram which calls another all that is required is a
+specification of the called subprogram including, at least, its
+<code class="docutils literal"><span class="pre">global_specification</span></code> and if formal verification of the calling program is to
+be performed, then the Pre and Postcondition of the called subprogram need to
+be provided. The body of the called subprogram does not need to be implemented
+to analyze the caller. The body of the called subprogram is checked to be
+conformant with its specification when its implementation code is available and
+analyzed.</p>
+<p>The separate compilation of Ada <code class="docutils literal"><span class="pre">compilation_units</span></code> is consistent with
+SPARK 2014 modular analysis except where noted in the following subsections but,
+particularly with respect to incomplete programs, analysis does not involve the
+execution of the program.</p>
+<div class="section" id="separate-compilation">
+<h2>10.1. Separate Compilation<a class="headerlink" href="#separate-compilation" title="Permalink to this headline">¶</a></h2>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-separate-compilation-01">
+<li>A program unit cannot be a task unit, a protected unit or a protected entry.</li>
+</ol>
+<div class="section" id="compilation-units-library-units">
+<span id="etu-separate-compilation"></span><h3>10.1.1. Compilation Units - Library Units<a class="headerlink" href="#compilation-units-library-units" title="Permalink to this headline">¶</a></h3>
+<p>No restrictions or extensions.</p>
+</div>
+<div class="section" id="context-clauses-with-clauses">
+<h3>10.1.2. Context Clauses - With Clauses<a class="headerlink" href="#context-clauses-with-clauses" title="Permalink to this headline">¶</a></h3>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-context-clauses-with-clauses-01">
+<li>With clauses are always in SPARK 2014, even if the unit mentioned is
+not completely in SPARK 2014.</li>
+</ol>
+<div class="section" id="abstract-views">
+<span id="etu-context-clauses-with-clauses-lr"></span><h4>10.1.2.1. Abstract Views<a class="headerlink" href="#abstract-views" title="Permalink to this headline">¶</a></h4>
+<p>State abstractions are visible in the limited view of packages in SPARK 2014. The
+notion of an <em>abstract view</em> of an object declaration is also introduced, and
+the limited view of a package includes the abstract view of any objects
+declared in the visible part of that package. The only allowed uses of an
+abstract view of an object are where the use of a state abstraction would be
+allowed (for example, in a Global <code class="docutils literal"><span class="pre">aspect_specification</span></code>).</p>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-context-clauses-with-clauses-02" start="2">
+<li>A name denoting the abstract view of an object shall occur only:<ol class="loweralpha">
+<li>as a <code class="docutils literal"><span class="pre">global_item</span></code> in a Global or Refined_Global aspect
+specification; or</li>
+<li>as an <code class="docutils literal"><span class="pre">input</span></code> or <code class="docutils literal"><span class="pre">output</span></code> in a Depends or Refined_Depends
+aspect specification; or</li>
+<li>in an <code class="docutils literal"><span class="pre">input_list</span></code> of an Initializes aspect.</li>
+</ol>
+</li>
+</ol>
+<p class="centered" id="etu-context-clauses-with-clauses-abstract-view-lr">
+<strong><strong>Static Semantics</strong></strong></p><ol class="arabic simple" id="tu-context-clauses-with-clauses-03" start="3">
+<li>Any state abstractions declared within a given package are present in
+the limited view of the package.
+[This means that, for example, a Global <code class="docutils literal"><span class="pre">aspect_specification</span></code> for a
+subprogram declared in a library unit package <em>P1</em> could refer to a state
+abstraction declared in a package <em>P2</em> if <em>P1</em> has a limited with of <em>P2</em>.]</li>
+</ol>
+<ol class="arabic simple" id="tu-context-clauses-with-clauses-04" start="4">
+<li>For every object declared by an <code class="docutils literal"><span class="pre">object_declaration</span></code> occurring
+immediately within the visible part of a given package, the limited
+view of the package contains an <em>abstract view</em> of the object.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="subunits-of-compilation-units">
+<span id="tu-context-clauses-with-clauses-abstract-view-ss"></span><h3>10.1.3. Subunits of Compilation Units<a class="headerlink" href="#subunits-of-compilation-units" title="Permalink to this headline">¶</a></h3>
+<p>No restrictions or extensions.</p>
+</div>
+<div class="section" id="the-compilation-process">
+<h3>10.1.4. The Compilation Process<a class="headerlink" href="#the-compilation-process" title="Permalink to this headline">¶</a></h3>
+<p>The analysis process in SPARK 2014 is similar to the compilation process in Ada
+except that the <code class="docutils literal"><span class="pre">compilation_units</span></code> are analyzed, that is flow analysis and
+formal verification is performed, rather than compiled.</p>
+</div>
+<div class="section" id="pragmas-and-program-units">
+<h3>10.1.5. Pragmas and Program Units<a class="headerlink" href="#pragmas-and-program-units" title="Permalink to this headline">¶</a></h3>
+<p>No restrictions or extensions.</p>
+</div>
+<div class="section" id="environment-level-visibility-rules">
+<h3>10.1.6. Environment-Level Visibility Rules<a class="headerlink" href="#environment-level-visibility-rules" title="Permalink to this headline">¶</a></h3>
+<p>No restrictions or extensions.</p>
+</div>
+</div>
+<div class="section" id="program-execution">
+<h2>10.2. Program Execution<a class="headerlink" href="#program-execution" title="Permalink to this headline">¶</a></h2>
+<p>SPARK 2014 analyses do not involve program execution.  However, SPARK 2014 programs
+are executable including those new language defined aspects and pragmas where
+they have dynamic semantics given.</p>
+<div class="section" id="elaboration-control">
+<h3>10.2.1. Elaboration Control<a class="headerlink" href="#elaboration-control" title="Permalink to this headline">¶</a></h3>
+<p>No extensions or restrictions.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="exceptions.html" title="11. Exceptions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tasks-and-synchronization.html" title="9. Tasks and Synchronization"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

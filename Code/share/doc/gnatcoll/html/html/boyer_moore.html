@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>8. Boyer-Moore: Searching strings &mdash; GNATColl 2019 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="GNATColl 2019 documentation" href="index.html" />
+    <link rel="next" title="9. Paragraph filling: formatting text" href="filling.html" />
+    <link rel="prev" title="7. Mmap: Reading and Writing Files" href="mmap.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="filling.html" title="9. Paragraph filling: formatting text"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mmap.html" title="7. Mmap: Reading and Writing Files"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">GNATColl 2019 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mmap.html"
+                        title="previous chapter">7. <strong>Mmap</strong>: Reading and Writing Files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="filling.html"
+                        title="next chapter">9. <strong>Paragraph filling</strong>: formatting text</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="boyer-moore-searching-strings">
+<span id="searching-strings"></span><h1>8. <strong>Boyer-Moore</strong>: Searching strings<a class="headerlink" href="#boyer-moore-searching-strings" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="index-0"></span><p id="index-1">Although the Ada standard provides a number of string-searching subprograms
+(most notably in the <cite>Ada.Strings.Fixed</cite>, <cite>Ada.Strings.Unbounded</cite>
+and <cite>Ada.Strings.Bounded</cite> packages through the <cite>Index</cite> functions),
+these subprograms do not in general provide the most efficient algorithms
+for searching strings.</p>
+<p>The package <strong>GNATCOLL.Boyer_Moore</strong> provides one such optimize algorithm,
+although there exists several others which might be more efficient depending
+on the pattern.</p>
+<p>It deals with string searching, and does not handle regular expressions for
+instance.</p>
+<p>This algorithm needs to preprocess its key (the searched string), but does
+not need to perform any specific analysis of the string to be searched.
+Its execution time can be sub-linear: it doesn&#8217;t need to actually check
+every character of the string to be searched, and will skip over some of
+them. The worst case for this algorithm has been proved to need approximately
+3 * N comparisons, hence the algorithm has a complexity of O(n).</p>
+<p>The longer the key, the faster the algorithm in general, since that provides
+more context as to how many characters can be skipped when a non-matching
+character is found..</p>
+<p>We will not go into the details of the algorithm, although a general
+description follows: when the pattern is being preprocessed, Boyer-Moore
+computes how many characters can be skipped if an incorrect match is
+found at that point, depending on which character was read.
+In addition, this algorithm tries to match the key starting from its end,
+which in general provides a greater number of characters to skip.</p>
+<p>For instance, if you are looking for &#8220;ABC&#8221; in the string &#8220;ABDEFG&#8221; at the
+first position, the algorithm will compare &#8220;C&#8221; and &#8220;D&#8221;. Since &#8220;D&#8221; does not
+appear in the key &#8220;ABC&#8221;, it knows that it can immediately skip 3 characters
+and start the search after &#8220;D&#8221;.</p>
+<p>Using this package is extremely easy, and it has only a limited API:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span class="kr">declare</span>
+  <span class="no">Str</span> <span class="p">:</span> <span class="kr">constant</span> <span class="kt">String</span> <span class="p">:=</span> <span class="s">&quot;ABDEABCFGABC&quot;</span><span class="p">;</span>
+  <span class="n">Key</span> <span class="p">:</span> <span class="n">Pattern</span><span class="p">;</span>
+  <span class="n">Index</span> <span class="p">:</span> <span class="kt">Integer</span><span class="p">;</span>
+<span class="kr">begin</span>
+  <span class="n">Compile</span> <span class="p">(</span><span class="n">Key</span><span class="p">,</span> <span class="s">&quot;ABC&quot;</span><span class="p">);</span>
+  <span class="n">Index</span> <span class="p">:=</span> <span class="n">Search</span> <span class="p">(</span><span class="n">Key</span><span class="p">,</span> <span class="n">Str</span><span class="p">);</span>
+<span class="kr">end</span>
+</pre></div>
+</div>
+<p><cite>Search</cite> will either return -1 when the pattern did not match, or
+the index of the first match in the string. In the example above, it
+will return 5.</p>
+<p>If you want to find the next match, you have to pass a substring to
+search, as in:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span class="n">Index</span> <span class="p">:=</span> <span class="n">Search</span> <span class="p">(</span><span class="n">Key</span><span class="p">,</span> <span class="n">Str</span> <span class="p">(</span><span class="mi">6</span> <span class="p">..</span> <span class="n">Str</span><span class="p">&#39;</span><span class="na">Last</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="filling.html" title="9. Paragraph filling: formatting text"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mmap.html" title="7. Mmap: Reading and Writing Files"
+             >previous</a> |</li>
+        <li><a href="index.html">GNATColl 2019 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2007-2019, AdaCore.
+    </div>
+  </body>
+</html>

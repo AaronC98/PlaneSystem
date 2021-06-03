@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Release Notes 18 documentation</title>
+    
+    <link rel="stylesheet" href="_static/adacore.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '18',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="nav-item nav-item-0"><a href="index.html#document-index">Release Notes 18 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html#document-index">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="gps-version-release-notes">
+<h1>GPS 18 Release Notes<a class="headerlink" href="#gps-version-release-notes" title="Permalink to this headline">¶</a></h1>
+<p>Release Date: October 2017</p>
+<img alt="gps18.png" src="gps18.png" />
+<div class="toctree-wrapper compound">
+</div>
+<p>The main goal for the development cycle of GPS 18 was to improve
+stability, and a better experience for newcomers.
+It includes a number of new features as well.</p>
+<div class="section" id="preferences-assistant-welcome-dialog">
+<h2>Preferences Assistant &amp; Welcome Dialog<a class="headerlink" href="#preferences-assistant-welcome-dialog" title="Permalink to this headline">¶</a></h2>
+<p>When starting GPS for the first time, a preferences assistant
+wizard allows you to quickly customize GPS to your preferred way
+of working. You&#8217;ll be able to change the following settings through
+this dialog:</p>
+<blockquote>
+<div><ul class="simple">
+<li>color themes</li>
+<li>key shortcuts theme</li>
+<li>general settings</li>
+<li>plugins</li>
+</ul>
+</div></blockquote>
+<img alt="_images/preferences-assistant-1.png" src="_images/preferences-assistant-1.png" />
+<img alt="_images/preferences-assistant-2.png" src="_images/preferences-assistant-2.png" />
+<img alt="_images/preferences-assistant-3.png" src="_images/preferences-assistant-3.png" />
+<img alt="_images/preferences-assistant-4.png" src="_images/preferences-assistant-4.png" />
+<p>The GPS welcome dialog has been reworked: a list of recently opened projects is
+now displayed on the left side.</p>
+<img alt="_images/welcome-dialog.png" src="_images/welcome-dialog.png" />
+</div>
+<div class="section" id="version-control-support">
+<h2>Version Control Support<a class="headerlink" href="#version-control-support" title="Permalink to this headline">¶</a></h2>
+<p>The support of the version control system has been rewritten from scratch.
+Multiple version control systems and repositories are supported within the
+loaded project tree. The VCS Explorer and VCS Activities views have been
+replaced with new views. The Project and Files views now show the VCS status
+for files.</p>
+<img alt="_images/vcs-projects.png" src="_images/vcs-projects.png" />
+<p>The History view shows the set of commits that were done in the repository
+in the past, along with a graphical diagram showing how branches were
+created or joined. This makes it easier to understand how the commits relate
+to one another.</p>
+<img alt="_images/vcs-history.png" src="_images/vcs-history.png" />
+<p>The Branches view lets you view and switch between existing branches, to create
+new branches, and to delete branches. If you are using git, you can also use
+this view to apply view stashed commits.</p>
+<img alt="_images/vcs-branches.png" src="_images/vcs-branches.png" />
+<p>Support has been added to execute special VCS operations when a
+file needs to be made writable (which is useful for ClearCase,
+for instance).</p>
+<p>All VCS operations are now performed much more efficiently, and
+getting the status for objects is almost instantaneous on most
+working directories.</p>
+</div>
+<div class="section" id="debugger">
+<h2>Debugger<a class="headerlink" href="#debugger" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="guilabel">Assembler</span> view highlights assembler instructions, registers and
+addresses. It has a local toolbar for quick access to disassembly operations.</p>
+<p>The <span class="guilabel">Variables</span> view allows to control format (display base) of
+variables via the contextual menu.</p>
+<p>The <span class="menuselection">Debug ‣ Print</span> contextual menus have been reintroduced in
+GPS.</p>
+<p>The Debug section of the contextual menu provides entries to control
+breakpoints (set, remove, disable, enable).</p>
+<p>The GDB/MI protocol is supported and can be activated via the <span class="guilabel">Debugger</span>
+section of the Preferences dialog.</p>
+</div>
+<div class="section" id="test-view">
+<h2>Test View<a class="headerlink" href="#test-view" title="Permalink to this headline">¶</a></h2>
+<p>A new dedicated <span class="guilabel">Test</span> view&#8217; was added to present tests, test cases and
+corresponding sources available in the project.</p>
+</div>
+<div class="section" id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+<p>The expanded/collapsed state of the &#8220;withs&#8221; node is now preserved when switching
+between sources.</p>
+<p>The <span class="guilabel">Outline View</span> is now able to present entities grouped by
+categories. This is enabled via a new preference <span class="guilabel">Group by category</span>,
+and works only in flat view mode.</p>
+</div>
+<div class="section" id="codefixes">
+<h2>Codefixes<a class="headerlink" href="#codefixes" title="Permalink to this headline">¶</a></h2>
+<p>Code fixing capabilities was enchanced to handle more messages from the
+compiler:</p>
+<blockquote>
+<div><ul class="simple">
+<li>loop expression is replaced by Range attribute when compiler detects that
+Range attribute should be used to loop over the content of an array</li>
+<li>removing of redundant &#8220;with&#8221; clauses now removes any accompanying &#8220;use&#8221; clauses</li>
+<li>incorrect prefix of Result attribute replaced by the expected one</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="workflows">
+<h2>Workflows<a class="headerlink" href="#workflows" title="Permalink to this headline">¶</a></h2>
+<p>A <span class="guilabel">Build &amp; Run</span> and a <span class="guilabel">Build &amp; Debug</span> toobar button have
+been introduced. Clicking on these buttons has for effect to build the selected
+executable, and perform the second action (either <span class="guilabel">Run</span> or
+<span class="guilabel">Debug</span>) if the build was successful.</p>
+</div>
+<div class="section" id="projects-support">
+<h2>Projects Support<a class="headerlink" href="#projects-support" title="Permalink to this headline">¶</a></h2>
+<p>The <cite>Interfaces</cite> attribute is now editable from the
+<span class="menuselection">Library ‣ Standalone</span> page of the
+<span class="guilabel">Project Properties</span> editor.</p>
+<p>GPS no longer offers to edit project properties of a read-only project file.</p>
+<p>A new attribute <cite>Read_Only</cite> can be placed in the IDE package of a project to
+prevent GPS from displaying the graphical editor on this project.</p>
+<p>When applying changes made in <span class="guilabel">Project Properties</span> to all the
+possible values of a given scenario variable, no useless switch case is written
+in the resulting .gpr file.</p>
+<p>We no longer display the list of entities defined in a file, in the
+<span class="guilabel">Project</span> view. This information is already available in the Outline,
+whenever a file is selected in the Project view. Removing it allowed us to
+speed up the display of the tree view.</p>
+</div>
+<div class="section" id="search-replace">
+<h2>Search &amp; Replace<a class="headerlink" href="#search-replace" title="Permalink to this headline">¶</a></h2>
+<p>The GPS <span class="guilabel">Search</span> view has been completely revamped. The usability has
+been improved and an interactive mode has been added.</p>
+<img alt="_images/search-dialog.png" src="_images/search-dialog.png" />
+<p>Every Search/Replace action is now available from the keyboard.</p>
+<p>The number of entries in the <span class="guilabel">Search</span> view combobox is now limited to
+5 when the view is spawned. A separator has also been added between the
+predefined regexps and the previously searched patterns.</p>
+<p>GPS now reports in the <span class="guilabel">Messages</span> window the number of occurrences
+that have been replaced when <span class="guilabel">Replace All</span> button of the
+<span class="guilabel">Search</span> view is clicked.</p>
+</div>
+<div class="section" id="source-editor">
+<h2>Source Editor<a class="headerlink" href="#source-editor" title="Permalink to this headline">¶</a></h2>
+<p>A new status indicator has been placed in the bottom-right corner of source
+editors, showing whether the editor has been modified.</p>
+<p>A new action <span class="guilabel">insert extended character</span> has been added, allowing one
+to enter an extended character in the editor by its unicode number.</p>
+</div>
+<div class="section" id="gnatdoc">
+<h2>GNATdoc<a class="headerlink" href="#gnatdoc" title="Permalink to this headline">¶</a></h2>
+<p>GNATdoc is now able to process bodies, and extract documentation from bodies
+and generate separate pages for these bodies in the resulting HTML output. This
+is activated via the command-line switch &#8216;-d&#8217;.</p>
+<p>GNATdoc now supports processing Ada 83 and Ada 95 codebases, in addition to Ada
+2005 and 2012.</p>
+<p>Detailed information is generated for task and protected objects, including
+their subprograms and entries.</p>
+</div>
+<div class="section" id="miscellaneous-ui-improvements">
+<h2>Miscellaneous UI improvements<a class="headerlink" href="#miscellaneous-ui-improvements" title="Permalink to this headline">¶</a></h2>
+<p>Key shortcuts are now displayed in GPS contextual menus.</p>
+<p>The menu separators have been made more visible in dark themes.</p>
+<p>Icons were added in the Window menu for editors. This allows displaying which
+editors are currently modified.</p>
+<p>The labels containing the base name and directory of a file in the
+<span class="guilabel">Properties</span> dialog are now selectable, which means you can
+copy/paste from them.</p>
+<p>GNAT runtime menu items for cross platforms have been moved into a separate
+submenu of <span class="menuselection">Help ‣ GNAT</span> runtime instead of placing them after
+Help/About submenu.</p>
+<p>GPS now includes a new button to the right of the main toolbar, to let users
+easily switch perspectives.</p>
+<p>The <span class="guilabel">Go declaration ...</span> item is no longer shown when the subprogram
+does not have a declaration. Instead, the contextual menu only shows
+<span class="guilabel">Goto body ...</span>.</p>
+<p>The local configuration menu of the <span class="guilabel">Locations</span> view now contains an
+item <span class="guilabel">Preserve message</span> to control whether to keep build messages for
+files that are not being recompiled.</p>
+<p>The <span class="guilabel">Files</span> view now reuses the same preference as the Project view
+to hide some files (those starting with &#8221;.&#8221; by default, although this can be
+configured in the preferences dialog).</p>
+<p>Creating <span class="guilabel">Projects</span> and <span class="guilabel">Files</span> views is now much faster,
+in particular on large projects where a directory contains several thousands of
+files.</p>
+<p>A <span class="menuselection">File ‣ Project ‣ Add Complex File Naming Conventions</span>
+menu has been added to run GNATname on project loaded by GPS.</p>
+<p>The <span class="guilabel">Memory Usage View</span> has been improved. It is now able to display
+the static memory usage for memory regions, sections and object files, even
+when the link has failed.</p>
+<p>If the <span class="guilabel">Metrics</span> view is already present, GPS will reuse it when
+computing metrics of a file/project.</p>
+<p>Deployment of examples: GPS now asks to specify a directory for deploying
+GNAT examples via the HELP/GNAT/Examples menus, rather than opening examples
+in the location where they are installed.</p>
+<p>New contextual menus have been added to create new files from
+templates (e.g: &#8216;New Ada Package&#8217; contextual menu in the Project
+View). These templates are derived from the aliases mechanism and
+a Python API has been introduced to allow users to create their
+own templates.</p>
+</div>
+<div class="section" id="gps-customization">
+<h2>GPS Customization<a class="headerlink" href="#gps-customization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="python-api">
+<h3>Python API<a class="headerlink" href="#python-api" title="Permalink to this headline">¶</a></h3>
+<p>A new method GPS.Message.create_nested_message has been added to create nested
+messages.</p>
+<p>It is now possible to create Tasks from the Python API, and to create tasks
+that monitor a workflow. This can conveniently replace some uses of the
+<cite>GPS.Timeout</cite> API, and integrates within the GPS Task Manager, allowing to
+provide progress indication for background tasks.</p>
+<p>Python API of Libadalang is available for plugins, and can be used in GPS
+plugins to implement custom code checkers.</p>
+<p>The <cite>GPS.Debugger</cite> provides new methods to manipulate frames - <cite>current_frame</cite>,
+<cite>frame_down</cite>, <cite>frame_up</cite>, <cite>frames</cite>, <cite>select_frame</cite>.</p>
+<p>The scripting API has been enhanced with an <cite>add_debounce</cite> method which can be
+used to schedule callbacks to be called as soon as GPS is idle.</p>
+</div>
+</div>
+<div class="section" id="platform-specific-improvements">
+<h2>Platform Specific Improvements<a class="headerlink" href="#platform-specific-improvements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mac-os">
+<h3>Mac OS<a class="headerlink" href="#mac-os" title="Permalink to this headline">¶</a></h3>
+<p>A Mac OS Key shortcuts theme has been introduced in GPS, using the
+Command key instead of the control key in many places, and defines common Mac OS
+(e.g: &#8216;control + a&#8217; to go to the beginning of the current line).</p>
+</div>
+<div class="section" id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
+<p>The colors used for selected items have been improved to make them more
+readable by default.</p>
+</div>
+<div class="section" id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<p>Electing an item now deselects any other unless the user is pressing a modifier
+key.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="nav-item nav-item-0"><a href="index.html#document-index">Release Notes 18 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+    </div>
+  </body>
+</html>

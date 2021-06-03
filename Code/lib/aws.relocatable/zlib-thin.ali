@@ -1,0 +1,412 @@
+V "GNAT Lib v2019"
+A -gnatA
+A -gnat2012
+A -g
+A -fno-common
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+A -feliminate-unused-debug-symbols
+P ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U zlib.thin%b		zlib-thin.adb		c90fe719 OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W zlib%s		zlib.adb		zlib.ali
+
+U zlib.thin%s		zlib-thin.ads		611f9120 BN EE NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.adb			i-c.ali
+W interfaces.c.strings%s  i-cstrin.adb		i-cstrin.ali
+W system%s		system.ads		system.ali
+W zlib%s		zlib.adb		zlib.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D i-c.ads		20190518041255 5421119b interfaces.c%s
+D i-cstrin.ads		20190518041256 341d0ddf interfaces.c.strings%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-finmas.ads		20190518041256 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041255 ede33ef8 system.pool_global%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D zlib.ads		20190513040549 0714e1ed zlib%s
+D zlib-thin.ads		20190513040549 5a4d12e9 zlib.thin%s
+D zlib-thin.adb		20190513040549 9342f5f0 zlib.thin%b
+G a e
+G c Z s s [zlibversion zlib__thin 122 13 none]
+G c Z s s [deflate zlib__thin 124 13 none]
+G c Z s s [deflateend zlib__thin 126 13 none]
+G c Z s s [inflate zlib__thin 128 13 none]
+G c Z s s [inflateend zlib__thin 130 13 none]
+G c Z s s [deflatesetdictionary zlib__thin 132 13 none]
+G c Z s s [deflatecopy zlib__thin 137 13 none]
+G c Z s s [deflatereset zlib__thin 141 13 none]
+G c Z s s [deflateparams zlib__thin 143 13 none]
+G c Z s s [inflatesetdictionary zlib__thin 148 13 none]
+G c Z s s [inflatesync zlib__thin 153 13 none]
+G c Z s s [inflatereset zlib__thin 155 13 none]
+G c Z s s [compress zlib__thin 157 13 none]
+G c Z s s [compress2 zlib__thin 163 13 none]
+G c Z s s [uncompress zlib__thin 170 13 none]
+G c Z s s [gzopen zlib__thin 176 13 none]
+G c Z s s [gzdopen zlib__thin 178 13 none]
+G c Z s s [gzsetparams zlib__thin 180 13 none]
+G c Z s s [gzread zlib__thin 185 13 none]
+G c Z s s [gzwrite zlib__thin 190 13 none]
+G c Z s s [gzprintf zlib__thin 195 13 none]
+G c Z s s [gzputs zlib__thin 197 13 none]
+G c Z s s [gzgets zlib__thin 199 13 none]
+G c Z s s [gzputc zlib__thin 204 13 none]
+G c Z s s [gzgetc zlib__thin 206 13 none]
+G c Z s s [gzflush zlib__thin 208 13 none]
+G c Z s s [gzseek zlib__thin 210 13 none]
+G c Z s s [gzrewind zlib__thin 215 13 none]
+G c Z s s [gztell zlib__thin 217 13 none]
+G c Z s s [gzeof zlib__thin 219 13 none]
+G c Z s s [gzclose zlib__thin 221 13 none]
+G c Z s s [gzerror zlib__thin 223 13 none]
+G c Z s s [adler32 zlib__thin 226 13 none]
+G c Z s s [crc32 zlib__thin 231 13 none]
+G c Z s s [deflateinit zlib__thin 236 13 none]
+G c Z s s [deflateinit2 zlib__thin 242 13 none]
+G c Z s b [deflate_init zlib__thin 252 13 none]
+G c Z s s [inflateinit zlib__thin 260 13 none]
+G c Z s s [inflateinit2 zlib__thin 265 13 none]
+G c Z s s [inflatebackinit zlib__thin 271 13 none]
+G c Z s b [inflate_init zlib__thin 279 13 none]
+G c Z s s [zerror zlib__thin 282 13 none]
+G c Z s s [inflatesyncpoint zlib__thin 284 13 none]
+G c Z s s [get_crc_table zlib__thin 286 13 none]
+G c Z s b [set_in zlib__thin 294 14 none]
+G c Z s b [set_out zlib__thin 300 14 none]
+G c Z s b [set_mem_func zlib__thin 306 14 none]
+G c Z s b [last_error_message zlib__thin 313 13 none]
+G c Z s b [avail_out zlib__thin 315 13 none]
+G c Z s b [avail_in zlib__thin 317 13 none]
+G c Z s b [total_in zlib__thin 319 13 none]
+G c Z s b [total_out zlib__thin 321 13 none]
+G c Z s s [inflatecopy zlib__thin 323 13 none]
+G c Z s s [compressbound zlib__thin 327 13 none]
+G c Z s s [deflatebound zlib__thin 329 13 none]
+G c Z s s [gzungetc zlib__thin 333 13 none]
+G c Z s s [zlibcompileflags zlib__thin 335 13 none]
+G c Z s s [z_streamIP zlib__thin 339 9 none]
+X 7 interfac.ads
+38K9*Interfaces 184e15 24|11r6 34r21 36r21 38r20 40r22 42r25 25|71r11
+X 8 i-c.ads
+18K20*C 230e17 24|11r17 34r32 36r32 38r31 40r33 42r36 25|71r22
+35I9*int<integer> 24|38r33
+43M9*unsigned 24|36r34
+45M9*unsigned_long 24|40r35
+47M9*unsigned_char 24|34r34
+X 9 i-cstrin.ads
+36K22*Strings 106e25 24|11w19 42r38 25|71r24
+47P9*chars_ptr 24|42r46
+52p4*Null_Ptr{47P9} 25|73r21
+74V13*Value{string} 25|76s17
+X 10 system.ads
+37K9*System 174e11 24|13w6 47r21 51r28 25|51r48 63r48
+67M9*Address 24|47r28
+69m4*Null_Address{67M9} 24|51r35
+71N4*Storage_Unit 25|51r55 63r55
+X 23 zlib.ads
+36K9*ZLib 321e9 24|15r17 422r5 25|9r14 139r5
+X 24 zlib-thin.ads
+15K22*Thin 23|36k9 24|339E9 422l10 422e14 25|9b19 139l10 139t14
+19N4*MAX_MEM_LEVEL
+21N4*MAX_WBITS
+24N4*SEEK_SET
+27N4*SEEK_CUR
+30N4*SEEK_END
+34M9*Byte<8|47M9>
+36M9*UInt<8|43M9> 117r19 118r19 135r23 151r23 188r17 193r17 229r18 234r17
+. 297r19 303r19 315r51 317r50 341r19 344r19 25|17r50 26r51 87r23 115r23
+38I9*Int<8|35I9> 45r30 124r54 124r66 126r53 128r54 128r66 130r53 135r36 138r58
+. 141r55 145r21 146r21 146r33 151r36 153r54 155r55 161r36 168r22 168r34 174r36
+. 178r30 182r21 183r21 183r33 188r30 193r30 195r71 197r64 202r17 204r49 204r61
+. 206r46 208r51 208r63 212r19 213r19 213r31 215r48 217r46 219r45 221r47 238r24
+. 240r24 240r36 244r24 245r24 246r24 247r24 248r24 250r24 250r36 254r23 255r23
+. 256r23 257r23 258r23 258r35 263r24 263r36 267r24 269r24 269r36 273r24 276r24
+. 276r36 279r64 279r76 282r30 284r56 325r37 333r30 333r60 352r19 25|37r23
+. 38r23 39r23 40r23 41r23 41r35 59r44 59r56
+40M9*ULong<8|45M9> 44r32 161r22 167r22 174r22 227r18 229r31 232r17 234r30
+. 319r50 321r51 327r44 327r58 331r23 331r37 335r37 342r19 345r19 354r19 356r19
+. 25|125r50 134r51
+42P12*Chars_Ptr{9|47P9} 122r32 176r31 176r52 178r45 195r53 197r46 201r17
+. 202r29 224r56 239r24 249r24 262r24 268r24 275r24 282r42 346r19 25|11r29
+44P9*ULong_Access(40M9) 159r22 165r22 172r22 286r34
+45P9*Int_Access(38I9) 224r37
+47M12*Voidp{10|67M9} 49r27 51r19 109r23 116r19 118r32 120r52 120r72 187r17
+. 192r17 296r19 302r19 308r19 340r19 343r19 347r19 350r19 25|86r23 99r23
+. 114r23
+49M12*Byte_Access{47M12} 134r23 150r23 158r22 160r22 164r22 166r22 171r22
+. 173r22 228r18 233r17 274r24
+51m4*Nul{47M12} 340r33 343r33
+54N4*Z_NO_FLUSH
+56N4*Z_PARTIAL_FLUSH
+60N4*Z_SYNC_FLUSH
+62N4*Z_FULL_FLUSH
+64N4*Z_FINISH
+66N4*Z_OK
+68N4*Z_STREAM_END
+70N4*Z_NEED_DICT
+72N4*Z_ERRNO
+74N4*Z_STREAM_ERROR
+76N4*Z_DATA_ERROR
+78N4*Z_MEM_ERROR
+80N4*Z_BUF_ERROR
+82N4*Z_VERSION_ERROR
+84N4*Z_NO_COMPRESSION
+86N4*Z_BEST_SPEED
+88N4*Z_BEST_COMPRESSION
+90N4*Z_DEFAULT_COMPRESSION
+92N4*Z_FILTERED
+94N4*Z_HUFFMAN_ONLY
+96N4*Z_DEFAULT_STRATEGY
+98N4*Z_BINARY
+100N4*Z_ASCII
+102N4*Z_UNKNOWN
+104N4*Z_DEFLATED
+106N4*Z_NULL
+109M9*gzFile<10|67M9> 176r70 178r63 181r21 186r17 191r17 195r33 197r31 200r17
+. 204r31 206r31 208r32 211r19 215r33 217r31 219r30 221r32 224r17 333r45
+111R9*Z_Stream 113r33 295r23 301r23 307r23 313r43 315r34 317r33 319r33 321r34
+. 339c9 357e15 25|17r33 26r34 70r43 85r23 98r23 113r23 125r33 134r34
+113P9*Z_Streamp(111R9) 124r32 126r35 128r32 130r35 133r23 138r17 138r40 141r37
+. 144r21 149r23 153r36 155r37 237r24 243r24 253r23 261r24 266r24 272r24 279r37
+. 284r38 324r19 325r19 330r23 25|36r23 59r17
+115P9*alloc_func(10|67M9) 116>7 117>7 118>7 309r19 348r19 25|100r23
+116m7 Opaque{47M12}
+117m7 Items{36M9}
+118m7 Size{36M9}
+120P9*free_func 120>40 120>59 310r19 349r19 25|101r23
+120m40 opaque{47M12}
+120m59 address{47M12}
+122V13*zlibVersion{42P12} 359b<c,zlibVersion>22 25|11s42
+124V13*Deflate{38I9} 124>22 124>43 360b<c,deflate>22
+124p22 strm{113P9}
+124i43 flush{38I9}
+126V13*DeflateEnd{38I9} 126>25 361b<c,deflateEnd>22
+126p25 strm{113P9}
+128V13*Inflate{38I9} 128>22 128>43 362b<c,inflate>22
+128p22 strm{113P9}
+128i43 flush{38I9}
+130V13*InflateEnd{38I9} 130>25 363b<c,inflateEnd>22
+130p25 strm{113P9}
+132V13*deflateSetDictionary{38I9} 133>7 134>7 135>7 364b<c,deflateSetDictionary>22
+133p7 strm{113P9}
+134m7 dictionary{49M12}
+135m7 dictLength{36M9}
+137V13*deflateCopy{38I9} 138>7 138>28 365b<c,deflateCopy>22
+138p7 dest{113P9}
+138p28 source{113P9}
+141V13*deflateReset{38I9} 141>27 366b<c,deflateReset>22
+141p27 strm{113P9}
+143V13*deflateParams{38I9} 144>7 145>7 146>7 367b<c,deflateParams>22
+144p7 strm{113P9}
+145i7 level{38I9}
+146i7 strategy{38I9}
+148V13*inflateSetDictionary{38I9} 149>7 150>7 151>7 368b<c,inflateSetDictionary>22
+149p7 strm{113P9}
+150m7 dictionary{49M12}
+151m7 dictLength{36M9}
+153V13*inflateSync{38I9} 153>26 369b<c,inflateSync>22
+153p26 strm{113P9}
+155V13*inflateReset{38I9} 155>27 370b<c,inflateReset>22
+155p27 strm{113P9}
+157V13*compress{38I9} 158>7 159>7 160>7 161>7 371b<c,compress>22
+158m7 dest{49M12}
+159p7 destLen{44P9}
+160m7 source{49M12}
+161m7 sourceLen{40M9}
+163V13*compress2{38I9} 164>7 165>7 166>7 167>7 168>7 372b<c,compress2>22
+164m7 dest{49M12}
+165p7 destLen{44P9}
+166m7 source{49M12}
+167m7 sourceLen{40M9}
+168i7 level{38I9}
+170V13*uncompress{38I9} 171>7 172>7 173>7 174>7 373b<c,uncompress>22
+171m7 dest{49M12}
+172p7 destLen{44P9}
+173m7 source{49M12}
+174m7 sourceLen{40M9}
+176V13*gzopen{109M9} 176>21 176>42 374b<c,gzopen>22
+176p21 path{42P12}
+176p42 mode{42P12}
+178V13*gzdopen{109M9} 178>22 178>35 375b<c,gzdopen>22
+178i22 fd{38I9}
+178p35 mode{42P12}
+180V13*gzsetparams{38I9} 181>7 182>7 183>7 376b<c,gzsetparams>22
+181m7 file{109M9}
+182i7 level{38I9}
+183i7 strategy{38I9}
+185V13*gzread{38I9} 186>7 187>7 188>7 377b<c,gzread>22
+186m7 file{109M9}
+187m7 buf{47M12}
+188m7 len{36M9}
+190V13*gzwrite{38I9} 191>7 192>7 193>7 378b<c,gzwrite>22
+191m7 file{109M9}
+192m7 buf{47M12}
+193m7 len{36M9}
+195V13*gzprintf{38I9} 195>23 195>41 379b<c,gzprintf>22
+195m23 file{109M9}
+195p41 format{42P12}
+197V13*gzputs{38I9} 197>21 197>39 380b<c,gzputs>22
+197m21 file{109M9}
+197p39 s{42P12}
+199V13*gzgets{42P12} 200>7 201>7 202>7 381b<c,gzgets>22
+200m7 file{109M9}
+201p7 buf{42P12}
+202i7 len{38I9}
+204V13*gzputc{38I9} 204>21 204>39 382b<c,gzputc>22
+204m21 file{109M9}
+204i39 char{38I9}
+206V13*gzgetc{38I9} 206>21 383b<c,gzgetc>22
+206m21 file{109M9}
+208V13*gzflush{38I9} 208>22 208>40 384b<c,gzflush>22
+208m22 file{109M9}
+208i40 flush{38I9}
+210V13*gzseek{38I9} 211>7 212>7 213>7 385b<c,gzseek>22
+211m7 file{109M9}
+212i7 offset{38I9}
+213i7 whence{38I9}
+215V13*gzrewind{38I9} 215>23 386b<c,gzrewind>22
+215m23 file{109M9}
+217V13*gztell{38I9} 217>21 387b<c,gztell>22
+217m21 file{109M9}
+219V13*gzeof{38I9} 219>20 388b<c,gzeof>22
+219m20 file{109M9}
+221V13*gzclose{38I9} 221>22 389b<c,gzclose>22
+221m22 file{109M9}
+223V13*gzerror{42P12} 224>7 224>25 390b<c,gzerror>22
+224m7 file{109M9}
+224p25 errnum{45P9}
+226V13*adler32{40M9} 227>7 228>7 229>7 391b<c,adler32>22
+227m7 adler{40M9}
+228m7 buf{49M12}
+229m7 len{36M9}
+231V13*crc32{40M9} 232>7 233>7 234>7 392b<c,crc32>22
+232m7 crc{40M9}
+233m7 buf{49M12}
+234m7 len{36M9}
+236V13*deflateInit{38I9} 237>7 238>7 239>7 240>7 393b<c,deflateInit_>22
+237p7 strm{113P9}
+238i7 level{38I9}
+239p7 version{42P12}
+240i7 stream_size{38I9}
+242V13*deflateInit2{38I9} 243>7 244>7 245>7 246>7 247>7 248>7 249>7 250>7
+. 395b<c,deflateInit2_>22 25|43s14
+243p7 strm{113P9}
+244i7 level{38I9}
+245i7 method{38I9}
+246i7 windowBits{38I9}
+247i7 memLevel{38I9}
+248i7 strategy{38I9}
+249p7 version{42P12}
+250i7 stream_size{38I9} 25|51r17
+252V13*Deflate_Init{38I9} 253>7 254>7 255>7 256>7 257>7 258>7 25|35b13 52l8
+. 52t20
+253p7 strm{113P9} 25|36b7 44r17 51r32
+254i7 level{38I9} 25|37b7 45r17
+255i7 method{38I9} 25|38b7 46r17
+256i7 windowBits{38I9} 25|39b7 47r17
+257i7 memLevel{38I9} 25|40b7 48r17
+258i7 strategy{38I9} 25|41b7 49r17
+260V13*inflateInit{38I9} 261>7 262>7 263>7 394b<c,inflateInit_>22
+261p7 strm{113P9}
+262p7 version{42P12}
+263i7 stream_size{38I9}
+265V13*inflateInit2{38I9} 266>7 267>7 268>7 269>7 396b<c,inflateInit2_>22
+. 25|61s14
+266p7 strm{113P9}
+267i7 windowBits{38I9}
+268p7 version{42P12}
+269i7 stream_size{38I9} 25|63r17
+271V13*inflateBackInit{38I9} 272>7 273>7 274>7 275>7 276>7 409b<c,inflateBackInit_>22
+272p7 strm{113P9}
+273i7 windowBits{38I9}
+274m7 window{49M12}
+275p7 version{42P12}
+276i7 stream_size{38I9}
+279V13*Inflate_Init{38I9} 279>27 279>48 25|58b13 64l8 64t20
+279p27 strm{113P9} 25|59b7 62r17 63r32
+279i48 windowBits{38I9} 25|59b28 62r23
+282V13*zError{42P12} 282>21 397b<c,zError>22
+282i21 err{38I9}
+284V13*inflateSyncPoint{38I9} 284>31 398b<c,inflateSyncPoint>22
+284p31 z{113P9}
+286V13*get_crc_table{44P9} 399b<c,get_crc_table>22
+294U14*Set_In 295=7 296>7 297>7 25|84b14 91l8 91t14
+295r7 Strm{111R9} 25|85b7 89m7 90m7
+296m7 Buffer{47M12} 25|86b7 89r24
+297m7 Size{36M9} 25|87b7 90r24
+300U14*Set_Out 301=7 302>7 303>7 25|112b14 119l8 119t15
+301r7 Strm{111R9} 25|113b7 117m7 118m7
+302m7 Buffer{47M12} 25|114b7 117r25
+303m7 Size{36M9} 25|115b7 118r25
+306U14*Set_Mem_Func 307=7 308>7 309>7 310>7 25|97b14 106l8 106t20
+307r7 Strm{111R9} 25|98b7 103m7 104m7 105m7
+308m7 Opaque{47M12} 25|99b7 103r22
+309p7 Alloc{115P9} 25|100b7 104r22
+310p7 Free{120P9} 25|101b7 105r22
+313V13*Last_Error_Message{string} 313>33 25|70b13 78l8 78t26
+313r33 Strm{111R9} 25|70b33 73r10 76r24
+315V13*Avail_Out{36M9} 315>24 25|26b13 29l8 29t17
+315r24 Strm{111R9} 25|26b24 28r14
+317V13*Avail_In{36M9} 317>23 25|17b13 20l8 20t16
+317r23 Strm{111R9} 25|17b23 19r14
+319V13*Total_In{40M9} 319>23 25|125b13 128l8 128t16
+319r23 Strm{111R9} 25|125b23 127r14
+321V13*Total_Out{40M9} 321>24 25|134b13 137l8 137t17
+321r24 Strm{111R9} 25|134b24 136r14
+323V13*inflateCopy{38I9} 324>7 325>7 403b<c,inflateCopy>22
+324p7 dest{113P9}
+325p7 Source{113P9}
+327V13*compressBound{40M9} 327>28 404b<c,compressBound>22
+327m28 Source_Len{40M9}
+329V13*deflateBound{40M9} 330>7 331>7 405b<c,deflateBound>22
+330p7 Strm{113P9}
+331m7 Source_Len{40M9}
+333V13*gzungetc{38I9} 333>23 333>35 406b<c,gzungetc>22
+333i23 C{38I9}
+333m35 File{109M9}
+335V13*zlibCompileFlags{40M9} 407b<c,zlibCompileFlags>22
+340m7*Next_In{47M12} 25|89m12
+341m7*Avail_In{36M9} 25|19r19 90m12
+342m7*Total_In{40M9} 25|127r19
+343m7*Next_Out{47M12} 25|117m12
+344m7*Avail_Out{36M9} 25|28r19 118m12
+345m7*Total_Out{40M9} 25|136r19
+346p7*msg{42P12} 25|73r15 76r29
+347m7*state{47M12}
+348p7*zalloc{115P9} 25|104m12
+349p7*zfree{120P9} 25|105m12
+350m7*opaque{47M12} 25|103m12
+352i7*data_type{38I9}
+354m7*adler{40M9}
+356m7*reserved{40M9}
+X 25 zlib-thin.adb
+11p4 ZLIB_VERSION{24|42P12} 50r17 62r35
+

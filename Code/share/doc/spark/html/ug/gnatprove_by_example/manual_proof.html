@@ -1,0 +1,1421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7.9.3. Manual Proof Examples &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.10. Examples in the Toolset Distribution" href="../en/source/examples_in_the_toolset_distribution.html" />
+    <link rel="prev" title="7.9.2. Loop Examples" href="loop.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../en/source/examples_in_the_toolset_distribution.html" title="7.10. Examples in the Toolset Distribution"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="loop.html" title="7.9.2. Loop Examples"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../en/gnatprove.html" >7. Formal Verification with GNATprove</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../en/source/gnatprove_by_example.html" accesskey="U">7.9. GNATprove by Example</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">7.9.3. Manual Proof Examples</a><ul>
+<li><a class="reference internal" href="#manual-proof-using-spark-lemma-library">7.9.3.1. Manual Proof Using SPARK Lemma Library</a></li>
+<li><a class="reference internal" href="#manual-proof-using-user-lemmas">7.9.3.2. Manual Proof Using User Lemmas</a></li>
+<li><a class="reference internal" href="#manual-proof-using-ghost-code">7.9.3.3. Manual Proof Using Ghost Code</a><ul>
+<li><a class="reference internal" href="#proving-existential-quantification">Proving Existential Quantification</a></li>
+<li><a class="reference internal" href="#performing-induction">Performing Induction</a></li>
+<li><a class="reference internal" href="#a-concrete-example-a-sort-algorithm">A Concrete Example: a Sort Algorithm</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#manual-proof-using-coq">7.9.3.4. Manual Proof Using Coq</a></li>
+<li><a class="reference internal" href="#manual-proof-using-gps">7.9.3.5. Manual Proof Using GPS</a></li>
+<li><a class="reference internal" href="#list-of-useful-transformations-and-commands">7.9.3.6. List of Useful Transformations and Commands</a></li>
+<li><a class="reference internal" href="#recommendations">7.9.3.7. Recommendations</a></li>
+<li><a class="reference internal" href="#tips">7.9.3.8. Tips</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="loop.html"
+                        title="previous chapter">7.9.2. Loop Examples</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../en/source/examples_in_the_toolset_distribution.html"
+                        title="next chapter">7.10. Examples in the Toolset Distribution</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnatprove_by_example/manual_proof.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="manual-proof-examples">
+<span id="manual-proof"></span><h1>7.9.3. Manual Proof Examples<a class="headerlink" href="#manual-proof-examples" title="Permalink to this headline">¶</a></h1>
+<p>The examples in this section contain properties that are difficult to prove
+automatically and thus require more user interaction to prove completely. The
+degre of interaction required depends on the difficuly of the proof:</p>
+<ul class="simple">
+<li>simple addition of calls to ghost lemmas for arithmetic properties involving
+multiplication, division and modulo operations, as decribed in <a class="reference internal" href="#manual-proof-using-spark-lemma-library"><span class="std std-ref">Manual Proof Using SPARK Lemma Library</span></a></li>
+<li>more involved addition of ghost code for universally or existentially
+quantified properties on data structures and containers, as described in
+<a class="reference internal" href="#manual-proof-using-ghost-code"><span class="std std-ref">Manual Proof Using Ghost Code</span></a></li>
+<li>interaction at the level of Verification Condition formulas in the syntax of
+an interactive prover for arbitrary complex properties, as described in
+<a class="reference internal" href="#manual-proof-using-coq"><span class="std std-ref">Manual Proof Using Coq</span></a></li>
+<li>interaction at the level of Verification Condition formulas in the syntax of
+Why3 for arbitrary complex properties, as described in
+<a class="reference internal" href="#manual-proof-using-gps"><span class="std std-ref">Manual Proof Using GPS</span></a></li>
+</ul>
+<div class="section" id="manual-proof-using-spark-lemma-library">
+<span id="id1"></span><h2>7.9.3.1. Manual Proof Using SPARK Lemma Library<a class="headerlink" href="#manual-proof-using-spark-lemma-library" title="Permalink to this headline">¶</a></h2>
+<p>If the property to prove is part of the <a class="reference internal" href="../en/source/spark_libraries.html#spark-lemma-library"><span class="std std-ref">SPARK Lemma Library</span></a>, then manual
+proof simply consists in calling the appropriate lemma in your code. For
+example, consider the following assertion to prove, where <code class="docutils literal"><span class="pre">X1</span></code>, <code class="docutils literal"><span class="pre">X2</span></code> and
+<code class="docutils literal"><span class="pre">Y</span></code> may be signed or modular positive integers:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">R1</span> <span class="o">:=</span> <span class="n">X1</span> <span class="o">/</span> <span class="n">Y</span><span class="p">;</span>
+<span class="n">R2</span> <span class="o">:=</span> <span class="n">X2</span> <span class="o">/</span> <span class="n">Y</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">R1</span> <span class="o">&lt;=</span> <span class="n">R2</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The property here is the monotonicity of division on positive values. There is
+a corresponding lemma for both signed and modular integers, for both 32 bits
+and 64 bits integers:</p>
+<ul class="simple">
+<li>for signed 32 bits integers, use
+<code class="docutils literal"><span class="pre">SPARK.Integer_Arithmetic_Lemmas.Lemma_Div_Is_Monotonic</span></code></li>
+<li>for signed 64 bits integers, use
+<code class="docutils literal"><span class="pre">SPARK.Long_Integer_Arithmetic_Lemmas.Lemma_Div_Is_Monotonic</span></code></li>
+<li>for modular 32 bits integers, use
+<code class="docutils literal"><span class="pre">SPARK.Mod32_Arithmetic_Lemmas.Lemma_Div_Is_Monotonic</span></code></li>
+<li>for modular 64 bits integers, use
+<code class="docutils literal"><span class="pre">SPARK.Mod64_Arithmetic_Lemmas.Lemma_Div_Is_Monotonic</span></code></li>
+</ul>
+<p>For example, the lemma for signed integers has the following signature:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Lemma_Div_Is_Monotonic</span>
+  <span class="o">(</span><span class="n">Val1</span>  <span class="o">:</span> <span class="n">Int</span><span class="p">;</span>
+   <span class="n">Val2</span>  <span class="o">:</span> <span class="n">Int</span><span class="p">;</span>
+   <span class="n">Denom</span> <span class="o">:</span> <span class="n">Pos</span><span class="o">)</span>
+<span class="kr">with</span><span class="p"></span>
+  <span class="n">Global</span> <span class="o">=&gt;</span> <span class="kr">null</span><span class="p">,</span>
+  <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">Val1</span> <span class="o">&lt;=</span> <span class="n">Val2</span><span class="p">,</span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Val1</span> <span class="o">/</span> <span class="n">Denom</span> <span class="o">&lt;=</span> <span class="n">Val2</span> <span class="o">/</span> <span class="n">Denom</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Assuming the appropriate library unit is with&#8217;ed and used in your code (see
+<a class="reference internal" href="../en/source/spark_libraries.html#spark-lemma-library"><span class="std std-ref">SPARK Lemma Library</span></a> for details), using the lemma is simply a call to
+the ghost procedure <code class="docutils literal"><span class="pre">Lemma_Div_Is_Monotonic</span></code>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">R1</span> <span class="o">:=</span> <span class="n">X1</span> <span class="o">/</span> <span class="n">Y</span><span class="p">;</span>
+<span class="n">R2</span> <span class="o">:=</span> <span class="n">X2</span> <span class="o">/</span> <span class="n">Y</span><span class="p">;</span>
+<span class="n">Lemma_Div_Is_Monotonic</span> <span class="o">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+<span class="c">--  at this program point, the prover knows that R1 &lt;= R2</span>
+<span class="c">--  the following assertion is proved automatically:</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">R1</span> <span class="o">&lt;=</span> <span class="n">R2</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Note that the lemma may have a precondition, stating in which contexts the
+lemma holds, which you will need to prove when calling it. For example, a
+precondition check is generated in the code above to show that <code class="docutils literal"><span class="pre">X1</span> <span class="pre">&lt;=</span>
+<span class="pre">X2</span></code>. Similarly, the types of parameters in the lemma may restrict the contexts
+in which the lemma holds. For example, the type <code class="docutils literal"><span class="pre">Pos</span></code> for parameter <code class="docutils literal"><span class="pre">Denom</span></code>
+of <code class="docutils literal"><span class="pre">Lemma_Div_Is_Monotonic</span></code> is the type of positive integers. Hence, a range
+check may be generated in the code above to show that <code class="docutils literal"><span class="pre">Y</span></code> is positive.</p>
+<p>To apply lemmas to signed or modular integers of different types than the ones
+used in the instances provided in the library, just convert the expressions
+passed in arguments, as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">R1</span> <span class="o">:=</span> <span class="n">X1</span> <span class="o">/</span> <span class="n">Y</span><span class="p">;</span>
+<span class="n">R2</span> <span class="o">:=</span> <span class="n">X2</span> <span class="o">/</span> <span class="n">Y</span><span class="p">;</span>
+<span class="n">Lemma_Div_Is_Monotonic</span> <span class="o">(</span><span class="n">Integer</span><span class="o">(</span><span class="n">X1</span><span class="o">)</span><span class="p">,</span> <span class="n">Integer</span><span class="o">(</span><span class="n">X2</span><span class="o">)</span><span class="p">,</span> <span class="n">Integer</span><span class="o">(</span><span class="n">Y</span><span class="o">))</span><span class="p">;</span>
+<span class="c">--  at this program point, the prover knows that R1 &lt;= R2</span>
+<span class="c">--  the following assertion is proved automatically:</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">R1</span> <span class="o">&lt;=</span> <span class="n">R2</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="manual-proof-using-user-lemmas">
+<span id="id2"></span><h2>7.9.3.2. Manual Proof Using User Lemmas<a class="headerlink" href="#manual-proof-using-user-lemmas" title="Permalink to this headline">¶</a></h2>
+<p>If the property to prove is not part of the <a class="reference internal" href="../en/source/spark_libraries.html#spark-lemma-library"><span class="std std-ref">SPARK Lemma Library</span></a>, then a
+user can easily add it as a separate lemma in her program. For example, suppose
+you need to have a proof that a fix list of numbers are prime numbers. This can
+be expressed easily in a lemma as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Is_Prime</span> <span class="o">(</span><span class="n">N</span> <span class="o">:</span> <span class="n">Positive</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">is</span><span class="p"></span>
+  <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">Positive</span> <span class="kr">range</span><span class="p"> </span><span class="mi">2</span> <span class="o">..</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="n">N</span> <span class="kr">mod</span><span class="p"> </span><span class="n">J</span> <span class="o">/=</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Number_Is_Prime</span> <span class="o">(</span><span class="n">N</span> <span class="o">:</span> <span class="n">Positive</span><span class="o">)</span>
+<span class="kr">with</span><span class="p"></span>
+  <span class="n">Ghost</span><span class="p">,</span>
+  <span class="n">Global</span> <span class="o">=&gt;</span> <span class="kr">null</span><span class="p">,</span>
+  <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">N</span> <span class="kr">in</span><span class="p"> </span><span class="mi">15486209</span> <span class="o">|</span> <span class="mi">15487001</span> <span class="o">|</span> <span class="mi">15487469</span><span class="p">,</span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Is_Prime</span> <span class="o">(</span><span class="n">N</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Using the lemma is simply a call to the ghost procedure <code class="docutils literal"><span class="pre">Number_Is_Prime</span></code>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">Number_Is_Prime</span> <span class="o">(</span><span class="mi">15486209</span><span class="o">)</span><span class="p">;</span>
+<span class="c">--  at this program point, the prover knows that 15486209 is prime, so</span>
+<span class="c">--  the following assertion is proved automatically:</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">Is_Prime</span> <span class="o">(</span><span class="mi">15486209</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Note that the lemma here has a precondition, which you will need to prove when
+calling it. For example, the following incorrect call to the lemma will be
+detected as a precondition check failure:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">Number_Is_Prime</span> <span class="o">(</span><span class="mi">10</span><span class="o">)</span><span class="p">;</span>  <span class="c">--  check message issued here</span>
+</pre></div>
+</div>
+<p>Then, the lemma procedure can be either implemented as a null procedure, in
+which case GNATprove will issue a check message about the unproved
+postcondition, which can be justified (see <a class="reference internal" href="../en/source/how_to_use_gnatprove_in_a_team.html#justifying-check-messages"><span class="std std-ref">Justifying Check Messages</span></a>) or
+proved with Coq (see <a class="reference internal" href="#manual-proof-using-coq"><span class="std std-ref">Manual Proof Using Coq</span></a>):</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Number_Is_Prime</span> <span class="o">(</span><span class="n">N</span> <span class="o">:</span> <span class="n">Positive</span><span class="o">)</span> <span class="kr">is</span><span class="p"> </span><span class="kr">null</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Or it can be implemented as a normal procedure body with a single assumption:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Number_Is_Prime</span> <span class="o">(</span><span class="n">N</span> <span class="o">:</span> <span class="n">Positive</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assume</span> <span class="o">(</span><span class="n">Is_Prime</span> <span class="o">(</span><span class="n">N</span><span class="o">))</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Number_Is_Prime</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Or it can be implemented in some cases as a normal procedure body with ghost
+code to achieve fully automatic proof, see <a class="reference internal" href="#manual-proof-using-ghost-code"><span class="std std-ref">Manual Proof Using Ghost Code</span></a>.</p>
+</div>
+<div class="section" id="manual-proof-using-ghost-code">
+<span id="id3"></span><h2>7.9.3.3. Manual Proof Using Ghost Code<a class="headerlink" href="#manual-proof-using-ghost-code" title="Permalink to this headline">¶</a></h2>
+<p>Guiding automatic solvers by adding intermediate assertions is a commonly used
+technique. More generally, whole pieces of <a class="reference internal" href="../en/source/specification_features.html#ghost-code"><span class="std std-ref">Ghost Code</span></a> can be added to
+enhance automated reasoning.</p>
+<div class="section" id="proving-existential-quantification">
+<h3>Proving Existential Quantification<a class="headerlink" href="#proving-existential-quantification" title="Permalink to this headline">¶</a></h3>
+<p>Existentially quantified properties are difficult to verify for
+automatic solvers. Indeed, it requires coming up with a concrete value for
+which the property holds and solvers are not good at guessing. As an example,
+consider the following program:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Assume</span> <span class="o">(</span><span class="n">A</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;First</span><span class="o">)</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;Last</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span>
+  <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">some</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span>
+     <span class="n">I</span> <span class="o">&lt;</span> <span class="n">A</span><span class="na">&#39;Last</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">I</span><span class="o">)</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Here we assume that the first element of an array <code class="docutils literal"><span class="pre">A</span></code> is 0, whereas is last
+element is positive. In such a case, we are sure that there is an index <code class="docutils literal"><span class="pre">I</span></code> in
+the array such <code class="docutils literal"><span class="pre">A</span> <span class="pre">(I)</span></code> is 0 but not <code class="docutils literal"><span class="pre">A</span> <span class="pre">(I</span> <span class="pre">+</span> <span class="pre">1)</span></code>. Indeed, we know that <code class="docutils literal"><span class="pre">A</span></code>
+starts with a non-empty sequence of zeros. The last element of this sequence has
+the expected property. However, automatic solvers are unable to prove such a
+property automatically because they cannot guess which index they should
+consider.
+To help them, we can define a ghost function returning a value for which the
+property holds, and call it from an assertion:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Find_Pos</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Nat_Array</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Positive</span> <span class="kr">with</span><span class="p"> </span><span class="n">Ghost</span><span class="p">,</span>
+  <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">A</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;First</span><span class="o">)</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;Last</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Find_Pos</span>’<span class="n">Result</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;First</span> <span class="o">..</span> <span class="n">A</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="mi">1</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"></span>
+     <span class="n">A</span> <span class="o">(</span><span class="n">Find_Pos</span><span class="na">&#39;Result</span><span class="o">)</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">Find_Pos</span><span class="na">&#39;Result</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Assume</span> <span class="o">(</span><span class="n">A</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;First</span><span class="o">)</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;Last</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">Find_Pos</span> <span class="o">(</span><span class="n">A</span><span class="o">)</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span><span class="o">)</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span>
+  <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">some</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span>
+     <span class="n">I</span> <span class="o">&lt;</span> <span class="n">A</span><span class="na">&#39;Last</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">I</span><span class="o">)</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Automatic solvers are now able to discharge the proof.</p>
+</div>
+<div class="section" id="performing-induction">
+<h3>Performing Induction<a class="headerlink" href="#performing-induction" title="Permalink to this headline">¶</a></h3>
+<p>Another difficult point for automated solvers is proof by induction. Though
+some automatic solvers do have heuristics allowing them to perform the most
+simple inductive proofs, they generally are lost when the induction is less
+straightforward. For example, in the example below, we state that the array
+<code class="docutils literal"><span class="pre">A</span></code> is sorted in two different ways, first by saying that each element is
+bigger than the one just before, and then by saying that each element is
+bigger than all the ones before:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Assume</span>
+  <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span>
+    <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">I</span> <span class="o">&gt;</span> <span class="n">A</span><span class="na">&#39;First</span> <span class="kr">then</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">I</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">A</span> <span class="o">(</span><span class="n">I</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)))</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span>
+  <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span>
+    <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">I</span> <span class="o">&gt;</span> <span class="n">J</span> <span class="kr">then</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">I</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">A</span> <span class="o">(</span><span class="n">J</span><span class="o">))))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The second assertion is provable from the first one by induction over the
+number of elements separating <code class="docutils literal"><span class="pre">I</span></code> and <code class="docutils literal"><span class="pre">J</span></code>, but automatic solvers are unable
+to verify this code. To help them, we can use a ghost loop. In the loop
+invariant, we say that the property holds for all indexes <code class="docutils literal"><span class="pre">I</span></code> and <code class="docutils literal"><span class="pre">J</span></code>
+separated by less than <code class="docutils literal"><span class="pre">K</span></code> elements:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Prove_Sorted</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Nat_Array</span><span class="o">)</span> <span class="kr">with</span><span class="p"> </span><span class="n">Ghost</span> <span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+  <span class="kr">for</span><span class="p"> </span><span class="n">K</span> <span class="kr">in</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="n">A</span><span class="na">&#39;Length</span> <span class="kr">loop</span><span class="p"></span>
+    <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span>
+      <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span>
+          <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">I</span> <span class="o">&gt;</span> <span class="n">J</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">I</span> <span class="o">-</span> <span class="n">J</span> <span class="o">&lt;=</span> <span class="n">K</span> <span class="kr">then</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">I</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">A</span> <span class="o">(</span><span class="n">J</span><span class="o">))))</span><span class="p">;</span>
+  <span class="k">end loop</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Prove_Sorted</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>GNATprove will verify that the invariant holds in two steps, first it will
+show that the property holds at the first iteration, and then that, if it holds
+at a given iteration, then it also holds at the next
+(see <a class="reference internal" href="../en/source/assertion_pragmas.html#loop-invariants"><span class="std std-ref">Loop Invariants</span></a>). Both proofs are straightforward using the
+assumption.</p>
+<p>Note that we have introduced a ghost subprogram above to contain the loop.
+This will allow the compiler to recognize that this loop is ghost, so that it
+can be entirely removed when assertions are disabled.</p>
+<p>If <code class="docutils literal"><span class="pre">Prove_Sorted</span></code> is declared locally to the subprogram that we want to
+verify, it is not necessary to supply a contract for it, as local subprograms
+with no contracts are inlined (see <a class="reference internal" href="../en/source/how_to_write_subprogram_contracts.html#contextual-analysis-of-subprograms-without-contracts"><span class="std std-ref">Contextual Analysis of Subprograms Without Contracts</span></a>). We can still choose to provide such a contract to turn
+<code class="docutils literal"><span class="pre">Prove_Sorted</span></code> into a lemma (see <a class="reference internal" href="#manual-proof-using-user-lemmas"><span class="std std-ref">Manual Proof Using User Lemmas</span></a>).</p>
+</div>
+<div class="section" id="a-concrete-example-a-sort-algorithm">
+<h3>A Concrete Example: a Sort Algorithm<a class="headerlink" href="#a-concrete-example-a-sort-algorithm" title="Permalink to this headline">¶</a></h3>
+<p>We show how to prove the correctness of a sorting procedure on arrays using
+ghost code. In particular, we want to show that the sorted array is a permuation
+of the input array.
+A common way to define permutations is to use the number of occurrences of
+elements in the array, defined inductively over the size of its array parameter
+(but it is not the only one, see <a class="reference internal" href="../en/source/specification_features.html#ghost-variables"><span class="std std-ref">Ghost Variables</span></a>):</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Sort_Types</span> <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">subtype</span><span class="p"> </span><span class="n">Index</span> <span class="kr">is</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span><span class="p">;</span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Nat_Array</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Index</span> <span class="kr">range</span><span class="p"> </span><span class="o">&lt;&gt;)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Natural</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Sort_Types</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Sort_Types</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Sort_Types;</span>
+
+<span class="k">package </span><span class="nf">Perm</span> <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span><span class="p">,</span> <span class="n">Ghost</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">subtype</span><span class="p"> </span><span class="n">Nb_Occ</span> <span class="kr">is</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">100</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Remove_Last</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Nat_Array</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Nat_Array</span> <span class="kr">is</span><span class="p"></span>
+     <span class="o">(</span><span class="n">A</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;First</span> <span class="o">..</span> <span class="n">A</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="mi">1</span><span class="o">))</span>
+   <span class="kr">with</span><span class="p"> </span><span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">A</span><span class="na">&#39;Length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Occ_Def</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Nat_Array</span><span class="p">;</span> <span class="n">E</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Nb_Occ</span> <span class="kr">is</span><span class="p"></span>
+     <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Length</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">then</span><span class="p"> </span><span class="mi">0</span>
+      <span class="kr">elsif</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;Last</span><span class="o">)</span> <span class="o">=</span> <span class="n">E</span> <span class="kr">then</span><span class="p"> </span><span class="n">Occ_Def</span> <span class="o">(</span><span class="n">Remove_Last</span> <span class="o">(</span><span class="n">A</span><span class="o">)</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span>
+      <span class="kr">else</span><span class="p"> </span><span class="n">Occ_Def</span> <span class="o">(</span><span class="n">Remove_Last</span> <span class="o">(</span><span class="n">A</span><span class="o">)</span><span class="p">,</span> <span class="n">E</span><span class="o">))</span>
+   <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Occ_Def</span><span class="na">&#39;Result</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="na">&#39;Length</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Terminating</span><span class="p">,</span> <span class="n">Occ_Def</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Occ</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Nat_Array</span><span class="p">;</span> <span class="n">E</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Nb_Occ</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Occ_Def</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">E</span><span class="o">))</span>
+   <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Occ</span><span class="na">&#39;Result</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="na">&#39;Length</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Is_Perm</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">:</span> <span class="n">Nat_Array</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">is</span><span class="p"></span>
+     <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">E</span> <span class="kr">in</span><span class="p"> </span><span class="n">Natural</span> <span class="o">=&gt;</span> <span class="n">Occ</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span> <span class="o">=</span> <span class="n">Occ</span> <span class="o">(</span><span class="n">B</span><span class="p">,</span> <span class="n">E</span><span class="o">))</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Perm</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that Occ was introduced as a wrapper around the recursive definition of
+Occ_Def. This is to work around a current limitation of the tool that only
+introduces axioms for postconditions of non-recursive functions (to avoid
+possibly introducing unsound axioms that would not be detected by the tool).</p>
+<p>The only property of the function Occ required to prove that swapping two
+elements of an array is in fact a permutation, is the way Occ is modified when
+updating a value of the array.</p>
+<p>There is no native construction for axioms in SPARK 2014. As a workaround, a
+ghost subprogram, named &#8220;lemma subprogram&#8221;, can be introduced with the desired
+property as a postcondition. An instance of the axiom will then be available
+whenever the subprogram is called. Notice that an explicit call to the lemma
+subprogram with the proper arguments is required whenever an instance of the
+axiom is needed, like in manual proofs in an interactive theorem prover. Here
+is how a lemma subprogram can be defined for the desired property of Occ:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Perm.Lemma_Subprograms</span> <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span><span class="p">,</span> <span class="n">Ghost</span> <span class="kr">is</span><span class="p"></span>
+
+   <span class="k">function </span><span class="nf">Is_Set</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Nat_Array</span><span class="p">;</span> <span class="n">I</span> <span class="o">:</span> <span class="n">Index</span><span class="p">;</span> <span class="n">V</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span> <span class="n">R</span> <span class="o">:</span> <span class="n">Nat_Array</span><span class="o">)</span>
+                    <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span>
+   <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">R</span><span class="na">&#39;First</span> <span class="o">=</span> <span class="n">A</span><span class="na">&#39;First</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">R</span><span class="na">&#39;Last</span> <span class="o">=</span> <span class="n">A</span><span class="na">&#39;Last</span>
+       <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">R</span> <span class="o">(</span><span class="n">I</span><span class="o">)</span> <span class="o">=</span> <span class="n">V</span>
+       <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span>
+                   <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">I</span> <span class="o">/=</span> <span class="n">J</span> <span class="kr">then</span><span class="p"> </span><span class="n">R</span> <span class="o">(</span><span class="n">J</span><span class="o">)</span> <span class="o">=</span> <span class="n">A</span> <span class="o">(</span><span class="n">J</span><span class="o">))))</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Occ_Set</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Nat_Array</span><span class="p">;</span> <span class="n">I</span> <span class="o">:</span> <span class="n">Index</span><span class="p">;</span> <span class="n">V</span><span class="p">,</span> <span class="n">E</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span> <span class="n">R</span> <span class="o">:</span> <span class="n">Nat_Array</span><span class="o">)</span>
+   <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>     <span class="o">=&gt;</span> <span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">Is_Set</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">R</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Post</span>    <span class="o">=&gt;</span>
+       <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">V</span> <span class="o">=</span> <span class="n">A</span> <span class="o">(</span><span class="n">I</span><span class="o">)</span> <span class="kr">then</span><span class="p"> </span><span class="n">Occ</span> <span class="o">(</span><span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span> <span class="o">=</span> <span class="n">Occ</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span>
+        <span class="kr">elsif</span><span class="p"> </span><span class="n">V</span> <span class="o">=</span> <span class="n">E</span> <span class="kr">then</span><span class="p"> </span><span class="n">Occ</span> <span class="o">(</span><span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span> <span class="o">=</span> <span class="n">Occ</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="kr">elsif</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">I</span><span class="o">)</span> <span class="o">=</span> <span class="n">E</span> <span class="kr">then</span><span class="p"> </span><span class="n">Occ</span> <span class="o">(</span><span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span> <span class="o">=</span> <span class="n">Occ</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="kr">else</span><span class="p"> </span><span class="n">Occ</span> <span class="o">(</span><span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span> <span class="o">=</span> <span class="n">Occ</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">E</span><span class="o">))</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Perm.Lemma_Subprograms</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This &#8220;axiom&#8221; can then be used to prove an implementation of the selection
+sort algorithm. Lemma subprograms need to be explicitely called for every
+natural. To achieve that, a loop is introduced. The inductive proof necessary
+to demonstrate the universally quantified formula is then achieved thanks to
+the loop invariant, playing the role of an induction hypothesis:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Perm.Lemma_Subprograms</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Perm.Lemma_Subprograms;</span>
+<span class="k">package body </span><span class="nf">Sort</span>
+   <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="c">-----------------------------------------------------------------------------</span>
+
+   <span class="k">procedure </span><span class="nf">Swap</span> <span class="o">(</span><span class="n">Values</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Nat_Array</span><span class="p">;</span>
+                   <span class="n">X</span>      <span class="o">:</span> <span class="kr">in</span><span class="p"> </span>    <span class="n">Positive</span><span class="p">;</span>
+                   <span class="n">Y</span>      <span class="o">:</span> <span class="kr">in</span><span class="p"> </span>    <span class="n">Positive</span><span class="o">)</span>
+     <span class="kr">with</span><span class="p"></span>
+       <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span> <span class="kr">in</span><span class="p"> </span><span class="n">Values</span><span class="na">&#39;Range</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"></span>
+                  <span class="n">Y</span> <span class="kr">in</span><span class="p"> </span><span class="n">Values</span><span class="na">&#39;Range</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"></span>
+                    <span class="n">X</span> <span class="o">/=</span> <span class="n">Y</span><span class="o">)</span><span class="p">,</span>
+
+       <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Is_Perm</span> <span class="o">(</span><span class="n">Values</span><span class="na">&#39;Old</span><span class="p">,</span> <span class="n">Values</span><span class="o">)</span>
+     <span class="kr">and</span><span class="p"> </span><span class="n">Values</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span> <span class="o">=</span> <span class="n">Values</span><span class="na">&#39;Old</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span>
+     <span class="kr">and</span><span class="p"> </span><span class="n">Values</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span> <span class="o">=</span> <span class="n">Values</span><span class="na">&#39;Old</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span>
+     <span class="kr">and</span><span class="p"> </span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">Z</span> <span class="kr">in</span><span class="p"> </span><span class="n">Values</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span>
+            <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Z</span> <span class="o">/=</span> <span class="n">X</span> <span class="kr">and</span><span class="p"> </span><span class="n">Z</span> <span class="o">/=</span> <span class="n">Y</span> <span class="kr">then</span><span class="p"> </span><span class="n">Values</span> <span class="o">(</span><span class="n">Z</span><span class="o">)</span> <span class="o">=</span> <span class="n">Values</span><span class="na">&#39;Old</span> <span class="o">(</span><span class="n">Z</span><span class="o">)))</span>
+   <span class="kr">is</span><span class="p"></span>
+      <span class="n">Temp</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+
+      <span class="c">--  Ghost variables</span>
+      <span class="n">Init</span>   <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Nat_Array</span> <span class="o">(</span><span class="n">Values</span><span class="na">&#39;Range</span><span class="o">)</span> <span class="o">:=</span> <span class="n">Values</span> <span class="kr">with</span><span class="p"> </span><span class="n">Ghost</span><span class="p">;</span>
+      <span class="n">Interm</span> <span class="o">:</span> <span class="n">Nat_Array</span> <span class="o">(</span><span class="n">Values</span><span class="na">&#39;Range</span><span class="o">)</span> <span class="kr">with</span><span class="p"> </span><span class="n">Ghost</span><span class="p">;</span>
+
+      <span class="c">--  Ghost procedure</span>
+      <span class="k">procedure </span><span class="nf">Prove_Perm</span> <span class="kr">with</span><span class="p"> </span><span class="n">Ghost</span><span class="p">,</span>
+        <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="kr">in</span><span class="p"> </span><span class="n">Values</span><span class="na">&#39;Range</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">Y</span> <span class="kr">in</span><span class="p"> </span><span class="n">Values</span><span class="na">&#39;Range</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"></span>
+        <span class="n">Is_Set</span> <span class="o">(</span><span class="n">Init</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Init</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">,</span> <span class="n">Interm</span><span class="o">)</span>
+        <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">Is_Set</span> <span class="o">(</span><span class="n">Interm</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Init</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">,</span> <span class="n">Values</span><span class="o">)</span><span class="p">,</span>
+        <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Is_Perm</span> <span class="o">(</span><span class="n">Init</span><span class="p">,</span> <span class="n">Values</span><span class="o">)</span>
+      <span class="kr">is</span><span class="p"></span>
+      <span class="kr">begin</span><span class="p"></span>
+         <span class="kr">for</span><span class="p"> </span><span class="n">E</span> <span class="kr">in</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">loop</span><span class="p"></span>
+            <span class="n">Occ_Set</span> <span class="o">(</span><span class="n">Init</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Init</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">Interm</span><span class="o">)</span><span class="p">;</span>
+            <span class="n">Occ_Set</span> <span class="o">(</span><span class="n">Interm</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Init</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">Values</span><span class="o">)</span><span class="p">;</span>
+            <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span>
+              <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">F</span> <span class="kr">in</span><span class="p"> </span><span class="n">Natural</span><span class="na">&#39;First</span> <span class="o">..</span> <span class="n">E</span> <span class="o">=&gt;</span>
+                 <span class="n">Occ</span> <span class="o">(</span><span class="n">Values</span><span class="p">,</span> <span class="n">F</span><span class="o">)</span> <span class="o">=</span> <span class="n">Occ</span> <span class="o">(</span><span class="n">Init</span><span class="p">,</span> <span class="n">F</span><span class="o">))</span><span class="p">;</span>
+         <span class="k">end loop</span><span class="p">;</span>
+      <span class="k">end </span><span class="nf">Prove_Perm</span><span class="p">;</span>
+
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Temp</span>       <span class="o">:=</span> <span class="n">Values</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Values</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span> <span class="o">:=</span> <span class="n">Values</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+
+      <span class="c">--  Ghost code</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">Is_Set</span> <span class="o">(</span><span class="n">Init</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Init</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">,</span> <span class="n">Values</span><span class="o">))</span><span class="p">;</span>
+      <span class="n">Interm</span> <span class="o">:=</span> <span class="n">Values</span><span class="p">;</span>
+
+      <span class="n">Values</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span> <span class="o">:=</span> <span class="n">Temp</span><span class="p">;</span>
+
+      <span class="c">--  Ghost code</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">Is_Set</span> <span class="o">(</span><span class="n">Interm</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Init</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">,</span> <span class="n">Values</span><span class="o">))</span><span class="p">;</span>
+      <span class="n">Prove_Perm</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Swap</span><span class="p">;</span>
+
+   <span class="c">-- Finds the index of the smallest element in the array</span>
+   <span class="k">function </span><span class="nf">Index_Of_Minimum</span> <span class="o">(</span><span class="n">Values</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Nat_Array</span><span class="o">)</span>
+                              <span class="kr">return</span><span class="p"> </span><span class="n">Positive</span>
+     <span class="kr">with</span><span class="p"></span>
+       <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">Values</span><span class="na">&#39;Length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Index_Of_Minimum</span><span class="na">&#39;Result</span> <span class="kr">in</span><span class="p"> </span><span class="n">Values</span><span class="na">&#39;Range</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"></span>
+       <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="n">Values</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span>
+          <span class="n">Values</span> <span class="o">(</span><span class="n">Index_Of_Minimum</span><span class="na">&#39;Result</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="n">Values</span> <span class="o">(</span><span class="n">I</span><span class="o">))</span>
+   <span class="kr">is</span><span class="p"></span>
+      <span class="n">Min</span> <span class="o">:</span> <span class="n">Positive</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Min</span> <span class="o">:=</span> <span class="n">Values</span><span class="na">&#39;First</span><span class="p">;</span>
+      <span class="kr">for</span><span class="p"> </span><span class="n">Index</span> <span class="kr">in</span><span class="p"> </span><span class="n">Values</span><span class="na">&#39;Range</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="kr">if</span><span class="p"> </span><span class="n">Values</span> <span class="o">(</span><span class="n">Index</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">Values</span> <span class="o">(</span><span class="n">Min</span><span class="o">)</span> <span class="kr">then</span><span class="p"></span>
+            <span class="n">Min</span> <span class="o">:=</span> <span class="n">Index</span><span class="p">;</span>
+         <span class="k">end if</span><span class="p">;</span>
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span>
+           <span class="o">(</span><span class="n">Min</span> <span class="kr">in</span><span class="p"> </span><span class="n">Values</span><span class="na">&#39;Range</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"></span>
+              <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="n">Values</span><span class="na">&#39;First</span> <span class="o">..</span> <span class="n">Index</span> <span class="o">=&gt;</span>
+                   <span class="n">Values</span> <span class="o">(</span><span class="n">Min</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="n">Values</span> <span class="o">(</span><span class="n">I</span><span class="o">)))</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+      <span class="kr">return</span><span class="p"> </span><span class="n">Min</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Index_Of_Minimum</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Selection_Sort</span> <span class="o">(</span><span class="n">Values</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Nat_Array</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+      <span class="n">Smallest</span> <span class="o">:</span> <span class="n">Positive</span><span class="p">;</span>  <span class="c">-- Index of the smallest value in the unsorted part</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">Values</span><span class="na">&#39;Length</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">then</span><span class="p"></span>
+         <span class="kr">return</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+
+      <span class="kr">for</span><span class="p"> </span><span class="n">Current</span> <span class="kr">in</span><span class="p"> </span><span class="n">Values</span><span class="na">&#39;First</span> <span class="o">..</span> <span class="n">Values</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="mi">1</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="n">Smallest</span> <span class="o">:=</span> <span class="n">Index_Of_Minimum</span> <span class="o">(</span><span class="n">Values</span> <span class="o">(</span><span class="n">Current</span> <span class="o">..</span> <span class="n">Values</span><span class="na">&#39;Last</span><span class="o">))</span><span class="p">;</span>
+
+         <span class="kr">if</span><span class="p"> </span><span class="n">Smallest</span> <span class="o">/=</span> <span class="n">Current</span> <span class="kr">then</span><span class="p"></span>
+            <span class="n">Swap</span> <span class="o">(</span><span class="n">Values</span> <span class="o">=&gt;</span> <span class="n">Values</span><span class="p">,</span>
+                  <span class="n">X</span>      <span class="o">=&gt;</span> <span class="n">Current</span><span class="p">,</span>
+                  <span class="n">Y</span>      <span class="o">=&gt;</span> <span class="n">Smallest</span><span class="o">)</span><span class="p">;</span>
+         <span class="k">end if</span><span class="p">;</span>
+
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span>
+           <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="n">Values</span><span class="na">&#39;First</span> <span class="o">..</span> <span class="n">Current</span> <span class="o">=&gt;</span>
+              <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">I</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">..</span> <span class="n">Values</span><span class="na">&#39;Last</span> <span class="o">=&gt;</span>
+                   <span class="n">Values</span> <span class="o">(</span><span class="n">I</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="n">Values</span> <span class="o">(</span><span class="n">J</span><span class="o">)))</span><span class="p">;</span>
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span> <span class="o">(</span><span class="n">Is_Perm</span> <span class="o">(</span><span class="n">Values</span><span class="na">&#39;Loop_Entry</span><span class="p">,</span> <span class="n">Values</span><span class="o">))</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+
+   <span class="k">end </span><span class="nf">Selection_Sort</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Sort</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Sort_Types</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Sort_Types;</span><span class="p"></span>
+<span class="kr">with</span><span class="nn"> Perm;</span> <span class="kr">use</span><span class="p"> </span><span class="n">Perm</span><span class="p">;</span>
+
+<span class="k">package </span><span class="nf">Sort</span> <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="kr">is</span><span class="p"></span>
+
+   <span class="c">-- Sorts the elements in the array Values in ascending order</span>
+   <span class="k">procedure </span><span class="nf">Selection_Sort</span> <span class="o">(</span><span class="n">Values</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Nat_Array</span><span class="o">)</span>
+     <span class="kr">with</span><span class="p"></span>
+       <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Is_Perm</span> <span class="o">(</span><span class="n">Values</span><span class="na">&#39;Old</span><span class="p">,</span> <span class="n">Values</span><span class="o">)</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"></span>
+     <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Values</span><span class="na">&#39;Length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span><span class="p"></span>
+        <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="n">Values</span><span class="na">&#39;First</span> <span class="o">..</span> <span class="n">Values</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">=&gt;</span>
+             <span class="n">Values</span> <span class="o">(</span><span class="n">I</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="n">Values</span> <span class="o">(</span><span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)))</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Sort</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The procedure Selection_Sort can be verified using GNATprove, with the
+default prover CVC4, in less than 1s per verification condition.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>sort.adb:16:16: info: postcondition proved
+sort.adb:17:18: info: index check proved
+sort.adb:17:35: info: index check proved
+sort.adb:18:18: info: index check proved
+sort.adb:18:35: info: index check proved
+sort.adb:20:48: info: index check proved
+sort.adb:20:65: info: index check proved
+sort.adb:22:07: info: initialization of &quot;Temp&quot; proved
+sort.adb:25:07: info: range check proved
+sort.adb:25:53: info: length check proved
+sort.adb:26:07: info: initialization of &quot;Interm&quot; proved
+sort.adb:26:07: info: range check proved
+sort.adb:31:09: info: precondition proved
+sort.adb:31:23: info: range check proved
+sort.adb:31:32: info: index check proved
+sort.adb:32:18: info: precondition proved
+sort.adb:32:34: info: range check proved
+sort.adb:32:43: info: index check proved
+sort.adb:33:17: info: postcondition proved
+sort.adb:37:13: info: precondition proved
+sort.adb:37:28: info: range check proved
+sort.adb:37:37: info: index check proved
+sort.adb:38:13: info: precondition proved
+sort.adb:38:30: info: range check proved
+sort.adb:38:39: info: index check proved
+sort.adb:40:16: info: loop invariant initialization proved
+sort.adb:40:16: info: loop invariant preservation proved
+sort.adb:46:29: info: index check proved
+sort.adb:47:15: info: index check proved
+sort.adb:47:29: info: index check proved
+sort.adb:50:22: info: assertion proved
+sort.adb:50:22: info: precondition proved
+sort.adb:50:36: info: range check proved
+sort.adb:50:45: info: index check proved
+sort.adb:51:14: info: length check proved
+sort.adb:51:17: info: length check proved
+sort.adb:53:15: info: index check proved
+sort.adb:53:21: info: range check proved
+sort.adb:56:22: info: assertion proved
+sort.adb:56:22: info: precondition proved
+sort.adb:56:38: info: range check proved
+sort.adb:56:47: info: index check proved
+sort.adb:57:07: info: precondition proved
+sort.adb:65:16: info: postcondition proved
+sort.adb:67:35: info: index check proved
+sort.adb:67:55: info: index check proved
+sort.adb:69:07: info: initialization of &quot;Min&quot; proved
+sort.adb:71:20: info: range check proved
+sort.adb:73:38: info: index check proved
+sort.adb:74:20: info: range check proved
+sort.adb:77:13: info: loop invariant initialization proved
+sort.adb:77:13: info: loop invariant preservation proved
+sort.adb:79:28: info: index check proved
+sort.adb:79:44: info: index check proved
+sort.adb:85:07: info: initialization of &quot;Smallest&quot; proved
+sort.adb:91:50: info: overflow check proved
+sort.adb:92:22: info: precondition proved
+sort.adb:92:40: info: range check proved
+sort.adb:95:13: info: precondition proved
+sort.adb:96:29: info: range check proved
+sort.adb:101:13: info: loop invariant initialization proved
+sort.adb:101:13: info: loop invariant preservation proved
+sort.adb:102:31: info: overflow check proved
+sort.adb:103:28: info: index check proved
+sort.adb:103:42: info: index check proved
+sort.adb:104:33: info: loop invariant initialization proved
+sort.adb:104:33: info: loop invariant preservation proved
+sort.ads:9:16: info: postcondition proved
+sort.ads:11:51: info: overflow check proved
+sort.ads:12:22: info: index check proved
+sort.ads:12:38: info: index check proved
+sort.ads:12:38: info: overflow check proved
+</pre></div>
+</div>
+<p>To complete the verification of our selection sort, the only remaining issue
+is the correctness of the axiom for Occ. It can be discharged using the
+definition of Occ. Since this definition is recursive, the proof requires
+induction, which is not normally in the reach of an automated prover. For
+GNATprove to verify it, it must be implemented using recursive calls on
+itself to assert the induction hypothesis. Note that the proof of the
+lemma is then conditioned to the termination of the lemma functions, which
+currently cannot be verified by GNATprove.</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Perm.Lemma_Subprograms</span> <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="kr">is</span><span class="p"></span>
+
+   <span class="k">procedure </span><span class="nf">Occ_Eq</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">:</span> <span class="n">Nat_Array</span><span class="p">;</span> <span class="n">E</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">A</span> <span class="o">=</span> <span class="n">B</span><span class="p">,</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Occ</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span> <span class="o">=</span> <span class="n">Occ</span> <span class="o">(</span><span class="n">B</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Occ_Eq</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">:</span> <span class="n">Nat_Array</span><span class="p">;</span> <span class="n">E</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+      <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Length</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">then</span><span class="p"></span>
+         <span class="kr">return</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+
+      <span class="kr">if</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;Last</span><span class="o">)</span> <span class="o">=</span> <span class="n">E</span> <span class="kr">then</span><span class="p"></span>
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">B</span> <span class="o">(</span><span class="n">B</span><span class="na">&#39;Last</span><span class="o">)</span> <span class="o">=</span> <span class="n">E</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">B</span> <span class="o">(</span><span class="n">B</span><span class="na">&#39;Last</span><span class="o">)</span> <span class="o">/=</span> <span class="n">E</span><span class="o">)</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+
+      <span class="n">Occ_Eq</span> <span class="o">(</span><span class="n">Remove_Last</span> <span class="o">(</span><span class="n">A</span><span class="o">)</span><span class="p">,</span> <span class="n">Remove_Last</span> <span class="o">(</span><span class="n">B</span><span class="o">)</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Occ_Eq</span><span class="p">;</span>
+
+
+   <span class="k">procedure </span><span class="nf">Occ_Set</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Nat_Array</span><span class="p">;</span> <span class="n">I</span> <span class="o">:</span> <span class="n">Index</span><span class="p">;</span> <span class="n">V</span><span class="p">,</span> <span class="n">E</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span> <span class="n">R</span> <span class="o">:</span> <span class="n">Nat_Array</span><span class="o">)</span>
+   <span class="kr">is</span><span class="p"></span>
+      <span class="n">B</span> <span class="o">:</span> <span class="n">Nat_Array</span><span class="o">:=</span> <span class="n">Remove_Last</span> <span class="o">(</span><span class="n">A</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Length</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">then</span><span class="p"></span>
+         <span class="kr">return</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+
+      <span class="kr">if</span><span class="p"> </span><span class="n">I</span> <span class="o">=</span> <span class="n">A</span><span class="na">&#39;Last</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Occ_Eq</span> <span class="o">(</span><span class="n">B</span><span class="p">,</span> <span class="n">Remove_Last</span> <span class="o">(</span><span class="n">R</span><span class="o">)</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+         <span class="n">B</span> <span class="o">(</span><span class="n">I</span><span class="o">)</span> <span class="o">:=</span> <span class="n">V</span><span class="p">;</span>
+         <span class="n">Occ_Eq</span> <span class="o">(</span><span class="n">Remove_Last</span> <span class="o">(</span><span class="n">R</span><span class="o">)</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span><span class="p">;</span>
+         <span class="n">Occ_Set</span> <span class="o">(</span><span class="n">Remove_Last</span> <span class="o">(</span><span class="n">A</span><span class="o">)</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">B</span><span class="o">)</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Occ_Set</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Perm.Lemma_Subprograms</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>GNATprove proves automatically all checks on the final program, with a small
+timeout of 1s for the default automatic prover CVC4.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>perm-lemma_subprograms.adb:5:14: info: postcondition proved
+perm-lemma_subprograms.adb:13:14: info: index check proved
+perm-lemma_subprograms.adb:14:25: info: assertion proved
+perm-lemma_subprograms.adb:14:29: info: index check proved
+perm-lemma_subprograms.adb:16:25: info: assertion proved
+perm-lemma_subprograms.adb:16:29: info: index check proved
+perm-lemma_subprograms.adb:19:07: info: precondition proved
+perm-lemma_subprograms.adb:19:15: info: precondition proved
+perm-lemma_subprograms.adb:19:32: info: precondition proved
+perm-lemma_subprograms.adb:25:23: info: precondition proved
+perm-lemma_subprograms.adb:32:10: info: precondition proved
+perm-lemma_subprograms.adb:32:21: info: precondition proved
+perm-lemma_subprograms.adb:34:13: info: index check proved
+perm-lemma_subprograms.adb:35:10: info: precondition proved
+perm-lemma_subprograms.adb:35:18: info: precondition proved
+perm-lemma_subprograms.adb:36:10: info: precondition proved
+perm-lemma_subprograms.adb:36:19: info: precondition proved
+perm-lemma_subprograms.ads:6:20: info: index check proved
+perm-lemma_subprograms.ads:8:39: info: index check proved
+perm-lemma_subprograms.ads:8:47: info: index check proved
+perm-lemma_subprograms.ads:13:39: info: precondition proved
+perm-lemma_subprograms.ads:15:08: info: postcondition proved
+perm-lemma_subprograms.ads:15:19: info: index check proved
+perm-lemma_subprograms.ads:17:18: info: index check proved
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="manual-proof-using-coq">
+<span id="id4"></span><h2>7.9.3.4. Manual Proof Using Coq<a class="headerlink" href="#manual-proof-using-coq" title="Permalink to this headline">¶</a></h2>
+<p>This section presents a simple example of how to prove interactively a check
+with an interactive prover like Coq when GNATprove fails to prove it
+automatically (for installation of Coq, see also: <a class="reference internal" href="../en/appendix/alternative_provers.html#coq"><span class="std std-ref">Coq</span></a>). Here is a simple
+SPARK procedure:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Nonlinear</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">:</span> <span class="n">Positive</span><span class="p">;</span> <span class="n">R1</span><span class="p">,</span> <span class="n">R2</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Natural</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">Y</span> <span class="o">&gt;</span> <span class="n">Z</span><span class="p">,</span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">R1</span> <span class="o">&lt;=</span> <span class="n">R2</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">R1</span> <span class="o">:=</span> <span class="n">X</span> <span class="o">/</span> <span class="n">Y</span><span class="p">;</span>
+   <span class="n">R2</span> <span class="o">:=</span> <span class="n">X</span> <span class="o">/</span> <span class="n">Z</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Nonlinear</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>When only the Alt-Ergo prover is used, GNATprove does not prove automatically
+the postcondition of the procedure, even when increasing the value of the
+timeout:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>nonlinear.adb:1:42: info: initialization of &quot;R1&quot; proved
+nonlinear.adb:1:46: info: initialization of &quot;R2&quot; proved
+nonlinear.adb:4:11: medium: postcondition might fail, cannot prove R1 &lt;= R2
+nonlinear.adb:7:12: info: division check proved
+nonlinear.adb:7:12: info: range check proved
+nonlinear.adb:8:12: info: division check proved
+nonlinear.adb:8:12: medium: range check might fail [possible explanation: precondition of subprogram at line 1 should mention X]
+</pre></div>
+</div>
+<p>This is expected, as the automatic prover Alt-Ergo has only a simple support
+for non-linear integer arithmetic. More generally, it is a known difficulty for
+all automatic provers, although, in the case above, using prover CVC4 is enough
+to prove automatically the postcondition of procedure <code class="docutils literal"><span class="pre">Nonlinear</span></code>. We will
+use this case to demonstrate the use of a manual prover, as an example of what
+can be done when automatic provers fail to prove a check. We will use Coq here.</p>
+<p>The Coq input file associated to this postcondition can be produced by either
+selecting <span class="menuselection">SPARK ‣ Prove Check</span> and specifying <code class="docutils literal"><span class="pre">Coq</span></code> as
+alternate prover in GPS or by executing on the command-line:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">gnatprove</span> <span class="pre">-P</span> <span class="pre">&lt;prj_file&gt;.gpr</span> <span class="pre">--limit-line=nonlinear.adb:4:11:VC_POSTCONDITION</span> <span class="pre">--prover=Coq</span></code></div></blockquote>
+<p>The generated file contains many definitions and axioms that can be used in the
+proof, in addition to the ones in Coq standard library. The property we want
+to prove is at the end of the file:</p>
+<div class="highlight-coq"><div class="highlight"><pre><span></span><span class="kn">Theorem</span> <span class="n">WP_parameter_def</span> <span class="o">:</span>
+  <span class="k">forall</span> <span class="o">(</span><span class="n">r1</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">r2</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">o</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">o1</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">result</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span>
+         <span class="o">(</span><span class="n">r11</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">result1</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">r21</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">r12</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">r22</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span>
+         <span class="o">(</span><span class="n">r13</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">r23</span><span class="o">:</span><span class="n">Z</span><span class="o">),</span>
+    <span class="o">((</span><span class="n">in_range1</span> <span class="n">x</span><span class="o">)</span>
+     <span class="o">/\</span> <span class="o">((</span><span class="n">in_range1</span> <span class="n">y</span><span class="o">)</span>
+     <span class="o">/\</span> <span class="o">((</span><span class="n">in_range1</span> <span class="n">z</span><span class="o">)</span>
+     <span class="o">/\</span> <span class="o">(((</span><span class="mi">0</span><span class="o">%</span><span class="n">Z</span> <span class="o">&lt;=</span> <span class="mi">2147483647</span><span class="o">%</span><span class="n">Z</span><span class="o">)%</span><span class="n">Z</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">in_range</span> <span class="n">r1</span><span class="o">))</span>
+     <span class="o">/\</span> <span class="o">(((</span><span class="mi">0</span><span class="o">%</span><span class="n">Z</span> <span class="o">&lt;=</span> <span class="mi">2147483647</span><span class="o">%</span><span class="n">Z</span><span class="o">)%</span><span class="n">Z</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">in_range</span> <span class="n">r2</span><span class="o">))</span>
+     <span class="o">/\</span> <span class="o">((</span><span class="n">z</span> <span class="o">&lt;</span> <span class="n">y</span><span class="o">)%</span><span class="n">Z</span>
+     <span class="o">/\</span> <span class="o">(((((</span><span class="n">o</span> <span class="o">=</span> <span class="o">(</span><span class="n">ZArith</span><span class="o">.</span><span class="n">BinInt</span><span class="o">.</span><span class="n">Z</span><span class="o">.</span><span class="n">quot</span> <span class="n">x</span> <span class="n">y</span><span class="o">))</span>
+     <span class="o">/\</span> <span class="o">(</span><span class="n">in_range</span> <span class="o">(</span><span class="n">ZArith</span><span class="o">.</span><span class="n">BinInt</span><span class="o">.</span><span class="n">Z</span><span class="o">.</span><span class="n">quot</span> <span class="n">x</span> <span class="n">y</span><span class="o">)))</span>
+     <span class="o">/\</span> <span class="o">(((</span><span class="n">mk_int__ref</span> <span class="n">result</span><span class="o">)</span> <span class="o">=</span> <span class="o">(</span><span class="n">mk_int__ref</span> <span class="n">r1</span><span class="o">))</span>
+     <span class="o">/\</span> <span class="o">(</span><span class="n">r11</span> <span class="o">=</span> <span class="n">o</span><span class="o">)))</span>
+     <span class="o">/\</span> <span class="o">(((</span><span class="n">o1</span> <span class="o">=</span> <span class="o">(</span><span class="n">ZArith</span><span class="o">.</span><span class="n">BinInt</span><span class="o">.</span><span class="n">Z</span><span class="o">.</span><span class="n">quot</span> <span class="n">x</span> <span class="n">z</span><span class="o">))</span>
+     <span class="o">/\</span> <span class="o">(</span><span class="n">in_range</span> <span class="o">(</span><span class="n">ZArith</span><span class="o">.</span><span class="n">BinInt</span><span class="o">.</span><span class="n">Z</span><span class="o">.</span><span class="n">quot</span> <span class="n">x</span> <span class="n">z</span><span class="o">)))</span>
+     <span class="o">/\</span> <span class="o">((</span><span class="n">result1</span> <span class="o">=</span> <span class="n">r2</span><span class="o">)</span>
+     <span class="o">/\</span> <span class="o">(</span><span class="n">r21</span> <span class="o">=</span> <span class="n">o1</span><span class="o">))))</span>
+     <span class="o">/\</span> <span class="o">(((</span><span class="n">r21</span> <span class="o">=</span> <span class="n">r22</span><span class="o">)</span>
+     <span class="o">/\</span> <span class="o">(</span><span class="n">r11</span> <span class="o">=</span> <span class="n">r12</span><span class="o">))</span>
+     <span class="o">/\</span> <span class="o">((</span><span class="n">r23</span> <span class="o">=</span> <span class="n">r21</span><span class="o">)</span>
+     <span class="o">/\</span> <span class="o">(</span><span class="n">r13</span> <span class="o">=</span> <span class="n">r11</span><span class="o">))))))))))</span> <span class="o">-&gt;</span>
+     <span class="o">(</span><span class="n">r12</span> <span class="o">&lt;=</span> <span class="n">r22</span><span class="o">)%</span><span class="n">Z</span><span class="o">.</span>
+
+  <span class="k">intros</span> <span class="n">r1</span> <span class="n">r2</span> <span class="n">o</span> <span class="n">o1</span> <span class="n">result</span> <span class="n">r11</span> <span class="n">result1</span> <span class="n">r21</span> <span class="n">r12</span> <span class="n">r22</span> <span class="n">r13</span> <span class="n">r23</span>
+  <span class="o">(</span><span class="n">h1</span><span class="o">,(</span><span class="n">h2</span><span class="o">,(</span><span class="n">h3</span><span class="o">,(</span><span class="n">h4</span><span class="o">,(</span><span class="n">h5</span><span class="o">,(</span><span class="n">h6</span><span class="o">,((((</span><span class="n">h7</span><span class="o">,</span><span class="n">h8</span><span class="o">),(</span><span class="n">h9</span><span class="o">,</span><span class="n">h10</span><span class="o">)),((</span><span class="n">h11</span><span class="o">,</span><span class="n">h12</span><span class="o">),</span>
+  <span class="o">(</span><span class="n">h13</span><span class="o">,</span><span class="n">h14</span><span class="o">))),((</span><span class="n">h15</span><span class="o">,</span><span class="n">h16</span><span class="o">),(</span><span class="n">h17</span><span class="o">,</span><span class="n">h18</span><span class="o">))))))))).</span>
+
+<span class="kn">Qed</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>From the <code class="docutils literal"><span class="pre">forall</span></code> to the first <code class="docutils literal"><span class="pre">.</span></code> we can see the expression of what must
+be proved, also called the goal. The proof starts right after the dot and ends
+with the <code class="docutils literal"><span class="pre">Qed</span></code> keyword.  Proofs in Coq are done with the help of different
+tactics which will change the state of the current goal. The first tactic
+(automatically added) here is <code class="docutils literal"><span class="pre">intros</span></code>, which allows to &#8220;extract&#8221; variables
+and hypotheses from the current goal and add them to the current
+environment. Each parameter to the <code class="docutils literal"><span class="pre">intros</span></code> tactic is the name that the
+extracted element will have in the new environment.  The <code class="docutils literal"><span class="pre">intros</span></code> tactic here
+puts all universally quantified variables and all hypotheses in the
+environment. The goal is reduced to a simple inequality, with all potentially
+useful information in the environment.</p>
+<p>Here is the state of the proof as displayed in a suitable IDE for Coq:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>1 subgoal
+
+  r1, r2, o, o1, result, r11, result1, r21, r12, r22, r13, r23 : int
+  h1 : in_range1 x
+  h2 : in_range1 y
+  h3 : in_range1 z
+  h4 : (0 &lt;= 2147483647)%Z -&gt; in_range r1
+  h5 : (0 &lt;= 2147483647)%Z -&gt; in_range r2
+  h6 : (z &lt; y)%Z
+  h7 : o = (x ÷ y)%Z
+  h8 : in_range (x ÷ y)
+  h9 : mk_int__ref result = mk_int__ref r1
+  h10 : r11 = o
+  h11 : o1 = (x ÷ z)%Z
+  h12 : in_range (x ÷ z)
+  h13 : result1 = r2
+  h14 : r21 = o1
+  h15 : r21 = r22
+  h16 : r11 = r12
+  h17 : r23 = r21
+  h18 : r13 = r11
+  ______________________________________(1/1)
+  (r12 &lt;= r22)%Z
+</pre></div>
+</div>
+<p>Some expresions are enclosed in <code class="docutils literal"><span class="pre">()%Z</span></code>, which means that they are dealing
+with relative integers. This is necessarily in order to use the operators
+(e.g. <code class="docutils literal"><span class="pre">&lt;</span></code> or <code class="docutils literal"><span class="pre">+</span></code>) on relative integers instead of using the associated Coq
+function or to declare a relative integer constant (e.g. <code class="docutils literal"><span class="pre">0%Z</span></code>).</p>
+<p>Next, we can use the <code class="docutils literal"><span class="pre">subst</span></code> tactic to automaticaly replace variables by
+terms to which they are equal (as stated by the hypotheses in the current
+environment) and clean the environment of replaced variables. Here, we can get
+rid of many variables at once with <code class="docutils literal"><span class="pre">subst</span> <span class="pre">o</span> <span class="pre">o1</span> <span class="pre">result1</span> <span class="pre">r11</span> <span class="pre">r12</span> <span class="pre">r21</span> <span class="pre">r22</span> <span class="pre">r23</span>
+<span class="pre">r13.</span></code> (note the presence of the <code class="docutils literal"><span class="pre">.</span></code> at the end of each tactic). The new
+state is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>1 subgoal
+
+  r1, r2, result : int
+  h1 : in_range1 x
+  h2 : in_range1 y
+  h3 : in_range1 z
+  h4 : (0 &lt;= 2147483647)%Z -&gt; in_range r1
+  h5 : (0 &lt;= 2147483647)%Z -&gt; in_range r2
+  h6 : (z &lt; y)%Z
+  h8 : in_range (x ÷ y)
+  h9 : mk_int__ref result = mk_int__ref r1
+  h12 : in_range (x ÷ z)
+  ______________________________________(1/1)
+  (x ÷ y &lt;= x ÷ z)%Z
+</pre></div>
+</div>
+<p>At this state, the hypotheses alone are not enough to prove the goal without
+proving properties about <code class="docutils literal"><span class="pre">÷</span></code> and <code class="docutils literal"><span class="pre">&lt;</span></code> operators. It is necessary to use
+theorems from the Coq standard library. Coq provides a command <code class="docutils literal"><span class="pre">SearchAbout</span></code>
+to find theorems and definition concerning its argument. For instance, to find
+the theorems referring to the operator <code class="docutils literal"><span class="pre">÷</span></code>, we use <code class="docutils literal"><span class="pre">SearchAbout</span> <span class="pre">Z.quot.</span></code>,
+where <code class="docutils literal"><span class="pre">Z.quot</span></code> is the underlying function for the <code class="docutils literal"><span class="pre">÷</span></code> operator.  Among the
+theorems displayed, the conclusion (the rightmost term separated by <code class="docutils literal"><span class="pre">-&gt;</span></code>
+operator) of one of them seems to match our current goal:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Z.quot_le_compat_l:
+  forall p q r : int, (0 &lt;= p)%Z -&gt; (0 &lt; q &lt;= r)%Z -&gt; (p ÷ r &lt;= p ÷ q)%Z
+</pre></div>
+</div>
+<p>The tactic <code class="docutils literal"><span class="pre">apply</span></code> allows the use of a theorem or an hypothesis on the
+current goal. Here we use: <code class="docutils literal"><span class="pre">apply</span> <span class="pre">Z.quot_le_compat_l.</span></code>. This tactic will try
+to match the different variables of the theorem with the terms present in the
+goal. If it succeeds, one subgoal per hypothesis in the theorem will be
+generated to verify that the terms matched with the theorem variables satisfy
+the hypotheses on those variables required by the theorem.  In this
+case, <code class="docutils literal"><span class="pre">p</span></code> is matched with <code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">q</span></code> with <code class="docutils literal"><span class="pre">z</span></code> and
+<code class="docutils literal"><span class="pre">r</span></code> with <code class="docutils literal"><span class="pre">y</span></code> and the new state is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>2 subgoals
+
+  r1, r2, result : int
+  h1 : in_range1 x
+  h2 : in_range1 y
+  h3 : in_range1 z
+  h4 : (0 &lt;= 2147483647)%Z -&gt; in_range r1
+  h5 : (0 &lt;= 2147483647)%Z -&gt; in_range r2
+  h6 : (z &lt; y)%Z
+  h8 : in_range (x ÷ y)
+  h9 : mk_int__ref result = mk_int__ref r1
+  h12 : in_range (x ÷ z)
+  ______________________________________(1/2)
+  (0 &lt;= x)%Z
+  ______________________________________(2/2)
+  (0 &lt; z &lt;= y)%Z
+</pre></div>
+</div>
+<p>As expected, there are two subgoals, one per hypothesis of the theorem. Once
+the first subgoal is proved, the rest of the script will automatically apply to
+the second one.  Now, if we look back at the SPARK code, <code class="docutils literal"><span class="pre">X</span></code> is of type
+<code class="docutils literal"><span class="pre">Positive</span></code> so <code class="docutils literal"><span class="pre">X</span></code> is greater than 0 and <code class="docutils literal"><span class="pre">in_rangeN</span></code> (where N is a number)
+are predicates generated by SPARK to state the range of a value from a ranged subtype
+interpreted as a relative integer in Coq. Here, the predicate <code class="docutils literal"><span class="pre">in_range1</span></code>
+provides the property needed to prove the first subgoal which is that &#8220;All
+elements of subtype positive have their integer interpretation in the range
+1 .. (2³¹ - 1)&#8221;.  However, the goal does not match exactly the predicate, because
+one is a comparison with 0, while the other is a comparison
+with 1. Transitivity on &#8220;lesser or equal&#8221; relation is needed to prove this
+goal, of course this is provided in Coq&#8217;s standard library:</p>
+<div class="highlight-coq"><div class="highlight"><pre><span></span><span class="kn">Lemma</span> <span class="n">Zle_trans</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">n</span> <span class="n">m</span> <span class="n">p</span><span class="o">:</span><span class="n">Z</span><span class="o">,</span> <span class="o">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="o">)%</span><span class="n">Z</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">m</span> <span class="o">&lt;=</span> <span class="n">p</span><span class="o">)%</span><span class="n">Z</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="n">p</span><span class="o">)%</span><span class="n">Z</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Since the lemma&#8217;s conclusion contains only two variables while it uses three,
+using tactic <code class="docutils literal"><span class="pre">apply</span> <span class="pre">Zle_trans.</span></code> will generate an error stating that Coq was
+not able to find a term for the variable <code class="docutils literal"><span class="pre">m</span></code>.  In this case, <code class="docutils literal"><span class="pre">m</span></code> needs to
+be instantiated explicitly, here with the value 1: <code class="docutils literal"><span class="pre">apply</span> <span class="pre">Zle_trans</span> <span class="pre">with</span> <span class="pre">(m:=</span>
+<span class="pre">1%Z).</span></code> There are two new subgoals, one to prove that <code class="docutils literal"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">1</span></code> and the other
+that <code class="docutils literal"><span class="pre">1</span> <span class="pre">&lt;=</span> <span class="pre">x</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>3 subgoals
+
+  r1, r2, result : int
+  h1 : in_range1 x
+  h2 : in_range1 y
+  h3 : in_range1 z
+  h4 : (0 &lt;= 2147483647)%Z -&gt; in_range r1
+  h5 : (0 &lt;= 2147483647)%Z -&gt; in_range r2
+  h6 : (z &lt; y)%Z
+  h8 : in_range (x ÷ y)
+  h9 : mk_int__ref result = mk_int__ref r1
+  h12 : in_range (x ÷ z)
+  ______________________________________(1/3)
+  (0 &lt;= 1)%Z
+  ______________________________________(2/3)
+  (1 &lt;= x)%Z
+  ______________________________________(3/3)
+  (0 &lt; z &lt;= y)%Z
+</pre></div>
+</div>
+<p>To prove that <code class="docutils literal"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">1</span></code>, the theorem <code class="docutils literal"><span class="pre">Lemma</span> <span class="pre">Zle_0_1</span> <span class="pre">:</span> <span class="pre">(0</span> <span class="pre">&lt;=</span> <span class="pre">1)%Z.</span></code> is used.
+<code class="docutils literal"><span class="pre">apply</span> <span class="pre">Zle_0_1</span></code> will not generate any new subgoals since it does not contain
+implications. Coq passes to the next subgoal:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>2 subgoals
+
+  r1, r2, result : int
+  h1 : in_range1 x
+  h2 : in_range1 y
+  h3 : in_range1 z
+  h4 : (0 &lt;= 2147483647)%Z -&gt; in_range r1
+  h5 : (0 &lt;= 2147483647)%Z -&gt; in_range r2
+  h6 : (z &lt; y)%Z
+  h8 : in_range (x ÷ y)
+  h9 : mk_int__ref result = mk_int__ref r1
+  h12 : in_range (x ÷ z)
+  ______________________________________(1/2)
+  (1 &lt;= x)%Z
+  ______________________________________(2/2)
+  (0 &lt; z &lt;= y)%Z
+</pre></div>
+</div>
+<p>This goal is now adapted to the <code class="docutils literal"><span class="pre">in_range1</span></code> definition with <code class="docutils literal"><span class="pre">h1</span></code> which does
+not introduce subgoals, so the subgoal 1 is fully proved, and all that remains
+is subgoal 2:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>1 subgoal
+
+  r1, r2, result : int
+  h1 : in_range1 x
+  h2 : in_range1 y
+  h3 : in_range1 z
+  h4 : (0 &lt;= 2147483647)%Z -&gt; in_range r1
+  h5 : (0 &lt;= 2147483647)%Z -&gt; in_range r2
+  h6 : (z &lt; y)%Z
+  h8 : in_range (x ÷ y)
+  h9 : mk_int__ref result = mk_int__ref r1
+  h12 : in_range (x ÷ z)
+  ______________________________________(1/1)
+  (0 &lt; z &lt;= y)%Z
+</pre></div>
+</div>
+<p>Transitivity is needed again, as well as <code class="docutils literal"><span class="pre">in_range1</span></code>.  In the previous
+subgoal, every step was detailed in order to show how the tactic <code class="docutils literal"><span class="pre">apply</span></code>
+worked. Now, let&#8217;s see that proof doesn&#8217;t have to be this detailed. The first
+thing to do is to add the fact that <code class="docutils literal"><span class="pre">1</span> <span class="pre">&lt;=</span> <span class="pre">z</span></code> to the current
+environment: <code class="docutils literal"><span class="pre">unfold</span> <span class="pre">in_range1</span> <span class="pre">in</span> <span class="pre">h3.</span></code> will add the range of <code class="docutils literal"><span class="pre">z</span></code> as
+an hypthesis in the environment:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>1 subgoal
+
+  r1, r2, result : int
+  h1 : in_range1 x
+  h2 : in_range1 y
+  h3 : (1 &lt;= z &lt;= 2147483647)%Z
+  h4 : (0 &lt;= 2147483647)%Z -&gt; in_range r1
+  h5 : (0 &lt;= 2147483647)%Z -&gt; in_range r2
+  h6 : (z &lt; y)%Z
+  h8 : in_range (x ÷ y)
+  h9 : mk_int__ref result = mk_int__ref r1
+  h12 : in_range (x ÷ z)
+  ______________________________________(1/1)
+  (0 &lt; z &lt;= y)%Z
+</pre></div>
+</div>
+<p>At this point, the goal can be solved simply using the <code class="docutils literal"><span class="pre">omega.</span></code> tactic.
+<code class="docutils literal"><span class="pre">omega</span></code> is a tactic made to facilitate the verification of properties about
+relative integers equalities and inequalities. It uses a predefined set of
+theorems and the hypotheses present in the current environment to try to solve
+the current goal. <code class="docutils literal"><span class="pre">omega</span></code> either solves the goal or, if it fails, it does not
+generate any subgoals.  The benefit of the latter way is that there are less
+steps than with the previous subgoal for a more complicated goal (there are two
+inequalities in the second subgoal) and we do not have to find the different
+theorems we need to solve the goal without omega.</p>
+<p>Finally, here is the final version of the proof script for the postcondition:</p>
+<div class="highlight-coq"><div class="highlight"><pre><span></span><span class="kn">Theorem</span> <span class="n">WP_parameter_def</span> <span class="o">:</span>
+  <span class="k">forall</span> <span class="o">(</span><span class="n">r1</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">r2</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">o</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">o1</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">result</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span>
+         <span class="o">(</span><span class="n">r11</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">result1</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">r21</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">r12</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">r22</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span>
+         <span class="o">(</span><span class="n">r13</span><span class="o">:</span><span class="n">Z</span><span class="o">)</span> <span class="o">(</span><span class="n">r23</span><span class="o">:</span><span class="n">Z</span><span class="o">),</span>
+    <span class="o">((</span><span class="n">in_range1</span> <span class="n">x</span><span class="o">)</span>
+     <span class="o">/\</span> <span class="o">((</span><span class="n">in_range1</span> <span class="n">y</span><span class="o">)</span>
+     <span class="o">/\</span> <span class="o">((</span><span class="n">in_range1</span> <span class="n">z</span><span class="o">)</span>
+     <span class="o">/\</span> <span class="o">(((</span><span class="mi">0</span><span class="o">%</span><span class="n">Z</span> <span class="o">&lt;=</span> <span class="mi">2147483647</span><span class="o">%</span><span class="n">Z</span><span class="o">)%</span><span class="n">Z</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">in_range</span> <span class="n">r1</span><span class="o">))</span>
+     <span class="o">/\</span> <span class="o">(((</span><span class="mi">0</span><span class="o">%</span><span class="n">Z</span> <span class="o">&lt;=</span> <span class="mi">2147483647</span><span class="o">%</span><span class="n">Z</span><span class="o">)%</span><span class="n">Z</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">in_range</span> <span class="n">r2</span><span class="o">))</span>
+     <span class="o">/\</span> <span class="o">((</span><span class="n">z</span> <span class="o">&lt;</span> <span class="n">y</span><span class="o">)%</span><span class="n">Z</span>
+     <span class="o">/\</span> <span class="o">(((((</span><span class="n">o</span> <span class="o">=</span> <span class="o">(</span><span class="n">ZArith</span><span class="o">.</span><span class="n">BinInt</span><span class="o">.</span><span class="n">Z</span><span class="o">.</span><span class="n">quot</span> <span class="n">x</span> <span class="n">y</span><span class="o">))</span>
+     <span class="o">/\</span> <span class="o">(</span><span class="n">in_range</span> <span class="o">(</span><span class="n">ZArith</span><span class="o">.</span><span class="n">BinInt</span><span class="o">.</span><span class="n">Z</span><span class="o">.</span><span class="n">quot</span> <span class="n">x</span> <span class="n">y</span><span class="o">)))</span>
+     <span class="o">/\</span> <span class="o">(((</span><span class="n">mk_int__ref</span> <span class="n">result</span><span class="o">)</span> <span class="o">=</span> <span class="o">(</span><span class="n">mk_int__ref</span> <span class="n">r1</span><span class="o">))</span>
+     <span class="o">/\</span> <span class="o">(</span><span class="n">r11</span> <span class="o">=</span> <span class="n">o</span><span class="o">)))</span>
+     <span class="o">/\</span> <span class="o">(((</span><span class="n">o1</span> <span class="o">=</span> <span class="o">(</span><span class="n">ZArith</span><span class="o">.</span><span class="n">BinInt</span><span class="o">.</span><span class="n">Z</span><span class="o">.</span><span class="n">quot</span> <span class="n">x</span> <span class="n">z</span><span class="o">))</span>
+     <span class="o">/\</span> <span class="o">(</span><span class="n">in_range</span> <span class="o">(</span><span class="n">ZArith</span><span class="o">.</span><span class="n">BinInt</span><span class="o">.</span><span class="n">Z</span><span class="o">.</span><span class="n">quot</span> <span class="n">x</span> <span class="n">z</span><span class="o">)))</span>
+     <span class="o">/\</span> <span class="o">((</span><span class="n">result1</span> <span class="o">=</span> <span class="n">r2</span><span class="o">)</span>
+     <span class="o">/\</span> <span class="o">(</span><span class="n">r21</span> <span class="o">=</span> <span class="n">o1</span><span class="o">))))</span>
+     <span class="o">/\</span> <span class="o">(((</span><span class="n">r21</span> <span class="o">=</span> <span class="n">r22</span><span class="o">)</span>
+     <span class="o">/\</span> <span class="o">(</span><span class="n">r11</span> <span class="o">=</span> <span class="n">r12</span><span class="o">))</span>
+     <span class="o">/\</span> <span class="o">((</span><span class="n">r23</span> <span class="o">=</span> <span class="n">r21</span><span class="o">)</span>
+     <span class="o">/\</span> <span class="o">(</span><span class="n">r13</span> <span class="o">=</span> <span class="n">r11</span><span class="o">))))))))))</span> <span class="o">-&gt;</span>
+     <span class="o">(</span><span class="n">r12</span> <span class="o">&lt;=</span> <span class="n">r22</span><span class="o">)%</span><span class="n">Z</span><span class="o">.</span>
+
+  <span class="k">intros</span> <span class="n">r1</span> <span class="n">r2</span> <span class="n">o</span> <span class="n">o1</span> <span class="n">result</span> <span class="n">r11</span> <span class="n">result1</span> <span class="n">r21</span> <span class="n">r12</span> <span class="n">r22</span> <span class="n">r13</span> <span class="n">r23</span>
+  <span class="o">(</span><span class="n">h1</span><span class="o">,(</span><span class="n">h2</span><span class="o">,(</span><span class="n">h3</span><span class="o">,(</span><span class="n">h4</span><span class="o">,(</span><span class="n">h5</span><span class="o">,(</span><span class="n">h6</span><span class="o">,((((</span><span class="n">h7</span><span class="o">,</span><span class="n">h8</span><span class="o">),(</span><span class="n">h9</span><span class="o">,</span><span class="n">h10</span><span class="o">)),((</span><span class="n">h11</span><span class="o">,</span><span class="n">h12</span><span class="o">),</span>
+  <span class="o">(</span><span class="n">h13</span><span class="o">,</span><span class="n">h14</span><span class="o">))),((</span><span class="n">h15</span><span class="o">,</span><span class="n">h16</span><span class="o">),(</span><span class="n">h17</span><span class="o">,</span><span class="n">h18</span><span class="o">))))))))).</span>
+
+<span class="k">subst</span> <span class="n">o</span> <span class="n">o1</span> <span class="n">result1</span> <span class="n">r11</span> <span class="n">r12</span> <span class="n">r21</span> <span class="n">r22</span> <span class="n">r23</span> <span class="n">r13</span><span class="o">.</span>
+<span class="k">apply</span> <span class="n">Z</span><span class="o">.</span><span class="n">quot_le_compat_l</span><span class="o">.</span>
+  <span class="k">apply</span> <span class="n">Zle_trans</span> <span class="k">with</span> <span class="o">(</span><span class="n">m</span><span class="o">:=</span><span class="mi">1</span><span class="o">%</span><span class="n">Z</span><span class="o">).</span>
+    <span class="c">(* 0 &lt;= 1 *)</span>
+    <span class="k">apply</span> <span class="n">Zle_0_1</span><span class="o">.</span>
+    <span class="c">(* 1 &lt;= x *)</span>
+    <span class="k">unfold</span> <span class="n">in_range1</span> <span class="k">in</span> <span class="n">h1</span><span class="o">.</span>
+    <span class="k">apply</span> <span class="n">h1</span><span class="o">.</span>
+  <span class="c">(* 0 &lt; z &lt;= y *)</span>
+  <span class="k">unfold</span> <span class="n">in_range1</span> <span class="k">in</span> <span class="n">h3</span><span class="o">.</span>
+  <span class="kp">omega</span><span class="o">.</span>
+<span class="kn">Qed</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>To check and save the proof:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">gnatprove</span> <span class="pre">-P</span> <span class="pre">&lt;prj_file&gt;.gpr</span> <span class="pre">--limit-line=nonlinear.adb:4:11:VC_POSTCONDITION</span> <span class="pre">--prover=Coq</span> <span class="pre">--report=all</span></code></div></blockquote>
+<p>Now running GNATprove on the project should confirm that all checks are
+proved:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">nonlinear</span><span class="o">.</span><span class="n">adb</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span> <span class="n">info</span><span class="p">:</span> <span class="n">postcondition</span> <span class="n">proved</span>
+<span class="n">nonlinear</span><span class="o">.</span><span class="n">adb</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span> <span class="n">info</span><span class="p">:</span> <span class="nb">range</span> <span class="n">check</span> <span class="n">proved</span>
+<span class="n">nonlinear</span><span class="o">.</span><span class="n">adb</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span> <span class="n">info</span><span class="p">:</span> <span class="n">division</span> <span class="n">check</span> <span class="n">proved</span>
+<span class="n">nonlinear</span><span class="o">.</span><span class="n">adb</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span> <span class="n">info</span><span class="p">:</span> <span class="nb">range</span> <span class="n">check</span> <span class="n">proved</span>
+<span class="n">nonlinear</span><span class="o">.</span><span class="n">adb</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span> <span class="n">info</span><span class="p">:</span> <span class="n">division</span> <span class="n">check</span> <span class="n">proved</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="manual-proof-using-gps">
+<span id="id5"></span><h2>7.9.3.5. Manual Proof Using GPS<a class="headerlink" href="#manual-proof-using-gps" title="Permalink to this headline">¶</a></h2>
+<p>This section presents a simple example of how to prove interactively a check
+with the manual proof feature. We reuse here the example presented in
+section <a class="reference internal" href="#manual-proof-using-coq"><span class="std std-ref">Manual Proof Using Coq</span></a>. We launch the Manual Proof on the failed
+check at:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">nonlinear</span><span class="o">.</span><span class="n">adb</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="n">VC_POSTCONDITION</span>
+</pre></div>
+</div>
+<p>Right click on the corresponding location in the <code class="docutils literal"><span class="pre">Locations</span></code> terminal of GPS
+and select the menu
+<span class="menuselection">SPARK ‣ Start Manual Proof</span>. The manual proof interface
+immediately starts. Both the <code class="docutils literal"><span class="pre">Proof</span> <span class="pre">Tree</span></code> and the <code class="docutils literal"><span class="pre">Verification</span> <span class="pre">Condition</span></code>
+(VC) appear in separate windows. In particular, the VC ends with the
+following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>axiom H : dynamic_property first last X
+
+axiom H1 : dynamic_property first last Y
+
+axiom H2 : dynamic_property first last Z
+
+axiom H3 : first1 &lt;= last1 -&gt; dynamic_property1 first1 last1 R14
+
+axiom H4 : first1 &lt;= last1 -&gt; dynamic_property1 first1 last1 R23
+
+axiom H5 : Y &gt; Z
+
+axiom H6 : o1 = div X Y /\ in_range1 (div X Y)
+
+axiom H7 : result = R1
+
+axiom H8 : R13 = o1
+
+axiom H9 : o = div X Z /\ in_range1 (div X Z)
+
+axiom H10 : result1 = R23
+
+axiom H11 : R22 = o
+
+axiom H12 : R22 = R21
+
+axiom H13 : R13 = R12
+
+axiom H14 : R2 = R22
+
+axiom H15 : R11 = R13
+
+goal WP_parameter def : R12 &lt;= R21
+</pre></div>
+</div>
+<p>The Verification Condition is very similar to the one generated for Coq (as
+expected: the check is the same). As soon as the menus appear, the user can
+start using transformations to simplify the goal thus helping automatic provers.
+We will start the description of a complete proof for this lemma using only
+<code class="docutils literal"><span class="pre">altergo</span></code>.
+At first, we want to remove the equalities between constants that make the VC
+very difficult to read. These equalities were generated by the weakest
+precondition algorithm. They can be safely removed by <code class="docutils literal"><span class="pre">subst</span></code> and
+<code class="docutils literal"><span class="pre">subst_all</span></code>. In <code class="docutils literal"><span class="pre">Manual</span> <span class="pre">Proof</span></code> console, type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">subst_all</span>
+</pre></div>
+</div>
+<p>The transformation node was added to the Proof Tree and the current node is now
+changed making your transformation appear and the new Verification Condition to
+prove has been simplified:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>axiom H : dynamic_property first last X
+
+axiom H1 : dynamic_property first last Y
+
+axiom H2 : dynamic_property first last Z
+
+axiom H3 : first1 &lt;= last1 -&gt; dynamic_property1 first1 last1 R14
+
+axiom H4 : first1 &lt;= last1 -&gt; dynamic_property1 first1 last1 R23
+
+axiom H5 : Y &gt; Z
+
+axiom H6 : o1 = div X Y /\ in_range1 (div X Y)
+
+axiom H7 : o = div X Z /\ in_range1 (div X Z)
+
+----------------------------- Goal ---------------------------
+
+goal WP_parameter def : o1 &lt;= o
+</pre></div>
+</div>
+<p>We should also have replaced the value of <code class="docutils literal"><span class="pre">o1</span></code> and <code class="docutils literal"><span class="pre">o</span></code> in the goal. These
+were not replaced because <code class="docutils literal"><span class="pre">H6</span></code> and <code class="docutils literal"><span class="pre">H7</span></code> are conjunctions. We can destruct
+both hypotheses <code class="docutils literal"><span class="pre">H6</span></code> and <code class="docutils literal"><span class="pre">H7</span></code> in order to make the equalities appear at
+toplevel:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">destruct</span> <span class="n">H6</span>
+</pre></div>
+</div>
+<p>Then:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">subst</span> <span class="n">o1</span>
+</pre></div>
+</div>
+<p>After simplifications, the goal is the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>axiom H2 : dynamic_property first last X
+
+axiom H3 : dynamic_property first last Y
+
+axiom H4 : dynamic_property first last Z
+
+axiom H5 : first1 &lt;= last1 -&gt; dynamic_property1 first1 last1 R14
+
+axiom H6 : first1 &lt;= last1 -&gt; dynamic_property1 first1 last1 R23
+
+axiom H7 : Y &gt; Z
+
+axiom H1 : in_range1 (div X Y)
+
+axiom H : in_range1 (div X Z)
+
+----------------------------- Goal ---------------------------
+
+goal WP_parameter def : div X Y &lt;= div X Z
+</pre></div>
+</div>
+<p>This is more readable but <code class="docutils literal"><span class="pre">altergo</span></code> still does not manage to prove it:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">altergo</span>
+</pre></div>
+</div>
+<p>answers <code class="docutils literal"><span class="pre">Unknown</span></code> as seen in the Proof Tree.</p>
+<p>We need to investigate further what we know about <code class="docutils literal"><span class="pre">div</span></code>, and what would be
+useful to prove the goal:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search</span> <span class="n">div</span>
+</pre></div>
+</div>
+<p>returns in the <code class="docutils literal"><span class="pre">Manual</span> <span class="pre">Proof</span></code> console:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">div</span> <span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="p">(</span><span class="n">y</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">div1</span> <span class="n">x</span> <span class="n">y</span>
+
+<span class="n">axiom</span> <span class="n">H1</span> <span class="p">:</span> <span class="n">in_range1</span> <span class="p">(</span><span class="n">div</span> <span class="n">X</span> <span class="n">Y</span><span class="p">)</span>
+
+<span class="n">axiom</span> <span class="n">H</span> <span class="p">:</span> <span class="n">in_range1</span> <span class="p">(</span><span class="n">div</span> <span class="n">X</span> <span class="n">Z</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So, <code class="docutils literal"><span class="pre">div</span></code> is actually a shortcut for a function named <code class="docutils literal"><span class="pre">div1</span></code>. Let&#8217;s search
+for this one:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search</span> <span class="n">div1</span>
+</pre></div>
+</div>
+<p>Now, we get a lot of axioms about <code class="docutils literal"><span class="pre">div</span></code> and <code class="docutils literal"><span class="pre">mod</span></code> as expected. In
+particular, the axiom <code class="docutils literal"><span class="pre">Div_mod</span></code> looks interesting:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">axiom</span> <span class="n">Div_mod</span> <span class="p">:</span>
+   <span class="n">forall</span> <span class="n">x</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span><span class="nb">int</span><span class="o">.</span> <span class="ow">not</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">((</span><span class="n">y</span> <span class="o">*</span> <span class="n">div1</span> <span class="n">x</span> <span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">mod1</span> <span class="n">x</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Perhaps, it is a good idea to instantiate this axiom with X and Y (respectively
+X and Z) and see what is provable from there:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">instantiate</span> <span class="n">Div_mod</span> <span class="n">X</span><span class="p">,</span><span class="n">Y</span>
+</pre></div>
+</div>
+<p>A new hypothesis appears in the context:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">axiom</span> <span class="n">Div_mod</span> <span class="p">:</span> <span class="ow">not</span> <span class="n">Y</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">-&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="p">((</span><span class="n">Y</span> <span class="o">*</span> <span class="n">div1</span> <span class="n">X</span> <span class="n">Y</span><span class="p">)</span> <span class="o">+</span> <span class="n">mod1</span> <span class="n">X</span> <span class="n">Y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>After some struggling with those hypotheses, it looks like they won&#8217;t actually
+help proving the goal. Let&#8217;s remove these hypotheses:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">remove</span> <span class="n">Div_mod</span>
+</pre></div>
+</div>
+<p>Alternatively, we can go back to the node above the current one in the Proof
+Tree by clicking on it. We can also remove the transformation node
+corresponding to the use of <code class="docutils literal"><span class="pre">instantiate</span></code> by selecting it and writing in
+<code class="docutils literal"><span class="pre">Manual</span> <span class="pre">Proof</span></code> console:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Remove</span>
+</pre></div>
+</div>
+<p>The actual proof is going to use an additional lemma that we are going to
+introduce with <code class="docutils literal"><span class="pre">assert</span></code>. The Coq proof uses this exact same lemma inside the
+proof of <code class="docutils literal"><span class="pre">Z.quot_le_compat_l</span></code>. We could have expected <code class="docutils literal"><span class="pre">altergo</span></code> to have
+this lemma inside its theories but, currently, it does not:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="p">(</span><span class="n">forall</span> <span class="n">q</span> <span class="n">a</span> <span class="n">b</span><span class="p">:</span><span class="nb">int</span><span class="o">.</span> <span class="mi">0</span><span class="o">&lt;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="mi">0</span><span class="o">&lt;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">*</span><span class="n">q</span> <span class="o">&lt;=</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">q</span> <span class="o">&lt;=</span> <span class="n">div1</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So, two new nodes appear below the current one (the first to prove the formula
+we just wrote and the second adding it as an hypothesis). We are going to prove
+this <code class="docutils literal"><span class="pre">assert</span></code> by induction on the unbounded integer q (the base case is 0):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">induction</span> <span class="n">q</span> <span class="kn">from</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Both new goals can be discharged by <code class="docutils literal"><span class="pre">altergo</span></code>: this small lemma is
+proven. Now, we can use it in our proof. We begin by unfolding <code class="docutils literal"><span class="pre">div</span></code> to make
+<code class="docutils literal"><span class="pre">div1</span></code> appear:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">unfold</span> <span class="n">div</span>
+</pre></div>
+</div>
+<p>Then we can apply our new lemma:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apply</span> <span class="n">h</span>
+</pre></div>
+</div>
+<p>We are left with the following three subgoals to prove:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">goal</span> <span class="n">G</span> <span class="p">:</span> <span class="p">(</span><span class="n">Z</span> <span class="o">*</span> <span class="n">div1</span> <span class="n">X</span> <span class="n">Y</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">X</span>
+
+<span class="n">goal</span> <span class="n">G</span> <span class="p">:</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">X</span>
+
+<span class="n">goal</span> <span class="n">G</span> <span class="p">:</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">Z</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">altergo</span></code> proves the positivity of X and Z easily but it does not find a proof
+for the first subgoal. We are going to prove this one by transitivity of <code class="docutils literal"><span class="pre">less</span>
+<span class="pre">or</span> <span class="pre">equal</span></code> using <code class="docutils literal"><span class="pre">Y</span> <span class="pre">*</span> <span class="pre">div1</span> <span class="pre">X</span> <span class="pre">Y</span></code>. Currently, we don&#8217;t have a transformation to
+apply the transitivity directly so we assert it:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="p">((</span><span class="n">Y</span> <span class="o">*</span> <span class="n">div1</span> <span class="n">X</span> <span class="n">Y</span> <span class="o">&lt;=</span> <span class="n">X</span> <span class="o">&amp;&amp;</span> <span class="n">Z</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="n">div1</span> <span class="n">X</span> <span class="n">Y</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">Y</span> <span class="o">*</span> <span class="n">div1</span> <span class="n">X</span> <span class="n">Y</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>To make two goals of this conjunction, we are using:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">split_goal_wp</span>
+</pre></div>
+</div>
+<p>The left part is provable by <code class="docutils literal"><span class="pre">altergo</span></code>. On the second part, we are going to
+apply an axiom <code class="docutils literal"><span class="pre">CompatOrderMult</span></code> we found by querying what is known about the
+multiplication:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search</span> <span class="p">(</span><span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We apply it to the current goal:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apply</span> <span class="n">CompatOrderMult</span>
+</pre></div>
+</div>
+<p>The remaining goals can all be proven by <code class="docutils literal"><span class="pre">altergo</span></code>. This closes the proof. A
+popup should appear asking if the user wants to save and exit. Answer no
+because we want to make the proof cleaner (you can still save it by writing
+<code class="docutils literal"><span class="pre">Save</span></code> in <code class="docutils literal"><span class="pre">Manual</span> <span class="pre">Proof</span></code> console). Select a node and type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">clean</span>
+</pre></div>
+</div>
+<p>All attempted proof that did not succeed are erased and only the successful
+proofs remain. The proof can now be saved and manual proofs menus closed by
+clicking on
+<span class="menuselection">SPARK ‣ Exit Manual Proof</span> from the menu.
+The proof is complete and GNATprove can be called again on the whole project to
+check that the former failing check is now understood as proved by
+GNATprove.</p>
+</div>
+<div class="section" id="list-of-useful-transformations-and-commands">
+<h2>7.9.3.6. List of Useful Transformations and Commands<a class="headerlink" href="#list-of-useful-transformations-and-commands" title="Permalink to this headline">¶</a></h2>
+<p>The transformations all contain a specific documentation through the
+<code class="docutils literal"><span class="pre">list-transforms</span></code> command and <code class="docutils literal"><span class="pre">help</span> <span class="pre">transform_name</span></code> command. The most
+useful transformations/commands are the following:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">apply</span></code>: apply an hypothesis to the current goal.
+For example: <code class="docutils literal"><span class="pre">H</span> <span class="pre">:</span> <span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">-&gt;</span> <span class="pre">not</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">0</span></code> can be applied on the goal
+<code class="docutils literal"><span class="pre">G</span> <span class="pre">:</span> <span class="pre">not</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">0</span></code>. After the application you will be left to prove a new goal
+<code class="docutils literal"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">assert</span></code>: adds a new lemma you can use for proving the current Verification
+Condition.
+For example: <code class="docutils literal"><span class="pre">assert</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">0</span></code> will generate two new subgoals. In the first
+one you have to prove that x is indeed equal to 0. In the second one, you can
+use this hypothesis.</li>
+<li><code class="docutils literal"><span class="pre">case</span></code>: takes a formula and perform an analysis by case on its boolean
+value. You will have to prove your Verification Condition once with this
+formula asserted to true and once asserted to false.</li>
+<li><code class="docutils literal"><span class="pre">clean</span></code>: removes unsuccessful proof attempts below proved goals.</li>
+<li><code class="docutils literal"><span class="pre">clear_but</span></code>: removes all hypotheses except the one provided by the user as
+argument. Removing unused context helps the provers.
+For example, <code class="docutils literal"><span class="pre">clear_but</span> <span class="pre">H,H2,h</span></code> will remove everything but hypotheses H H2
+and h.</li>
+<li><code class="docutils literal"><span class="pre">compute_in_goal</span></code>: performs possible computations in goal.</li>
+<li><code class="docutils literal"><span class="pre">destruct</span></code>: destruct the head constructor of a formula ( <code class="docutils literal"><span class="pre">/\</span></code> , <code class="docutils literal"><span class="pre">\/</span></code>
+or <code class="docutils literal"><span class="pre">-&gt;</span></code>).
+With <code class="docutils literal"><span class="pre">H:</span> <span class="pre">A</span> <span class="pre">/\</span> <span class="pre">B</span></code>, applying <code class="docutils literal"><span class="pre">destruct</span> <span class="pre">H</span></code> make two new hypotheses (<code class="docutils literal"><span class="pre">H:</span> <span class="pre">A</span></code>
+and <code class="docutils literal"><span class="pre">H1:</span> <span class="pre">B</span></code>). With <code class="docutils literal"><span class="pre">H:</span> <span class="pre">A</span> <span class="pre">\/</span> <span class="pre">B</span></code>, applying <code class="docutils literal"><span class="pre">destruct</span> <span class="pre">H</span></code> duplicates the
+goal which has to be proved with <code class="docutils literal"><span class="pre">H:</span> <span class="pre">A</span></code> and <code class="docutils literal"><span class="pre">H:</span> <span class="pre">B</span></code> independently. With
+<code class="docutils literal"><span class="pre">H:</span> <span class="pre">A</span> <span class="pre">-&gt;</span> <span class="pre">B</span></code>, <code class="docutils literal"><span class="pre">destruct</span> <span class="pre">H</span></code> creates a new subgoal for <code class="docutils literal"><span class="pre">A</span></code> and simplify to
+<code class="docutils literal"><span class="pre">H:</span> <span class="pre">B</span></code> in the current one.</li>
+<li><code class="docutils literal"><span class="pre">eliminate_epsilon</span></code>: sometimes the goal appears as <code class="docutils literal"><span class="pre">epsilon</span> <span class="pre">[...]</span></code>. This
+transforms epsilons into adapted logic.</li>
+<li><code class="docutils literal"><span class="pre">exists</span></code>: allows the user to provide a term that instantiates a goal
+starting with an existential.</li>
+<li><code class="docutils literal"><span class="pre">help</span></code>: with no arguments, return basic commands that can be used. If a
+transformation is given as argument, it displays a small description of the
+transformation.</li>
+<li><code class="docutils literal"><span class="pre">induction</span></code>: performs an induction on the unbounded integer specified.</li>
+<li><code class="docutils literal"><span class="pre">instantiate</span></code>: instantiates a <code class="docutils literal"><span class="pre">forall</span></code> quantification at the head of an
+hypothesis with a term given by the user (a list of terms can be provided).</li>
+<li><code class="docutils literal"><span class="pre">intros</span></code>: introduces a list of constants/hypotheses. This transformation
+should not be necessary but it can be used to rename constants/hypotheses.</li>
+<li><code class="docutils literal"><span class="pre">left</span></code>: In a goal, transforms <code class="docutils literal"><span class="pre">A</span> <span class="pre">\/</span> <span class="pre">B</span></code> into <code class="docutils literal"><span class="pre">A</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">list-provers</span></code>: gives a list of the provers available on your machine. You
+should have at least <code class="docutils literal"><span class="pre">altergo</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">list-transforms</span></code>: list transformations.</li>
+<li><code class="docutils literal"><span class="pre">pose</span></code>: defines a new constant equal to a given term.</li>
+<li><code class="docutils literal"><span class="pre">print</span></code>: prints the definition of a name.</li>
+<li><code class="docutils literal"><span class="pre">remove</span></code>: removes a list of hypotheses.</li>
+<li><code class="docutils literal"><span class="pre">replace</span></code>: replace a term by another and create a subgoal asking the user
+to show that they are equivalent.</li>
+<li><code class="docutils literal"><span class="pre">rewrite</span></code>: rewrites an equality in a goal or hypothesis. For example, with
+<code class="docutils literal"><span class="pre">H:</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">0</span></code> and goal <code class="docutils literal"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">rewrite</span> <span class="pre">H</span></code> transforms the goal into
+<code class="docutils literal"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">0</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">right</span></code>: In a goal, transforms <code class="docutils literal"><span class="pre">A</span> <span class="pre">\/</span> <span class="pre">B</span></code> into <code class="docutils literal"><span class="pre">B</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">search</span></code>: search all occurrences of a name in the context.</li>
+<li><code class="docutils literal"><span class="pre">split_*</span></code>: a set of transformations that split the goals/hypotheses. For
+example, <code class="docutils literal"><span class="pre">split_goal_wp</span></code> transforms the goal <code class="docutils literal"><span class="pre">A</span> <span class="pre">/\</span> <span class="pre">B</span></code> into two new
+subgoals <code class="docutils literal"><span class="pre">A</span></code> and <code class="docutils literal"><span class="pre">B</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">subst</span></code>: try to find an equality that could be used for a given constant and
+replace each occurrence of this constant by the other side of the equality. It
+then removes said constant.</li>
+<li><code class="docutils literal"><span class="pre">subst_all</span></code>: do all possible substitutions.</li>
+<li><code class="docutils literal"><span class="pre">unfold</span></code>: unfolds the definition of a function in an hypothesis or a goal.</li>
+</ul>
+</div>
+<div class="section" id="recommendations">
+<h2>7.9.3.7. Recommendations<a class="headerlink" href="#recommendations" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>As for proofs with an external interactive prover, the user should set the
+attribute <code class="docutils literal"><span class="pre">Proof_Dir</span></code> so that proofs can be saved under version control.</li>
+<li>The <code class="docutils literal"><span class="pre">Proof_Dir</span></code> is recommended to be under a version control system (git or
+svn for example). The proofs can be tedious to rewrite so it is better not to
+lose them.</li>
+<li>There is currently no way to adapt stuff that are proven in the current
+version to potential future ones. The update will have to be done manually but
+we hope to automate the process in the future,</li>
+<li>This feature is experimental and we currently recommend to keep the proof as
+short as possible.</li>
+</ul>
+</div>
+<div class="section" id="tips">
+<h2>7.9.3.8. Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>If the goal contains epsilons, they can be removed by using
+<code class="docutils literal"><span class="pre">eliminate_epsilon</span></code>.</li>
+<li>Manual provers can be launched during the edition of the proof like
+other provers. The user can select a goal node and type <code class="docutils literal"><span class="pre">coq</span></code> for example.</li>
+<li>The command line remembers what is typed. Arrow keys can be used to get the
+lasts queried commands.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../en/source/examples_in_the_toolset_distribution.html" title="7.10. Examples in the Toolset Distribution"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="loop.html" title="7.9.2. Loop Examples"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../en/gnatprove.html" >7. Formal Verification with GNATprove</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../en/source/gnatprove_by_example.html" >7.9. GNATprove by Example</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

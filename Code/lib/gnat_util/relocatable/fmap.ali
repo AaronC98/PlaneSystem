@@ -1,0 +1,513 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U fmap%b		fmap.adb		180c76b2 OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.htable%s		g-htable.adb		g-htable.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W opt%s			opt.adb			opt.ali
+W osint%s		osint.adb		osint.ali
+W output%s		output.adb		output.ali  AD
+W system%s		system.ads		system.ali
+W system.os_lib%s	s-os_lib.adb		s-os_lib.ali
+W table%s		table.adb		table.ali
+W types%s		types.adb		types.ali
+W unchecked_conversion%s
+
+U fmap%s		fmap.ads		9ac5a2f6 EE NE OO PK
+W namet%s		namet.adb		namet.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D fmap.ads		20190518044709 2fe51c48 fmap%s
+D fmap.adb		20190518044709 52cb3077 fmap%b
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-htable.ads		20190518041255 4b643b8d gnat.htable%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D namet.ads		20190518044709 b520bebe namet%s
+D opt.ads		20190518044710 3d2ce478 opt%s
+D osint.ads		20190518044709 56946067 osint%s
+D output.ads		20190518044709 a916e413 output%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-htable.ads		20190518041257 84c2b3ea system.htable%s
+D s-htable.adb		20190518041257 34c239ad system.htable%b
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-strhas.ads		20190518041255 269cd894 system.string_hash%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+G a e
+G c b b b [b fmap 47 1 none]
+G c Z s b [initialize fmap 49 14 none]
+G c Z s b [mapped_path_name fmap 56 13 none]
+G c Z s b [mapped_file_name fmap 60 13 none]
+G c Z s b [add_to_file_map fmap 65 14 none]
+G c Z s b [update_mapping_file fmap 71 14 none]
+G c Z s b [reset_tables fmap 76 14 none]
+G c Z s b [add_forbidden_file_name fmap 82 14 none]
+G c Z b b [mappingIP fmap 61 9 none]
+G c Z b b [init fmap__file_mapping 142 17 66_4]
+G c Z b b [last fmap__file_mapping 149 16 66_4]
+G c Z b b [release fmap__file_mapping 156 17 66_4]
+G c Z b b [free fmap__file_mapping 168 17 66_4]
+G c Z b b [set_last fmap__file_mapping 175 17 66_4]
+G c Z b b [increment_last fmap__file_mapping 184 17 66_4]
+G c Z b b [decrement_last fmap__file_mapping 188 17 66_4]
+G c Z b b [append fmap__file_mapping 192 17 66_4]
+G c Z b b [append_all fmap__file_mapping 200 17 66_4]
+G c Z b b [set_item fmap__file_mapping 203 17 66_4]
+G c Z b b [save fmap__file_mapping 215 16 66_4]
+G c Z b b [restore fmap__file_mapping 219 17 66_4]
+G c Z b b [tree_write fmap__file_mapping 223 17 66_4]
+G c Z b b [tree_read fmap__file_mapping 226 17 66_4]
+G c Z b b [table_typeIP fmap__file_mapping 110 12 66_4]
+G c Z b b [saved_tableIP fmap__file_mapping 241 12 66_4]
+G c Z b b [reallocate fmap__file_mapping 58 17 66_4]
+G c Z b b [tree_get_table_address fmap__file_mapping 63 16 66_4]
+G c Z b b [to_address fmap__file_mapping 72 16 66_4]
+G c Z b b [to_pointer fmap__file_mapping 73 16 66_4]
+G c Z b b [init fmap__path_mapping 142 17 75_4]
+G c Z b b [last fmap__path_mapping 149 16 75_4]
+G c Z b b [release fmap__path_mapping 156 17 75_4]
+G c Z b b [free fmap__path_mapping 168 17 75_4]
+G c Z b b [set_last fmap__path_mapping 175 17 75_4]
+G c Z b b [increment_last fmap__path_mapping 184 17 75_4]
+G c Z b b [decrement_last fmap__path_mapping 188 17 75_4]
+G c Z b b [append fmap__path_mapping 192 17 75_4]
+G c Z b b [append_all fmap__path_mapping 200 17 75_4]
+G c Z b b [set_item fmap__path_mapping 203 17 75_4]
+G c Z b b [save fmap__path_mapping 215 16 75_4]
+G c Z b b [restore fmap__path_mapping 219 17 75_4]
+G c Z b b [tree_write fmap__path_mapping 223 17 75_4]
+G c Z b b [tree_read fmap__path_mapping 226 17 75_4]
+G c Z b b [table_typeIP fmap__path_mapping 110 12 75_4]
+G c Z b b [saved_tableIP fmap__path_mapping 241 12 75_4]
+G c Z b b [reallocate fmap__path_mapping 58 17 75_4]
+G c Z b b [tree_get_table_address fmap__path_mapping 63 16 75_4]
+G c Z b b [to_address fmap__path_mapping 72 16 75_4]
+G c Z b b [to_pointer fmap__path_mapping 73 16 75_4]
+G c Z b b [hash fmap 86 13 none]
+G c Z b b [set fmap__unit_hash_table 72 17 92_4]
+G c Z b b [reset fmap__unit_hash_table 76 17 92_4]
+G c Z b b [get fmap__unit_hash_table 79 16 92_4]
+G c Z b b [remove fmap__unit_hash_table 83 17 92_4]
+G c Z b b [get_first fmap__unit_hash_table 87 16 92_4]
+G c Z b b [get_next fmap__unit_hash_table 92 16 92_4]
+G c Z b b [get_first fmap__unit_hash_table 98 17 92_4]
+G c Z b b [get_next fmap__unit_hash_table 105 17 92_4]
+G c Z b b [element_wrapperIP fmap__unit_hash_table 232 12 92_4]
+G c Z b b [free fmap__unit_hash_table 238 17 92_4]
+G c Z b b [set_next fmap__unit_hash_table 241 17 92_4]
+G c Z b b [next fmap__unit_hash_table 242 17 92_4]
+G c Z b b [get_key fmap__unit_hash_table 243 17 92_4]
+G c Z b b [reset fmap__unit_hash_table__tab 170 17 245_7_92_4]
+G c Z b b [set fmap__unit_hash_table__tab 179 17 245_7_92_4]
+G c Z b b [get fmap__unit_hash_table__tab 182 16 245_7_92_4]
+G c Z b b [present fmap__unit_hash_table__tab 186 16 245_7_92_4]
+G c Z b b [set_if_not_present fmap__unit_hash_table__tab 189 16 245_7_92_4]
+G c Z b b [remove fmap__unit_hash_table__tab 194 17 245_7_92_4]
+G c Z b b [get_first fmap__unit_hash_table__tab 198 16 245_7_92_4]
+G c Z b b [get_next fmap__unit_hash_table__tab 203 16 245_7_92_4]
+G c Z b b [TtableBIP fmap__unit_hash_table__tab 45 7 245_7_92_4]
+G c Z b b [get_non_null fmap__unit_hash_table__tab 51 16 245_7_92_4]
+G c Z b b [hash fmap 102 13 none]
+G c Z b b [set fmap__file_hash_table 72 17 105_4]
+G c Z b b [reset fmap__file_hash_table 76 17 105_4]
+G c Z b b [get fmap__file_hash_table 79 16 105_4]
+G c Z b b [remove fmap__file_hash_table 83 17 105_4]
+G c Z b b [get_first fmap__file_hash_table 87 16 105_4]
+G c Z b b [get_next fmap__file_hash_table 92 16 105_4]
+G c Z b b [get_first fmap__file_hash_table 98 17 105_4]
+G c Z b b [get_next fmap__file_hash_table 105 17 105_4]
+G c Z b b [element_wrapperIP fmap__file_hash_table 232 12 105_4]
+G c Z b b [free fmap__file_hash_table 238 17 105_4]
+G c Z b b [set_next fmap__file_hash_table 241 17 105_4]
+G c Z b b [next fmap__file_hash_table 242 17 105_4]
+G c Z b b [get_key fmap__file_hash_table 243 17 105_4]
+G c Z b b [reset fmap__file_hash_table__tab 170 17 245_7_105_4]
+G c Z b b [set fmap__file_hash_table__tab 179 17 245_7_105_4]
+G c Z b b [get fmap__file_hash_table__tab 182 16 245_7_105_4]
+G c Z b b [present fmap__file_hash_table__tab 186 16 245_7_105_4]
+G c Z b b [set_if_not_present fmap__file_hash_table__tab 189 16 245_7_105_4]
+G c Z b b [remove fmap__file_hash_table__tab 194 17 245_7_105_4]
+G c Z b b [get_first fmap__file_hash_table__tab 198 16 245_7_105_4]
+G c Z b b [get_next fmap__file_hash_table__tab 203 16 245_7_105_4]
+G c Z b b [TtableBIP fmap__file_hash_table__tab 45 7 245_7_105_4]
+G c Z b b [get_non_null fmap__file_hash_table__tab 51 16 245_7_105_4]
+G c Z b b [set fmap__forbidden_names 72 17 117_4]
+G c Z b b [reset fmap__forbidden_names 76 17 117_4]
+G c Z b b [get fmap__forbidden_names 79 16 117_4]
+G c Z b b [remove fmap__forbidden_names 83 17 117_4]
+G c Z b b [get_first fmap__forbidden_names 87 16 117_4]
+G c Z b b [get_next fmap__forbidden_names 92 16 117_4]
+G c Z b b [get_first fmap__forbidden_names 98 17 117_4]
+G c Z b b [get_next fmap__forbidden_names 105 17 117_4]
+G c Z b b [element_wrapperIP fmap__forbidden_names 232 12 117_4]
+G c Z b b [free fmap__forbidden_names 238 17 117_4]
+G c Z b b [set_next fmap__forbidden_names 241 17 117_4]
+G c Z b b [next fmap__forbidden_names 242 17 117_4]
+G c Z b b [get_key fmap__forbidden_names 243 17 117_4]
+G c Z b b [reset fmap__forbidden_names__tab 170 17 245_7_117_4]
+G c Z b b [set fmap__forbidden_names__tab 179 17 245_7_117_4]
+G c Z b b [get fmap__forbidden_names__tab 182 16 245_7_117_4]
+G c Z b b [present fmap__forbidden_names__tab 186 16 245_7_117_4]
+G c Z b b [set_if_not_present fmap__forbidden_names__tab 189 16 245_7_117_4]
+G c Z b b [remove fmap__forbidden_names__tab 194 17 245_7_117_4]
+G c Z b b [get_first fmap__forbidden_names__tab 198 16 245_7_117_4]
+G c Z b b [get_next fmap__forbidden_names__tab 203 16 245_7_117_4]
+G c Z b b [TtableBIP fmap__forbidden_names__tab 45 7 245_7_117_4]
+G c Z b b [get_non_null fmap__forbidden_names__tab 51 16 245_7_117_4]
+G r c none [b fmap 47 1 none] [write_str output 130 14 none]
+G r c none [b fmap 47 1 none] [write_int output 123 14 none]
+G r c none [b fmap 47 1 none] [write_eol output 113 14 none]
+G r c none [b fmap 47 1 none] [set_standard_error output 77 14 none]
+G r c none [b fmap 47 1 none] [set_standard_output output 84 14 none]
+G r i none [b fmap 47 1 none] [table table 59 12 none]
+G r c none [initialize fmap 49 14 none] [write_str output 130 14 none]
+G r c none [initialize fmap 49 14 none] [write_int output 123 14 none]
+G r c none [initialize fmap 49 14 none] [write_eol output 113 14 none]
+G r c none [initialize fmap 49 14 none] [set_standard_error output 77 14 none]
+G r c none [initialize fmap 49 14 none] [set_standard_output output 84 14 none]
+G r c none [initialize fmap 49 14 none] [name_enter namet 354 13 none]
+G r c none [initialize fmap 49 14 none] [read_source_file osint 421 14 none]
+G r c none [initialize fmap 49 14 none] [null_source_buffer_ptr types 205 13 none]
+G r c none [initialize fmap 49 14 none] [write_line output 137 14 none]
+G r c none [initialize fmap 49 14 none] [name_find namet 343 13 none]
+G r c none [initialize fmap 49 14 none] [canonical_case_file_name osint 104 14 none]
+G r c none [add_to_file_map fmap 65 14 none] [write_str output 130 14 none]
+G r c none [add_to_file_map fmap 65 14 none] [write_int output 123 14 none]
+G r c none [add_to_file_map fmap 65 14 none] [write_eol output 113 14 none]
+G r c none [add_to_file_map fmap 65 14 none] [set_standard_error output 77 14 none]
+G r c none [add_to_file_map fmap 65 14 none] [set_standard_output output 84 14 none]
+G r c none [update_mapping_file fmap 71 14 none] [write_str output 130 14 none]
+G r c none [update_mapping_file fmap 71 14 none] [write_line output 137 14 none]
+G r c none [update_mapping_file fmap 71 14 none] [get_name_string namet 600 14 none]
+G r c none [update_mapping_file fmap 71 14 none] [fail osint 161 14 none]
+G r c none [reset_tables fmap 76 14 none] [write_str output 130 14 none]
+G r c none [reset_tables fmap 76 14 none] [write_int output 123 14 none]
+G r c none [reset_tables fmap 76 14 none] [write_eol output 113 14 none]
+G r c none [reset_tables fmap 76 14 none] [set_standard_error output 77 14 none]
+G r c none [reset_tables fmap 76 14 none] [set_standard_output output 84 14 none]
+G r c none [init fmap__file_mapping 142 17 66_4] [write_str output 130 14 none]
+G r c none [init fmap__file_mapping 142 17 66_4] [write_int output 123 14 none]
+G r c none [init fmap__file_mapping 142 17 66_4] [write_eol output 113 14 none]
+G r c none [init fmap__file_mapping 142 17 66_4] [set_standard_error output 77 14 none]
+G r c none [init fmap__file_mapping 142 17 66_4] [set_standard_output output 84 14 none]
+G r c none [release fmap__file_mapping 156 17 66_4] [write_str output 130 14 none]
+G r c none [release fmap__file_mapping 156 17 66_4] [write_int output 123 14 none]
+G r c none [release fmap__file_mapping 156 17 66_4] [write_eol output 113 14 none]
+G r c none [release fmap__file_mapping 156 17 66_4] [set_standard_error output 77 14 none]
+G r c none [release fmap__file_mapping 156 17 66_4] [set_standard_output output 84 14 none]
+G r c none [set_last fmap__file_mapping 175 17 66_4] [write_str output 130 14 none]
+G r c none [set_last fmap__file_mapping 175 17 66_4] [write_int output 123 14 none]
+G r c none [set_last fmap__file_mapping 175 17 66_4] [write_eol output 113 14 none]
+G r c none [set_last fmap__file_mapping 175 17 66_4] [set_standard_error output 77 14 none]
+G r c none [set_last fmap__file_mapping 175 17 66_4] [set_standard_output output 84 14 none]
+G r c none [increment_last fmap__file_mapping 184 17 66_4] [write_str output 130 14 none]
+G r c none [increment_last fmap__file_mapping 184 17 66_4] [write_int output 123 14 none]
+G r c none [increment_last fmap__file_mapping 184 17 66_4] [write_eol output 113 14 none]
+G r c none [increment_last fmap__file_mapping 184 17 66_4] [set_standard_error output 77 14 none]
+G r c none [increment_last fmap__file_mapping 184 17 66_4] [set_standard_output output 84 14 none]
+G r c none [append fmap__file_mapping 192 17 66_4] [write_str output 130 14 none]
+G r c none [append fmap__file_mapping 192 17 66_4] [write_int output 123 14 none]
+G r c none [append fmap__file_mapping 192 17 66_4] [write_eol output 113 14 none]
+G r c none [append fmap__file_mapping 192 17 66_4] [set_standard_error output 77 14 none]
+G r c none [append fmap__file_mapping 192 17 66_4] [set_standard_output output 84 14 none]
+G r c none [append_all fmap__file_mapping 200 17 66_4] [write_str output 130 14 none]
+G r c none [append_all fmap__file_mapping 200 17 66_4] [write_int output 123 14 none]
+G r c none [append_all fmap__file_mapping 200 17 66_4] [write_eol output 113 14 none]
+G r c none [append_all fmap__file_mapping 200 17 66_4] [set_standard_error output 77 14 none]
+G r c none [append_all fmap__file_mapping 200 17 66_4] [set_standard_output output 84 14 none]
+G r c none [set_item fmap__file_mapping 203 17 66_4] [write_str output 130 14 none]
+G r c none [set_item fmap__file_mapping 203 17 66_4] [write_int output 123 14 none]
+G r c none [set_item fmap__file_mapping 203 17 66_4] [write_eol output 113 14 none]
+G r c none [set_item fmap__file_mapping 203 17 66_4] [set_standard_error output 77 14 none]
+G r c none [set_item fmap__file_mapping 203 17 66_4] [set_standard_output output 84 14 none]
+G r c none [save fmap__file_mapping 215 16 66_4] [write_str output 130 14 none]
+G r c none [save fmap__file_mapping 215 16 66_4] [write_int output 123 14 none]
+G r c none [save fmap__file_mapping 215 16 66_4] [write_eol output 113 14 none]
+G r c none [save fmap__file_mapping 215 16 66_4] [set_standard_error output 77 14 none]
+G r c none [save fmap__file_mapping 215 16 66_4] [set_standard_output output 84 14 none]
+G r c none [tree_write fmap__file_mapping 223 17 66_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write fmap__file_mapping 223 17 66_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read fmap__file_mapping 226 17 66_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read fmap__file_mapping 226 17 66_4] [write_str output 130 14 none]
+G r c none [tree_read fmap__file_mapping 226 17 66_4] [write_int output 123 14 none]
+G r c none [tree_read fmap__file_mapping 226 17 66_4] [write_eol output 113 14 none]
+G r c none [tree_read fmap__file_mapping 226 17 66_4] [set_standard_error output 77 14 none]
+G r c none [tree_read fmap__file_mapping 226 17 66_4] [set_standard_output output 84 14 none]
+G r c none [tree_read fmap__file_mapping 226 17 66_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate fmap__file_mapping 58 17 66_4] [write_str output 130 14 none]
+G r c none [reallocate fmap__file_mapping 58 17 66_4] [write_int output 123 14 none]
+G r c none [reallocate fmap__file_mapping 58 17 66_4] [write_eol output 113 14 none]
+G r c none [reallocate fmap__file_mapping 58 17 66_4] [set_standard_error output 77 14 none]
+G r c none [reallocate fmap__file_mapping 58 17 66_4] [set_standard_output output 84 14 none]
+G r c none [init fmap__path_mapping 142 17 75_4] [write_str output 130 14 none]
+G r c none [init fmap__path_mapping 142 17 75_4] [write_int output 123 14 none]
+G r c none [init fmap__path_mapping 142 17 75_4] [write_eol output 113 14 none]
+G r c none [init fmap__path_mapping 142 17 75_4] [set_standard_error output 77 14 none]
+G r c none [init fmap__path_mapping 142 17 75_4] [set_standard_output output 84 14 none]
+G r c none [release fmap__path_mapping 156 17 75_4] [write_str output 130 14 none]
+G r c none [release fmap__path_mapping 156 17 75_4] [write_int output 123 14 none]
+G r c none [release fmap__path_mapping 156 17 75_4] [write_eol output 113 14 none]
+G r c none [release fmap__path_mapping 156 17 75_4] [set_standard_error output 77 14 none]
+G r c none [release fmap__path_mapping 156 17 75_4] [set_standard_output output 84 14 none]
+G r c none [set_last fmap__path_mapping 175 17 75_4] [write_str output 130 14 none]
+G r c none [set_last fmap__path_mapping 175 17 75_4] [write_int output 123 14 none]
+G r c none [set_last fmap__path_mapping 175 17 75_4] [write_eol output 113 14 none]
+G r c none [set_last fmap__path_mapping 175 17 75_4] [set_standard_error output 77 14 none]
+G r c none [set_last fmap__path_mapping 175 17 75_4] [set_standard_output output 84 14 none]
+G r c none [increment_last fmap__path_mapping 184 17 75_4] [write_str output 130 14 none]
+G r c none [increment_last fmap__path_mapping 184 17 75_4] [write_int output 123 14 none]
+G r c none [increment_last fmap__path_mapping 184 17 75_4] [write_eol output 113 14 none]
+G r c none [increment_last fmap__path_mapping 184 17 75_4] [set_standard_error output 77 14 none]
+G r c none [increment_last fmap__path_mapping 184 17 75_4] [set_standard_output output 84 14 none]
+G r c none [append fmap__path_mapping 192 17 75_4] [write_str output 130 14 none]
+G r c none [append fmap__path_mapping 192 17 75_4] [write_int output 123 14 none]
+G r c none [append fmap__path_mapping 192 17 75_4] [write_eol output 113 14 none]
+G r c none [append fmap__path_mapping 192 17 75_4] [set_standard_error output 77 14 none]
+G r c none [append fmap__path_mapping 192 17 75_4] [set_standard_output output 84 14 none]
+G r c none [append_all fmap__path_mapping 200 17 75_4] [write_str output 130 14 none]
+G r c none [append_all fmap__path_mapping 200 17 75_4] [write_int output 123 14 none]
+G r c none [append_all fmap__path_mapping 200 17 75_4] [write_eol output 113 14 none]
+G r c none [append_all fmap__path_mapping 200 17 75_4] [set_standard_error output 77 14 none]
+G r c none [append_all fmap__path_mapping 200 17 75_4] [set_standard_output output 84 14 none]
+G r c none [set_item fmap__path_mapping 203 17 75_4] [write_str output 130 14 none]
+G r c none [set_item fmap__path_mapping 203 17 75_4] [write_int output 123 14 none]
+G r c none [set_item fmap__path_mapping 203 17 75_4] [write_eol output 113 14 none]
+G r c none [set_item fmap__path_mapping 203 17 75_4] [set_standard_error output 77 14 none]
+G r c none [set_item fmap__path_mapping 203 17 75_4] [set_standard_output output 84 14 none]
+G r c none [save fmap__path_mapping 215 16 75_4] [write_str output 130 14 none]
+G r c none [save fmap__path_mapping 215 16 75_4] [write_int output 123 14 none]
+G r c none [save fmap__path_mapping 215 16 75_4] [write_eol output 113 14 none]
+G r c none [save fmap__path_mapping 215 16 75_4] [set_standard_error output 77 14 none]
+G r c none [save fmap__path_mapping 215 16 75_4] [set_standard_output output 84 14 none]
+G r c none [tree_write fmap__path_mapping 223 17 75_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write fmap__path_mapping 223 17 75_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read fmap__path_mapping 226 17 75_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read fmap__path_mapping 226 17 75_4] [write_str output 130 14 none]
+G r c none [tree_read fmap__path_mapping 226 17 75_4] [write_int output 123 14 none]
+G r c none [tree_read fmap__path_mapping 226 17 75_4] [write_eol output 113 14 none]
+G r c none [tree_read fmap__path_mapping 226 17 75_4] [set_standard_error output 77 14 none]
+G r c none [tree_read fmap__path_mapping 226 17 75_4] [set_standard_output output 84 14 none]
+G r c none [tree_read fmap__path_mapping 226 17 75_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate fmap__path_mapping 58 17 75_4] [write_str output 130 14 none]
+G r c none [reallocate fmap__path_mapping 58 17 75_4] [write_int output 123 14 none]
+G r c none [reallocate fmap__path_mapping 58 17 75_4] [write_eol output 113 14 none]
+G r c none [reallocate fmap__path_mapping 58 17 75_4] [set_standard_error output 77 14 none]
+G r c none [reallocate fmap__path_mapping 58 17 75_4] [set_standard_output output 84 14 none]
+X 7 fmap.ads
+47K9*Fmap 87l5 87e9 8|47b14 537l5 537t9
+49U14*Initialize 49>26 8|183b14 387l8 387t18
+49a26 File_Name{string} 8|183b26 299r21 307r37 316r21 334r48
+56V13*Mapped_Path_Name{13|624I9} 56>31 8|408b13 423l8 423t24
+56i31 File{13|624I9} 8|408b31 412r31 416r37
+60V13*Mapped_File_Name{13|624I9} 60>31 8|393b13 402l8 402t24
+60i31 Unit{13|653I9} 8|393b31 394r56
+65U14*Add_To_File_Map 66>7 67>7 68>7 8|138b14 163l8 163t23 380s13
+66i7 Unit_Name{13|653I9} 8|139b7 143r57 150r31 152r22 161r22
+67i7 File_Name{13|624I9} 8|140b7 144r57 147r50 152r42 159r31
+68i7 Path_Name{13|624I9} 8|141b7 156r50 161r42
+71U14*Update_Mapping_File 71>35 8|443b14 535l8 535t27
+71a35 File_Name{string} 8|443b35 496r43 530r24
+76U14*Reset_Tables 8|429b14 437l8 437t20
+82U14*Add_Forbidden_File_Name 82>39 8|129b14 132l8 132t31
+82i39 Name{13|624I9} 8|129b39 131r28
+X 8 fmap.adb
+49b4 No_Mapping_File{boolean} 318m10 489r10
+54N4 Max_Buffer 55r26
+55a4 Buffer{string} 465r42 466m37 466r37 477m10 480m10 516m37 516r37
+58i4 Buffer_Last{natural} 465r13 466r57 468r26 472m13 477r18 477r37 479m10
+. 479r25 480r18 516r57 518r26
+61R9 Mapping 64e14 67r30 76r30
+62i7*Uname{13|653I9} 152m13 161m13 504r61
+63i7*Fname{13|624I9} 147r41 152m33 156r41 161m33 400r48 421r44 505r61 507r65
+. 508r67
+66K12 File_Mapping[32|59] 147r9 149r10 150r42 151r10 151r30 224r10 386r24
+. 400r17 431r7 494r26 503r46 504r35 505r35 507r39
+75K12 Path_Mapping[32|59] 156r9 158r10 159r42 160r10 160r30 223r10 421r17
+. 432r7 508r35
+84I9 Header_Num<short_integer> 86r46 93r20 102r46 106r20 118r20 169r46 171r14
+. 171r38 174r46 176r14 176r38
+86V13 Hash{84I9} 86>19 97r20 174b13 177l8 177t12
+86i19 F{13|653I9} 174b19 176r31
+89i4 No_Entry{35|59I9} 95r20 108r20 146r23 155r23 397r22 409r22 418r18
+92K12 Unit_Hash_Table[20|70] 143r36 150r10 221r10 394r35 433r7
+102V13 Hash{84I9} 102>19 110r20 122r20 169b13 172l8 172t12
+102i19 F{13|624I9} 169b19 171r31
+105K12 File_Hash_Table[20|70] 144r36 159r10 222r10 416r16 434r7 507r18
+115i4 Last_In_Table{35|59I9} 225m10 386m7 436m7 494r10 499r16 503r25
+117K12 Forbidden_Names[20|70] 131r7 412r10 435r7
+143i7 Unit_Entry{35|59I9} 146r10 147r29
+144i7 File_Entry{35|59I9} 155r10 156r29
+184i7 FD{23|183I9} 307m61 310r13
+185p7 Src{35|200P9} 268r24 269r22 270r31 271r31 278r21 278r39 281r26 282r24
+. 283r24 284r24 307m56 307r56 309r34 330r44 331r24 331r51 336r50 342r52 358r52
+. 375r52
+186i7 Hi{35|220I12} 307m52
+188i7 First{35|220I12} 264m10 268r16 269r27 270r36 271r36 273m13 273r22 278r13
+. 278r44 279r21 328r23 330r24 336r55 341r41 342r57 351r16 357r41 358r57 368r16
+. 374r41 375r57
+189i7 Last{35|220I12} 264r19 279m13 281r19 282r29 283r29 284r29 286m16 286r24
+. 328r31 330r17 330r49 331r29 331r56 336r64 341r34 342r66 351r24 357r34 358r66
+. 368r24 374r34 375r66
+191i7 Uname{13|653I9} 343m13 380r30
+192i7 Fname{13|624I9} 360m13 380r37
+193i7 Pname{13|624I9} 376m13 380r44
+195U17 Empty_Tables 219b17 226l11 226t23 306s7 337s16 353s16 370s16
+198V16 Find_File_Name{13|624I9} 232b16 245l11 245t25 253s33 360s22 376s22
+204V16 Find_Unit_Name{13|653I9} 251b16 254l11 254t25 343s22
+208U17 Get_Line 260b17 290l11 290t19 324s13 347s13 364s13
+211U17 Report_Truncated 296b17 301l11 301t27 352s16 369s16
+394i7 The_Index{35|59I9} 397r10 400r37
+409i7 Index{35|59I9} 416m7 418r10 421r37
+444i7 File{23|183I9} 466r31 496m10 498r13 500r23 516r31 522r20
+445i7 N_Bytes{integer} 466m13 468r16 516m13 518r16
+447i7 File_Entry{35|59I9} 506m16 508r55
+449b7 Status{boolean} 522m26 524r20
+452U17 Put_Line 452>27 459b17 481l11 481t19 504s16 505s16 508s16
+452i27 Name{13|188I9} 459b27 461r27
+503i17 Unit<integer> 504r55 505r55 507r59
+X 9 gnat.ads
+34K9*GNAT 8|45r6 92r35 105r35 117r35 9|57e9
+X 10 g-htable.ads
+46K14*HTable 8|45w11 92r40 105r40 117r40 10|60e16
+55k20*Simple_HTable 8|92r47 105r47 117r47
+X 13 namet.ads
+37K9*Namet 7|45w6 45r17 13|768e10
+169a4*Name_Buffer{string} 8|234r13 342r13 358r13 359r39 375r13 478r12
+170i4*Name_Len{natural} 8|234r31 341r13 342r31 357r13 358r31 359r57 374r13
+. 375r31 465r27 477r51 478r30 479r39
+188I9*Name_Id<integer> 8|452r34 459r34 504r26 505r26 508r26
+204I12*Valid_Name_Id{188I9}
+343V13*Name_Find{204I12} 8|243s20
+354V13*Name_Enter{204I12} 8|307s25
+600U14*Get_Name_String 8|461s10
+624I9*File_Name_Type<188I9> 7|56r38 56r61 60r61 67r19 68r19 82r46 8|63r15
+. 102r23 109r20 121r20 129r46 140r19 141r19 169r23 192r15 193r15 198r38 232r38
+. 393r61 408r38 408r61
+629i4*No_File{624I9} 8|398r17 419r17
+637i4*Error_File_Name{624I9} 8|240r20 413r17
+653I9*Unit_Name_Type<188I9> 7|60r38 66r19 8|62r15 86r23 96r20 139r19 174r23
+. 191r15 204r38 251r38 253r17 393r38
+X 14 opt.ads
+50K9*Opt 8|32w6 32r18 14|2414e8
+1379b4*Quiet_Output{boolean} 8|528r20
+X 15 osint.ads
+50K9*Osint 8|33w6 33r18 15|785e10
+73n40*Config{73E9} 8|307r65
+104U14*Canonical_Case_File_Name 8|359s13
+161U14*Fail 8|469s16 519s16 525s16
+421U14*Read_Source_File 8|307s7
+X 16 output.ads
+44K9*Output 8|34w6 34r18 16|213e11
+130U14*Write_Str 8|298s10 299s10 311s13 313s13 316s10 529s13 530s13
+137U14*Write_Line 8|300s10 317s10 333s16 336s16 531s13
+X 17 system.ads
+37K9*System 8|40r6 40r25 17|174e11
+67M9*Address
+X 20 s-htable.ads
+56I12 Header_Num 8|93r6 106r6 118r6
+59+12 Element 8|94r6 107r6 119r6
+62*7 No_Element{59+12} 8|95r6 108r6 120r6
+66+12 Key 8|96r6 109r6 121r6
+67V21 Hash{56I12} 8|97r6 110r6 122r6
+68V21 Equal{boolean} 8|98r6 111r6 123r6
+72U17*Set 8|131s23[117] 150s26[92] 159s26[105]
+76U17*Reset 8|221s26[92] 222s26[105] 433s23[92] 434s23[105] 435s23[117]
+79V16*Get{35|59I9} 8|143s52[92] 144s52[105] 394s51[92] 412s26[117] 416s32[105]
+. 507s34[105]
+X 22 s-memory.ads
+53V13*Alloc{17|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{17|67M9} 105i<c,__gnat_realloc>22
+X 23 s-os_lib.ads
+56K16*OS_Lib 8|40w13 40r32 23|1114e18
+183I9*File_Descriptor<integer> 8|184r13 444r17
+191i4*Invalid_FD{183I9} 8|498r21
+194i4*Null_FD{183I9} 8|310r18
+197U14*Close 8|522s13
+278n18*Binary{278E9} 8|496r63
+508N4*Seek_End 8|500r32
+512U14*Lseek 8|500s16
+574V13*Open_Read_Write{183I9} 8|496s18
+575a7 Name{string} 8|496r35
+576e7 Fmode{278E9} 8|496r54
+651V13*Write{integer} 8|466s24 516s24
+X 32 table.ads
+46K9*Table 8|35w6 66r32 75r32 32|248e10
+50+12 Table_Component_Type 8|67r6 76r6
+51I12 Table_Index_Type 8|68r6 77r6
+53*7 Table_Low_Bound{51I12} 8|69r6 78r6
+54i7 Table_Initial{35|65I12} 8|70r6 79r6
+55i7 Table_Increment{35|62I12} 8|71r6 80r6
+56a7 Table_Name{string} 8|72r6 81r6
+59k12*Table 8|66r38 75r38 32|247e13
+110A12*Table_Type(8|61R9)<35|59I9>
+113A15*Big_Table_Type{110A12[8|66]}<35|59I9>
+121P12*Table_Ptr(113A15[8|66])
+125p7*Table{121P12[8|66]} 8|147r22[66] 151r23[66] 156r22[75] 160r23[75] 400r30[66]
+. 421r30[75] 504r48[66] 505r48[66] 507r52[66] 508r48[75]
+142U17*Init 8|431s20[66] 432s20[75]
+149V16*Last{35|59I9} 8|150s55[66] 151s43[66] 159s55[75] 160s43[75] 386s37[66]
+. 494s39[66] 503s59[66]
+175U17*Set_Last 8|223s23[75] 224s23[66]
+184U17*Increment_Last 8|149s23[66] 158s23[75]
+X 35 types.ads
+52K9*Types 8|36w6 36r18 35|948e10
+59I9*Int<integer> 8|68r30 77r30 89r24 94r20 107r20 115r20 143r29 144r29 171r26
+. 176r26 394r28 409r15 447r20
+62I12*Nat{59I9}
+65I12*Pos{59I9}
+91e4*EOF{character} 8|271r45 278r54 284r42
+145I9*Text_Ptr<59I9>
+148A9*Text_Buffer(character)<145I9>
+192A12*Source_Buffer{148A9}<145I9>
+200P9*Source_Buffer_Ptr(192A12) 8|185r13
+205V13*Null_Source_Buffer_Ptr{boolean} 8|309s10
+220I12*Source_Ptr{145I9} 8|186r13 188r15 189r15
+X 36 unchconv.ads
+20v10*Unchecked_Conversion 8|43w6
+

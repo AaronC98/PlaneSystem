@@ -1,0 +1,309 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_RECURSION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U styleg%b		styleg.adb		a2e47120 NE OO PK GE
+W atree%s		atree.adb		atree.ali
+W casing%s		casing.adb		casing.ali
+W csets%s		csets.adb		csets.ali
+W einfo%s		einfo.adb		einfo.ali
+W err_vars%s		err_vars.ads		err_vars.ali
+W opt%s			opt.adb			opt.ali
+W scans%s		scans.adb		scans.ali
+W sinfo%s		sinfo.adb		sinfo.ali
+W sinput%s		sinput.adb		sinput.ali
+W stylesw%s		stylesw.adb		stylesw.ali
+
+U styleg%s		styleg.ads		a75c9028 BN EE NE OO PK GE
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D atree.ads		20190518044709 2c9e949c atree%s
+D casing.ads		20190518044709 9b922bd9 casing%s
+D csets.ads		20190518044709 e948558f csets%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D einfo.ads		20190518044709 0cc0e22d einfo%s
+D err_vars.ads		20190518044709 572d4c83 err_vars%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D namet.ads		20190518044709 b520bebe namet%s
+D opt.ads		20190518044710 3d2ce478 opt%s
+D output.ads		20190518044709 a916e413 output%s
+D scans.ads		20190518044709 8b26a439 scans%s
+D sinfo.ads		20190518044709 4a0f957d sinfo%s
+D sinput.ads		20190518044709 573062f0 sinput%s
+D snames.ads		20190518132638 5f03100c snames%s
+D styleg.ads		20190518044709 78e87f0c styleg%s
+D styleg.adb		20190518044709 17c3734e styleg%b
+D stylesw.ads		20190518044709 63538eca stylesw%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D uintp.ads		20190518044709 c6012b27 uintp%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D urealp.ads		20190518044709 e500ee51 urealp%s
+G a e
+G c Z s b [styleg standard 53 9 none]
+X 6 atree.ads
+44K9*Atree 4321e10 22|36w6 36r20
+645V13*Comes_From_Source{boolean} 22|236s18
+657V13*Nkind{18|8645E9} 22|219s16 268s25
+678V13*Sloc{38|220I12} 22|270s56 273s55
+688V13*Nkind_In{boolean} 22|216s13 222s16 242s16
+1157V13*Original_Node{38|397I9} 22|220s40 223s40 225s40 239s40 244s43 245s43
+X 7 casing.ads
+35K9*Casing 98e11 22|37w6 37r20
+48E9*Casing_Type 63e5 22|77r43 1135r43
+50n7*All_Upper_Case{48E9} 22|628r18
+53n7*All_Lower_Case{48E9} 22|627r18
+56n7*Mixed_Case{48E9} 22|178r39 636r18 937r39
+60n7*Unknown{48E9} 22|637r18
+93V13*Determine_Casing{48E9} 22|1137s14
+X 8 csets.ads
+32K9*Csets 97e10 22|38w6 38r20
+47A9*Char_Array_Flags(boolean)<character>
+89a4*Identifier_Char{47A9} 22|740r21 955r13
+X 10 einfo.ads
+37K9*Einfo 9617e10 22|39w6 39r20
+7016B12*B{boolean}
+7539V13*Is_Array_Type{7016E12} 22|263s25
+7568V13*Is_Modular_Integer_Type{7016E12} 22|258s25
+X 11 err_vars.ads
+39K9*Err_Vars 158e13 22|40w6 40r20
+139i4*Error_Msg_Node_1{38|397I9} 22|1188m10 1204m10
+X 15 opt.ads
+50K9*Opt 2414e8 22|41w6 41r20
+1487b4*Style_Check{boolean} 22|1175r14
+2286b4*GNAT_Mode{boolean} 22|431r13
+X 17 scans.ads
+37K9*Scans 537e10 22|42w6 42r20
+95n7*Tok_Left_Paren{48E9} 22|292r27
+142n7*Tok_Then{48E9} 22|1019r21 1047r21
+150n7*Tok_Else{48E9} 22|1032r21
+376i4*Scan_Ptr{38|220I12} 22|112r21 113r35 147r24 148r32 150r41 152r27 153r32
+. 339r21 340r35 417r15 451r15 464r36 477r27 497r36 509r13 510r29 521r10 523r24
+. 524r58 527r45 560r21 561r26 581r18 587r44 590r56 603r24 614r35 789r35 796r21
+. 799r24 813r21 818r24 825r12 849r36 892r34 896r15 909r35 975r21 976r35 1002r12
+. 1137r53 1232r18 1233r32
+380e4*Token{48E9} 22|1019r13 1032r13 1047r13
+383i4*Token_Ptr{38|220I12} 22|719r13 739r13 740r46 742r35 875r21 876r20 879r65
+. 919r10 920r27 922r35 955r38 956r35 1072r41 1076r19 1137r40 1243r10 1244r26
+. 1246r32
+386i4*Current_Line_Start{38|220I12} 22|762r16
+389i4*Start_Column{38|178I9} 22|539r16 720r21
+410i4*First_Non_Blank_Location{38|220I12} 22|521r22 719r25 919r22 1076r32
+430e4*Prev_Token{48E9} 22|292r13
+433i4*Prev_Token_Ptr{38|220I12} 22|876r32
+X 18 sinfo.ads
+54K9*Sinfo 14019e10 22|43w6 43r20
+8684n7*N_Expanded_Name{8645E9} 22|216r40
+8689n7*N_Identifier{8645E9} 22|216r26
+8716n7*N_Op_And{8645E9} 22|222r29 242r32 268r40
+8731n7*N_Op_Or{8645E9} 22|222r39 242r42
+8748n7*N_Op_Not{8645E9} 22|219r28
+9592V13*Etype{38|397I9} 22|258s50 263s40
+9946V13*Left_Opnd{38|397I9} 22|223s55 244s58
+10192V13*Right_Opnd{38|397I9} 22|220s55 225s55 245s58
+X 19 sinput.ads
+70K9*Sinput 967e11 22|44w6 44r20
+313V13*Source_First{38|220I12} 22|509s24 739s25 1243s22
+414i4*Current_Source_File{38|575I9} 22|509r38 739r39 1243r36
+427p4*Source{38|200P9} 22|112r13 147r16 148r24 152r19 153r24 339r13 418r16
+. 422r17 422r47 452r16 458r16 458r43 491r23 491r50 510r21 523r16 524r50 560r13
+. 561r18 582r19 583r19 603r16 740r38 796r13 799r16 813r13 818r16 826r44 875r13
+. 892r26 898r16 898r42 901r35 920r19 955r30 975r13 1003r29 1009r10 1014r13
+. 1014r39 1020r19 1020r48 1021r19 1021r48 1022r19 1022r48 1023r19 1023r48
+. 1024r19 1024r48 1025r19 1026r44 1033r19 1033r48 1034r19 1034r48 1035r19
+. 1035r48 1036r19 1036r48 1037r19 1037r48 1038r19 1038r48 1039r19 1040r44
+. 1137r32 1232r10 1244r18
+503U14*Backup_Line 22|479s10
+530V13*Get_Column_Number{38|178I9} 22|464s17 464s48 497s17 497s48
+535V13*Get_Logical_Line_Number{38|162I9} 22|789s10
+551V13*Get_Physical_Line_Number{38|172I9} 22|1070s15 1072s15
+568V13*Line_Start{38|220I12} 22|477s15
+X 21 styleg.ads
+41U19 Error_Msg 41>30 41>44 22|269s22 272s22 526s16 589s22 671s13 676s13
+. 760s13 834s10 856s13 878s13 1048s13 1051s13 1126s10 1146s7 1156s7
+41a30 Msg{string}
+41i44 Flag_Location{38|220I12}
+44U19 Error_Msg_S 44>32 22|512s13 543s19 703s10 797s13 800s13 819s13
+44a32 Msg{string}
+47U19 Error_Msg_SC 47>33 22|179s13 630s16 722s13 938s13 1077s16 1221s10
+47a33 Msg{string}
+50U19 Error_Msg_SP 50>33 22|1189s10 1205s10
+50a33 Msg{string}
+53k9*Styleg 41z19 44z19 47z19 50z19 196l5 196e11 22|47b14 1250l5 1250t11
+55U14*Check_Abs_Not 22|109b14 116l8 116t21
+58U14*Check_Apostrophe 22|124b14 129l8 129t24
+61U14*Check_Arrow 61>27 22|139b14 164l8 164t19
+61b27 Inside_Depends{boolean} 22|139b27 146r13
+66U14*Check_Attribute_Name 66>36 22|174b14 183l8 183t28
+66b36 Reserved{boolean} 22|174b36 175r29
+72U14*Check_Boolean_Operator 72>38 22|204b14 279l8 279t30
+72i38 Node{38|397I9} 22|204b38 236r37 239r55 258r57 263r47
+76U14*Check_Box 22|289b14 296l8 296t17
+79U14*Check_Binary_Operator 22|192b14 198l8 198t29
+83U14*Check_Exponentiation_Operator 22|689b14 692l8 692t37
+87U14*Check_Colon 22|304b14 310l8 310t19
+90U14*Check_Colon_Equal 22|318b14 324l8 324t25
+93U14*Check_Comma 22|334b14 343l8 343t19
+96U14*Check_Comment 22|385b14 617l8 617t21
+100U14*Check_Defining_Identifier_Casing 22|623b14 642l8 642t40
+105U14*Check_Dot_Dot 22|650b14 656l8 656t21
+108U14*Check_EOF 22|664b14 681l8 681t17
+111U14*Check_HT 22|700b14 706l8 706t16
+114U14*Check_Indentation 22|716b14 726l8 726t25
+120U14*Check_Left_Paren 22|736b14 747l8 747t24
+123U14*Check_Line_Max_Length 123>37 22|756b14 765l8 765t29
+123i37 Len{38|62I12} 22|756b37 759r13
+128U14*Check_Line_Terminator 128>37 22|780b14 864l8 864t29
+128i37 Len{38|62I12} 22|780b37 783r18 833r49
+133U14*Check_Not_In 22|872b14 882l8 882t20
+137U14*Check_Pragma_Name 22|934b14 942l8 942t25
+141U14*Check_Right_Paren 22|952b14 961l8 961t25
+144U14*Check_Semicolon 22|970b14 979l8 979t23
+147U14*Check_Then 147>26 22|1065b14 1081l8 1081t18
+147i26 If_Loc{38|220I12} 22|1065b26 1070r41
+152U14*Check_Separate_Stmt_Lines 153r19 22|985b14 990l8 990t33
+159U14*Check_Unary_Plus_Or_Minus 159>42 22|1094b14 1103l8 1103t33
+159b42 Inside_Depends{boolean} 22|1094b41 1097r13
+165U14*Check_Vertical_Bar 22|1111b14 1117l8 1117t26
+168U14*Check_Xtra_Parens 168>33 22|1123b14 1129l8 1129t25
+168i33 Loc{38|220I12} 22|1123b33 1127r46
+172V13*Mode_In_Check{boolean} 173r19 22|1173b13 1176l8 1176t21
+177U14*No_End_Name 177>27 22|1185b14 1192l8 1192t19
+177i27 Name{38|397I9} 22|1185b27 1188r30
+184U14*No_Exit_Name 184>28 22|1201b14 1208l8 1208t20
+184i28 Name{38|397I9} 22|1201b28 1204r30
+190U14*Non_Lower_Case_Keyword 22|1218b14 1224l8 1224t30
+X 22 styleg.adb
+51i4 Blank_Lines{38|62I12} 670r13 675r16 790m10 844m10 844r25 848r13 855r46
+. 862m10
+56i4 Blank_Line_Location{38|220I12} 673r16 678r16 849m13 857r48
+65U14 Check_No_Space_After 127s10 745s10 888b14 911l8 911t28 1100s13
+70U14 Check_No_Space_Before 337s10 917b14 924l8 924t29 959s10 973s10
+74U14 Check_Separate_Stmt_Lines_Cont 988s10 996b14 1055l8 1055t38
+77V13 Determine_Token_Casing{7|48E9} 178s13 626s15 937s13 1135b13 1138l8
+. 1138t30
+80U14 Error_Space_Not_Allowed 80>39 150s16 909s10 922s10 1144b14 1148l8 1148t31
+80i39 S{38|220I12} 1144b39 1147r39
+84U14 Error_Space_Required 84>36 113s13 340s13 587s22 614s13 742s13 956s13
+. 976s13 1154b14 1158l8 1158t28 1233s10 1246s10
+84i36 S{38|220I12} 1154b36 1157r36
+88V13 Is_White_Space{boolean} 88>29 89r19 826s28 892s10 901s19 1003s13 1026s28
+. 1040s28 1164b13 1167l8 1167t22
+88e29 C{character} 1164b29 1166r14 1166r30
+93U14 Require_Following_Space 94r19 155s16 161s13 196s10 308s10 322s10 654s10
+. 1098s13 1115s10 1230b14 1235l8 1235t31
+98U14 Require_Preceding_Space 99r19 142s10 195s10 293s13 307s10 321s10 653s10
+. 1114s10 1241b14 1248l8 1248t31
+206V16 OK_Boolean_Operand{boolean} 206>36 214b16 220s20 223s20 225s20 230l11
+. 230t29 250s22 252s22
+206i36 N{38|397I9} 214b36 216r23 219r23 220r67 222r26 223r66 225r67
+239i13 Orig{38|397I9} 242r26 244r70 245r70 268r32 270r62 273r61
+244i19 L{38|397I9} 250r42
+245i19 R{38|397I9} 252r42
+386i7 S{38|220I12} 581m13 582r27 583r27 596m16 596r21
+387e7 C{character} 561m13 565r16 573r38
+389V16 Is_Box_Comment{boolean} 411b16 423l11 423t25 584s22 613s20
+393V16 Is_Special_Character{boolean} 393>38 429b16 439l11 439t31 524s28 573s16
+393e38 C{character} 429b38 432r20 435r30 437r30
+396V16 Same_Column_As_Next_Non_Blank_Line{boolean} 445b16 465l11 465t45 540s23
+401V16 Same_Column_As_Previous_Line{boolean} 471b16 498l11 498t39 541s31
+412i10 S{38|220I12} 417m10 418r24 419m13 419r18 422r25 422r55
+446i10 P{38|220I12} 451m10 452r24 453m13 453r18 458r24 458r51 459m13 459r18
+. 464r67
+472i10 S{38|220I12} 477m10 478r15 487r20
+472i13 P{38|220I12} 478m10 479m23 479r23 487r16 491r31 491r58 492m13 492r18
+. 497r67
+781i7 S{38|220I12} 825m7 826r52 827m10 827r15 835r54
+783i7 L{38|62I12} 826r13 828m10 828r15 833r45 840r10
+889i7 S{38|220I12} 896m10 898r24 898r50 901r43 902m16 902r21
+997i7 S{38|220I12} 1002m7 1003r37 1004m10 1004r15 1009r18 1014r21 1014r47
+. 1020r27 1020r56 1021r27 1021r56 1022r27 1022r56 1023r27 1023r56 1024r27
+. 1024r56 1025r27 1026r52 1033r27 1033r56 1034r27 1034r56 1035r27 1035r56
+. 1036r27 1036r56 1037r27 1037r56 1038r27 1038r56 1039r27 1040r52 1049r70
+. 1052r70
+1069i13 If_Line{38|172I9} 1074r16
+1071i13 Then_Line{38|172I9} 1074r26
+X 23 stylesw.ads
+39K9*Stylesw 22|45w6 45r20 23|352e12
+62b4*Style_Check_Attribute_Casing{boolean} 22|177r10
+67b4*Style_Check_Blanks_At_End{boolean} 22|833r10
+71b4*Style_Check_Blank_Lines{boolean} 22|666r10 855r13
+76b4*Style_Check_Boolean_And_Or{boolean} 22|235r10
+85b4*Style_Check_Comments{boolean} 22|508r10 522r13 553r17
+114i4*Style_Check_Comments_Spacing{38|62I12} 22|585r29 604r20
+117b4*Style_Check_DOS_Line_Terminator{boolean} 22|807r10
+122b4*Style_Check_Mixed_Case_Decls{boolean} 22|625r10
+126b4*Style_Check_End_Labels{boolean} 22|1187r10 1203r10
+130b4*Style_Check_Form_Feeds{boolean} 22|795r10
+134b4*Style_Check_Horizontal_Tabs{boolean} 22|702r10
+138b4*Style_Check_If_Then_Layout{boolean} 22|1067r10
+164i4*Style_Check_Indentation{38|178I9} 22|538r13 539r33 718r10 720r38
+171b4*Style_Check_Keyword_Casing{boolean} 22|1220r10
+182b4*Style_Check_Max_Line_Length{boolean} 22|758r10
+197b4*Style_Check_Mode_In{boolean} 22|1175r30
+206b4*Style_Check_Pragma_Casing{boolean} 22|936r10
+216b4*Style_Check_Separate_Stmt_Lines{boolean} 22|987r10
+237b4*Style_Check_Tokens{boolean} 22|111r10 126r10 141r10 194r10 291r10 306r10
+. 320r10 336r10 652r10 738r10 874r10 954r10 972r10 1096r10 1113r10
+283b4*Style_Check_Xtra_Parens{boolean} 22|1125r10
+288i4*Style_Max_Line_Length{38|62I12} 22|759r19 762r49
+X 24 system.ads
+67M9*Address
+X 27 s-memory.ads
+53V13*Alloc{24|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{24|67M9} 105i<c,__gnat_realloc>22
+X 38 types.ads
+52K9*Types 21|38w6 38r17 38|948e10
+59I9*Int<integer>
+62I12*Nat{59I9} 21|123r43 128r43 22|51r18 756r43 780r43 783r11
+91e4*EOF{character} 22|458r57 813r33
+104E12*Line_Terminator{character} 22|418r34 452r34 1009r24 1025r37 1039r37
+145I9*Text_Ptr<59I9>
+148A9*Text_Buffer(character)<145I9>
+162I9*Logical_Line_Number<integer>
+172I9*Physical_Line_Number<integer> 22|1069r34 1071r34
+178I9*Column_Number<short_integer>
+192A12*Source_Buffer{148A9}<145I9>
+200P9*Source_Buffer_Ptr(192A12)
+220I12*Source_Ptr{145I9} 21|41r60 147r35 168r39 22|56r26 80r43 84r40 386r11
+. 412r14 446r14 472r17 762r37 781r11 889r11 997r11 1065r35 1123r39 1144r43
+. 1154r40
+397I9*Node_Id<integer> 21|72r45 177r34 184r35 22|204r45 206r40 214r40 239r29
+. 244r32 245r32 1185r34 1201r35
+575I9*Source_File_Index<59I9>
+

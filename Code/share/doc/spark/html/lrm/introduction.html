@@ -1,0 +1,1006 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1. Introduction &#8212; SPARK 2014 Reference Manual 2019</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Lexical Elements" href="lexical-elements.html" />
+    <link rel="prev" title="SPARK 2014 Reference Manual" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="lexical-elements.html" title="2. Lexical Elements"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="SPARK 2014 Reference Manual"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. Introduction</a><ul>
+<li><a class="reference internal" href="#structure-of-introduction">1.1. Structure of Introduction</a></li>
+<li><a class="reference internal" href="#how-to-read-and-interpret-this-manual">1.2. How to Read and Interpret this Manual</a></li>
+<li><a class="reference internal" href="#method-of-description">1.3. Method of Description</a></li>
+<li><a class="reference internal" href="#formal-analysis">1.4. Formal Analysis</a><ul>
+<li><a class="reference internal" href="#further-details-on-formal-verification">1.4.1. Further Details on Formal Verification</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#executable-contracts-and-mathematical-numbers">1.5. Executable Contracts and Mathematical Numbers</a><ul>
+<li><a class="reference internal" href="#the-advantages-of-executable-contracts">1.5.1. The Advantages of Executable Contracts</a></li>
+<li><a class="reference internal" href="#mathematical-numbers-and-arithmetic">1.5.2. Mathematical Numbers and Arithmetic</a></li>
+<li><a class="reference internal" href="#libraries-for-specification-and-proof">1.5.3. Libraries for Specification and Proof</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dynamic-semantics-of-spark-programs">1.6. Dynamic Semantics of SPARK 2014 Programs</a></li>
+<li><a class="reference internal" href="#main-program">1.7. Main Program</a></li>
+<li><a class="reference internal" href="#spark-strategic-requirements">1.8. SPARK 2014 Strategic Requirements</a></li>
+<li><a class="reference internal" href="#explaining-the-strategic-requirements">1.9. Explaining the Strategic Requirements</a><ul>
+<li><a class="reference internal" href="#principal-language-restrictions">1.9.1. Principal Language Restrictions</a></li>
+<li><a class="reference internal" href="#combining-formal-verification-and-testing">1.9.2. Combining Formal Verification and Testing</a><ul>
+<li><a class="reference internal" href="#demarcating-the-boundary-between-formally-verified-and-tested-code">1.9.2.1. Demarcating the Boundary between Formally Verified and Tested Code</a></li>
+<li><a class="reference internal" href="#checks-to-be-performed-at-the-boundary">1.9.2.2. Checks to be Performed at the Boundary</a></li>
+<li><a class="reference internal" href="#conditions-that-apply-to-the-tested-code">1.9.2.3. Conditions that Apply to the Tested Code</a><ul>
+<li><a class="reference internal" href="#flow-analysis-of-a-non-proven-subprogram">1.9.2.3.1. Flow analysis of a non-proven subprogram</a></li>
+<li><a class="reference internal" href="#proving-properties-of-a-tested-subprogram">1.9.2.3.2. Proving properties of a tested subprogram</a></li>
+<li><a class="reference internal" href="#conditions-on-a-tested-subprogram-which-is-called-from-a-partially-proven-subprogram">1.9.2.3.3. Conditions on a tested subprogram which is called from a partially proven subprogram</a></li>
+<li><a class="reference internal" href="#conditions-on-a-tested-subprogram-which-is-calls-a-proven-subprogram">1.9.2.3.4. Conditions on a tested subprogram which is calls a proven subprogram</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#adding-code-for-specification-and-verification">1.9.3. Adding Code for Specification and Verification</a></li>
+<li><a class="reference internal" href="#synthesis-of-spark-aspects">1.9.4. Synthesis of SPARK 2014 Aspects</a></li>
+<li><a class="reference internal" href="#in-and-out-of-spark">1.9.5. In and Out of SPARK 2014</a></li>
+<li><a class="reference internal" href="#external-state">1.9.6. External State</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">SPARK 2014 Reference Manual</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="lexical-elements.html"
+                        title="next chapter">2. Lexical Elements</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/introduction.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>SPARK 2014 is a programming language and a set of verification tools
+designed to meet the needs of high-assurance software development.
+SPARK 2014 is based on Ada 2012, both subsetting the language to remove
+features that defy verification and also extending the system of
+contracts by defining new Ada aspects to support modular,
+constructive, formal verification.</p>
+<p>The new aspects support the analysis of incomplete programs,
+abstraction and refinement and facilitate deep static analysis to be
+performed including information-flow analysis and formal verification
+of an implementation against a specification.</p>
+<p>Meaningful static analysis is possible on complete programs without
+the SPARK 2014 specific aspects and pragmas (for programs which are
+otherwise within the SPARK 2014 subset), in fact the formal verification
+of an implementation against a specification of a complete program is
+possible using only the Ada 2012 contracts.  Without the SPARK 2014
+specific aspects, however, analysis has to be performed on a completed
+program and cannot be applied constructively during its development.</p>
+<p>SPARK 2014 is a much larger and more flexible language than its
+predecessor SPARK 2005. The language can be configured to suit
+a number of application domains and standards, from server-class
+high-assurance systems to embedded, hard real-time, critical systems.</p>
+<p>A major feature of SPARK 2014 is the support for a mixture of proof and
+other verification methods such as testing, which
+facilitates the use of unit proof in place of unit testing; an approach now
+formalized in DO-178C and the DO-333 formal methods supplement.
+Certain units may be formally proven and other units validated through
+testing.</p>
+<p>Ada 2012 introduced executable contracts such as Pre and Post
+conditions and new types of expression, in particular conditional
+expressions and quantifiers. SPARK 2014 uses these contracts and
+expressions and extends them with new aspects and pragmas.</p>
+<p>The new aspects defined for SPARK 2014 all have equivalent pragmas which
+allows a SPARK 2014 program to be compiled by and executed by any Ada
+implementation; for instance an Ada 95 compiler provided that the use
+of Ada 2005 and Ada 2012 specific features is avoided. The SPARK 2014
+attributes Update and Loop_Entry can be used only if the Ada
+implementation supports them.</p>
+<p>The direct use of the new aspects requires an Ada 2012 compiler which
+supports them in a way consistent with the definition given here in
+the SPARK 2014 reference manual.  The GNAT implementation is one such
+compiler.</p>
+<p>As with the Ada 2012 contracts, the new SPARK 2014 aspects and pragmas
+have executable semantics and may be executed at run time.  An
+expression in an Ada contract or SPARK 2014 aspect or pragma is called an
+<em>assertion expression</em> and it is the ability to execute such
+expressions which facilitates the mix of proof and testing.</p>
+<p>The run-time checking of assertion expressions may be suppressed by
+using the Ada pragma Assertion_Policy but the static analysis and
+proof tools always use the assertion expressions whatever the
+assertion policy.</p>
+<p>A special feature of SPARK 2014 is that numbers in assertion expressions
+may have extended or &#8220;infinite&#8221; arithmetic to make it simpler to write
+specifications as they can be written without having to consider the
+possibility of overflow within the specification.  The numbers may therefore
+behave mathematically (see <a class="reference internal" href="#exec-sem"><span class="std std-ref">Executable Contracts and Mathematical Numbers</span></a>).</p>
+<div class="section" id="structure-of-introduction">
+<h2>1.1. Structure of Introduction<a class="headerlink" href="#structure-of-introduction" title="Permalink to this headline">¶</a></h2>
+<p>This introduction contains the following sections:</p>
+<ul class="simple">
+<li>Section <a class="reference internal" href="#read-interpret"><span class="std std-ref">How to Read and Interpret this Manual</span></a> describes how to read and interpret this document.</li>
+<li>Section <a class="reference internal" href="#desc-notate"><span class="std std-ref">Method of Description</span></a> describes the conventions used in presenting
+the definition of SPARK 2014.</li>
+<li>Section <a class="reference internal" href="#formal-analysis"><span class="std std-ref">Formal Analysis</span></a> gives a brief overview of the formal analysis
+to which SPARK 2014 programs are amenable.</li>
+<li>Section <a class="reference internal" href="#exec-sem"><span class="std std-ref">Executable Contracts and Mathematical Numbers</span></a> gives a brief overview of the use of executable contracts.</li>
+<li>Section <a class="reference internal" href="#dynamic-sem"><span class="std std-ref">Dynamic Semantics of SPARK 2014 Programs</span></a> gives details on the dynamic semantics of
+SPARK 2014.</li>
+<li>Section <a class="reference internal" href="#sprs"><span class="std std-ref">SPARK 2014 Strategic Requirements</span></a> defines the overall goals to be met by the SPARK 2014 language and
+toolset.</li>
+<li>Section <a class="reference internal" href="#explain-sprs"><span class="std std-ref">Explaining the Strategic Requirements</span></a> provides expanded detail on the main strategic requirements.</li>
+</ul>
+</div>
+<div class="section" id="how-to-read-and-interpret-this-manual">
+<span id="read-interpret"></span><h2>1.2. How to Read and Interpret this Manual<a class="headerlink" href="#how-to-read-and-interpret-this-manual" title="Permalink to this headline">¶</a></h2>
+<p>This RM (reference manual) is <em>not</em> a tutorial guide
+to SPARK 2014.  It is intended as a reference guide for
+users and implementors of the language.  In this context,
+&#8220;implementors&#8221; includes those producing both compilers and
+verification tools.</p>
+<p>This manual is written in the style and language of the Ada 2012 RM,
+so knowledge of Ada 2012 is assumed.  Chapters 2 through 13 mirror
+the structure of the Ada 2012 RM.  Chapters 14 onward cover all the annexes
+of the Ada 2012 RM. Moreover, this manual should be interpreted as an extension
+of the Ada 2012 RM (that is, SPARK 2014 is fully defined by this document taken together
+with the Ada 2012 RM).</p>
+<p>The SPARK 2014 RM uses and introduces technical terms in its
+descriptions, those that are less well known or introduced are
+summarized in a <a class="reference internal" href="glossary.html#glossary"><span class="std std-ref">Glossary</span></a> following the sections covering the
+Ada annexes.</p>
+<p>SPARK 2014 introduces a number of aspects. The language rules are written as if all
+the SPARK 2014 specific aspects are present but minimum requirements are placed on
+a tool which analyzes SPARK 2014 to be able to synthesize (from the source code)
+some of these aspects if they are not present. A tool may synthesize more
+aspects than the minimum required (see <a class="reference internal" href="#verific-modes"><span class="std std-ref">Synthesis of SPARK 2014 Aspects</span></a>). An equivalent
+pragma is available for each of the new aspects but these are not covered
+explicitly in the language rules either.  The pragmas used by SPARK 2014 are
+documented in <a class="reference internal" href="language-defined-pragmas.html#language-defined-pragmas"><span class="std std-ref">Language-Defined Pragmas (Annex L)</span></a>.</p>
+<p>Readers interested in how SPARK 2005 constructs and idioms map into
+SPARK 2014 should consult the appendix <a class="reference internal" href="mapping-spec.html#mapping-spec-label"><span class="std std-ref">SPARK 2005 to SPARK 2014 Mapping Specification</span></a>.</p>
+</div>
+<div class="section" id="method-of-description">
+<span id="desc-notate"></span><h2>1.3. Method of Description<a class="headerlink" href="#method-of-description" title="Permalink to this headline">¶</a></h2>
+<p>In expressing the aspects, pragmas, attributes and rules of SPARK 2014,
+the following chapters of this document follow the notational conventions of
+the Ada 2012 RM (section 1.1.4).</p>
+<p>The following sections are given for each new language feature introduced
+for SPARK 2014, following the Ada 2012 RM (other than <em>Verification Rules</em>,
+which is specific to SPARK 2014):</p>
+<ol class="arabic simple">
+<li>Syntax: this section gives the format of any SPARK 2014 specific syntax.</li>
+<li>Legality Rules: these are rules that are enforced at compile time. A
+construct is legal if it obeys <em>all</em> of the Legality Rules.</li>
+<li>Static Semantics: a definition of the compile-time effect of each construct.</li>
+<li>Dynamic Semantics: a definition of the run-time effect of each construct.</li>
+<li>Verification Rules: these rules define checks to be performed on the language
+feature that relate to static analysis rather than simple legality rules.</li>
+<li>Name Resolution Rules: There are very few SPARK 2014 specific name resolution
+rules.  Where they exist they are placed under this heading.</li>
+</ol>
+<p>A section might not be present if there are no rules specific to SPARK 2014
+associated with the language feature.</p>
+<p>When presenting rules, additional text may be provided in square brackets [ ].
+This text is redundant in terms of defining the rules themselves and simply provides
+explanatory detail.</p>
+<p>In addition, examples of the use of the new features are given along with the
+language definition detail.</p>
+</div>
+<div class="section" id="formal-analysis">
+<span id="id1"></span><h2>1.4. Formal Analysis<a class="headerlink" href="#formal-analysis" title="Permalink to this headline">¶</a></h2>
+<p>SPARK 2014 will be amenable to a range of formal analyses, including but not
+limited to the following static analysis techniques:</p>
+<ul class="simple">
+<li>Data-flow analysis, which considers the initialization of variables and the
+data dependencies of subprograms (which parameters and variables get read or
+written).</li>
+<li>Information-flow analysis, which also considers the coupling between the
+inputs and outputs of a subprogram (which input values of parameters and
+variables influence which output values). The term <em>flow analysis</em> is used to
+mean data-flow analysis and information-flow analysis taken together.</li>
+<li>Formal verification of robustness properties. In Ada terminology, this refers to
+the proof that certain predefined checks, such as the ones which could raise
+Constraint_Error, will never fail at run time and hence the corresponding exceptions
+will not be raised.</li>
+<li>Formal verification of functional properties, based on contracts expressed as
+preconditions, postconditions, type invariants and so on. The term <em>formal verification</em>
+is used to mean formal verification of robustness properties and formal verification of
+functional properties taken together.</li>
+</ul>
+<p>Data and information-flow analysis is not valid and might not be possible if the
+legality rules of Ada 2012 and those presented in this document are not met.
+Similarly, a formal verification might not be possible if the legality rules are
+not met and may be unsound if data-flow errors are present.</p>
+<div class="section" id="further-details-on-formal-verification">
+<h3>1.4.1. Further Details on Formal Verification<a class="headerlink" href="#further-details-on-formal-verification" title="Permalink to this headline">¶</a></h3>
+<p>Many Ada constructs have dynamic semantics which include a requirement
+that some error condition must or may<a class="footnote-reference" href="#bounded-errors" id="id2">[1]</a> be checked,
+and some exception  must or may<a class="footnote-reference" href="#bounded-errors" id="id3">[1]</a>  be raised, if the error is
+detected  (see Ada 2012 RM 1.1.5(5-8)).  For example, evaluating the name of an
+array component includes a check that each index value belongs to the
+corresponding index range of the array (see Ada 2012 RM 4.1.1(7)).</p>
+<p>For every such run-time check a corresponding obligation to prove that the error
+condition cannot be true is introduced. In particular, this rule applies to the
+run-time checks associated with any assertion (see Ada 2012 RM (11.4.2));
+the one exception to this rule is pragma
+<code class="docutils literal"><span class="pre">Assume</span></code> (see <a class="reference internal" href="statements.html#pragma-assume"><span class="std std-ref">Proof Pragmas</span></a>).</p>
+<p>In addition, the generation of verification conditions is unaffected by the
+suppression of checks (e.g., via pragma <code class="docutils literal"><span class="pre">Suppress</span></code>) or the disabling of
+assertions (e.g., via pragma <code class="docutils literal"><span class="pre">Assertion_Policy</span></code>). In other words, suppressing
+or disabling a check does not prevent generation of its associated verification
+conditions. Similarly, the verification conditions generated to ensure the
+absence of numeric overflow for operations of a floating point type T
+are unaffected by the value of T&#8217;Machine_Overflows.</p>
+<p>All such generated verification conditions must be discharged before the
+formal program verification phase may be considered to be complete.</p>
+<table class="docutils footnote" frame="void" id="bounded-errors" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> In the case of some bounded errors, performing
+a check (and raising an exception if the check fails) is permitted
+but not required.</td></tr>
+</tbody>
+</table>
+<p>A SPARK 2014 implementation has the option of treating any construct which would
+otherwise generate an unsatisfiable verification condition as illegal, even
+if the construct will never be executed. For example, a SPARK 2014 implementation
+might reject the declaration</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">:</span> <span class="n">Positive</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>in almost any context. [Roughly speaking, if it can be
+determined statically that a runtime check associated with some construct
+will inevitably fail whenever the construct is elaborated,
+then the implementation is  allowed (but not required) to reject
+the construct just as if the construct violated a legality rule.]
+For purposes of this rule, the
+Ada rule that Program_Error is raised if a function &#8220;completes normally
+without executing a return statement&#8221; is treated as a check associated
+with the end of the function body&#8217;s sequence_of_statements. [This
+treatment gives SPARK 2014 implementations the option of imposing simpler
+(but more conservative) rules to ensure that the end of a function is
+not reachable. Strictly speaking, this rule gives SPARK 2014 implementations
+the option of rejecting many things that should not be rejected (e.g.,
+&#8220;pragma Assert (False);&#8221; in an unreachable arm of a case statement);
+reasonable implementations will not misuse this freedom.]</p>
+<p>Formal verification of a program may depend on properties of
+either the machine on which it is to be executed or on properties
+of the tools used to compile and build it. For example, a program
+might depend on the bounds of the type Standard.Long_Integer or on
+the implementation-dependent bounds chosen for the unconstrained
+base subtype associated with a declaration like &#8220;type T is range 1 .. 10;&#8221;.
+In such cases it must be possible to provide the needed information
+as explicit inputs to the formal verification process.
+The means by which this is accomplished is not specified as part of
+the SPARK 2014 language definition.</p>
+</div>
+</div>
+<div class="section" id="executable-contracts-and-mathematical-numbers">
+<span id="exec-sem"></span><h2>1.5. Executable Contracts and Mathematical Numbers<a class="headerlink" href="#executable-contracts-and-mathematical-numbers" title="Permalink to this headline">¶</a></h2>
+<p>Contracts, in the form of assertion expressions, are executable in Ada
+and SPARK 2014 and have the same semantics in both.  The new aspects and
+pragmas introduced by SPARK 2014 where they are assertion expressions
+are also executable.  Executable contracts have a number of advantages
+but also a few drawbacks that SPARK 2014 to a large extent mitigates.</p>
+<p>The Ada pragma Assertion_Policy controls whether contracts and
+assertion expressions in general are executed and checked at run-time.
+Assertion expressions are always significant in static analysis and
+proof and, indeed, form the basis of the specification against which
+the implementation is verified.</p>
+<p>In summary, Ada 2012 in itself enables contract-based, dynamic
+verification of complex properties of a program.  SPARK 2014 enables
+contract-based static deductive verification of a large subset of Ada
+2012.</p>
+<div class="section" id="the-advantages-of-executable-contracts">
+<h3>1.5.1. The Advantages of Executable Contracts<a class="headerlink" href="#the-advantages-of-executable-contracts" title="Permalink to this headline">¶</a></h3>
+<p>The possibility of making assertions and contracts executable benefits
+the programmer in a number of ways:</p>
+<blockquote>
+<div><ul class="simple">
+<li>it gives the programmer a gentle introduction to the use of
+contracts, and encourages the development of assertions and code
+in parallel. This is natural when both are expressed in the same
+programming language;</li>
+<li>executable assertions can be enabled and checked at run time, and
+this gives valuable information to the user. When an assertion
+fails, it means that the code failed to obey desired properties
+(i.e., the code is erroneous), or that the intent of the code has
+been incorrectly expressed (i.e., the assertion is erroneous) and
+experience shows that both situations arise equally often. In any
+case, the understanding of the code and properties of the
+programmer are improved. This also means that users get immediate
+benefits from writing additional assertions and contracts, which
+greatly encourages the adoption of contract-based programming;</li>
+<li>contracts can be written and dynamically verified even when the
+contracts or the program are too complex for automatic proof. This
+includes programs that explicitly manipulate pointers, for
+example.</li>
+</ul>
+</div></blockquote>
+<p>Executable contracts can be less expressive than pure mathematical
+ones, or more difficult to write in some situations but SPARK 2014 has
+features to largely mitigate these issues as described in the
+following subsections.</p>
+</div>
+<div class="section" id="mathematical-numbers-and-arithmetic">
+<h3>1.5.2. Mathematical Numbers and Arithmetic<a class="headerlink" href="#mathematical-numbers-and-arithmetic" title="Permalink to this headline">¶</a></h3>
+<p>In Ada numeric overflow may occur when evaluating an assertion
+expression this adds to the complexity of writing contracts and
+specifications using them, for instance, the expression</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="p">(</span><span class="n">Y</span> <span class="o">+</span> <span class="n">Z</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
+</pre></div>
+</div>
+<p>might raise a run-time exception if Y is an integer and Y + Z &gt;
+Integer&#8217;Last even if the entire expression is less then Integer&#8217;Last.</p>
+<p>SPARK 2014 mandates that there is an operational mode where such
+expressions (at least for Integer types) are treated as mathematical
+and the above expression shall not overflow and will not raise an
+exception.  In this mode the assertion expressions may still be
+executable and use extended or infinite precision numbers.  This mode
+might be acceptable if assertion expressions are not to be executed in
+the delivered code or if the overhead of executing contracts is not an
+issue.</p>
+<p>If the mode is not chosen, then SPARK 2014 requires checks that have to
+be proven to demonstrate that an overflow cannot occur.  In the above
+example the checks would not be provable and the postcondition would
+have to be rewritten something like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="n">Integer</span> <span class="p">((</span><span class="n">Long_Integer</span> <span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="o">+</span> <span class="n">Long_Integer</span> <span class="p">(</span><span class="n">Z</span><span class="p">))</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The way in which this operational mode is selected is tool dependent
+and shall be described in the user manual accompanying the tool.</p>
+</div>
+<div class="section" id="libraries-for-specification-and-proof">
+<h3>1.5.3. Libraries for Specification and Proof<a class="headerlink" href="#libraries-for-specification-and-proof" title="Permalink to this headline">¶</a></h3>
+<p>It is intended that SPARK 2014 will have available libraries (as
+packages) of common paradigms such as sets that might be difficult to
+express in executable contracts but the underlying model of the
+library packages will have a more expressive specification along with
+axioms that will make automatic proof of (executable) contracts using
+these libraries practical.</p>
+</div>
+</div>
+<div class="section" id="dynamic-semantics-of-spark-programs">
+<span id="dynamic-sem"></span><h2>1.6. Dynamic Semantics of SPARK 2014 Programs<a class="headerlink" href="#dynamic-semantics-of-spark-programs" title="Permalink to this headline">¶</a></h2>
+<p>Every valid SPARK 2014 program is also a valid Ada 2012 program, although
+for a general Ada 2012 compiler, SPARK 2014 specific aspects may have to
+be replaced by their equivalent pragmas.  The SPARK 2014 dynamic
+semantics are the same as Ada 2012 with the exception of some new
+aspects, pragmas and attributes which have dynamic semantics and the
+mathematical arithmetic in assertion expressions. Additionally, the new
+dynamic semantics only affect assertion expressions so if assertion
+expressions are ignored then the dynamic semantics of an Ada 2012
+program are the same as a SPARK 2014 program.</p>
+<p>SPARK 2014 programs that have failed their static analysis checks can still be
+valid Ada 2012 programs. An incorrect SPARK 2014 program with, say, flow
+analysis anomalies or undischarged verification conditions can still be executed as
+long as the Ada compiler in question finds nothing objectionable. What one gives
+up in this case is the formal analysis of the program, such as proof of absence
+of run-time errors or the static checks performed by flow analysis such as the
+proof that all variables are initialized before use.</p>
+<p>SPARK 2014 may make use of certain aspects, attributes and pragmas which are not
+defined in the Ada 2012 reference manual. Ada 2012 explicitly permits
+implementations to provide implementation-defined aspects, attributes and
+pragmas. If a SPARK 2014 program uses one of these aspects (e.g., Global), or
+attributes (e.g., Update) then it can only be compiled and executed by an
+implementation which supports the construct in a way consistent with the
+definition given here in the SPARK 2014 reference manual.</p>
+<p>If the equivalent pragmas are used instead of the
+implementation-defined aspects and if the use of
+implementation-defined attributes is avoided, then a SPARK 2014 program
+may be compiled and executed by any Ada implementation (whether or not
+it recognizes the SPARK 2014 pragmas). Ada specifies that unrecognized
+pragmas are ignored: an Ada compiler that ignores the pragma is
+correctly implementing the dynamic semantics of SPARK 2014 and the
+SPARK 2014 tools will still be able to undertake all their static checks
+and proofs.  If an Ada compiler defines a pragma with the same name as
+a SPARK 2014 specific pragma but has different semantics, then the
+compilation or execution of the program may fail.</p>
+</div>
+<div class="section" id="main-program">
+<h2>1.7. Main Program<a class="headerlink" href="#main-program" title="Permalink to this headline">¶</a></h2>
+<p>There is no aspect or pragma in SPARK 2014 indicating that a subprogram
+is a main program.  Instead it is expected that any implementation of
+SPARK 2014 will have its own mechanism to allow the tools to identify the
+main program (albeit not within the language itself).</p>
+</div>
+<div class="section" id="spark-strategic-requirements">
+<span id="sprs"></span><h2>1.8. SPARK 2014 Strategic Requirements<a class="headerlink" href="#spark-strategic-requirements" title="Permalink to this headline">¶</a></h2>
+<p>The following requirements give the principal goals to be met by SPARK 2014.
+Some are expanded in subsequent sections within this chapter.</p>
+<ul class="simple">
+<li>The SPARK 2014 language subset shall embody the largest subset of Ada 2012 to
+which it is currently practical to apply automatic formal verification, in line with
+the goals below. However, future advances in verification research and
+computing power may allow for expansion of the language and the forms of
+verification available. See section <a class="reference internal" href="#main-restricts"><span class="std std-ref">Principal Language Restrictions</span></a>
+for further details.</li>
+<li>The use of Ada 2012 preconditions, postconditions and other assertions
+dictates that SPARK 2014 shall have executable semantics for assertion
+expressions. Such expressions may be executed, proven or both. To avoid having
+to consider potential numeric overflows when defining an assertion expression
+SPARK 2014 mandates a mode whereby extended or infinite integer arithmetic is
+supported for assertion expressions. The way in which this mode is selected is
+tool dependent and shall be described in the user guide for the tool. If this
+mode is not active, verification conditions to demonstrate the absence of overflow
+in assertion expressions will be present.</li>
+<li>SPARK 2014 shall provide for mixing of verification evidence generated by formal
+analysis [for code written in the SPARK 2014 subset] and evidence generated by
+testing or other traditional means [for code written outside of the core
+SPARK 2014 language, including legacy Ada code, or code written in the SPARK 2014
+subset for which verification evidence could not be generated]. See section
+<a class="reference internal" href="#test-and-proof"><span class="std std-ref">Combining Formal Verification and Testing</span></a> for further details. Note, however, that a core goal of
+is to provide a language expressive enough for the whole of a program
+to be written in SPARK 2014, making it potentially entirely provable largely
+using automatic proof tools.</li>
+<li>SPARK 2014 shall support <em>constructive</em>, modular development which allows
+contracts to be specified on the declaration of program units and allows
+analysis and verification to be performed based on these contracts as early as
+possible in the development lifecycle, even before the units are
+implemented. As units are implemented the implementation is verified against
+its specification given in its contract. The contracts are specified using
+SPARK 2014 specific aspects.</li>
+<li>A SPARK 2014 analysis tool is required to synthesize at least some of the SPARK 2014
+specific aspects, used to specify the contract of a program unit, if a
+contract is not explicitly specified, for instance the <a class="reference internal" href="subprograms.html#global-aspects"><span class="std std-ref">Global Aspects</span></a>
+and the <a class="reference internal" href="subprograms.html#depends-aspects"><span class="std std-ref">Depends Aspects</span></a> from the implementation of the unit if it
+exists. The minimum requirements are given in <a class="reference internal" href="#verific-modes"><span class="std std-ref">Synthesis of SPARK 2014 Aspects</span></a> but a
+particular tool may provide more precise synthesis and the synthesis of more
+aspects. The synthesized aspect is used in the analysis of the unit if the
+aspect is not explicitly specified. The synthesis of SPARK 2014 specific aspects
+facilitates different development strategies and the analysis of pre-existing
+code (see section <a class="reference internal" href="#verific-modes"><span class="std std-ref">Synthesis of SPARK 2014 Aspects</span></a>).</li>
+<li>Although a goal of SPARK 2014 is to provide a language that supports as many
+Ada 2012 features as practical, there is another goal which is to support good
+programming practice guidelines and coding standards applicable to certain
+domains or standards. This goal is met either by standard Ada Restrictions and
+Profile pragmas, or via existing tools (e.g., pragma Restriction_Warnings in
+GNAT, or the coding standard checker gnatcheck).</li>
+<li>SPARK 2014 shall allow the mixing of code written in the SPARK 2014 subset
+with code written in full Ada 2012. See section <a class="reference internal" href="#in-out"><span class="std std-ref">In and Out of SPARK 2014</span></a> for
+further details.</li>
+<li>Many systems are not written in a single programming language. SPARK 2014 shall
+support the development, analysis and verification of programs which are only
+partly in SPARK 2014, with other parts in another language, for instance, C.
+SPARK 2014 specific aspects manually specified at unit level will form the
+boundary interface between the SPARK 2014 and other parts of the program.</li>
+<li>SPARK 2014 shall support entities which do not affect the functionality of
+a program but may be used in the test and verification of a program.
+See section <a class="reference internal" href="#adding-code-for-specification-and-verification"><span class="std std-ref">Adding Code for Specification and Verification</span></a>.</li>
+<li>SPARK 2014 shall provide counterparts of all language features and
+analysis modes provided in SPARK 83/95/2005, unless it has been
+identified that customers do not find them useful.</li>
+<li>Enhanced support for specifying and verifying properties of secure systems
+shall be provided (over what is available in SPARK 2005). [The features to
+provide this enhanced support are not yet fully defined and will not be
+implemented until after release 1 of the SPARK 2014 tools.]</li>
+<li>SPARK 2014 shall support the analysis of external communication channels, which
+are typically implemented using volatile variables.
+See section <a class="reference internal" href="#volatile"><span class="std std-ref">External State</span></a> for further details.</li>
+<li>The language shall offer an unambiguous semantics. In Ada
+terminology, this means that all erroneous and unspecified behaviour
+shall be eliminated either by direct exclusion or by adding rules
+which indirectly guarantee that some implementation-dependent
+choice, other than the fundamental data types and constants, cannot
+effect the externally-visible behaviour of the program. For example,
+Ada does not specify the order in which actual parameters are
+evaluated as part of a subprogram call. As a result of the SPARK
+rules which prevent the evaluation of an expression from having side
+effects, two implementations might choose different parameter
+evaluation orders for a given call but this difference won&#8217;t have
+any observable effect. [This means undefined, implementation-defined and
+partially-specified features may be outside of SPARK 2014 by
+definition, though their use could be allowed and a warning or error
+generated for the user. See section <a class="reference internal" href="#in-out"><span class="std std-ref">In and Out of SPARK 2014</span></a> for further
+details.] Where the possibility of ambiguity still exists it is
+noted, namely the reading of an invalid value from an external
+source and the use of Unchecked_Conversion, otherwise There are no
+known ambiguities in the language presented in this document.</li>
+<li>SPARK 2014 shall support provision of &#8220;formal analysis&#8221; as defined by DO-333,
+which states &#8220;an analysis method can only be regarded as formal analysis if
+its determination of a property is sound. Sound analysis means that the method
+never asserts a property to be true when it is not true.&#8221; A language with
+unambiguous semantics is required to achieve this and additionally any other
+language feature that for which sound analysis is difficult or impractical
+will be eliminated or its use constrained to meet this goal. See section
+<a class="reference internal" href="#main-restricts"><span class="std std-ref">Principal Language Restrictions</span></a> for further details.</li>
+</ul>
+</div>
+<div class="section" id="explaining-the-strategic-requirements">
+<span id="explain-sprs"></span><h2>1.9. Explaining the Strategic Requirements<a class="headerlink" href="#explaining-the-strategic-requirements" title="Permalink to this headline">¶</a></h2>
+<p>The following sections provide expanded detail on the main strategic requirements.</p>
+<div class="section" id="principal-language-restrictions">
+<span id="main-restricts"></span><h3>1.9.1. Principal Language Restrictions<a class="headerlink" href="#principal-language-restrictions" title="Permalink to this headline">¶</a></h3>
+<p>To facilitate formal analyses and verification, SPARK 2014 enforces a number of
+global restrictions to Ada 2012. While these are covered in more detail
+in the remaining chapters of this document, the most notable restrictions are:</p>
+<ul class="simple">
+<li>Restrictions on the use of access types and values, similar in some
+ways to the ownership model of the programming language Rust.</li>
+<li>All expressions (including function calls) are free of side-effects.</li>
+<li>Aliasing of names is not permitted in general but the renaming of entities is
+permitted as there is a static relationship between the two names.  In
+analysis all names introduced by a renaming declaration are replaced by the
+name of the renamed entity. This replacement is applied recursively when there
+are multiple renames of an entity.</li>
+<li>The goto statement is not permitted.</li>
+<li>The use of controlled types is not currently permitted.</li>
+<li>Tasks and protected objects are permitted only if the Ravenscar profile
+(or the Extended Ravenscar profile) is specified.</li>
+<li>Raising and handling of exceptions is not currently permitted (exceptions can
+be included in a program but proof must be used to show that they cannot be
+raised).</li>
+</ul>
+</div>
+<div class="section" id="combining-formal-verification-and-testing">
+<span id="test-and-proof"></span><h3>1.9.2. Combining Formal Verification and Testing<a class="headerlink" href="#combining-formal-verification-and-testing" title="Permalink to this headline">¶</a></h3>
+<p>There are common reasons for combining formal verification on some part
+of a codebase and testing on the rest of the codebase:</p>
+<ol class="arabic simple">
+<li>Formal verification is only applicable to a part of the codebase. For
+example, it might not be possible to apply the necessary formal verification to Ada code
+that is not in SPARK 2014.</li>
+<li>Formal verification only gives strong enough results on a part of the
+codebase. This might be because the desired properties cannot be expressed
+formally, or because proof of these desired properties cannot be
+sufficiently automated.</li>
+<li>Formal verification might be only cost-effective on a part of the codebase. (And
+it may be more cost-effective than testing on this part of the codebase.)</li>
+</ol>
+<p>Since the combination of formal verification and testing cannot guarantee the
+same level of assurance as when formal verification alone is used, the goal
+when combining formal verification and testing is to
+reach a level of confidence at least as good as the level reached by testing alone.</p>
+<p>Mixing of formal verification and testing requires consideration of at least the
+following three issues.</p>
+<div class="section" id="demarcating-the-boundary-between-formally-verified-and-tested-code">
+<h4>1.9.2.1. Demarcating the Boundary between Formally Verified and Tested Code<a class="headerlink" href="#demarcating-the-boundary-between-formally-verified-and-tested-code" title="Permalink to this headline">¶</a></h4>
+<p>Contracts on subprograms provide a natural boundary for this combination. If a
+subprogram is proved to respect its contract, it should be possible to call it
+from a tested subprogram. Conversely, formal verification of a subprogram
+(including absence of run-time errors and contract checking) depends on called
+subprograms respecting their own contracts, whether these are verified by
+formal verification or testing.</p>
+<p>In cases where the code to be tested is not SPARK 2014, then additional information
+may be provided in the code &#8211; possibly at the boundary &#8211; to indicate this
+(see section <a class="reference internal" href="#in-out"><span class="std std-ref">In and Out of SPARK 2014</span></a> for further details).</p>
+</div>
+<div class="section" id="checks-to-be-performed-at-the-boundary">
+<h4>1.9.2.2. Checks to be Performed at the Boundary<a class="headerlink" href="#checks-to-be-performed-at-the-boundary" title="Permalink to this headline">¶</a></h4>
+<p>When a tested subprogram T calls a proved subprogram P, then the precondition
+of P must hold. Assurance that this is true is generated by executing
+the assertion that P&#8217;s precondition holds during the testing of T.</p>
+<p>Similarly, when a proved subprogram P calls a tested subprogram T, formal
+verification will have shown that the precondition of T holds. Hence, testing
+of T must show that the postcondition of T holds by executing the corresponding
+assertion.  This is a necessary but not necessarily sufficient condition.
+Dynamically, there is no check that the subprogram has not updated entities
+not included in the postcondition.</p>
+<p>In general, formal verification works by imposing requirements on the callers of
+proved code, and these requirements should be shown to hold even when formal
+verification and testing are combined. Any tool set that proposes a combination
+of formal verification and testing for SPARK 2014 should provide a detailed process
+for doing so, including any necessary additional testing of proof assumptions.</p>
+</div>
+<div class="section" id="conditions-that-apply-to-the-tested-code">
+<h4>1.9.2.3. Conditions that Apply to the Tested Code<a class="headerlink" href="#conditions-that-apply-to-the-tested-code" title="Permalink to this headline">¶</a></h4>
+<p>The unit of test and formal verification is a subprogram (the sequence
+of statements of a package body is regarded as a subprogram).
+There are several sources of conditions that apply to a tested subprogram:</p>
+<ul class="simple">
+<li>The need to validate a partial proof of a subprogram that calls a
+subprogram that is not itself proven but is only tested.</li>
+<li>The need to validate the assumptions on which a proof of a
+subprogram is based when a tested subprogram calls it.</li>
+<li>A tested subprogram may be flow analyzed if it is in SPARK 2014 even if
+it is not formally proven.</li>
+<li>A tested subprogram may have properties that are formally proven.</li>
+</ul>
+<div class="section" id="flow-analysis-of-a-non-proven-subprogram">
+<h5>1.9.2.3.1. Flow analysis of a non-proven subprogram<a class="headerlink" href="#flow-analysis-of-a-non-proven-subprogram" title="Permalink to this headline">¶</a></h5>
+<p>If a subprogram is in SPARK 2014 but is too complex or difficult to prove
+formally then it still may be flow analyzed which is a fast and
+efficient process.  Flow analysis in the absence proof of has a number
+of significant benefits as the subprogram implementation is</p>
+<ul class="simple">
+<li>checked that it is in SPARK 2014;</li>
+<li>checked that there are no uses of initialized variables;</li>
+<li>checked that there are no ineffective statements; and</li>
+<li>checked against its specified Global and Depends aspects if they
+exist or alternatively facilitating their synthesis.  This is
+important because this automatically checks one of the conditions on
+tested subprograms which are called from proven code (see
+<a class="reference internal" href="#tested-from-proven"><span class="std std-ref">Conditions on a tested subprogram which is called from a partially proven subprogram</span></a>).</li>
+</ul>
+</div>
+<div class="section" id="proving-properties-of-a-tested-subprogram">
+<h5>1.9.2.3.2. Proving properties of a tested subprogram<a class="headerlink" href="#proving-properties-of-a-tested-subprogram" title="Permalink to this headline">¶</a></h5>
+<p>A tested subprogram which is in SPARK may have properties, such as the
+absence of run-time exceptions proven even though the full
+functionality of the subprogram is tested rather than proven.  The
+extent to which proof is performed is controlled using pragma Assume
+(see <a class="reference internal" href="statements.html#pragma-assume"><span class="std std-ref">Proof Pragmas</span></a>).</p>
+<p>To perform proof of absence of run-time exceptions but not the
+postcondition of a subprogram a pragma Assume stating the
+postcondition is placed immediately prior to each exit point from the
+subprogram (each return statement or the end of the body).  Parts of
+the postcondition may be proved using a similar scheme.</p>
+<p>If the proof of absence of one or more run-time exceptions is not
+proven automatically or takes too long to prove then pragma Assume may
+be used to suppress the proof of a particular check.</p>
+<p>Pragma Assume informs the proof system that the assumed expression is
+always True and so the prover does not attempt to prove it.  In
+general pragma Assume should be used with caution but it acts as a
+pragma Assert when the subprogram code is run.  Therefore, in a
+subprogram that is tested it acts as an extra test.</p>
+</div>
+<div class="section" id="conditions-on-a-tested-subprogram-which-is-called-from-a-partially-proven-subprogram">
+<span id="tested-from-proven"></span><h5>1.9.2.3.3. Conditions on a tested subprogram which is called from a partially proven subprogram<a class="headerlink" href="#conditions-on-a-tested-subprogram-which-is-called-from-a-partially-proven-subprogram" title="Permalink to this headline">¶</a></h5>
+<p>When a subprogram which is to be partially proven calls a tested
+(but not proven subprogram) then the following conditions must be met
+by the called subprogram:</p>
+<ul class="simple">
+<li>if it is in SPARK 2014 then it should be flow analyzed to demonstrate
+that the implementation satisfies the Global aspect and Depends
+aspects pf the subprogram if they are given, otherwise conservative
+approximations will be synthesized from the implementation of
+the subprogram;</li>
+<li>if it is not in SPARK 2014 then at least a Global aspect shall be
+specified for the subprogram.  The Global aspect must truthfully
+represent the global variables and state abstractions known to the
+SPARK 2014 program (not just the calling subprogram) and specify
+whether each of the global items are an Input, an Output or is
+In_Out.  The onus is on the user to show that the Global (and
+Depends) aspect is correct as the SPARK 2014 tools do not check this
+because the subprogram is not in SPARK 2014;</li>
+<li>it shall not update any variable or state abstraction known to the
+SPARK 2014 program, directly or indirectly, apart from through an
+actual parameter of the subprogram or a global item listed in its
+Global aspect.  Updating a variable or state abstraction through an
+object of an access type or through a subprogram call is an indirect
+update. Here again, if the subprogram is not in SPARK 2014 and cannot
+be flow analyzed, the onus is on the user to show this condition is
+met; and</li>
+<li>if it has a postcondition sufficient testing to demonstrate to a
+high-level of confidence that the postcondition is always True must
+be performed.</li>
+</ul>
+<p>A tool set may provide further tools to demonstrate that the Global
+aspects are satisfied by a non-SPARK 2014 subprogram and possibly
+partially check the post condition.</p>
+</div>
+<div class="section" id="conditions-on-a-tested-subprogram-which-is-calls-a-proven-subprogram">
+<h5>1.9.2.3.4. Conditions on a tested subprogram which is calls a proven subprogram<a class="headerlink" href="#conditions-on-a-tested-subprogram-which-is-calls-a-proven-subprogram" title="Permalink to this headline">¶</a></h5>
+<p>A tested (but not proven) subprogram which calls a proven subprogram
+must satisfy the following conditions:</p>
+<ul class="simple">
+<li>if it is in SPARK 2014 then flow analysis of the tested subprogram
+should be performed.  This demonstrates that all variables and state
+abstractions which are inputs to the called subprogram are
+initialized and that the outputs of the called subprogram are used;</li>
+<li>if it is not in SPARK 2014 the user must ensure that all variables and
+state abstractions that are inputs to the called subprogram are
+initialized prior to calling the subprogram.  This is the
+responsibility of the user as the SPARK 2014 tools cannot check this as
+the subprogram is not in SPARK 2014; and</li>
+<li>if it is in SPARK 2014 it may be possible to prove that the
+precondition of the called subprogram is always satisfied even if no
+other proof is undertaken, otherwise sufficient testing must be
+performed by the user to demonstrate to a high-level of confidence
+that the precondition of the subprogram will always be True when the
+subprogram is called.  The proof of the called subprogram relies on
+its precondition evaluating to True.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="adding-code-for-specification-and-verification">
+<span id="id4"></span><h3>1.9.3. Adding Code for Specification and Verification<a class="headerlink" href="#adding-code-for-specification-and-verification" title="Permalink to this headline">¶</a></h3>
+<p>Often extra entities, such as types, variables and functions may be required
+only for test and verification purposes. Such entities are termed <em>ghost</em>
+entities and their use is restricted so that they do not affect
+the functionality of the program. Complete removal of <em>ghost</em> entities has no
+functional impact on the program.</p>
+<p>SPARK 2014 supports ghost subprograms, types, objects, and packages.
+Ghost subprograms may be executable or non-executable.
+Non-executable ghost subprograms have no implementation
+and can be used for the purposes of formal verification only. Such
+functions may have their specification defined within an external
+proof tool to facilitate formal verification. This specification is
+outside of the SPARK 2014 language and toolset and therefore cannot be
+checked by the tools. An incorrect definition of function may lead to
+an unsound proof which is of no use. Ideally any definition will be
+checked for soundness by the external proof tools.</p>
+<p>If the postcondition of a function, F, can be specified in SPARK 2014 as
+F&#8217;Result = E, then the postcondition may be recast as the expression of an
+<code class="docutils literal"><span class="pre">expression_function_declaration</span></code> as shown below:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">F</span> <span class="o">(</span><span class="n">V</span> <span class="o">:</span> <span class="n">T</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">T1</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">E</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The default postcondition of an expression function is F&#8217;Result = E making E
+both the implementation and the expression defining the postcondition of the
+function. This is useful, particularly for ghost functions, as the expression
+which acts as the postcondition might not give the most efficient implementation
+but if the function is a ghost function this might not matter.</p>
+</div>
+<div class="section" id="synthesis-of-spark-aspects">
+<span id="verific-modes"></span><h3>1.9.4. Synthesis of SPARK 2014 Aspects<a class="headerlink" href="#synthesis-of-spark-aspects" title="Permalink to this headline">¶</a></h3>
+<p>SPARK 2014 supports a <em>constructive</em> analysis style where all program units
+require contracts specified by SPARK 2014 specific aspects to be provided on their
+declarations. Under this constructive analysis style, these contracts have to
+be designed and added at an early stage to assist modular analysis and
+verification, and then maintained by the user as a program evolves. When the
+body of a unit is implemented (or modified) it is checked that it conforms to
+its contract. However, it is mandated that a SPARK 2014 analysis tool shall be able
+to synthesize a conservative approximation of at least a minimum of SPARK 2014
+specific aspects from the source code of a unit.</p>
+<p>Synthesis of SPARK 2014 aspects is fundamental to the analysis
+of pre-existing code where no SPARK 2014 specific aspects are provided.</p>
+<p>A SPARK 2014 analysis tool is required to be
+capable of synthesizing at least a basic, conservative <a class="reference internal" href="subprograms.html#global-aspects"><span class="std std-ref">Global Aspects</span></a>,
+<a class="reference internal" href="subprograms.html#depends-aspects"><span class="std std-ref">Depends Aspects</span></a>, <a class="reference internal" href="packages.html#refined-global-aspect"><span class="std std-ref">Refined_Global Aspects</span></a>,
+<a class="reference internal" href="packages.html#refined-depends-aspect"><span class="std std-ref">Refined_Depends Aspects</span></a>, <a class="reference internal" href="packages.html#abstract-state-aspect"><span class="std std-ref">Abstract_State Aspects</span></a>,
+<a class="reference internal" href="packages.html#refined-state-aspect"><span class="std std-ref">Refined_State Aspects</span></a>, <a class="reference internal" href="packages.html#initializes-aspect"><span class="std std-ref">Initializes Aspects</span></a> and
+<a class="reference internal" href="packages.html#default-initial-condition-aspect"><span class="std std-ref">Default_Initial_Condition Aspects</span></a> from either the
+implementation code or from other SPARK 2014 aspects as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li>if subprogram has no Depends aspect but has a Global aspect, an
+approximation of the Depends aspect is obtained by constructing a
+<code class="docutils literal"><span class="pre">dependency_relation</span></code> by assuming that each output is dependent on every
+input, where outputs are all of the parameters of mode out and in-out, plus
+all the <code class="docutils literal"><span class="pre">global_items</span></code> that have a <code class="docutils literal"><span class="pre">mode_selector</span></code> of Output or In_Out,
+and inputs are all the parameters of mode in and in-out, plus all the
+<code class="docutils literal"><span class="pre">global_items</span></code> that have a <code class="docutils literal"><span class="pre">mode_selector</span></code> of Input or In_Out. This is
+a conservative approximation;</li>
+<li>if a subprogram has a Depends aspect but no Global aspect then the Global
+aspect is determined by taking each <code class="docutils literal"><span class="pre">input</span></code> of the <code class="docutils literal"><span class="pre">dependency_relation</span></code>
+which is not also an <code class="docutils literal"><span class="pre">output</span></code> and adding this to the Global aspect with a
+<code class="docutils literal"><span class="pre">mode_selector</span></code> of Input. Each <code class="docutils literal"><span class="pre">output</span></code> of the <code class="docutils literal"><span class="pre">dependency_relation</span></code>
+which is not also an <code class="docutils literal"><span class="pre">input</span></code> is added to the Global aspect with a
+<code class="docutils literal"><span class="pre">mode_selector</span></code> of Output. Finally, any other <code class="docutils literal"><span class="pre">input</span></code> and <code class="docutils literal"><span class="pre">output</span></code> of
+the <code class="docutils literal"><span class="pre">dependency_relation</span></code> which has not been added to the Global aspect is
+added with a <code class="docutils literal"><span class="pre">mode_selector</span></code> of In_Out;</li>
+<li>if neither a Global or Depends aspect is present, then first the globals of
+a subprogram are determined from an analysis of the entire program code.
+This is achieved in some tool dependent way. The globals of each subprogram
+determined from this analysis is used to synthesize the Global aspects and
+then from these the Depends aspects are synthesized as described above;</li>
+<li>if an Abstract_State is specified on a package and a Refined_State aspect is
+specified in its body, then Refined_Global and Refined_Depends aspects shall
+be synthesized in the same way as described above. From the Refined_Global,
+Refined_Depends and Refined_State aspects the abstract Global and Depends
+shall be synthesized if they are not present.</li>
+<li>if no abstract state aspect is specified on a package but it contains hidden
+state, then each variable that makes up the hidden state has a
+Abstract_State synthesized to represent it. At least a crude approximation of
+a single state abstraction for every variable shall be provided. A
+Refined_State aspect shall be synthesized which shows the constituents of
+each state.</li>
+<li>if no Default_Initial_Condition is specified for a private type declaration,
+then the synthesized value of this aspect of the type is determined
+by whether the full view of the private type defines full default
+initialization (see SPARK RM 3.1). If it does, then the synthesized
+aspect value is a static <em>Boolean_</em><code class="docutils literal"><span class="pre">expression</span></code> having
+the value True; if it does not, then the synthesized aspect value
+is a null literal.</li>
+</ul>
+</div></blockquote>
+<p>The syntheses described above do not include all of the SPARK 2014 aspects and nor
+do the syntheses cover all facets of the aspects. In complex programs where
+extra or more precise aspects are required they might have to be specified
+manually.</p>
+<p>An analysis tool may provide the synthesis of more aspects and more precise
+synthesis of the mandatory ones.</p>
+<p>Some use cases where the synthesis of aspects is likely to be required are:</p>
+<ul class="simple">
+<li>Code has been developed as SPARK 2014 but not all the aspects are included on all
+subprograms by the developer. This is regarded as <em>generative analysis</em>, where
+the code was written with the intention that it would be analyzed.</li>
+<li>Code is in maintenance phase, it might or might not have all of the SPARK 2014
+specific aspects.  If there are aspects missing they are automatically
+for analysis purposes when possible. This is also regarded as generative
+analysis.</li>
+<li>Legacy code is analyzed which has no or incomplete SPARK 2014 specific aspects
+This is regarded as <em>retrospective analysis</em>, where code is being analyzed
+that was not originally written with analysis in mind. Legacy code will
+typically have a mix of SPARK 2014 and non-SPARK 2014 code (and so there is an
+interaction with the detail presented in section <a class="reference internal" href="#in-out"><span class="std std-ref">In and Out of SPARK 2014</span></a>).
+This leads to two additional process steps that might be necessary:<ul>
+<li>An automatic identification of what code is in SPARK 2014 and what is not.</li>
+<li>Manual definition of the boundary between the SPARK 2014 and non-SPARK 2014 code
+by explicitly specifying accurate and truthful contracts using SPARK 2014
+specific aspects on the declarations of non-SPARK 2014 program units.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="in-and-out-of-spark">
+<span id="in-out"></span><h3>1.9.5. In and Out of SPARK 2014<a class="headerlink" href="#in-and-out-of-spark" title="Permalink to this headline">¶</a></h3>
+<p>There are various reasons why it may be necessary to combine SPARK 2014 and
+non-SPARK 2014 in the same program, such as (though not limited to):</p>
+<ul class="simple">
+<li>Use of language features that are not amenable to formal verification (and hence
+where formal verification will be mixed with testing).</li>
+<li>Use of libraries that are not written in SPARK 2014.</li>
+<li>Need to analyze legacy code that was not developed as SPARK 2014.</li>
+</ul>
+<p>Hence, it must be possible within the language to indicate what parts are
+(intended to be) in and what parts are (intended to be) out, of SPARK 2014.</p>
+<p>The default is to assume none of the program text is in SPARK 2014, although this
+can be overridden. A new aspect  <em>SPARK_Mode</em> is provided, which may be applied to a unit
+declaration or a unit body, to indicate when a unit declaration or just its body
+is in SPARK and should be analyzed. If just the body is not in SPARK 2014 a
+SPARK 2014 compatible contract may be supplied on the declaration which facilitates
+the analysis of units which use the declaration. The tools cannot check that the
+the given contract is met by the body as it is not analyzed. The burden falls
+on the user to ensure that the contract represents the behavior of the body as seen by the
+SPARK 2014 parts of the program and &#8211; if this is not the case &#8211; the assumptions
+on which the analysis of the SPARK 2014 code relies may be invalidated.</p>
+<p>In general a definition may be in SPARK 2014 but its completion need not be.</p>
+<p>A finer grain of mixing SPARK 2014 and Ada code is also possible by justifying
+certain warnings and errors.  Warnings may be justified at a project, library
+unit, unit, and individual warning level.
+Errors may be justifiable at the individual error level or be
+unsuppressible errors.</p>
+<p>Examples of this are:</p>
+<ul class="simple">
+<li>A declaration occurring immediately within a unit might not be in, or might
+depend on features not in, the SPARK 2014 subset. The declaration might generate
+a warning or an error which may be justifiable. This does not necessarily
+render the whole of the program unit not in SPARK 2014.  If the declaration
+generates a warning, or if the error is justified, then the unit is considered
+to be in SPARK 2014 except for the errant declaration.</li>
+<li>It is the use of the entity declared by the errant declaration, for instance
+a call of a subprogram or the denoting of an object in an expression
+(generally within the statements of a body) that will result in an
+unsupressible error. The body of a unit causing the unsuppressible message (or
+declaration if this is the cause) will need to be marked as not in SPARK 2014 to
+prevent its future analysis.</li>
+</ul>
+<p>Hence, SPARK 2014 and non-SPARK 2014 code may mix at a fine level of granularity.
+The following combinations may be typical:</p>
+<ul class="simple">
+<li>Package (or generic package) specification in SPARK 2014. Package body entirely
+not in SPARK 2014.</li>
+<li>Visible part of package (or generic package) specification in SPARK 2014.
+Private part and body not in SPARK 2014.</li>
+<li>Package specification in SPARK 2014. Package body almost entirely in SPARK 2014, with a small
+number of subprogram bodies not in SPARK 2014.</li>
+<li>Package specification in SPARK 2014, with all bodies imported from another language.</li>
+<li>Package specification contains a mixture of declarations which are in SPARK 2014
+and not in SPARK 2014.  A client of the package may be in SPARK 2014 if it only
+references SPARK 2014 declarations; the presence of non-SPARK 2014 constructs
+in a referenced package specification does not by itself mean that
+a client is not in SPARK 2014.</li>
+</ul>
+<p>Such patterns are intended to allow for mixed-language programming,
+mixed-verification using different analysis tools, and mixed-verification
+between formal verification and more traditional testing. A condition for
+safely combining the results of formal verification with other verification
+results is that formal verification tools explicitly list the assumptions that
+were made to produce their results. The proof of a property may depend on the
+assumption of other user-specified properties (for example, preconditions and
+postconditions) or implicit assumptions associated with the foundation and
+hypothesis on which the formal verification relies (for example,
+initialization of inputs and outputs, or non-aliasing between parameters). When
+a complete program is formally verified, these assumptions are discharged by
+the proof tools, based on the global guarantees provided by the strict
+adherence to a given language subset. No such guarantees are available when
+only part of a program is formally verified.  Thus, combining these results
+with other verification results depends on the verification of global and local
+assumptions made during formal verification.</p>
+<p>Full details on the SPARK_Mode aspect are given in the SPARK Toolset User&#8217;s Guide (<em>Identifying SPARK Code</em>).</p>
+</div>
+<div class="section" id="external-state">
+<span id="volatile"></span><h3>1.9.6. External State<a class="headerlink" href="#external-state" title="Permalink to this headline">¶</a></h3>
+<p>A variable or a state abstraction may be specified as external state to
+indicate that it represents an external communication channel, for instance, to
+a device or another subsystem. An external variable may be specified as volatile.
+A volatile state need not have the same value between two reads without an
+intervening update. Similarly an update of a volatile variable might not have any
+effect on the internal operation of a program, its only effects are external to
+the program. These properties require special treatment of volatile variables
+during flow analysis and formal verification.</p>
+<p>SPARK 2014 follows the Ada convention that a read of a volatile variable
+may have an external effect as well as reading the value of the
+variable.  SPARK 2014 extends this notion to cover updates of a volatile
+variable such that an update of a volatile variable may also have some
+other observable effect.  SPARK 2014 further extends these principles to
+apply to state abstractions. (see section <a class="reference internal" href="packages.html#external-state"><span class="std std-ref">External State</span></a>).</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="lexical-elements.html" title="2. Lexical Elements"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="SPARK 2014 Reference Manual"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

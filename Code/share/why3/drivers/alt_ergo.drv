@@ -1,0 +1,7 @@
+(* Driver for Alt-Ergo versions >= 0.95.2 *)
+
+import "alt_ergo_common.drv"
+import "no-bv.gen"
+
+(* additional regexp for detection of answers, needed for alt-ergo <= 0.99 *)
+valid "^Inconsistent assumption$"

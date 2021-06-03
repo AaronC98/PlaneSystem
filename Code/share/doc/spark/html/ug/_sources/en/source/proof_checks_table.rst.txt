@@ -1,0 +1,54 @@
+Messages reported by Proof
+--------------------------
+
+.. tabularcolumns:: |l|l|p{3in}|
+
+.. csv-table::
+   :header: "Message Kind", "CWE", "Explanation"
+   :widths: 1, 1, 4
+
+   **run-time checks**
+   "divide by zero", "CWE `369 <http://cwe.mitre.org/data/definitions/369.html>`_", "Check that the second operand of the division, mod or rem operation is different from zero."
+   "index check", "CWE `120 <http://cwe.mitre.org/data/definitions/120.html>`_", "Check that the given index is within the bounds of the array."
+   "overflow check", "CWE `190 <http://cwe.mitre.org/data/definitions/190.html>`_", "Check that the result of the given integer arithmetic operation is within the bounds of the base type."
+   "fp_overflow check", "CWE `739 <http://cwe.mitre.org/data/definitions/739.html>`_", "Check that the result of the given floating point operation is within the bounds of the base type."
+   "range check", "CWE `682 <http://cwe.mitre.org/data/definitions/682.html>`_", "Check that the given value is within the bounds of the expected scalar subtype."
+   "predicate check", "CWE `682 <http://cwe.mitre.org/data/definitions/682.html>`_", "Check that the given value respects the applicable type predicate."
+   "predicate check on default value", "CWE `682 <http://cwe.mitre.org/data/definitions/682.html>`_", "Check that the default value for the type respects the applicable type predicate."
+   "null pointer dereference", "CWE `476 <http://cwe.mitre.org/data/definitions/476.html>`_", "Check that the given pointer is not null so that it can be dereferenced."
+   "null exclusion", ,"Check that the the subtype_indication of the allocator does not specify a null_exclusion"
+   "length check", ,"Check that the given array is of the length of the expected array subtype."
+   "discriminant check", "CWE `136 <http://cwe.mitre.org/data/definitions/136.html>`_", "Check that the discriminant of the given discriminated record has the expected value. For variant records, this can happen for a simple access to a record field. But there are other cases where a fixed value of the discriminant is required."
+   "tag check", "CWE `136 <http://cwe.mitre.org/data/definitions/136.html>`_", "Check that the tag of the given tagged object has the expected value."
+   "ceiling priority in Interrupt_Priority", ,"Check that the ceiling priority specified for a protected object containing a procedure with an aspect Attach_Handler is in Interrupt_Priority."
+   "use of an uninitialized variable", "CWE `457 <http://cwe.mitre.org/data/definitions/457.html>`_", "Check that a variable is initialized"
+   "interrupt is reserved", ,"Check that the interrupt specified by Attach_Handler is not reserved."
+   "invariant check", ,"Check that the given value respects the applicable type invariant."
+   "invariant check on default value", ,"Check that the default value for the type respects the applicable type invariant."
+   "ceiling priority protocol", ,"Check that the ceiling priority protocol is respected, i.e., when a task calls a protected operation, the active priority of the task is not higher than the priority of the protected object (Ada RM Annex D.3)."
+   "task termination", ,"Check that the task does not terminate, as required by Ravenscar."
+
+   **assertions**
+   "initial condition", ,"Check that the initial condition of a package is true after elaboration."
+   "default initial condition", ,"Check that the default initial condition of a type is true after default initialization of an object of the type."
+   "precondition", ,"Check that the precondition aspect of the given call evaluates to True."
+   "precondition of main", ,"Check that the precondition aspect of the given main procedure evaluates to True after elaboration."
+   "postcondition", ,"Check that the postcondition aspect of the subprogram evaluates to True."
+   "refined postcondition", ,"Check that the refined postcondition aspect of the subprogram evaluates to True."
+   "contract case", ,"Check that all cases of the contract case evaluate to true at the end of the subprogram."
+   "disjoint contract cases", ,"Check that the cases of the contract cases aspect are all mutually disjoint."
+   "complete contract cases", ,"Check that the cases of the contract cases aspect cover the state space that is allowed by the precondition aspect."
+   "loop invariant", ,"Check that the loop invariant evaluates to True on all iterations of the loop."
+   "loop invariant in first iteration", ,"Check that the loop invariant evaluates to True on the first iteration of the loop."
+   "loop invariant after first iteration", ,"Check that the loop invariant evaluates to True at each further iteration of the loop."
+   "loop variant", "CWE `835 <http://cwe.mitre.org/data/definitions/835.html>`_", "Check that the given loop variant decreases/increases as specified during each iteration of the loop. This implies termination of the loop."
+   "assertion", ,"Check that the given assertion evaluates to True."
+   "raised exception", ,"Check that the raise statement can never be reached."
+   "Inline_For_Proof annotation", ,"Check that an Annotate pragma with the Inline_For_Proof identifier is correct."
+
+   **Liskov Substitution Principle**
+   "precondition weaker than class-wide precondition", ,"Check that the precondition aspect of the subprogram is weaker than its class-wide precondition."
+   "precondition not True while class-wide precondition is True", ,"Check that the precondition aspect of the subprogram is True if its class-wide precondition is True."
+   "postcondition stronger than class-wide postcondition", ,"Check that the postcondition aspect of the subprogram is stronger than its class-wide postcondition."
+   "class-wide precondition weaker than overridden one", ,"Check that the class-wide precondition aspect of the subprogram is weaker than its overridden class-wide precondition."
+   "class-wide postcondition stronger than overridden one", ,"Check that the class-wide postcondition aspect of the subprogram is stronger than its overridden class-wide postcondition."

@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>GNATprove Limitations &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Portability Issues" href="portability_issues.html" />
+    <link rel="prev" title="Uses of Pragma Annotate GNATprove" href="additional_annotate_pragmas.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="portability_issues.html" title="Portability Issues"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="additional_annotate_pragmas.html" title="Uses of Pragma Annotate GNATprove"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">GNATprove Limitations</a><ul>
+<li><a class="reference internal" href="#tool-limitations">Tool Limitations</a></li>
+<li><a class="reference internal" href="#legality-rules">Legality Rules</a></li>
+<li><a class="reference internal" href="#flow-analysis-limitations">Flow Analysis Limitations</a></li>
+<li><a class="reference internal" href="#proof-limitations">Proof Limitations</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="additional_annotate_pragmas.html"
+                        title="previous chapter">Uses of Pragma Annotate GNATprove</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="portability_issues.html"
+                        title="next chapter">Portability Issues</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/appendix/gnatprove_limitations.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="gnatprove-limitations">
+<span id="id1"></span><h1>GNATprove Limitations<a class="headerlink" href="#gnatprove-limitations" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tool-limitations">
+<span id="id2"></span><h2>Tool Limitations<a class="headerlink" href="#tool-limitations" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">The Global contracts generated automatically by GNATprove for subprograms
+without an explicit one do not take into account indirect calls (through
+access-to-subprogram and dynamic binding) and indirect reads/writes to
+global variables (through access variables).</p>
+</li>
+<li><p class="first">A subset of all Ada conversions between array types is supported:</p>
+<ul class="simple">
+<li>element types must be exactly the same</li>
+<li>matching index types must either be both modular with a base type of the
+same size, or both non modular</li>
+</ul>
+</li>
+<li><p class="first">A subset of all Ada fixed-point types and fixed-point operations is
+supported:</p>
+<ul class="simple">
+<li>multiplication and division between different fixed-point types and
+floating-point types are rejected</li>
+<li>multiplication and division between different fixed-point types are
+rejected if their smalls are not <em>compatible</em> as defined in Ada RM
+G.2.3(21).</li>
+<li>conversions from fixed-point types to floating-point types are rejected</li>
+</ul>
+<p>These restrictions ensure that the result of fixed-point operations always
+belongs to the <em>perfect result set</em> as defined in Ada RM G.2.3.</p>
+</li>
+<li><p class="first">Multidimensional array types are supported up to 4 dimensions.</p>
+</li>
+<li><p class="first">Loop_Invariant and Loop_Variant pragmas must appear before any non-scalar
+object declaration.</p>
+</li>
+<li><p class="first">Inheriting the same subprogram from multiple interfaces is not supported.</p>
+</li>
+<li><p class="first">Formal object parameters of generics of an unconstrained record type with
+per-object constrained fields are badly supported by the tool and may
+result in crashes in some cases.</p>
+</li>
+<li><p class="first">Quantified expressions with an iterator over a multi dimensional array (for
+example <code class="docutils literal"><span class="pre">for</span> <span class="pre">all</span> <span class="pre">Elem</span> <span class="pre">of</span> <span class="pre">Arr</span></code> where <code class="docutils literal"><span class="pre">Arr</span></code> is a multi dimensional array)
+are not supported.</p>
+</li>
+<li><p class="first">Constrained subtypes of class-wide types and &#8216;Class attributes of
+constrained record types are not supported.</p>
+</li>
+<li><p class="first">Abstract states cannot be marked <code class="docutils literal"><span class="pre">Part_Of</span></code> a single concurrent object (see
+SPARK RM 9(3)). An error is raised instead in such cases.</p>
+</li>
+<li><p class="first">Classwide Global and Depends contracts as defined in SPARK RM 6.1.6 are not
+supported.</p>
+</li>
+<li><p class="first">Task attributes Identity and Storage_Size are not supported.</p>
+</li>
+<li><p class="first">Type_Invariant and Invariant aspects are not supported:</p>
+<ul class="simple">
+<li>on private types declared in nested packages or child packages</li>
+<li>on protected types</li>
+<li>on tagged types</li>
+<li>on components of tagged types if the tagged type is visible from inside the
+scope of the invariant bearing type.</li>
+</ul>
+</li>
+<li><p class="first">Calls to protected subprograms and protected entries whose prefix denotes a
+formal subprogram parameter are not supported. Similarly, suspension on
+suspension objects given as formal subprogram parameters is not supported.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="legality-rules">
+<h2>Legality Rules<a class="headerlink" href="#legality-rules" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>SPARK Reference Manual rule 4.3(1), concerning use of the box
+symbol &#8220;&lt;&gt;&#8221; in aggregates, is not currently checked.</li>
+<li>The rule concerned with asserting that all child packages which
+have state denoted as being Part_Of a more visible state
+abstraction are given as constituents in the refinement of the more
+visible state is not checked (SPARK Reference Manual rule
+7.2.6(6)).</li>
+<li>The case of a state abstraction whose Part_Of aspect denotes a
+task or protected unit is not currently supported.</li>
+<li>The case of a Refined_Post specification for a (protected) entry
+is not currently supported.</li>
+<li>The use of Ada.Synchronous_Barriers.Synchronous_Barrier type is not currently
+allowed in SPARK.</li>
+<li>Entry families are not currently allowed in SPARK.</li>
+</ol>
+</div>
+<div class="section" id="flow-analysis-limitations">
+<h2>Flow Analysis Limitations<a class="headerlink" href="#flow-analysis-limitations" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Flow dependencies caused by record assignments is not captured with perfect
+accuracy. This means that the value of one field might incorrectly be
+considered to participate in the derivation of another field that it does
+not really participate in.</li>
+<li>Initialization of multi-dimensional arrays with nested FOR loops can be only
+detected if the array bounds are given by static expressions.</li>
+</ol>
+</div>
+<div class="section" id="proof-limitations">
+<h2>Proof Limitations<a class="headerlink" href="#proof-limitations" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Postconditions of recursive functions called in contracts and assertion
+pragmas are not available, possibly leading to unproved checks. The current
+workaround is to use a non-recursive wrapper around those functions. Using
+the switch <code class="docutils literal"><span class="pre">--info</span></code> reveals where the information about postcondition may
+be lost.</p>
+</li>
+<li><p class="first">Attribute &#8216;Valid is currently assumed to always return True.</p>
+</li>
+<li><p class="first">Values read from an external source are assumed to be valid values.
+Currently there is no model of invalidity or undefinedness. The onus
+is on the user to ensure that all values read from an external source are
+valid. The use of an invalid value invalidates any proofs associated with
+the value.</p>
+</li>
+<li><p class="first">The following attributes are not yet supported in proof: Adjacent, Aft,
+Bit_Order, Body_Version, Copy_Sign, Definite, Denorm, First_Valid, Fore,
+Last_Valid, Machine, all Machine_* attributes, Model, all Model_* attributes,
+Partition_Id, Remainder, Round, Safe_First, Safe_Last, Scale, Scaling, Small,
+Unbiased_Rounding, Version, Wide_Image, Wide_Value, Wide_Width,
+Wide_Wide_Image, Wide_Wide_Value, Wide_Wide_Width, Width.</p>
+<p>The attributes First_Bit, Last_Bit and Position are supported but if there is
+no record representation clause then we assume that their value is
+nonnegative.</p>
+</li>
+<li><p class="first">The &#8216;Update attribute on multidimensional unconstrained arrays is not
+yet fully supported in proof. Checks might be missing so currently an
+error is emitted for any use of the &#8216;Update attribute on
+multidimensional unconstrained arrays.</p>
+</li>
+<li><p class="first">GNATprove does not follow the value of tags for tagged objects. As a
+consequence, tag checks are currently unprovable in most cases.</p>
+</li>
+<li><p class="first">Constants declared in loops before the loop invariant are handled as
+variables by the tool. This means in particular that any information
+about their values needed after the loop invariant must be stated explicitly
+in the loop invariant.</p>
+</li>
+<li><p class="first">Preconditions on arithmetic and conversion operators (including Time_Of) in
+Ada.Execution_Time and Ada.Real_Time packages described in SPARK Reference
+Manual 9.19 are not yet implemented.</p>
+</li>
+<li><p class="first">Preconditions on arithmetic and conversion operators (including Time_Of) in
+Ada.Calendar package are not yet implemented.</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="portability_issues.html" title="Portability Issues"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="additional_annotate_pragmas.html" title="Uses of Pragma Annotate GNATprove"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

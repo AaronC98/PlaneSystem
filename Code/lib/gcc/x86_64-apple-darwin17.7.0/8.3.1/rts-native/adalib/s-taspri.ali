@@ -1,0 +1,69 @@
+V "GNAT Lib v2019"
+A -O2
+A -fno-common
+A -gnatp
+A -gnatg
+A -gnatn
+A -gnatU
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U system.task_primitives%s  s-taspri.ads	fde20231 NE OL PR PK
+W system%s		system.ads		system.ali
+W system.os_interface%s	s-osinte.adb		s-osinte.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D i-c.ads		20190518041255 5421119b interfaces.c%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-oscons.ads		20190518124529 e40aaf2d system.os_constants%s
+D s-osinte.ads		20190518041258 01b3ad47 system.os_interface%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-taspri.ads		20190518041257 f40ac08d system.task_primitives%s
+G a e
+G c Z s s [lockIP system__task_primitives 77 9 none]
+G c Z s s [suspension_objectIP system__task_primitives 82 9 none]
+G c Z s s [private_dataIP system__task_primitives 99 9 none]
+X 5 system.ads
+37K9*System 174e11 11|41r6 43r9 66r28 70r39 75r25 78r20 95r20 100r24 108r21
+. 113r20 120r5
+67M9*Address 11|66r35 108r28
+X 8 s-osinte.ads
+44K16*OS_Interface 598e24 11|41w13 70r46 75r32 78r27 95r27 100r31 113r27
+243M9*pthread_t<5|67M9> 11|100r44
+246R9*pthread_mutex_t 575e14 11|75r45
+247R9*pthread_cond_t 587e14 11|95r40 113r40
+266R12*pthread_rwlock_t{246R9} 11|78r40
+289N4*Alternate_Stack_Size 11|70r59
+X 11 s-taspri.ads
+43K16*Task_Primitives 5|37k9 11|75E9 120l12 120e27
+46R9*Lock 77c9 80e14
+49R9*RTS_Lock<8|246R9> 75c9 79r20 92r19 116r19
+54R9*Suspension_Object 82c9 97e14
+57P9*Task_Body_Access
+61R9*Private_Data 99c9 118e14
+66M12*Task_Address{5|67M9}
+67N4*Task_Address_Size
+70N4*Alternate_Stack_Size
+78r7*RW{8|266R12}
+79r7*WO{49R9}
+83b7*State{boolean}
+89b7*Waiting{boolean}
+92r7*L{49R9}
+95r7*CV{8|247R9}
+100m7*Thread{8|243M9}
+108m7*LWP{5|67M9}
+113r7*CV{8|247R9}
+116r7*L{49R9}
+

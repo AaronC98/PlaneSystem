@@ -1,0 +1,481 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>5.8. Object Oriented Programming and Liskov Substitution Principle &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5.9. Concurrency and Ravenscar Profile" href="concurrency.html" />
+    <link rel="prev" title="5.7. Overflow Modes" href="overflow_modes.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="concurrency.html" title="5.9. Concurrency and Ravenscar Profile"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="overflow_modes.html" title="5.7. Overflow Modes"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../spark_2014.html" accesskey="U">5. Overview of SPARK Language</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5.8. Object Oriented Programming and Liskov Substitution Principle</a><ul>
+<li><a class="reference internal" href="#class-wide-subprogram-contracts">5.8.1. Class-Wide Subprogram Contracts</a></li>
+<li><a class="reference internal" href="#mixing-class-wide-and-specific-subprogram-contracts">5.8.2. Mixing Class-Wide and Specific Subprogram Contracts</a></li>
+<li><a class="reference internal" href="#dispatching-calls-and-controlling-operands">5.8.3. Dispatching Calls and Controlling Operands</a></li>
+<li><a class="reference internal" href="#dynamic-types-and-invisible-components">5.8.4. Dynamic Types and Invisible Components</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="overflow_modes.html"
+                        title="previous chapter">5.7. Overflow Modes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="concurrency.html"
+                        title="next chapter">5.9. Concurrency and Ravenscar Profile</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/object_oriented_programming.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="object-oriented-programming-and-liskov-substitution-principle">
+<span id="id1"></span><h1>5.8. Object Oriented Programming and Liskov Substitution Principle<a class="headerlink" href="#object-oriented-programming-and-liskov-substitution-principle" title="Permalink to this headline">¶</a></h1>
+<p>SPARK supports safe Object Oriented Programming by checking behavioral
+subtyping between parent types and derived types, a.k.a. Liskov Substitution
+Principle: every overriding operation of the derived type should behave so that
+it can be substituted for the corresponding overridden operation of the parent
+type anywhere.</p>
+<div class="section" id="class-wide-subprogram-contracts">
+<span id="id2"></span><h2>5.8.1. Class-Wide Subprogram Contracts<a class="headerlink" href="#class-wide-subprogram-contracts" title="Permalink to this headline">¶</a></h2>
+<p>[Ada 2012]</p>
+<p>Specific <a class="reference internal" href="subprogram_contracts.html#subprogram-contracts"><span class="std std-ref">Subprogram Contracts</span></a> are required on operations of tagged
+types, so that GNATprove can check Liskov Substitution Principle on every
+overriding operation:</p>
+<ul class="simple">
+<li>The <cite>class-wide precondition</cite> introduced by aspect <code class="docutils literal"><span class="pre">Pre'Class</span></code> is similar
+to the normal precondition.</li>
+<li>The <cite>class-wide postcondition</cite> introduced by aspect <code class="docutils literal"><span class="pre">Post'Class</span></code> is similar
+to the normal postcondition.</li>
+</ul>
+<p>Although these contracts are defined in Ada 2012, they have a stricter meaning
+in SPARK for checking Liskov Substitution Principle:</p>
+<ul class="simple">
+<li>The class-wide precondition of an overriding operation should be weaker (more
+permissive) than the class-wide precondition of the corresponding overridden
+operation.</li>
+<li>The class-wide postcondition of an overriding operation should be stronger
+(more restrictive) than the class-wide postcondition of the corresponding
+overridden operation.</li>
+</ul>
+<p>For example, suppose that the <code class="docutils literal"><span class="pre">Logging</span></code> unit introduced in <a class="reference internal" href="specification_features.html#ghost-packages"><span class="std std-ref">Ghost Packages</span></a> defines a tagged type <code class="docutils literal"><span class="pre">Log_Type</span></code> for logs, with corresponding
+operations:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Logging</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Max_Count</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="o">:=</span> <span class="mi">10_000</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Log_Count</span> <span class="kr">is</span><span class="p"> </span><span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="n">Max_Count</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Log_Type</span> <span class="kr">is</span><span class="p"> </span><span class="kr">tagged</span><span class="p"> </span><span class="kr">private</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Log_Size</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Log_Count</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Init_Log</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Log_Type</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span><span class="na">&#39;Class</span> <span class="o">=&gt;</span> <span class="n">Log.Log_Size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Append_To_Log</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Log_Type</span><span class="p">;</span> <span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span><span class="na">&#39;Class</span>  <span class="o">=&gt;</span> <span class="n">Log.Log_Size</span> <span class="o">&lt;</span> <span class="n">Max_Count</span><span class="p">,</span>
+     <span class="n">Post</span><span class="na">&#39;Class</span> <span class="o">=&gt;</span> <span class="n">Log.Log_Size</span> <span class="o">=</span> <span class="n">Log.Log_Size</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="kr">private</span><span class="p"></span>
+
+   <span class="kr">subtype</span><span class="p"> </span><span class="n">Log_Index</span> <span class="kr">is</span><span class="p"> </span><span class="n">Log_Count</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="n">Max_Count</span><span class="p">;</span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Integer_Array</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Log_Index</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Log_Type</span> <span class="kr">is</span><span class="p"> </span><span class="kr">tagged</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">Log_Data</span> <span class="o">:</span> <span class="n">Integer_Array</span><span class="p">;</span>
+      <span class="n">Log_Size</span> <span class="o">:</span> <span class="n">Log_Count</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Log_Size</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Log_Count</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Log.Log_Size</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Logging</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>and that this type is derived in <code class="docutils literal"><span class="pre">Range_Logging.Log_Type</span></code> which additionally
+keeps track of the minimum and maximum values in the log, so that they can be
+accessed in constant time:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Logging</span><span class="p">;</span> <span class="kr">use</span><span class="p"> </span><span class="kr">type</span><span class="p"> </span><span class="n">Logging.Log_Count</span><span class="p">;</span>
+
+<span class="k">package </span><span class="nf">Range_Logging</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Log_Type</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Logging.Log_Type</span> <span class="kr">with</span><span class="p"> </span><span class="kr">private</span><span class="p">;</span>
+
+   <span class="kr">not</span><span class="p"> </span><span class="kr">overriding</span><span class="p"></span>
+   <span class="k">function </span><span class="nf">Log_Min</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="kr">not</span><span class="p"> </span><span class="kr">overriding</span><span class="p"></span>
+   <span class="k">function </span><span class="nf">Log_Max</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="kr">overriding</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Init_Log</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Log_Type</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span><span class="na">&#39;Class</span> <span class="o">=&gt;</span> <span class="n">Log.Log_Size</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"></span>
+                   <span class="n">Log.Log_Min</span> <span class="o">=</span> <span class="n">Integer</span><span class="na">&#39;Last</span> <span class="kr">and</span><span class="p"></span>
+                   <span class="n">Log.Log_Max</span> <span class="o">=</span> <span class="n">Integer</span><span class="na">&#39;First</span><span class="p">;</span>
+
+   <span class="kr">overriding</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Append_To_Log</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Log_Type</span><span class="p">;</span> <span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span><span class="na">&#39;Class</span>  <span class="o">=&gt;</span> <span class="n">Log.Log_Size</span> <span class="o">&lt;</span> <span class="n">Logging.Max_Count</span><span class="p">,</span>
+     <span class="n">Post</span><span class="na">&#39;Class</span> <span class="o">=&gt;</span> <span class="n">Log.Log_Size</span> <span class="o">=</span> <span class="n">Log.Log_Size</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="mi">1</span> <span class="kr">and</span><span class="p"></span>
+                   <span class="n">Log.Log_Min</span> <span class="o">=</span> <span class="n">Integer</span><span class="na">&#39;Min</span> <span class="o">(</span><span class="n">Log.Log_Min</span><span class="na">&#39;Old</span><span class="p">,</span> <span class="n">Incr</span><span class="o">)</span> <span class="kr">and</span><span class="p"></span>
+                   <span class="n">Log.Log_Max</span> <span class="o">=</span> <span class="n">Integer</span><span class="na">&#39;Max</span> <span class="o">(</span><span class="n">Log.Log_Max</span><span class="na">&#39;Old</span><span class="p">,</span> <span class="n">Incr</span><span class="o">)</span><span class="p">;</span>
+
+<span class="kr">private</span><span class="p"></span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Log_Type</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Logging.Log_Type</span> <span class="kr">with</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+     <span class="n">Min_Entry</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+     <span class="n">Max_Entry</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Log_Min</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Log.Min_Entry</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">function </span><span class="nf">Log_Max</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Log.Max_Entry</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Range_Logging</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove proves that the contracts on <code class="docutils literal"><span class="pre">Logging.Append_To_Log</span></code> and its
+overriding <code class="docutils literal"><span class="pre">Range_Logging.Append_To_Log</span></code> respect the Liskov Substitution
+Principle:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>range_logging.ads:16:20: info: class-wide postcondition is stronger than overridden one
+range_logging.ads:22:20: info: class-wide precondition is weaker than overridden one
+range_logging.ads:23:20: info: class-wide postcondition is stronger than overridden one
+</pre></div>
+</div>
+<p>Units <code class="docutils literal"><span class="pre">Logging</span></code> and <code class="docutils literal"><span class="pre">Range_Logging</span></code> need not be implemented, or available,
+or in SPARK. It is sufficient that the specification of <code class="docutils literal"><span class="pre">Logging</span></code> and
+<code class="docutils literal"><span class="pre">Range_Logging</span></code> are in SPARK for this checking. Here, the postcondition of
+<code class="docutils literal"><span class="pre">Range_Logging.Append_To_Log</span></code> is strictly stronger than the postcondition of
+<code class="docutils literal"><span class="pre">Logging.Append_To_Log</span></code>, as it also specifies the new expected value of the
+minimum and maximum values. The preconditions of both procedures are exactly
+the same, which is the most common case, but in other cases it might be useful
+to be more permissive in the overriding operation&#8217;s precondition. For example,
+<code class="docutils literal"><span class="pre">Range_Logging.Append_To_Log</span></code> could allocate dynamically additional memory
+for storing an unbounded number of events, instead of being limited to
+<code class="docutils literal"><span class="pre">Max_Count</span></code> events like <code class="docutils literal"><span class="pre">Logging.Append_To_Log</span></code>, in which case its
+precondition would be simply <code class="docutils literal"><span class="pre">True</span></code> (the default precondition).</p>
+<p>A derived type may inherit both from a parent type and from one or more
+interfaces, which only provide abstract operations and no
+components. GNATprove checks Liskov Substitution Principle on every
+overriding operation, both when the overridden operation is inherited from the
+parent type and when it is inherited from an interface.</p>
+<p>GNATprove separately checks that a subprogram implements its class-wide
+contract, like for a specific contract.</p>
+</div>
+<div class="section" id="mixing-class-wide-and-specific-subprogram-contracts">
+<span id="id3"></span><h2>5.8.2. Mixing Class-Wide and Specific Subprogram Contracts<a class="headerlink" href="#mixing-class-wide-and-specific-subprogram-contracts" title="Permalink to this headline">¶</a></h2>
+<p>[Ada 2012]</p>
+<p>It is possible to specify both a specific contract and a class-wide contract on
+a subprogram, in order to use a more precise contract (the specific one) for
+non-dispatching calls and a contract compatible with the Liskov Substitution
+Principle (the class-wide contract) for dispatching calls. In that case,
+GNATprove checks that:</p>
+<ul class="simple">
+<li>The specific precondition is weaker (more permissive) than the class-wide precondition.</li>
+<li>The specific postcondition is stronger (more restrictive) than the class-wide
+postcondition.</li>
+</ul>
+<p>For example, <code class="docutils literal"><span class="pre">Logging.Append_To_Log</span></code> could set a boolean flag
+<code class="docutils literal"><span class="pre">Special_Value_Logged</span></code> when some <code class="docutils literal"><span class="pre">Special_Value</span></code> is appended to the log,
+and express this property in its specific postcondition so that it is available
+for analyzing non-dispatching calls to the procedure:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Append_To_Log</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Log_Type</span><span class="p">;</span> <span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Pre</span><span class="na">&#39;Class</span>  <span class="o">=&gt;</span> <span class="n">Log.Log_Size</span> <span class="o">&lt;</span> <span class="n">Max_Count</span><span class="p">,</span>
+  <span class="n">Post</span><span class="na">&#39;Class</span> <span class="o">=&gt;</span> <span class="n">Log.Log_Size</span> <span class="o">=</span> <span class="n">Log.Log_Size</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="n">Post</span>       <span class="o">=&gt;</span> <span class="n">Log.Log_Size</span> <span class="o">=</span> <span class="n">Log.Log_Size</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="mi">1</span> <span class="kr">and</span><span class="p"></span>
+                <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Incr</span> <span class="o">=</span> <span class="n">Special_Value</span> <span class="kr">then</span><span class="p"> </span><span class="n">Special_Value_Logged</span> <span class="o">=</span> <span class="kc">True</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This additional postcondition would play no role in dispatching calls, thus it
+is not involved in checking the Liskov Substitution Principle. Note that the
+absence of specific precondition on procedure <code class="docutils literal"><span class="pre">Append_To_Log</span></code> does not mean
+that the default precondition of <code class="docutils literal"><span class="pre">True</span></code> is used: as a class-wide precondition
+is specified on procedure <code class="docutils literal"><span class="pre">Append_To_Log</span></code>, it is also used as specific
+precondition. Similarly, if a procedure has a class-wide contract and a
+specific precondition, but no specific postcondition, then the class-wide
+postcondition is also used as specific postcondition.</p>
+<p>When both a specific contract and a class-wide contract are specified on a
+subprogram, GNATprove only checks that the subprogram implements its specific
+(more precise) contract.</p>
+</div>
+<div class="section" id="dispatching-calls-and-controlling-operands">
+<h2>5.8.3. Dispatching Calls and Controlling Operands<a class="headerlink" href="#dispatching-calls-and-controlling-operands" title="Permalink to this headline">¶</a></h2>
+<p>[Ada 2012]</p>
+<p>In a dispatching call, the <em>controlling operand</em> is the parameter of class-wide
+type whose dynamic type determinates the actual subprogram called. The dynamic
+type of this controlling operand may be any type derived from the specific type
+corresponding to the class-wide type of the parameter (the specific type is
+<code class="docutils literal"><span class="pre">T</span></code> when the class-wide type is <code class="docutils literal"><span class="pre">T'Class</span></code>). Thus, in general it is not
+possible to know in advance which subprograms may be called in a dispatching
+call, when separately analyzing a unit.</p>
+<p>In SPARK, there is no need to know all possible subprograms called in order
+to analyze a dispatching call, which makes it possible for GNATprove to
+perform this analysis without knowledge of the whole program. As SPARK
+enforces Liskov Substitution Principle, the class-wide contract of an
+overriding operation is always less restrictive than the class-wide contract of
+the corresponding overridden operation. Thus, GNATprove uses the class-wide
+contract of the operation for the specific type of controlling operand to
+analyze a dispatching call.</p>
+<p>For example, suppose a global variable <code class="docutils literal"><span class="pre">The_Log</span></code> of class-wide type defines
+the log that should be used in the program:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">The_Log</span> <span class="o">:</span> <span class="n">Logging.Log_Type</span><span class="na">&#39;Class</span> <span class="o">:=</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>The call to <code class="docutils literal"><span class="pre">Append_To_Log</span></code> in procedure <code class="docutils literal"><span class="pre">Add_To_Total</span></code> may dynamically
+call either <code class="docutils literal"><span class="pre">Logging.Append_To_Log</span></code> or <code class="docutils literal"><span class="pre">Range_Logging.Append_To_Log</span></code>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Total</span> <span class="o">:=</span> <span class="n">Total</span> <span class="o">+</span> <span class="n">Incr</span><span class="p">;</span>
+   <span class="n">The_Log.Append_To_Log</span> <span class="o">(</span><span class="n">Incr</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Add_To_Total</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Because GNATprove separately checks Liskov Substitution Principle for
+procedure <code class="docutils literal"><span class="pre">Append_To_Log</span></code>, it can use the class-wide contract of
+<code class="docutils literal"><span class="pre">Logging.Append_To_Log</span></code> for analyzing procedure <code class="docutils literal"><span class="pre">Add_To_Total</span></code>.</p>
+</div>
+<div class="section" id="dynamic-types-and-invisible-components">
+<h2>5.8.4. Dynamic Types and Invisible Components<a class="headerlink" href="#dynamic-types-and-invisible-components" title="Permalink to this headline">¶</a></h2>
+<p>[SPARK]</p>
+<p>The <a class="reference internal" href="language_restrictions.html#data-initialization-policy"><span class="std std-ref">Data Initialization Policy</span></a> in SPARK applies specially to objects
+of tagged type. In general, the dynamic type of an object of tagged type may be
+different from its static type, hence the object may have invisible components,
+that are only revealed when the object is converted to a class-wide type.</p>
+<p>For objects of tagged type, modes on parameters and data dependency contracts
+have a different meaning depending on the object&#8217;s static type:</p>
+<ul class="simple">
+<li>For objects of a specific (not class-wide) tagged type, the constraints
+described in <a class="reference internal" href="language_restrictions.html#data-initialization-policy"><span class="std std-ref">Data Initialization Policy</span></a> apply to the visible
+components of the object only.</li>
+<li>For objects of a class-wide type, the constraints described in <a class="reference internal" href="language_restrictions.html#data-initialization-policy"><span class="std std-ref">Data Initialization Policy</span></a> apply to all components of the object, including
+invisible ones.</li>
+</ul>
+<p>GNATprove checks during flow analysis that no uninitialized data is read in
+the program, and that the specified data dependencies and flow dependencies are
+respected in the implementation, based on the semantics above for objects of
+tagged type. For example, it detects no issues during flow analysis on
+procedure <code class="docutils literal"><span class="pre">Use_Logging</span></code> which initializes parameter <code class="docutils literal"><span class="pre">Log</span></code> and then updates
+it:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Logging</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Logging;</span>
+
+<span class="k">procedure </span><span class="nf">Use_Logging</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Log_Type</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Log.Init_Log</span><span class="p">;</span>
+   <span class="n">Log.Append_To_Log</span> <span class="o">(</span><span class="mi">1</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Use_Logging</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>If parameter <code class="docutils literal"><span class="pre">Log</span></code> is of dynamic type <code class="docutils literal"><span class="pre">Logging.Log_Type</span></code>, then the call to
+<code class="docutils literal"><span class="pre">Init_Log</span></code> initializes all components of <code class="docutils literal"><span class="pre">Log</span></code> as expected, and the call to
+<code class="docutils literal"><span class="pre">Append_To_Log</span></code> can safely read those. If parameter <code class="docutils literal"><span class="pre">Log</span></code> is of dynamic
+type <code class="docutils literal"><span class="pre">Range_Logging.Log_Type</span></code>, then the call to <code class="docutils literal"><span class="pre">Init_Log</span></code> only initializes
+those components of <code class="docutils literal"><span class="pre">Log</span></code> that come from the parent type
+<code class="docutils literal"><span class="pre">Logging.Log_Type</span></code>, but since the call to <code class="docutils literal"><span class="pre">Append_To_Log</span></code> only read those,
+then there is no read of uninitialized data. This is in contrast with what
+occurs in procedure <code class="docutils literal"><span class="pre">Use_Logging_Classwide</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Logging</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Logging;</span>
+
+<span class="k">procedure </span><span class="nf">Use_Logging_Classwide</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Log_Type</span><span class="na">&#39;Class</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Log_Type</span> <span class="o">(</span><span class="n">Log</span><span class="o">).</span><span class="n">Init_Log</span><span class="p">;</span>
+   <span class="n">Log.Append_To_Log</span> <span class="o">(</span><span class="mi">2</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Use_Logging_Classwide</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>on which GNATprove issues an error during flow analysis:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>use_logging_classwide.adb:8:04: high: extension of &quot;Log&quot; is not initialized
+</pre></div>
+</div>
+<p>Indeed, the call to <code class="docutils literal"><span class="pre">Init_Log</span></code> (a non-dispatching call to
+<code class="docutils literal"><span class="pre">Logging.Init_Log</span></code> due to the conversion on its parameter) only initializes
+those components of <code class="docutils literal"><span class="pre">Log</span></code> that come from the parent type
+<code class="docutils literal"><span class="pre">Logging.Log_Type</span></code>, but the call to <code class="docutils literal"><span class="pre">Append_To_Log</span></code> may read other
+components from <code class="docutils literal"><span class="pre">Range_Logging.Log_Type</span></code> which may not be initialized.</p>
+<p>A consequence of these rules for data initialization policy is that a parameter
+of a specific tagged type cannot be converted to a class-wide type, for example
+for a dispatching call. A special aspect <code class="docutils literal"><span class="pre">Extensions_Visible</span></code> is defined in
+SPARK to allow this case. When <code class="docutils literal"><span class="pre">Extensions_Visible</span></code> is specified on a
+subprogram, the data initialization policy for the subprogram parameters of a
+specific tagged type requires that the constraints described in <a class="reference internal" href="language_restrictions.html#data-initialization-policy"><span class="std std-ref">Data Initialization Policy</span></a> apply to all components of the object, as if the
+parameter was of a class-wide type. This allows converting this object to a
+class-wide type.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="concurrency.html" title="5.9. Concurrency and Ravenscar Profile"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="overflow_modes.html" title="5.7. Overflow Modes"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../spark_2014.html" >5. Overview of SPARK Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

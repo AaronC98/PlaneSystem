@@ -1,0 +1,199 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_RECURSION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U output%b		output.adb		39794d05 OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+U output%s		output.ads		83ad63b4 BN EB EE NE OO PK
+W hostparm%s		hostparm.ads		hostparm.ali
+W system%s		system.ads		system.ali
+W system.os_lib%s	s-os_lib.adb		s-os_lib.ali
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D output.ads		20190518044709 a916e413 output%s
+D output.adb		20190518044709 906fa916 output%b
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-exctab.adb		20190518041256 c756f391 system.exception_table%b
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+G a e
+G c Z s b [set_special_output output 59 14 none]
+G c Z s b [cancel_special_output output 66 14 none]
+G c Z s b [ignore_output output 73 14 none]
+G c Z s b [set_standard_error output 77 14 none]
+G c Z s b [set_standard_output output 84 14 none]
+G c Z s b [set_output output 92 14 none]
+G c Z s b [indent output 98 14 none]
+G c Z s b [outdent output 103 14 none]
+G c Z s b [write_char output 106 14 none]
+G c Z s b [write_erase_char output 110 14 none]
+G c Z s b [write_eol output 113 14 none]
+G c Z s b [write_eol_keep_blanks output 120 14 none]
+G c Z s b [write_int output 123 14 none]
+G c Z s b [write_spaces output 127 14 none]
+G c Z s b [write_str output 130 14 none]
+G c Z s b [write_line output 137 14 none]
+G c Z s b [last_char output 140 13 none]
+G c Z s b [delete_last_char output 144 14 none]
+G c Z s b [column output 148 13 none]
+G c Z s b [save_output_buffer output 165 13 none]
+G c Z s b [restore_output_buffer output 168 14 none]
+G c Z s b [w output 181 14 none]
+G c Z s b [w output 184 14 none]
+G c Z s b [w output 187 14 none]
+G c Z s b [w output 190 14 none]
+G c Z s b [w output 193 14 none]
+G c Z s b [w output 196 14 none]
+G c Z s b [w output 199 14 none]
+G c Z s b [w output 202 14 none]
+G c Z s s [saved_output_bufferIP output 207 9 none]
+G c Z b b [flush_buffer output 68 14 none]
+X 5 hostparm.ads
+38K9*Hostparm 73e13 7|36w6 162r29
+49N4*Max_Line_Length 7|162r38
+X 7 output.ads
+44K9*Output 207E9 213l5 213e11 8|32b14 479l5 479t11
+47P9*Output_Proc 47>42 59r38 8|48r26 261r38
+47a42 S{string}
+59U14*Set_Special_Output 59>34 8|261b14 264l8 264t26
+59p34 P{47P9} 8|261b34 263r30
+66U14*Cancel_Special_Output 8|75b14 78l8 78t29
+73U14*Ignore_Output 73>29 8|188b14 191l8 191t21
+73a29 S{string} 8|188b29
+77U14*Set_Standard_Error 8|283b14 286l8 286t26
+84U14*Set_Standard_Output 8|292b14 295l8 295t27
+92U14*Set_Output 92>26 8|270b14 277l8 277t18 285s7 294s7
+92i26 FD{13|183I9} 8|270b26 276r21
+98U14*Indent 8|197b14 204l8 204t14
+103U14*Outdent 8|223b14 229l8 229t15
+106U14*Write_Char 106>26 8|303s7 304s7 305s7 333s7 340s7 347s7 354s7 362b14
+. 375l8 375t18 435s10 440s10 464s10 475s10
+106e26 C{character} 8|362b26 369r10 372r31
+110U14*Write_Erase_Char 110>32 8|409b14 414l8 414t24
+110e32 C{character} 8|409b32 411r57
+113U14*Write_Eol 8|306s7 312s7 318s7 366s10 370s10 381b14 392l8 392t17 454s7
+120U14*Write_Eol_Keep_Blanks 8|398b14 403l8 403t29
+123U14*Write_Int 123>25 8|317s7 420b14 445l8 445t17
+123i25 Val{23|59I9} 8|420b25 439r10 441r21 443r22
+127U14*Write_Spaces 127>28 8|461b14 466l8 466t20
+127i28 N{23|62I12} 8|461b28 463r21
+130U14*Write_Str 130>25 8|311s7 332s7 339s7 346s7 353s7 453s7 472b14 477l8
+. 477t17
+130a25 S{string} 8|472b25 474r16 475r22
+137U14*Write_Line 137>26 8|172s19 451b14 455l8 455t18
+137a26 S{string} 8|451b26 453r18
+140V13*Last_Char{character} 8|210b13 217l8 217t17
+144U14*Delete_Last_Char 8|93b14 98l8 98t24
+148V13*Column{23|65I12} 149r19 8|84b13 87l8 87t14
+159R9*Saved_Output_Buffer 165r39 168r41 207c9 211e14 8|235r41 246r39 247r11
+162N4*Buffer_Max 208r38 8|34r26 58r39 144r47
+165V13*Save_Output_Buffer{159R9} 8|246b13 255l8 255t26
+168U14*Restore_Output_Buffer 168>37 8|235b14 240l8 240t29
+168r37 S{159R9} 8|235b37 237r19 238r26 239r37
+181U14*w 181>17 8|301b14 307l8 307t9 334s7
+181e17 C{character} 8|301b17 304r19
+184U14*w 184>17 8|309b14 313l8 313t9 324s10 326s10 341s7
+184a17 S{string} 8|309b17 311r18
+187U14*w 187>17 8|315b14 319l8 319t9 348s7
+187i17 V{23|59I9} 8|315b17 317r18
+190U14*w 190>17 8|321b14 328l8 328t9 355s7
+190b17 B{boolean} 8|321b17 323r10
+193U14*w 193>17 193>29 8|330b14 335l8 335t9
+193a17 L{string} 8|330b17 332r18
+193e29 C{character} 8|330b29 334r10
+196U14*w 196>17 196>29 8|337b14 342l8 342t9
+196a17 L{string} 8|337b17 339r18
+196a29 S{string} 8|337b29 341r10
+199U14*w 199>17 199>29 8|344b14 349l8 349t9
+199a17 L{string} 8|344b17 346r18
+199i29 V{23|59I9} 8|344b29 348r10
+202U14*w 202>17 202>29 8|351b14 356l8 356t9
+202a17 L{string} 8|351b17 353r18
+202b29 B{boolean} 8|351b29 355r10
+208a7*Buffer{string} 8|239r39 249m9
+209i7*Next_Col{positive} 8|237r21 250m9
+210i7*Cur_Indentation{natural} 8|238r28 251m9
+X 8 output.adb
+34a4 Buffer{string} 35r8 42r35 145r23 147r30 156r59 213r17 239m7 249r39 364r34
+. 365r21 372m10 385r35 389m7 400m7 411r33
+42i4 Next_Col{positive} 86r19 95r10 96m10 96r22 133r33 171m19 180m10 212r10
+. 213r25 237m7 239r20 239r52 249r22 249r52 250r21 252m7 364r22 365r10 372r18
+. 373m10 373r22 385r13 385r43 386m10 386r22 389r15 390m7 390r19 400r15 401m7
+. 401r19 411r10 411r41 412m10 412r22
+45i4 Current_FD{13|183I9} 127r23 169r19 170m19 276m7
+48p4 Special_Output_Proc{7|47P9} 77m7 121r13 122r13 263m7 272r10
+52i4 Indentation_Amount{positive} 203r28 228r28
+55i4 Indentation_Limit{positive} 58r19 203r52 228r52
+61i4 Cur_Indentation{natural} 143r16 144r23 155r45 202m7 203r10 227m7 228r10
+. 238m7 251r28 253m7
+68U14 Flush_Buffer 104b14 182l8 182t20 273s10 391s7 402s7
+105X7 Write_Error 128r19 163r18
+112U17 Write_Buffer 112>31 117b17 131l11 131t23 147s16 158s19
+112a31 Buf{string} 117b31 122r38 127r35 127r48 127r63
+133i7 Len{natural} 138r10 144r41 145r36 147r43 156r72
+154a19 Indented_Buffer=155:69{string} 158r33
+247r7 S{7|159R9} 249m7 250m7 251m7 254r14
+425I15 Nonpositive{23|59I9} 426r34 429r34
+426U17 Write_Abs 426>28 429b17 432s13 436l11 436t20 441s10 443s10
+426i28 Val{425I15} 429b28 431r13 432r24 435r39
+463i11 J<integer>
+474i11 J{integer} 475r25
+X 9 system.ads
+37K9*System 7|41r6 41r25 9|174e11
+X 13 s-os_lib.ads
+56K16*OS_Lib 7|41w13 41r32 13|1114e18
+183I9*File_Descriptor<integer> 7|92r31 8|45r17 270r31
+187i4*Standout{183I9} 8|45r36 294r19
+188i4*Standerr{183I9} 8|169r33 170r33 285r19
+651V13*Write{integer} 8|127s16
+1045U14*OS_Exit 8|175s16
+X 23 types.ads
+52K9*Types 7|37w6 37r20 23|948e10
+59I9*Int<integer> 7|123r31 187r21 199r33 8|315r21 344r33 420r31 425r30 425r40
+62I12*Nat{59I9} 7|127r32 8|461r32
+65I12*Pos{59I9} 7|148r27 8|84r27 86r14
+

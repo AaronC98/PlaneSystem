@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>External Axiomatizations &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Uses of Pragma Annotate GNATprove" href="additional_annotate_pragmas.html" />
+    <link rel="prev" title="Implementation Defined Pragmas" href="implementation_defined_pragmas.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="additional_annotate_pragmas.html" title="Uses of Pragma Annotate GNATprove"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="implementation_defined_pragmas.html" title="Implementation Defined Pragmas"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">External Axiomatizations</a><ul>
+<li><a class="reference internal" href="#what-is-it">What is it?</a></li>
+<li><a class="reference internal" href="#why-is-it-useful">Why is it useful?</a></li>
+<li><a class="reference internal" href="#how-does-it-work">How does it work?</a></li>
+<li><a class="reference internal" href="#what-should-the-translation-look-like">What should the translation look like?</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="implementation_defined_pragmas.html"
+                        title="previous chapter">Implementation Defined Pragmas</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="additional_annotate_pragmas.html"
+                        title="next chapter">Uses of Pragma Annotate GNATprove</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/appendix/external_axiomatizations.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="external-axiomatizations">
+<span id="id1"></span><h1>External Axiomatizations<a class="headerlink" href="#external-axiomatizations" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-it">
+<h2>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this headline">¶</a></h2>
+<p>It is a feature of the SPARK toolset that allows to manually supply a WhyMl
+translation for the public specification of a library level package that is in
+SPARK. This feature is still experimental.</p>
+</div>
+<div class="section" id="why-is-it-useful">
+<h2>Why is it useful?<a class="headerlink" href="#why-is-it-useful" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>For features that cannot easily be described using contracts, like
+transitivity, counting, or summation</li>
+<li>To link functions to the logic world, like trigonometry functions</li>
+</ul>
+</div>
+<div class="section" id="how-does-it-work">
+<h2>How does it work?<a class="headerlink" href="#how-does-it-work" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">To say that a library package has an external axiomatization, we annotate it
+using:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pragma</span> <span class="n">Annotate</span> <span class="p">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">External_Axiomatization</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">These packages should have SPARK_Mode On on their public specification and
+SPARK_Mode Off on their private part.</p>
+</li>
+<li><p class="first">The WhyMl translation for the package should be stored in a subdirectory
+named _theories of the proof directory specified for the project.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="what-should-the-translation-look-like">
+<h2>What should the translation look like?<a class="headerlink" href="#what-should-the-translation-look-like" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>For each publicly visible entity E in the package P, it should provide the
+same elements (types as well as logic and program functions) as the automatic
+translation, all grouped in one single module named P__e. For example, the
+module for a function F should provide both a logic function declaration named
+f__logic and a program function declaration named f.</li>
+<li>For most types, a model module in defined in ada__model.mlw that can be cloned
+to get most of the required declarations.</li>
+<li>The manual translation may use any type, constant and function that is visible
+from the Ada package declaration.</li>
+<li>A good way to start an axiomatization file on a package is to launch the
+toolset on it and copy paste the modules created for each entity of the
+package. A WhyMl file created by the tool on a package P contains a module for
+every declaration visible from it, only declarations from P itself should be
+copied. The generated file usually contains two modules for each entity, one
+named P__e and one named P__e__axiom. Both should be put together in P__e for
+the manual translation. The toolset will replace statically known expressions
+with their value. Beware that they might be architecture dependent.</li>
+</ul>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>For example, let us consider the following package, stored in a file sum.ads,
+providing a summation function for slices of arrays of integers:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Sums</span> <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">External_Axiomatization</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="kr">subtype</span><span class="p"> </span><span class="n">Extended_Index</span> <span class="kr">is</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">16</span><span class="p">;</span>
+   <span class="kr">subtype</span><span class="p"> </span><span class="n">Index</span> <span class="kr">is</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="n">Extended_Index</span><span class="na">&#39;Last</span><span class="p">;</span>
+
+   <span class="kr">subtype</span><span class="p"> </span><span class="n">Vector_Element</span> <span class="kr">is</span><span class="p"></span>
+     <span class="n">Integer</span> <span class="kr">range</span><span class="p"> </span><span class="n">Integer</span><span class="na">&#39;First</span> <span class="o">/</span> <span class="n">Index</span><span class="na">&#39;Last</span> <span class="o">..</span> <span class="n">Integer</span><span class="na">&#39;Last</span> <span class="o">/</span> <span class="n">Index</span><span class="na">&#39;Last</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Vector</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Index</span> <span class="kr">range</span><span class="p"> </span><span class="o">&lt;&gt;)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Vector_Element</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Slice_Bounds</span> <span class="kr">is</span><span class="p"></span>
+      <span class="kr">record</span><span class="p"></span>
+         <span class="n">Lo</span> <span class="o">:</span> <span class="n">Index</span><span class="p">;</span>
+         <span class="n">Hi</span> <span class="o">:</span> <span class="n">Extended_Index</span><span class="p">;</span>
+      <span class="k">end record</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Sum</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Vector</span><span class="p">;</span> <span class="n">Bounds</span> <span class="o">:</span> <span class="n">Slice_Bounds</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Bounds.Lo</span> <span class="o">&gt;</span> <span class="n">Bounds.Hi</span><span class="o">)</span> <span class="kr">or</span><span class="p"> </span><span class="kr">else</span><span class="p"></span>
+     <span class="o">(</span><span class="n">X</span><span class="na">&#39;First</span> <span class="o">&lt;=</span> <span class="n">Bounds.Lo</span> <span class="kr">and</span><span class="p"> </span><span class="n">Bounds.Hi</span> <span class="o">&lt;=</span> <span class="n">X</span><span class="na">&#39;Last</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Sums</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>We can provide the following Why3 translation for it, that we should store in a
+file named sum.mlw:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>module Sums__extended_index
+ use import &quot;_gnatprove_standard&quot;.Main
+ use        &quot;_gnatprove_standard&quot;.Integer
+ use import &quot;int&quot;.Int
+
+ type extended_index
+
+ function first : int = 0
+
+ function last  : int = 65536
+
+ predicate in_range (x : int) = first &lt;= x /\ x &lt;= last
+
+ (* Clone of the model module for discrete types with static bounds *)
+ clone export &quot;ada__model&quot;.Static_Discrete with
+ type t = extended_index,
+ function first = first,
+ function last = last,
+ predicate in_range = in_range
+ 
+ (* Type for mutable variables of type extended_index *)
+ type extended_index__ref = { mutable extended_index__content : extended_index }
+ val extended_index__havoc (x : extended_index__ref) : unit
+   writes { x }
+
+ (* All values of type extended_index are in range *)
+ predicate dynamic_invariant (expr : int) bool bool bool  =
+   dynamic_property first last expr
+ 
+ (* We know nothing for default initialization of variables of type
+    extended_index *)
+ predicate default_initial_assumption int bool = true
+end
+
+module Sums__extended_index__rep
+ use import Sums__extended_index
+ use import &quot;_gnatprove_standard&quot;.Main
+
+ (* Projection functions from extended_index to int *)
+ clone export &quot;ada__model&quot;.Rep_Proj_Int with
+   type t = extended_index,
+   predicate in_range = in_range
+end
+
+module Sums__index
+ use import &quot;_gnatprove_standard&quot;.Main
+ use        &quot;_gnatprove_standard&quot;.Integer
+ use import &quot;int&quot;.Int
+
+ type index
+
+ function first : int = 1
+
+ function last  : int = 65536
+
+ predicate in_range (x : int) = first &lt;= x /\ x &lt;= last
+
+ (* Clone of the model module for discrete types with static bounds *)
+ clone export &quot;ada__model&quot;.Static_Discrete with
+ type t = index,
+ function first = first,
+ function last = last,
+ predicate in_range = in_range
+
+ (* Type for mutable variables of type index *)
+ type index__ref = { mutable index__content : index }
+ val index__havoc (x : index__ref) : unit
+   writes { x }
+
+ (* All values of type index are in range *)
+ predicate dynamic_invariant (expr : int) bool bool bool  =
+   dynamic_property first last expr
+ 
+ (* We know nothing for default initialization of variables of type index *)
+ predicate default_initial_assumption int bool = true
+
+end
+
+module Sums__index__rep
+ use import Sums__index
+ use import &quot;_gnatprove_standard&quot;.Main
+
+ (* Projection functions from index to int *)
+ clone export &quot;ada__model&quot;.Rep_Proj_Int with
+   type t = index,
+   predicate in_range = in_range
+end
+
+module Sums__vector_element
+ use import &quot;_gnatprove_standard&quot;.Main
+ use        &quot;_gnatprove_standard&quot;.Int_Division
+ use import Standard__integer
+ use import &quot;int&quot;.Int
+
+ type vector_element
+
+ function first : int = Int_Division.div Standard__integer.first 65536
+
+ function last  : int = Int_Division.div Standard__integer.last 65536
+
+ predicate in_range (x : int)  = first &lt;= x /\ x &lt;= last
+
+ (* Clone of the model module for discrete types with static bounds *)
+ clone export &quot;ada__model&quot;.Static_Discrete with
+ type t = vector_element,
+ function first = first,
+ function last = last,
+ predicate in_range = in_range
+
+ (* Type for mutable variables of type vector_element *)
+ type vector_element__ref = { mutable vector_element__content : vector_element }
+ val vector_element__havoc (x : vector_element__ref) : unit
+   writes { x }
+
+end
+
+module Sums__vector_element__rep
+ use import Sums__vector_element
+ use import &quot;_gnatprove_standard&quot;.Main
+
+ (* Projection functions from vector_element to int *)
+ clone export &quot;ada__model&quot;.Rep_Proj_Int with
+   type t = vector_element,
+   predicate in_range = in_range
+end
+
+(* Module for any array type ranging over signed integer types and
+   containing vector_element *)
+module Array__Int__Sums__vector_element
+ use import &quot;_gnatprove_standard&quot;.Main
+ use import &quot;int&quot;.Int
+ use        Sums__vector_element
+ use        Sums__vector_element__rep
+
+ function one : int = 1
+
+ type component_type = Sums__vector_element.vector_element
+
+ (* Clone of the model module for logical arrays containing vector_element
+    and indexed by mathematical integers *)
+ clone export &quot;_gnatprove_standard&quot;.Array__1 with
+ type I1.t = int,
+ predicate I1.le = Int.(&lt;=),
+ predicate I1.lt = Int.(&lt;),
+ predicate I1.gt = Int.(&gt;),
+ function I1.add = Int.(+),
+ function I1.sub = Int.(-),
+ function I1.one = one,
+ type component_type = component_type
+
+ (* Primitive equality between arrays *)
+ function bool_eq (a:map) (af:int) (al:int) (b:map) (bf:int) (bl:int) : bool =
+   (if af &lt;= al
+        then al - af = bl - bf
+        else bf &gt; bl) /\
+         (forall idx : int. af &lt;= idx &lt;= al -&gt;
+             (get a idx) = (get b (bf - af + idx)))
+ 
+ (* Clone of the model module for comparison of arrays *)
+ clone export &quot;ada__model&quot;.Array_Int_Rep_Comparison_Axiom with
+ type component_type = component_type,
+ function to_rep = Sums__vector_element__rep.to_rep,
+ type map = map,
+ type Index.t = int,
+ predicate Index.le = Int.(&lt;=),
+ predicate Index.lt = Int.(&lt;),
+ predicate Index.gt = Int.(&gt;),
+ function Index.add = Int.(+),
+ function Index.sub = Int.(-),
+ function Index.one = one,
+ function get = get,
+ function bool_eq = bool_eq
+
+end
+
+module Sums__vector
+ use import &quot;int&quot;.Int
+ use import &quot;_gnatprove_standard&quot;.Main
+ use        &quot;_gnatprove_standard&quot;.Integer
+ use import Standard__integer
+ use import Sums__index
+ use import Sums__vector_element
+ use        Array__Int__Sums__vector_element
+ use        Standard__integer__rep
+ use        Sums__vector_element__rep
+
+ predicate index_dynamic_property (first : int) (last : int) (x : int) =
+      first &lt;= x /\ x &lt;= last
+
+ (* Clone of the model module for unconstrained arrays *)
+ type component_type  =
+  Sums__vector_element.vector_element
+
+ function id (x : int) : int = x
+
+ (* Clone of the model module for unconstrained arrays *)
+ clone export &quot;ada__model&quot;.Unconstr_Array with
+ type map = Array__Int__Sums__vector_element.map,
+ function array_bool_eq = Array__Int__Sums__vector_element.bool_eq,
+ type index_base_type = Standard__integer.integer,
+ type index_rep_type = int,
+ function to_rep = Standard__integer__rep.to_rep,
+ function rep_to_int = id,
+ predicate in_range_base = Standard__integer.in_range,
+ predicate index_dynamic_property = index_dynamic_property,
+ predicate index_rep_le = Int.(&lt;=)
+
+ type vector  = __t
+
+ (* Type for mutable variables of type vector *)
+ type vector__ref = { mutable vector__content : vector }
+ val vector__havoc (x : vector__ref) : unit
+   writes { x }
+
+ (* Helper function *)
+ function _get &quot;inline&quot; (v : vector) (i : int) : int =
+   	  Sums__vector_element__rep.to_rep (Array__Int__Sums__vector_element.get (to_array v) i)
+
+ (* If vectors are not empty, their bounds are between Index.first and
+    Index.last *)
+ predicate dynamic_invariant (expr : vector) bool (skip_bounds : bool) bool  =
+  (if skip_bounds then true
+   else dynamic_property Sums__index.first Sums__index.last
+          (first expr) (last expr))
+end
+
+module Sums__slice_bounds
+ use import &quot;int&quot;.Int
+ use import &quot;_gnatprove_standard&quot;.Main
+ use        &quot;_gnatprove_standard&quot;.Integer
+ use import Sums__index
+ use        Sums__index__rep
+ use import Sums__extended_index
+ use        Sums__extended_index__rep
+
+ (* Fields for record type *)
+ type __split_fields  =
+  { rec__sums__slice_bounds__lo : index; rec__sums__slice_bounds__hi : extended_index }
+
+ type __split_fields__ref = { mutable __split_fields__content : __split_fields }
+ val __split_fields__havoc (x : __split_fields__ref) : unit
+   writes { x }
+
+ (* Record type *)
+ type slice_bounds  =
+  { __split_fields : __split_fields }
+
+ (* Type for mutable variables of type slice_bounds *)
+ type slice_bounds__ref = { mutable slice_bounds__content : slice_bounds }
+ val slice_bounds__havoc (x : slice_bounds__ref) : unit
+   writes { x }
+
+ (* Helper function *)
+ function _rec__lo &quot;inline&quot; (b : slice_bounds) : int =
+   	  Sums__index__rep.to_rep (rec__sums__slice_bounds__lo (__split_fields (b)))
+
+ (* Helper function *)
+ function _rec__hi &quot;inline&quot; (b : slice_bounds) : int =
+   	  Sums__extended_index__rep.to_rep (rec__sums__slice_bounds__hi (__split_fields (b)))
+
+ (* Condition to be allowed to access Lo *)
+ predicate sums__slice_bounds__lo__pred  (a : slice_bounds) =
+  true
+
+ val rec__sums__slice_bounds__lo_
+   (a : slice_bounds)  :Sums__index.index
+  requires { sums__slice_bounds__lo__pred a }
+  ensures  { result = a.__split_fields.rec__sums__slice_bounds__lo }
+
+
+ (* Condition to be allowed to access Hi *)
+ predicate sums__slice_bounds__hi__pred  (a : slice_bounds) =
+  true
+
+ val rec__sums__slice_bounds__hi_
+   (a : slice_bounds)  :Sums__extended_index.extended_index
+  requires { sums__slice_bounds__hi__pred a }
+  ensures  { result = a.__split_fields.rec__sums__slice_bounds__hi }
+
+
+ (* Equality function over slice_bounds *)
+ function bool_eq  (a : slice_bounds) (b : slice_bounds) : bool =
+  _rec__lo a = _rec__lo b /\ _rec__hi a = _rec__hi b
+
+ function dummy : slice_bounds
+
+ (* No particular property applies to all values of types slice_bounds *)
+ predicate dynamic_invariant slice_bounds bool bool bool = true
+ 
+ (* We know nothing for default initialization of variables of slice_bounds *)
+ predicate default_initial_assumption slice_bounds bool = true
+end
+
+module Sums__sum
+ use import &quot;int&quot;.Int
+ use import &quot;_gnatprove_standard&quot;.Main
+ use        &quot;_gnatprove_standard&quot;.Integer
+ use        &quot;_gnatprove_standard&quot;.Array__1
+ use import Sums__slice_bounds
+ use import Sums__index
+ use        Sums__index__rep
+ use import Standard__integer
+ use import Sums__extended_index
+ use        Sums__extended_index__rep
+ use import Sums__vector
+
+ (* Logic complete function for sum *)
+ function sum__logic
+   (x : vector) (bounds : slice_bounds)  :int
+
+ (* Helper function *)
+ function _sum &quot;inline&quot; (x : vector) (bounds : slice_bounds)  :int =
+   	  sum__logic x bounds
+
+ (* Axiom for defining the sum function *)
+ axiom sum_def:
+    forall v : vector, b : slice_bounds
+      [sum__logic v b].
+      Standard__integer.in_range (sum__logic v b) /\
+      (* Case of the empty slice *)
+      (_rec__lo b &gt; _rec__hi b -&gt; _sum v b = 0) /\
+
+      (* Case of a non-empty slice  *)
+      (first v &lt;= _rec__lo b &lt;= _rec__hi b &lt;= last v -&gt;
+
+         (* If the slice only contains one element *)
+         (_rec__lo b = _rec__hi b -&gt; _sum v b = _get v (_rec__lo b)) /\
+
+         (* Link to smaller slices of the same vector *)
+         (forall b1 : slice_bounds [sum__logic v b1].
+
+             (* Ending at the same index *)
+             ((_rec__hi b1 = _rec__hi b /\ _rec__lo b &lt; _rec__lo b1 &lt;= _rec__hi b) -&gt;
+              let b2 = {__split_fields =
+	      	         {rec__sums__slice_bounds__lo = rec__sums__slice_bounds__lo (__split_fields b);
+                          rec__sums__slice_bounds__hi = Sums__extended_index__rep.of_rep ((_rec__lo b1) - 1)}} in
+                 _sum v b = _sum v b1 + _sum v b2) /\
+             (* Sartind at the same index *)
+             ((_rec__lo b1 = _rec__lo b /\ _rec__lo b &lt;= _rec__hi b1 &lt; _rec__hi b) -&gt;
+              let b2 = {__split_fields =
+	      	         {rec__sums__slice_bounds__lo = Sums__index__rep.of_rep ((_rec__hi b1) + 1);
+                          rec__sums__slice_bounds__hi = rec__sums__slice_bounds__hi (__split_fields b)}} in
+                 _sum v b = _sum v b1 + _sum v b2)))
+
+ (* Program partial function with a precondition for sum *)
+ val sum (x : vector) (bounds : slice_bounds)  :int
+  requires { _rec__lo bounds &gt; _rec__hi bounds \/
+             first x &lt;= _rec__lo bounds /\ _rec__hi bounds &lt;= last x }
+  ensures  { result = sum__logic x bounds }
+
+end
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="additional_annotate_pragmas.html" title="Uses of Pragma Annotate GNATprove"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="implementation_defined_pragmas.html" title="Implementation Defined Pragmas"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

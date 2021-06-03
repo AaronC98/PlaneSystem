@@ -1,0 +1,158 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U put_scos%b		put_scos.adb		d89e1920 NE OO SU GE
+W namet%s		namet.adb		namet.ali
+W opt%s			opt.adb			opt.ali
+W scos%s		scos.adb		scos.ali
+
+U put_scos%s		put_scos.ads		c28c8245 BN EE NE OO GE
+W namet%s		namet.adb		namet.ali
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D namet.ads		20190518044709 b520bebe namet%s
+D opt.ads		20190518044710 3d2ce478 opt%s
+D output.ads		20190518044709 a916e413 output%s
+D put_scos.ads		20190518044709 a818d3df put_scos%s
+D put_scos.adb		20190518044709 4592d24d put_scos%b
+D scos.ads		20190518044709 bd184274 scos%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+G a e
+G c Z s b [put_scos standard 62 11 none]
+X 9 namet.ads
+37K9*Namet 768e10 12|37w6 37r17 13|32w6
+188I9*Name_Id<integer> 12|53r42
+192i4*No_Name{188I9} 13|203r69
+X 10 opt.ads
+50K9*Opt 2414e8 13|33w6 300r7
+773b4*Generate_SCO_Instance_Table{boolean} 13|300r11
+X 12 put_scos.ads
+46U19 Write_Info_Char 46>36 13|62s7 73s7 84s10 101s13 103s13 107s16 125s10
+. 127s10 181s31 184s31 188s25 195s31 199s31 206s34 244s22 251s25 262s28 268s31
+. 273s31
+46e36 C{character}
+49U19 Write_Info_Initiate 49>40 13|124s10 136s7
+49e40 Key{character}
+53U19 Write_Info_Name 53>36 13|205s34 247s25
+53i36 Nam{9|188I9}
+56U19 Write_Info_Nat 56>35 13|72s7 74s7 100s13 102s13 108s16 126s10
+56i35 N{29|62I12}
+59U19 Write_Info_Terminate 13|110s13 131s10 226s28 235s25 282s22
+62u11*Put_SCOs 13|36b11 303l5 303t13
+X 13 put_scos.adb
+37i4 Current_SCO_Unit{14|503I9} 123r10 133m10
+40U14 Write_SCO_Initiate 40>34 119b14 137l8 137t26 179s28 243s22
+40i34 SU{14|503I9} 119b34 120r64 123r30 133r30
+43U14 Write_Instance_Table 92b14 113l8 113t28 301s7
+46U14 Output_Range 46>28 59b14 64l8 64t20 217s31 274s31
+46r28 T{14|372R9} 59b28 61r31 63r31
+49U14 Output_Source_Location 49>38 61s7 63s7 70b14 75l8 75t30 104s13 215s31
+. 252s25 270s31
+49r38 Loc{14|364R9} 70b38 72r29 74r29
+52U14 Output_String 52>29 81b14 86l8 86t21 99s13 129s10
+52a29 S{string} 81b29 83r16 84r27
+83i11 J{integer} 84r30
+94i11 J<29|59I9> 97r55 100r34
+96r13 SIE=97:48{14|553R9} 102r29 104r37 106r16 108r37
+120r7 SUT=120:57{14|512R9} 126r26 129r25
+145i8 U<29|59I9> 147r67 179r48 243r42
+147r10 SUT=147:60{14|512R9} 153r19 154r19
+149i10 Start{29|62I12} 153m10 159r23 160r28 163r72 192r62 230r52 231m25 231r34
+. 241m22 241r31 259r73 278m28 278r37 295m13 295r22
+150i10 Stop{29|62I12} 154m10 159r31 160r37
+162q13 Output_SCO_Line 293l17 293e32
+163r16 T=163:65{14|372R9} 170r21 244r39 246r25 247r42 250r25 252r49
+164b16 Continuation{boolean} 176m22 180r35 182m31
+166i16 Ctr{29|62I12} 175m22 178r28 224m25 224r32 225r28 227m28 234r25
+191r28 Sent=192:55{14|372R9} 194r31 195r48 198r31 199r48 201r34 202r43 202r65
+. 203r42 205r51 214r31 214r54 215r55 217r45
+259r28 T=259:66{14|372R9} 264r31 265r31 266r31 268r48 269r46 270r55 273r48
+. 274r45 277r38
+X 14 scos.ads
+41K9*SCOs 13|34w6 34r16 14|576e9
+364R9*Source_Location 13|49r44 70r44 14|367e14
+365i7*Line{29|162I9} 13|72r33
+366i7*Col{29|178I9} 13|74r33
+372R9*SCO_Table_Entry 13|46r32 59r32 163r31 191r35 259r32 14|389e14
+373r7*From{364R9} 13|61r33 215r60 252r51 270r57
+374r7*To{364R9} 13|63r33
+375e7*C1{character} 13|170r23 194r36 195r53 201r39 214r36 244r41 246r27 250r27
+. 264r33 265r33 266r33 268r50
+376e7*C2{character} 13|198r36 199r53 202r48 202r70 214r59 269r48 273r50
+377b7*Last{boolean} 13|230r59 277r40
+387i7*Pragma_Aspect_Name{9|188I9} 13|203r47 205r56 247r44
+391K12*SCO_Table[26|59] 13|163r55 192r45 230r35 259r56
+503I9*SCO_Unit_Index<29|59I9> 13|37r23 40r39 119r39
+512R9*SCO_Unit_Table_Entry 13|120r13 147r16 14|537e14
+513p7*File_Name{29|113P9} 13|129r29
+519i7*Dep_Num{29|62I12} 13|126r30
+524i7*From{29|62I12} 13|153r23
+527i7*To{29|62I12} 13|154r23
+539K12*SCO_Unit_Table[26|59] 13|120r42 145r18 147r45
+551I9*SCO_Instance_Index<29|59I9>
+553R9*SCO_Instance_Table_Entry 13|96r19 14|559e14
+554i7*Inst_Dep_Num{29|62I12} 13|102r33
+555r7*Inst_Loc{364R9} 13|104r41
+558i7*Enclosing_Instance{551I9} 13|106r20 108r41
+561K12*SCO_Instance_Table[26|59] 13|94r21 97r29
+X 15 system.ads
+67M9*Address
+X 18 s-memory.ads
+53V13*Alloc{15|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{15|67M9} 105i<c,__gnat_realloc>22
+X 26 table.ads
+110A12*Table_Type(14|553R9)<14|551I9>
+113A15*Big_Table_Type{110A12[14|561]}<14|551I9>
+121P12*Table_Ptr(113A15[14|561])
+125p7*Table{121P12[14|561]} 13|97r47[14|561] 97r48[14|561] 120r56[14|539]
+. 120r57[14|539] 147r59[14|539] 147r60[14|539] 163r64[14|391] 163r65[14|391]
+. 192r54[14|391] 192r55[14|391] 230r44[14|391] 230r45[14|391] 259r65[14|391]
+. 259r66[14|391]
+149V16*Last{14|551I9} 13|94s40[14|561] 145s33[14|539]
+X 29 types.ads
+52K9*Types 12|38w6 38r17 29|948e10
+59I9*Int<integer>
+62I12*Nat{59I9} 12|56r39 13|72r24 74r24 100r29 108r32 149r18 150r18 166r22
+113P9*String_Ptr(string)
+162I9*Logical_Line_Number<integer>
+178I9*Column_Number<short_integer>
+

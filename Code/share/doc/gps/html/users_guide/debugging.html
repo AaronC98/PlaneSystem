@@ -1,0 +1,616 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>10. Debugging &#8212; GPS 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/adacore.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="11. Version Control System" href="vcs.html" />
+    <link rel="prev" title="9. Compilation/Build" href="compilation.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="vcs.html" title="11. Version Control System"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="compilation.html" title="9. Compilation/Build"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">10. Debugging</a><ul>
+<li><a class="reference internal" href="#the-call-stack-view">10.1. The Call Stack View</a></li>
+<li><a class="reference internal" href="#the-variables-view">10.2. The Variables View</a></li>
+<li><a class="reference internal" href="#the-breakpoint-editor">10.3. The Breakpoint Editor</a></li>
+<li><a class="reference internal" href="#the-memory-view">10.4. The Memory View</a></li>
+<li><a class="reference internal" href="#using-the-source-editor-when-debugging">10.5. Using the Source Editor when Debugging</a></li>
+<li><a class="reference internal" href="#the-assembly-window">10.6. The Assembly Window</a></li>
+<li><a class="reference internal" href="#the-debugger-console">10.7. The Debugger Console</a></li>
+<li><a class="reference internal" href="#customizing-the-debugger">10.8. Customizing the Debugger</a></li>
+<li><a class="reference internal" href="#command-line-interface">10.9. Command line interface</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="compilation.html"
+                        title="previous chapter">9. Compilation/Build</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="vcs.html"
+                        title="next chapter">11. Version Control System</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/debugging.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="debugging">
+<span id="index-0"></span><span id="id1"></span><h1>10. Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h1>
+<p>GPS also serves as a graphical front-end for text-based debuggers such as
+GDB.  If you understand the basics of the underlying debugger used by GPS,
+you will better understand how GPS works and what kind of functionality it
+provides.</p>
+<p>Please refer to the debugger-specific documentation, e.g. the GNAT User&#8217;s
+Guide (chapter <em>Running and Debugging Ada Programs</em>), or the GDB documentation
+for more details.</p>
+<p>Debugging is tightly integrated with other components of GPS. For example,
+you can edit files and navigate through your sources while debugging.</p>
+<span class="target" id="index-1"></span><p id="index-2">To start a debug session, click on the <span class="guilabel">Debug</span> button in the main
+toolbar or go to the <span class="menuselection">Debug ‣ Initialize</span>
+menu and choose either the name of your executable, if you specified the
+name of your main program(s) in the project properties, or start an empty
+debug session using the <span class="menuselection">&lt;no main file&gt;</span> menu.  You can then
+load any file to debug, by using the <span class="menuselection">Debug ‣ Debug ‣
+Load File...</span> menu.</p>
+<p>You first need to build your executable with debug information
+(<strong class="command">-g</strong> switch), either explicitly as part of your project
+properties or via the <span class="guilabel">Debug</span> build mode (see
+<a class="reference internal" href="compilation.html#the-build-mode"><span class="std std-ref">The Build Mode</span></a> for more details).</p>
+<p>Create multiple debuggers by using the <span class="menuselection">Debug ‣ Initialize</span> (or
+the corresponding toolbar button) menu several times: this creates a new debugger
+each time.  All debugger-related actions (e.g. stepping, running) are performed
+in the current debugger, represented by the current debugger console.  To switch
+to a different debugger, select its corresponding console. Setting breakpoints,
+though, will be done for all debuggers, to help debug when you work on multiple
+executables that share code.</p>
+<p>After the debugger has been initialized, you have access several new views: the
+debugger console (in a new page, after the <span class="guilabel">Messages</span> window), the
+<span class="guilabel">Breakpoints</span> views and the <span class="guilabel">Variables</span> view.</p>
+<p>You can now access any of the menus under <span class="menuselection">Debugger</span>, and you
+also have access to additional contextual menus, in particular in the source
+editor where you can easily display variables, set breakpoints, and get
+automatic displays (via tooltips) of object values.</p>
+<span class="target" id="index-3"></span><p id="index-4">To exit the debugger without quitting GPS, use the <span class="menuselection">Debug
+‣ Terminate Current</span> menu, which terminates your current debug session,
+or the <span class="menuselection">Debug ‣ Terminate</span> menu which terminates all of
+your current debug sessions.</p>
+<div class="section" id="the-call-stack-view">
+<span id="index-5"></span><span id="id2"></span><h2>10.1. The Call Stack View<a class="headerlink" href="#the-call-stack-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/call-stack.jpg" src="_images/call-stack.jpg" />
+<p>The call stack view lists the frames corresponding to the current execution
+stack for the current thread or task.</p>
+<p>The bottom frame corresponds to the outermost frame (where the thread is
+currently stopped). This frame corresponds to the first function executed
+by the current thread (e.g, <code class="samp docutils literal"><span class="pre">main</span></code> if the main thread is in C).
+Click on any frame to switch to that caller&#8217;s context; this updates the
+display in the source window.  Use the up and down buttons in the tool bar
+to go up and down one frame in the call stack.</p>
+<p>The local configuration menu allows you to choose which information you want to
+display in the call stack window (via check buttons):</p>
+<ul>
+<li><p class="first"><span class="menuselection">Frame number</span>:</p>
+<p>The debugger frame number (usually starts at 0 or 1).</p>
+</li>
+<li><p class="first"><span class="menuselection">Program Counter</span>:</p>
+<p>The machine address corresponding to the function&#8217;s entry point.</p>
+</li>
+<li><p class="first"><span class="menuselection">Subprogram Name</span>:</p>
+<p>The name of the subprogram.</p>
+</li>
+<li><p class="first"><span class="menuselection">Parameters</span>:</p>
+<p>The parameters to the subprogram.</p>
+</li>
+<li><p class="first"><span class="menuselection">File Location</span>:</p>
+<p>The filename and line number information.</p>
+</li>
+</ul>
+<p id="index-6">By default, only the subprogram name is displayed.  Hide the call stack
+view by closing it and show it again using the menu <span class="menuselection">Debug
+‣ Data ‣ Call Stack</span> menu.</p>
+<p>Showing extra information like the value for parameters requires more
+work from the debugger, and thus will be slower.</p>
+</div>
+<div class="section" id="the-variables-view">
+<span id="index-7"></span><span id="id3"></span><h2>10.2. The Variables View<a class="headerlink" href="#the-variables-view" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="guilabel">Variables</span> view displays the value of selected variables or
+debugger command every time the debugger stops. The display is done in a
+tree, so that for instance the fields of a record are displayed in child
+nodes (recursively).</p>
+<p>Access types (or pointers) can also be expanded to show the value they
+reference.</p>
+<p>Values that have been modified since the debugger last stopped are highlighted
+in red.</p>
+<p>This value is very similar to <span class="xref std std-ref">The_Data_Browser</span>.</p>
+<img alt="_images/debugger-variables.png" src="_images/debugger-variables.png" />
+</div>
+<div class="section" id="the-breakpoint-editor">
+<h2>10.3. The Breakpoint Editor<a class="headerlink" href="#the-breakpoint-editor" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/breakpoints.png" src="_images/breakpoints.png" />
+<p id="index-8">Access the breakpoint editor from the <span class="menuselection">Debug ‣ Data ‣
+Breakpoints</span> menu.  It allows you to manipulate the various kinds of
+breakpoints: those at a source location, on a subprogram, at an executable
+address, on memory access (watchpoints), or on Ada exceptions.</p>
+<p>This view lists the existing breakpoints that are currently set in the
+debugger.
+You can quickly and conveniently enable or disable breakpoints by
+clicking on the checkboxes directly in the list.</p>
+<p>Select a breakpoint in the list and click on the <span class="guilabel">View</span> button
+in the toolbar to shows the corresponding editor at that location. You
+can alternatively double-click on the breakpoint.</p>
+<img alt="_images/bp-advanced.png" src="_images/bp-advanced.png" />
+<p>To view the details of a breakpoint, select it in the list and click on
+the <span class="guilabel">Edit</span> button in the toolbar. You can also do a long click
+on the breakpoint (keep your mouse pressed for a short while).</p>
+<p>This opens up a separate dialog that shows the various attributes:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Details on where the breakpoint is set: the file and line, the
+specific address in memory, or the name of the exception which will
+stop the debugger when raised. These are not editable, so to change
+this you must create a new breakpoint instead;</p>
+</li>
+<li><p class="first">The conditions to be met for the debugger to stop at that location.
+Such conditions can refer to variables valid at that location, and
+for instance test the value of specific variables;</p>
+</li>
+<li><p class="first">The number of times that the breakpoint should be ignored before the
+debugger actually stops. This is useful when you know the error
+occurs after the 70th time hitting the breakpoint;</p>
+</li>
+<li><p class="first">Debugger commands to execute when reaching the breakpoint.</p>
+</li>
+<li><p class="first">When running <span class="target" id="index-9"></span>VxWorks AE, this dialog also lets you two extra
+properties:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">The <strong>scope</strong> indicates which tasks will be stopped. Possible
+values are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>task: The breakpoint only affects the task that was active when the
+breakpoint was set. If the breakpoint is set before the program is run,
+the breakpoint affects the environment task.</li>
+<li>pd: Any task in the current <span class="target" id="index-10"></span>protection domain is affected
+by the breakpoint.</li>
+<li>any: Any task in any protection domain is affected by the breakpoint. This
+setting is only allowed for tasks in the Kernel domain.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">The <strong>action</strong> indicates which tasks are stopped when the breakpoint
+is hit:</p>
+<blockquote>
+<div><ul class="simple">
+<li>task: only the task that hit the breakpoint.</li>
+<li>pd: all tasks in the current protection domain.</li>
+<li>all: all stoppable tasks in the system.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>Both of these properties can either be configured for the specific breakpoint,
+or configured as the default for the session, so that from then on every
+breakpoint will have the specified values for scope and action.</p>
+</li>
+</ul>
+</div></blockquote>
+<img alt="_images/breakpoints-add.png" src="_images/breakpoints-add.png" />
+<p>To create new breakpoints, click on the <span class="guilabel">Add</span> button in the
+toolbar. This opens up the same dialog as above, but lets you edit the
+top section (file, line, exception, address,...). Select the type of
+the breakpoint or watchpoint at the top.</p>
+<span class="target" id="index-11"></span><span class="target" id="index-12"></span><p id="index-13">If you enabled the preference <span class="menuselection">Debugger ‣ Preserve state
+on exit</span>, GPS automatically saves the currently set breakpoints and
+restores them the next time you debug an executable in the same
+project. This allows you
+to immediately start debugging your application without having to set the
+breakpoints every time. These breakpoints will be reused for all
+executables in the same project.</p>
+</div>
+<div class="section" id="the-memory-view">
+<span id="index-14"></span><span id="id4"></span><h2>10.4. The Memory View<a class="headerlink" href="#the-memory-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/memory-view.jpg" src="_images/memory-view.jpg" />
+<p>The memory view allows you to display the contents of memory by specifying
+either an address or a variable name.</p>
+<span class="target" id="index-15"></span><p id="index-16">To display memory contents, enter either the address using the C
+hexadecimal notation (0xabcd) or the name of a variable in the
+<span class="guilabel">Location</span> text entry.  (If a variable is entered, the underlying
+debugger computes its address.)  Then either press <code class="kbd docutils literal"><span class="pre">Enter</span></code> or click
+the <span class="guilabel">View</span> button. GPS displays the memory with the corresponding
+addresses in the bottom text area.</p>
+<p id="index-17">Specify the unit size (<span class="guilabel">Byte</span>, <span class="guilabel">Halfword</span> or
+<span class="guilabel">Word</span>) and the format (<span class="guilabel">Hexadecimal</span>,
+<span class="guilabel">Decimal</span>, <span class="guilabel">Octal</span>, or <span class="guilabel">ASCII</span>) and you can
+display the corresponding ASCII value at the same time.</p>
+<p>The <code class="kbd docutils literal"><span class="pre">up</span></code> and <code class="kbd docutils literal"><span class="pre">down</span></code> arrows as well as the <code class="kbd docutils literal"><span class="pre">Page</span> <span class="pre">up</span></code> and
+<code class="kbd docutils literal"><span class="pre">Page</span> <span class="pre">down</span></code> keys in the memory text area allow you to walk through the
+memory in order of ascending or descending addresses respectively.</p>
+<p>Finally, modify a memory area by clicking on the location you want to
+modify and entering the new values. Modified values appear in a different
+color (red by default) and are only written to the target when you click
+on the <span class="guilabel">Submit changes</span> button. Clicking on <span class="guilabel">Undo
+changes</span> or going up or down in the memory also undoes your editing.</p>
+<p>Clicking on <span class="guilabel">Close</span> closes the memory window, canceling your last
+pending changes, if any.</p>
+</div>
+<div class="section" id="using-the-source-editor-when-debugging">
+<span id="id5"></span><h2>10.5. Using the Source Editor when Debugging<a class="headerlink" href="#using-the-source-editor-when-debugging" title="Permalink to this headline">¶</a></h2>
+<p>When debugging, the left area of each source editor provides the following
+information:</p>
+<p><em>Current line executed</em></p>
+<blockquote>
+<div>The line about to be executed by the debugger is highlighted in green (by
+default), and a green arrow is displayed on its left side.</div></blockquote>
+<dl class="docutils">
+<dt><em>Lines with breakpoints</em></dt>
+<dd><p class="first last" id="index-18">The line number (if present, otherwise the first few pixels) is highlighted
+with a background color for lines where breakpoints have been set. Add or
+delete breakpoints by clicking on the line number.
+These breakpoints can be set or unset even when no debugger is running.</p>
+</dd>
+</dl>
+<img alt="_images/tooltips.png" src="_images/tooltips.png" />
+<span class="target" id="index-19"></span><p id="index-20">The second area in the source editor is a text window on the right that
+displays the source files, with syntax highlighting.  If you hold the
+pointer over a variable, GPS displays a tooltip showing the value of that
+variable.  Disable these automatic tooltips using the preferences menu.</p>
+<p>At all times, the contextual menu of the source window
+contains a <span class="menuselection">Debug</span> submenu providing some or all of the entries
+below. These entries are dynamic and apply to the entity under the pointer
+(depending on the current language). In addition, if you have made a
+selection in the editor, the text of the selection is used instead. This
+allows you to easily display complex expressions (for example, you can add
+comments to your code with expressions you want to display in the
+debugger).</p>
+<ul>
+<li><p class="first"><span class="menuselection">Debug ‣ Graph Display *selection*</span></p>
+<p>Displays the selection (or by default the name under the pointer) in the
+data window. GPS automatically refreshes this value each time the
+process state changes (e.g after a step or a next command). To freeze the
+display, click on the corresponding icon in the browser or use the
+contextual menu for that item (see <span class="xref std std-ref">The_Data_Browser</span>).</p>
+</li>
+<li><p class="first"><span class="menuselection">Debug ‣ Graph Display *selection*.all</span></p>
+<p>Dereferences the selection (or by default the name under the pointer) and
+displays the value in the data browser.</p>
+</li>
+<li><p class="first"><span class="menuselection">View memory at address of *selection*</span></p>
+<p>Brings up the memory view dialog and explores memory at the address of
+the selection.</p>
+</li>
+<li><p class="first"><span class="menuselection">Set Breakpoint on Line *xx*</span></p>
+<p>Sets a breakpoint on the line under the pointer.
+This menu is always enabled, even when no debugger is started. This means
+that you can prepare breakpoints while working on the code, before you even
+start the debugger.</p>
+</li>
+<li><p class="first"><span class="menuselection">Set Breakpoint on *selection*</span></p>
+<p>Sets a breakpoint at the beginning of the subprogram named <em>selection</em>.
+This menu is always enabled, even when no debugger is started. This means
+that you can prepare breakpoints while working on the code, before you even
+start the debugger.</p>
+</li>
+<li><p class="first"><span class="menuselection">Continue Until Line *xx*</span></p>
+<p>Continues execution (the program must have been started previously) until
+it reaches the specified line.</p>
+</li>
+<li><p class="first"><span class="menuselection">Show Current Location</span></p>
+<p>Jumps to the current line of execution. This is particularly useful after
+navigating through your source code.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="the-assembly-window">
+<span id="id6"></span><h2>10.6. The Assembly Window<a class="headerlink" href="#the-assembly-window" title="Permalink to this headline">¶</a></h2>
+<p>It is sometimes convenient to look at the assembly code for the subprogram
+or source line you are currently debugging.</p>
+<p id="index-21">Open the assembly window by using the <span class="menuselection">Debug ‣ Data ‣
+Assembly</span> menu.</p>
+<img alt="_images/assembly.png" src="_images/assembly.png" />
+<p>The current assembler instruction is highlighted on the left with a green
+arrow.  The instructions corresponding to the current source line are
+highlighted (by default in red). This allows you to easily see where the
+program counter will point after you press the <span class="guilabel">Next</span> button on
+the tool bar.</p>
+<p>Move to the next assembler instruction using the <span class="guilabel">Nexti</span> (next
+instruction) button in the tool bar. If you choose <span class="guilabel">Stepi</span>
+instead (step instruction), it steps into any subprogram being called by
+that instruction.</p>
+<p>For efficiency purposes, GPS only displays a small part of the assembly
+code around the current instruction.  Specify how many instructions are
+displayed in the preferences dialog.  Display
+the instructions immediately preceding or following the currently displayed
+instructions by pressing one of the <code class="kbd docutils literal"><span class="pre">Page</span> <span class="pre">up</span></code> or <code class="kbd docutils literal"><span class="pre">Page</span> <span class="pre">down</span></code> keys
+or using the contextual menu in the assembly window.</p>
+<p id="index-22">A convenient complement when debugging at the assembly level is the ability
+to display the contents of machine registers.  When the debugger supports
+it (as <strong class="program">gdb</strong> does), select the <span class="menuselection">Debug ‣ Data ‣
+Display Registers</span> menu to get an item in the data browser that shows the
+current contents of each machine register and that is updated every time one
+of them changes.</p>
+<p id="index-23">You might also choose to look at a single register.  With <strong class="program">gdb</strong>,
+select the <span class="menuselection">Debug ‣ Data ‣ Display Any Expression</span> menu,
+enter something like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>output /x $eax
+</pre></div>
+</div>
+<p>in the field and select toggle button <span class="guilabel">Expression is a subprogram
+call</span>. This creates a new browser item that is refreshed every time the
+value of the register (in this case <strong class="command">eax</strong>) changes.</p>
+</div>
+<div class="section" id="the-debugger-console">
+<span id="index-24"></span><span id="id7"></span><h2>10.7. The Debugger Console<a class="headerlink" href="#the-debugger-console" title="Permalink to this headline">¶</a></h2>
+<p>The debugger console is the text window located at the bottom of the main
+window.  It gives you direct access to the underlying debugger, to which
+you can send commands (you need to refer to the underlying debugger&#8217;s
+documentation, but usually typing &#8220;help&#8221; will gives you an overview of the
+available commands).</p>
+<p>If the underlying debugger allows it, pressing <code class="kbd docutils literal"><span class="pre">Tab</span></code> in this window
+provides completion for the command being typed (or its arguments).</p>
+<p>Additional commands are defined here to provide a simple text interface to
+some graphical features.  Here is the complete list of such commands (the
+arguments between square brackets are optional and can be omitted):</p>
+<ul>
+<li><p class="first">tree display expression</p>
+<p id="index-25">This command displays the value of the expression in the
+<span class="guilabel">Variables</span> view. The <code class="samp docutils literal"><span class="pre">expression</span></code> should be
+the name of a variable, or any expression matching the source
+language of the current frame (for instance <code class="samp docutils literal"><span class="pre">A(0).Field</span></code>).</p>
+</li>
+<li><p class="first">tree display <cite>command</cite></p>
+<p>This command executes the gdb command, and displays the result in the
+<span class="guilabel">Variables</span> view. The <code class="samp docutils literal"><span class="pre">command</span></code> should be an internal
+debugger command, for instance <code class="samp docutils literal"><span class="pre">info</span> <span class="pre">local</span></code>.</p>
+</li>
+</ul>
+<p><em>graph (print|display) expression [dependent on display_num] [link_name name] [at x, y] [num num]</em></p>
+<blockquote>
+<div><span class="target" id="index-26"></span><p id="index-27">Create a new item in the browser showing the value of <code class="samp docutils literal"><span class="pre">Expression</span></code>,
+which is the name of a variable, or one of its fields, in the current
+scope for the debugger.  The command <cite>graph print</cite> creates a frozen item,
+one that is not automatically refreshed when the debugger stops, while
+<code class="samp docutils literal"><span class="pre">graph</span> <span class="pre">display</span></code> displays an item that is automatically refreshed.</p>
+<p>The new item is associated with a number displayed in its title bar.
+This number can be specified with the <code class="samp docutils literal"><span class="pre">num</span></code> keyword and can be used
+to create links between the items, using the second argument to the
+command, <code class="samp docutils literal"><span class="pre">dependent</span> <span class="pre">on</span></code>. By specifying the third argument, the link
+itself (i.e. the line) can be given a name that is also displayed.</p>
+</div></blockquote>
+<p><em>graph (print|display) `command`</em></p>
+<blockquote>
+<div><p>Similar to the above, except you use it to display the result of a
+debugger command in the browser.  For example, using <strong class="program">gdb</strong>, if
+you want to display the value of a variable in hexadecimal rather than
+the default decimal, use a command like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>graph display `print /x my_variable`
+</pre></div>
+</div>
+<p>This evaluates the command between back-quotes every time the debugger
+stops and displays the result in the browser. The lines that have changed
+are automatically highlighted (by default, in red).</p>
+</div></blockquote>
+<p><em>graph (enable|disable) display display_num [display_num ...]</em></p>
+<blockquote>
+<div><span class="target" id="index-28"></span><p id="index-29">Change the refresh status of items in the canvas. As explained above,
+items are associated with a number visible in their title bar.</p>
+<p>The <strong class="command">graph enable</strong> command forces the item to be refreshed
+automatically every time the debugger stops and <strong class="command">graph disable</strong>
+freezes the item, preventing its display from being changed.</p>
+</div></blockquote>
+<p><em>graph undisplay display_num</em></p>
+<blockquote>
+<div><p id="index-30">Remove an item from the browser.</p>
+</div></blockquote>
+</div>
+<div class="section" id="customizing-the-debugger">
+<span id="id8"></span><h2>10.8. Customizing the Debugger<a class="headerlink" href="#customizing-the-debugger" title="Permalink to this headline">¶</a></h2>
+<p>GPS is a high-level interface to several debugger backends, in particular
+<strong class="program">gdb</strong>.  Each backend has its own advantages, but you can enhance
+the command line interface to these backends through GPS by using Python.</p>
+<p>This section provides a short such example whose goal is to demonstrate the
+notion of an &#8220;alias&#8221; in the debugger console. For example, if you type just
+&#8220;foo&#8221;, it executes a longer command, such as one displaying the value of a
+variable with a long name. <strong class="program">gdb</strong> already provides this feature
+through the <strong class="command">define</strong> keywords, but here we implement that feature
+using Python in GPS.</p>
+<p>GPS provides an extensive Python API to interface with each of the running
+debuggers. In particular, it provides the function &#8220;send&#8221;, used to send a
+command to the debugger and get its output, and the function &#8220;set_output&#8221;,
+used when you implement your own functions.</p>
+<p>It also provides, through <code class="samp docutils literal"><span class="pre">hook</span></code>, the capability to monitor the state
+of the debugger back-end. In particular, one such hook,
+<code class="samp docutils literal"><span class="pre">debugger_command_action_hook</span></code> is called when the user types a
+command in the debugger console and before the command is executed. This
+can be used to add your own commands. The example below uses this hook.</p>
+<p>Here is the code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">GPS</span>
+
+<span class="n">aliases</span><span class="o">=</span><span class="p">{}</span>
+
+<span class="k">def</span> <span class="nf">set_alias</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;Set a new debugger alias. Typing this alias in a debugger window</span>
+<span class="sd">      will execute command&quot;&quot;&quot;</span>
+   <span class="k">global</span> <span class="n">aliases</span>
+   <span class="n">aliases</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">command</span>
+
+<span class="k">def</span> <span class="nf">execute_alias</span><span class="p">(</span><span class="n">debugger</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+   <span class="k">return</span> <span class="n">debugger</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">aliases</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">output</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">debugger_commands</span><span class="p">(</span><span class="n">hook</span><span class="p">,</span> <span class="n">debugger</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+   <span class="k">global</span> <span class="n">aliases</span>
+   <span class="n">words</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+   <span class="k">if</span> <span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;alias&quot;</span><span class="p">:</span>
+      <span class="n">set_alias</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span> <span class="p">(</span><span class="n">words</span> <span class="p">[</span><span class="mi">2</span><span class="p">:]))</span>
+      <span class="k">return</span> <span class="bp">True</span>
+   <span class="k">elif</span> <span class="n">aliases</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">words</span> <span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+      <span class="n">debugger</span><span class="o">.</span><span class="n">set_output</span><span class="p">(</span><span class="n">execute_alias</span><span class="p">(</span><span class="n">debugger</span><span class="p">,</span> <span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+      <span class="k">return</span> <span class="bp">True</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="k">return</span> <span class="bp">False</span>
+
+<span class="n">GPS</span><span class="o">.</span><span class="n">Hook</span><span class="p">(</span><span class="s2">&quot;debugger_command_action_hook&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">debugger_commands</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The list of aliases is stored in the global variable <strong class="command">aliases</strong>,
+which is modified by <strong class="command">set_alias</strong>. Whenever the user executes an
+alias, the real command is sent to the debugger through
+<strong class="command">execute_alias</strong>.</p>
+<p>The real work is done by <cite>debugger_commands</cite>. If you execute the
+<strong class="command">alias</strong> command, it defines a new alias. Otherwise, if you type
+the name of an alias, we want to execute that alias.  And if not, we let the
+underlying debugger handle that command.</p>
+<p>After you copied this example in the <code class="file docutils literal"><span class="pre">$HOME/.gps/plug-ins</span></code> directory,
+start a debugger as usual in GPS, and type the following in its console:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">alias</span> <span class="n">foo</span> <span class="k">print</span> <span class="n">a_long_long_name</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">foo</span>
+</pre></div>
+</div>
+<p>The first command defines the alias, the second line executes it.</p>
+<p>This alias can also be used within the <strong class="command">graph display</strong> or
+<strong class="command">tree display</strong> commands so the value of the variable is displayed in
+the data window, for example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">graph</span> <span class="n">display</span> <span class="sb">`foo`</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">tree</span> <span class="n">display</span> <span class="sb">`foo`</span>
+</pre></div>
+</div>
+<p>You can also program other examples. You could write complex Python
+functions, which would, for example, query the value of several variables
+and pretty-print the result.  You can call any of these complex Python
+functions from the debugger console or have it called automatically every
+time the debugger stops via the <strong class="command">graph display</strong> command.</p>
+</div>
+<div class="section" id="command-line-interface">
+<h2>10.9. Command line interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">¶</a></h2>
+<p>GPS is still running the standard gdb underneath. So any command that you
+might be used to run in gdb can also be executed from the <span class="guilabel">Debugger
+Console</span>.</p>
+<p id="index-31">In particular, gdb has a feature where it reads initialization commands from
+a <cite>.gdbinit</cite> configuration file. Here are some pieces of information if you
+would like to use such files:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">When <strong class="command">gdb</strong> starts, the current directory (which is where you
+should put your <cite>.gdbinit</cite> file is the environment&#8217;s current directory.
+GPS doesn&#8217;t override it. In general, this will also be the directory
+from which you started GPS itself. You can type:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">pwd</span>
+</pre></div>
+</div>
+<p>in the debugger console to find out exactly what the directory is.</p>
+</li>
+<li><p class="first"><strong class="command">gdb</strong> always loads the global configuration <cite>.gdbinit</cite> in
+your home directory. It can also load a <cite>.gdbinit</cite> from the current
+directory, but this feature is disabled by default for security reasons
+to avoid malicious scripts.</p>
+<p>To enable the local <cite>.gdbinit</cite>, you will need to create the global one
+as well, with a contents similar to:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">add</span><span class="o">-</span><span class="n">auto</span><span class="o">-</span><span class="n">load</span><span class="o">-</span><span class="n">safe</span><span class="o">-</span><span class="n">path</span>  <span class="o">&lt;</span><span class="n">your</span> <span class="n">directory</span><span class="o">&gt;</span>
+<span class="nb">set</span> <span class="n">auto</span><span class="o">-</span><span class="n">load</span> <span class="n">local</span><span class="o">-</span><span class="n">gdbinit</span>
+</pre></div>
+</div>
+<p>If you feel safe, you can replace &#8220;&lt;your directory&gt;&#8221; with &#8220;/&#8221; to always
+allow it on your system.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="vcs.html" title="11. Version Control System"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="compilation.html" title="9. Compilation/Build"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,145 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatp
+A -gnatn
+A -gnatwa
+A -gnatw.X
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_DISPATCH
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U aunit.test_caller%b	aunit-test_caller.adb	78683681 NE OO PK GE
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_conversion%s
+W aunit%s		aunit.adb		aunit.ali
+W aunit.assertions%s	aunit-assertions.adb	aunit-assertions.ali
+W aunit.memory%s	aunit-memory.adb	aunit-memory.ali
+W aunit.memory.utils%s	aunit-memory-utils.adb	aunit-memory-utils.ali
+
+U aunit.test_caller%s	aunit-test_caller.ads	581d22b8 BN EE NE OO PK GE
+W aunit%s		aunit.adb		aunit.ali
+W aunit.simple_test_cases%s  aunit-simple_test_cases.adb  aunit-simple_test_cases.ali
+W aunit.test_fixtures%s	aunit-test_fixtures.adb	aunit-test_fixtures.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-calend.ads		20190518041256 474d9720 ada.calendar%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D ada_containers.ads	20190430040725 11329e00 ada_containers%s
+D ada_containers-aunit_lists.ads  20190430040725 d9ebc89a ada_containers.aunit_lists%s
+D ada_containers-aunit_lists.adb  20190430040725 37559612 ada_containers.aunit_lists%b
+D aunit.ads		20190430040725 76cdf7c6 aunit%s
+D aunit-assertions.ads	20190430040725 b7f9ecd6 aunit.assertions%s
+D aunit-memory.ads	20190430040725 a0315146 aunit.memory%s
+D aunit-memory-utils.ads  20190430040725 5b1e3d11 aunit.memory.utils%s
+D aunit-options.ads	20190430040725 6e5a02a6 aunit.options%s
+D aunit-simple_test_cases.ads  20190430040725 4111c32f aunit.simple_test_cases%s
+D aunit-test_caller.ads	20190430040725 956cfce4 aunit.test_caller%s
+D aunit-test_caller.adb	20190430040725 0f783ccd aunit.test_caller%b
+D aunit-test_filters.ads  20190430040725 f10b2127 aunit.test_filters%s
+D aunit-test_fixtures.ads  20190430040725 faadeab5 aunit.test_fixtures%s
+D aunit-test_results.ads  20190430040725 171847c9 aunit.test_results%s
+D aunit-tests.ads	20190430040725 1da11d49 aunit.tests%s
+D aunit-time_measure.ads  20190430040725 a8b9fbfb aunit.time_measure%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-souinf.ads		20190518041257 291df751 gnat.source_info%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-finmas.ads		20190518041256 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041255 ede33ef8 system.pool_global%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+G a e
+G c Z s b [test_caller aunit 78 15 none]
+X 1 ada.ads
+16K9*Ada 20e8 18|32r6 69r31
+X 7 a-unccon.ads
+20v14*Unchecked_Conversion 18|32w10 69r35
+X 9 ada_containers-aunit_lists.ads
+53R9*Cursor
+X 11 aunit.ads
+34K9*AUnit 48e10 17|71r6 72r6 76r29 78r9 80r26 115r26 121r5 18|33r6 34r6
+. 36r14 38r32 67r29 95r7 117r5
+36P9*Message_String(string) 17|98r44 117r17 18|81r44
+44V13*Format{36P9} 18|53s21
+X 12 aunit-assertions.ads
+44K15*Assertions 155e21 18|33w12 95r13
+101U14*Init_Test
+104U14*Clear_Failures
+107V13*Has_Failures{boolean}
+110R9*Failure_Iter<9|53R9[145]>
+113V13*First_Failure{110R9}
+125U14*Copy_Id 18|95s24
+X 13 aunit-memory.ads
+40K15*Memory 53e17 18|34r12 38r38 67r35
+X 14 aunit-memory-utils.ads
+34K22*Utils 42e23 18|34w19 38r45 67r42
+40v13*Gen_Alloc 18|38r51 67r48
+X 16 aunit-simple_test_cases.ads
+42K15*Simple_Test_Cases 77e28 17|71w12 80r32 115r32
+44H9*Test_Case<12|96R9> 75e73 17|80r50 115r50
+50V13*Routine_Name{11|36P9}
+67U14*Run
+X 17 aunit-test_caller.ads
+76R9 Test_Fixture<20|78R9> 12|101p14 104p14 107p13 113p13 17|83r56 112r38
+. 18|39r7 96r20 20|80p14 83p14
+78k15*Test_Caller 11|34k9 17|76z9 112E9 121l11 121e22 18|36b20 117l11 117t22
+80R9*Test_Case<16|44R9> 12|101p14 104p14 107p13 113p13 16|50p13 67p14 17|81r40
+. 92r18 98P13 98r26 101P14 101r38 104P14 104r36 107P14 107r39 115c9 119e14
+. 18|48r18 66r38 68r10 81r26 90r38 103r36 112r39
+81P9*Test_Case_Access(80R9) 87r34 18|64r34 70r23 71r22
+83P9*Test_Method 83=42 87r14 94r14 118r17 18|50r14 64r14
+83*42 Test{76R9}
+85V13*Create{81P9} 86>7 87>7 18|62b13 75l8 75t14
+86a7 Name{string} 18|63b7 73r24
+87p7 Test{83P9} 18|64b7 73r30
+91U14*Create 92<7 93>7 94>7 18|47b14 56l8 56t14 73s7
+92c7 TC<80R9> 18|48b7 53m7 54m7 55m7
+93a7 Name{string} 18|49b7 53r29
+94p7 Test{83P9} 18|50b7 54r21
+98V13*Name{11|36P9}<16|47p13> 98>19 18|81b13 84l8 84t12
+98r19 Test{80R9} 18|81b19 83r14
+101U14*Run_Test<16|53p14> 101=24 18|90b14 97l8 97t16
+101r24 Test{80R9} 18|90b24 95r33 95r39 96r7 96r34
+104U14*Set_Up<16|57p14> 104=22 18|103b14 106l8 106t14
+104r22 Test{80R9} 18|103b22 105r15
+107U14*Tear_Down<16|60p14> 107=25 18|112b14 115l8 115t17
+107r25 Test{80R9} 18|112b25 114r18
+112P9 Fixture_Access(76R9) 113r31 116r17 18|39r21 41r34
+116p7 Fixture{112P9} 18|55m10 95r44 96r39 105r20 114r23
+117p7 Name{11|36P9} 18|53m10 83r19
+118p7 Method{83P9} 18|54m10 96r12
+X 18 aunit-test_caller.adb
+38V13 New_Fixture[14|40]{17|112P9} 41s52
+41p4 The_Fixture_Object{17|112P9} 55r21
+66P12 Access_Type(17|80R9) 68r21 70r10
+67V16 Alloc[14|40]{66P12} 71s51
+69V16 Convert[7|20]{17|81P9} 71s42
+71p7 Ret{17|81P9} 73r15 74r14
+X 20 aunit-test_fixtures.ads
+76K15*Test_Fixtures 17|72w12 76r35 20|90e24
+78R9*Test_Fixture<12|96R9> 17|76r49 20|88e67
+80U14*Set_Up 18|105s7
+83U14*Tear_Down 18|114s7
+

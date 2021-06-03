@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>13. Representation Issues &#8212; SPARK 2014 Reference Manual 2019</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="14. Predefined Language Environment (Annex A)" href="the-standard-library.html" />
+    <link rel="prev" title="12. Generic Units" href="generic-units.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="the-standard-library.html" title="14. Predefined Language Environment (Annex A)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="generic-units.html" title="12. Generic Units"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">13. Representation Issues</a><ul>
+<li><a class="reference internal" href="#operational-and-representation-aspects">13.1. Operational and Representation Aspects</a></li>
+<li><a class="reference internal" href="#packed-types">13.2. Packed Types</a></li>
+<li><a class="reference internal" href="#operational-and-representation-attributes">13.3. Operational and Representation Attributes</a></li>
+<li><a class="reference internal" href="#enumeration-representation-clauses">13.4. Enumeration Representation Clauses</a></li>
+<li><a class="reference internal" href="#record-layout">13.5. Record Layout</a></li>
+<li><a class="reference internal" href="#change-of-representation">13.6. Change of Representation</a></li>
+<li><a class="reference internal" href="#the-package-system">13.7. The Package System</a></li>
+<li><a class="reference internal" href="#machine-code-insertions">13.8. Machine Code Insertions</a></li>
+<li><a class="reference internal" href="#unchecked-type-conversions">13.9. Unchecked Type Conversions</a><ul>
+<li><a class="reference internal" href="#data-validity">13.9.1. Data Validity</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#unchecked-access-value-creation">13.10. Unchecked Access Value Creation</a></li>
+<li><a class="reference internal" href="#storage-management">13.11. Storage Management</a></li>
+<li><a class="reference internal" href="#pragma-restrictions-and-pragma-profile">13.12. Pragma Restrictions and Pragma Profile</a></li>
+<li><a class="reference internal" href="#streams">13.13. Streams</a></li>
+<li><a class="reference internal" href="#freezing-rules">13.14. Freezing Rules</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="generic-units.html"
+                        title="previous chapter">12. Generic Units</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="the-standard-library.html"
+                        title="next chapter">14. Predefined Language Environment (Annex A)</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/representation-issues.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="representation-issues">
+<h1>13. Representation Issues<a class="headerlink" href="#representation-issues" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="operational-and-representation-aspects">
+<h2>13.1. Operational and Representation Aspects<a class="headerlink" href="#operational-and-representation-aspects" title="Permalink to this headline">¶</a></h2>
+<p>SPARK 2014 defines several Boolean-valued aspects. These include the
+Async_Readers, Async_Writers, Constant_After_Elaboration,
+Effective_Reads, Effective_Writes, Extensions_Visible, Ghost,
+and Volatile_Function aspects.
+[Note that this list does not include expression-valued aspects,
+such as Default_Initial_Condition or Initial_Condition.]</p>
+<p>The following rules apply to each of these aspects unless specified
+otherwise for a particular aspect:</p>
+<ol class="arabic simple">
+<li>In the absence of an aspect specification (explicit or inherited),
+the default value of the given aspect is False.</li>
+<li>If the given aspect is specified via an aspect_specification
+[(as opposed to via a pragma)] then the aspect_definition
+(if any) shall be a static Boolean expression.
+[Omitting the aspect_definition in an aspect_specification is equivalent
+to specifying a value of True as described in Ada RM 13.1.1(15).]</li>
+<li>The usage names in an aspect_definition for the given aspect are
+resolved at the point of the associated declaration. [This supersedes
+the name resolution rule given in Ada RM 13.1.1 that states that such names
+are resolved at the end of the enclosing declaration list.]</li>
+</ol>
+<p>[One case where the &#8220;unless specified otherwise&#8221; clause applies
+is illustrated by</p>
+<blockquote>
+<div>X : Integer with Volatile;</div></blockquote>
+<p>where the Async_Readers aspect of X is True, not False.]</p>
+<p>Ada allows aspect specifications for package declarations and package
+bodies but does not define any aspects which can be specified in this
+way. SPARK 2014 defines, for example, the Initial_Condition and Refined_State
+aspects (the former can be specified for a package declaration; the latter
+for a package body). Ada&#8217;s usual rule that</p>
+<blockquote>
+<div>The usage names in an aspect_definition [are not resolved at the point of
+the associated declaration, but rather] are resolved at the end of the
+immediately enclosing declaration list.</div></blockquote>
+<p>is applied for such aspects as though &#8220;the immediately enclosing
+declaration list&#8221; is that of the visible part (in the former case) or of
+the body (in the latter case).
+[For example, the Initial_Condition expression of a package which declares a
+variable in its visible part can (directly) name that variable. Simlarly, the
+Refined_State aspect specification for a package body can name variables
+declared within the package body.]</p>
+</div>
+<div class="section" id="packed-types">
+<h2>13.2. Packed Types<a class="headerlink" href="#packed-types" title="Permalink to this headline">¶</a></h2>
+<p>No restrictions or additions.</p>
+</div>
+<div class="section" id="operational-and-representation-attributes">
+<h2>13.3. Operational and Representation Attributes<a class="headerlink" href="#operational-and-representation-attributes" title="Permalink to this headline">¶</a></h2>
+<p>No restrictions or additions.</p>
+</div>
+<div class="section" id="enumeration-representation-clauses">
+<h2>13.4. Enumeration Representation Clauses<a class="headerlink" href="#enumeration-representation-clauses" title="Permalink to this headline">¶</a></h2>
+<p>No restrictions or additions.</p>
+</div>
+<div class="section" id="record-layout">
+<h2>13.5. Record Layout<a class="headerlink" href="#record-layout" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="change-of-representation">
+<h2>13.6. Change of Representation<a class="headerlink" href="#change-of-representation" title="Permalink to this headline">¶</a></h2>
+<p>No restrictions or additions.</p>
+</div>
+<div class="section" id="the-package-system">
+<h2>13.7. The Package System<a class="headerlink" href="#the-package-system" title="Permalink to this headline">¶</a></h2>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-the-package-system-01">
+<li>The use of the operators defined for type Address are not permitted
+in SPARK 2014 except for use within representation clauses.</li>
+</ol>
+</div>
+<div class="section" id="machine-code-insertions">
+<span id="etu-the-package-system"></span><h2>13.8. Machine Code Insertions<a class="headerlink" href="#machine-code-insertions" title="Permalink to this headline">¶</a></h2>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-machine-code-insertions-01">
+<li>Machine code insertions are not in SPARK 2014.</li>
+</ol>
+</div>
+<div class="section" id="unchecked-type-conversions">
+<span id="etu-machine-code-insertions"></span><h2>13.9. Unchecked Type Conversions<a class="headerlink" href="#unchecked-type-conversions" title="Permalink to this headline">¶</a></h2>
+<p>The validity of unchecked type conversions is not currently checked by
+SPARK 2014 the onus is on the user to ensure that the value read from an
+unchecked type conversion is valid (see <a class="reference internal" href="#data-validity"><span class="std std-ref">Data Validity</span></a>).</p>
+<div class="section" id="data-validity">
+<span id="id1"></span><h3>13.9.1. Data Validity<a class="headerlink" href="#data-validity" title="Permalink to this headline">¶</a></h3>
+<p>Currently SPARK 2014 does not check for data validity.
+It is therefore up to users to ensure that data read from
+external sources and values from unchecked type conversions are valid.</p>
+<p>Validity can be ensured by using a type for the target of the data
+read from an external source or an unchecked type conversion which is
+sufficient to encompass all possible values of the source.
+Alternatively the X&#8217;Valid (or X&#8217;Valid_Scalars for composite types) may
+be used to determine the validity of an object.</p>
+<p>The use of invalid values in a program (other than in a Valid, or Valid_Scalars
+attribute) may invalidate any proofs performed on the program.</p>
+</div>
+</div>
+<div class="section" id="unchecked-access-value-creation">
+<h2>13.10. Unchecked Access Value Creation<a class="headerlink" href="#unchecked-access-value-creation" title="Permalink to this headline">¶</a></h2>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-unchecked-access-value-creation-01">
+<li>The Unchecked_Access attribute is not in SPARK 2014.</li>
+</ol>
+</div>
+<div class="section" id="storage-management">
+<span id="etu-unchecked-access-value-creation"></span><h2>13.11. Storage Management<a class="headerlink" href="#storage-management" title="Permalink to this headline">¶</a></h2>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><p id="tu-storage-management-01">1. Aspect specifications for the Storage_Pool and Storage_Size aspects
+are not in SPARK 2014, nor are uses of the corresponding attributes.
+The predefined unit System.Storage_Pools is not in SPARK 2014, nor is
+any other predefined unit that semantically depends on it. The pragma
+Default_Storage_Pool is not in SPARK.</p>
+</div>
+<div class="section" id="pragma-restrictions-and-pragma-profile">
+<span id="etu-storage-management"></span><h2>13.12. Pragma Restrictions and Pragma Profile<a class="headerlink" href="#pragma-restrictions-and-pragma-profile" title="Permalink to this headline">¶</a></h2>
+<p>Restrictions and Profiles will be available with SPARK 2014 to provide profiles
+suitable for different application environments.</p>
+</div>
+<div class="section" id="streams">
+<h2>13.13. Streams<a class="headerlink" href="#streams" title="Permalink to this headline">¶</a></h2>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-streams-01">
+<li>Stream types and operations are not in SPARK 2014.</li>
+</ol>
+</div>
+<div class="section" id="freezing-rules">
+<span id="etu-streams"></span><h2>13.14. Freezing Rules<a class="headerlink" href="#freezing-rules" title="Permalink to this headline">¶</a></h2>
+<p>No restrictions or additions.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="the-standard-library.html" title="14. Predefined Language Environment (Annex A)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="generic-units.html" title="12. Generic Units"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

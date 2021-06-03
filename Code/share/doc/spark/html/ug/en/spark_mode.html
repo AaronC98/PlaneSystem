@@ -1,0 +1,929 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4. Identifying SPARK Code &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Overview of SPARK Language" href="spark_2014.html" />
+    <link rel="prev" title="3. Installation of GNATprove" href="install.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="spark_2014.html" title="5. Overview of SPARK Language"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="3. Installation of GNATprove"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. Identifying SPARK Code</a><ul>
+<li><a class="reference internal" href="#mixing-spark-code-and-ada-code">4.1. Mixing SPARK Code and Ada Code</a></li>
+<li><a class="reference internal" href="#project-file-setup">4.2. Project File Setup</a><ul>
+<li><a class="reference internal" href="#setting-the-default-spark-mode">4.2.1. Setting the Default SPARK_Mode</a></li>
+<li><a class="reference internal" href="#specifying-files-to-analyze">4.2.2. Specifying Files To Analyze</a></li>
+<li><a class="reference internal" href="#excluding-files-from-analysis">4.2.3. Excluding Files From Analysis</a></li>
+<li><a class="reference internal" href="#using-multiple-projects">4.2.4. Using Multiple Projects</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-spark-mode-in-code">4.3. Using <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> in Code</a><ul>
+<li><a class="reference internal" href="#basic-usage">4.3.1. Basic Usage</a></li>
+<li><a class="reference internal" href="#consistency-rules">4.3.2. Consistency Rules</a></li>
+<li><a class="reference internal" href="#examples-of-use">4.3.3. Examples of Use</a><ul>
+<li><a class="reference internal" href="#verifying-selected-subprograms">4.3.3.1. Verifying Selected Subprograms</a></li>
+<li><a class="reference internal" href="#verifying-selected-units">4.3.3.2. Verifying Selected Units</a></li>
+<li><a class="reference internal" href="#excluding-selected-unit-bodies">4.3.3.3. Excluding Selected Unit Bodies</a></li>
+<li><a class="reference internal" href="#excluding-selected-parts-of-a-unit">4.3.3.4. Excluding Selected Parts of a Unit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="install.html"
+                        title="previous chapter">3. Installation of GNATprove</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="spark_2014.html"
+                        title="next chapter">5. Overview of SPARK Language</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/en/spark_mode.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="identifying-spark-code">
+<span id="id1"></span><h1>4. Identifying SPARK Code<a class="headerlink" href="#identifying-spark-code" title="Permalink to this headline">¶</a></h1>
+<p>In general a program can have some parts that are in SPARK (and follow all
+the rules in the SPARK Reference Manual), and some parts that are full
+Ada 2012. Pragma or aspect <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> is used to identify which parts are
+in SPARK (by default programs are in full Ada).</p>
+<p>This section contains a simple description of pragma and aspect
+<code class="docutils literal"><span class="pre">SPARK_Mode</span></code>. See <a class="reference internal" href="appendix/implementation_defined_pragmas.html#pragma-spark-mode"><span class="std std-ref">Pragma SPARK_Mode</span></a> for the complete description.</p>
+<p>Note that GNATprove only analyzes parts of the code that are identified as
+being in SPARK using pragma or aspect <code class="docutils literal"><span class="pre">SPARK_Mode</span></code>.</p>
+<div class="section" id="mixing-spark-code-and-ada-code">
+<h2>4.1. Mixing SPARK Code and Ada Code<a class="headerlink" href="#mixing-spark-code-and-ada-code" title="Permalink to this headline">¶</a></h2>
+<p>An Ada program unit or other construct is said to be &#8220;in SPARK&#8221;
+if it complies with the restrictions required to permit formal verification
+given  in the SPARK Reference Manual.
+Conversely, an Ada program unit or other construct is &#8220;not in SPARK&#8221; if
+it does not meet these requirements, and so is not amenable to formal
+verification.</p>
+<p>Within a single Ada unit, constructs which are &#8220;in&#8221; and &#8220;not in&#8221; SPARK may be
+mixed at a fine level in accordance with the following two general principles:</p>
+<ul class="simple">
+<li>SPARK code shall only reference SPARK declarations, but a SPARK
+declaration which requires a completion may have a non-SPARK completion.</li>
+<li>SPARK code may enclose non-SPARK code.</li>
+<li>non-SPARK code may enclose SPARK code only at library level. A subprogram
+body which is not in SPARK cannot contain SPARK code.</li>
+</ul>
+<p>More specifically, non-SPARK completions of SPARK declarations are
+allowed for subprogram declarations, package declarations, task type
+declarations, protected type declarations, private type declarations,
+private extension declarations, and deferred constant declarations.
+[Strictly speaking, the private part of a package, a task type or a
+protected type is considered to be part of its completion for purposes
+of the above rules; this is described in more detail below].</p>
+<p>When a non-SPARK completion is provided for a SPARK declaration, the
+user has an obligation to ensure that the non-SPARK completion is
+consistent (with respect to the semantics of SPARK) with its SPARK
+declaration. For example, SPARK requires that a function call has no
+side effects. If the body of a given function is in SPARK, then this
+rule is enforced via various language rules; otherwise, it is the
+responsibility of the user to ensure that the function body does not
+violate this rule. As with other such constructs (notably pragma
+Assume), failure to meet this obligation can invalidate any or all
+analysis (proofs and/or flow analysis) associated with the SPARK
+portion of a program. A non-SPARK completion meets this obligation if
+it is semantically equivalent (with respect to dynamic semantics) to
+some notional completion that could have been written in SPARK.</p>
+<p>When a non-SPARK package declaration or body is included in a SPARK
+subprogram or package, the user has an obligation to ensure that the
+non-SPARK declaration is consistent (with respect to the semantics of
+SPARK) with a hypothetical equivalent SPARK declaration. For example,
+SPARK requires that package elaboration code cannot modify variables defined
+outside of the package.</p>
+<p>The SPARK semantics (specifically including flow analysis and
+proof) of a &#8220;mixed&#8221; program which meets the aforementioned
+requirement are well defined - they are the semantics of the
+equivalent 100% SPARK program. For the semantics of other &#8220;mixed&#8221;
+programs refer to the Ada Reference Manual.</p>
+<p>In the case of a package, a task type, or a protected type, the
+specification/completion division described above is a simplification
+of the true situation. For instance, a package is divided into 4
+sections, not just 2: its visible part, its private part, the
+declarations of its body, and the statement list of its body. For a
+given package and any number N in the range 0 .. 4, the first N
+sections of the package might be in SPARK while the remainder is
+not.</p>
+<p>For example, the following combinations may be typical:</p>
+<ul class="simple">
+<li>Package specification in SPARK. Package body not in SPARK.</li>
+<li>Visible part of package specification in SPARK. Private part and body not
+in SPARK.</li>
+<li>Package specification in SPARK. Package body almost entirely in SPARK,
+with a small number of subprogram bodies not in SPARK.</li>
+<li>Package specification in SPARK, with all subprogram bodies imported
+from another language.</li>
+<li>Package specification contains a mixture of declarations which are in SPARK
+and not in SPARK.  The latter declarations are only visible and usable from
+client units which are not in SPARK.</li>
+</ul>
+<p>Task types and protected types are similar to packages but only have 3
+sections instead of 4. The statement list section of the body is
+missing.</p>
+<p>Another typical use is to exempt part of a subprogram from analysis by
+isolating it in a local subprogram whose body is not in SPARK.</p>
+<p>Such patterns are intended to allow for application of formal verification to a
+subset of a program, and the combination of formal verification with more
+traditional testing (see <a class="reference internal" href="usage_scenarios.html#applying-spark-in-practice"><span class="std std-ref">Applying SPARK in Practice</span></a>).</p>
+</div>
+<div class="section" id="project-file-setup">
+<h2>4.2. Project File Setup<a class="headerlink" href="#project-file-setup" title="Permalink to this headline">¶</a></h2>
+<p>The project file is used to identify coarsely which parts of a program are in
+SPARK. To get more details on project file setup, see section <a class="reference internal" href="source/how_to_run_gnatprove.html#setting-up-a-project-file"><span class="std std-ref">Setting Up a Project File</span></a>.</p>
+<div class="section" id="setting-the-default-spark-mode">
+<span id="id2"></span><h3>4.2.1. Setting the Default SPARK_Mode<a class="headerlink" href="#setting-the-default-spark-mode" title="Permalink to this headline">¶</a></h3>
+<p>There are two possible defaults:</p>
+<ol class="arabic simple">
+<li>No value of <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> is specified as a configuration pragma. In that
+case, only the parts of the program explicitly marked with <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span>
+<span class="pre">On</span></code> are in SPARK. This default is recommended if only a small number of
+units or subprograms are in SPARK.</li>
+<li>A value of <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span> <span class="pre">On</span></code> is specified as a configuration pragma. In
+that case, all the program should be in SPARK, except for those parts
+explicitly marked with <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span> <span class="pre">Off</span></code>. This mode is recommended if
+most of the program is in SPARK.</li>
+</ol>
+<p>Here is how to specify a value of <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span> <span class="pre">On</span></code> as a configuration
+pragma:</p>
+<div class="highlight-gpr"><div class="highlight"><pre><span></span><span class="k">project </span><span class="nf">My_Project</span> <span class="kr">is</span><span class="p"></span>
+   <span class="k">package </span><span class="nf">Builder</span> <span class="kr">is</span><span class="p"></span>
+      <span class="kr">for</span><span class="p"> </span><span class="n">Global_Configuration_Pragmas</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;spark.adc&quot;</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Builder</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">My_Project</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal"><span class="pre">spark.adc</span></code> is a configuration file containing at least the following
+line:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="o">(</span><span class="n">On</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="specifying-files-to-analyze">
+<span id="id3"></span><h3>4.2.2. Specifying Files To Analyze<a class="headerlink" href="#specifying-files-to-analyze" title="Permalink to this headline">¶</a></h3>
+<p>By default, all files from a project are analyzed by GNATprove. It may be
+useful to restrict the set of files to analyze to speedup analysis if only a
+subset of the files contain SPARK code.</p>
+<p>The set of files to analyze can be identified by specifying a different value
+of various project attributes in the mode used for formal verification:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">Source_Dirs</span></code>: list of source directory names</li>
+<li><code class="docutils literal"><span class="pre">Source_Files</span></code>: list of source file names</li>
+<li><code class="docutils literal"><span class="pre">Source_List_File</span></code>: name of a file listing source file names</li>
+</ul>
+</div></blockquote>
+<p>For example:</p>
+<div class="highlight-gpr"><div class="highlight"><pre><span></span><span class="k">project </span><span class="nf">My_Project</span> <span class="kr">is</span><span class="p"></span>
+
+  <span class="kr">type</span><span class="p"> </span><span class="n">Modes</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;Compile&quot;</span><span class="p">,</span> <span class="s">&quot;Analyze&quot;</span><span class="o">)</span><span class="p">;</span>
+  <span class="n">Mode</span> <span class="o">:</span> <span class="n">Modes</span> <span class="o">:=</span> <span class="kr">External</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;MODE&quot;</span><span class="p">,</span> <span class="s">&quot;Compile&quot;</span><span class="o">)</span><span class="p">;</span>
+
+  <span class="kr">case</span><span class="p"> </span><span class="n">Mode</span> <span class="kr">is</span><span class="p"></span>
+     <span class="kr">when</span><span class="p"> </span><span class="s">&quot;Compile&quot;</span> <span class="o">=&gt;</span>
+        <span class="kr">for</span><span class="p"> </span><span class="n">Source_Dirs</span> <span class="kr">use</span><span class="p"> </span><span class="o">(...)</span><span class="p">;</span>
+     <span class="kr">when</span><span class="p"> </span><span class="s">&quot;Analyze&quot;</span> <span class="o">=&gt;</span>
+        <span class="kr">for</span><span class="p"> </span><span class="n">Source_Dirs</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;dir1&quot;</span><span class="p">,</span> <span class="s">&quot;dir2&quot;</span><span class="o">)</span><span class="p">;</span>
+        <span class="kr">for</span><span class="p"> </span><span class="n">Source_Files</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;file1.ads&quot;</span><span class="p">,</span> <span class="s">&quot;file2.ads&quot;</span><span class="p">,</span> <span class="s">&quot;file1.adb&quot;</span><span class="p">,</span> <span class="s">&quot;file2.adb&quot;</span><span class="o">)</span><span class="p">;</span>
+  <span class="k">end </span><span class="nf">case</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">My_Project</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Then, GNATprove should be called by specifying the value of the <code class="docutils literal"><span class="pre">MODE</span></code>
+external variable as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gnatprove</span> <span class="o">-</span><span class="n">P</span> <span class="n">my_project</span> <span class="o">-</span><span class="n">XMODE</span><span class="o">=</span><span class="n">Analyze</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="excluding-files-from-analysis">
+<span id="id4"></span><h3>4.2.3. Excluding Files From Analysis<a class="headerlink" href="#excluding-files-from-analysis" title="Permalink to this headline">¶</a></h3>
+<p>When choosing a default value of <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span> <span class="pre">On</span></code>, it may be needed to
+exclude some files from analysis (for example, because they contain non-SPARK
+code, or code that does not need to be formally analyzed).</p>
+<p>The set of files to exclude can be identified by specifying a different value
+of various project attributes in the mode used for formal verification:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">Excluded_Source_Dirs</span></code>: list of excluded source directory names</li>
+<li><code class="docutils literal"><span class="pre">Excluded_Source_Files</span></code>: list of excluded source file names</li>
+<li><code class="docutils literal"><span class="pre">Excluded_Source_List_File</span></code>: name of a file listing excluded source file names</li>
+</ul>
+</div></blockquote>
+<p>For example:</p>
+<div class="highlight-gpr"><div class="highlight"><pre><span></span><span class="k">project </span><span class="nf">My_Project</span> <span class="kr">is</span><span class="p"></span>
+   <span class="k">package </span><span class="nf">Builder</span> <span class="kr">is</span><span class="p"></span>
+      <span class="kr">for</span><span class="p"> </span><span class="n">Global_Configuration_Pragmas</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;spark.adc&quot;</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Builder</span><span class="p">;</span>
+
+  <span class="kr">type</span><span class="p"> </span><span class="n">Modes</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;Compile&quot;</span><span class="p">,</span> <span class="s">&quot;Analyze&quot;</span><span class="o">)</span><span class="p">;</span>
+  <span class="n">Mode</span> <span class="o">:</span> <span class="n">Modes</span> <span class="o">:=</span> <span class="kr">External</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;MODE&quot;</span><span class="p">,</span> <span class="s">&quot;Compile&quot;</span><span class="o">)</span><span class="p">;</span>
+
+  <span class="kr">case</span><span class="p"> </span><span class="n">Mode</span> <span class="kr">is</span><span class="p"></span>
+     <span class="kr">when</span><span class="p"> </span><span class="s">&quot;Compile&quot;</span> <span class="o">=&gt;</span>
+        <span class="kr">null</span><span class="p">;</span>
+     <span class="kr">when</span><span class="p"> </span><span class="s">&quot;Analyze&quot;</span> <span class="o">=&gt;</span>
+        <span class="kr">for</span><span class="p"> </span><span class="n">Excluded_Source_Files</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;file1.ads&quot;</span><span class="p">,</span> <span class="s">&quot;file1.adb&quot;</span><span class="p">,</span> <span class="s">&quot;file2.adb&quot;</span><span class="o">)</span><span class="p">;</span>
+  <span class="k">end </span><span class="nf">case</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">My_Project</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Then, GNATprove should be called by specifying the value of the <code class="docutils literal"><span class="pre">MODE</span></code>
+external variable as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gnatprove</span> <span class="o">-</span><span class="n">P</span> <span class="n">my_project</span> <span class="o">-</span><span class="n">XMODE</span><span class="o">=</span><span class="n">Analyze</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-multiple-projects">
+<h3>4.2.4. Using Multiple Projects<a class="headerlink" href="#using-multiple-projects" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes, it is more convenient to analyze a subset of the source files with
+the default <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span> <span class="pre">On</span></code> and the rest of the source files with no
+setting for <code class="docutils literal"><span class="pre">SPARK_Mode</span></code>. In that case, one can use two project files with
+different defaults, with each source file in one of the projects only. Files in
+one project can still refer to files in the other project by using a <code class="docutils literal"><span class="pre">limited</span>
+<span class="pre">with</span></code> clause between projects, as follows:</p>
+<div class="highlight-gpr"><div class="highlight"><pre><span></span><span class="kr">limited</span><span class="p"> </span><span class="kr">with</span><span class="p"> </span><span class="s">&quot;project_b&quot;</span>
+<span class="k">project </span><span class="nf">My_Project_A</span> <span class="kr">is</span><span class="p"></span>
+   <span class="k">package </span><span class="nf">Compiler</span> <span class="kr">is</span><span class="p"></span>
+      <span class="kr">for</span><span class="p"> </span><span class="n">Local_Configuration_Pragmas</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;spark.adc&quot;</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Compiler</span><span class="p">;</span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">Source_Files</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;file1.ads&quot;</span><span class="p">,</span> <span class="s">&quot;file2.ads&quot;</span><span class="p">,</span> <span class="s">&quot;file1.adb&quot;</span><span class="p">,</span> <span class="s">&quot;file2.adb&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">My_Project_A</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-gpr"><div class="highlight"><pre><span></span><span class="kr">limited</span><span class="p"> </span><span class="kr">with</span><span class="p"> </span><span class="s">&quot;project_a&quot;</span>
+<span class="k">project </span><span class="nf">My_Project_B</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">Source_Files</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;file3.ads&quot;</span><span class="p">,</span> <span class="s">&quot;file4.ads&quot;</span><span class="p">,</span> <span class="s">&quot;file3.adb&quot;</span><span class="p">,</span> <span class="s">&quot;file4.adb&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">My_Project_B</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal"><span class="pre">spark.adc</span></code> is a configuration file containing at least the following
+line:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="o">(</span><span class="n">On</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-spark-mode-in-code">
+<span id="id5"></span><h2>4.3. Using <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> in Code<a class="headerlink" href="#using-spark-mode-in-code" title="Permalink to this headline">¶</a></h2>
+<p>The pragma or aspect <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> can be used in the code to identify
+precisely which parts of a program are in SPARK.</p>
+<div class="section" id="basic-usage">
+<h3>4.3.1. Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h3>
+<p>The form of a pragma SPARK_Mode is as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">SPARK_Mode</span> [ <span class="o">(</span><span class="n">On</span> <span class="o">|</span> <span class="n">Off</span><span class="o">)</span> ]
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="o">(</span><span class="n">On</span><span class="o">)</span><span class="p">;</span>
+<span class="k">package </span><span class="nf">P</span> <span class="kr">is</span><span class="p"></span>
+</pre></div>
+</div>
+<p>The form of an aspect SPARK_Mode is as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> [ <span class="n">On</span> <span class="o">|</span> <span class="n">Off</span> ]
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">P</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">On</span>
+<span class="kr">is</span><span class="p"></span>
+</pre></div>
+</div>
+<p>A default argument of On is assumed for any SPARK_Mode pragma or
+aspect for which no argument is explicitly specified.</p>
+<p>For example:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">P</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">SPARK_Mode</span><span class="p">;</span>  <span class="c">--  On is implicit here</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">P</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>  <span class="c">--  On is implicit here</span>
+<span class="kr">is</span><span class="p"></span>
+</pre></div>
+</div>
+<p>We say that a package or a subprogram is library-level if it is either
+top-level or defined in a library-level package. The <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> pragma can
+be used in the following places in the code:</p>
+<ul class="simple">
+<li>immediately within or before a library-level package spec</li>
+<li>immediately within a library-level package body</li>
+<li>immediately following the <code class="docutils literal"><span class="pre">private</span></code> keyword of a library-level package spec</li>
+<li>immediately following the <code class="docutils literal"><span class="pre">begin</span></code> keyword of a library-level package body</li>
+<li>immediately following a library-level subprogram spec</li>
+<li>immediately within a library-level subprogram body</li>
+<li>immediately within a library-level task spec</li>
+<li>immediately within a library-level task body</li>
+<li>immediately following the <code class="docutils literal"><span class="pre">private</span></code> keyword of a library-level task spec</li>
+<li>immediately within a library-level protected spec</li>
+<li>immediately within a library-level protected body</li>
+<li>immediately following the <code class="docutils literal"><span class="pre">private</span></code> keyword of a library-level
+protected spec</li>
+</ul>
+<p>The <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> aspect can be used in the following places in the code:</p>
+<ul class="simple">
+<li>on a library-level package spec or body</li>
+<li>on a library-level subprogram spec or body</li>
+<li>on a library-level task spec or body</li>
+<li>on a library-level protected spec or body</li>
+</ul>
+<p>If a <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> pragma or aspect is not specified for a
+subprogram, package, task or protected spec/body, then its
+value is inherited from the current mode that is active at the point
+where the declaration occurs.</p>
+<p>Note that a generic package instance is considered to be declared
+at its instantiation point. For example, a generic package
+cannot be both marked <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> and instantiated in
+a subprogram body.</p>
+</div>
+<div class="section" id="consistency-rules">
+<h3>4.3.2. Consistency Rules<a class="headerlink" href="#consistency-rules" title="Permalink to this headline">¶</a></h3>
+<p>The basic rule is that you cannot turn <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> back On, once you have
+explicitly turned if Off. So the following rules apply:</p>
+<p>If a subprogram spec has <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> Off, then the body cannot have
+<code class="docutils literal"><span class="pre">SPARK_Mode</span></code> On.</p>
+<p>For a package, we have four parts:</p>
+<ol class="arabic simple">
+<li>the package public declarations</li>
+<li>the package private part</li>
+<li>the body of the package</li>
+<li>the elaboration code after <code class="docutils literal"><span class="pre">begin</span></code></li>
+</ol>
+<p>For a package, the rule is that if you explicitly turn <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> Off for
+any part, then all the following parts cannot have <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> On. Note that
+this may require repeating a pragma <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">(Off)</span></code> in the body. For
+example, if we have a configuration pragma <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">(On)</span></code> that turns the
+mode On by default everywhere, and one particular package spec has pragma
+<code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">(Off)</span></code>, then that pragma will need to be repeated in the package
+body.</p>
+<p>Task types and protected types are handled similarly. If <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> is set
+to Off on one part, it cannot be set to On on the following parts, among the
+three parts:</p>
+<ol class="arabic simple">
+<li>the spec</li>
+<li>the private part</li>
+<li>the body</li>
+</ol>
+<p>There is an exception to this rule, when <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> occurs in the code of a
+generic instantiated in code where <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> is Off. In that case,
+occurrences of <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> in the generic are ignored for this instance.</p>
+</div>
+<div class="section" id="examples-of-use">
+<h3>4.3.3. Examples of Use<a class="headerlink" href="#examples-of-use" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="verifying-selected-subprograms">
+<span id="id6"></span><h4>4.3.3.1. Verifying Selected Subprograms<a class="headerlink" href="#verifying-selected-subprograms" title="Permalink to this headline">¶</a></h4>
+<p>If only a few selected subprograms are in SPARK, then it makes sense to set no
+default for <code class="docutils literal"><span class="pre">SPARK_Mode</span></code>, and instead set <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span> <span class="pre">On</span></code> directly on
+the subprograms of interest. For example:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Selected_Subprograms</span> <span class="kr">is</span><span class="p"></span>
+
+   <span class="k">procedure </span><span class="nf">Critical_Action</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">On</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Sub_Action</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Boolean</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="kc">True</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Non_Critical_Action</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Selected_Subprograms</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that, although the bodies of procedures <code class="docutils literal"><span class="pre">Sub_Action</span></code> and
+<code class="docutils literal"><span class="pre">Non_Critical_Action</span></code> are not analyzed, it is valid to call <code class="docutils literal"><span class="pre">Sub_Action</span></code> in
+the body of procedure <code class="docutils literal"><span class="pre">Critical_Action</span></code>, even without specifying <code class="docutils literal"><span class="pre">SPARK_Mode</span>
+<span class="pre">=&gt;</span> <span class="pre">On</span></code> on the spec of <code class="docutils literal"><span class="pre">Sub_Action</span></code>. Indeed, GNATprove checks in that case
+that the spec of <code class="docutils literal"><span class="pre">Sub_Action</span></code> is in SPARK.</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Selected_Subprograms</span> <span class="kr">is</span><span class="p"></span>
+
+   <span class="k">procedure </span><span class="nf">Critical_Action</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">On</span>
+   <span class="kr">is</span><span class="p"></span>
+      <span class="c">--  this procedure body is analyzed</span>
+      <span class="n">X</span> <span class="o">:</span> <span class="n">Boolean</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Sub_Action</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">X</span> <span class="o">=</span> <span class="kc">True</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Critical_Action</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Sub_Action</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Boolean</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="c">--  this procedure body is not analyzed</span>
+      <span class="n">X</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Sub_Action</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Non_Critical_Action</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="c">--  this procedure body is not analyzed</span>
+      <span class="kr">null</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Non_Critical_Action</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Selected_Subprograms</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="verifying-selected-units">
+<span id="id7"></span><h4>4.3.3.2. Verifying Selected Units<a class="headerlink" href="#verifying-selected-units" title="Permalink to this headline">¶</a></h4>
+<p>If only a few selected units are in SPARK, then it makes sense to set no
+default for <code class="docutils literal"><span class="pre">SPARK_Mode</span></code>, and instead set <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span> <span class="pre">On</span></code> directly on
+the units of interest. For example:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Selected_Units</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">On</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="k">procedure </span><span class="nf">Critical_Action</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Sub_Action</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Boolean</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="kc">True</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Non_Critical_Action</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">Off</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Selected_Units</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that procedure <code class="docutils literal"><span class="pre">Sub_Action</span></code> can be called inside SPARK code, because
+its spec is in SPARK, even though its body is marked <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span>
+<span class="pre">Off</span></code>. On the contrary, procedure <code class="docutils literal"><span class="pre">Non_Critical_Action</span></code> whose spec is marked
+<code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span> <span class="pre">Off</span></code> cannot be called inside SPARK code.</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Selected_Units</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">On</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="k">procedure </span><span class="nf">Critical_Action</span> <span class="kr">is</span><span class="p"></span>
+      <span class="c">--  this procedure body is analyzed</span>
+      <span class="n">X</span> <span class="o">:</span> <span class="n">Boolean</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Sub_Action</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">X</span> <span class="o">=</span> <span class="kc">True</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Critical_Action</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Sub_Action</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Boolean</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">Off</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="c">--  this procedure body is not analyzed</span>
+      <span class="n">X</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Sub_Action</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Non_Critical_Action</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">Off</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="c">--  this procedure body is not analyzed</span>
+      <span class="kr">null</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Non_Critical_Action</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Selected_Units</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="excluding-selected-unit-bodies">
+<span id="id8"></span><h4>4.3.3.3. Excluding Selected Unit Bodies<a class="headerlink" href="#excluding-selected-unit-bodies" title="Permalink to this headline">¶</a></h4>
+<p>If a unit spec is in SPARK, but its body is not in SPARK, the spec can be
+marked with <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span> <span class="pre">On</span></code> and the body with <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span> <span class="pre">Off</span></code>. This
+allows client code in SPARK to use this unit. If <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> is On by
+default, then it need not be repeated on the unit spec.</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Exclude_Unit_Body</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">On</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">T</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Get_Value</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Value</span> <span class="o">(</span><span class="n">V</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Get_Value</span> <span class="o">=</span> <span class="n">V</span><span class="p">;</span>
+
+<span class="kr">private</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="o">(</span><span class="n">Off</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="c">--  the private part of the package spec is not analyzed</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">T</span> <span class="kr">is</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Exclude_Unit_Body</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that the private part of the spec (which is physically in the spec file,
+but is logically part of the implementation) can be excluded as well, by using
+a pragma <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">(Off)</span></code> at the start of the private part.</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Exclude_Unit_Body</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">Off</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="c">--  this package body is not analyzed</span>
+
+   <span class="n">Value</span> <span class="o">:</span> <span class="n">T</span> <span class="o">:=</span> <span class="kr">new</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Get_Value</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">return</span><span class="p"> </span><span class="n">Value.all</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Get_Value</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Value</span> <span class="o">(</span><span class="n">V</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Value.all</span> <span class="o">:=</span> <span class="n">V</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Set_Value</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Exclude_Unit_Body</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>This scheme also works on generic units, which can then be instantiated both in
+code where <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> is On, in which case only the body of the
+instantiated generic is excluded, or in code where <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> is Off, in
+which case both the spec and the body of the instantiated generic are excluded.</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">generic</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">T</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p">;</span>
+<span class="k">package </span><span class="nf">Exclude_Generic_Unit_Body</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">On</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Process</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">T</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Exclude_Generic_Unit_Body</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Exclude_Generic_Unit_Body</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">Off</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="c">--  this package body is not analyzed</span>
+   <span class="k">procedure </span><span class="nf">Process</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">T</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">null</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Process</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Exclude_Generic_Unit_Body</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Exclude_Generic_Unit_Body</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Elaborate_All</span> <span class="o">(</span><span class="n">Exclude_Generic_Unit_Body</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">package </span><span class="nf">Use_Generic</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">On</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="c">--  the spec of this generic instance is analyzed</span>
+   <span class="k">package </span><span class="nf">G1</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Exclude_Generic_Unit_Body</span> <span class="o">(</span><span class="n">Integer</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Do_Nothing</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Use_Generic</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Use_Generic</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">Off</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">T</span> <span class="kr">is</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="c">--  this generic instance is not analyzed</span>
+   <span class="k">package </span><span class="nf">G2</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Exclude_Generic_Unit_Body</span> <span class="o">(</span><span class="n">T</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Do_Nothing</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">null</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Do_Nothing</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Use_Generic</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="excluding-selected-parts-of-a-unit">
+<span id="id9"></span><h4>4.3.3.4. Excluding Selected Parts of a Unit<a class="headerlink" href="#excluding-selected-parts-of-a-unit" title="Permalink to this headline">¶</a></h4>
+<p>If most units are in SPARK except from some subprograms and packages, it
+makes sense to set the default to <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">(On)</span></code>, and set <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span>
+<span class="pre">Off</span></code> on non-SPARK declarations. We assume here that a value of <code class="docutils literal"><span class="pre">SPARK_Mode</span>
+<span class="pre">=&gt;</span> <span class="pre">On</span></code> is specified as a configuration pragma.</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Exclude_Selected_Parts</span> <span class="kr">is</span><span class="p"></span>
+
+   <span class="k">procedure </span><span class="nf">Critical_Action</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Non_Critical_Action</span><span class="p">;</span>
+
+   <span class="k">package </span><span class="nf">Non_Critical_Data</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">Off</span>
+   <span class="kr">is</span><span class="p"></span>
+      <span class="kr">type</span><span class="p"> </span><span class="n">T</span> <span class="kr">is</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+      <span class="n">X</span> <span class="o">:</span> <span class="n">T</span><span class="p">;</span>
+      <span class="k">function </span><span class="nf">Get_X</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Non_Critical_Data</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Exclude_Selected_Parts</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that procedure <code class="docutils literal"><span class="pre">Non_Critical_Action</span></code> can be called inside SPARK code,
+because its spec is in SPARK, even though its body is marked <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span>
+<span class="pre">Off</span></code>.</p>
+<p>Note also that the local package <code class="docutils literal"><span class="pre">Non_Critical_Data</span></code> can contain any
+non-SPARK types, variables and subprograms, as it is marked <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span>
+<span class="pre">Off</span></code>. It may be convenient to define such a local package to gather
+non-SPARK declarations, which allows to mark globally the unit
+<code class="docutils literal"><span class="pre">Exclude_Selected_Parts</span></code> with <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span> <span class="pre">On</span></code>.</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Exclude_Selected_Parts</span> <span class="kr">is</span><span class="p"></span>
+
+   <span class="k">procedure </span><span class="nf">Critical_Action</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="c">--  this procedure body is analyzed</span>
+      <span class="n">Non_Critical_Action</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Critical_Action</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Non_Critical_Action</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">Off</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="c">--  this procedure body is not analyzed</span>
+      <span class="kr">null</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Non_Critical_Action</span><span class="p">;</span>
+
+   <span class="k">package body </span><span class="nf">Non_Critical_Data</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">Off</span>
+   <span class="kr">is</span><span class="p"></span>
+      <span class="c">--  this package body is not analyzed</span>
+      <span class="k">function </span><span class="nf">Get_X</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">is</span><span class="p"></span>
+      <span class="kr">begin</span><span class="p"></span>
+         <span class="kr">return</span><span class="p"> </span><span class="n">X.all</span><span class="p">;</span>
+      <span class="k">end </span><span class="nf">Get_X</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Non_Critical_Data</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Exclude_Selected_Parts</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="spark_2014.html" title="5. Overview of SPARK Language"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="3. Installation of GNATprove"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

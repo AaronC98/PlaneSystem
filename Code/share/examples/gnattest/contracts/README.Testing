@@ -1,0 +1,46 @@
+             G N A T T E S T   E X A M P L E S
+             
+In order to generate and compile test driver, make sure that 'gnattest' and
+'gprbuild' commands are in your path and AUnit is in your default project path.
+
+To generate a test driver for a number of sources you need to use gnattest
+utility. Note that in order to process given files, gnattest has to
+semantically analyze the Ada sources. Therefore, test packages can only be
+generated legal Ada units. Moreover, when a unit depends semantically upon
+units located outside the current directory, the source search path has to be
+provided when calling gnattest through a specified project file.
+
+Invocation
+----------
+
+In order to build the executables provided in this example you need to
+generate a test driver for the project:
+  $ gnattest -Pcontracts.gpr
+
+Testing with contracts
+----------------------
+
+Gnattest supports pragmas Pre, Post and Test_Case,
+as well as corresponding aspects.
+Test routines are generated one per each Test_Case associated with a tested
+subprogram. Those test routines have special wrappers for tested functions
+that have composition of pre- and postcondition of the subprogram and
+"requires" and "ensures" of the Test_Case (depending on the mode pre & post
+either count for Nominal mode or do not for Robustness mode).
+
+Change default Assert calls with actual tests:
+  Assert (Sqrt (9.0) = 3.0, "wrong sqrt");
+in obj/gnattest/tests/contracts-test_data-tests-test_sqrt_9170ad_1e3cdc.adb and
+  Assert (Sqrt (-5.0) = -1.0, "wrong error indication");
+in obj/gnattest/tests/contracts-test_data-tests-test_sqrt_9170ad_476c33.adb.
+
+Let's compile the test driver and run it:
+  $ gprbuild -Pobj/gnattest/harness/test_driver.gpr 
+  $ obj/gnattest/harness/test_runner
+  
+Now let's violate preconditions. For example, change 9.0 to 25.0 and
+3.0 to 5.0. Those values are correct by themselves, however they violate
+the requirement of test case 1:
+  Requires => X < 16.0
+  
+Recompile and run the test driver to see the precondition violation reported.

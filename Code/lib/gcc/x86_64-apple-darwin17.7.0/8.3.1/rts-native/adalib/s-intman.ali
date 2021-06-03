@@ -1,0 +1,93 @@
+V "GNAT Lib v2019"
+A -O2
+A -fno-common
+A -gnatp
+A -gnatg
+A -gnatn
+A -gnatU
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV SPARK_05
+
+U system.interrupt_management%b  s-intman.adb	89b55e64 NE OL PK
+W system%s		system.ads		system.ali
+
+U system.interrupt_management%s  s-intman.ads	1a73cd21 NE OL PR PK
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.adb			i-c.ali
+W system%s		system.ads		system.ali
+W system.os_interface%s	s-osinte.adb		s-osinte.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D i-c.ads		20190518041255 5421119b interfaces.c%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-intman.ads		20190518041257 47ba1e06 system.interrupt_management%s
+D s-intman.adb		20190518041257 ce0f4062 system.interrupt_management%b
+D s-oscons.ads		20190518124529 e40aaf2d system.os_constants%s
+D s-osinte.ads		20190518041258 01b3ad47 system.os_interface%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+G a e
+G c Z s s [Tinterrupt_setBIP system__interrupt_management 58 4 none]
+G c Z s b [initialize system__interrupt_management 92 14 none]
+G c Z s s [adjust_context_for_raise system__interrupt_management 101 14 none]
+G c Z b b [state system__interrupt_management 67 13 none]
+X 3 interfac.ads
+38K9*Interfaces 184e15 7|48r6 55r29 8|56r8 59r31
+X 4 i-c.ads
+18K20*C 230e17 7|48w17 55r40 8|56r19 59r42
+35I9*int<integer> 7|55r42 8|59r44
+43M9*unsigned
+X 5 system.ads
+37K9*System 174e11 7|46r6 50r9 56r17 98r31 102r18 103r18 111r5 8|54r14 57r8
+. 170r5
+67M9*Address 7|103r25
+X 7 s-intman.ads
+50K16*Interrupt_Management 5|37k9 7|98E9 111l12 111e32 8|54b21 170l12 170t32
+53M9*Interrupt_Mask<10|128M9> 98c9
+55I9*Interrupt_ID<4|35I9> 58r33 73r27 8|67r26 102r39 103r33 110r27 110r43
+. 135r16 145r25 146r19 152r19
+58A9*Interrupt_Set(boolean)<55I9> 77r20 86r14
+73i4*Abort_Task_Interrupt{55I9} 8|100m7 119r17 120r25 121r19
+77a4*Keep_Unmasked{58A9} 8|102r22 113m16 120m10 128m10 137m13 145m10 159m10
+86a4*Reserve{58A9} 8|103r22 114m16 121m10 129m10 138m13 146m10 152m10 160m10
+. 167m7
+92U14*Initialize 8|87b14 168l8 168t18
+101U14 Adjust_Context_For_Raise 102>7 103>7 105b<c,__gnat_adjust_context_for_raise>10
+102i7 Signo{10|75I9}
+103m7 Ucontext{5|67M9}
+X 8 s-intman.adb
+59i4 Unreserve_All_Interrupts{4|35I9} 61m10 61r10 158r10
+67V13 State{character} 67>20 68b<c,__gnat_get_interrupt_state>22 112s16 119s10
+. 127s10 136s13 136s41
+67i20 Int{7|55I9}
+72e4 User{character} 112r30 119r42 127r28
+73e4 Runtime{character} 136r53
+74e4 Default{character} 136r25
+85b4 Initialized{boolean} 89r10 93m7
+107i11 J{integer} 109r57
+109i13 Sig{10|75I9} 110r57
+110i13 Id{7|55I9} 112r23 113r31 114r25
+135i11 J{7|55I9} 136r20 136r48 137r28 138r22
+144i11 J{integer} 145r49 146r43
+151i11 J{integer} 152r43
+X 10 s-osinte.ads
+44K16*OS_Interface 7|46w13 56r24 98r38 102r25 8|57r15 10|598e24
+74N4*Max_Interrupt 7|56r37
+75I9*Signal<4|35I9> 7|102r38 8|109r28
+79N4*SIGINT 8|127r17 128r25 129r19 159r25 160r19
+111N4*SIGADAABORT 8|100r31
+115A9*Signal_Set(75I9)<integer>
+117a4*Unmasked{115A9} 8|144r16 145r39 146r33
+120a4*Reserved{115A9} 8|151r16 152r33
+123a4*Exception_Signals{115A9} 8|107r16 109r38
+128M9*sigset_t<4|43M9> 7|98r51
+326U14*pthread_init 8|98s7
+

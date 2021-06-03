@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7.8. How to Investigate Unproved Checks &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7.9. GNATprove by Example" href="gnatprove_by_example.html" />
+    <link rel="prev" title="7.7. How to Write Loop Invariants" href="how_to_write_loop_invariants.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gnatprove_by_example.html" title="7.9. GNATprove by Example"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="how_to_write_loop_invariants.html" title="7.7. How to Write Loop Invariants"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" accesskey="U">7. Formal Verification with GNATprove</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">7.8. How to Investigate Unproved Checks</a><ul>
+<li><a class="reference internal" href="#investigating-incorrect-code-or-assertion">7.8.1. Investigating Incorrect Code or Assertion</a></li>
+<li><a class="reference internal" href="#investigating-unprovable-properties">7.8.2. Investigating Unprovable Properties</a></li>
+<li><a class="reference internal" href="#investigating-prover-shortcomings">7.8.3. Investigating Prover Shortcomings</a></li>
+<li><a class="reference internal" href="#looking-at-machine-parsable-gnatprove-output">7.8.4. Looking at Machine-Parsable GNATprove Output</a></li>
+<li><a class="reference internal" href="#understanding-proof-strategies">7.8.5. Understanding Proof Strategies</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="how_to_write_loop_invariants.html"
+                        title="previous chapter">7.7. How to Write Loop Invariants</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gnatprove_by_example.html"
+                        title="next chapter">7.9. GNATprove by Example</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/how_to_investigate_unproved_checks.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-investigate-unproved-checks">
+<span id="id1"></span><h1>7.8. How to Investigate Unproved Checks<a class="headerlink" href="#how-to-investigate-unproved-checks" title="Permalink to this headline">¶</a></h1>
+<p>One of the most challenging aspects of formal verification is the analysis
+of failed proofs. If GNATprove fails to prove automatically that a
+run-time check or an assertion holds, there might be various reasons:</p>
+<ul class="simple">
+<li>[CODE] The check or assertion does not hold, because the code is wrong.</li>
+<li>[ASSERT] The assertion does not hold, because it is incorrect.</li>
+<li>[SPEC] The check or assertion cannot be proved, because of some missing
+assertions about the behavior of the program.</li>
+<li>[MODEL] The check or assertion is not proved because of current
+limitations in the model used by GNATprove.</li>
+<li>[TIMEOUT] The check or assertion is not proved because the prover
+timeouts.</li>
+<li>[PROVER] The check or assertion is not proved because the prover is not
+smart enough.</li>
+</ul>
+<div class="section" id="investigating-incorrect-code-or-assertion">
+<h2>7.8.1. Investigating Incorrect Code or Assertion<a class="headerlink" href="#investigating-incorrect-code-or-assertion" title="Permalink to this headline">¶</a></h2>
+<p>The first step is to check whether the code is incorrect [CODE] or the
+assertion is incorrect [ASSERT], or both. Since run-time checks and assertions
+can be executed at run time, one way to increase confidence in the correction
+of the code and assertions is to test the program on representative inputs. The
+following GNAT switches can be used:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">-gnato</span></code>: enable run-time checking of intermediate overflows</li>
+<li><code class="docutils literal"><span class="pre">-gnat-p</span></code>: reenable run-time checking even if <code class="docutils literal"><span class="pre">-gnatp</span></code> was used to
+suppress all checks</li>
+<li><code class="docutils literal"><span class="pre">-gnata</span></code>: enable run-time checking of assertions</li>
+</ul>
+</div>
+<div class="section" id="investigating-unprovable-properties">
+<span id="id2"></span><h2>7.8.2. Investigating Unprovable Properties<a class="headerlink" href="#investigating-unprovable-properties" title="Permalink to this headline">¶</a></h2>
+<p>The second step is to consider whether the property is provable [SPEC]. A
+check or assertion might be unprovable because a necessary annotation is
+missing:</p>
+<ul class="simple">
+<li>the precondition of the enclosing subprogram might be too weak; or</li>
+<li>the postcondition of a subprogram called might be too weak; or</li>
+<li>a loop invariant for an enclosing loop might be too weak; or</li>
+<li>a loop invariant for a loop before the check or assertion might be too weak.</li>
+</ul>
+<p>In particular, GNATprove does not look into subprogram bodies, so all the
+necessary information for calls should be explicit in the subprogram
+contracts. GNATprove may emit a tentative explanation for the unprovable
+property when it suspects a missing precondition, postcondition or loop
+invariant to be the cause of the unprovability. The explanation part follows
+the usual message of the form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">file</span><span class="p">:</span><span class="n">line</span><span class="p">:</span><span class="n">col</span><span class="p">:</span> <span class="n">severity</span><span class="p">:</span> <span class="n">check</span> <span class="n">might</span> <span class="n">fail</span>
+</pre></div>
+</div>
+<p>with a part in square brackets such as:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">possible</span> <span class="n">explanation</span><span class="p">:</span> <span class="n">subprogram</span> <span class="n">at</span> <span class="n">line</span> <span class="n">xxx</span> <span class="n">should</span> <span class="n">mention</span> <span class="n">Var</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">precondition</span><span class="p">]</span>
+<span class="p">[</span><span class="n">possible</span> <span class="n">explanation</span><span class="p">:</span> <span class="n">loop</span> <span class="n">at</span> <span class="n">line</span> <span class="n">xxx</span> <span class="n">should</span> <span class="n">mention</span> <span class="n">Var</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">loop</span> <span class="n">invariant</span><span class="p">]</span>
+<span class="p">[</span><span class="n">possible</span> <span class="n">explanation</span><span class="p">:</span> <span class="n">call</span> <span class="n">at</span> <span class="n">line</span> <span class="n">xxx</span> <span class="n">should</span> <span class="n">mention</span> <span class="n">Var</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">postcondition</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>A focused manual review of the code and assertions can
+efficiently diagnose many cases of missing annotations. Even when an
+assertion is quite large, GNATprove precisely locates the part that it
+cannot prove, which can help figuring out the problem. It may useful to
+simplify the code during this investigation, for example by adding a
+simpler assertion and trying to prove it.</p>
+<p>GNATprove provides path information that might help the code review. You can
+display inside the editor the path on which the proof failed, as described in
+<a class="reference internal" href="how_to_run_gnatprove.html#running-gnatprove-from-gps"><span class="std std-ref">Running GNATprove from GPS</span></a>. In some cases, a counterexample is also
+generated on the path, with values of variables which exhibit the problem (see
+<a class="reference internal" href="how_to_view_gnatprove_output.html#understanding-counterexamples"><span class="std std-ref">Understanding Counterexamples</span></a>). In many cases, this is sufficient to
+spot a missing assertion.</p>
+<p>A property can also be conceptually provable, but the model used by
+GNATprove can currently not reason about it [MODEL]. (See
+<a class="reference internal" href="../appendix/gnatprove_limitations.html#gnatprove-limitations"><span class="std std-ref">GNATprove Limitations</span></a> for a list of the current limitations in
+GNATprove.) In particular using the following features of the language
+may yield checks that should be true, but cannot be proved:</p>
+<ul class="simple">
+<li>Floating point arithmetic (although using CodePeer integration may help
+here)</li>
+<li>The specific value of dispatching calls when the tag is known</li>
+</ul>
+<p>To use CodePeer integration, pass the switch <code class="docutils literal"><span class="pre">--codepeer=on</span></code> to
+GNATprove. In those cases where no prover, including CodePeer, can prove
+the check, the missing information can usually be added using <code class="docutils literal"><span class="pre">pragma</span> <span class="pre">Assume</span></code>.</p>
+<p>It may be difficult sometimes to distinguish between unprovable properties and
+prover shortcomings (the next section). The most generally useful action to
+narrow down the issue to its core is to insert assertions in the code that
+<cite>test</cite> whether the property (or part of it) can be proved at some specific
+point in the program. For example, if a postcondition states a property (P or
+Q), and the implementation contains many branches and paths, try adding
+assertions that P holds or Q holds where they are expected to hold. This can
+help distinguish between the two cases:</p>
+<ul class="simple">
+<li>In the case of an unprovable property, this may point to a specific path in
+the program, and a specific part of the property, which cause the issue.</li>
+<li>In the case of a prover shortcoming, this may also help provers to manage to
+prove both the assertion and the property. Then, it is good practice to keep
+in the code only those assertions that help getting automatic proof, and to
+remove other assertions that were inserted during interaction.</li>
+</ul>
+<p>When using switch <code class="docutils literal"><span class="pre">--info</span></code>, GNATprove issues information messages regarding
+internal decisions that could influence provability:</p>
+<ul class="simple">
+<li>whether candidate loops for <a class="reference internal" href="how_to_write_loop_invariants.html#automatic-unrolling-of-simple-for-loops"><span class="std std-ref">Automatic Unrolling of Simple For-Loops</span></a>
+are effectively unrolled or not;</li>
+<li>whether candidate subprograms for <a class="reference internal" href="how_to_write_subprogram_contracts.html#contextual-analysis-of-subprograms-without-contracts"><span class="std std-ref">Contextual Analysis of Subprograms Without Contracts</span></a> are effectively inlined for proof or not;</li>
+<li>whether possible subprogram nontermination impacts the proof of calls to that
+subprogram (see the note in the section on <a class="reference internal" href="how_to_write_subprogram_contracts.html#subprogram-termination"><span class="std std-ref">Subprogram Termination</span></a>)</li>
+</ul>
+</div>
+<div class="section" id="investigating-prover-shortcomings">
+<span id="id3"></span><h2>7.8.3. Investigating Prover Shortcomings<a class="headerlink" href="#investigating-prover-shortcomings" title="Permalink to this headline">¶</a></h2>
+<p>The last step is to investigate if the prover would find a proof given enough
+time [TIMEOUT] or if another prover can find a proof [PROVER]. To that end,
+GNATprove provides switch <code class="docutils literal"><span class="pre">--level</span></code>, usable either from the command-line
+(see <a class="reference internal" href="how_to_run_gnatprove.html#running-gnatprove-from-the-command-line"><span class="std std-ref">Running GNATprove from the Command Line</span></a>), inside GPS (see
+<a class="reference internal" href="how_to_run_gnatprove.html#running-gnatprove-from-gps"><span class="std std-ref">Running GNATprove from GPS</span></a>) or inside GNATbench (see <a class="reference internal" href="how_to_run_gnatprove.html#running-gnatprove-from-gnatbench"><span class="std std-ref">Running GNATprove from GNATbench</span></a>). The level of 0 is only adequate for simple
+proofs. In general, one should increase the level of proof (up to level 4)
+until no more automatic proofs can be obtained.</p>
+<p>As described in the section about <a class="reference internal" href="how_to_run_gnatprove.html#running-gnatprove-from-the-command-line"><span class="std std-ref">Running GNATprove from the Command Line</span></a>, switch <code class="docutils literal"><span class="pre">--level</span></code> is equivalent to setting directly various lower
+level switches like <code class="docutils literal"><span class="pre">--timeout</span></code>, <code class="docutils literal"><span class="pre">--prover</span></code>, and <code class="docutils literal"><span class="pre">--proof</span></code>. Hence, one
+can also set more powerful (and thus leading to longer proof time) values
+for the individual switches rather than using the predefined combinations
+set through <code class="docutils literal"><span class="pre">--level</span></code>.</p>
+<p>Note that for the above experiments, it is quite convenient to use the
+<span class="menuselection">SPARK ‣ Prove Line</span> or <span class="menuselection">SPARK ‣ Prove
+Subprogram</span> menus in GPS, as described in <a class="reference internal" href="how_to_run_gnatprove.html#running-gnatprove-from-gps"><span class="std std-ref">Running GNATprove from GPS</span></a> and
+<a class="reference internal" href="how_to_run_gnatprove.html#running-gnatprove-from-gnatbench"><span class="std std-ref">Running GNATprove from GNATbench</span></a>, to get faster results for the desired
+line or subprogram.</p>
+<p>A current limitation of automatic provers is that they don&#8217;t handle
+floating-point arithmetic very precisely, in particular when there are either a
+lot of operations, or some non-linear operations (multiplication, division,
+exponentiation). In that case, it may be profitable to use CodePeer
+integration, which is activated with the switch <code class="docutils literal"><span class="pre">--codepeer=on</span></code>, as CodePeer
+is both fast and precise for proving bounds of floating-point operations.</p>
+<p>Another common limitation of automatic provers is that they don&#8217;t handle
+non-linear arithmetic well. For example, they might fail to prove simple checks
+involving multiplication, division, modulo or exponentiation.</p>
+<p>In that case, a user may either:</p>
+<ul class="simple">
+<li>add in the code a call to a lemma from the SPARK lemma library (see details
+in <a class="reference internal" href="../../gnatprove_by_example/manual_proof.html#manual-proof-using-spark-lemma-library"><span class="std std-ref">Manual Proof Using SPARK Lemma Library</span></a>), or</li>
+<li>add in the code a call to a user lemma (see details in <a class="reference internal" href="../../gnatprove_by_example/manual_proof.html#manual-proof-using-user-lemmas"><span class="std std-ref">Manual Proof Using User Lemmas</span></a>), or</li>
+<li>add an assumption in the code (see details in <a class="reference internal" href="how_to_use_gnatprove_in_a_team.html#indirect-justification-with-pragma-assume"><span class="std std-ref">Indirect Justification with Pragma Assume</span></a>), or</li>
+<li>add a justification in the code (see details in <a class="reference internal" href="how_to_use_gnatprove_in_a_team.html#direct-justification-with-pragma-annotate"><span class="std std-ref">Direct Justification with Pragma Annotate</span></a>), or</li>
+<li>manually review the unproved checks and record that they can be trusted
+(for example by storing the result of GNATprove under version control).</li>
+</ul>
+<p>In the future, GNATprove may provide a <cite>user view</cite> of the formula passed to
+the prover, for advanced users to inspect. This view would express in an
+Ada-like syntax the actual formula whose proof failed, to make it easier for
+users to interpret it. This format is yet to be defined.</p>
+<p>For advanced users, in particular those who would like to do manual
+proof, we will provide a description of the format of the proof files
+generated by GNATprove, so that users can understand the actual files
+passed to the prover. Each individual file is stored under the
+sub-directory <code class="docutils literal"><span class="pre">gnatprove</span></code> of the project object directory (default is the
+project directory). The file name follows the convention:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">file</span><span class="o">&gt;</span><span class="n">_</span><span class="o">&lt;</span><span class="n">line</span><span class="o">&gt;</span><span class="n">_</span><span class="o">&lt;</span><span class="n">column</span><span class="o">&gt;</span><span class="n">_</span><span class="o">&lt;</span><span class="n">check</span><span class="o">&gt;</span><span class="n">_</span><span class="o">&lt;</span><span class="n">num</span><span class="o">&gt;.&lt;</span><span class="n">ext</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">file</span></code> is the name of the Ada source file for the check</li>
+<li><code class="docutils literal"><span class="pre">line</span></code> is the line where the check appears</li>
+<li><code class="docutils literal"><span class="pre">column</span></code> is the column</li>
+<li><code class="docutils literal"><span class="pre">check</span></code> is an identifier for the check</li>
+<li><code class="docutils literal"><span class="pre">num</span></code> is an optional number and identifies different paths through the
+program, between the start of the subprogram and the location of the check</li>
+<li><code class="docutils literal"><span class="pre">ext</span></code> is the extension corresponding to the file format chosen. The format
+of the file depends on the prover used. For example, files for Alt-Ergo are
+are in Why3 format, and files for CVC4 are in SMTLIB2 format.</li>
+</ul>
+<p>For example, the proof files generated for prover Alt-Ergo for a range check at
+line 160, column 42, of the file <code class="docutils literal"><span class="pre">f.adb</span></code> are stored in:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">adb_160_42_range_check</span><span class="o">.</span><span class="n">why</span>
+<span class="n">f</span><span class="o">.</span><span class="n">adb_160_42_range_check_2</span><span class="o">.</span><span class="n">why</span>
+<span class="n">f</span><span class="o">.</span><span class="n">adb_160_42_range_check_3</span><span class="o">.</span><span class="n">why</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Corresponding proof files generated for prover CVC4 are stored in:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">adb_160_42_range_check</span><span class="o">.</span><span class="n">smt2</span>
+<span class="n">f</span><span class="o">.</span><span class="n">adb_160_42_range_check_2</span><span class="o">.</span><span class="n">smt2</span>
+<span class="n">f</span><span class="o">.</span><span class="n">adb_160_42_range_check_3</span><span class="o">.</span><span class="n">smt2</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>To be able to inspect these files, you should instruct GNATprove to keep them
+around by adding the switch <code class="docutils literal"><span class="pre">-d</span></code> to GNATprove&#8216;s command line. You can also
+use the switch <code class="docutils literal"><span class="pre">-v</span></code> to get a detailed log of which proof files GNATprove is
+producing and attempting to prove.</p>
+</div>
+<div class="section" id="looking-at-machine-parsable-gnatprove-output">
+<h2>7.8.4. Looking at Machine-Parsable GNATprove Output<a class="headerlink" href="#looking-at-machine-parsable-gnatprove-output" title="Permalink to this headline">¶</a></h2>
+<p>GNATprove generates files which contain the results of SPARK analysis in
+machine-parsable form. These files are located in the <code class="docutils literal"><span class="pre">gnatprove</span></code>
+subdirectory of the project object directory, and have the suffix <code class="docutils literal"><span class="pre">.spark</span></code>.
+The structure of these files exposes internal details such as the exact way
+some checks are proved, therefore the structure of these files may change. Still,
+we provide here the structure of these files for convenience.</p>
+<p>At various places in these files, we refer to entities. These are Ada
+entities, either subprograms or packages. Entities are defined by their name and
+their source location (file and line). In JSON this translates to the
+following dictionary for entities:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="n">string</span><span class="p">,</span>
+  <span class="s2">&quot;file&quot;</span> <span class="p">:</span> <span class="n">string</span><span class="p">,</span>
+  <span class="s2">&quot;line&quot;</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>A <code class="docutils literal"><span class="pre">.spark</span></code> file is of this form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;spark&quot;</span> <span class="p">:</span> <span class="nb">list</span> <span class="n">spark_result</span><span class="p">,</span>
+  <span class="s2">&quot;flow&quot;</span>  <span class="p">:</span> <span class="nb">list</span> <span class="n">flow_result</span><span class="p">,</span>
+  <span class="s2">&quot;proof&quot;</span> <span class="p">:</span> <span class="nb">list</span> <span class="n">proof_result</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Each entry is mapped to a list of entries whose format is described below.</p>
+<p>The <code class="docutils literal"><span class="pre">spark_result</span></code> entry is simply an entity, with an extra field for spark
+status, so that the entire dictionary looks like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">spark_result</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span>  <span class="p">:</span> <span class="n">string</span><span class="p">,</span>
+                 <span class="s2">&quot;file&quot;</span>  <span class="p">:</span> <span class="n">string</span><span class="p">,</span>
+                 <span class="s2">&quot;line&quot;</span>  <span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                 <span class="s2">&quot;spark&quot;</span> <span class="p">:</span> <span class="n">string</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Field &#8220;spark&#8221; takes value in &#8220;spec&#8221;, &#8220;all&#8221; or &#8220;no&#8221; to denote
+respectively that only the spec is in SPARK, both spec/body are in SPARK
+(or spec is in SPARK for a package without body), or the spec is not in
+SPARK.</p>
+<p>Entries for proof are of the following form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">proof_result</span> <span class="o">=</span>
+  <span class="p">{</span> <span class="s2">&quot;file&quot;</span>       <span class="p">:</span> <span class="n">string</span><span class="p">,</span>
+    <span class="s2">&quot;line&quot;</span>       <span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;col&quot;</span>        <span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;suppressed&quot;</span> <span class="p">:</span> <span class="n">string</span><span class="p">,</span>
+    <span class="s2">&quot;rule&quot;</span>       <span class="p">:</span> <span class="n">string</span><span class="p">,</span>
+    <span class="s2">&quot;severity&quot;</span>   <span class="p">:</span> <span class="n">string</span><span class="p">,</span>
+    <span class="s2">&quot;tracefile&quot;</span>  <span class="p">:</span> <span class="n">string</span><span class="p">,</span>
+    <span class="s2">&quot;check_tree&quot;</span> <span class="p">:</span> <span class="nb">list</span> <span class="n">goal</span><span class="p">,</span>
+    <span class="s2">&quot;msg_id&quot;</span>     <span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;how_proved&quot;</span> <span class="p">:</span> <span class="n">string</span><span class="p">,</span>
+    <span class="s2">&quot;entity&quot;</span>     <span class="p">:</span> <span class="n">entity</span> <span class="p">}</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">(&#8220;file&#8221;, &#8220;line&#8221;, &#8220;col&#8221;) describe the source location of the message.</p>
+</li>
+<li><p class="first">&#8220;rule&#8221; describes the kind of check.</p>
+</li>
+<li><p class="first">&#8220;severity&#8221; describes the kind status of the message, possible values used
+by gnatwhy3 are &#8220;info&#8221;, &#8220;low&#8221;, &#8220;medium&#8221;, &#8220;high&#8221; and &#8220;error&#8221;.</p>
+</li>
+<li><p class="first">&#8220;tracefile&#8221; contains the name of a trace file, if any.</p>
+</li>
+<li><p class="first">&#8220;entity&#8221; contains the entity dictionary for the entity that this check
+belongs to.</p>
+</li>
+<li><p class="first">&#8220;msg_id&#8221; - if present indicates that this entry corresponds to a message
+issued on the commandline, with the exact same msg_id in brackets:
+&#8220;[#12]&#8221;</p>
+</li>
+<li><p class="first">&#8220;suppressed&#8221; - if present, the message is in fact suppressed by a pragma
+Annotate, and this field contains the justification message.</p>
+</li>
+<li><p class="first">&#8220;how_proved&#8221; - if present, indicates how the check has been proved (i.e.
+which prover). Special values are &#8220;interval&#8221; and &#8220;codepeer&#8221;, which
+designate the special interval analysis, done in the frontend, and the
+CodePeer analysis, respectively. Both have their own column in the
+summary table.</p>
+</li>
+<li><p class="first">&#8220;check_tree&#8221; basically contains a copy of the session
+tree in JSON format. It&#8217;s a tree structure whose nodes are goals,
+transformations and proof attempts:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">goal</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;transformations&quot;</span> <span class="p">:</span> <span class="nb">list</span> <span class="n">trans</span><span class="p">,</span>
+         <span class="s2">&quot;pa&quot;</span>              <span class="p">:</span> <span class="n">proof_attempt</span> <span class="p">}</span>
+
+<span class="n">trans</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="n">transname</span> <span class="p">:</span> <span class="n">goal</span><span class="p">]</span> <span class="p">}</span>
+
+<span class="n">proof_attempt</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="n">prover</span> <span class="p">:</span> <span class="n">infos</span><span class="p">]</span> <span class="p">}</span>
+
+<span class="n">infos</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;time&quot;</span>   <span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+          <span class="s2">&quot;steps&quot;</span>  <span class="p">:</span> <span class="n">integer</span><span class="p">,</span>
+          <span class="s2">&quot;result&quot;</span> <span class="p">:</span> <span class="n">string</span> <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Flow entries are of the same form as for proof. Differences are in the
+possible values for &#8220;rule&#8221;, which can only be the ones for flow messages.
+Also &#8220;how_proved&#8221; field is never set.</p>
+</div>
+<div class="section" id="understanding-proof-strategies">
+<h2>7.8.5. Understanding Proof Strategies<a class="headerlink" href="#understanding-proof-strategies" title="Permalink to this headline">¶</a></h2>
+<p>We now explain in more detail how the provers are run on the logical formula(s)
+generated for a given check, a.k.a. Verification Conditions or VCs.</p>
+<ul class="simple">
+<li>In <code class="docutils literal"><span class="pre">per_check</span></code> mode, a single VC is generated for each check at the source
+level (e.g. an assertion, run-time check, or postcondition); in some cases two
+VCs can appear. Before attempting proof, this VC is then split into the
+conjuncts, that is, the parts that are combined with <code class="docutils literal"><span class="pre">and</span></code> or <code class="docutils literal"><span class="pre">and</span>
+<span class="pre">then</span></code>. All provers are tried on the VCs obtained in this way until one of
+them proves the VC or no more provers are left.</li>
+<li>In <code class="docutils literal"><span class="pre">per_path</span></code> mode, a VC is generated not only for each check at the source
+level, but for each path to the check. For example, for an assertion that
+appears after an if-statement, at least two VCs will be generated - one
+for each path through the if-statement. For each such VC, all provers are
+attempted. Unproved VCs are then further split into their conjuncts,
+and proof is again attempted.</li>
+<li>In <code class="docutils literal"><span class="pre">progressive</span></code> mode, first the actions described for <code class="docutils literal"><span class="pre">per_check</span></code> are
+tried. For all unproved VCs, the VC is then split into the paths that lead
+to the check, like for <code class="docutils literal"><span class="pre">per_path</span></code>. Each part is then
+attempted to be proved independently.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gnatprove_by_example.html" title="7.9. GNATprove by Example"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="how_to_write_loop_invariants.html" title="7.7. How to Write Loop Invariants"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" >7. Formal Verification with GNATprove</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

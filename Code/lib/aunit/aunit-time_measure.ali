@@ -1,0 +1,104 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatp
+A -gnatn
+A -gnatwa
+A -gnatw.X
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_FIXED_POINT
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U aunit.time_measure%b	aunit-time_measure.adb	9df5edcf NE OO PK
+W aunit%s		aunit.adb		aunit.ali
+
+U aunit.time_measure%s	aunit-time_measure.ads	99399b1d BN EE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+W aunit%s		aunit.adb		aunit.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-calend.ads		20190518041256 474d9720 ada.calendar%s
+D a-calend.adb		20190518041256 e65e26b2 ada.calendar%b
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D aunit.ads		20190430040725 76cdf7c6 aunit%s
+D aunit-time_measure.ads  20190430040725 a8b9fbfb aunit.time_measure%s
+D aunit-time_measure.adb  20190430040725 354c1634 aunit.time_measure%b
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D i-c.ads		20190518041255 5421119b interfaces.c%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-osprim.ads		20190518041255 07fd65f6 system.os_primitives%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+G a e
+G c Z s s [timeIP aunit__time_measure 36 9 none]
+G c Z s b [start_measure aunit__time_measure 46 14 none]
+G c Z s b [stop_measure aunit__time_measure 49 14 none]
+G c Z s b [get_measure aunit__time_measure 52 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 7|32r6 37r15 38r15 43r43 44r43 8|40r18 49r17 57r16
+X 2 a-calend.ads
+36K13*Calendar 409e17 7|32w10 37r19 38r19 43r47 44r47 8|40r22 49r21 57r20
+42I9*Time<222I9> 7|37r28 38r28 8|57r29
+56V13*Clock{42I9} 8|40s31 49s30
+83V13*Time_Of{42I9} 7|43s56 44s56
+112V14*"-"{duration} 8|59s37
+222I9 Time_Rep<long_long_integer>
+X 6 aunit.ads
+34K9*AUnit 48e10 7|34r9 72r5 8|32r14 175r5
+X 7 aunit-time_measure.ads
+34K15*Time_Measure 6|34k9 7|70E9 72l11 72e23 8|32b20 175l11 175t23
+36R9*Time 39e14 43r25 46r40 49r39 52r30 8|38r40 47r39 56r30
+37i7*Start{2|42I9} 43m34 8|40m9 59r41
+38i7*Stop{2|42I9} 44m34 8|49m9 59r32
+41O9*AUnit_Duration<duration> 52r43 58r41 64r52 70c9 8|56r43 59r14 66r41
+. 141r52
+43r4*Null_Time{36R9}
+46U14*Start_Measure 46=29 8|38b14 41l8 41t21
+46r29 T{36R9} 8|38b29 40m7
+49U14*Stop_Measure 49=28 8|47b14 50l8 50t20
+49r28 T{36R9} 8|47b28 49m7
+52V13*Get_Measure{41O9} 52>26 8|56b13 60l8 60t19
+52r26 T{36R9} 8|56b26 59r30 59r39
+56U22 Put 56>27 8|84s10 108s10 115s13 127s10
+56i27 I{integer}
+57U22 Put 57>27 8|78s16 109s10 122s10 132s7 134s7
+57a27 S{string}
+58u14*Gen_Put_Measure 58>31 8|66b14 135l8 135t23
+58o31 Measure{41O9} 8|66b31 68r40
+62U22 Put 62>27 8|158s10 168s7
+62i27 I{integer}
+63U22 Put 63>27 8|152s16 170s7 172s7
+63a27 S{string}
+64u14*Gen_Put_Measure_In_Seconds 64>42 8|141b14 173l8 173t34
+64o42 Measure{41O9} 8|141b42 143r34
+X 8 aunit-time_measure.adb
+67i7 H{integer} 90m10 90r15 107r10 108r15
+67i10 M{integer} 95m10 95r15 113r10 115r18 119r18
+67i13 S{integer} 100m10 100r15 127r15 129r15
+68o7 T{duration} 89r13 91m10 91r15 94r13 96m10 96r15 99r13 101m10 101r15
+. 133r21
+69b7 Force{boolean} 105m7 110m10 113r24 114r17 123m10 126r14
+71U17 Put 71>22 71>35 74b17 85l11 85t14 119s13 129s10 133s7
+71i22 N{integer} 74b22 77r16 84r15
+71i35 Length{integer} 74b35 76r34
+76i14 Dig{integer} 77r24
+142i7 S{integer} 164m10 164r15 168r12
+143o7 T{duration} 163r13 165m10 165r15 171r21
+145U17 Put 145>22 145>35 148b17 159l11 159t14 171s7
+145i22 N{integer} 148b22 151r16 158r15
+145i35 Length{integer} 148b35 150r34
+150i14 Dig{integer} 151r24
+

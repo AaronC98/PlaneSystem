@@ -1,0 +1,1551 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2. Description of the Main Window &#8212; GPS 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/adacore.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. The Menu Bar" href="menus.html" />
+    <link rel="prev" title="1. Welcome to the GNAT Programming Studio" href="intro.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="menus.html" title="3. The Menu Bar"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="1. Welcome to the GNAT Programming Studio"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2. Description of the Main Window</a><ul>
+<li><a class="reference internal" href="#the-workspace">2.1. The Workspace</a><ul>
+<li><a class="reference internal" href="#common-features-of-the-views">2.1.1. Common features of the views</a></li>
+<li><a class="reference internal" href="#common-features-of-browsers">2.1.2. Common features of browsers</a><ul>
+<li><a class="reference internal" href="#icons-for-source-language-entities">2.1.2.1. Icons for source language entities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-preferences-assistant">2.2. The Preferences Assistant</a></li>
+<li><a class="reference internal" href="#the-welcome-dialog">2.3. The Welcome Dialog</a></li>
+<li><a class="reference internal" href="#the-tool-bar">2.4. The Tool Bar</a></li>
+<li><a class="reference internal" href="#the-omni-search">2.5. The omni-search</a></li>
+<li><a class="reference internal" href="#the-messages-view">2.6. The <span class="guilabel">Messages</span> view</a></li>
+<li><a class="reference internal" href="#the-locations-view">2.7. The <span class="guilabel">Locations</span> View</a></li>
+<li><a class="reference internal" href="#the-project-view">2.8. The <span class="guilabel">Project</span> view</a></li>
+<li><a class="reference internal" href="#the-learn-view">2.9. The <span class="guilabel">Learn</span> view</a></li>
+<li><a class="reference internal" href="#the-scenario-view">2.10. The <span class="guilabel">Scenario</span> view</a></li>
+<li><a class="reference internal" href="#the-files-view">2.11. The <span class="guilabel">Files</span> View</a></li>
+<li><a class="reference internal" href="#the-windows-view">2.12. The <span class="guilabel">Windows</span> view</a></li>
+<li><a class="reference internal" href="#the-outline-view">2.13. The <span class="guilabel">Outline</span> view</a></li>
+<li><a class="reference internal" href="#the-clipboard-view">2.14. The <span class="guilabel">Clipboard</span> view</a></li>
+<li><a class="reference internal" href="#the-call-trees-view-and-callgraph-browser">2.15. The <span class="guilabel">Call trees</span> view and <span class="guilabel">Callgraph</span> browser</a><ul>
+<li><a class="reference internal" href="#call-trees">2.15.1. Call Trees</a></li>
+<li><a class="reference internal" href="#callgraph-browser">2.15.2. Callgraph browser</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-bookmarks-view">2.16. The <span class="guilabel">Bookmarks</span> view</a><ul>
+<li><a class="reference internal" href="#basic-usage-creating-a-new-bookmark">2.16.1. Basic usage: Creating a new bookmark</a></li>
+<li><a class="reference internal" href="#adding-more-bookmarks">2.16.2. Adding more bookmarks</a></li>
+<li><a class="reference internal" href="#organizing-bookmarks-into-groups">2.16.3. Organizing bookmarks into groups</a></li>
+<li><a class="reference internal" href="#adding-notes">2.16.4. Adding notes</a></li>
+<li><a class="reference internal" href="#add-note-with-drag-and-drop">2.16.5. Add note with drag and drop</a></li>
+<li><a class="reference internal" href="#filtering-bookmarks">2.16.6. Filtering bookmarks</a></li>
+<li><a class="reference internal" href="#favorite-files">2.16.7. Favorite files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-python-console">2.17. The <span class="guilabel">Python</span> Console</a></li>
+<li><a class="reference internal" href="#the-os-shell-console">2.18. The OS Shell Console</a></li>
+<li><a class="reference internal" href="#the-execution-window">2.19. The Execution window</a></li>
+<li><a class="reference internal" href="#the-tasks-view">2.20. The <span class="guilabel">Tasks</span> view</a></li>
+<li><a class="reference internal" href="#the-project-browser">2.21. The <span class="guilabel">Project Browser</span></a></li>
+<li><a class="reference internal" href="#the-dependency-browser">2.22. The <span class="guilabel">Dependency Browser</span></a></li>
+<li><a class="reference internal" href="#the-elaboration-circularities-browser">2.23. The <span class="guilabel">Elaboration Circularities</span> browser</a></li>
+<li><a class="reference internal" href="#the-entity-browser">2.24. The <span class="guilabel">Entity</span> browser</a></li>
+<li><a class="reference internal" href="#the-file-selector">2.25. The File Selector</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="previous chapter">1. Welcome to the GNAT Programming Studio</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="menus.html"
+                        title="next chapter">3. The Menu Bar</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/main_window.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="description-of-the-main-window">
+<span id="index-0"></span><h1>2. Description of the Main Window<a class="headerlink" href="#description-of-the-main-window" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/gps-main-window.png" src="_images/gps-main-window.png" />
+<p>The GNAT Programming Studio has one main window, which is where you perform
+most of your work.  However, GPS is very flexible and lets you
+organize your desktop many different ways, as discussed in a later section
+(<a class="reference internal" href="mdi.html#multiple-document-interface"><span class="std std-ref">Multiple Document Interface</span></a>).</p>
+<p>There are also other windows that might pop up at various times, documented
+in this section.</p>
+<div class="section" id="the-workspace">
+<span id="the-work-space"></span><h2>2.1. The Workspace<a class="headerlink" href="#the-workspace" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-1"></span><span class="target" id="index-2"></span><span class="target" id="index-3"></span><p id="index-4">The overall workspace is based on a multiple document interface (see
+<a class="reference internal" href="mdi.html#multiple-document-interface"><span class="std std-ref">Multiple Document Interface</span></a>) and can contain any number of windows,
+the most important of which are usually the editors. However, GPS also
+provides a large number of views that you can add to the workspace. The
+sections below list them.</p>
+<div class="section" id="common-features-of-the-views">
+<h3>2.1.1. Common features of the views<a class="headerlink" href="#common-features-of-the-views" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="index-5"></span><p id="index-6">Some views are part of the default desktop and are visible by default.
+Open the other views through one of the submenus of the
+<span class="menuselection">View</span> menu.</p>
+<p id="index-7">Some of the views have their own local toolbar that contains shortcuts to
+the most often used features of that view.</p>
+<p id="index-8">There is often a button to the right of these local toolbars that opens a
+local settings menu. This menu either contains more actions you can perform
+in that view or various configuration settings allowing you to change the
+behavior or display of the view.</p>
+<p id="index-9">Some views also have a filter in their local toolbar.  You can use these
+filters to reduce the amount of information displayed on the screen by only
+displaying those lines matching the filter.</p>
+<p>If you click on the left icon of the filter, GPS brings up a popup menu to
+allow you to configure the filter:</p>
+<ul class="simple">
+<li>Use the first three entries to choose the search algorithm (full text
+match, regular expression, or fuzzy matching). These modes are similar to
+the ones used in the omni-search (see <a class="reference internal" href="#omni-search"><span class="std std-ref">The omni-search</span></a>).</li>
+<li>The next entry is <span class="guilabel">Invert filter</span>. When you select this
+option, lines that do not match the filter are displayed, instead of
+the default behavior of displaying ones that match the filter.  You
+can also enable this mode temporarily by beginning the filter with
+the string <code class="samp docutils literal"><span class="pre">not:</span></code>. For example, a filter in the
+<span class="guilabel">Locations</span> view saying <code class="samp docutils literal"><span class="pre">not:warning</span></code> hides all warning
+messages.</li>
+<li>Select the last entry, <span class="guilabel">Whole word</span>, when you only want to
+match full words, not substrings.</li>
+</ul>
+</div>
+<div class="section" id="common-features-of-browsers">
+<span id="browsers-features"></span><h3>2.1.2. Common features of browsers<a class="headerlink" href="#common-features-of-browsers" title="Permalink to this headline">¶</a></h3>
+<p>GPS presents a view of information using an interactive display called a
+&#8220;browser&#8221;, which shows a canvas containing boxes you can manipulate.
+Browsers provide the following additional capabilities:</p>
+<ul>
+<li><p class="first">Links</p>
+<p>Boxes can be linked together and remain linked when they are moved.  There
+are different types of links; see the description of the various browsers
+for more details.</p>
+<p>Hide links using a button on the local toolbar. This keeps the
+canvas more readable at the cost of losing information.  You can also
+hide only a subset of links. Even when links are hidden, if you select a
+box, boxes linked to it are still highlighted.</p>
+</li>
+<li><p class="first">Scrolling</p>
+<p>When many boxes are displayed, the currently visible area may be too
+small for all of them.  When that happens, GPS adds scrollbars. You can
+also scroll using the arrow keys, or by dragging the background while
+pressing the left mouse button.</p>
+</li>
+<li><p class="first">Layout</p>
+<p>GPS organizes the boxes in a browser using a simple layout algorithm,
+which is layer oriented: items with no parents are put in the first
+layer, their direct children are put in the second layer, and so
+on. Depending on the type of browser, these layers are organized either
+vertically or horizontally.  If you move boxes, this algorithm tries to
+preserve their relative positions as much as possible.</p>
+<p>Use the <span class="guilabel">Refresh layout</span> button in the local toolbar to
+recompute the layout at any time, including that of boxes you moved.</p>
+</li>
+<li><p class="first">Moving boxes</p>
+<p>Move boxes with the mouse. Drag the box by clicking on its title
+bar. The box&#8217;s links are still displayed during the move, so you can see
+whether it overlaps any other box. If you try to move the box outside the
+visible part of the browser, it is scrolled.</p>
+</li>
+<li><p class="first">Selecting boxes</p>
+<p>Select a box by clicking it.</p>
+<p>The title bar of selected boxes is a different color.  All boxes linked
+to them also use a different title bar color and so do the links. This is
+the most convenient way to visualize the relationships between boxes when
+many are present in the browser.</p>
+<p>Use buttons in the local toolbar to either remove the selected boxes or
+remove the boxes that are not selected.</p>
+</li>
+<li><p class="first">Zooming</p>
+<p>GPS provides several different zoom levels.  Use the
+<span class="guilabel">zoom in</span>, <span class="guilabel">zoom out</span>, and <span class="guilabel">zoom</span> buttons in
+the local toolbar to change the level and use the latter to explicitly
+select the level you want.</p>
+<p>You can also press the <code class="kbd docutils literal"><span class="pre">alt</span></code> key and use the mouse wheel to zoom in
+or out.</p>
+<p>This capability is generally useful when many boxes are displayed in the
+browser to allow you to get an overview of the layout and the
+relationships between the boxes.</p>
+</li>
+<li><p class="first"><span class="target" id="index-10"></span>export</p>
+<p>Export the entire contents of a browser as a <code class="file docutils literal"><span class="pre">PNG</span></code> or
+<code class="file docutils literal"><span class="pre">SVG</span></code> image using the <span class="guilabel">Export to...</span> button in the
+local toolbar.</p>
+</li>
+<li><p class="first">Hyper-links</p>
+<p>Some boxes contain hyper links, displayed in blue by default, and
+underlined.  Clicking on these generally displays new boxes.</p>
+</li>
+<li><p class="first">Contextual menus</p>
+<p>Right-clicking on boxes displays a contextual menu with actions you can
+perform on that box.  These actions are specific to the kind of box you
+clicked.</p>
+</li>
+<li><p class="first">Grid</p>
+<p>By default, GPS doesn&#8217;t display a grid on the canvas. Use the local settings
+menu to show the grid (uncheck <span class="guilabel">Draw grid</span>) or to force items to
+align on the grid (<span class="guilabel">Align on grid</span>).</p>
+</li>
+</ul>
+<div class="section" id="icons-for-source-language-entities">
+<h4>2.1.2.1. Icons for source language entities<a class="headerlink" href="#icons-for-source-language-entities" title="Permalink to this headline">¶</a></h4>
+<p>Entities in the source code are represented by icons within the various GPS
+views (for example, the <span class="guilabel">Outline</span> and <span class="guilabel">Project</span> views).
+These icons indicate both the semantic category of the entity within the
+language, such as packages and methods, as well as compile-time visibility.
+The icons also distinguish entity declarations from other entities.  The
+same icons are used for all programming languages supported by GPS, with
+language-specific interpretations for both compile-time visibility and
+distinguishing declarations and uses of entities.</p>
+<p>These five language categories are used for all supported languages:</p>
+<ul>
+<li><p class="first">The <em>package</em> category&#8217;s icon is a square.</p>
+<img alt="_images/square_x.png" src="_images/square_x.png" />
+</li>
+<li><p class="first">The <em>subprogram</em> category&#8217;s icon is a circle.</p>
+<img alt="_images/circle_x.png" src="_images/circle_x.png" />
+</li>
+<li><p class="first">The <em>type</em> category&#8217;s icon is a triangle.</p>
+<img alt="_images/triangle_x.png" src="_images/triangle_x.png" />
+</li>
+<li><p class="first">The <em>variable</em> category&#8217;s icon is a dot.</p>
+<img alt="_images/dot_x.png" src="_images/dot_x.png" />
+</li>
+<li><p class="first">The <em>generic</em> category&#8217;s icon is a diamond.</p>
+<img alt="_images/diamond_x.png" src="_images/diamond_x.png" />
+</li>
+</ul>
+<p>These icons are enhanced with decorations, when appropriate, to indicate
+compile-time visibility constraints and to distinguish declarations from
+completions. For example, icons for entity declarations have a small &#8216;S&#8217;
+decorator added, denoting a &#8216;spec&#8217;.</p>
+<p>Icons for &#8216;protected&#8217; and &#8216;private&#8217; entities appear within an enclosing box
+indicating a compile-time visibility constraint. For entities with
+&#8216;protected&#8217; visibility, the enclosing box is gray.  &#8216;Private&#8217; entities are
+enclosed by a red box.  Icons for &#8216;public&#8217; entities have no enclosing
+box. For example, a variable with &#8216;private&#8217; visibility is represented by an
+icon consisting of a dot enclosed by a red box.  These additional
+decorations are combined when appropriate. For example, the icon
+corresponding to the &#8216;private&#8217; declaration of a &#8216;package&#8217; entity would be a
+square, as for any package entity, with a small &#8216;S&#8217; added, all enclosed by
+a red box.</p>
+<p>Language constructs are mapped to categories in a language-specific manner.
+For example, C++ namespaces and Ada packages correspond to the <em>package</em>
+category and C functions and Ada subprograms correspond to the <em>method</em>
+category.  The <em>generic</em> category is a general category representing other
+language entities, but not all possible language constructs are mapped to
+categories and icons.  (Specifically, the <em>generic</em> category does not
+correspond to Ada generic units or C++ templates.)</p>
+<p>The names of the categories should not be interpreted literally as language
+constructs because the categories are meant to be general in order to limit
+the number of categories.  For example, the <em>variable</em> category includes
+both constants and variables in Ada. Limiting the number of categories
+maintains a balance between presentation complexity and the need to support
+many different programming languages.</p>
+<p>Icons for a given entity may appear more than once within a view. For
+example, an Ada private type has both a partial view in the visible part of
+the enclosing package and a full view in the private part of the package.
+A triangle icon will appear for each of the two occurrences of the type
+name, one with the additional decoration indicating &#8216;private&#8217; visibility.</p>
+<span class="target" id="index-11"></span></div>
+</div>
+</div>
+<div class="section" id="the-preferences-assistant">
+<span id="index-12"></span><span id="id1"></span><h2>2.2. The Preferences Assistant<a class="headerlink" href="#the-preferences-assistant" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/preferences_assistant.png" src="_images/preferences_assistant.png" />
+<p>When starting GPS for the first time, a preferences assistant window opens,
+allowing you to configure some general preferences (color theme, key bindings
+etc.).</p>
+<p>You can skip the remaining pages of the preferences assistant by clicking on
+the <span class="guilabel">Start using GPS</span> button or by clicking on red cross.</p>
+<span class="target" id="index-13"></span></div>
+<div class="section" id="the-welcome-dialog">
+<span id="index-14"></span><span id="id2"></span><h2>2.3. The Welcome Dialog<a class="headerlink" href="#the-welcome-dialog" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/welcome.png" src="_images/welcome.png" />
+<span class="target" id="index-15"></span><p id="index-16">When GPS starts, it looks for a project file to load so it knows where to
+find the sources of your project. This project is often specified on the
+command line (via a <strong class="command">-P</strong> switch).  If not, and the current
+directory contains only one project file, GPS selects it automatically.
+Finally, if you specify the name of a source file to edit, GPS loads a
+default project.  If GPS cannot find a project file, it displays a welcome
+dialog, giving you the following choices:</p>
+<ul>
+<li><p class="first"><span class="guilabel">Create new project</span></p>
+<p>Clicking on this button launches an assistant to create a project using one
+of the predefined project templates. This makes it easy to create GtkAda-based
+applications, or applications using the Ada Web Server, for example.</p>
+</li>
+</ul>
+<ul id="index-17">
+<li><p class="first"><span class="guilabel">Open project</span></p>
+<p>Clicking on this button opens up a file browser, allowing you to select
+a project file to load.</p>
+</li>
+</ul>
+<ul id="index-18">
+<li><p class="first"><span class="guilabel">Start with default</span></p>
+<p>Clicking on this button causes GPS to look for a project called
+<code class="file docutils literal"><span class="pre">default.gpr</span></code> in the current directory and load it if found. Otherwise,
+it copies the default project <code class="file docutils literal"><span class="pre">&lt;prefix&gt;/share/gps/default.gpr</span></code> into the
+current directory and loads it. GPS removes this temporary copy when exiting
+or loading another project if you have not modified the copy.</p>
+<p>The default project contains all the Ada source files from the specified
+directory (assuming they use the default GNAT naming scheme <code class="file docutils literal"><span class="pre">.ads</span></code> and
+<code class="file docutils literal"><span class="pre">.adb</span></code>).</p>
+<p>If the current directory is not writable, GPS instead loads
+<code class="file docutils literal"><span class="pre">&lt;prefix&gt;/share/gps/readonly.gpr</span></code>. In this case, GPS runs in a limited
+mode, where some capabilities (such as building and source navigation) are not
+available. This project will not contain any sources.</p>
+</li>
+</ul>
+<p>In addition to these choices, you can also load a recently opened project by
+clicking the project of interest in the left-hand pane listing the known recent
+projects.</p>
+</div>
+<div class="section" id="the-tool-bar">
+<span id="index-19"></span><span id="id3"></span><h2>2.4. The Tool Bar<a class="headerlink" href="#the-tool-bar" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/toolbar.png" src="_images/toolbar.png" />
+<img alt="_images/toolbar_hud.png" src="_images/toolbar_hud.png" />
+<p>The tool bar provides shortcuts to some common actions:</p>
+<ul class="simple">
+<li>Create a new file</li>
+<li>Open an existing file (see also the omni-search on the right of the bar)</li>
+<li>Save the current file</li>
+<li>Undo or redo last editing</li>
+<li>Go to previous or next saved location</li>
+<li>Multiple customizable
+<span class="target" id="index-20"></span>buttons
+to build, clean, run or debug your project</li>
+<li>multiple
+<span class="target" id="index-21"></span>buttons to stop and continue
+the debugger, step to the next instruction, and other similar actions
+when a debugger is running.</li>
+</ul>
+<span class="target" id="index-22"></span><p id="index-23">When GPS is performing background actions, such as loading cross-reference
+information or all actions involving external processes (including compiling),
+it displays a progress bar in the toolbar showing when the current task(s) will
+be completed. Click on the button to pop up a window showing the details of
+the tasks. This window is a Tasks view, and can be used to pause or interrupt
+running tasks (see <a class="reference internal" href="#the-task-manager"><span class="std std-ref">The Tasks view</span></a>). This window can be discarded by
+pressing <span class="guilabel">ESC</span> or by clicking anywhere else in the GPS. This window
+also disappears when there are no more running tasks.</p>
+<span class="target" id="index-24"></span></div>
+<div class="section" id="the-omni-search">
+<span id="omni-search"></span><span id="index-25"></span><h2>2.5. The omni-search<a class="headerlink" href="#the-omni-search" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/omnisearch.png" src="_images/omnisearch.png" />
+<p>The final item in the toolbar is &#8220;omni-search&#8221;.  Use this to search for
+text in various contexts in GPS, such as filenames (for convenient access
+to source files), the entities referenced in your application, and your
+code.</p>
+<p>There are various ways to use the omni-search:</p>
+<ul>
+<li><p class="first">The simplest way is to click on it and type the pattern you want to
+find. GPS immediately starts searching in the background for possible
+matching open windows, file names, entities, GPS actions, bookmarks, and
+source files. For each context, GPS display how many matches there are in
+that context but only displays the five matches with the highest score.</p>
+<p>Click on the name of context to search only in that context.  For
+example, if GPS shows 20 file names matching your search (while only
+displaying the five first), click on <span class="guilabel">file names</span> to view all
+20 names and exclude the results from all the other contexts.  If you
+click on the context again, GPS again displays the results from all
+contexts.</p>
+</li>
+<li><p class="first">If you are searching in a single context, GPS defines a number of actions
+to which you can bind key shortcuts via the
+<span class="menuselection">Edit ‣ Preferences...</span> dialog instead of using the
+above procedure. These actions are
+found in the <span class="guilabel">Search</span> category and are called <span class="guilabel">Global
+Search in context:</span>. GPS includes a <span class="target" id="index-26"></span>menu for two of them by default: <span class="menuselection">Find ‣
+Find File in Project</span> searches filenames, <span class="target" id="index-27"></span>while <span class="menuselection">Find ‣ Find Entity</span>
+searches all entities defined in your project.</p>
+</li>
+</ul>
+<p>Each context displays its results slightly differently and clicking on a
+result has different effects in each context. For example, clicking on a
+file name opens the corresponding file, while clicking on an entity jumps
+to its declaration and clicking on a bookmark displays the source file
+containing the bookmark.</p>
+<p>Press <code class="kbd docutils literal"><span class="pre">enter</span></code> at any point to select the top item in the list of
+search results.</p>
+<img alt="_images/omnisearch-settings.png" src="_images/omnisearch-settings.png" />
+<p id="index-28">You may have no interest in some search contexts.  Disable them by clicking
+the <span class="guilabel">Settings</span> icon at the bottom-right corner of the completion
+popup. The resulting dialog displays a list of all contexts to be searched;
+clicking on any of the checkboxes next to the names disables searching that
+context.  This list is only displayed when you started the omni-search by
+clicking on it in the toolbar. If you started it via <code class="kbd docutils literal"><span class="pre">shift-F3</span></code> or the
+equivalent <span class="menuselection">Find ‣ Find File in Project...</span> menu, only a
+subset of the settings are displayed.</p>
+<p>You can also reorder the contexts from this settings dialog, which affects
+the order in which they are searched and displayed. We recommend keeping the
+<span class="guilabel">Sources</span> context last, because it is the slowest and while GPS
+is searching it, cannot search the other, faster, contexts.</p>
+<p>In the settings dialog, you can choose whether to display a
+<span class="guilabel">Preview</span> for the matches. This preview is displayed when you use
+the <code class="kbd docutils literal"><span class="pre">down</span> <span class="pre">arrow</span></code> key to select some of the search results.  It
+displays the corresponding source file or the details for the matching GPS
+action or bookmark.  You can also select the number of results to be
+displayed for each context when multiple contexts are displayed or the size
+of the search field (which depends on how big your screen and the GPS
+window are).</p>
+<p>One search context looks for file names and is convenient for quickly
+opening files. By default, it looks at all files found in any of the source
+directories of your project, even if those files are not explicit sources of
+the project (for example because they do not match the naming scheme for any
+of the languages used by the project). This is often convenient because you
+can easily open support files like <code class="file docutils literal"><span class="pre">Makefiles</span></code> or documentation, but
+it can also sometimes be annoying if the source directories include too
+many irrelevant files. Use the <span class="guilabel">Include all files from source
+dirs</span> setting to control this behavior.</p>
+<p>GPS allows you to choose among various search algorithms:</p>
+<ul>
+<li><p class="first"><span class="guilabel">Full Text</span> checks whether the text you typed appears exactly
+as you specified it within the context (for example, a file name, the
+contents of a file, or the name of an entity).</p>
+</li>
+<li><p class="first"><span class="guilabel">Regular Expression</span> assumes the text you typed is a valid
+regular expression and searches for it. If it is not a valid regexp, it
+tries to search for the exact text (like <span class="guilabel">Full Text</span>).</p>
+</li>
+<li><p class="first"><span class="guilabel">Fuzzy Match</span> tries to find each of the characters you typed,
+in that order, but possibly with extra characters in between.  This is
+often the fastest way to search, but might requires a bit of getting used
+to. For example, the text <code class="samp docutils literal"><span class="pre">mypks</span></code> matches the file name
+<code class="file docutils literal"><span class="pre">MY_PacKage.adS</span></code> because the letters shown in upper cases are
+contained in the filename.</p>
+<p>When searching within source files, the algorithm is changed slightly, to
+avoid having too many matches. In that context, GPS only allows a close
+approximations between the text you typed and the text it tries to match
+(for example, one or two extra or missing characters).</p>
+</li>
+</ul>
+<p>Select the algorithm to use at the bottom of the popup window containing
+the search results.</p>
+<p>Once it finds a match, GPS assigns it a score, used to order the results in
+the most meaningful way for you. Scoring is based on a number of criteria:</p>
+<ul>
+<li><p class="first">length of the match</p>
+<p>For example, when searching file names, it is more likely that typing
+&#8216;foo&#8217; was intended to match &#8216;foo.ads&#8217; than &#8216;the_long_foo.ads&#8217;.</p>
+</li>
+<li><p class="first">the grouping of characters in the match</p>
+<p>As we have seen, when doing a fuzzy match GPS allows extra characters
+between the ones you typed. But the closer the ones you typed are in the
+match result, the more likely it is that this is what you were looking for.</p>
+</li>
+<li><p class="first">when was the item last selected</p>
+<p>If you recently selected an item (like a file name), GPS assumes you are
+more likely to want it again and raises its score.</p>
+</li>
+</ul>
+<span class="target" id="index-29"></span><span class="target" id="index-30"></span></div>
+<div class="section" id="the-messages-view">
+<span id="index-31"></span><span id="id4"></span><h2>2.6. The <span class="guilabel">Messages</span> view<a class="headerlink" href="#the-messages-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/views-messages.png" src="_images/views-messages.png" />
+<p>The <span class="guilabel">Messages</span> view, which is read-only, displays information and
+feedback about operations, including build output, information about
+processes launched, and error messages.</p>
+<p>Its local toolbar contains buttons to <span class="guilabel">Clear</span> the contents of the
+window, as well as <span class="guilabel">Save</span> and <span class="guilabel">Load</span> from files.  The
+latter operation also parses those messages into the <span class="guilabel">Locations</span>
+window.</p>
+<p>The actual output of the compilation is displayed in the
+<span class="guilabel">Messages</span> view but is also parsed and many of its messages are
+displayed more conveniently in the <span class="guilabel">Locations</span> view (see
+<a class="reference internal" href="#the-locations-view"><span class="std std-ref">The Locations View</span></a>).  When a compilation finishes, GPS displays the
+total elapsed time.</p>
+<p id="index-32">You cannot close the <span class="guilabel">Messages</span> view because it might contain
+important messages.  If GPS closed it, you can reopen it with the
+<span class="menuselection">View ‣ Messages</span> menu.</p>
+</div>
+<div class="section" id="the-locations-view">
+<span id="index-33"></span><span id="id5"></span><h2>2.7. The <span class="guilabel">Locations</span> View<a class="headerlink" href="#the-locations-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/views-locations.png" src="_images/views-locations.png" />
+<p>GPS uses the <span class="guilabel">Location</span> view, which is also read-only, to display
+a list of locations in source files (for example, when performing a global
+search or displaying compilation results).</p>
+<p>It displays a hierarchy of categories, each of which contain files, each,
+in turn, containing messages at specific locations. The category describes
+the type of messages (for example, search or build results).  If the full
+text of a message is too large to be completely shown in the window,
+placing the mouse over it pops up a tooltip window with the full text.</p>
+<p>Each message in this window corresponds to a line in a source editor.  This
+line has been highlighted and has a mark on its left side.  Clicking on a
+message brings up an editor pointing to that line.</p>
+<p>The <span class="guilabel">Locations</span> view provides a local toolbar with the following
+buttons:</p>
+<ul class="simple">
+<li><span class="guilabel">Clear</span> removes all entries from the view and, depending on
+your settings, may also close the view.</li>
+<li><span class="guilabel">Remove</span> removes the currently selected category, file or
+message as well as the corresponding highlighting in the source editor.</li>
+<li><span class="guilabel">Save</span> saves the contents of the view to a text file for later
+reference.  You cannot load this file back into the <span class="guilabel">Locations</span>
+view, but you can load it into the <span class="guilabel">Messages</span> view.  However,
+if you plan to reload it later, it is better to save and reload the
+contents of the <span class="guilabel">Messages</span> view instead.</li>
+<li><span class="guilabel">Expand All</span> and <span class="guilabel">Collapse All</span> shows or hides all
+messages in the view.</li>
+<li>a filter to selectively show or hide some messages.  Filtering is done on
+the text of the message itself (the filter is either text or a regular
+expression).  You can also reverse the filter.  For example, typing
+<cite>warning</cite> in the filter field and reversing the filter <span class="target" id="index-34"></span>hides
+warning messages</li>
+</ul>
+<p>The local settings menu contains the following entries:</p>
+<ul>
+<li><p class="first"><span class="menuselection">Sort by subcategory</span></p>
+<p>Toggle the sorting of messages by sub-categories. This is useful for
+separating warnings from errors in build results. The error messages
+appear first. The default is to sort the message by their location.</p>
+</li>
+<li><p class="first"><span class="menuselection">Sort files alphabetically</span></p>
+<p>Sort messages by filenames (sorted alphabetically). The default does not
+sort by filenames to make it easier to manipulate <span class="guilabel">Locations</span>
+view while the compilation is proceeding.  (If sorted, the messages might
+be reordered while you are trying to click on them).</p>
+</li>
+<li><p class="first"><span class="menuselection">Jump to first location</span></p>
+<p>Every time a new category is created, for example, as a result of a
+compilation or search operation, the first message in that category is
+automatically selected and the corresponding editor opened, and the focus
+is given to the Locations view.</p>
+</li>
+<li><p class="first"><span class="menuselection">Warp around on next/previous</span></p>
+<p>Controls the behavior of the <span class="menuselection">Previous tag</span> and
+<span class="menuselection">Next tag</span> menus (see below).</p>
+</li>
+<li><p class="first"><span class="menuselection">Auto close locations</span></p>
+<p>Automatically close this window when it becomes empty.</p>
+</li>
+<li><p class="first"><span class="menuselection">Save locations on exit</span></p>
+<p>Controls whether GPS should save and restore the contents of this window
+between sessions.  Be careful, because the loaded contents might not
+apply the next time.  For example, the source files have changed, or
+build errors have been fixed.  So you should not select this option if
+those conditions might apply.</p>
+</li>
+<li><p class="first"><span class="menuselection">Preserve messages</span></p>
+<p>Preserve more build errors after recompiling. When the Locations view
+contains build errors, and one of the files is being recompiled, the
+Locations view will now only update the entries for that file,
+rather than removing all build errors.</p>
+</li>
+</ul>
+<span class="target" id="index-35"></span><p id="index-36">GPS provides two menus to navigate through the locations using the
+keyboard: <span class="menuselection">Navigate ‣ Previous Tag</span> and
+<span class="menuselection">Navigate ‣ Next Tag</span>. Depending on your settings, they
+might wrap around after reaching the first or last message.</p>
+<p>You can also bind key shortcuts to these menus via the <span class="menuselection">Edit
+‣ Preferences...</span> menu.</p>
+<span class="target" id="index-37"></span><p id="index-38">In some cases, a wrench icon will be visible on the left of a compilation
+message. See <a class="reference internal" href="tools.html#code-fixing"><span class="std std-ref">Code Fixing</span></a> for more information on how to take
+advantage of this icon.</p>
+<span class="target" id="index-39"></span></div>
+<div class="section" id="the-project-view">
+<span id="index-40"></span><span id="id6"></span><h2>2.8. The <span class="guilabel">Project</span> view<a class="headerlink" href="#the-project-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/project-view.png" src="_images/project-view.png" />
+<img alt="_images/project-view-flat.png" src="_images/project-view-flat.png" />
+<span class="target" id="index-41"></span><p id="index-42">The project view displays a representation of the various components of
+your project.  By default, it is displayed on the left side of the
+workspace.  Select it using the <span class="menuselection">View ‣ Project</span> menu.</p>
+<p id="index-43">On Windows, you can drop files (for example, from Windows Explorer) into
+the project view. If you drop a project file, GPS loads it and it replaces
+the current project; if you drop a source file, GPS opens it in a new
+editor.</p>
+<p id="interactive-search"><span id="index-44"></span>The project view, combined with the file and outline view, provide an
+interactive search capability allowing you to quickly search information
+currently displayed.  Start typing the text to search when the view has the
+focus.  Note that the contents of the <span class="guilabel">Project</span> view are computed
+lazily, so not all files are known to this search capability before they have
+been opened.</p>
+<p>This search opens a small window at the bottom of the view where you can
+interactively type names.  The first matching name in the tree is selected
+when you type it.  Use the <code class="kbd docutils literal"><span class="pre">up</span></code> and <code class="kbd docutils literal"><span class="pre">down</span></code> keys to navigate
+through all the items matching the current text.</p>
+<p>The various components displayed in the project view are:</p>
+<p><em>projects</em></p>
+<blockquote>
+<div><p>Each source file you are working with is part of a project.  Projects are
+a way to record the switches to use for the various tools as well as a
+number of other properties such as the naming schemes for the sources.
+They can be organized into a project hierarchy where a root project can
+import other projects, each with their own set of sources (see
+<a class="reference internal" href="#the-welcome-dialog"><span class="std std-ref">The Welcome Dialog</span></a> for details on how projects are loaded in GPS).</p>
+<p>The <span class="guilabel">Project</span> view displays this project hierarchy: the top
+node is the root project of your application (usually where the source
+file that contains the main subprogram will be located). A node is
+displayed for each imported project and recursively for other imported
+projects.  If a project is imported by several projects, it may appear
+multiple times in the view,</p>
+<p>If you edited the <span class="target" id="index-45"></span>project
+manually and used the <strong class="command">limited with</strong> construct to create cycles
+in the project dependencies, the cycle will expand infinitely. For
+example, if project <code class="file docutils literal"><span class="pre">a</span></code> imports project <code class="file docutils literal"><span class="pre">b</span></code>, which in turn
+imports project <code class="file docutils literal"><span class="pre">a</span></code> through a <strong class="command">limited with</strong> clause, then
+expanding the node for <code class="file docutils literal"><span class="pre">a</span></code> shows <code class="file docutils literal"><span class="pre">b</span></code>. In turn, expanding the
+node for <code class="file docutils literal"><span class="pre">b</span></code> shows a node for <code class="file docutils literal"><span class="pre">a</span></code>, and so on.</p>
+<p>An icon with a pen mark is displayed if the project was modified but not
+saved yet. You can save it at any time by right-clicking the icon.  GPS
+either reminds you to save it before any compilation or saves it
+automatically, depending on your preference settings.</p>
+<p>GPS provides a second display for this project view, which lists all
+projects with no hierarchy: all projects appear only once in the view, at
+the top level. You may find this display useful for deep project
+hierarchies, where it can make it easier to find projects. Activate this
+display using the local settings menu to the right of the
+<span class="guilabel">Project</span> view toolbar.</p>
+</div></blockquote>
+<p id="index-46"><em>directories</em></p>
+<blockquote>
+<div><p>The files in a project are organized into several directories on
+disk. These directories are displayed under each project node in the
+<span class="guilabel">Project</span> view</p>
+<p id="index-47">You choose whether to see the absolute path names for the directories or
+paths relative to the location of the project by using the local settings
+menu <span class="menuselection">Show absolute paths</span> of the <span class="guilabel">Project</span>
+view. In all cases, the tooltip displayed when the mouse hovers over a
+file or directory shows the full path.</p>
+<p>Special nodes are created for object and executables directories. No
+files are shown for these.</p>
+<p id="index-48">Use the local setting <span class="guilabel">Show hidden directories</span> to select the
+directories to be considered hidden. Use this to hide version control
+directories such as <code class="file docutils literal"><span class="pre">CVS</span></code> or <code class="file docutils literal"><span class="pre">.svn</span></code>.</p>
+</div></blockquote>
+<p><em>files</em></p>
+<blockquote>
+<div><p>Source files are displayed under the node corresponding to the directory
+containing the file.  Only the source files actually belonging to the
+project (i.e. are written in a language supported by that project and
+follow its naming scheme) are visible.  For more information on supported
+languages, see <a class="reference internal" href="projects.html#supported-languages"><span class="std std-ref">Supported Languages</span></a>.  A file might appear multiple
+times in the <span class="guilabel">Project</span> view if the project it belongs to is
+imported by several other projects.</p>
+<p>You can drag a file into GPS. This opens a new editor if the file is not
+already being edited or moves to the existing editor otherwise.  If you
+press <code class="kbd docutils literal"><span class="pre">shift</span></code> while dragging the file and it is already being edited,
+GPS creates a new view of the existing editor.</p>
+</div></blockquote>
+<p><em>entities</em></p>
+<blockquote>
+<div><p>If you open the node for a source file, the file is parsed by a fast
+parsers integrated in GPS so it can show all entities declared in the
+file. These entities are grouped into various categories that depend on
+the language. Typical categories include subprograms, packages, types,
+variables, and tasks.</p>
+<p>Double-clicking on a file or clicking on any entity opens an editor or
+display showing, respectively, the first line in the file or the line on
+which the entity is defined.</p>
+</div></blockquote>
+<span class="target" id="index-49"></span><p id="index-50">If you open the search dialog via the <span class="menuselection">Find ‣ Find...</span> menu,
+you can search for anything in the <span class="guilabel">Project</span>
+view, either a file or an entity.  Searching for an entity can be slow if
+you have many files and/or large files.</p>
+<p id="index-51">GPS also provides a contextual menu, called <span class="menuselection">Locate in
+Project View</span>, in source editors. This automatically searches for the first
+entry in this file in the <span class="guilabel">Project</span> view. This contextual menu is
+also available in other modules, for example when selecting a file in the
+<span class="guilabel">Dependency</span> browser.</p>
+<p id="index-52">The local toolbar of the <span class="guilabel">Project</span> view contains a button to
+reload the project.  Use this when you have created or removed source files
+from other applications and want to let GPS know there might have been
+changes on the file system that impact the contents of the current project.</p>
+<p id="index-53">It also includes a button to graphically edit the attributes of the
+selected project, such as the tool switches or the naming schemes. It
+behaves similarly to the <span class="menuselection">Edit ‣ Project
+Properties...</span> menu. See <a class="reference internal" href="projects.html#the-project-properties-editor"><span class="std std-ref">The Project Properties Editor</span></a> for more
+information.</p>
+<p>If you right click a project node, a contextual menu appears which
+contains, among others, the following entries that you can use to
+understand or modify your project:</p>
+<ul>
+<li><p class="first"><span class="menuselection">Show projects imported by...</span></p>
+</li>
+<li><p class="first"><span class="menuselection">Show projects depending on...</span></p>
+<p>Open a new window, the <span class="guilabel">Project</span> browser, which displays
+graphically the relationships between each project in the hierarchy (see
+<a class="reference internal" href="#the-project-browser"><span class="std std-ref">The Project Browser</span></a>).</p>
+</li>
+<li><p class="first"><span class="menuselection">Project ‣ Properties</span></p>
+<p><span class="target" id="index-54"></span>Opens
+a new dialog to interactively edit the attributes of the project
+(such as tool switches and naming schemes) and is similar to the local
+toolbar button.</p>
+</li>
+<li><p class="first"><span class="menuselection">Project ‣ Save project...</span></p>
+<p><span class="target" id="index-55"></span>Saves a single project in the
+hierarchy after you modified it. Modified but unsaved projects in the
+hierarchy have a special icon (a pen mark on top of the standard
+icon). If you would rather <span class="target" id="index-56"></span>save all modified projects in a single step, use the menu bar item
+<span class="menuselection">Project ‣ Save All</span>.</p>
+<p>Any time you modify one or more projects, the contents of the project
+view is automatically refreshed, but no project is automatically
+saved. This provides a simple way to temporarily test new values for the
+project attributes.  Unsaved modified projects are shown with a special
+icon in the project view, a pen mark on top of the standard icon:</p>
+<img alt="_images/project-modified.jpg" src="_images/project-modified.jpg" />
+</li>
+<li><p class="first"><span class="menuselection">Project ‣ Edit source file</span></p>
+<p>Loads the project file into an editor so you can edit it.  Use this
+if you need to access some features of the project files that are not
+accessible graphically (such as rename statements and variables).</p>
+</li>
+<li><p class="first"><span class="menuselection">Project ‣ Dependencies</span></p>
+<p>Opens the dependencies editor for the selected project
+(see <span class="xref std std-ref">The_Project_Dependencies_Editor</span>).</p>
+</li>
+<li><p class="first"><span class="menuselection">Project ‣ Add scenario variable</span></p>
+<p>Adds new scenario variables to the project (see
+<a class="reference internal" href="projects.html#scenarios-and-configuration-variables"><span class="std std-ref">Scenarios and Configuration Variables</span></a>). However, you may find it
+more convenient to use the <span class="guilabel">Scenario</span> view for this purpose.</p>
+</li>
+</ul>
+<p>All the entries in the local settings menu can be manipulated via python
+extensions, which might be useful when writing your own plugins. Here are
+examples on how to do that:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># The &#39;Show flat view&quot; local setting</span>
+<span class="n">GPS</span><span class="o">.</span><span class="n">Preference</span><span class="p">(</span><span class="s1">&#39;explorer-show-flat-view&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># The &#39;Show absolute paths&quot; local setting</span>
+<span class="n">GPS</span><span class="o">.</span><span class="n">Preference</span><span class="p">(</span><span class="s1">&#39;explorer-show-absolute-paths&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># The &#39;Show hidden directories&#39; local setting</span>
+<span class="n">GPS</span><span class="o">.</span><span class="n">Preference</span><span class="p">(</span><span class="s1">&#39;explorer-show-hidden-directories&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># The &#39;Show empty directories&#39; local setting</span>
+<span class="n">GPS</span><span class="o">.</span><span class="n">Preference</span><span class="p">(</span><span class="s1">&#39;explorer-show-empty-directories&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># The &#39;Projects before directories&#39; local setting</span>
+<span class="n">GPS</span><span class="o">.</span><span class="n">Preference</span><span class="p">(</span><span class="s1">&#39;explorer-show-projects-first&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># The &#39;Show object directories&#39; local setting</span>
+<span class="n">GPS</span><span class="o">.</span><span class="n">Preference</span><span class="p">(</span><span class="s1">&#39;explorer-show-object-dirs&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># The &#39;Show runtime files&#39; local setting</span>
+<span class="n">GPS</span><span class="o">.</span><span class="n">Preference</span><span class="p">(</span><span class="s1">&#39;explorer-show-runtime&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># The &#39;Group by directories&#39; local setting</span>
+<span class="n">GPS</span><span class="o">.</span><span class="n">Preference</span><span class="p">(</span><span class="s1">&#39;explorer-show-directories&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-learn-view">
+<span id="index-57"></span><span id="id7"></span><h2>2.9. The <span class="guilabel">Learn</span> view<a class="headerlink" href="#the-learn-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/learn_view.png" src="_images/learn_view.png" />
+<p>The <span class="guilabel">Learn</span> view&#8217;s purpose is to help users to familiarize with GPS.</p>
+<p>In particular the <span class="guilabel">Learn</span> view displays a list of the most commonly
+used and useful GPS actions, with their optional key shortcut.</p>
+<p>The actual contents of the <span class="guilabel">Learn</span> view is filtered depending on the
+current context: for instance, the actions related to text editing will only
+be listed when an editor is focused. Same thing when it comes to debugging:
+the actions related to debugging will only be displayed when a debugger is
+running, etc.
+This way, you will be able to discover which actions can be executed in a
+given context.</p>
+<p>Single-clicking on a particular action will display the associated
+documentation, providing more details on what the action actually does. You
+can also double-click on it if you want to actually run it.</p>
+<span class="target" id="index-58"></span><span class="target" id="index-59"></span></div>
+<div class="section" id="the-scenario-view">
+<span id="scenario-view"></span><span id="index-60"></span><h2>2.10. The <span class="guilabel">Scenario</span> view<a class="headerlink" href="#the-scenario-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/views-scenario.png" src="_images/views-scenario.png" />
+<p>As described in the GNAT User&#8217;s Guide, project files can be configured
+through external variables (typically environment variables). This means
+the exact list of source files or the exact switches used to compile the
+application can be changed when the value of these external variables is
+changed.</p>
+<p>GPS provides a simple access to these variables, through a view called the
+<span class="guilabel">Scenario</span> view. These variables are called <cite>Scenario Variables</cite>,
+since they provide various scenarios for the same set of project files.</p>
+<p>Each such variable is listed on its own line along with its current value.
+Change the current value by clicking on it and selecting the new value
+among the ones that pop up.</p>
+<p>Across sessions, GPS will remember the values you set for scenario variables.
+On startup, the initial values of the scenario variables come, in decreasing
+order of priority:</p>
+<ul class="simple">
+<li>from the <code class="file docutils literal"><span class="pre">-X</span></code> command line arguments;</li>
+<li>from existing environment variables;</li>
+<li>from the value you set in a previous GPS session;</li>
+<li>from the default set in the project file;</li>
+<li>or else defaults to the first valid value for this variable</li>
+</ul>
+<p>Whenever you change the value of any variable, GPS automatically recomputes
+the project and dynamically changes the list of source files and
+directories to reflect the new status of the project. Starting a new
+compilation at that point uses the new switches, and all aspects of GPS are
+immediately changed to reflect the new setup.</p>
+<p>Create new scenario variables by selecting the <span class="guilabel">+</span> icon in the
+local toolbar of the <span class="guilabel">Scenario</span> view.  Edit the list of possible
+values for a variable by clicking on the <span class="guilabel">edit</span> button in that
+toolbar.  Delete a variable by clicking on the <span class="guilabel">-</span> button.</p>
+<p>Each of these changes impacts the actual project file (<code class="file docutils literal"><span class="pre">.gpr</span></code>), so
+you might not want to make them if you wrote the project file manually
+since the impact can be significant.</p>
+<p id="index-61">The first line in the <span class="guilabel">Scenario</span> view is the current mode. This
+impacts various aspects of the build, including compiler switches and
+object directories (see <a class="reference internal" href="compilation.html#the-build-mode"><span class="std std-ref">The Build Mode</span></a>).  Like scenario variables,
+change the mode by clicking on the value and selecting a new value in the
+popup window.</p>
+<p>If you are not using build modes and want to save some space on the screen,
+use the local settings menu <span class="menuselection">Show build modes</span> to disable
+the display.</p>
+</div>
+<div class="section" id="the-files-view">
+<span id="the-file-view"></span><span id="index-62"></span><h2>2.11. The <span class="guilabel">Files</span> View<a class="headerlink" href="#the-files-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/file-view.png" src="_images/file-view.png" />
+<p id="index-63">In addition to the <span class="guilabel">Project</span> view, GPS also provides a
+<span class="guilabel">Files</span> view through the <span class="menuselection">View ‣ Files</span> menu.</p>
+<p>In this view, directories are displayed exactly as they are organized on the
+disk (including Windows drives).  You can also explore each source file
+explored as described in <a class="reference internal" href="#the-project-view"><span class="std std-ref">The Project view</span></a>.  You can also drop files
+into the <span class="guilabel">Files</span> view to conveniently open a file.</p>
+<p>By default, the <span class="guilabel">Files</span> view displays all files on disk. You can
+set filters through the local settings menu to restrict the display to the
+files and directories belonging to the project (use the
+<span class="menuselection">Show files from project only</span> menu).</p>
+</div>
+<div class="section" id="the-windows-view">
+<span id="index-64"></span><span id="id8"></span><h2>2.12. The <span class="guilabel">Windows</span> view<a class="headerlink" href="#the-windows-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/views-windows-flat.png" src="_images/views-windows-flat.png" />
+<img alt="_images/views-windows-notebooks.png" src="_images/views-windows-notebooks.png" />
+<p id="index-65">The <span class="guilabel">Windows</span> view displays the currently opened windows.  Open
+it via the <span class="menuselection">View ‣ Windows</span> menu.</p>
+<p>In the contextual menu, you can configure the display in one of two ways:</p>
+<ul class="simple">
+<li>Sorted alphabetically</li>
+<li>Organized by notebooks, as in the GPS window itself. This view
+is particularly useful if you have many windows open.</li>
+</ul>
+<p>You can also choose, through the local configuration menu, whether only source
+editors should be visible or whether all windows should be displayed.</p>
+<p>This view allows you to quickly select and focus on a particular window by
+clicking the corresponding line. If you leave the button pressed, you can
+drag the window to another place on the desktop (see the description of the
+<a class="reference internal" href="mdi.html#multiple-document-interface"><span class="std std-ref">Multiple Document Interface</span></a>)</p>
+<p>Select multiple windows by clicking while pressing the control or shift keys.
+You can then click in on the first button in the local toolbar to close all
+selected windows at once, which is a fast way to clean up your desktop after
+you have finished working on a task.</p>
+<span class="target" id="index-66"></span></div>
+<div class="section" id="the-outline-view">
+<span id="index-67"></span><span id="id9"></span><h2>2.13. The <span class="guilabel">Outline</span> view<a class="headerlink" href="#the-outline-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/views-outline-default.png" src="_images/views-outline-default.png" />
+<img alt="_images/views-outline-flat-group.png" src="_images/views-outline-flat-group.png" />
+<img alt="_images/outline-view3.png" src="_images/outline-view3.png" />
+<p id="index-68">The <span class="guilabel">Outline</span> view, which you activate through the
+<span class="menuselection">View ‣ Outline</span> menu, shows the contents of
+the current file.</p>
+<p>Exactly what is displayed depends on the language of the file. For Ada, C
+and C++ files, this view displays the list of entities declared at the
+global level in your current file (such as Ada packages, C++ classes,
+subprograms, and Ada types).  This view is refreshed whenever the current
+editor is modified.</p>
+<p>Clicking on any entity in this view automatically jumps to the
+corresponding line in the file (the spec or the body).</p>
+<p>The local settings menu contains multiple check boxes you can use to alter
+how the outline view is displayed:</p>
+<ul>
+<li><p class="first"><span class="guilabel">Show profiles</span></p>
+<p>Indicates whether the list of parameters of the subprograms should be
+displayed. This is particularly useful for languages allowing overriding
+of entities.</p>
+</li>
+<li><p class="first"><span class="guilabel">Show types</span>, <span class="guilabel">Show objects</span>, <span class="guilabel">Show tasks,
+entries, and protected types</span>, <span class="guilabel">Show with clauses</span></p>
+<p>Controls the display of the specified categories of entities.</p>
+</li>
+<li><p class="first"><span class="guilabel">Show specifications</span></p>
+<p>Indicates whether GPS displays a line for the specification (declaration)
+of entities in addition to the location of their bodies.</p>
+</li>
+<li><p class="first"><span class="guilabel">Sort alphabetically</span></p>
+<p>Controls the order in which the entities are displayed (either
+alphabetically or in the same order as in the source file).</p>
+</li>
+<li><p class="first"><span class="guilabel">Flat View</span></p>
+<p>Controls whether the entities are always displayed at the top level of
+the outline view. When disabled, nested subprograms are displayed below
+the subprogram in which they are declared.</p>
+</li>
+<li><p class="first"><span class="guilabel">Group spec and body</span></p>
+<p>Displays up to two icons on each line (one for the spec and one for the
+body if both occur in the file).  Click on one of the icons to go
+directly to that location. If you click on the name of the entity, you are
+taken to its declaration unless it is already the current location in the
+editor, in which case you are taken to its body.</p>
+</li>
+<li><p class="first"><span class="guilabel">Group names by category</span></p>
+<p>With this option enabled it is possible to collapse each entity type
+(package, type, pragma, sub-program, etc.) to a single line in the
+Outline View. This works only in Flat View mode, so turning this option
+on makes the Flat View automatically enabled.</p>
+</li>
+<li><p class="first"><span class="guilabel">Dynamic link with editor</span></p>
+<p>Causes the current subprogram to be selected in the outline view each
+time the cursor position changes in the current editor.  This option
+will slow down GPS.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="the-clipboard-view">
+<span id="index-69"></span><span id="id10"></span><h2>2.14. The <span class="guilabel">Clipboard</span> view<a class="headerlink" href="#the-clipboard-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/views-clipboard.png" src="_images/views-clipboard.png" />
+<p>GPS has an advanced mechanism for handling copy/paste operations.</p>
+<span class="target" id="index-70"></span><span class="target" id="index-71"></span><p id="index-72">When you click the <span class="menuselection">Edit ‣ Copy</span> or <span class="menuselection">Edit
+‣ Cut</span> menu, GPS adds the current selection to the clipboard.  However,
+unlike many applications, GPS does not discard the previous contents of the
+clipboard, but instead saves it for future use.  By default, up to 10
+entries are saved, but you can change that number using the
+<span class="guilabel">Clipboard Size</span> preference.</p>
+<span class="target" id="index-73"></span><p id="index-74">When you select the <span class="menuselection">Edit ‣ Paste</span> menu, GPS pastes the
+last entry added to the clipboard at the current location in the editor.
+If you then immediately select <span class="menuselection">Edit ‣ Paste Previous</span>,
+this newly inserted text is removed and GPS instead inserts the second to
+last entry.  You can keep selecting the same menu to insert progressively
+older entries.</p>
+<p>This mechanism allows you to copy several noncontiguous lines from one
+place in an editor, switch to another editor, and paste all those lines
+without having to go back and forth between the two editors.</p>
+<p id="index-75">The <span class="guilabel">Clipboard</span> view graphically displays what is currently stored
+in the clipboard. Open it via the <span class="menuselection">View ‣ Clipboard</span> menu.</p>
+<p>That view displays a list of entries, each of which is associated with one
+level of the clipboard. The text displayed for each entry is its first line
+containing non blank characters with leading characters omitted. GPS
+prepends or appends <code class="samp docutils literal"><span class="pre">[...]</span></code> if the entry is truncated.  If you hover
+over an entry, a tooltip pops up displaying all lines in the entry.</p>
+<p>In addition, one entry has an arrow on its left. This indicates the entry
+to be pasted if you select the <span class="menuselection">Edit ‣ Paste</span> menu. If you
+instead select the <span class="menuselection">Edit ‣ Paste Previous</span> menu, the entry
+below that is inserted instead.</p>
+<p>If you double-click any of these entries, GPS inserts the corresponding
+text in the current editor and makes the entry you click current, so
+selecting <span class="menuselection">Edit ‣ Paste</span> or the equivalent shortcut will
+insert that same entry again.</p>
+<p>The local toolbar in the clipboard view provides two buttons:</p>
+<ul>
+<li><p class="first"><span class="guilabel">Append To Previous</span>.</p>
+<p>The selected entry is appended to the one below and removed from the
+clipboard so that selecting <span class="menuselection">Edit ‣ Paste</span> pastes the
+two entries simultaneously.  Use this when you want to copy lines from
+separate places in a file, merge them, and paste them together one or
+more times later, using a single operation.</p>
+</li>
+<li><p class="first"><span class="guilabel">Remove</span>.</p>
+<p>The selected entry is removed from the clipboard.</p>
+</li>
+</ul>
+<p>The <span class="guilabel">Clipboard</span> view content is preserved between GPS sessions.
+However very large entries are removed and replaced with an entry saying
+&#8220;[Big entry has been removed]&#8221;.</p>
+<span class="target" id="index-76"></span><span class="target" id="index-77"></span></div>
+<div class="section" id="the-call-trees-view-and-callgraph-browser">
+<span id="the-callgraph-view"></span><span id="index-78"></span><h2>2.15. The <span class="guilabel">Call trees</span> view and <span class="guilabel">Callgraph</span> browser<a class="headerlink" href="#the-call-trees-view-and-callgraph-browser" title="Permalink to this headline">¶</a></h2>
+<p>These two views play similar roles in that they display the same
+information about entities, but in two different ways: the <span class="guilabel">Call
+tree</span> view displays the information in a tree, easily navigable and perhaps
+easier to manipulate when lots of entities are involved, and the
+<span class="guilabel">Callgraph</span> browser displays the information as graphical boxes
+that you can manipulate on the screen.  The latter is best suited to
+generate a diagram that you can later export to your own documents.</p>
+<p>These views are used to display the information about what subprograms are
+called by a given entity, and what entities are calling a given subprogram.</p>
+<p>Some references are displayed with an additional &#8220;(dispatching)&#8221; text,
+which indicates the call to the entity is not explicit in the sources but
+could potentially occur through dynamic dispatching.  (This depends on what
+arguments are passed to the caller at run time; it is possible the
+subprogram is in fact never called.)</p>
+<span class="target" id="index-79"></span><div class="section" id="call-trees">
+<span id="index-80"></span><h3>2.15.1. Call Trees<a class="headerlink" href="#call-trees" title="Permalink to this headline">¶</a></h3>
+<img alt="_images/views-call_tree.png" src="_images/views-call_tree.png" />
+<p>The <span class="guilabel">Call trees</span> are displayed when you select one of the
+contextual menus <span class="menuselection">&lt;entity&gt; calls</span> and
+<span class="menuselection">&lt;entity&gt; is called by</span>. Every time you select one of
+these menus, a new view is opened to display that entity.</p>
+<p>Expand a node from the tree by clicking on the small expander arrow on the
+left of the line.  Further callgraph information is computed for the
+selected entity, making it very easy to get the information contained in a
+full callgraph tree.  Closing and expanding a node again recomputes the
+callgraph for the entity.</p>
+<p>The right side of the main tree contains a list displays the locations of
+calls for the selected entity.  Click on an entry in this list to open an
+editor showing the corresponding location.</p>
+<p>The <span class="guilabel">Call tree</span> supports keyboard navigation: <code class="kbd docutils literal"><span class="pre">Up</span></code> and
+<code class="kbd docutils literal"><span class="pre">Down</span></code> keys navigate between listed locations, <code class="kbd docutils literal"><span class="pre">Left</span></code> collapses
+the current level, <code class="kbd docutils literal"><span class="pre">Right</span></code> expands the current level, and
+<code class="kbd docutils literal"><span class="pre">Return</span></code> jumps to the currently selected location.</p>
+<p>The contents of the calltree is not restored when GPS is restarted because
+its contents might be misleading if the sources have changed.</p>
+<p>The local toolbar provides the following buttons:</p>
+<ul>
+<li><p class="first"><span class="guilabel">Clear</span></p>
+<p>Remove all entries from the Callgraph View.</p>
+</li>
+<li><p class="first"><span class="guilabel">Remove entity</span></p>
+<p>Remove the selected entity from the Callgraph View.</p>
+</li>
+<li><p class="first"><span class="guilabel">Collapse all</span></p>
+<p>Collapse all the entities in the Callgraph View.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="callgraph-browser">
+<span id="call-graph"></span><h3>2.15.2. Callgraph browser<a class="headerlink" href="#callgraph-browser" title="Permalink to this headline">¶</a></h3>
+<img alt="_images/browsers-call_tree.png" src="_images/browsers-call_tree.png" />
+<p>The <span class="guilabel">Callgraph</span> browser graphically displays the relationship
+between subprogram callers and callees. A link between two items indicates
+one of them is calling the other.</p>
+<p id="index-81">GPS provides special handling for renamed entities (in Ada): if a
+subprogram is a renaming of another, both items are displayed in the
+browser with a special hashed link between the two. Since the renamed
+subprogram does not have a proper body, you need to ask for the subprograms
+called by the renamed entity to get the list.</p>
+<p>In this browser, clicking on the right arrow in the title bar displays all
+the entities called by the selected item.  Clicking on the left arrow
+displays all the entities that call the selected item (i.e. its callers).</p>
+<span class="target" id="index-82"></span><span class="target" id="index-83"></span><p id="index-84">Open this browser by right-clicking on the name of an entity in a source
+editor or <span class="guilabel">Project</span> view and selecting one of the
+<span class="menuselection">Browsers ‣ &lt;entity&gt; calls</span>, <span class="menuselection">Browsers ‣
+&lt;entity&gt; calls (recursive)</span>, or <span class="menuselection">Browsers ‣ &lt;entity&gt; is
+called by</span> menus.</p>
+<p>All boxes in this browser display the location of their declaration and the
+list of all references in the other entities currently displayed in the
+browser. If you close the box for an entity that calls them, the matching
+references are also hidden.</p>
+<p>If you right-click on the title of one of the entity boxes, you get the
+same contextual menu as when you click on the name of an entity in an
+editor, with the additional entries:</p>
+<ul>
+<li><p class="first"><span class="menuselection">Go To Spec</span></p>
+<p>Open a source editor displaying the declaration of the entity.</p>
+</li>
+<li><p class="first"><span class="menuselection">Go To Body</span></p>
+<p>Open a source editor displaying the body of the entity.</p>
+</li>
+<li><p class="first"><span class="menuselection">Locate in Project View</span></p>
+<p>Move the focus to the project view, and select the first node
+representing the file in which the entity is declared. This makes it
+easier to see which other entities are declared in the same file.</p>
+</li>
+</ul>
+<p>See also <a class="reference internal" href="#browsers-features"><span class="std std-ref">Common features of browsers</span></a> for more capabilities of the GPS browsers.</p>
+<span class="target" id="index-85"></span></div>
+</div>
+<div class="section" id="the-bookmarks-view">
+<span id="bookmarks"></span><span id="index-86"></span><h2>2.16. The <span class="guilabel">Bookmarks</span> view<a class="headerlink" href="#the-bookmarks-view" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basic-usage-creating-a-new-bookmark">
+<h3>2.16.1. Basic usage: Creating a new bookmark<a class="headerlink" href="#basic-usage-creating-a-new-bookmark" title="Permalink to this headline">¶</a></h3>
+<p>The basic usage of bookmarks is as follows: you open a source editor and
+navigate to the line of interest. You can then create a new bookmark by either
+using the menu <span class="menuselection">Navigate ‣ Add Bookmark</span> or by opening the
+<span class="guilabel">Bookmarks</span> view (<span class="menuselection">View ‣ Bookmarks</span>) and
+then clicking on the [+] button in the local toolbar. In both cases, the
+<span class="guilabel">Bookmarks</span> view is opened, a new bookmark is created and selected so
+that you can immediately change its name.</p>
+<a class="reference internal image-reference" href="_images/bookmark_create.png"><img alt="_images/bookmark_create.png" class="align-center" src="_images/bookmark_create.png" style="width: 300px;" /></a>
+<p>The default name of bookmark is the name of the enclosing subprogram and the
+initial location of the bookmark (<cite>file:line</cite>). But you can start typing a new
+name, and press Enter to finally create the bookmark.</p>
+<p>In practice, this is really just a few clicks (one of the menu and press
+<code class="kbd docutils literal"><span class="pre">Enter</span></code> to use the new name), or even just two key strokes if you have set
+a keyboard shortcut for the menu, via the Preferences dialog.</p>
+<p>At any point in time, you can rename an existing bookmark by either clicking on
+the button in the local toolbar, or simply with a long press on the bookmark
+itself.</p>
+<p>Note the goto icon on the left of the editor line 1646, which indicates there
+is a bookmark there, as well as the colored mark in the editor scrollbar that
+helps navigate in the file.</p>
+<p>Even though the default name of the bookmark includes a file location, the
+major benefit of the bookmarks is that they will remain at the same location as
+the text is edited. In our example, if we add a new subprogram before
+<cite>Display_Splash_Screen</cite>, the bookmark will still point at the line containing
+the call to <cite>Gtk_New</cite>, even though that line might now be 1700 for instance.</p>
+<p>Of course, GPS is not able to monitor changes that you might do through other
+editors, so in this case the marks might be altered and stop pointing to the
+expected location.</p>
+</div>
+<div class="section" id="adding-more-bookmarks">
+<h3>2.16.2. Adding more bookmarks<a class="headerlink" href="#adding-more-bookmarks" title="Permalink to this headline">¶</a></h3>
+<p>We can create any number of bookmarks, and these have limited impact on
+performance. So let&#8217;s do that and create a few more bookmarks, in various
+files. As you can see in the scrollbar of the editor, we have two bookmarks set
+in the file bookmark_views.adb, and we can easily jump to them by clicking on
+the color mark.</p>
+<a class="reference internal image-reference" href="_images/bookmark_add.png"><img alt="_images/bookmark_add.png" class="align-center" src="_images/bookmark_add.png" style="width: 300px;" /></a>
+<p>But of course, it is much simpler to double-click inside the
+<span class="guilabel">Bookmarks</span> view itself, on the bookmark of interest to us.</p>
+<p>At this point, we have a rather long unorganized list of bookmarks, let&#8217;s
+improve.</p>
+</div>
+<div class="section" id="organizing-bookmarks-into-groups">
+<h3>2.16.3. Organizing bookmarks into groups<a class="headerlink" href="#organizing-bookmarks-into-groups" title="Permalink to this headline">¶</a></h3>
+<p>When we create new bookmarks, GPS adds them at the top of the list. We might
+want to organize them differently, which we can do simply with a drag and drop
+operation: select the bookmark, keep the mouse pressed, and move it to a better
+place in the list.</p>
+<a class="reference internal image-reference" href="_images/bookmark_organize.png"><img alt="_images/bookmark_organize.png" class="align-center" src="_images/bookmark_organize.png" style="width: 300px;" /></a>
+<p>Things become more interesting when you drop a bookmark on top of another one.
+In this case, GPS creates a group that contains the two bookmarks (and that
+basically behaves like a folder for files). The group is immediately selected
+so that you can rename it as you see fit.</p>
+<p>In our example, we created two groups, corresponding to two features we are
+working on.</p>
+<p>Groups can be nested to any depth, providing great flexibility. So let&#8217;s create
+two nested groups, which we&#8217;ll name TODO, beneath the two we have created. This
+is a great way to create a short todo list: one top-level group for the name of
+the feature, then below one group for the todo list, and a few additional
+bookmarks to relevant places in the code.</p>
+<a class="reference internal image-reference" href="_images/bookmark_unattached.png"><img alt="_images/bookmark_unattached.png" class="align-center" src="_images/bookmark_unattached.png" style="width: 300px;" /></a>
+<p>To create these additional groups, we will select the Source editor group, then
+click on the <span class="guilabel">Create New Group</span> button in the local toolbar, and type
+&#8220;TODO&lt;enter&gt;&#8221;. This will automatically add the new group beneath Source editor.
+Let&#8217;s do the same for the bookmarks groups. These two groups are empty for now.</p>
+<p>Let&#8217;s add new entries to them. if we already know where code should be added to
+implement the new todo item, we can do as before: open the editor, select the
+line, then click on the <span class="guilabel">[+]</span> button. Most often, though, we don&#8217;t
+yet know where the implementation will go.</p>
+<p>So we want to create an unattached bookmark. Using the name bookmark here is
+really an abuse of language, since these have no associated source location.
+But since they are visible in the <span class="guilabel">Bookmarks</span> view, it is convenient
+to name them bookmarks.</p>
+<p>To create them, let&#8217;s select one of the TODO groups, then select the
+<span class="guilabel">Create Unattached Bookmark</span> in the local toolbar, and immediately
+start typing a brief description of the todo. As you can see in the screenshot,
+these bookmarks do not have a goto icon, since you cannot double click on them
+to jump to a source location.</p>
+<p>When you <span class="guilabel">delete</span> a group, all bookmarks within are also deleted. So
+once you are done implementing a feature, simply delete the corresponding group
+to clean up the bookmarks view.</p>
+</div>
+<div class="section" id="adding-notes">
+<h3>2.16.4. Adding notes<a class="headerlink" href="#adding-notes" title="Permalink to this headline">¶</a></h3>
+<p>The short name we gave the bookmark is not enough to list all the great ideas
+we might have for it. Fortunately, we can now add notes to bookmarks, as a way
+to store more information.</p>
+<a class="reference internal image-reference" href="_images/bookmark_note.png"><img alt="_images/bookmark_note.png" class="align-center" src="_images/bookmark_note.png" style="width: 300px;" /></a>
+<p>Let&#8217;s select the &#8220;write a blog post&#8221; item, then click on the <span class="guilabel">Edit
+Note</span> button in the local toolbar. This opens a small dialog with a large text
+area where we can type anything we want. Press <span class="guilabel">Apply</span> to save the
+text.</p>
+<p>Note how a new tag icon was added next to the bookmark, to indicate it has more
+information. You can view this information in one of three ways:</p>
+<blockquote>
+<div><ul class="simple">
+<li>select the bookmark, and click again on the <span class="guilabel">Edit Note</span> button as before</li>
+<li><span class="guilabel">double-click</span> on the tag icon.</li>
+<li>leave the mouse hover the bookmark line. This will display a tooltip with
+extra information on the bookmark: its name, its current location and any
+note it might have. This is useful if you only want to quickly glance at
+the notes for one or more bookmarks</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="add-note-with-drag-and-drop">
+<h3>2.16.5. Add note with drag and drop<a class="headerlink" href="#add-note-with-drag-and-drop" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes, though, you want to associate code with the note (i.e. the bookmark
+should not only point to a location, but you also want to remember the code
+that was in that location). The simplest to do this is to select the text in
+the editor, and then drag and drop the selected text directly onto the
+bookmark. This will create a note (if needed) or add to the existing note the
+full selected text.</p>
+<a class="reference internal image-reference" href="_images/bookmark_drag_text.png"><img alt="_images/bookmark_drag_text.png" class="align-center" src="_images/bookmark_drag_text.png" style="width: 300px;" /></a>
+<p>In the tooltips, we use a non-proportional font, so that the code is properly
+rendered and alignment preserved.</p>
+</div>
+<div class="section" id="filtering-bookmarks">
+<h3>2.16.6. Filtering bookmarks<a class="headerlink" href="#filtering-bookmarks" title="Permalink to this headline">¶</a></h3>
+<p>If you start creating a lot of bookmarks, and even if you have properly
+organized them into groups, it might become difficult to find them later on. So
+we added a standard filter in the local toolbar, like was done already for a
+lot of other views. As soon as you start typing text in that filter, only the
+bookmarks that match (name, location or note) are left visible, and all the
+others are hidden.</p>
+<a class="reference internal image-reference" href="_images/bookmark_filter.png"><img alt="_images/bookmark_filter.png" class="align-center" src="_images/bookmark_filter.png" style="width: 300px;" /></a>
+</div>
+<div class="section" id="favorite-files">
+<h3>2.16.7. Favorite files<a class="headerlink" href="#favorite-files" title="Permalink to this headline">¶</a></h3>
+<p>GPS provides a large number of ways to navigate your code, and in particular to
+open source files. The most efficient one is likely the omni-search (the search
+field at the top-right corner).</p>
+<a class="reference internal image-reference" href="_images/bookmark_file.png"><img alt="_images/bookmark_file.png" class="align-center" src="_images/bookmark_file.png" style="width: 300px;" /></a>
+<p>But some users like to have a short list of favorite files that they go to
+frequently. The <span class="guilabel">Bookmarks</span> view can be used to implement this.</p>
+<p>Simply create a new group (here named <cite>Favorite</cite> files), and create one new
+bookmark in this group for each file you are interested in. I like to create
+the bookmark on line 1, but I always remove the line number indication in the
+name of the bookmark since the exact line is irrelevant here.</p>
+<span class="target" id="index-87"></span><span class="target" id="index-88"></span></div>
+</div>
+<div class="section" id="the-python-console">
+<span id="index-89"></span><span id="id11"></span><h2>2.17. The <span class="guilabel">Python</span> Console<a class="headerlink" href="#the-python-console" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/shell-window.png" src="_images/shell-window.png" />
+<img alt="_images/python-window.png" src="_images/python-window.png" />
+<p>These consoles provide access to the various scripting languages supported
+by GPS, allowing you to type interactive commands such as editing a file or
+compiling without using the menu items or the mouse.</p>
+<p id="index-90">The menu <span class="menuselection">View ‣ Python</span> opens the python
+console. Python is the preferred language to customize GPS (many more
+details will be provided in later sections of this documentation).  The
+console is mostly useful for testing interactive commands before you use
+them in your own scripts.</p>
+<p>See <a class="reference internal" href="extending.html#scripting-gps"><span class="std std-ref">Scripting GPS</span></a> for more information on using scripting languages
+within GPS.</p>
+<p>Both consoles provide a history of previously typed commands.  Use the
+<code class="kbd docutils literal"><span class="pre">up</span></code> and <code class="kbd docutils literal"><span class="pre">down</span></code> keys to navigate through the command history.</p>
+<span class="target" id="index-91"></span><span class="target" id="index-92"></span><span class="target" id="index-93"></span></div>
+<div class="section" id="the-os-shell-console">
+<span id="index-94"></span><h2>2.18. The OS Shell Console<a class="headerlink" href="#the-os-shell-console" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/os_shell-window.png" src="_images/os_shell-window.png" />
+<p id="index-95">GPS also provides an OS shell console, providing an access to the underlying
+OS shell (as defined by the <code class="samp docutils literal"><em><span class="pre">SHELL</span></em></code> or <code class="samp docutils literal"><em><span class="pre">COMSPEC</span></em></code>
+environment variables).</p>
+<p>Open this console via the <span class="menuselection">View ‣ OS Shell</span>
+menu, which is available only if the plugin <code class="file docutils literal"><span class="pre">shell.py</span></code> was loaded in
+GPS (the default).  Check the documentation of that plugin, which lists a
+few settings that might be useful.</p>
+<p>This console behaves like the standard shell on your system, including
+support for ANSI sequences (and thus color output). For example, it has
+been used to run <strong class="program">vi</strong> within GPS.</p>
+<span class="target" id="index-96"></span><span class="target" id="index-97"></span></div>
+<div class="section" id="the-execution-window">
+<span id="index-98"></span><span id="id12"></span><h2>2.19. The Execution window<a class="headerlink" href="#the-execution-window" title="Permalink to this headline">¶</a></h2>
+<p id="index-99">When a program is launched using the <span class="menuselection">Build ‣ Run</span> menu,
+GPS creates a new execution window allowing input and output for the
+program.  To allow post-mortem analysis and copy/pasting, GPS does not close
+execution windows when the program terminates; you must close them
+manually.  If you try to close the execution window while the program is
+still running, GPS displays a dialog window asking if you want to kill it.</p>
+<span class="target" id="index-100"></span></div>
+<div class="section" id="the-tasks-view">
+<span id="the-task-manager"></span><span id="index-101"></span><h2>2.20. The <span class="guilabel">Tasks</span> view<a class="headerlink" href="#the-tasks-view" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/task-manager.png" src="_images/task-manager.png" />
+<p>The <span class="guilabel">Tasks</span> view displays all running GPS
+operations currently running in the background, such as builds,
+searches, or VCS commands.</p>
+<p>For each task, the <span class="guilabel">Tasks</span> view displays its status and current
+progress.  Suspend the execution of a task by clicking the small
+<span class="guilabel">pause</span> button next to the task. Or kill a task by clicking the
+<span class="guilabel">interrupt</span> button.</p>
+<dl class="docutils" id="index-102">
+<dt>Open the <span class="guilabel">Tasks</span> view by double clicking on the progress bar in</dt>
+<dd>the main toolbar or using the <span class="menuselection">View ‣ Tasks</span></dd>
+</dl>
+<p>menu.  You can move it placed anywhere on your desktop.</p>
+<img alt="_images/task-manager-exit.png" src="_images/task-manager-exit.png" />
+<p>If there are tasks running when exiting GPS, it displays a window showing
+those tasks. You can kills all remaining tasks and exit by pressing the
+confirmation button or continue working in GPS by pressing the
+<span class="guilabel">Cancel</span> button.</p>
+<span class="target" id="index-103"></span></div>
+<div class="section" id="the-project-browser">
+<span id="index-104"></span><span id="id13"></span><h2>2.21. The <span class="guilabel">Project Browser</span><a class="headerlink" href="#the-project-browser" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/project-browser.png" src="_images/project-browser.png" />
+<p>The <span class="guilabel">Project</span> browser shows the dependencies between all projects
+in the project hierarchy. Two items in this browser are linked if one of
+them imports the other.</p>
+<p>Access it through the contextual menu in the <span class="guilabel">Project</span> view by
+selecting the <span class="menuselection">Show projects imported by...</span> menu when
+right-clicking on a project node.</p>
+<p>Click on the left arrow in the title bar of a project to display all
+projects that import that project.  Click on the right arrow to display all
+projects imported by that project.</p>
+<p>Right-clicking on a project brings up a menu containing several items. Most
+are added by the project editor and provide direct access to such features
+as editing the properties of the project, adding dependencies.</p>
+<p>Some items in the menu are specific to the <span class="guilabel">Project Browser</span>:</p>
+<ul>
+<li><p class="first"><span class="menuselection">Locate in Project View</span></p>
+<p>Switch the focus to the <span class="guilabel">Project</span> view and highlight the first
+project node matching the project.  This is a convenient way to get
+information such as the list of directories or source files for a
+project.</p>
+</li>
+<li><p class="first"><span class="menuselection">Show projects imported by...</span></p>
+<p>Like the right arrow in the title bar, displays all the projects in the
+hierarchy that are directly imported by the selected project.</p>
+</li>
+<li><p class="first"><span class="menuselection">Show projects imported by ... (recursively)</span></p>
+<p>Display all dependencies recursively for the project (i.e., the projects
+it imports directly and the projects they import).</p>
+</li>
+<li><p class="first"><span class="menuselection">Show projects importing...</span></p>
+<p>Like the left arrow in the title bar, display all the projects that
+directly import the selected project.</p>
+</li>
+</ul>
+<p>See also <a class="reference internal" href="#browsers-features"><span class="std std-ref">Common features of browsers</span></a> for more capabilities of the GPS browsers.</p>
+<span class="target" id="index-105"></span></div>
+<div class="section" id="the-dependency-browser">
+<span id="index-106"></span><span id="id14"></span><h2>2.22. The <span class="guilabel">Dependency Browser</span><a class="headerlink" href="#the-dependency-browser" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/dependency-browser.png" src="_images/dependency-browser.png" />
+<p>The dependency browser displays dependencies between source files. Each
+item in the browser represents one source file.  Click on the right arrow
+in the title bar to display the list of files the selected file depends
+on. A file depends on another if it explicitly imports it (<strong class="command">with</strong>
+statement in Ada, or <strong class="command">#include</strong> in C/C++).  Implicit dependencies
+are currently not displayed in this browser since you can access that
+information by opening the direct dependencies.  Click on the left arrow in
+the title bar to display the list of files that depend on the selected
+file.</p>
+<p>This browser is accessible through the contextual menu in the
+<span class="guilabel">Project</span> view by selecting one of the following entries:</p>
+<ul>
+<li><p class="first"><span class="menuselection">Show dependencies for ...</span></p>
+<p>Like clicking on the right arrow for a file already in the browser,
+displays the direct dependencies for that file.</p>
+</li>
+<li><p class="first"><span class="menuselection">Show files depending on ...</span></p>
+<p>Like clicking on the left arrow for a file already in the browser,
+displays the list of files that directly depend on that file.</p>
+</li>
+</ul>
+<p>The background contextual menu in the browser adds a few entries to the
+standard menu:</p>
+<ul>
+<li><p class="first"><span class="menuselection">Open file...</span></p>
+<p>Display an external dialog where you can select the name of a file to
+analyze.</p>
+</li>
+<li><p class="first"><span class="menuselection">Recompute dependencies</span></p>
+<p>Check that all links displays in the dependency browser are still
+valid. Any that not are removed. The arrows in the title bar are also
+reset if new dependencies were added for the files.  Also recompute the
+layout of the graph and changes the current position of the boxes.
+However, the browser is not refreshed automatically, since there are many
+cases where the dependencies might change.</p>
+</li>
+<li><p class="first"><span class="menuselection">Show system files</span></p>
+<p>Indicates whether standard system files (runtime files for instance in
+the case of Ada) are displayed in the browser. By default, these files
+are only displayed if you explicitly select them through the
+<span class="menuselection">Open file</span> menu or the contextual menu in the project
+view.</p>
+</li>
+<li><p class="first"><span class="menuselection">Show implicit dependencies</span></p>
+<p>Indicates whether implicit dependencies should also be displayed for
+files. Implicit dependencies are ones required to compile the selected
+file but not explicitly imported through a <strong class="command">with</strong> or
+<strong class="command">#include</strong> statement. For example, the body of a generic in Ada is
+an implicit dependency.  Whenever an implicit dependency is modified, the
+selected file should be recompiled as well.</p>
+</li>
+</ul>
+<p>The contextual menu available by right clicking on an item also contain
+these entries:</p>
+<ul>
+<li><p class="first"><span class="menuselection">Analyze other file</span></p>
+<p>Open a new item in the browser, displaying the files associated with the
+selected one. In Ada, this is the body if you clicked on a spec file, or
+vice versa. In C, it depends on the naming conventions you specified in
+the project properties, but it generally goes from a <code class="file docutils literal"><span class="pre">.h</span></code> file to a
+<code class="file docutils literal"><span class="pre">.c</span></code> file and back.</p>
+</li>
+<li><p class="first"><span class="menuselection">Show dependencies for ...</span></p>
+<p>These have the same function as in the project view contextual menu</p>
+</li>
+</ul>
+<p>See also <a class="reference internal" href="#browsers-features"><span class="std std-ref">Common features of browsers</span></a> for more capabilities of GPS browsers.</p>
+<span class="target" id="index-107"></span></div>
+<div class="section" id="the-elaboration-circularities-browser">
+<span id="elaboration-cycles-browser"></span><span id="index-108"></span><h2>2.23. The <span class="guilabel">Elaboration Circularities</span> browser<a class="headerlink" href="#the-elaboration-circularities-browser" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/elaboration-graph.png" src="_images/elaboration-graph.png" />
+<p>GPS detects elaboration cycles reported by build processes and constructs a
+visual representation of elaboration dependencies in an
+<span class="guilabel">Elaboration Cycles</span> browser.</p>
+<p>This visual representation depicts program units as items in the browser
+and direct dependencies between program units as links.  All units involved
+in a dependency cycle caused by the presence of a <strong class="command">pragma
+Elaborate_All</strong> (whether explicit or implicit) are also presented and
+connected by links labeled &#8220;body&#8221; and &#8220;with&#8221;.</p>
+<p id="index-109">The preference <span class="menuselection">Browsers ‣ Show elaboration cycles</span> controls
+whether to automatically create a graph from cycles listed in build output.</p>
+<p>See also <a class="reference internal" href="#browsers-features"><span class="std std-ref">Common features of browsers</span></a> for more capabilities of GPS browsers.</p>
+</div>
+<div class="section" id="the-entity-browser">
+<span id="entity-browser"></span><span id="index-110"></span><h2>2.24. The <span class="guilabel">Entity</span> browser<a class="headerlink" href="#the-entity-browser" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/entity-browser.png" src="_images/entity-browser.png" />
+<p>The <span class="guilabel">Entity</span> browser displays static information about any source
+entity.  What is displayed for each entity depends on the type of the
+entity, but are normally other entities.  For example:</p>
+<ul>
+<li><p class="first"><code class="samp docutils literal"><span class="pre">Ada</span> <span class="pre">record</span> <span class="pre">/</span> <span class="pre">C</span> <span class="pre">struct</span></code></p>
+<p>The list of fields is displayed.</p>
+</li>
+<li><p class="first"><code class="samp docutils literal"><span class="pre">Ada</span> <span class="pre">tagged</span> <span class="pre">type</span> <span class="pre">/</span> <span class="pre">C++</span> <span class="pre">class</span></code></p>
+<p>The list of attributes and methods is displayed.</p>
+</li>
+<li><p class="first"><code class="samp docutils literal"><span class="pre">Subprograms</span></code></p>
+<p>The list of parameters is displayed</p>
+</li>
+<li><p class="first"><code class="samp docutils literal"><span class="pre">Packages</span></code></p>
+<p>The list of all the entities declared in that package is displayed</p>
+</li>
+</ul>
+<p>Access this browser via the <span class="menuselection">Browsers ‣ Examine entity</span>
+contextual menu in the project view and source editor when clicking on an
+entity.</p>
+<p>Most entities displayed are clickable (by default, they appear as
+underlined blue text). Clicking on one opens a new item in the entity
+browser for the selected entity.</p>
+<p>You can display the parent entities for an entity. For example, in a C++
+class or Ada tagged type, this is the type it derives from.  Display the
+parent by clicking on the up arrow in the title bar of the entity.</p>
+<p>Similarly, you can display child entities (for example, types that derive
+from the item) by clicking on the down arrow in the title bar.</p>
+<p>An extra button appears in the title bar for the C++ class or Ada tagged
+types that toggles whether the inherited methods (or primitive operations
+in Ada) should be displayed. By default, only new methods, or ones that
+override an inherited one, are displayed. The parent&#8217;s methods are not
+shown unless you click on this button.</p>
+<p>See also <a class="reference internal" href="#browsers-features"><span class="std std-ref">Common features of browsers</span></a> for more capabilities of GPS browsers.</p>
+<span class="target" id="index-111"></span></div>
+<div class="section" id="the-file-selector">
+<span id="index-112"></span><span id="id15"></span><h2>2.25. The File Selector<a class="headerlink" href="#the-file-selector" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/open-file.png" src="_images/open-file.png" />
+<p>The file selector is a dialog used to select a file. On Windows, the
+default is to use the standard file selection widget. On other platforms,
+the file selector provides the following contents:</p>
+<ul class="simple">
+<li>A tool bar on the top consists of five buttons:<ul>
+<li><span class="guilabel">left arrow</span> go back in the list of directories visited</li>
+<li><span class="guilabel">right arrow</span> go forward</li>
+<li><span class="guilabel">up arrow</span> go to parent directory</li>
+<li><span class="guilabel">refresh</span> refresh the contents of the directory</li>
+<li><span class="guilabel">home</span> go to home directory (value of the HOME environment
+variable, or <code class="file docutils literal"><span class="pre">/</span></code> if not defined)</li>
+</ul>
+</li>
+<li>A list with the current directory and the last directories explored.
+Modify the current directory by modifying the text entry and pressing
+<code class="kbd docutils literal"><span class="pre">Enter</span></code> or by clicking on the right arrow and choosing a previous
+directory in the pop down list displayed.</li>
+<li>A directory tree.  Open or close directories by clicking on the
+<span class="guilabel">+</span> and <span class="guilabel">-</span> icons on the left of the directories or
+navigate using the keyboard keys: <code class="kbd docutils literal"><span class="pre">up</span></code> and <code class="kbd docutils literal"><span class="pre">down</span></code> to select the
+previous or next directory, <code class="kbd docutils literal"><span class="pre">+</span></code> and <code class="kbd docutils literal"><span class="pre">-</span></code> to expand and collapse
+the current directory, and <code class="kbd docutils literal"><span class="pre">backspace</span></code> to select the parent
+directory.</li>
+<li>A filter area. Depending on the context, one of several filters are
+available to select only a subset of files to display. The filter
+<span class="guilabel">All files</span> is always available and displays all files in the
+selected directory.</li>
+<li>A file list. This area lists the files contained in the selected
+directory.  If you specified a filter, only the matching files are
+displayed. Depending on the context, the list of files may include
+additional information about the files such as the type of file or its
+size.</li>
+<li>A file name area. This area displays the name of the current file, if
+any.  You can also type a file or directory name, with file completion
+provided by the <code class="kbd docutils literal"><span class="pre">Tab</span></code> key.</li>
+<li>A button bar with the <span class="guilabel">OK</span> and <span class="guilabel">Cancel</span> buttons.
+When you have selected the desired file, click <span class="guilabel">OK</span> to confirm or
+click <span class="guilabel">Cancel</span> at any time to cancel the file selection.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="menus.html" title="3. The Menu Bar"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="1. Welcome to the GNAT Programming Studio"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

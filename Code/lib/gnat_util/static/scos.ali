@@ -1,0 +1,365 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U scos%b		scos.adb		bb96828e NE OO PK
+Z output%s		output.adb		output.ali  AD
+
+U scos%s		scos.ads		79fcad92 EE OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W namet%s		namet.adb		namet.ali
+Z system%s		system.ads		system.ali
+W table%s		table.adb		table.ali
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D namet.ads		20190518044709 b520bebe namet%s
+D opt.ads		20190518044710 3d2ce478 opt%s
+D output.ads		20190518044709 a916e413 output%s
+D scos.ads		20190518044709 bd184274 scos%s
+D scos.adb		20190518044709 068ec0fa scos%b
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+G a e
+G c s s s [s scos 41 1 none]
+G c Z s s [source_locationIP scos 364 9 none]
+G c Z s s [sco_table_entryIP scos 372 9 none]
+G c Z s s [init scos__sco_table 142 17 391_4]
+G c Z s s [last scos__sco_table 149 16 391_4]
+G c Z s s [release scos__sco_table 156 17 391_4]
+G c Z s s [free scos__sco_table 168 17 391_4]
+G c Z s s [set_last scos__sco_table 175 17 391_4]
+G c Z s s [increment_last scos__sco_table 184 17 391_4]
+G c Z s s [decrement_last scos__sco_table 188 17 391_4]
+G c Z s s [append scos__sco_table 192 17 391_4]
+G c Z s s [append_all scos__sco_table 200 17 391_4]
+G c Z s s [set_item scos__sco_table 203 17 391_4]
+G c Z s s [save scos__sco_table 215 16 391_4]
+G c Z s s [restore scos__sco_table 219 17 391_4]
+G c Z s s [tree_write scos__sco_table 223 17 391_4]
+G c Z s s [tree_read scos__sco_table 226 17 391_4]
+G c Z s s [table_typeIP scos__sco_table 110 12 391_4]
+G c Z s s [saved_tableIP scos__sco_table 241 12 391_4]
+G c Z s s [reallocate scos__sco_table 58 17 391_4]
+G c Z s s [tree_get_table_address scos__sco_table 63 16 391_4]
+G c Z s s [to_address scos__sco_table 72 16 391_4]
+G c Z s s [to_pointer scos__sco_table 73 16 391_4]
+G c Z s s [sco_unit_table_entryIP scos 512 9 none]
+G c Z s s [init scos__sco_unit_table 142 17 539_4]
+G c Z s s [last scos__sco_unit_table 149 16 539_4]
+G c Z s s [release scos__sco_unit_table 156 17 539_4]
+G c Z s s [free scos__sco_unit_table 168 17 539_4]
+G c Z s s [set_last scos__sco_unit_table 175 17 539_4]
+G c Z s s [increment_last scos__sco_unit_table 184 17 539_4]
+G c Z s s [decrement_last scos__sco_unit_table 188 17 539_4]
+G c Z s s [append scos__sco_unit_table 192 17 539_4]
+G c Z s s [append_all scos__sco_unit_table 200 17 539_4]
+G c Z s s [set_item scos__sco_unit_table 203 17 539_4]
+G c Z s s [save scos__sco_unit_table 215 16 539_4]
+G c Z s s [restore scos__sco_unit_table 219 17 539_4]
+G c Z s s [tree_write scos__sco_unit_table 223 17 539_4]
+G c Z s s [tree_read scos__sco_unit_table 226 17 539_4]
+G c Z s s [table_typeIP scos__sco_unit_table 110 12 539_4]
+G c Z s s [saved_tableIP scos__sco_unit_table 241 12 539_4]
+G c Z s s [reallocate scos__sco_unit_table 58 17 539_4]
+G c Z s s [tree_get_table_address scos__sco_unit_table 63 16 539_4]
+G c Z s s [to_address scos__sco_unit_table 72 16 539_4]
+G c Z s s [to_pointer scos__sco_unit_table 73 16 539_4]
+G c Z s s [sco_instance_table_entryIP scos 553 9 none]
+G c Z s s [init scos__sco_instance_table 142 17 561_4]
+G c Z s s [last scos__sco_instance_table 149 16 561_4]
+G c Z s s [release scos__sco_instance_table 156 17 561_4]
+G c Z s s [free scos__sco_instance_table 168 17 561_4]
+G c Z s s [set_last scos__sco_instance_table 175 17 561_4]
+G c Z s s [increment_last scos__sco_instance_table 184 17 561_4]
+G c Z s s [decrement_last scos__sco_instance_table 188 17 561_4]
+G c Z s s [append scos__sco_instance_table 192 17 561_4]
+G c Z s s [append_all scos__sco_instance_table 200 17 561_4]
+G c Z s s [set_item scos__sco_instance_table 203 17 561_4]
+G c Z s s [save scos__sco_instance_table 215 16 561_4]
+G c Z s s [restore scos__sco_instance_table 219 17 561_4]
+G c Z s s [tree_write scos__sco_instance_table 223 17 561_4]
+G c Z s s [tree_read scos__sco_instance_table 226 17 561_4]
+G c Z s s [table_typeIP scos__sco_instance_table 110 12 561_4]
+G c Z s s [saved_tableIP scos__sco_instance_table 241 12 561_4]
+G c Z s s [reallocate scos__sco_instance_table 58 17 561_4]
+G c Z s s [tree_get_table_address scos__sco_instance_table 63 16 561_4]
+G c Z s s [to_address scos__sco_instance_table 72 16 561_4]
+G c Z s s [to_pointer scos__sco_instance_table 73 16 561_4]
+G c Z s b [initialize scos 573 14 none]
+G r i none [s scos 41 1 none] [table table 59 12 none]
+G r c none [s scos 41 1 none] [write_str output 130 14 none]
+G r c none [s scos 41 1 none] [write_int output 123 14 none]
+G r c none [s scos 41 1 none] [write_eol output 113 14 none]
+G r c none [s scos 41 1 none] [set_standard_error output 77 14 none]
+G r c none [s scos 41 1 none] [set_standard_output output 84 14 none]
+G r c none [init scos__sco_table 142 17 391_4] [write_str output 130 14 none]
+G r c none [init scos__sco_table 142 17 391_4] [write_int output 123 14 none]
+G r c none [init scos__sco_table 142 17 391_4] [write_eol output 113 14 none]
+G r c none [init scos__sco_table 142 17 391_4] [set_standard_error output 77 14 none]
+G r c none [init scos__sco_table 142 17 391_4] [set_standard_output output 84 14 none]
+G r c none [release scos__sco_table 156 17 391_4] [write_str output 130 14 none]
+G r c none [release scos__sco_table 156 17 391_4] [write_int output 123 14 none]
+G r c none [release scos__sco_table 156 17 391_4] [write_eol output 113 14 none]
+G r c none [release scos__sco_table 156 17 391_4] [set_standard_error output 77 14 none]
+G r c none [release scos__sco_table 156 17 391_4] [set_standard_output output 84 14 none]
+G r c none [set_last scos__sco_table 175 17 391_4] [write_str output 130 14 none]
+G r c none [set_last scos__sco_table 175 17 391_4] [write_int output 123 14 none]
+G r c none [set_last scos__sco_table 175 17 391_4] [write_eol output 113 14 none]
+G r c none [set_last scos__sco_table 175 17 391_4] [set_standard_error output 77 14 none]
+G r c none [set_last scos__sco_table 175 17 391_4] [set_standard_output output 84 14 none]
+G r c none [increment_last scos__sco_table 184 17 391_4] [write_str output 130 14 none]
+G r c none [increment_last scos__sco_table 184 17 391_4] [write_int output 123 14 none]
+G r c none [increment_last scos__sco_table 184 17 391_4] [write_eol output 113 14 none]
+G r c none [increment_last scos__sco_table 184 17 391_4] [set_standard_error output 77 14 none]
+G r c none [increment_last scos__sco_table 184 17 391_4] [set_standard_output output 84 14 none]
+G r c none [append scos__sco_table 192 17 391_4] [write_str output 130 14 none]
+G r c none [append scos__sco_table 192 17 391_4] [write_int output 123 14 none]
+G r c none [append scos__sco_table 192 17 391_4] [write_eol output 113 14 none]
+G r c none [append scos__sco_table 192 17 391_4] [set_standard_error output 77 14 none]
+G r c none [append scos__sco_table 192 17 391_4] [set_standard_output output 84 14 none]
+G r c none [append_all scos__sco_table 200 17 391_4] [write_str output 130 14 none]
+G r c none [append_all scos__sco_table 200 17 391_4] [write_int output 123 14 none]
+G r c none [append_all scos__sco_table 200 17 391_4] [write_eol output 113 14 none]
+G r c none [append_all scos__sco_table 200 17 391_4] [set_standard_error output 77 14 none]
+G r c none [append_all scos__sco_table 200 17 391_4] [set_standard_output output 84 14 none]
+G r c none [set_item scos__sco_table 203 17 391_4] [write_str output 130 14 none]
+G r c none [set_item scos__sco_table 203 17 391_4] [write_int output 123 14 none]
+G r c none [set_item scos__sco_table 203 17 391_4] [write_eol output 113 14 none]
+G r c none [set_item scos__sco_table 203 17 391_4] [set_standard_error output 77 14 none]
+G r c none [set_item scos__sco_table 203 17 391_4] [set_standard_output output 84 14 none]
+G r c none [save scos__sco_table 215 16 391_4] [write_str output 130 14 none]
+G r c none [save scos__sco_table 215 16 391_4] [write_int output 123 14 none]
+G r c none [save scos__sco_table 215 16 391_4] [write_eol output 113 14 none]
+G r c none [save scos__sco_table 215 16 391_4] [set_standard_error output 77 14 none]
+G r c none [save scos__sco_table 215 16 391_4] [set_standard_output output 84 14 none]
+G r c none [tree_write scos__sco_table 223 17 391_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write scos__sco_table 223 17 391_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read scos__sco_table 226 17 391_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read scos__sco_table 226 17 391_4] [write_str output 130 14 none]
+G r c none [tree_read scos__sco_table 226 17 391_4] [write_int output 123 14 none]
+G r c none [tree_read scos__sco_table 226 17 391_4] [write_eol output 113 14 none]
+G r c none [tree_read scos__sco_table 226 17 391_4] [set_standard_error output 77 14 none]
+G r c none [tree_read scos__sco_table 226 17 391_4] [set_standard_output output 84 14 none]
+G r c none [tree_read scos__sco_table 226 17 391_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate scos__sco_table 58 17 391_4] [write_str output 130 14 none]
+G r c none [reallocate scos__sco_table 58 17 391_4] [write_int output 123 14 none]
+G r c none [reallocate scos__sco_table 58 17 391_4] [write_eol output 113 14 none]
+G r c none [reallocate scos__sco_table 58 17 391_4] [set_standard_error output 77 14 none]
+G r c none [reallocate scos__sco_table 58 17 391_4] [set_standard_output output 84 14 none]
+G r c none [init scos__sco_unit_table 142 17 539_4] [write_str output 130 14 none]
+G r c none [init scos__sco_unit_table 142 17 539_4] [write_int output 123 14 none]
+G r c none [init scos__sco_unit_table 142 17 539_4] [write_eol output 113 14 none]
+G r c none [init scos__sco_unit_table 142 17 539_4] [set_standard_error output 77 14 none]
+G r c none [init scos__sco_unit_table 142 17 539_4] [set_standard_output output 84 14 none]
+G r c none [release scos__sco_unit_table 156 17 539_4] [write_str output 130 14 none]
+G r c none [release scos__sco_unit_table 156 17 539_4] [write_int output 123 14 none]
+G r c none [release scos__sco_unit_table 156 17 539_4] [write_eol output 113 14 none]
+G r c none [release scos__sco_unit_table 156 17 539_4] [set_standard_error output 77 14 none]
+G r c none [release scos__sco_unit_table 156 17 539_4] [set_standard_output output 84 14 none]
+G r c none [set_last scos__sco_unit_table 175 17 539_4] [write_str output 130 14 none]
+G r c none [set_last scos__sco_unit_table 175 17 539_4] [write_int output 123 14 none]
+G r c none [set_last scos__sco_unit_table 175 17 539_4] [write_eol output 113 14 none]
+G r c none [set_last scos__sco_unit_table 175 17 539_4] [set_standard_error output 77 14 none]
+G r c none [set_last scos__sco_unit_table 175 17 539_4] [set_standard_output output 84 14 none]
+G r c none [increment_last scos__sco_unit_table 184 17 539_4] [write_str output 130 14 none]
+G r c none [increment_last scos__sco_unit_table 184 17 539_4] [write_int output 123 14 none]
+G r c none [increment_last scos__sco_unit_table 184 17 539_4] [write_eol output 113 14 none]
+G r c none [increment_last scos__sco_unit_table 184 17 539_4] [set_standard_error output 77 14 none]
+G r c none [increment_last scos__sco_unit_table 184 17 539_4] [set_standard_output output 84 14 none]
+G r c none [append scos__sco_unit_table 192 17 539_4] [write_str output 130 14 none]
+G r c none [append scos__sco_unit_table 192 17 539_4] [write_int output 123 14 none]
+G r c none [append scos__sco_unit_table 192 17 539_4] [write_eol output 113 14 none]
+G r c none [append scos__sco_unit_table 192 17 539_4] [set_standard_error output 77 14 none]
+G r c none [append scos__sco_unit_table 192 17 539_4] [set_standard_output output 84 14 none]
+G r c none [append_all scos__sco_unit_table 200 17 539_4] [write_str output 130 14 none]
+G r c none [append_all scos__sco_unit_table 200 17 539_4] [write_int output 123 14 none]
+G r c none [append_all scos__sco_unit_table 200 17 539_4] [write_eol output 113 14 none]
+G r c none [append_all scos__sco_unit_table 200 17 539_4] [set_standard_error output 77 14 none]
+G r c none [append_all scos__sco_unit_table 200 17 539_4] [set_standard_output output 84 14 none]
+G r c none [set_item scos__sco_unit_table 203 17 539_4] [write_str output 130 14 none]
+G r c none [set_item scos__sco_unit_table 203 17 539_4] [write_int output 123 14 none]
+G r c none [set_item scos__sco_unit_table 203 17 539_4] [write_eol output 113 14 none]
+G r c none [set_item scos__sco_unit_table 203 17 539_4] [set_standard_error output 77 14 none]
+G r c none [set_item scos__sco_unit_table 203 17 539_4] [set_standard_output output 84 14 none]
+G r c none [save scos__sco_unit_table 215 16 539_4] [write_str output 130 14 none]
+G r c none [save scos__sco_unit_table 215 16 539_4] [write_int output 123 14 none]
+G r c none [save scos__sco_unit_table 215 16 539_4] [write_eol output 113 14 none]
+G r c none [save scos__sco_unit_table 215 16 539_4] [set_standard_error output 77 14 none]
+G r c none [save scos__sco_unit_table 215 16 539_4] [set_standard_output output 84 14 none]
+G r c none [tree_write scos__sco_unit_table 223 17 539_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write scos__sco_unit_table 223 17 539_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read scos__sco_unit_table 226 17 539_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read scos__sco_unit_table 226 17 539_4] [write_str output 130 14 none]
+G r c none [tree_read scos__sco_unit_table 226 17 539_4] [write_int output 123 14 none]
+G r c none [tree_read scos__sco_unit_table 226 17 539_4] [write_eol output 113 14 none]
+G r c none [tree_read scos__sco_unit_table 226 17 539_4] [set_standard_error output 77 14 none]
+G r c none [tree_read scos__sco_unit_table 226 17 539_4] [set_standard_output output 84 14 none]
+G r c none [tree_read scos__sco_unit_table 226 17 539_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate scos__sco_unit_table 58 17 539_4] [write_str output 130 14 none]
+G r c none [reallocate scos__sco_unit_table 58 17 539_4] [write_int output 123 14 none]
+G r c none [reallocate scos__sco_unit_table 58 17 539_4] [write_eol output 113 14 none]
+G r c none [reallocate scos__sco_unit_table 58 17 539_4] [set_standard_error output 77 14 none]
+G r c none [reallocate scos__sco_unit_table 58 17 539_4] [set_standard_output output 84 14 none]
+G r c none [init scos__sco_instance_table 142 17 561_4] [write_str output 130 14 none]
+G r c none [init scos__sco_instance_table 142 17 561_4] [write_int output 123 14 none]
+G r c none [init scos__sco_instance_table 142 17 561_4] [write_eol output 113 14 none]
+G r c none [init scos__sco_instance_table 142 17 561_4] [set_standard_error output 77 14 none]
+G r c none [init scos__sco_instance_table 142 17 561_4] [set_standard_output output 84 14 none]
+G r c none [release scos__sco_instance_table 156 17 561_4] [write_str output 130 14 none]
+G r c none [release scos__sco_instance_table 156 17 561_4] [write_int output 123 14 none]
+G r c none [release scos__sco_instance_table 156 17 561_4] [write_eol output 113 14 none]
+G r c none [release scos__sco_instance_table 156 17 561_4] [set_standard_error output 77 14 none]
+G r c none [release scos__sco_instance_table 156 17 561_4] [set_standard_output output 84 14 none]
+G r c none [set_last scos__sco_instance_table 175 17 561_4] [write_str output 130 14 none]
+G r c none [set_last scos__sco_instance_table 175 17 561_4] [write_int output 123 14 none]
+G r c none [set_last scos__sco_instance_table 175 17 561_4] [write_eol output 113 14 none]
+G r c none [set_last scos__sco_instance_table 175 17 561_4] [set_standard_error output 77 14 none]
+G r c none [set_last scos__sco_instance_table 175 17 561_4] [set_standard_output output 84 14 none]
+G r c none [increment_last scos__sco_instance_table 184 17 561_4] [write_str output 130 14 none]
+G r c none [increment_last scos__sco_instance_table 184 17 561_4] [write_int output 123 14 none]
+G r c none [increment_last scos__sco_instance_table 184 17 561_4] [write_eol output 113 14 none]
+G r c none [increment_last scos__sco_instance_table 184 17 561_4] [set_standard_error output 77 14 none]
+G r c none [increment_last scos__sco_instance_table 184 17 561_4] [set_standard_output output 84 14 none]
+G r c none [append scos__sco_instance_table 192 17 561_4] [write_str output 130 14 none]
+G r c none [append scos__sco_instance_table 192 17 561_4] [write_int output 123 14 none]
+G r c none [append scos__sco_instance_table 192 17 561_4] [write_eol output 113 14 none]
+G r c none [append scos__sco_instance_table 192 17 561_4] [set_standard_error output 77 14 none]
+G r c none [append scos__sco_instance_table 192 17 561_4] [set_standard_output output 84 14 none]
+G r c none [append_all scos__sco_instance_table 200 17 561_4] [write_str output 130 14 none]
+G r c none [append_all scos__sco_instance_table 200 17 561_4] [write_int output 123 14 none]
+G r c none [append_all scos__sco_instance_table 200 17 561_4] [write_eol output 113 14 none]
+G r c none [append_all scos__sco_instance_table 200 17 561_4] [set_standard_error output 77 14 none]
+G r c none [append_all scos__sco_instance_table 200 17 561_4] [set_standard_output output 84 14 none]
+G r c none [set_item scos__sco_instance_table 203 17 561_4] [write_str output 130 14 none]
+G r c none [set_item scos__sco_instance_table 203 17 561_4] [write_int output 123 14 none]
+G r c none [set_item scos__sco_instance_table 203 17 561_4] [write_eol output 113 14 none]
+G r c none [set_item scos__sco_instance_table 203 17 561_4] [set_standard_error output 77 14 none]
+G r c none [set_item scos__sco_instance_table 203 17 561_4] [set_standard_output output 84 14 none]
+G r c none [save scos__sco_instance_table 215 16 561_4] [write_str output 130 14 none]
+G r c none [save scos__sco_instance_table 215 16 561_4] [write_int output 123 14 none]
+G r c none [save scos__sco_instance_table 215 16 561_4] [write_eol output 113 14 none]
+G r c none [save scos__sco_instance_table 215 16 561_4] [set_standard_error output 77 14 none]
+G r c none [save scos__sco_instance_table 215 16 561_4] [set_standard_output output 84 14 none]
+G r c none [tree_write scos__sco_instance_table 223 17 561_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write scos__sco_instance_table 223 17 561_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read scos__sco_instance_table 226 17 561_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read scos__sco_instance_table 226 17 561_4] [write_str output 130 14 none]
+G r c none [tree_read scos__sco_instance_table 226 17 561_4] [write_int output 123 14 none]
+G r c none [tree_read scos__sco_instance_table 226 17 561_4] [write_eol output 113 14 none]
+G r c none [tree_read scos__sco_instance_table 226 17 561_4] [set_standard_error output 77 14 none]
+G r c none [tree_read scos__sco_instance_table 226 17 561_4] [set_standard_output output 84 14 none]
+G r c none [tree_read scos__sco_instance_table 226 17 561_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate scos__sco_instance_table 58 17 561_4] [write_str output 130 14 none]
+G r c none [reallocate scos__sco_instance_table 58 17 561_4] [write_int output 123 14 none]
+G r c none [reallocate scos__sco_instance_table 58 17 561_4] [write_eol output 113 14 none]
+G r c none [reallocate scos__sco_instance_table 58 17 561_4] [set_standard_error output 77 14 none]
+G r c none [reallocate scos__sco_instance_table 58 17 561_4] [set_standard_output output 84 14 none]
+G r c none [initialize scos 573 14 none] [write_str output 130 14 none]
+G r c none [initialize scos 573 14 none] [write_int output 123 14 none]
+G r c none [initialize scos 573 14 none] [write_eol output 113 14 none]
+G r c none [initialize scos 573 14 none] [set_standard_error output 77 14 none]
+G r c none [initialize scos 573 14 none] [set_standard_output output 84 14 none]
+X 9 namet.ads
+37K9*Namet 768e10 12|37w6 37r17
+188I9*Name_Id<integer> 12|387r28
+192i4*No_Name{188I9} 12|387r39
+X 12 scos.ads
+41K9*SCOs 576l5 576e9 13|32b14 49l5 49t9
+364R9*Source_Location 367e14 369r34 373r14 374r14 555r22
+365i7*Line{28|162I9}
+366i7*Col{28|178I9}
+369r4*No_Source_Location{364R9} 373r33 374r33
+372R9*SCO_Table_Entry 389e14 392r30
+373r7*From{364R9}
+374r7*To{364R9}
+375e7*C1{character}
+376e7*C2{character}
+377b7*Last{boolean}
+379i7*Pragma_Sloc{28|220I12}
+387i7*Pragma_Aspect_Name{9|188I9}
+391K12*SCO_Table[25|59] 13|40r7
+399a4*Is_Decision(boolean)
+503I9*SCO_Unit_Index<28|59I9> 541r30
+507i4*Missing_Dep_Num{28|62I12}
+512R9*SCO_Unit_Table_Entry 537e14 540r30
+513p7*File_Name{28|113P9}
+516i7*File_Index{28|575I9}
+519i7*Dep_Num{28|62I12}
+524i7*From{28|62I12}
+527i7*To{28|62I12}
+539K12*SCO_Unit_Table[25|59] 13|41r7 46r7
+551I9*SCO_Instance_Index<28|59I9> 558r28 563r30
+553R9*SCO_Instance_Table_Entry 559e14 562r30
+554i7*Inst_Dep_Num{28|62I12}
+555r7*Inst_Loc{364R9}
+558i7*Enclosing_Instance{551I9}
+561K12*SCO_Instance_Table[25|59] 13|42r7
+573U14*Initialize 13|38b14 47l8 47t18
+X 14 system.ads
+67M9*Address
+X 17 s-memory.ads
+53V13*Alloc{14|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{14|67M9} 105i<c,__gnat_realloc>22
+X 25 table.ads
+46K9*Table 12|38w6 391r29 539r34 561r38 25|248e10
+50+12 Table_Component_Type 12|392r6 540r6 562r6
+51I12 Table_Index_Type 12|393r6 541r6 563r6
+53*7 Table_Low_Bound{51I12} 12|394r6 542r6 564r6
+54i7 Table_Initial{28|65I12} 12|395r6 543r6 565r6
+55i7 Table_Increment{28|62I12} 12|396r6 544r6 566r6
+56a7 Table_Name{string} 12|397r6 545r6 567r6
+59k12*Table 12|391r35 539r40 561r44 25|247e13
+142U17*Init 13|40s17[12|391] 41s22[12|539] 42s26[12|561]
+184U17*Increment_Last 13|46s22[12|539]
+X 28 types.ads
+52K9*Types 12|39w6 39r17 28|948e10
+59I9*Int<integer> 12|503r31
+62I12*Nat{59I9} 12|393r30 507r31 519r17 524r14 527r12 551r35 554r22
+65I12*Pos{59I9}
+113P9*String_Ptr(string) 12|513r19
+145I9*Text_Ptr<59I9>
+162I9*Logical_Line_Number<integer> 12|365r14
+169i4*No_Line_Number{162I9} 12|370r28
+178I9*Column_Number<short_integer> 12|366r14
+184i4*No_Column_Number{178I9} 12|370r44
+220I12*Source_Ptr{145I9} 12|379r21
+227i4*No_Location{220I12} 12|379r35
+575I9*Source_File_Index<59I9> 12|516r20
+

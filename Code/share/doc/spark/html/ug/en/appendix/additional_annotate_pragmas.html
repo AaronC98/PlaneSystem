@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Uses of Pragma Annotate GNATprove &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="GNATprove Limitations" href="gnatprove_limitations.html" />
+    <link rel="prev" title="External Axiomatizations" href="external_axiomatizations.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gnatprove_limitations.html" title="GNATprove Limitations"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="external_axiomatizations.html" title="External Axiomatizations"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Uses of Pragma Annotate GNATprove</a><ul>
+<li><a class="reference internal" href="#using-pragma-annotate-to-justify-check-messages">Using Pragma Annotate to Justify Check Messages</a></li>
+<li><a class="reference internal" href="#using-pragma-annotate-to-force-proof-of-termination">Using pragma Annotate to force Proof of Termination</a></li>
+<li><a class="reference internal" href="#customize-quantification-over-types-with-the-iterable-aspect">Customize Quantification over Types with the Iterable Aspect</a></li>
+<li><a class="reference internal" href="#inlining-functions-for-proof">Inlining Functions for Proof</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="external_axiomatizations.html"
+                        title="previous chapter">External Axiomatizations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gnatprove_limitations.html"
+                        title="next chapter">GNATprove Limitations</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/appendix/additional_annotate_pragmas.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="uses-of-pragma-annotate-gnatprove">
+<span id="id1"></span><h1>Uses of Pragma Annotate GNATprove<a class="headerlink" href="#uses-of-pragma-annotate-gnatprove" title="Permalink to this headline">¶</a></h1>
+<p>This appendix lists all the uses of pragma <code class="docutils literal"><span class="pre">Annotate</span></code> for GNATprove.
+Pragma <code class="docutils literal"><span class="pre">Annotate</span></code> can also be used to control other AdaCore tools. The uses
+of this pragma are explained in the User&#8217;s guide of each tool.</p>
+<p>The main usage of pragmas <code class="docutils literal"><span class="pre">Annotate</span></code> for GNATprove is for justifying check
+messages using <a class="reference internal" href="../source/how_to_use_gnatprove_in_a_team.html#direct-justification-with-pragma-annotate"><span class="std std-ref">Direct Justification with Pragma Annotate</span></a>. Specific
+versions of this pragma can also be used to influence the generation of proof
+obligations. Some of these uses can be seen in <a class="reference internal" href="../source/spark_libraries.html#spark-libraries"><span class="std std-ref">SPARK Libraries</span></a> for
+example. These forms of pragma <code class="docutils literal"><span class="pre">Annotate</span></code> should be used with care as they
+can introduce additional assumptions which are not verified by the GNATprove
+tool.</p>
+<div class="section" id="using-pragma-annotate-to-justify-check-messages">
+<h2>Using Pragma Annotate to Justify Check Messages<a class="headerlink" href="#using-pragma-annotate-to-justify-check-messages" title="Permalink to this headline">¶</a></h2>
+<p>You can use annotations of the form</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="kc">False</span><span class="n">_Positive</span><span class="p">,</span>
+                 <span class="s">&quot;message to be justified&quot;</span><span class="p">,</span> <span class="s">&quot;reason&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>to justify an unproved check message that cannot be proved by other means. See
+the section <a class="reference internal" href="../source/how_to_use_gnatprove_in_a_team.html#direct-justification-with-pragma-annotate"><span class="std std-ref">Direct Justification with Pragma Annotate</span></a> for more details
+about this use of pragma <code class="docutils literal"><span class="pre">Annotate</span></code>.</p>
+</div>
+<div class="section" id="using-pragma-annotate-to-force-proof-of-termination">
+<h2>Using pragma Annotate to force Proof of Termination<a class="headerlink" href="#using-pragma-annotate-to-force-proof-of-termination" title="Permalink to this headline">¶</a></h2>
+<p>SPARK doesn&#8217;t usually prove termination of subprograms. You can instruct it do
+so using annotations of this form:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Terminating</span><span class="p">,</span> <span class="n">Subp_Or_Package_Entity</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>See the section <a class="reference internal" href="../source/how_to_write_subprogram_contracts.html#subprogram-termination"><span class="std std-ref">Subprogram Termination</span></a> about details of this use of
+pragma <code class="docutils literal"><span class="pre">Annotate</span></code>.</p>
+</div>
+<div class="section" id="customize-quantification-over-types-with-the-iterable-aspect">
+<h2>Customize Quantification over Types with the Iterable Aspect<a class="headerlink" href="#customize-quantification-over-types-with-the-iterable-aspect" title="Permalink to this headline">¶</a></h2>
+<p>In SPARK, it is possible to allow quantification over any container type
+using the <code class="docutils literal"><span class="pre">Iterable</span></code> aspect.
+This aspect provides the primitives of a container type that will be used to
+iterate over its content. For example, if we write:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Container</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p"> </span><span class="kr">with</span><span class="p"></span>
+  <span class="n">Iterable</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">First</span>       <span class="o">=&gt;</span> <span class="n">First</span><span class="p">,</span>
+               <span class="n">Next</span>        <span class="o">=&gt;</span> <span class="n">Next</span><span class="p">,</span>
+               <span class="n">Has_Element</span> <span class="o">=&gt;</span> <span class="n">Has_Element</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>where</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">First</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="n">Set</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Cursor</span><span class="p">;</span>
+<span class="k">function </span><span class="nf">Has_Element</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="n">Set</span><span class="p">;</span> <span class="n">C</span> <span class="o">:</span> <span class="n">Cursor</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span><span class="p">;</span>
+<span class="k">function </span><span class="nf">Next</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="n">Set</span><span class="p">;</span> <span class="n">C</span> <span class="o">:</span> <span class="n">Cursor</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Cursor</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>then quantification over containers can be done using the type <code class="docutils literal"><span class="pre">Cursor</span></code>. For
+example, we could state:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">C</span> <span class="kr">in</span><span class="p"> </span><span class="n">S</span> <span class="o">=&gt;</span> <span class="n">P</span> <span class="o">(</span><span class="n">Element</span> <span class="o">(</span><span class="n">S</span><span class="p">,</span> <span class="n">C</span><span class="o">)))</span>
+</pre></div>
+</div>
+<p>to say that <code class="docutils literal"><span class="pre">S</span></code> only contains elements for which a property <code class="docutils literal"><span class="pre">P</span></code> holds. For
+execution, this expression is translated as a loop using the provided <code class="docutils literal"><span class="pre">First</span></code>,
+<code class="docutils literal"><span class="pre">Has_Element</span></code>, and <code class="docutils literal"><span class="pre">Next</span></code> primitives. For proof, it is translated as a logic
+quantification over every element of type <code class="docutils literal"><span class="pre">Cursor</span></code>. To restrict the property
+to cursors that are actually valid in the container, the provided function
+<code class="docutils literal"><span class="pre">Has_Element</span></code> is used. For example, the property stated above becomes:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">C</span> <span class="o">:</span> <span class="n">Cursor</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Has_Element</span> <span class="o">(</span><span class="n">S</span><span class="p">,</span> <span class="n">C</span><span class="o">)</span> <span class="kr">then</span><span class="p"> </span><span class="n">P</span> <span class="o">(</span><span class="n">Element</span> <span class="o">(</span><span class="n">S</span><span class="p">,</span> <span class="n">C</span><span class="o">)))</span>
+</pre></div>
+</div>
+<p>Like for the standard Ada iteration mechanism, it is possible to allow
+quantification directly over the elements of the container by providing in
+addition an <code class="docutils literal"><span class="pre">Element</span></code> primitive to the <code class="docutils literal"><span class="pre">Iterable</span></code> aspect. For example, if
+we write:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Container</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p"> </span><span class="kr">with</span><span class="p"></span>
+  <span class="n">Iterable</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">First</span>       <span class="o">=&gt;</span> <span class="n">First</span><span class="p">,</span>
+               <span class="n">Next</span>        <span class="o">=&gt;</span> <span class="n">Next</span><span class="p">,</span>
+               <span class="n">Has_Element</span> <span class="o">=&gt;</span> <span class="n">Has_Element</span>
+               <span class="n">Element</span>     <span class="o">=&gt;</span> <span class="n">Element</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>where</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Element</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="n">Set</span><span class="p">;</span> <span class="n">C</span> <span class="o">:</span> <span class="n">Cursor</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Element_Type</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>then quantification over containers can be done directly on its elements. For
+example, we could rewrite the above property into:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">E</span> <span class="kr">of</span><span class="p"> </span><span class="n">S</span> <span class="o">=&gt;</span> <span class="n">P</span> <span class="o">(</span><span class="n">E</span><span class="o">))</span>
+</pre></div>
+</div>
+<p>For execution, quantification over elements of a container is translated as a
+loop over its cursors. In the same way, for proof, quantification over elements
+of a container is no more than syntactic sugar for quantification over its
+cursors. For example, the above property is translated using quantification
+over cursors :</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">C</span> <span class="o">:</span> <span class="n">Cursor</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Has_Element</span> <span class="o">(</span><span class="n">S</span><span class="p">,</span> <span class="n">C</span><span class="o">)</span> <span class="kr">then</span><span class="p"> </span><span class="n">P</span> <span class="o">(</span><span class="n">Element</span> <span class="o">(</span><span class="n">S</span><span class="p">,</span> <span class="n">C</span><span class="o">)))</span>
+</pre></div>
+</div>
+<p>Depending on the application, this translation may be too low-level and
+introduce an unnecessary burden on the automatic provers. As an example, let
+us consider a package for functional sets:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Sets</span> <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="kr">is</span><span class="p"></span>
+
+  <span class="kr">type</span><span class="p"> </span><span class="n">Cursor</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p">;</span>
+  <span class="kr">type</span><span class="p"> </span><span class="n">Set</span> <span class="o">(&lt;&gt;)</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p"> </span><span class="kr">with</span><span class="p"></span>
+    <span class="n">Iterable</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">First</span>       <span class="o">=&gt;</span> <span class="n">First</span><span class="p">,</span>
+                 <span class="n">Next</span>        <span class="o">=&gt;</span> <span class="n">Next</span><span class="p">,</span>
+                 <span class="n">Has_Element</span> <span class="o">=&gt;</span> <span class="n">Has_Element</span><span class="p">,</span>
+                 <span class="n">Element</span>     <span class="o">=&gt;</span> <span class="n">Element</span><span class="o">)</span><span class="p">;</span>
+
+  <span class="k">function </span><span class="nf">Mem</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="n">Set</span><span class="p">;</span> <span class="n">E</span> <span class="o">:</span> <span class="n">Element_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">with</span><span class="p"></span>
+    <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Mem</span><span class="na">&#39;Result</span> <span class="o">=</span> <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">some</span><span class="p"> </span><span class="n">F</span> <span class="kr">of</span><span class="p"> </span><span class="n">S</span> <span class="o">=&gt;</span> <span class="n">F</span> <span class="o">=</span> <span class="n">E</span><span class="o">)</span><span class="p">;</span>
+
+  <span class="k">function </span><span class="nf">Intersection</span> <span class="o">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">S2</span> <span class="o">:</span> <span class="n">Set</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Set</span> <span class="kr">with</span><span class="p"></span>
+    <span class="n">Post</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">E</span> <span class="kr">of</span><span class="p"> </span><span class="n">Intersection</span><span class="na">&#39;Result</span> <span class="o">=&gt;</span> <span class="n">Mem</span> <span class="o">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span> <span class="kr">and</span><span class="p"> </span><span class="n">Mem</span> <span class="o">(</span><span class="n">S2</span><span class="p">,</span> <span class="n">E</span><span class="o">))</span>
+      <span class="kr">and</span><span class="p"> </span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">E</span> <span class="kr">of</span><span class="p"> </span><span class="n">S1</span> <span class="o">=&gt;</span>
+               <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Mem</span> <span class="o">(</span><span class="n">S2</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span> <span class="kr">then</span><span class="p"> </span><span class="n">Mem</span> <span class="o">(</span><span class="n">Intersection</span><span class="na">&#39;Result</span><span class="p">,</span> <span class="n">E</span><span class="o">)))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Sets contain elements of type <code class="docutils literal"><span class="pre">Element_Type</span></code>. The most basic operation on sets
+is membership test, here provided by the <code class="docutils literal"><span class="pre">Mem</span></code> subprogram. Every other
+operation, such as intersection here, is then specified in terms of members.
+Iteration primitives <code class="docutils literal"><span class="pre">First</span></code>, <code class="docutils literal"><span class="pre">Next</span></code>, <code class="docutils literal"><span class="pre">Has_Element</span></code>, and <code class="docutils literal"><span class="pre">Element</span></code>, that
+take elements of a private type <code class="docutils literal"><span class="pre">Cursor</span></code> as an argument, are only provided for
+the sake of quantification.</p>
+<p>Following the scheme described previously, the postcondition of <code class="docutils literal"><span class="pre">Intersection</span></code>
+is translated for proof as:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">C</span> <span class="o">:</span> <span class="n">Cursor</span> <span class="o">=&gt;</span>
+    <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Has_Element</span> <span class="o">(</span><span class="n">Intersection</span><span class="na">&#39;Result</span><span class="p">,</span> <span class="n">C</span><span class="o">)</span> <span class="kr">then</span><span class="p"></span>
+           <span class="n">Mem</span> <span class="o">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">Element</span> <span class="o">(</span><span class="n">Intersection</span><span class="na">&#39;Result</span><span class="p">,</span> <span class="n">C</span><span class="o">))</span>
+       <span class="kr">and</span><span class="p"> </span><span class="n">Mem</span> <span class="o">(</span><span class="n">S2</span><span class="p">,</span> <span class="n">Element</span> <span class="o">(</span><span class="n">Intersection</span><span class="na">&#39;Result</span><span class="p">,</span> <span class="n">C</span><span class="o">))))</span>
+<span class="kr">and</span><span class="p"></span>
+<span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">C1</span> <span class="o">:</span> <span class="n">Cursor</span> <span class="o">=&gt;</span>
+    <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Has_Element</span> <span class="o">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">C1</span><span class="o">)</span> <span class="kr">then</span><span class="p"></span>
+           <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Mem</span> <span class="o">(</span><span class="n">S2</span><span class="p">,</span> <span class="n">Element</span> <span class="o">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">C1</span><span class="o">))</span> <span class="kr">then</span><span class="p"></span>
+                 <span class="n">Mem</span> <span class="o">(</span><span class="n">Intersection</span><span class="na">&#39;Result</span><span class="p">,</span> <span class="n">Element</span> <span class="o">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">C1</span><span class="o">)))))</span>
+</pre></div>
+</div>
+<p>Using the postcondition of <code class="docutils literal"><span class="pre">Mem</span></code>, this can be refined further into:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">C</span> <span class="o">:</span> <span class="n">Cursor</span> <span class="o">=&gt;</span>
+    <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Has_Element</span> <span class="o">(</span><span class="n">Intersection</span><span class="na">&#39;Result</span><span class="p">,</span> <span class="n">C</span><span class="o">)</span> <span class="kr">then</span><span class="p"></span>
+           <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">some</span><span class="p"> </span><span class="n">C1</span> <span class="o">:</span> <span class="n">Cursor</span> <span class="o">=&gt;</span>
+               <span class="n">Has_Element</span> <span class="o">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">C1</span><span class="o">)</span> <span class="kr">and</span><span class="p"> </span><span class="n">Element</span> <span class="o">(</span><span class="n">Intersection</span><span class="na">&#39;Result</span><span class="p">,</span> <span class="n">C</span><span class="o">)</span> <span class="o">=</span> <span class="n">Element</span> <span class="o">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">C1</span><span class="o">))</span>
+       <span class="kr">and</span><span class="p"> </span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">some</span><span class="p"> </span><span class="n">C2</span> <span class="o">:</span> <span class="n">Cursor</span> <span class="o">=&gt;</span>
+                 <span class="n">Has_Element</span> <span class="o">(</span><span class="n">S2</span><span class="p">,</span> <span class="n">C2</span><span class="o">)</span> <span class="kr">and</span><span class="p"> </span><span class="n">Element</span> <span class="o">(</span><span class="n">Intersection</span><span class="na">&#39;Result</span><span class="p">,</span> <span class="n">C</span><span class="o">)</span> <span class="o">=</span> <span class="n">Element</span> <span class="o">(</span><span class="n">S2</span><span class="p">,</span> <span class="n">C2</span><span class="o">)))))</span>
+<span class="kr">and</span><span class="p"></span>
+<span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">C1</span> <span class="o">:</span> <span class="n">Cursor</span> <span class="o">=&gt;</span>
+    <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Has_Element</span> <span class="o">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">C1</span><span class="o">)</span> <span class="kr">then</span><span class="p"></span>
+           <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">some</span><span class="p"> </span><span class="n">C2</span> <span class="o">:</span> <span class="n">Cursor</span> <span class="o">=&gt;</span>
+               <span class="n">Has_Element</span> <span class="o">(</span><span class="n">S2</span><span class="p">,</span> <span class="n">C2</span><span class="o">)</span> <span class="kr">and</span><span class="p"> </span><span class="n">Element</span> <span class="o">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">C1</span><span class="o">)</span> <span class="o">=</span> <span class="n">Element</span> <span class="o">(</span><span class="n">S2</span><span class="p">,</span> <span class="n">C2</span><span class="o">)))</span>
+    <span class="kr">then</span><span class="p"> </span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">some</span><span class="p"> </span><span class="n">C</span> <span class="o">:</span> <span class="n">Cursor</span> <span class="o">=&gt;</span>  <span class="n">Has_Element</span> <span class="o">(</span><span class="n">Intersection</span><span class="na">&#39;Result</span><span class="p">,</span> <span class="n">C</span><span class="o">)</span>
+             <span class="kr">and</span><span class="p"> </span><span class="n">Element</span> <span class="o">(</span><span class="n">Intersection</span><span class="na">&#39;Result</span><span class="p">,</span> <span class="n">C</span><span class="o">)</span> <span class="o">=</span> <span class="n">Element</span> <span class="o">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">C1</span><span class="o">))))))</span>
+</pre></div>
+</div>
+<p>Though perfectly valid, this translation may produce complicated proofs,
+especially when verifying complex properties over sets. The GNATprove
+annotation <code class="docutils literal"><span class="pre">Iterable_For_Proof</span></code> can be used to change the way <code class="docutils literal"><span class="pre">for</span> <span class="pre">...</span> <span class="pre">of</span></code>
+quantification is translated. More precisely, it allows to provide GNATprove
+with a <cite>Contains</cite> function, that will be used for quantification. For example,
+on our sets, we could write:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Mem</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="n">Set</span><span class="p">;</span> <span class="n">E</span> <span class="o">:</span> <span class="n">Element_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Iterable_For_Proof</span><span class="p">,</span> <span class="s">&quot;Contains&quot;</span><span class="p">,</span> <span class="n">Mem</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>With this annotation, the postcondition of <code class="docutils literal"><span class="pre">Intersection</span></code> is translated in a
+simpler way, using logic quantification directly over elements:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">E</span> <span class="o">:</span> <span class="n">Element_Type</span> <span class="o">=&gt;</span>
+     <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Mem</span> <span class="o">(</span><span class="n">Intersection</span><span class="na">&#39;Result</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span> <span class="kr">then</span><span class="p"> </span><span class="n">Mem</span> <span class="o">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span> <span class="kr">and</span><span class="p"> </span><span class="n">Mem</span> <span class="o">(</span><span class="n">S2</span><span class="p">,</span> <span class="n">E</span><span class="o">)))</span>
+<span class="kr">and</span><span class="p"> </span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">E</span> <span class="o">:</span> <span class="n">Element_Type</span> <span class="o">=&gt;</span>
+     <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Mem</span> <span class="o">(</span><span class="n">S1</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span> <span class="kr">then</span><span class="p"></span>
+            <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Mem</span> <span class="o">(</span><span class="n">S2</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span> <span class="kr">then</span><span class="p"> </span><span class="n">Mem</span> <span class="o">(</span><span class="n">Intersection</span><span class="na">&#39;Result</span><span class="p">,</span> <span class="n">E</span><span class="o">))))</span>
+</pre></div>
+</div>
+<p>Note that care should be taken to provide an appropriate function contains,
+which returns true if and only if the element <code class="docutils literal"><span class="pre">E</span></code> is present in <code class="docutils literal"><span class="pre">S</span></code>. This
+assumption will not be verified by GNATprove.</p>
+<p>The annotation <code class="docutils literal"><span class="pre">Iterable_For_Proof</span></code> can also be used in another case.
+Operations over complex data structures are sometimes specified using operations
+over a simpler model type. In this case, it may be more appropriate to translate
+<code class="docutils literal"><span class="pre">for</span> <span class="pre">...</span> <span class="pre">of</span></code> quantification as quantification over the model&#8217;s cursors. As an
+example, let us consider a package of linked lists that is specified using a
+sequence that allows accessing the element stored at each position:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Lists</span> <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="kr">is</span><span class="p"></span>
+
+ <span class="kr">type</span><span class="p"> </span><span class="n">Sequence</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p"> </span><span class="kr">with</span><span class="p"></span>
+   <span class="n">Ghost</span><span class="p">,</span>
+   <span class="n">Iterable</span> <span class="o">=&gt;</span> <span class="o">(...</span><span class="p">,</span>
+                <span class="n">Element</span>     <span class="o">=&gt;</span> <span class="n">Get</span><span class="o">)</span><span class="p">;</span>
+ <span class="k">function </span><span class="nf">Length</span> <span class="o">(</span><span class="n">M</span> <span class="o">:</span> <span class="n">Sequence</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">with</span><span class="p"> </span><span class="n">Ghost</span><span class="p">;</span>
+ <span class="k">function </span><span class="nf">Get</span> <span class="o">(</span><span class="n">M</span> <span class="o">:</span> <span class="n">Sequence</span><span class="p">;</span> <span class="n">P</span> <span class="o">:</span> <span class="n">Positive</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Element_Type</span> <span class="kr">with</span><span class="p"></span>
+   <span class="n">Ghost</span><span class="p">,</span>
+   <span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">P</span> <span class="o">&lt;=</span> <span class="n">Length</span> <span class="o">(</span><span class="n">M</span><span class="o">)</span><span class="p">;</span>
+
+ <span class="kr">type</span><span class="p"> </span><span class="n">Cursor</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p">;</span>
+ <span class="kr">type</span><span class="p"> </span><span class="n">List</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p"> </span><span class="kr">with</span><span class="p"></span>
+   <span class="n">Iterable</span> <span class="o">=&gt;</span> <span class="o">(...</span><span class="p">,</span>
+                <span class="n">Element</span>     <span class="o">=&gt;</span> <span class="n">Element</span><span class="o">)</span><span class="p">;</span>
+
+ <span class="k">function </span><span class="nf">Position</span> <span class="o">(</span><span class="n">L</span> <span class="o">:</span> <span class="n">List</span><span class="p">;</span> <span class="n">C</span> <span class="o">:</span> <span class="n">Cursor</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Positive</span> <span class="kr">with</span><span class="p"> </span><span class="n">Ghost</span><span class="p">;</span>
+ <span class="k">function </span><span class="nf">Model</span> <span class="o">(</span><span class="n">L</span> <span class="o">:</span> <span class="n">List</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Sequence</span> <span class="kr">with</span><span class="p"></span>
+   <span class="n">Ghost</span><span class="p">,</span>
+   <span class="n">Post</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="n">Length</span> <span class="o">(</span><span class="n">Model</span><span class="na">&#39;Result</span><span class="o">)</span> <span class="o">=&gt;</span>
+                <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">some</span><span class="p"> </span><span class="n">C</span> <span class="kr">in</span><span class="p"> </span><span class="n">L</span> <span class="o">=&gt;</span> <span class="n">Position</span> <span class="o">(</span><span class="n">L</span><span class="p">,</span> <span class="n">C</span><span class="o">)</span> <span class="o">=</span> <span class="n">I</span><span class="o">))</span><span class="p">;</span>
+
+ <span class="k">function </span><span class="nf">Element</span> <span class="o">(</span><span class="n">L</span> <span class="o">:</span> <span class="n">List</span><span class="p">;</span> <span class="n">C</span> <span class="o">:</span> <span class="n">Cursor</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Element_Type</span> <span class="kr">with</span><span class="p"></span>
+   <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">Has_Element</span> <span class="o">(</span><span class="n">L</span><span class="p">,</span> <span class="n">C</span><span class="o">)</span><span class="p">,</span>
+   <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Element</span><span class="na">&#39;Result</span> <span class="o">=</span> <span class="n">Get</span> <span class="o">(</span><span class="n">Model</span> <span class="o">(</span><span class="n">L</span><span class="o">)</span><span class="p">,</span> <span class="n">Position</span> <span class="o">(</span><span class="n">L</span><span class="p">,</span> <span class="n">C</span><span class="o">))</span><span class="p">;</span>
+
+ <span class="k">function </span><span class="nf">Has_Element</span> <span class="o">(</span><span class="n">L</span> <span class="o">:</span> <span class="n">List</span><span class="p">;</span> <span class="n">C</span> <span class="o">:</span> <span class="n">Cursor</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">with</span><span class="p"></span>
+   <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Has_Element</span><span class="na">&#39;Result</span> <span class="o">=</span> <span class="o">(</span><span class="n">Position</span> <span class="o">(</span><span class="n">L</span><span class="p">,</span> <span class="n">C</span><span class="o">)</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="n">Length</span> <span class="o">(</span><span class="n">Model</span> <span class="o">(</span><span class="n">L</span><span class="o">)))</span><span class="p">;</span>
+
+ <span class="k">procedure </span><span class="nf">Append</span> <span class="o">(</span><span class="n">L</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">List</span><span class="p">;</span> <span class="n">E</span> <span class="o">:</span> <span class="n">Element_Type</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+   <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">length</span> <span class="o">(</span><span class="n">Model</span> <span class="o">(</span><span class="n">L</span><span class="o">))</span> <span class="o">=</span> <span class="n">Length</span> <span class="o">(</span><span class="n">Model</span> <span class="o">(</span><span class="n">L</span><span class="o">))</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="mi">1</span>
+   <span class="kr">and</span><span class="p"> </span><span class="n">Get</span> <span class="o">(</span><span class="n">Model</span> <span class="o">(</span><span class="n">L</span><span class="o">)</span><span class="p">,</span> <span class="n">Length</span> <span class="o">(</span><span class="n">Model</span> <span class="o">(</span><span class="n">L</span><span class="o">)))</span> <span class="o">=</span> <span class="n">E</span>
+   <span class="kr">and</span><span class="p"> </span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="n">Length</span> <span class="o">(</span><span class="n">Model</span> <span class="o">(</span><span class="n">L</span><span class="o">))</span><span class="na">&#39;Old</span> <span class="o">=&gt;</span>
+          <span class="n">Get</span> <span class="o">(</span><span class="n">Model</span> <span class="o">(</span><span class="n">L</span><span class="o">)</span><span class="p">,</span> <span class="n">I</span><span class="o">)</span> <span class="o">=</span> <span class="n">Get</span> <span class="o">(</span><span class="n">Model</span> <span class="o">(</span><span class="n">L</span><span class="na">&#39;Old</span><span class="o">)</span><span class="p">,</span> <span class="n">I</span><span class="o">))</span><span class="p">;</span>
+
+ <span class="k">function </span><span class="nf">Init</span> <span class="o">(</span><span class="n">N</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span> <span class="n">E</span> <span class="o">:</span> <span class="n">Element_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">List</span> <span class="kr">with</span><span class="p"></span>
+   <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">length</span> <span class="o">(</span><span class="n">Model</span> <span class="o">(</span><span class="n">Init</span><span class="na">&#39;Result</span><span class="o">))</span> <span class="o">=</span> <span class="n">N</span>
+     <span class="kr">and</span><span class="p"> </span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">F</span> <span class="kr">of</span><span class="p"> </span><span class="n">Init</span><span class="na">&#39;Result</span> <span class="o">=&gt;</span> <span class="n">F</span> <span class="o">=</span> <span class="n">E</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Elements of lists can only be accessed through cursors. To specify easily the
+effects of position-based operations such as <code class="docutils literal"><span class="pre">Append</span></code>, we introduce a ghost
+type <code class="docutils literal"><span class="pre">Sequence</span></code>, that is used to represent logically the content of the linked
+list in specifications.
+The sequence associated to a list can be constructed using the <code class="docutils literal"><span class="pre">Model</span></code>
+function. Following the usual translation scheme for quantified expressions, the
+last line of the postcondition of <code class="docutils literal"><span class="pre">Init</span></code> is translated for proof as:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">C</span> <span class="o">:</span> <span class="n">Cursor</span> <span class="o">=&gt;</span>
+    <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Has_Element</span> <span class="o">(</span><span class="n">Init</span><span class="na">&#39;Result</span><span class="p">,</span> <span class="n">C</span><span class="o">)</span> <span class="kr">then</span><span class="p"> </span><span class="n">Element</span> <span class="o">(</span><span class="n">Init</span><span class="na">&#39;Result</span><span class="p">,</span> <span class="n">C</span><span class="o">)</span> <span class="o">=</span> <span class="n">E</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Using the definition of <code class="docutils literal"><span class="pre">Element</span></code> and <code class="docutils literal"><span class="pre">Has_Element</span></code>, it can then be refined
+further into:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">C</span> <span class="o">:</span> <span class="n">Cursor</span> <span class="o">=&gt;</span>
+    <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Position</span> <span class="o">(</span><span class="n">Init</span><span class="na">&#39;Result</span><span class="p">,</span> <span class="n">C</span><span class="o">)</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="n">Length</span> <span class="o">(</span><span class="n">Model</span> <span class="o">(</span><span class="n">Init</span><span class="na">&#39;Result</span><span class="o">))</span>
+     <span class="kr">then</span><span class="p"> </span><span class="n">Get</span> <span class="o">(</span><span class="n">Model</span> <span class="o">(</span><span class="n">Init</span><span class="na">&#39;Result</span><span class="o">)</span><span class="p">,</span> <span class="n">Position</span> <span class="o">(</span><span class="n">Init</span><span class="na">&#39;Result</span><span class="p">,</span> <span class="n">C</span><span class="o">))</span> <span class="o">=</span> <span class="n">E</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>To be able to link this property with other properties specified directly on
+models, like the postcondition of <code class="docutils literal"><span class="pre">Append</span></code>, it needs to be lifted to iterate
+over positions instead of cursors. This can be done using the postcondition of
+<code class="docutils literal"><span class="pre">Model</span></code> that states that there is a valid cursor in <code class="docutils literal"><span class="pre">L</span></code> for each position of
+its model. This lifting requires a lot of quantifier reasoning from the prover,
+thus making proofs more difficult.</p>
+<p>The GNATprove <code class="docutils literal"><span class="pre">Iterable_For_Proof</span></code> annotation can be used to provide
+GNATprove with a <cite>Model</cite> function, that will be to translate quantification on
+complex containers toward quantification on their model. For example, on our
+lists, we could write:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Model</span> <span class="o">(</span><span class="n">L</span> <span class="o">:</span> <span class="n">List</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Sequence</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Iterable_For_Proof</span><span class="p">,</span> <span class="s">&quot;Model&quot;</span><span class="p">,</span> <span class="n">Entity</span> <span class="o">=&gt;</span> <span class="n">Model</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>With this annotation, the postcondition of <code class="docutils literal"><span class="pre">Init</span></code> is translated directly as a
+quantification on the elements of the result&#8217;s model:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">I</span> <span class="o">:</span> <span class="n">Positive</span> <span class="o">=&gt;</span>
+   <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="n">Length</span> <span class="o">(</span><span class="n">Model</span> <span class="o">(</span><span class="n">Init</span><span class="na">&#39;Result</span><span class="o">))</span> <span class="kr">then</span><span class="p"></span>
+      <span class="n">Get</span> <span class="o">(</span><span class="n">Model</span> <span class="o">(</span><span class="n">Init</span><span class="na">&#39;Result</span><span class="o">)</span><span class="p">,</span> <span class="n">I</span><span class="o">)</span> <span class="o">=</span> <span class="n">E</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Like with the previous annotation, care should be taken to define the model
+function such that it always return a model containing exactly the same elements
+as <code class="docutils literal"><span class="pre">L</span></code>.</p>
+</div>
+<div class="section" id="inlining-functions-for-proof">
+<span id="id2"></span><h2>Inlining Functions for Proof<a class="headerlink" href="#inlining-functions-for-proof" title="Permalink to this headline">¶</a></h2>
+<p>Contracts for functions are generally translated by GNATprove has axioms on
+otherwise undefined functions. As an example, consider the following function:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Increment</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Increment</span><span class="na">&#39;Result</span> <span class="o">&gt;=</span> <span class="n">X</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>It will be translated by GNATprove as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Increment</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+<span class="n">axiom</span> <span class="o">:</span> <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer.</span> <span class="n">Increment</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span> <span class="o">&gt;=</span> <span class="n">X</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>For internal reasons due to ordering issues, expression functions are also
+defined using axioms. For example:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Is_Positive</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>will be translated exactly as if its definition was given through a
+postcondition, namely:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Is_Positive</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span><span class="p">;</span>
+
+<span class="n">axiom</span> <span class="o">:</span> <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer.</span> <span class="n">Is_Positive</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span> <span class="o">=</span> <span class="o">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This encoding may sometimes cause difficulties to the underlying solvers,
+especially for quantifier instantiation heuristics. This can cause strange
+behaviors, where an assertion is proven when some calls to expression
+functions are manually inlined but not without this inlining.</p>
+<p>If such a case occurs, it is sometimes possible to instruct the tool to inline
+the definition of expression functions using pragma <code class="docutils literal"><span class="pre">Annotate</span></code>
+<code class="docutils literal"><span class="pre">Inline_For_Proof</span></code>. When such a pragma is provided for an expression
+function, a direct definition will be used for the function instead of an
+axiom:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Is_Positive</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Inline_For_Proof</span><span class="p">,</span> <span class="n">Is_Positive</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The same pragma will also allow to inline a regular function, if its
+postcondition is simply an equality between its result and an expression:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Is_Positive</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Is_Positive</span><span class="na">&#39;Result</span> <span class="o">=</span> <span class="o">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Inline_For_Proof</span><span class="p">,</span> <span class="n">Is_Positive</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In this case, GNATprove will introduce a check when verifying the body of
+<code class="docutils literal"><span class="pre">Is_Positive</span></code> to make sure that the inline annotation is correct, namely, that
+<code class="docutils literal"><span class="pre">Is_Positive</span> <span class="pre">(X)</span></code> and <code class="docutils literal"><span class="pre">X</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> always yield the same result. This check
+may not be redundant with the verification of the postcondition of
+<code class="docutils literal"><span class="pre">Is_Positive</span></code> if the <code class="docutils literal"><span class="pre">=</span></code> symbol on booleans has been overridden.</p>
+<p>Note that, since the translation through axioms is necessary for ordering
+issues, this annotation can sometimes lead to a crash in GNATprove. It is the
+case for example when the definition of the function uses quantification over a
+container using the <code class="docutils literal"><span class="pre">Iterable</span></code> aspect.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gnatprove_limitations.html" title="GNATprove Limitations"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="external_axiomatizations.html" title="External Axiomatizations"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

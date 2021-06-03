@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4. Building applications &#8212; Tutorial 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Source Navigation" href="navigating.html" />
+    <link rel="prev" title="3. Editing sources" href="editing.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="navigating.html" title="5. Source Navigation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="editing.html" title="3. Editing sources"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Tutorial 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="editing.html"
+                        title="previous chapter">3. Editing sources</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="navigating.html"
+                        title="next chapter">5. Source Navigation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/building.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="building-applications">
+<h1>4. Building applications<a class="headerlink" href="#building-applications" title="Permalink to this headline">¶</a></h1>
+<p>Select the icon <cite>Build Main: sdc.adb</cite> on the toolbar (fourth icon from the
+right): this will launch a complete build of the <em>sdc</em> application. Note also
+that you can use a key binding directly instead of this tool bar button
+(<code class="kbd docutils literal"><span class="pre">F4</span></code>), or use the corresponding menu item <cite>Build-&gt;Project-&gt;Sdc-&gt;sdc.adb</cite>.
+If you use the menu item, an extra intermediate dialog is displayed showing the
+actual command line that will be used by GPS. Pressing <code class="kbd docutils literal"><span class="pre">Execute</span></code> will
+launch the build as well.</p>
+<p>The build has generated a number of errors in a new window: the <em>Locations</em>
+tree, displayed in the bottom area. The errors are also highlighted in the
+corresponding source editor.</p>
+<p>GPS has automatically jumped to the first error message (<em>sdc.adb, 28:6  :
+(style) bad indentation</em>), at the line (28) and column (6) of the error.</p>
+<p>Fix the error by hand by inserting a space.</p>
+<p>Now you can fix the next error by moving the cursor to the line 30 (press the
+<code class="kbd docutils literal"><span class="pre">down</span></code> arrow twice), and by using <code class="kbd docutils literal"><span class="pre">Tab</span></code>: this key
+shortcut asks the source editor to automatically re-indent the current line.</p>
+<p>Note that you can change this shortcut from the key shortcuts section of the
+Preferences dialog (menu <cite>Edit-&gt;Preferences</cite>, <cite>General/Key shortcuts</cite> section,
+<cite>Format Selection</cite> item).</p>
+<p>You can then fix all the remaining errors by selecting the whole block (from
+line 28 to line 40) and pressing <code class="kbd docutils literal"><span class="pre">Tab</span></code>. To select a block, you can
+either click on the left mouse button and select the area while holding the
+button, or using the keyboard by pressing the <code class="kbd docutils literal"><span class="pre">Shift</span></code> key and moving the
+cursor using the <code class="kbd docutils literal"><span class="pre">Up</span></code> or <code class="kbd docutils literal"><span class="pre">Down</span></code> keys.</p>
+<p>Press the <code class="kbd docutils literal"><span class="pre">F4</span></code> key to build again. GPS will automatically save the
+modified files, and start a build. This behavior (automatic saving of files
+before building) can be configured in the preferences dialog.</p>
+<p>If you look to the right of the toolbar in the GPS window, next to the
+omni-search entry, you will notice that a progress bar has appeared,
+displaying the current number of files compiled, and the number of remaining
+files. This progress bar disappears when the build is finished.</p>
+<p>This should now report a successful build.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="navigating.html" title="5. Source Navigation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="editing.html" title="3. Editing sources"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Tutorial 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

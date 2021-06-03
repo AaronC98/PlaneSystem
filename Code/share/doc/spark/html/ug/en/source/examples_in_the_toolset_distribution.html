@@ -1,0 +1,784 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7.10. Examples in the Toolset Distribution &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="8. Applying SPARK in Practice" href="../usage_scenarios.html" />
+    <link rel="prev" title="7.9.3. Manual Proof Examples" href="../../gnatprove_by_example/manual_proof.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../usage_scenarios.html" title="8. Applying SPARK in Practice"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../../gnatprove_by_example/manual_proof.html" title="7.9.3. Manual Proof Examples"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" accesskey="U">7. Formal Verification with GNATprove</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">7.10. Examples in the Toolset Distribution</a><ul>
+<li><a class="reference internal" href="#individual-subprograms">7.10.1. Individual Subprograms</a></li>
+<li><a class="reference internal" href="#single-units">7.10.2. Single Units</a></li>
+<li><a class="reference internal" href="#multi-units-demos">7.10.3. Multi-Units Demos</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../../gnatprove_by_example/manual_proof.html"
+                        title="previous chapter">7.9.3. Manual Proof Examples</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../usage_scenarios.html"
+                        title="next chapter">8. Applying SPARK in Practice</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/examples_in_the_toolset_distribution.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="examples-in-the-toolset-distribution">
+<span id="id1"></span><h1>7.10. Examples in the Toolset Distribution<a class="headerlink" href="#examples-in-the-toolset-distribution" title="Permalink to this headline">¶</a></h1>
+<p>Further examples of SPARK are distributed with the SPARK toolset. These are
+contained in the <code class="docutils literal"><span class="pre">share/examples/spark</span></code> directory below the directory where
+the toolset is installed, and can be accessed from the IDE (either GPS or
+GNATBench) via the <span class="menuselection">Help ‣ SPARK ‣ Examples</span> menu item.</p>
+<p>These examples range from single subprograms to demo programs with dozens of
+units. In this section, we describe briefly the code in each example, the
+properties specified, and the results of GNATprove&#8216;s analysis.</p>
+<div class="section" id="individual-subprograms">
+<h2>7.10.1. Individual Subprograms<a class="headerlink" href="#individual-subprograms" title="Permalink to this headline">¶</a></h2>
+<p>These examples contain usually a single subprogram, and are typically very
+small (a few dozens slocs).</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">binary_search</span></code> and <code class="docutils literal"><span class="pre">binary_search_unconstrained</span></code></p>
+<p>These programs search for a given value in an ordered array. The postcondition
+of the main function <code class="docutils literal"><span class="pre">Binary_Search</span></code> expresses that the search is successful
+if-and-only-if the array contains the value searched, and if so the index
+returned is one at which the array contains this value. GNATprove proves all
+checks on these programs. The version with an unconstrained array is the same
+as the one presented in the section on <a class="reference internal" href="how_to_write_loop_invariants.html#how-to-write-loop-invariants"><span class="std std-ref">How to Write Loop Invariants</span></a>, and
+used in a series of two articles published by Johannes Kanig in Electronic
+Design to compare dynamic and static verification techniques (see
+<a class="reference external" href="http://blog.adacore.com/testing-static-formal">http://blog.adacore.com/testing-static-formal</a>).</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">euclidian_division</span></code></p>
+<p>This program implements the Euclidian division of two integers <code class="docutils literal"><span class="pre">Dividend</span></code> and
+<code class="docutils literal"><span class="pre">Divisor</span></code>, returning their quotient and remainder in <code class="docutils literal"><span class="pre">Quotient</span></code> and
+<code class="docutils literal"><span class="pre">Remainder</span></code> respectively. The postcondition of procedure <code class="docutils literal"><span class="pre">Linear_Div</span></code>
+expresses the expected mathematical relation between inputs and
+outputs. GNATprove proves all checks on this program.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">gcd</span></code></p>
+<p>This program computes the greatest common divisor between two positive
+numbers. The postcondition of function <code class="docutils literal"><span class="pre">GCD</span></code> checks that the number returned
+is indeed the greatest common divisor of its arguments. Four versions of the
+function are provided:</p>
+<blockquote>
+<div><ul class="simple">
+<li>a simple version that searches linearly for the GCD.</li>
+<li>a modification of the simple version with a more mathematical expression
+of divisibility in the contract of GCD.</li>
+<li>a modification of the simple version that optimizes the search to skip half
+the candidates for GCD.</li>
+<li>Euclid&#8217;s algorithm for computing the GCD.</li>
+</ul>
+</div></blockquote>
+<p>Each successive version makes use of more complex <a class="reference internal" href="specification_features.html#ghost-code"><span class="std std-ref">Ghost Code</span></a> to prove
+that the implementation of <code class="docutils literal"><span class="pre">GCD</span></code> satisfies its contract. GNATprove proves
+all checks on this program, except for some elementary lemmas on modulo
+operator. This is detailed in the following post on AdaCore blog:
+<a class="reference external" href="https://blog.adacore.com/gnatprove-tips-and-tricks-proving-the-ghost-common-denominator-gcd">https://blog.adacore.com/gnatprove-tips-and-tricks-proving-the-ghost-common-denominator-gcd</a></p>
+<p class="rubric"><code class="docutils literal"><span class="pre">intro</span></code></p>
+<p>This program computes the price of a basket of items. The postcondition of the
+main function <code class="docutils literal"><span class="pre">Price_Of_Basket</span></code> checks that the resulting price is at least
+the price of the most expensive item. GNATprove proves all checks on this
+program.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">linear_search</span></code></p>
+<p>This program searches for a given value in an unordered array. The
+postcondition of the main function <code class="docutils literal"><span class="pre">Linear_Search</span></code> expresses that if the
+search is successful then the index returned is one at which the array contains
+the value searched. GNATprove proves all checks on this program. This program
+is the same as the one presented in the <a class="reference internal" href="../tutorial.html#spark-tutorial"><span class="std std-ref">SPARK Tutorial</span></a>.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">longest_common_prefix</span></code></p>
+<p>This program computes the length of the longest common prefix between two
+substrings of a common text. The postcondition of the main function <code class="docutils literal"><span class="pre">LCP</span></code>
+expresses this property. GNATprove proves all checks on this program. This
+program was proposed as a formal verification challenge during VerifyThis
+Verification Competition in 2012 (see <a class="reference external" href="http://fm2012.verifythis.org/">http://fm2012.verifythis.org/</a>).</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">pair_insertion_sort</span></code></p>
+<p>This program performs a variant of insertion sort, that inserts in place two
+elements of an array at each loop iteration. This program was proposed as a
+formal verification challenge during VerifyThis Verification Competition in
+2017 (see <a class="reference external" href="http://www.pm.inf.ethz.ch/verifythis.html">http://www.pm.inf.ethz.ch/verifythis.html</a>). The postcondition of the
+main function <code class="docutils literal"><span class="pre">Sort</span></code> expresses both that the array is sorted on exit, and
+that it is a permutation of its input value. GNATprove proves all checks on
+this program. The process to progress through all levels of software assurance
+with SPARK on this example is detailed in the following post on AdaCore
+blog: <a class="reference external" href="https://blog.adacore.com/verifythis-challenge-in-spark">https://blog.adacore.com/verifythis-challenge-in-spark</a></p>
+<p class="rubric"><code class="docutils literal"><span class="pre">search_linked_list</span></code></p>
+<p>This program searches for a given value in an unordered linked list. The
+postcondition of the main function <code class="docutils literal"><span class="pre">Search</span></code> expresses that the search is
+successful if-and-only-if the list contains the value searched, and if so the
+cursor returned is one at which the list contains this value. GNATprove
+proves all checks on these programs.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">string_search</span></code></p>
+<p>This example contains multiple variants of substring search:</p>
+<ul class="simple">
+<li>a simple brute force search in <code class="docutils literal"><span class="pre">Brute_Force</span></code> and <code class="docutils literal"><span class="pre">Brute_Force_Slice</span></code>.</li>
+<li>a more efficient algorithm called quick search in <code class="docutils literal"><span class="pre">QS</span></code>.</li>
+</ul>
+<p>The postcondition of all variants expresses that the search is successful
+if-and-only-if the string <code class="docutils literal"><span class="pre">Haystack</span></code> contains the substring <code class="docutils literal"><span class="pre">Needle</span></code>
+searched, and if so the index returned is one at which the string contains this
+substring. GNATprove proves all checks on these programs. A detailed account
+of the development and verification of this example is given in the following
+post on AdaCore blog:
+<a class="reference external" href="https://blog.adacore.com/applied-formal-logic-searching-in-strings">https://blog.adacore.com/applied-formal-logic-searching-in-strings</a></p>
+<p class="rubric"><code class="docutils literal"><span class="pre">trajectory_computation</span></code></p>
+<p>This example contains code from an embedded safety-critical software, which
+computes the speed of a device submitted to gravitational acceleration and drag
+from the atmosphere around it. This program was used as challenge example in
+the article <cite>&#8220;Automating the Verification of Floating-Point Programs&#8221;</cite>
+published at VSTTE 2017 conference.</p>
+<p>The Ada files contain multiple variants of the example in increasing order of
+difficulty, see <code class="docutils literal"><span class="pre">README</span></code> file for details. The challenge example used in the
+article corresponds to files <code class="docutils literal"><span class="pre">simple_trajectory.ads</span></code> and
+<code class="docutils literal"><span class="pre">simple_trajectory.adb</span></code>. In this version, only the speed is updated, not the
+distance. Both absence of run-time errors (including overflows) and safe bounds
+on the computed speed are proved by using a combination of provers. A dozen
+intermediate assertions are needed to benefit from this combination, so that
+different provers can prove different parts of the property.</p>
+</div>
+<div class="section" id="single-units">
+<h2>7.10.2. Single Units<a class="headerlink" href="#single-units" title="Permalink to this headline">¶</a></h2>
+<p>These examples contain a single unit, and are usually small (a few hundreds
+slocs at most).</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">adacore_u</span></code></p>
+<p>This folder contains the complete source code of the small examples used in the
+quiz of the SPARK 2014 course available from the AdaCore University website (at
+<a class="reference external" href="http://university.adacore.com/courses/spark-2014/">http://university.adacore.com/courses/spark-2014/</a>). They include unannotated
+units, examples with formally verified data flow, functional, or abstraction
+contracts, as well as erroneous programs, on which GNATprove detects failing
+checks.</p>
+<p>Opening the example in GPS or GNATbench opens an aggregate project, with
+separate sub-projects for each lecture.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">allocators</span></code></p>
+<p>This program demonstrates how the specification of a SPARK program can be
+formalized using an abstract model and how the refinement relation between the
+model an its implementation can be verified using GNATprove. It is described
+in the article
+<cite>&#8220;Abstract Software Specifications and Automatic Proof of Refinement&#8221;</cite>
+published at RSSRail 2016 conference
+(at <a class="reference external" href="http://blog.adacore.com/uploads/rssrail.pdf">http://blog.adacore.com/uploads/rssrail.pdf</a>).</p>
+<p>The example contains three versions of an allocator package. They are specified
+in terms of mathematical structures (sequences and sets). The refinement
+relation between the mathematical model and the implementation is expressed as a
+ghost function <code class="docutils literal"><span class="pre">Is_Valid</span></code> and enforced through contracts. It can be verified
+automatically using GNATprove.</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">Simple_Allocator</span></code> features a naive implementation of the allocator,
+storing the status (available or allocated) of each resource in a big array.
+It is specified using a ghost function <code class="docutils literal"><span class="pre">Model</span></code> which always returns a
+valid refinement of the allocator&#8217;s data. The refinement relation is
+verified only once, as a postcondition of the <code class="docutils literal"><span class="pre">Model</span></code> function. The
+functional contracts on modifying procedures as well as the refinement
+relation are straightforward and can be verified easily at level 2 in
+a few seconds.</li>
+<li><code class="docutils literal"><span class="pre">List_Allocator</span></code> introduces a free list to access more efficiently the
+first available resource. Here not every possible state of the allocator
+data can be refined into a valid model. To work around this problem, the
+model is stored in a global ghost variable which is updated along with the
+allocator&#8217;s data and the refinement relation is expressed as an invariant
+that must be verified as a postcondition of each modifying procedure. The
+functional contracts on modifying procedures are straightforward but the
+refinement relation is now more complicated, as it needs to account for the
+implementation of the free list. They can be verified at level 4 in less
+than one minute overall.</li>
+<li><code class="docutils literal"><span class="pre">List_Mod_Allocator</span></code> features the same implementation and contracts as
+<code class="docutils literal"><span class="pre">List_Allocator</span></code>, but its model is returned by a ghost function like in
+<code class="docutils literal"><span class="pre">Simple_Allocator</span></code> instead of being stored in a global ghost variable. As
+not every possible state of the allocator can be refined into a valid model,
+the refinement relation is not expressed as a postcondition of Model, but as
+an invariant, as in <code class="docutils literal"><span class="pre">List_Allocator</span></code> and must be verified as a
+postcondition of each modifying procedure. The functional contracts and the
+refinement relation resemble those of <code class="docutils literal"><span class="pre">List_Allocator</span></code>. However, as we
+don&#8217;t construct explicitly the new model after each modification, the proof
+of the allocator&#8217;s functional contracts requires induction, which is beyond
+the reach of automatic solvers. The induction scheme is given here manually
+in an auto-active style through calls to ghost procedures.  The whole
+program can then be verified automatically at level 4 in less than one
+minute overall on an 8-cores machine, or in a few minutes on a single core.</li>
+</ul>
+</div></blockquote>
+<p>See the relevant sections for more details on <a class="reference internal" href="specification_features.html#ghost-code"><span class="std std-ref">Ghost Code</span></a> and
+<a class="reference internal" href="../../gnatprove_by_example/manual_proof.html#manual-proof-using-ghost-code"><span class="std std-ref">Manual Proof Using Ghost Code</span></a>.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">cartesian_trees</span></code></p>
+<p>This program is a solution to the second challenge of VerifyThis 2019. For
+a sequence of distinct numbers <code class="docutils literal"><span class="pre">S</span></code>, the Cartesian tree of <code class="docutils literal"><span class="pre">S</span></code> is the only
+binary tree <code class="docutils literal"><span class="pre">T</span></code> such that <code class="docutils literal"><span class="pre">T</span></code> contains a node per element of <code class="docutils literal"><span class="pre">S</span></code>, <code class="docutils literal"><span class="pre">T</span></code>
+has the heap property, and symmetrical traversal of <code class="docutils literal"><span class="pre">T</span></code> encounters elements
+in the order of <code class="docutils literal"><span class="pre">S</span></code>. The challenge is split in two parts, first construct
+all nearest smaller neighbors to the left/right of each element of a sequence
+using a stack, and then construct the Cartesian tree of the sequence using these
+neighbors.</p>
+<p>Computation of the nearest smaller neighbors is fairly straightforward in SPARK.
+It still features a relatively involved loop invariant. On the other hand,
+showing that the tree constructed by the algorithm in the second part is the
+Cartesian tree of the input sequence is rather involved. It uses ghost code
+to manually guide automatic solvers (see <a class="reference internal" href="../../gnatprove_by_example/manual_proof.html#manual-proof-using-ghost-code"><span class="std std-ref">Manual Proof Using Ghost Code</span></a>).</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">database</span></code></p>
+<p>This program implements a toy interface to a bank account database, with
+procedures to deposit and withdraw money, and functions to query the account
+balance and information. This program was used as running example in the article
+<cite>&#8220;Integrating Formal Program Verification with Testing&#8221;</cite> (at
+<a class="reference external" href="http://www.adacore.com/uploads_gems/Hi-Lite_ERTS-2012.pdf">http://www.adacore.com/uploads_gems/Hi-Lite_ERTS-2012.pdf</a>). The
+API is annotated with full functional contracts, as well as test cases
+expressed with aspect <code class="docutils literal"><span class="pre">Test_Case</span></code>. GNATprove proves all checks on this
+program.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">evoting</span></code></p>
+<p>This program implements a toy e-voting interface, to get candidates and votes
+from a file, compute the winner of the vote and print it. The API is annotated
+with functional contracts, some partial and some complete. GNATprove proves
+all checks on this program, except for initialization of an array initialized
+piecewise (known limitation of flow analysis) and an array access in a string
+returned by the standard library function <code class="docutils literal"><span class="pre">Get_Line</span></code> (which would require
+using a wrapper with contracts).</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">formal_queue</span></code></p>
+<p>This program implements a queue of integers using a doubly linked list, with
+full functional contracts on the API of the queue. GNATprove proves all
+checks on this program.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">ghc_sort</span></code></p>
+<p>This program is a partial solution to the first challenge of VerifyThis 2019.
+It features a sorting algorithm, which works by splitting the input sequence into
+monotonic subsequences of maximal length. It then reverses the decreasing
+subsequences and merges them pairwise until the sequence is reconstructed.</p>
+<p>Computation of the sequence of cuts is completely verified. On sorting
+algorithm, we only check that it returns a sorted sequence of the correct
+length. We did not attempt to prove that the result of the sort function is
+a permutation of its input. Indeed, this kind of property is complicated both to
+formalize and to verify, and generally requires ghost code
+(see <a class="reference internal" href="../../gnatprove_by_example/manual_proof.html#manual-proof-using-ghost-code"><span class="std std-ref">Manual Proof Using Ghost Code</span></a>).</p>
+<p>This example does not feature the use of any interactive proof techniques, as
+proofs attempted were largely in reach of the automated tool.
+We used support for ownership pointers in SPARK to implement lists of
+subsequences as a recursive data-type using pointers.
+It is all proved except for termination of recursive functions used to iterate
+over the lists.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">natural</span></code></p>
+<p>This program implements an interface to manipulate sets of natural numbers,
+stored in an array. Contracts on the interface subprograms express partial
+correctness properties, for example that the set contains an element after it
+has been inserted. GNATprove proves all checks on this program.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">nuclear_systems</span></code></p>
+<p>This program implements a concurrent system to control a nuclear reactor, in
+which the state of the reactor is queried every few seconds, and the reactor is
+stopped if either its state is <code class="docutils literal"><span class="pre">Uncontrolled</span></code>, or if was not controlled in
+the previous two seconds (because not queried or because it did not
+answer). GNATprove proves all checks on this program. This program was
+presented as an idiomatic way to support selective delays in SPARK in a blog
+post on <cite>&#8220;Selective Delays in SPARK and Ravenscar&#8221;</cite> (see
+<a class="reference external" href="https://two-wrongs.com/selective-delay-in-spark-and-ravenscar.html">https://two-wrongs.com/selective-delay-in-spark-and-ravenscar.html</a>).</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">n_queens</span></code></p>
+<p>This program implements the solution to the N queens problem, to place N queens
+on an N x N chess board so that no queen can capture another one with a legal
+move. The API is annotated with full functional contracts. GNATprove proves
+all checks on this program. This program was proposed as a formal verification
+challenge during VSTTE Verification Competition in 2010 (see
+<a class="reference external" href="https://sites.google.com/a/vscomp.org/main/">https://sites.google.com/a/vscomp.org/main/</a>).</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">patience</span></code></p>
+<p>This program implements the game of Patience Solitaire, taking cards one-by-one
+from a deck of cards and arranging them face up in a sequence of stacks. The
+invariant maintained when playing is a complex relation between multiple arrays
+storing the current state of the game. GNATprove proves all checks on this
+program, when using provers CVC4, Alt-Ergo and Z3. This program was proposed as
+a formal verification challenge during VSTTE Verification Competition in 2014
+(see <a class="reference external" href="http://vscomp.org/">http://vscomp.org/</a>).</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">prime_numbers</span></code></p>
+<p>This program implements two functions <code class="docutils literal"><span class="pre">Nearest_Number</span></code> and
+<code class="docutils literal"><span class="pre">Nearest_Prime_Number</span></code> which respectively find the closest coprime number and
+prime number for a given argument value and a given searching mode among three
+possibilities: above the value only, below the value only, or both. The spec of
+both functions is expressed in a <code class="docutils literal"><span class="pre">Contract_Cases</span></code> aspect, and proved
+automatically with GNATprove. GNATprove also proves automatically the
+functional contract of <code class="docutils literal"><span class="pre">Initialize_Coprime_List</span></code> which initializes the list
+of coprimes for a given argument, using Euclid&#8217;s method, and returns this list
+to be used with <code class="docutils literal"><span class="pre">Nearest_Number</span></code>. The list of prime numbers is initialized at
+package elaboration using the sieve of Erathosthenes, a procedure which is
+currently not fully proved by GNATprove, due to the use of non-linear integer
+arithmetic and floating-point square root function.</p>
+<p>This program offers a nice display of many SPARK features in a simple setting:</p>
+<ul class="simple">
+<li><a class="reference internal" href="package_contracts.html#state-abstraction"><span class="std std-ref">State Abstraction</span></a></li>
+<li><a class="reference internal" href="subprogram_contracts.html#subprogram-contracts"><span class="std std-ref">Subprogram Contracts</span></a></li>
+<li><a class="reference internal" href="specification_features.html#specification-features"><span class="std std-ref">Specification Features</span></a></li>
+<li><a class="reference internal" href="assertion_pragmas.html#loop-invariants"><span class="std std-ref">Loop Invariants</span></a></li>
+<li><a class="reference internal" href="specification_features.html#ghost-code"><span class="std std-ref">Ghost Code</span></a></li>
+</ul>
+<p>The original code was contributed by Guillaume Foliard.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">red_black_trees</span></code></p>
+<p>This example demonstrates <a class="reference internal" href="type_contracts.html#type-invariants"><span class="std std-ref">Type Invariants</span></a> and <a class="reference internal" href="../../gnatprove_by_example/manual_proof.html#manual-proof-using-ghost-code"><span class="std std-ref">Manual Proof Using Ghost Code</span></a> on an implementation of red black trees. It features a minimalist library of trees providing only membership test and insertion. The complexity of this example lies in the invariants that are maintained on the data-structure. Namely, it implements a balanced binary search tree, balancing being enforced by red black coloring.</p>
+<p>The implementation is divided in three layers, each concerned with only a part
+of the global data structure invariant. The first package, named
+<code class="docutils literal"><span class="pre">Binary_Trees</span></code>, is only concerned with the tree structure, whereas
+<code class="docutils literal"><span class="pre">Search_Trees</span></code> imposes ordering properties and <code class="docutils literal"><span class="pre">Red_Black_Trees</span></code>
+enforces balancing. At each level, the relevant properties are expressed using
+a <code class="docutils literal"><span class="pre">Type</span> <span class="pre">Invariant</span></code>. It allows to show each independent invariant at the
+boundary of its layer, assuming that it holds when working on upper layers.</p>
+<p>The example features several particularities which make it complex beyond
+purely automated reasoning. First, the tree structure is encoded using
+references in an array, which makes it difficult to reason about disjointness
+of different branches of a tree. Then, reasoning about reachability in the tree
+structure requires induction, which is often out of the reach of automatic
+solvers. Finally, reasoning about value ordering is also a pain point for
+automatic solvers, as it requires coming up with intermediate values on which
+to apply transitivity.</p>
+<p>To achieve full functional verification of this example, it resorts to
+manually helping automatic solvers using auto-active techniques. For example,
+ghost procedures are used to introduce intermediate lemmas, loop invariants are
+written to achieve inductive proofs, and assertions are introduced to provide
+new values to be used for transitivity relations.</p>
+<p>This program and the verification activities associated to it are described in
+<cite>&#8220;Auto-Active Proof of Red-Black Trees in SPARK&#8221;</cite>, presented at NFM 2017 (at
+<a class="reference external" href="https://blog.adacore.com/uploads/Auto-Active-Proof-of-Red-Black-Trees-in-SPARK.pdf">https://blog.adacore.com/uploads/Auto-Active-Proof-of-Red-Black-Trees-in-SPARK.pdf</a>).</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">railway_signaling</span></code></p>
+<p>This program implements a simple signaling algorithm to avoid collision of
+trains. The main procedure <code class="docutils literal"><span class="pre">Move</span></code> moving a given train along the railroad
+should preserve the collision-free property <code class="docutils literal"><span class="pre">One_Train_At_Most_Per_Track</span></code> and
+the correctness of signaling <code class="docutils literal"><span class="pre">Safe_Signaling</span></code>, namely that:</p>
+<ul class="simple">
+<li>tracks that are occupied by a train are signalled in red, and</li>
+<li>tracks that precede an occupied track are signalled in orange.</li>
+</ul>
+<p>As the algorithm in <code class="docutils literal"><span class="pre">Move</span></code> relies on the correctness of the signaling, the
+preservation of the collision-free property depends also on the the correctness
+of the signaling. <a class="reference internal" href="assertion_pragmas.html#pragma-assume"><span class="std std-ref">Pragma Assume</span></a> is used to express an essential property
+of the railroad on which correctness depends, namely that no track precedes
+itself. GNATprove proves all checks on this program, when using provers
+CVC4, Alt-Ergo and Z3.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">ring_buffer</span></code></p>
+<p>This program implements a ring buffer stored in an array of fixed size, with
+partial contracts on the API of the ring buffer. GNATprove proves all checks
+on this program. This program was proposed as a formal verification challenge
+during VSTTE Verification Competition in 2012 (see
+<a class="reference external" href="https://sites.google.com/site/vstte2012/compet">https://sites.google.com/site/vstte2012/compet</a>).</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">segway</span></code></p>
+<p>This program implements a state machine controlling a segway states. The global
+invariant maintained across states is expressed in an expression function
+called from preconditions and postconditions. GNATprove proves all checks
+on this program.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">spark_book</span></code></p>
+<p>This collection of examples comes from the book <cite>Building High Integrity
+Applications with SPARK</cite> written by Prof. John McCormick from University of
+Northern Iowa and Prof. Peter Chapin from Vermont Technical College, published
+by Cambridge University Press:</p>
+<img alt="Cover of SPARK Book" class="align-center" src="../../_images/spark_book.jpg" />
+<p>The examples follow the chapters of the book:</p>
+<ol class="arabic simple">
+<li>Introduction and overview</li>
+<li>The basic SPARK language</li>
+<li>Programming in the large</li>
+<li>Dependency contracts</li>
+<li>Mathematical background</li>
+<li>Proof</li>
+<li>Interfacing with SPARK</li>
+<li>Software engineering with SPARK</li>
+<li>Advanced techniques</li>
+</ol>
+<p>Opening the example in GPS or GNATbench opens a project with all
+sources. Projects corresponding to individual chapters are available in
+subdirectories and can be opened manually.</p>
+<p>The original source code is available from the publisher&#8217;s website at <a class="reference external" href="http://www.cambridge.org/us/academic/subjects/computer-science/programming-languages-and-applied-logic/building-high-integrity-applications-spark">http://www.cambridge.org/us/academic/subjects/computer-science/programming-languages-and-applied-logic/building-high-integrity-applications-spark</a></p>
+<p class="rubric"><code class="docutils literal"><span class="pre">stopwatch</span></code></p>
+<p>This program implements a stopwatch, and is an example of how concurrent
+progragms are verified in SPARK. A user can push buttons to start, stop and
+reset the clock. The clock has a display to show the elapsed time. This example
+uses protected objects and tasks.</p>
+<p>GNATprove proves all checks on this program, including the safe usage of
+concurrency.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">tagged_stacks</span></code></p>
+<p>This example features an abstract view of a stack, represented as an abstract
+tagged type with abstract primitives, as well as two concrete stack
+implementations deriving from this abstract root. A procedure <code class="docutils literal"><span class="pre">Test_Stack</span></code>
+defined on any object of the type hierarchy uses dispatching to test any
+concrete stack implementation.</p>
+<p>Note that in this example, LSP checks
+(see <a class="reference internal" href="object_oriented_programming.html#object-oriented-programming-and-liskov-substitution-principle"><span class="std std-ref">Object Oriented Programming and Liskov Substitution Principle</span></a>) are
+trivial as no contracts are supplied on overriding subprograms. The differences
+of behaviors between the two concrete implementations are all accounted for
+through calls to primitive functions in the classwide contracts.</p>
+<p>Also note that we did not provide any loop invariants on the loops of
+<code class="docutils literal"><span class="pre">Test_Stack</span></code>. Instead we rely on
+<a class="reference internal" href="how_to_write_loop_invariants.html#automatic-unrolling-of-simple-for-loops"><span class="std std-ref">Automatic Unrolling of Simple For-Loops</span></a> to verify the procedure.</p>
+<p>GNATprove proves all checks on this program.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">tetris</span></code></p>
+<p>This program implements a simple version of the game of Tetris. An invariant of
+the game is stated in function <code class="docutils literal"><span class="pre">Valid_Configuration</span></code>, that all procedures of
+the unit must maintain. This invariant depends on the state of the game which
+if updated by every procedure. Both the invariant and the state of the game are
+encoded as <a class="reference internal" href="specification_features.html#ghost-code"><span class="std std-ref">Ghost Code</span></a>. The invariant expresses two properties:</p>
+<ol class="arabic simple">
+<li>A falling piece never exits the game board, and it does not overlap with
+pieces that have already fallen.</li>
+<li>After a piece has fallen, the complete lines it may create are removed from
+the game board.</li>
+</ol>
+<p>GNATprove proves all checks on the full version of this program found in
+<code class="docutils literal"><span class="pre">tetris_functional.adb</span></code>. Intermediate versions of the program show the
+initial code without any contracts in <code class="docutils literal"><span class="pre">tetris_initial.adb</span></code>, the code with
+contracts for data dependencies in <code class="docutils literal"><span class="pre">tetris_flow.adb</span></code> and the code with
+contracts to guard against run-time errors in <code class="docutils literal"><span class="pre">tetris_integrity.adb</span></code>. The
+complete program, including the BSP to run it on the ATMEL SAM4S board, is
+available online (see
+<a class="reference external" href="http://blog.adacore.com/tetris-in-spark-on-arm-cortex-m4">http://blog.adacore.com/tetris-in-spark-on-arm-cortex-m4</a>).</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">tictactoe</span></code></p>
+<p>This program implements a game of tic-tac-toe. A human player and the computer
+take turns. Subprograms <code class="docutils literal"><span class="pre">Player_Play</span></code> and <code class="docutils literal"><span class="pre">Computer_Play</span></code> in
+<code class="docutils literal"><span class="pre">tictactoe.ads</span></code> have partial contracts stating that the number of free slots
+decreases by one after each play.</p>
+<p>GNATprove proves all absence of run-time errors on this program, and that the
+subprogram contracts are correctly implemented. Interestingly, no loop
+invariants are needed, although the program contains many loops, thanks to the
+use of <a class="reference internal" href="how_to_write_loop_invariants.html#automatic-unrolling-of-simple-for-loops"><span class="std std-ref">Automatic Unrolling of Simple For-Loops</span></a> in GNATprove.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">traffic_light</span></code></p>
+<p>This program implements two small simulators of traffic lights:</p>
+<ul class="simple">
+<li>Unit <code class="docutils literal"><span class="pre">Road_Traffic</span></code> defines safety rules for operating traffic lights over
+a crossroads. All procedures that change the state of the lights must
+maintain the safety property.</li>
+<li>Unit <code class="docutils literal"><span class="pre">Traffic_Lights</span></code> defines a concurrent program for operating traffic
+lights at a pedestian crossing, using two tasks that communicate over a
+protected object, where the invariant maintained by the protected data is
+expressed using a subtype predicate.</li>
+</ul>
+<p>GNATprove proves all checks on this program, including the safe usage of
+concurrency (absence of data races, absence of deadlocks).</p>
+</div>
+<div class="section" id="multi-units-demos">
+<h2>7.10.3. Multi-Units Demos<a class="headerlink" href="#multi-units-demos" title="Permalink to this headline">¶</a></h2>
+<p>These examples contain larger demo programs (of a few hundreds or thousands
+slocs).</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">autopilot</span></code></p>
+<p>This program was originally a case study written in SPARK 2005 by John Barnes,
+presented in section 14.3 of his book <cite>&#8220;High Integrity Software, The SPARK
+Approach to Safety and Security&#8221;</cite> (2003) and section 15.1 of the updated book
+<cite>&#8220;SPARK: The Proven Approach to High Integrity Software&#8221;</cite> (2012). For details on
+this case study, see one of the above books. The program in the toolset
+distribution is the SPARK 2014 version of this case study.</p>
+<p>The program considers the control system of an autopilot controlling both
+altitude and heading of an aircraft. The altitude is controlled by manipulating
+the elevators and the heading is controlled by manipulating the ailerons and
+rudder.</p>
+<p>The values given by instruments are modelled as <a class="reference internal" href="package_contracts.html#external-state-abstraction"><span class="std std-ref">External State Abstraction</span></a> with asynchronous writers (the sensors) in package
+<code class="docutils literal"><span class="pre">Instruments</span></code>. The states of controllers are modelled as a <a class="reference internal" href="package_contracts.html#state-abstraction"><span class="std std-ref">State Abstraction</span></a> called <code class="docutils literal"><span class="pre">State</span></code> in package <code class="docutils literal"><span class="pre">AP</span></code>, which is successively refined
+into finer-grain abstractions in the child packages of <code class="docutils literal"><span class="pre">AP</span></code> (for example
+<code class="docutils literal"><span class="pre">AP.Altitude</span></code> and <code class="docutils literal"><span class="pre">AP.Altitude.Pitch</span></code>). The actions on the mobile surfaces
+of the plane are modelled as <a class="reference internal" href="package_contracts.html#external-state-abstraction"><span class="std std-ref">External State Abstraction</span></a> with
+asynchronous readers (the actuators) in package <code class="docutils literal"><span class="pre">Surfaces</span></code>.</p>
+<p>Data and flow dependency contracts are given for all subprograms. GNATprove
+proves all checks on this program, except for 4 runtime checks related to
+scaling quantities using a division (a known limitation of automatic provers).</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">bitwalker</span></code></p>
+<p>This program was originally a case study in C from Siemens rewritten by the
+Fraunhofer FOKUS research group for applying the Frama-C formal verification
+tool to it. It was later on rewritten in SPARK and formally proved correct with
+GNATprove (with 100% of checks automatically proved). This work is described
+in the article <cite>&#8220;Specification and Proof of High-Level Functional Properties of
+Bit-Level Programs&#8221;</cite> published at NFM 2016 conference (at
+<a class="reference external" href="https://hal.inria.fr/hal-01314876">https://hal.inria.fr/hal-01314876</a>).</p>
+<p>This program introduces a function and procedure that read and respectively
+write a word of bits of a given length from a stream of bytes at a given
+position. It heavily uses bitwise arithmetic and is fully specified with
+contracts and automatically proved by GNATprove. In addition, two test
+procedures call read-then-write and write-then-read and GNATprove is able to
+prove the expected properties on the interplay between reading and writing.</p>
+<p>In this program we use an external axiomatization in order to lift
+some operators from the underlying Why3 theory of bitvectors to
+SPARK. In particular the <code class="docutils literal"><span class="pre">Nth</span></code> function, at the core of the
+specification of the program, lets us check if a specific bit in a
+modular value is set or not. Note that while such a function could be
+easily implemented in SPARK, using the one defined in the Why3 theory
+leads to more automatic proofs because it
+lets the provers use the associated axioms and lemmas.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">crazyflie</span></code></p>
+<p>This program is a translation of the stabilization system of the Crazyflie 2.0,
+a tiny drone released by Bitcraze AB in 2013 and originally based on an
+open-source firmware written in C.</p>
+<p>This SPARK code interfaces with the other parts of the firmware (ST peripheral
+libraries, FreeRTOS libraries, Crazyflie sensors and actuators), which
+remained in C, by using Ada capabilities for multi-language programs.</p>
+<p>The goal was to prove absence of runtime errors on the most critical code parts
+of the drone&#8217;s firmware. The techniques used to achieve this aim were presented
+in a post on the AdaCore Blog:
+<a class="reference external" href="http://blog.adacore.com/how-to-prevent-drone-crashes-using-spark">http://blog.adacore.com/how-to-prevent-drone-crashes-using-spark</a></p>
+<p>Data dependency contracts are given for most subprograms, specially in the
+<code class="docutils literal"><span class="pre">Stabilizer_Pack</span></code> package which uses <a class="reference internal" href="package_contracts.html#state-abstraction"><span class="std std-ref">State Abstraction</span></a> to specify
+this type of contracts.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">heatingsystem</span></code></p>
+<p>This program is a standard example of controller, turning on and off the
+heating depending on the value of the current temperature read by a thermostat
+and the current mode of operation. Interfaces to the physical world are
+modelled as <a class="reference internal" href="package_contracts.html#external-state-abstraction"><span class="std std-ref">External State Abstraction</span></a> for sensors and actuators. Data
+and flow dependency contracts are given for all subprograms. GNATprove proves
+all checks on this program.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">ipstack</span></code></p>
+<p>This program is an implementation of a TCP/IP stack targeted at bare-board
+embedded applications in certifiable systems. The API is an event driven
+architecture (based on LWIP design), with an application interface based on
+callbacks. The protocols supported are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>IPv4</li>
+<li>ARP</li>
+<li>UDP</li>
+<li>TCP</li>
+<li>ICMP</li>
+</ul>
+</div></blockquote>
+<p>This TCP/IP stack can be used either on a PowerPC bare-board system or on a
+Linux host as a native process. In the latter case, the TAP device is used for
+communication between the stack and the host system. For more details, see the
+corresponding README file.</p>
+<p>Data dependency contracts are given for most subprograms. These contracts are
+proved by GNATprove flow analysis, which also proves the absence of reads of
+uninitialized data.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">openETCS</span></code></p>
+<p>This program is a case study performed by David Mentré in the context of the
+openETCS European project aiming at making an open-source, open-proof reference
+model of ETCS (European Train Control System). ETCS is a radio-based train
+control system aiming at unifying train signaling and control over all European
+countries. The results of this case study are described in the article <cite>&#8220;Rail,
+Space, Security: Three Case Studies for SPARK 2014&#8221;</cite>.</p>
+<p>Package <code class="docutils literal"><span class="pre">Section_4_6</span></code> models a subset of the transitions allowed in the
+overall state automaton that the system should follow. Guards for transitions
+are expressed by using <a class="reference internal" href="specification_features.html#expression-functions"><span class="std std-ref">Expression Functions</span></a>, and the disjointness of
+these guards is expressed by using <a class="reference internal" href="subprogram_contracts.html#contract-cases"><span class="std std-ref">Contract Cases</span></a>. GNATprove proves
+all checks on this part of the program.</p>
+<p>Package <code class="docutils literal"><span class="pre">Step_Function</span></code> implements piecewise constant functions used to model
+for example speed restrictions against distance. Full functional contracts are
+given for all the services of this package. GNATprove proves all checks on
+this part of the program, except the more complex postcondition of procedure
+<code class="docutils literal"><span class="pre">Restrictive_Merge</span></code>.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">sparkskein</span></code></p>
+<p>This program is an implementation of the Skein cryptographic hash algorithm
+(see <a class="reference external" href="http://www.skein-hash.info/">http://www.skein-hash.info/</a>). This implementation is readable, completely
+portable to a wide-variety of machines of differing word-sizes and
+endianness. This program was originally written in SPARK 2005 by Rod Chapman as
+a case study for the applicability of SPARK to cryptographic code. For details
+on this case study, see the article <cite>&#8220;SPARKSkein: A Formal and Fast Reference
+Implementation of Skein&#8221;</cite> (at
+<a class="reference external" href="http://www.adacore.com/knowledge/technical-papers/sparkskein/">http://www.adacore.com/knowledge/technical-papers/sparkskein/</a>). The program in
+the toolset distribution is the SPARK 2014 version of this case study.</p>
+<p>Compared to the original version written for the previous generation of the
+SPARK toolset, this version requires much less work to obtain complete
+assurance of the absence of run-time errors. In the following, we call a
+<cite>precondition element</cite> a conjunct in a precondition, <cite>postcondition element</cite> a
+conjunct in a postcondition and <cite>loop invariant element</cite> a conjunct in a loop
+invariant. The number of such elements in a verified program is directly
+related (usually proportional) to the verification effort, as each such element
+requires the user to write it, to debug it, and finally to prove it.</p>
+<ul class="simple">
+<li>Contrary to GNATprove, the previous toolset did not include
+<a class="reference internal" href="how_to_write_subprogram_contracts.html#generation-of-dependency-contracts"><span class="std std-ref">Generation of Dependency Contracts</span></a>. This required writing 17 non-trivial
+<code class="docutils literal"><span class="pre">global</span></code> contracts and 24 non-trivial <code class="docutils literal"><span class="pre">derives</span></code> contracts. With GNATprove,
+no data dependency or flow dependency is needed at all. We have kept 17 trivial
+null data dependency contracts and a single non-trivial data dependency contract
+for documentation purposes. Similarly, we have kept 11 trivial null flow
+dependency contracts for documentation purposes.</li>
+<li>SPARK naturally supports nesting of subprograms, which allows a natural
+top-down decomposition of the main operations into local procedures. This
+decomposition aids readability and has a negligible impact on performance,
+assuming the compiler is able to inline the local procedures, but it
+previously had a very costly impact on formal verification. The previous
+toolset required the user to write functional contracts on all local
+subprograms to be able to prove absence of run-time errors in these
+subprograms. On the contrary, GNATprove performs <a class="reference internal" href="how_to_write_subprogram_contracts.html#contextual-analysis-of-subprograms-without-contracts"><span class="std std-ref">Contextual Analysis of Subprograms Without Contracts</span></a>, which allows us to save the effort of
+writing 19 precondition elements and 12 postcondition elements that were
+needed in the original version.</li>
+<li>The previous toolset required the insertion of lengthy <a class="reference internal" href="assertion_pragmas.html#loop-invariants"><span class="std std-ref">Loop Invariants</span></a>, totalling 43 loop invariant elements (some of them quite
+complex), while GNATprove currently requires only 1 simple loop invariant
+stating which components of a record are not modified in the loop.
+This is partly due to GNATprove now being able to generate loop invariants
+for unmodified record components (see
+<a class="reference internal" href="how_to_write_loop_invariants.html#automatically-generated-loop-invariants"><span class="std std-ref">Automatically Generated Loop Invariants</span></a>).</li>
+<li>The previous toolset generated a logical formula to prove for each path leading
+to a run-time check or an assertion. This lead to the generation of 367 formulas
+overall on the original version, almost 5 times more than the 78 checks
+generated by GNATprove on the new version. This difference is impressive,
+given that everything was done in the original version to control the
+explosion of the number of formulas, with the insertion of 24 special annotations
+in the source code similar to <a class="reference internal" href="assertion_pragmas.html#pragma-assert-and-cut"><span class="std std-ref">Pragma Assert_And_Cut</span></a> in SPARK 2014,
+while no such work was needed in the new version. Despite this and other
+differences in efficiency between the two toolsets, the analysis time to
+ensure complete absence of run-time errors is similar between the two
+toolsets: 5 min with the previous toolset, half of that with GNATprove.</li>
+<li>Out of the 367 generated formulas, 29 were not proved automatically with the
+previous toolset: 6 formulas required the insertion of user-defined lemmas in the
+theorem prover, and 23 formulas required manual proof in a proof assistant. With
+GNATprove and provers CVC4, Z3 and Alt-Ergo, all checks are proved
+automatically.</li>
+</ul>
+<p class="rubric"><code class="docutils literal"><span class="pre">spark_io</span></code></p>
+<p>This program is an example wrapping of Ada standard input output library in a
+SPARK compatible library interface. For example, the standard unit
+<code class="docutils literal"><span class="pre">Ada.Text_IO</span></code> is wrapped in a unit called <code class="docutils literal"><span class="pre">SPARK.Text_IO</span></code> that provides the
+same services, but uses normal control flow to signal errors instead of
+exceptions. A type <code class="docutils literal"><span class="pre">File_Status</span></code> decribes either a normal status for a file
+(<code class="docutils literal"><span class="pre">Unopened</span></code> or <code class="docutils literal"><span class="pre">Success</span></code>) or an error status (<code class="docutils literal"><span class="pre">Status_Error</span></code>,
+<code class="docutils literal"><span class="pre">Mode_Error</span></code>, etc.). The standard type for a file <code class="docutils literal"><span class="pre">Ada.Text_IO.File_Type</span></code>
+is wrapped into a record type <code class="docutils literal"><span class="pre">SPARK.Text_IO_File_Type</span></code> together with the
+status described above.</p>
+<p>Wrapper units are also given for most children of the Ada standard input output
+library <code class="docutils literal"><span class="pre">Ada.Text_IO</span></code>, for example the generic unit
+<code class="docutils literal"><span class="pre">SPARK.Text_IO.Integer_IO</span></code> wraps the services of the standard unit
+<code class="docutils literal"><span class="pre">Ada.Text_IO.Integer_IO</span></code>. Partial function contracts are expressed on all
+subprograms. GNATprove proves all checks on the implementation of these
+wrapper units.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">text_io_get_line</span></code></p>
+<p>This program is a simplified extracted version of the standard library function
+<code class="docutils literal"><span class="pre">Ada.Text_IO.Get_Line</span></code>, which reads a line of text from an input file. The
+various versions of <code class="docutils literal"><span class="pre">Ada.Text_IO.Get_Line</span></code> (procedures and functions) are
+specified with respect to a simplified model of the file system, with a single
+file <code class="docutils literal"><span class="pre">The_File</span></code> opened at a location <code class="docutils literal"><span class="pre">Cur_Location</span></code>. The low-level
+functions providing an efficient implementation (<code class="docutils literal"><span class="pre">fgets</span></code>, <code class="docutils literal"><span class="pre">memcpy</span></code>, etc.)
+are also specified with respect to the same model of the file system.</p>
+<p>GNATprove proves automatically that the code is free of run-time errors
+(apart from a few messages that are either intentional or related to the ghost
+code instrumentation) and that subprogram bodies respect their functional
+contracts. The story behind this work was presented in a post on the AdaCore
+Blog: <a class="reference external" href="http://blog.adacore.com/formal-verification-of-legacy-code">http://blog.adacore.com/formal-verification-of-legacy-code</a></p>
+<p class="rubric"><code class="docutils literal"><span class="pre">thumper</span></code></p>
+<p>This program is a secure time stamp client/server system that implements
+RFC-3161 (see <a class="reference external" href="https://www.ietf.org/rfc/rfc3161.txt">https://www.ietf.org/rfc/rfc3161.txt</a>). It allows clients to
+obtain cryptographic time stamps that can be used to later verify that certain
+documents existed on or before the time mentioned in the time stamp. Thumper is
+written in a combination of Ada 2012 and SPARK 2014 and makes use of an
+external C library. Thumper was developed as a SPARK technology demonstration
+by Prof. Peter Chapin from Vermont Technical College and his students. It is
+used as a case study in the book <cite>Building High Integrity Applications with
+SPARK</cite> written by Prof. John McCormick from University of Northern Iowa and
+Prof. Peter Chapin, published by Cambridge University Press (see section 8.5).</p>
+<p>The program in the toolset distribution is a snapshot of the Thumper project
+and a supporting project providing ASN.1 support named Hermes, whose up-to-date
+sources can be obtained separately from GitHub:</p>
+<ul class="simple">
+<li>Thumper at <a class="reference external" href="https://github.com/pchapin/thumper">https://github.com/pchapin/thumper</a></li>
+<li>Hermer at <a class="reference external" href="https://github.com/pchapin/hermes">https://github.com/pchapin/hermes</a></li>
+</ul>
+<p>The verification objectives pursued in both projects are currently to
+<a class="reference internal" href="../usage_scenarios.html#address-data-and-control-coupling"><span class="std std-ref">Address Data and Control Coupling</span></a> with a focus on ensuring secure
+information flows (especially important for a cryptographic application) and to
+<a class="reference internal" href="../usage_scenarios.html#prove-absence-of-run-time-errors-aorte"><span class="std std-ref">Prove Absence of Run-Time Errors (AoRTE)</span></a>.</p>
+<p class="rubric"><code class="docutils literal"><span class="pre">tokeneer</span></code></p>
+<p>This program is a highly secure biometric software system that was originally
+developed by Altran. The system provides protection to secure information held
+on a network of workstations situated in a physically secure enclave. The
+Tokeneer project was commissioned by the US National Security Agency (NSA) to
+demonstrate the feasibility of developing systems to the level of rigor
+required by the higher assurance levels of the Common Criteria. The
+requirements of the system were captured using the Z notation and the
+implementation was in SPARK 2005. The original development artifacts, including
+all source code, are publicly available (see
+<a class="reference external" href="http://www.adacore.com/sparkpro/tokeneer">http://www.adacore.com/sparkpro/tokeneer</a>).</p>
+<p>The program in the toolset distribution is a translation of the original
+Tokeneer code into SPARK 2014. The core system now consists of approximately
+10,000 lines of SPARK 2014 code. There are also approximately 3,700 lines of
+supporting code written in Ada which mimick the drivers to peripherals
+connected to the core system.</p>
+<p>Data and flow dependency contracts are given for all subprograms. Partial
+functional contracts are also given for a subset of subprograms. GNATprove
+currently proves automatically all checks on SPARK code in Tokeneer. The
+transition from SPARK 2005 to SPARK 2014 was presented in a post on the AdaCore
+Blog: <a class="reference external" href="https://blog.adacore.com/tokeneer-fully-verified-with-spark-2014">https://blog.adacore.com/tokeneer-fully-verified-with-spark-2014</a></p>
+<p>Tokeneer can be used as the basis for demonstrating four types of security
+vulnerabilities that can be detected by GNATprove, when calling GPS with
+<code class="docutils literal"><span class="pre">-XSECURITY_DEMO=True</span></code> (or changing the value of the scenario variable in
+GPS). Analyzing the code in that setting detects:</p>
+<ul class="simple">
+<li>an information leak in <code class="docutils literal"><span class="pre">keystore.adb</span></code></li>
+<li>a back door in <code class="docutils literal"><span class="pre">bio.adb</span></code></li>
+<li>a buffer overflow in <code class="docutils literal"><span class="pre">admintoken.adb</span></code></li>
+<li>an implementation flaw in <code class="docutils literal"><span class="pre">alarm.adb</span></code></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../usage_scenarios.html" title="8. Applying SPARK in Practice"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../../gnatprove_by_example/manual_proof.html" title="7.9.3. Manual Proof Examples"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" >7. Formal Verification with GNATprove</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

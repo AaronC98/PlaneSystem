@@ -1,0 +1,956 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>19. Useful plugins &#8212; GPS 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/adacore.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="20. GNU Free Documentation License" href="license.html" />
+    <link rel="prev" title="18. Scripting API reference for GPS.Browsers" href="GPS.Browsers.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="license.html" title="20. GNU Free Documentation License"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="GPS.Browsers.html" title="18. Scripting API reference for GPS.Browsers"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">19. Useful plugins</a><ul>
+<li><a class="reference internal" href="#user-plugins">19.1. User plugins</a><ul>
+<li><a class="reference internal" href="#module-auto_highlight_occurrences">19.1.1. The <code class="file docutils literal"><span class="pre">auto_highlight_occurrences.py</span></code> module</a></li>
+<li><a class="reference internal" href="#module-dispatching">19.1.2. The <code class="file docutils literal"><span class="pre">dispatching.py</span></code> module</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#helper-plugins">19.2. Helper plugins</a><ul>
+<li><a class="reference internal" href="#module-gps_utils">19.2.1. The <code class="file docutils literal"><span class="pre">gps_utils</span></code> module</a></li>
+<li><a class="reference internal" href="#module-gps_utils.highlighter">19.2.2. The <code class="file docutils literal"><span class="pre">gps_utils.highlighter.py</span></code> module</a></li>
+<li><a class="reference internal" href="#module-gps_utils.console_process">19.2.3. The <code class="file docutils literal"><span class="pre">gps_utils.console_process.py</span></code> module</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#plugins-for-external-tools">19.3. Plugins for external tools</a><ul>
+<li><a class="reference internal" href="#qgen">19.3.1. QGen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="GPS.Browsers.html"
+                        title="previous chapter">18. Scripting API reference for <cite>GPS.Browsers</cite></a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="license.html"
+                        title="next chapter">20. GNU Free Documentation License</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/plugins.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="useful-plugins">
+<h1>19. Useful plugins<a class="headerlink" href="#useful-plugins" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="user-plugins">
+<h2>19.1. User plugins<a class="headerlink" href="#user-plugins" title="Permalink to this headline">¶</a></h2>
+<p>GPS comes with a number of plugins, some of which are activated by
+default.  Control which plugins are activated by using the
+<span class="menuselection">Edit ‣ Preferences...</span> menu.</p>
+<p>This section discusses a few of the many plugins built in to GPS. The
+preferences dialog shows their description, so you
+can decide whether you want them enabled.</p>
+<div class="section" id="module-auto_highlight_occurrences">
+<span id="the-auto-highlight-occurrences-py-module"></span><h3>19.1.1. The <code class="file docutils literal"><span class="pre">auto_highlight_occurrences.py</span></code> module<a class="headerlink" href="#module-auto_highlight_occurrences" title="Permalink to this headline">¶</a></h3>
+<p>This plugin highlights all occurrences of the entity under the cursor.</p>
+<p>Whenever your cursor rests in a new location, GPS will search for all
+other places where this entity is referenced using either the cross-reference
+engine in GPS, if this information is up-to-date, or a simple textual
+search. Each of these occurrences will then be highlighted in a color
+depending on the kind of the entity.</p>
+<p>This plugin does its work in the background, whenever GPS is not busy
+responding to your actions, so it should have limited impact on the
+performances and responsiveness of GPS.</p>
+<p>If you are interested in doing something similar in your own plugins,
+we recommend you look at the
+<a class="reference internal" href="#gps_utils.highlighter.Background_Highlighter" title="gps_utils.highlighter.Background_Highlighter"><code class="xref py py-class docutils literal"><span class="pre">gps_utils.highlighter.Background_Highlighter</span></code></a> class instead,
+which provides the underlying framework.</p>
+<p>A similar plugin which you might find useful is in the
+<a class="reference internal" href="#gps_utils.highlighter.Regexp_Highlighter" title="gps_utils.highlighter.Regexp_Highlighter"><code class="xref py py-class docutils literal"><span class="pre">gps_utils.highlighter.Regexp_Highlighter</span></code></a> class. By creating
+a simple python file in your gps directory, you are able to highlight any
+regular expression in the editor, which is useful for highlighting text
+like &#8220;TODO&#8221;, or special comments for instance.</p>
+</div>
+<div class="section" id="module-dispatching">
+<span id="the-dispatching-py-module"></span><h3>19.1.2. The <code class="file docutils literal"><span class="pre">dispatching.py</span></code> module<a class="headerlink" href="#module-dispatching" title="Permalink to this headline">¶</a></h3>
+<p>Highlighting all dispatching calls in the current editor</p>
+<p>This package will highlight with a special background color all
+dispatching calls found in the current editor. In particular, at such
+locations, the cross-references might not lead accurate result (for
+instance &#8220;go to body&#8221;), since the exact subprogram that is called is
+not known until run time.</p>
+</div>
+</div>
+<div class="section" id="helper-plugins">
+<h2>19.2. Helper plugins<a class="headerlink" href="#helper-plugins" title="Permalink to this headline">¶</a></h2>
+<p>A number of plugins are useful when you want to create your own
+plugins.</p>
+<div class="section" id="module-gps_utils">
+<span id="the-gps-utils-module"></span><h3>19.2.1. The <code class="file docutils literal"><span class="pre">gps_utils</span></code> module<a class="headerlink" href="#module-gps_utils" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="gps_utils.Chainmap">
+<em class="property">class </em><code class="descclassname">gps_utils.</code><code class="descname">Chainmap</code><span class="sig-paren">(</span><em>*maps</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.Chainmap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine multiple mappings for sequential lookup.</p>
+<p>For example, to emulate Python&#8217;s normal lookup sequence:</p>
+<blockquote>
+<div>import __builtin__
+pylookup = Chainmap(locals(), globals(), vars(__builtin__))</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="gps_utils.execute_for_all_cursors">
+<code class="descclassname">gps_utils.</code><code class="descname">execute_for_all_cursors</code><span class="sig-paren">(</span><em>ed</em>, <em>mark_fn</em>, <em>extend_selection=False</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.execute_for_all_cursors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute the function mark_fn for every cursor in the editor,
+meaning, the main cursor + every existing multi cursor.
+mark_fn has the prototype def mark_fn(EditorBuffer, EditorMark)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gps_utils.freeze_prefs">
+<code class="descclassname">gps_utils.</code><code class="descname">freeze_prefs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.freeze_prefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>A context manager that temporarily freezes GPS&#8217; preferences_changed
+signal from being emitted, and then reactivated it. This is useful
+when modifying a large number of preferences as a single batch.</p>
+<p>This can be used as:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">gps_utils</span><span class="o">.</span><span class="n">freeze_prefs</span><span class="p">():</span>
+    <span class="n">GPS</span><span class="o">.</span><span class="n">Preference</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="n">GPS</span><span class="o">.</span><span class="n">Preference</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="n">GPS</span><span class="o">.</span><span class="n">Preference</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="gps_utils.get_gnat_driver_cmd">
+<code class="descclassname">gps_utils.</code><code class="descname">get_gnat_driver_cmd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.get_gnat_driver_cmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the GNAT driver that is suitable for the current
+project&#8217;s target. For instance: &#8220;gnat&#8221; for native targets or
+&#8220;powerpc-elf-gnat&#8221; for cross PowerPC ELF targets.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="gps_utils.hook">
+<em class="property">class </em><code class="descclassname">gps_utils.</code><code class="descname">hook</code><span class="sig-paren">(</span><em>hook</em>, <em>last=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.hook" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator that makes it easier to connect to hooks:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@hook</span><span class="p">(</span><span class="s2">&quot;gps_started&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Note that the function does not receive the hook as the first parameter.
+The function should however accept any number of parameters, for future
+extensions, since some hooks might receive extra arguments.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gps_utils.in_ada_file">
+<code class="descclassname">gps_utils.</code><code class="descname">in_ada_file</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.in_ada_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if the focus is currently inside an Ada editor</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gps_utils.in_xml_file">
+<code class="descclassname">gps_utils.</code><code class="descname">in_xml_file</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.in_xml_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if the focus is in an XML editor</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="gps_utils.interactive">
+<em class="property">class </em><code class="descclassname">gps_utils.</code><code class="descname">interactive</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.interactive" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator with the same behavior as make_interactive().
+This can be used to easily associate a function with an interactive
+action, menu or key, so that a user can conveniently call it:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@interactive</span><span class="p">(</span><span class="s2">&quot;Editor&quot;</span><span class="p">,</span> <span class="n">menu</span><span class="o">=</span><span class="s2">&quot;/Edit/Foo&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="gps_utils.is_writable">
+<code class="descclassname">gps_utils.</code><code class="descname">is_writable</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.is_writable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if the focus is currently inside a writable editor</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gps_utils.make_interactive">
+<code class="descclassname">gps_utils.</code><code class="descname">make_interactive</code><span class="sig-paren">(</span><em>callback</em>, <em>category='General'</em>, <em>filter=''</em>, <em>menu=''</em>, <em>key=''</em>, <em>contextual=''</em>, <em>name=''</em>, <em>before=''</em>, <em>after=''</em>, <em>contextual_ref=''</em>, <em>icon=''</em>, <em>description=''</em>, <em>toolbar=''</em>, <em>toolbar_section=''</em>, <em>button_label=''</em>, <em>static_path=''</em>, <em>key_exclusive=True</em>, <em>for_learning=False</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.make_interactive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Declare a new GPS action (an interactive function, in Emacs talk),
+associated with an optional menu and default key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>callback</strong> &#8211; <p>This is the code that gets executed when the user executes the action.
+Such an action is executed via a menu, a toolbar button, a key
+shortcut, or by entering its name in the omnisearch.</p>
+<dl class="docutils">
+<dt>The callback can be one of:</dt>
+<dd><ul class="first last">
+<li>a standard function that requires no argument although
+it can have optional arguments (none will be set when this is called
+from the menu or the key shortcut).</li>
+<li>a class: when the user executes the action, a new instance of the
+class is created, so it is expected that the work is done in the
+__init__ of the class. This is in particular useful for classes
+that derive from CommandWindow.</li>
+<li>a generator function. Those are functions that use the yield
+keyword to temporarily suspend and give back control to the caller.
+These are convenient when chaining background tasks. See the
+workflows/promises.py package for more on generators and workflows</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><strong>menu</strong> &#8211; The name of a menu to associate with the action. It will be
+placed within its parent just before the item referenced as <cite>before</cite>,
+or after the item referenced as <cite>after</cite>.</li>
+<li><strong>icon</strong> (<em>str</em>) &#8211; Name of the icon to use for this action, for instance
+in toolbars or in various dialogs. This is the name of a file (minus
+extension) found in the icons directory of GPS.</li>
+<li><strong>contextual</strong> &#8211; Path for the contextual menu
+This is either a string, for instance &#8216;/Menu/Submenu&#8217; or
+&#8216;/Menu/Submenu %f&#8217;, which supports a number of parameter substitution;
+or a function that receives a GPS.Context as parameter and returns a
+string.</li>
+<li><strong>static_path</strong> &#8211; This is a string that contains the path and name for
+the contextual menu when &#8216;contextual&#8217; parameter is function.</li>
+<li><strong>name</strong> (<em>str</em>) &#8211; The name for the action. The default is to use the
+callback&#8217;s name.</li>
+<li><strong>key_exclusive</strong> (<em>bool</em>) &#8211; Only applies when a key is specified. If true,
+the key will no longer execute any action it was previously bound to.
+If false, the key will be bound to multiple actions.</li>
+<li><strong>description</strong> (<em>str</em>) &#8211; the description for this action, as visible to the
+user. If not specified, the callback&#8217;s own documentation will be used.</li>
+<li><strong>toolbar</strong> (<em>str</em>) &#8211; If specified, inserts a button in the corresponding
+toolbar (either &#8216;main&#8217; or the name of the view as found in the
+/Tools/Views menu)</li>
+<li><strong>toolbar_section</strong> (<em>str</em>) &#8211; Where, in the toolbar, to insert the button.
+See <a class="reference internal" href="GPS.html#GPS.Action.button" title="GPS.Action.button"><code class="xref py py-func docutils literal"><span class="pre">GPS.Action.button()</span></code></a></li>
+<li><strong>button_label</strong> (<em>str</em>) &#8211; The label to use for the button (defaults to
+the name of the action).</li>
+<li><strong>for_learning</strong> (<em>bool</em>) &#8211; whether or not this action should be displayed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>in the Learn view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a tuple (GPS.Action, GPS.Menu)
+The menu might be None if you did not request its creation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="gps_utils.save_current_window">
+<code class="descclassname">gps_utils.</code><code class="descname">save_current_window</code><span class="sig-paren">(</span><em>f</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.save_current_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the window that currently has the focus, executes f, and
+reset the focus to that window.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gps_utils.save_dir">
+<code class="descclassname">gps_utils.</code><code class="descname">save_dir</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.save_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the current directory before executing the instrumented
+function, and restore it on exit. This is a python decorator which
+should be used as:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@save_dir</span>
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="gps_utils.save_excursion">
+<code class="descclassname">gps_utils.</code><code class="descname">save_excursion</code><span class="sig-paren">(</span><em>f</em>, <em>args</em>, <em>kwargs</em>, <em>undo_group=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.save_excursion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save current buffer, cursor position and selection and execute f.
+(args and kwargs) are passed as arguments to f. They indicate that any
+number of parameters (named or unamed) can be passed in the usual way
+to save_excursion, and they will be transparently passed on to f.
+If undo_group is True, then all actions performed by f will be grouped
+so that the user needs perform only one single undo to restore previous
+start.</p>
+<p>Then restore the context as it was before, even in the case of abnormal
+exit.</p>
+<p>Example of use:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_subprogram</span><span class="p">():</span>
+   <span class="k">def</span> <span class="nf">do_work</span><span class="p">():</span>
+       <span class="k">pass</span>   <span class="c1"># do actual work here</span>
+   <span class="n">save_excursion</span><span class="p">(</span><span class="n">do_work</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See also the with_save_excursion decorator below for cases when you
+need to apply save_excursion to a whole function.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gps_utils.with_save_current_window">
+<code class="descclassname">gps_utils.</code><code class="descname">with_save_current_window</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.with_save_current_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator with the same behavior as save_current_window.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gps_utils.with_save_excursion">
+<code class="descclassname">gps_utils.</code><code class="descname">with_save_excursion</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.with_save_excursion" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator with the same behavior as save_excursion.
+To use it, simply add &#64;with_save_excursion before the definition of
+the function. This ensures that the current context will be restored
+when the function terminates:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@with_save_excursion</span>
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-gps_utils.highlighter">
+<span id="the-gps-utils-highlighter-py-module"></span><h3>19.2.2. The <code class="file docutils literal"><span class="pre">gps_utils.highlighter.py</span></code> module<a class="headerlink" href="#module-gps_utils.highlighter" title="Permalink to this headline">¶</a></h3>
+<p>This file provides various classes to help highlight patterns in
+files.</p>
+<dl class="class">
+<dt id="gps_utils.highlighter.Background_Highlighter">
+<em class="property">class </em><code class="descclassname">gps_utils.highlighter.</code><code class="descname">Background_Highlighter</code><span class="sig-paren">(</span><em>style</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.Background_Highlighter" title="Permalink to this definition">¶</a></dt>
+<dd><p>An abstract class that provides facilities for highlighting parts of an
+editor. If possible, this highlighting is done in the background so that it
+doesn&#8217;t interfer with the user typing.
+Example of use:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Example</span><span class="p">(</span><span class="n">Background_Highlighter</span><span class="p">):</span>
+   <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+       <span class="o">...</span> <span class="n">analyze</span> <span class="n">the</span> <span class="n">given</span> <span class="nb">range</span> <span class="n">of</span> <span class="n">lines</span><span class="p">,</span> <span class="ow">and</span> <span class="n">perform</span> <span class="n">highlighting</span>
+       <span class="o">...</span> <span class="n">where</span> <span class="n">necessary</span><span class="o">.</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
+<span class="n">e</span><span class="o">.</span><span class="n">start_highlight</span><span class="p">(</span><span class="n">buffer1</span><span class="p">)</span>   <span class="c1"># start highlighting a first buffer</span>
+<span class="n">e</span><span class="o">.</span><span class="n">start_highlight</span><span class="p">(</span><span class="n">buffer2</span><span class="p">)</span>   <span class="c1"># start highlighting a second buffer</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>style</strong> (<a class="reference internal" href="#gps_utils.highlighter.OverlayStyle" title="gps_utils.highlighter.OverlayStyle"><em>OverlayStyle</em></a>) &#8211; style to use for highlighting.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gps_utils.highlighter.Background_Highlighter.on_start_buffer">
+<code class="descname">on_start_buffer</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.Background_Highlighter.on_start_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called before we start processing a new buffer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gps_utils.highlighter.Background_Highlighter.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.Background_Highlighter.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to highlight the given range of editor. When this is called,
+previous highlighting has already been removed in that range.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>start</strong> (<a class="reference internal" href="GPS.html#GPS.EditorLocation" title="GPS.EditorLocation"><em>GPS.EditorLocation</em></a>) &#8211; start of region to process.</li>
+<li><strong>end</strong> (<a class="reference internal" href="GPS.html#GPS.EditorLocation" title="GPS.EditorLocation"><em>GPS.EditorLocation</em></a>) &#8211; end of region to process.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gps_utils.highlighter.Background_Highlighter.remove_highlight">
+<code class="descname">remove_highlight</code><span class="sig-paren">(</span><em>buffer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.Background_Highlighter.remove_highlight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all highlighting done by self in the buffer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>buffer</strong> (<a class="reference internal" href="GPS.html#GPS.EditorBuffer" title="GPS.EditorBuffer"><em>GPS.EditorBuffer</em></a>) &#8211; defaults to the current buffer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gps_utils.highlighter.Background_Highlighter.set_style">
+<code class="descname">set_style</code><span class="sig-paren">(</span><em>style</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.Background_Highlighter.set_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the current highlight style.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>style</strong> (<a class="reference internal" href="#gps_utils.highlighter.OverlayStyle" title="gps_utils.highlighter.OverlayStyle"><em>OverlayStyle</em></a>) &#8211; style to use for highlighting.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gps_utils.highlighter.Background_Highlighter.start_highlight">
+<code class="descname">start_highlight</code><span class="sig-paren">(</span><em>buffer=None</em>, <em>line=None</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.Background_Highlighter.start_highlight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start highlighting the buffer, possibly in the background.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>buffer</strong> (<a class="reference internal" href="GPS.html#GPS.EditorBuffer" title="GPS.EditorBuffer"><em>GPS.EditorBuffer</em></a>) &#8211; The buffer to highlight (defaults to the current buffer). This
+buffer is added to the list of buffers, and will be processed
+when other buffers are finished.</li>
+<li><strong>line</strong> (<em>integer</em>) &#8211; The line the highlighting should start from. By default, this
+is the current line in the editor, so that the user sees
+changes immediately. But you could chose to start from the
+top of the file instead.</li>
+<li><strong>context</strong> (<em>integer</em>) &#8211; Number of lines before and after &#8216;line&#8217; that should be
+highlighted. By default, the whole buffer is highlighted.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gps_utils.highlighter.Background_Highlighter.stop_highlight">
+<code class="descname">stop_highlight</code><span class="sig-paren">(</span><em>buffer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.Background_Highlighter.stop_highlight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop the background highlighting of the buffer, but preserves
+any highlighting that has been done so far.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>buffer</strong> (<a class="reference internal" href="GPS.html#GPS.EditorBuffer" title="GPS.EditorBuffer"><em>GPS.EditorBuffer</em></a>) &#8211; If specified, highlighting is            only stopped for a specific buffer.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="gps_utils.highlighter.Location_Highlighter">
+<em class="property">class </em><code class="descclassname">gps_utils.highlighter.</code><code class="descname">Location_Highlighter</code><span class="sig-paren">(</span><em>style</em>, <em>context=2</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.Location_Highlighter" title="Permalink to this definition">¶</a></dt>
+<dd><p>An abstract class that can be used to implement highlighter related to
+the cross-reference engine.
+As usual, such an highlighter does its job in the background.
+To find the places to highlight in the editor, this class relies on
+having a list of entities and their references. This list will in
+general be computed once when we start processing a new buffer:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">H</span><span class="p">(</span><span class="n">Location_Highlighter</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">recompute_refs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">buffer</span><span class="p">):</span>
+        <span class="k">return</span> <span class="o">...</span><span class="n">computation</span> <span class="n">of</span> <span class="n">references</span> <span class="n">within</span> <span class="n">file</span> <span class="o">...</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>context</strong> (<em>integer</em>) &#8211; The number of lines both before and after a
+given reference where we should find for possible approximate
+matches. This is used when the reference returned by the xref
+engine was outdated.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gps_utils.highlighter.Location_Highlighter.recompute_refs">
+<code class="descname">recompute_refs</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.Location_Highlighter.recompute_refs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called before we start processing a new buffer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of tuples, each of which contains
+an (name, GPS.FileLocation).
+The highlighting is only done if the text at the location is
+name. Name should be a byte-sequence that encodes a UTF-8
+strings, not the unicode string itself (the result of
+<cite>GPS.EditorBuffer.get_chars</cite> or <cite>GPS.Entity.name</cite> can be used).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="gps_utils.highlighter.On_The_Fly_Highlighter">
+<em class="property">class </em><code class="descclassname">gps_utils.highlighter.</code><code class="descname">On_The_Fly_Highlighter</code><span class="sig-paren">(</span><em>style</em>, <em>context_lines=0</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.On_The_Fly_Highlighter" title="Permalink to this definition">¶</a></dt>
+<dd><p>This abstract class provides a way to easily highlight text in an editor.
+When possible, the highlighting is done in the background, in
+which case it is also done on the fly every time the file is
+modified. If pygobject is not available, the highlighting is only done
+when the file is opened or saved</p>
+<p>As for Background_Highlight, you need to override the process() function
+to perform actual work.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>style</strong> (<a class="reference internal" href="#gps_utils.highlighter.OverlayStyle" title="gps_utils.highlighter.OverlayStyle"><em>OverlayStyle</em></a>) &#8211; the style to apply.</li>
+<li><strong>context_lines</strong> (<em>integer</em>) &#8211; The number of lines (plus or minus)
+around the current location that get refreshed when a local
+highlighting is requested.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gps_utils.highlighter.On_The_Fly_Highlighter.must_highlight">
+<code class="descname">must_highlight</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.On_The_Fly_Highlighter.must_highlight" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>buffer</strong> (<a class="reference internal" href="GPS.html#GPS.EditorBuffer" title="GPS.EditorBuffer"><em>GPS.EditorBuffer</em></a>) &#8211; The buffer to test.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">whether to highlight this buffer.
+The default is to higlight all buffers, but some highlightings
+might apply only to specific languages for instance</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gps_utils.highlighter.On_The_Fly_Highlighter.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.On_The_Fly_Highlighter.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start highlighting. This is automatically called from __init__,
+and only needs to be called when you have called stop() first.
+Do not call this function multiple times.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gps_utils.highlighter.On_The_Fly_Highlighter.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.On_The_Fly_Highlighter.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop highlighting through self</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="gps_utils.highlighter.OverlayStyle">
+<em class="property">class </em><code class="descclassname">gps_utils.highlighter.</code><code class="descname">OverlayStyle</code><span class="sig-paren">(</span><em>name</em>, <em>foreground=''</em>, <em>background=''</em>, <em>weight=None</em>, <em>slant=None</em>, <em>editable=None</em>, <em>whole_line=False</em>, <em>speedbar=False</em>, <em>style=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.OverlayStyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description for a style to apply to a section of an editor. In practice,
+this could be implemented as an editor overlay, or a message, depending
+on whether highlighting should be done on the whole line or not.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>string</em>) &#8211; name of the overlay so that we can remove it later.</li>
+<li><strong>foreground</strong> (<em>string</em>) &#8211; foreground color</li>
+<li><strong>background</strong> (<em>string</em>) &#8211; background color</li>
+<li><strong>weight</strong> (<em>string</em>) &#8211; one of &#8220;bold&#8221;, &#8220;normal&#8221;, &#8220;light&#8221;</li>
+<li><strong>slant</strong> (<em>string</em>) &#8211; one of &#8220;normal&#8221;, &#8220;oblique&#8221;, &#8220;italic&#8221;</li>
+<li><strong>editable</strong> (<em>boolean</em>) &#8211; whether the text is editable by the user
+interactively.</li>
+<li><strong>whole_line</strong> (<em>boolean</em>) &#8211; whether to highlight the whole line, up to the
+right margin</li>
+<li><strong>speedbar</strong> (<em>boolean</em>) &#8211; whether to show a mark in the speedbar to the left
+of editors.</li>
+<li><strong>style</strong> (<a class="reference internal" href="GPS.html#GPS.Style" title="GPS.Style"><em>GPS.Style</em></a>) &#8211; the style to apply to the overlay.</li>
+<li><strong>kwargs</strong> &#8211; other properties supported by EditorOverlay</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gps_utils.highlighter.OverlayStyle.apply">
+<code class="descname">apply</code><span class="sig-paren">(</span><em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.OverlayStyle.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the highlighting to part of the buffer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>start</strong> (<a class="reference internal" href="GPS.html#GPS.EditorLocation" title="GPS.EditorLocation"><em>GPS.EditorLocation</em></a>) &#8211; start of highlighted region.</li>
+<li><strong>end</strong> (<a class="reference internal" href="GPS.html#GPS.EditorLocation" title="GPS.EditorLocation"><em>GPS.EditorLocation</em></a>) &#8211; end of highlighted region.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="gps_utils.highlighter.OverlayStyle.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>start</em>, <em>end=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.OverlayStyle.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the highlighting in whole or part of the buffer.
+:param GPS.EditorLocation start: start of region.
+:param GPS.EditorLocation end: end of region.  If unspecified, the             highlighting for the whole buffer is removed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gps_utils.highlighter.OverlayStyle.use_messages">
+<code class="descname">use_messages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.OverlayStyle.use_messages" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Whether this style will use a <cite>GPS.Message</cite> or            a <cite>GPS.EditorOverlay</cite> to highlight.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="gps_utils.highlighter.Regexp_Highlighter">
+<em class="property">class </em><code class="descclassname">gps_utils.highlighter.</code><code class="descname">Regexp_Highlighter</code><span class="sig-paren">(</span><em>regexp</em>, <em>style</em>, <em>context_lines=0</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.Regexp_Highlighter" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Regexp_Highlighter is a concrete implementation to highlight
+editors based on regular expressions. One example is for instance
+to highlight tabs or trailing spaces on lines, when this is considered
+improper style:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Regexp_Highlighter</span><span class="p">(</span>
+    <span class="n">regexp</span><span class="o">=</span><span class="s2">&quot;    +|\s+$&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="n">OverlayStyle</span><span class="p">(</span>
+       <span class="n">name</span><span class="o">=</span><span class="s2">&quot;tabs style&quot;</span><span class="p">,</span>
+       <span class="n">strikethrough</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+       <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#FF7979&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Another example is to highlight TODO lines. Various conventions exist
+to mark these in the sources, but the following should catch some of
+these:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Regexp_Highlighter</span><span class="p">(</span>
+    <span class="n">regexp</span><span class="o">=</span><span class="s2">&quot;TODO.*|\?\?\?.*&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="n">OverlayStyle</span><span class="p">(</span>
+       <span class="n">name</span><span class="o">=</span><span class="s2">&quot;todo&quot;</span><span class="p">,</span>
+       <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#FF7979&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Another example is a class to highlight Spark comments. This should
+only be applied when the language is spark:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Spark_Highlighter</span><span class="p">(</span><span class="n">Regexp_Highlighter</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">must_highlight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">buffer</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">buffer</span><span class="o">.</span><span class="n">file</span><span class="p">()</span><span class="o">.</span><span class="n">language</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;spark&quot;</span>
+
+<span class="n">Spark_Highlighter</span><span class="p">(</span>
+    <span class="n">regexp</span><span class="o">=</span><span class="s2">&quot;--#.*$&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="n">OverlayStyle</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;spark&quot;</span><span class="p">,</span> <span class="n">foreground</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>regexp</strong> (<em>string</em>) &#8211; the regular expression to search for.
+It should preferrably apply to a single line, since highlighting
+is done on small sections of the editor at a time, and it might
+not detect cases where the regular expression would match across
+sections.</li>
+<li><strong>style</strong> (<a class="reference internal" href="#gps_utils.highlighter.OverlayStyle" title="gps_utils.highlighter.OverlayStyle"><em>OverlayStyle</em></a>) &#8211; the style to apply.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="gps_utils.highlighter.Text_Highlighter">
+<em class="property">class </em><code class="descclassname">gps_utils.highlighter.</code><code class="descname">Text_Highlighter</code><span class="sig-paren">(</span><em>text</em>, <em>style</em>, <em>whole_word=False</em>, <em>context_lines=0</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.highlighter.Text_Highlighter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to Regexp_Highlighter, but highlights constant text instead of
+a regular expression.
+By default, highlighting is done in all buffer, override the function
+must_highlight to reduce the scope.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>text</strong> (<em>string</em>) &#8211; the text to search for.
+It should preferrably apply to a single line, since highlighting
+is done on small sections of the editor at a time, and it might
+not detect cases where the text would match across sections.</li>
+<li><strong>style</strong> (<a class="reference internal" href="#gps_utils.highlighter.OverlayStyle" title="gps_utils.highlighter.OverlayStyle"><em>OverlayStyle</em></a>) &#8211; the style to apply.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-gps_utils.console_process">
+<span id="the-gps-utils-console-process-py-module"></span><h3>19.2.3. The <code class="file docutils literal"><span class="pre">gps_utils.console_process.py</span></code> module<a class="headerlink" href="#module-gps_utils.console_process" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="gps_utils.console_process.ANSI_Console_Process">
+<em class="property">class </em><code class="descclassname">gps_utils.console_process.</code><code class="descname">ANSI_Console_Process</code><span class="sig-paren">(</span><em>command</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.console_process.ANSI_Console_Process" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class has a purpose similar to Console_Process.
+However, this class does not attempt to do any of the high-level
+processing of prompt and input that Console_Process does, and instead
+forward immediately any of the key strokes within the console directly
+to the external process.
+It also provides an ANSI terminal to the external process. The latter
+can thus send escape sequences to change colors, cursor position,...</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="gps_utils.console_process.Console_Process">
+<em class="property">class </em><code class="descclassname">gps_utils.console_process.</code><code class="descname">Console_Process</code><span class="sig-paren">(</span><em>command</em>, <em>close_on_exit=True</em>, <em>force=False</em>, <em>ansi=False</em>, <em>manage_prompt=True</em>, <em>task_manager=False</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.console_process.Console_Process" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides a way to spawn an interactive process and
+do its input/output in a dedicated console in GPS.
+The process is created so that it does not appear in the task
+manager, and therefore the user can exit GPS without being
+asked whether or not to kill the process.</p>
+<p>You can of course derive from this class easily. Things are
+slightly more complicated if you want in fact to derive from
+a child of GPS.Console (for instance a class that would handle
+ANSI escape sequences). The code would then look like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ANSI_Console</span> <span class="p">(</span><span class="n">GPS</span><span class="o">.</span><span class="n">Console</span><span class="p">):</span>
+   <span class="k">def</span> <span class="nf">write</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">):</span> <span class="o">...</span>
+
+<span class="k">class</span> <span class="nc">My_Process</span> <span class="p">(</span><span class="n">ANSI_Console</span><span class="p">,</span> <span class="n">Console_Process</span><span class="p">):</span>
+   <span class="k">def</span> <span class="nf">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+     <span class="n">Console_Process</span><span class="o">.</span><span class="fm">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the list of base classes for My_Process, you must put
+ANSI_Console before Console_Process. This is because python
+resolves overridden methods by looking depth-first search from
+left to right. This way, it will see ANSI_Console.write before
+Console_Process.write and therefore use the former.</p>
+<p>However, because of that the __init__ method that would be called
+when calling My_Process (...) is also that of ANSI_Console.
+Therefore you must define your own __init__ method locally.</p>
+<p>See also the class ANSI_Console_Process if you need your process
+to execute within a terminal that understands ANSI escape sequences.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>force</strong> (<em>boolean</em>) &#8211; If True, a new console is opened, otherwise an
+existing one will be reused (although you should take care in this
+case if you have multiple processes attached to the same console).</li>
+<li><strong>manage_prompt</strong> (<em>boolean</em>) &#8211; If True, then GPS will do some higher level
+handling of prompts: when some output is done by the process, GPS
+will temporarily hide what the user was typing, insert the output,
+and append what the user was typing. This is in general suitable but
+might interfer with external programs that do their own screen
+management through ANSI commands (like a Unix shell for instance).</li>
+<li><strong>task_manager</strong> (<em>boolean</em>) &#8211; If True, the process will be visible in the
+GPS tasks view and can be interrupted or paused by users.
+Otherwise, it is running in the background and never visible to the
+user.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="gps_utils.console_process.Console_Process.on_completion">
+<code class="descname">on_completion</code><span class="sig-paren">(</span><em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.console_process.Console_Process.on_completion" title="Permalink to this definition">¶</a></dt>
+<dd><p>The user has pressed &lt;tab&gt; in the console. The default is just to
+insert the    character, but if you are driving a process that knows
+about completion, such as an OS shell for instance, you could have
+a different implementation. input is the full input till, but not
+including, the tab character</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gps_utils.console_process.Console_Process.on_destroy">
+<code class="descname">on_destroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.console_process.Console_Process.on_destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when the console is being closed.
+As a result, we terminate the process (this also results in a
+call to on_exit</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gps_utils.console_process.Console_Process.on_exit">
+<code class="descname">on_exit</code><span class="sig-paren">(</span><em>status</em>, <em>remaining_output</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.console_process.Console_Process.on_exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when the process terminates.
+As a result, we close the console automatically, although we could
+decide to keep it open as well</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gps_utils.console_process.Console_Process.on_input">
+<code class="descname">on_input</code><span class="sig-paren">(</span><em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.console_process.Console_Process.on_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when the user has pressed &lt;enter&gt; in the
+console. The corresponding command is then sent to the process</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gps_utils.console_process.Console_Process.on_interrupt">
+<code class="descname">on_interrupt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.console_process.Console_Process.on_interrupt" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when the user presses control-c in the
+console. This interrupts the command we are currently processing</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gps_utils.console_process.Console_Process.on_key">
+<code class="descname">on_key</code><span class="sig-paren">(</span><em>keycode</em>, <em>key</em>, <em>modifier</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.console_process.Console_Process.on_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>The user has pressed a key in the console (any key). This is called
+before any of the higher level on_completion or on_input callbacks.
+If this subprogram returns True, GPS will consider that the key has
+already been handled and will not do its standard processing with
+it. By default, we simply let the key through and let GPS handle it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> &#8211; the unicode character (numeric value) that was entered
+by the user. _modifier_ is a mask of the control and shift keys
+that were pressed at the same time. See the Mask constants above.
+keycode is the code of the key, which is useful for non-printable
+characters. It is set to 0 in some cases if the input is
+simulated after the user has copied some text into the console</td>
+</tr>
+</tbody>
+</table>
+<p>This function is also called for each character pasted by the user
+in the console. If it returns True, then the selection will not be
+inserted in the console.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gps_utils.console_process.Console_Process.on_output">
+<code class="descname">on_output</code><span class="sig-paren">(</span><em>matched</em>, <em>unmatched</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.console_process.Console_Process.on_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when the process has emitted some output.
+The output is then printed to the console</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="gps_utils.console_process.Console_Process.on_resize">
+<code class="descname">on_resize</code><span class="sig-paren">(</span><em>console</em>, <em>rows</em>, <em>columns=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gps_utils.console_process.Console_Process.on_resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when the console is being resized. We then
+let the process know about the size of its terminal, so that it
+can adapt its output accordingly. This is especially useful with
+processes like gdb or unix shells</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="plugins-for-external-tools">
+<h2>19.3. Plugins for external tools<a class="headerlink" href="#plugins-for-external-tools" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="qgen">
+<h3>19.3.1. QGen<a class="headerlink" href="#qgen" title="Permalink to this headline">¶</a></h3>
+<p id="index-0">The QGen Debugger manual can be found within
+the <a class="reference external" href="http://docs.adacore.com/qgen-docs/html/">QGen User guide</a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="license.html" title="20. GNU Free Documentation License"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="GPS.Browsers.html" title="18. Scripting API reference for GPS.Browsers"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

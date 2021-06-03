@@ -1,0 +1,110 @@
+V "GNAT Lib v2019"
+A -gnatA
+A -mtune=core2
+A -mmacosx-version-min=10.16.0
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IO
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U planestatus%b		planestatus.adb		c132da9e NE OO PK IL
+W ada%s			ada.ads			ada.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+
+U planestatus%s		planestatus.ads		c7a60edf EE NE OO PK IL
+W commercialplanesystem%s  commercialplanesystem.adb  commercialplanesystem.ali
+W dashboard%s		dashboard.ads		dashboard.ali
+W door%s		door.adb		door.ali
+W engine%s		engine.adb		engine.ali
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D commercialplanesystem.ads  20210507092116 f1ee9364 commercialplanesystem%s
+D dashboard.ads		20210506215837 e00f5082 dashboard%s
+D door.ads		20210506210426 5e466e85 door%s
+D engine.ads		20210506202945 0d8ec7e6 engine%s
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D planestatus.ads	20210507081904 858f645a planestatus%s
+D planestatus.adb	20210507082138 ea496ba9 planestatus%b
+D system.ads		20190518041255 085b6ffb system%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+D warningsystem.ads	20210507090515 d08b745b warningsystem%s
+G a e
+G c Z s b [takeoff planestatus 14 14 none]
+G c Z s b [flying planestatus 20 14 none]
+G c Z s b [landing planestatus 25 15 none]
+G c Z s s [current_modeIP planestatus 9 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 15|1r6 1r23
+X 6 a-textio.ads
+57K13*Text_IO 727e16 15|1w10 1r27
+X 8 commercialplanesystem.ads
+6K9*CommercialPlaneSystem 81e26 14|1w6 1r33
+8n25*Lowered{8E9} 14|28r44 15|23r38
+9n29*TakeOff{9E9} 14|18r40 22r39 15|9r34 15r33
+9n38*Landing{9E9} 14|27r39 15|22r33
+9n47*Flying{9E9} 14|23r40 15|16r34
+9n55*Idle{9E9} 14|16r39 15|7r33
+19r7*dashboard_system{9|7R9} 14|17r127 22r67 22r120 27r67 27r120 28r72 28r120
+. 15|8r127 15r61 15r114 22r61 22r114 24m26 25m26
+20e7*landGear{8E9} 14|28r33 15|23m26
+21r7*cockpit{10|5R9} 14|17r25 15|8r25
+22r7*extDoor{10|5R9} 14|17r76 15|8r76
+23r7*ignition{11|5R9} 14|16r64 15|7r58
+24e7*mode{9E9} 14|16r32 18r33 22r32 23r33 27r32 15|7r26 9m26 15r26 16m26
+. 22r26
+29r4*commercialPlane{18R9} 14|15r29 16r16 16r48 17r9 17r60 17r111 18r17 21r29
+. 22r16 22r51 22r104 23r17 26r29 27r16 27r51 27r104 28r17 28r56 28r104 15|7r10
+. 7r42 8r9 8r60 8r111 9m10 15r10 15r45 15r98 16m10 22r10 22r45 22r98 23m10
+. 24m10 25m10
+X 9 dashboard.ads
+1K9*Dashboard 13e14 14|4w6 4r22
+3I9*Fuel<short_short_integer>
+4I9*Airspeed<short_integer>
+5I9*Altitude<short_integer>
+8i7*fuel_tank{3I9} 14|17r144 15|8r144
+9i7*velocity{4I9} 14|22r84 27r84 28r137 15|15r78 22r78 25m43
+10i7*height{5I9} 14|22r137 27r137 28r89 15|15r131 22r131 24m43
+X 10 door.ads
+1K9*door 21e9 14|3w6 3r16
+3n38*ClosedAndLocked{3E9} 14|17r40 17r91 15|8r40 8r91
+6e7*door{3E9} 14|17r33 17r84 15|8r33 8r84
+X 11 engine.ads
+1K9*engine 17e11 14|2w6 2r18
+3n27*On{3E9} 14|16r82 15|7r76
+6e7*status{3E9} 14|16r73 15|7r67
+X 14 planestatus.ads
+5K9*planestatus 31l5 31e16 15|3b14 29l8 29t19
+7E9*currentActivity 7e60 10r13
+7n29*TakeOff{7E9}
+7n38*Landing{7E9}
+7n47*Flying{7E9}
+7n55*Idle{7E9}
+9R9*current_mode 11e14
+10e7*mode{7E9}
+14U14*TakeOff 15|5b15 11l8 11t15
+20U14*Flying 15|13b14 18l8 18t14
+25U15*Landing 15|20b14 27l8 27t15
+

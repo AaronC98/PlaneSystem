@@ -1,0 +1,153 @@
+V "GNAT Lib v2019"
+A -gnatA
+A -mtune=core2
+A -mmacosx-version-min=10.16.0
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IO
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U commercialplanesystem%b  commercialplanesystem.adb  e0fabccf NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.img_int%s	s-imgint.adb		s-imgint.ali
+
+U commercialplanesystem%s  commercialplanesystem.ads  3c56cbb3 EE OO PK
+W ada%s			ada.ads			ada.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W dashboard%s		dashboard.ads		dashboard.ali
+W door%s		door.adb		door.ali
+W engine%s		engine.adb		engine.ali
+W warningsystem%s	warningsystem.adb	warningsystem.ali
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D commercialplanesystem.ads  20210507092116 f1ee9364 commercialplanesystem%s
+D commercialplanesystem.adb  20210507094744 bfe0fac6 commercialplanesystem%b
+D dashboard.ads		20210506215837 e00f5082 dashboard%s
+D door.ads		20210506210426 5e466e85 door%s
+D engine.ads		20210506202945 0d8ec7e6 engine%s
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D system.ads		20190518041255 085b6ffb system%s
+D s-conca2.ads		20190518041255 02a0d7d0 system.concat_2%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-imgint.ads		20190518041254 02dbe0c2 system.img_int%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+D warningsystem.ads	20210507090515 d08b745b warningsystem%s
+G a e
+G c Z s s [planeIP commercialplanesystem 18 9 none]
+G c Z s b [fuelusage commercialplanesystem 39 17 none]
+G c Z s b [intow commercialplanesystem 44 17 none]
+G c Z s b [increaseairspeed commercialplanesystem 49 17 none]
+G c Z s b [decreaseairspeed commercialplanesystem 54 18 none]
+G c Z s b [increasealtitude commercialplanesystem 59 18 none]
+G c Z s b [decreasealtitude commercialplanesystem 64 17 none]
+G c Z s b [addpassenger commercialplanesystem 69 16 none]
+G c Z s b [adjustfuelusage commercialplanesystem 74 16 none]
+X 1 ada.ads
+16K9*Ada 20e8 8|1r6 1r23 9|1r6 1r23
+X 6 a-textio.ads
+57K13*Text_IO 727e16 8|1w10 1r27 9|1w10 1r27
+58@25*File_System 8|55r47 65r47
+508U14*Put_Line 9|28s10 43s7
+X 8 commercialplanesystem.ads
+6K9*CommercialPlaneSystem 81l5 81e26 9|3b14 61l5 61t26
+8E9*LandingGear 8e44 20r18
+8n25*Lowered{8E9} 9|35r88
+8n34*Unlowered{8E9} 31r19 9|36r38
+9E9*currentActivity 9e60 24r14
+9n29*TakeOff{9E9} 51r39 61r39
+9n38*Landing{9E9}
+9n47*Flying{9E9} 41r39 56r39 66r39 76r39 9|7r34 26r33 55r33
+9n55*Idle{9E9} 35r15 46r39 71r36 9|14r34 48r32
+10I9*Passengers<short_short_integer> 25r23
+12r4*engine_instance{12|5R9} 34r19
+13r4*cockpit_instance{11|5R9} 32r18
+14r4*ext_instance{11|5R9} 33r18
+15r4*dashboard_instance{10|7R9} 30r27
+16r4*warning_instance{30|7R9} 36r25
+18R9*Plane 27e14 29r22
+19r7*dashboard_system{10|7R9} 30m7 41r66 42r33 42r78 46r64 46r114 51r67 51r118
+. 52r33 52r77 56r66 56r120 57r33 57r77 61r67 61r116 62r33 62r75 66r66 66r118
+. 67r33 67r75 76r66 77r33 77r78 9|7r61 8m26 8r72 14r59 14r109 21m23 21r68
+. 26r60 26r114 27m26 27r71 28r80 34m23 34r66 35r27 42m23 42r66 43r84 55r60
+. 56m26 56r72
+20e7*landGear{8E9} 31m7 9|35r77 36m26
+21r7*cockpit{11|5R9} 32m7
+22r7*extDoor{11|5R9} 33m7 71r61 9|48r57
+23r7*ignition{12|5R9} 34m7 47r33 9|15m26
+24e7*mode{9E9} 35m7 41r32 46r32 51r32 56r32 61r32 66r32 71r29 76r32 9|7r27
+. 14r27 26r26 48r25 55r26
+25i7*num_passengers{10I9} 37m7 71r101 72r30 72r63 9|48r97 49m26 49r60
+26r7*warning_lights{30|7R9} 36m7
+29r4*commercialPlane{18R9} 40r29 41r16 41r50 42r17 42r62 45r29 46r16 46r48
+. 46r98 47r17 50r30 51r16 51r51 51r102 52r17 52r61 55r30 56r16 56r50 56r104
+. 57r17 57r61 60r30 61r16 61r51 61r100 62r17 62r59 65r30 66r16 66r50 66r102
+. 67r17 67r59 70r28 71r13 71r45 71r85 72r14 72r47 75r26 76r16 76r50 77r17
+. 77r62 9|7r11 7r45 8m10 8r56 14r11 14r43 14r93 15m10 21m7 21r52 26r10 26r44
+. 26r98 27m10 27r55 28r64 34m7 34r50 35r11 35r61 36m10 42m7 42r50 43r68 48r9
+. 48r41 48r81 49m10 49r44 55r10 55r44 56m10 56r56
+39U17*fuelUsage 9|5b14 10l8 10t17
+44U17*InTow 9|12b14 17l8 17t13
+49U17*increaseAirspeed 9|19b15 22l8 22t24
+54U18*decreaseAirspeed 9|24b15 30l8 30t24
+59U18*increaseAltitude 9|32b15 38l8 38t24
+64U17*decreaseAltitude 9|40b14 44l8 44t24
+69U16*addPassenger 9|46b14 51l8 51t20
+74U16*adjustFuelUsage 9|53b14 59l8 59t23
+X 10 dashboard.ads
+1K9*Dashboard 8|4w6 4r21 10|13e14
+3I9*Fuel<short_short_integer>
+4I9*Airspeed<short_integer>
+5I9*Altitude<short_integer>
+7R9*DashboardSystem 8|15r24 19r25 10|11e14
+8i7*fuel_tank{3I9} 8|15m44 41r83 42r50 42r95 76r83 77r50 77r95 9|7r78 8m43
+. 8r89 55r77 56m43 56r89
+9i7*velocity{4I9} 8|15m62 46r81 51r84 51r135 52r50 52r94 56r83 56r137 57r50
+. 57r94 9|14r76 21m40 21r85 26r77 26r131 27m43 27r88 28r97
+10i7*height{5I9} 8|15m77 46r131 61r84 61r133 62r50 62r92 66r83 66r135 67r50
+. 67r92 9|14r126 34m40 34r83 35r44 42m40 42r83 43r101
+X 11 door.ads
+1K9*door 8|3w6 3r16 11|21e9
+3n24*Open{3E9} 8|71r76 9|48r72
+3n30*Closed{3E9} 8|13r45 14r41
+5R9*DoorSystem 8|13r22 14r18 21r17 22r17 11|7e14
+6e7*door{3E9} 8|13m37 14m33 71r69 9|48r65
+X 12 engine.ads
+1K9*engine 8|2w6 2r18 12|17e11
+3n31*Off{3E9} 8|12r48 47r51 9|15r45
+5R9*engine_state 8|12r21 23r18 12|7e14
+6e7*status{3E9} 8|12m38 47r42 9|15m35
+X 30 warningsystem.ads
+4K9*WarningSystem 8|5w6 5r25 30|28e18
+6n26*Green{6E9} 8|16r56 16r80 16r103
+7R9*Warning_System 8|16r22 26r23 30|11e14
+8e7*fuelWarning{6E9} 8|16m41
+9e7*heightWarning{6E9} 8|16m63
+10e7*speedWarning{6E9} 8|16m87
+

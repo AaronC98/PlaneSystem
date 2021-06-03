@@ -1,0 +1,696 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnat12
+A -gnaty
+A -gnatQ
+A -gnata
+A -gnatn
+A -gnatws
+A -g1
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U gpr.ali%b		gpr-ali.adb		148d3840 NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W gpr%s			gpr.adb			gpr.ali
+W gpr.names%s		gpr-names.adb		gpr-names.ali
+W gpr.output%s		gpr-output.adb		gpr-output.ali
+Z interfaces%s		interfac.ads		interfac.ali
+
+U gpr.ali%s		gpr-ali.ads		c8d78f83 EE OO PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z ada.unchecked_conversion%s
+Z ada.unchecked_deallocation%s
+W gnat%s		gnat.ads		gnat.ali
+Z gnat.dynamic_tables%s
+Z gnat.heap_sort_g%s
+W gnat.table%s
+W gpr%s			gpr.adb			gpr.ali
+W gpr.osint%s		gpr-osint.adb		gpr-osint.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.memory%s	s-memory.adb		s-memory.ali
+W system.rident%s
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-charac.ads		20190518041256 2d3ec45b ada.characters%s
+D a-chlat1.ads		20190518041256 66457d31 ada.characters.latin_1%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-ioexce.ads		20190518041255 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-string.ads		20190518041256 90ac6797 ada.strings%s
+D a-strfix.ads		20190518041257 86d6bc21 ada.strings.fixed%s
+D a-strmap.ads		20190518041256 e8bb714a ada.strings.maps%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-textio.ads		20190518041257 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-dynhta.ads		20190518041255 b061de91 gnat.dynamic_htables%s
+D g-dyntab.ads		20190518041256 21cef781 gnat.dynamic_tables%s
+D g-dyntab.adb		20190518041257 8cc056dd gnat.dynamic_tables%b
+D g-hesorg.ads		20190518041255 106922da gnat.heap_sort_g%s
+D g-hesorg.adb		20190518041256 33b32c5b gnat.heap_sort_g%b
+D g-os_lib.ads		20190518041255 0db74523 gnat.os_lib%s
+D g-table.ads		20190518041256 b4b07c4d gnat.table%s
+D g-table.adb		20190518041256 04d15fc2 gnat.table%b
+D gpr.ads		20190518044756 e8837047 gpr%s
+D gpr-ali.ads		20190518044756 3013f655 gpr.ali%s
+D gpr-ali.adb		20190518044756 8b2744fd gpr.ali%b
+D gpr-cset.ads		20190518044756 c4bc34eb gpr.cset%s
+D gpr-debug.ads		20190518044756 01f40d45 gpr.debug%s
+D gpr-names.ads		20190518044756 97f8a5e7 gpr.names%s
+D gpr-names.adb		20190518044756 533d9c9e gpr.names%b
+D gpr-osint.ads		20190518044757 f418aaff gpr.osint%s
+D gpr-output.ads	20190518044756 be97932e gpr.output%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041255 e53d8b8e interfaces.c_streams%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-assert.ads		20190518041256 cd8d2c94 system.assertions%s
+D s-crtl.ads		20190518041255 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041257 078245e4 system.file_control_block%s
+D s-finmas.ads		20190518041256 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-imgint.ads		20190518041255 02dbe0c2 system.img_int%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041255 ede33ef8 system.pool_global%s
+D s-rident.ads		20190518041257 50efdf23 system.rident%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+G a e
+G c Z s s [Trestriction_flagsBIP gpr__ali__rident 318 4 37_4]
+G c Z s s [Trestriction_valuesBIP gpr__ali__rident 319 4 37_4]
+G c Z s s [Tparameter_flagsBIP gpr__ali__rident 320 4 37_4]
+G c Z s s [restrictions_infoIP gpr__ali__rident 322 9 37_4]
+G c Z s s [profile_dataIP gpr__ali__rident 398 9 37_4]
+G c Z s s [alis_recordIP gpr__ali 90 9 none]
+G c Z s s [table_typeIP gpr__ali__alis__tab 126 9 60_4_214_4]
+G c Z s s [empty_table_array_ptr_to_table_ptr gpr__ali__alis__tab 154 13 60_4_214_4]
+G c Z s s [is_empty gpr__ali__alis__tab 185 13 60_4_214_4]
+G c Z s s [init gpr__ali__alis__tab 188 14 60_4_214_4]
+G c Z s s [first gpr__ali__alis__tab 194 13 60_4_214_4]
+G c Z s s [last gpr__ali__alis__tab 198 13 60_4_214_4]
+G c Z s s [release gpr__ali__alis__tab 203 14 60_4_214_4]
+G c Z s s [set_last gpr__ali__alis__tab 215 14 60_4_214_4]
+G c Z s s [increment_last gpr__ali__alis__tab 224 14 60_4_214_4]
+G c Z s s [decrement_last gpr__ali__alis__tab 228 14 60_4_214_4]
+G c Z s s [append gpr__ali__alis__tab 232 14 60_4_214_4]
+G c Z s s [append_all gpr__ali__alis__tab 239 14 60_4_214_4]
+G c Z s s [set_item gpr__ali__alis__tab 242 14 60_4_214_4]
+G c Z s s [move gpr__ali__alis__tab 252 14 60_4_214_4]
+G c Z s s [allocate gpr__ali__alis__tab 255 14 60_4_214_4]
+G c Z s s [table_privateIP gpr__ali__alis__tab 282 9 60_4_214_4]
+G c Z s s [instanceIP gpr__ali__alis__tab 161 9 60_4_214_4]
+G c Z s s [last_allocated gpr__ali__alis__tab 45 13 60_4_214_4]
+G c Z s s [grow gpr__ali__alis__tab 49 14 60_4_214_4]
+G c Z s s [is_empty gpr__ali__alis 79 13 214_4]
+G c Z s s [init gpr__ali__alis 81 14 214_4]
+G c Z s s [free gpr__ali__alis 83 14 214_4]
+G c Z s s [first gpr__ali__alis 86 13 214_4]
+G c Z s s [last gpr__ali__alis 89 13 214_4]
+G c Z s s [release gpr__ali__alis 92 14 214_4]
+G c Z s s [set_last gpr__ali__alis 95 14 214_4]
+G c Z s s [increment_last gpr__ali__alis 98 14 214_4]
+G c Z s s [decrement_last gpr__ali__alis 101 14 214_4]
+G c Z s s [append gpr__ali__alis 104 14 214_4]
+G c Z s s [append_all gpr__ali__alis 107 14 214_4]
+G c Z s s [set_item gpr__ali__alis 110 14 214_4]
+G c Z s s [save gpr__ali__alis 118 13 214_4]
+G c Z s s [restore gpr__ali__alis 123 14 214_4]
+G c Z s s [allocate gpr__ali__alis 128 14 214_4]
+G c Z s s [allocate gpr__ali__alis 129 13 214_4]
+G c Z s s [unit_recordIP gpr__ali 242 9 none]
+G c Z s s [table_typeIP gpr__ali__units__tab 126 9 60_4_373_4]
+G c Z s s [empty_table_array_ptr_to_table_ptr gpr__ali__units__tab 154 13 60_4_373_4]
+G c Z s s [is_empty gpr__ali__units__tab 185 13 60_4_373_4]
+G c Z s s [init gpr__ali__units__tab 188 14 60_4_373_4]
+G c Z s s [first gpr__ali__units__tab 194 13 60_4_373_4]
+G c Z s s [last gpr__ali__units__tab 198 13 60_4_373_4]
+G c Z s s [release gpr__ali__units__tab 203 14 60_4_373_4]
+G c Z s s [set_last gpr__ali__units__tab 215 14 60_4_373_4]
+G c Z s s [increment_last gpr__ali__units__tab 224 14 60_4_373_4]
+G c Z s s [decrement_last gpr__ali__units__tab 228 14 60_4_373_4]
+G c Z s s [append gpr__ali__units__tab 232 14 60_4_373_4]
+G c Z s s [append_all gpr__ali__units__tab 239 14 60_4_373_4]
+G c Z s s [set_item gpr__ali__units__tab 242 14 60_4_373_4]
+G c Z s s [move gpr__ali__units__tab 252 14 60_4_373_4]
+G c Z s s [allocate gpr__ali__units__tab 255 14 60_4_373_4]
+G c Z s s [table_privateIP gpr__ali__units__tab 282 9 60_4_373_4]
+G c Z s s [instanceIP gpr__ali__units__tab 161 9 60_4_373_4]
+G c Z s s [last_allocated gpr__ali__units__tab 45 13 60_4_373_4]
+G c Z s s [grow gpr__ali__units__tab 49 14 60_4_373_4]
+G c Z s s [is_empty gpr__ali__units 79 13 373_4]
+G c Z s s [init gpr__ali__units 81 14 373_4]
+G c Z s s [free gpr__ali__units 83 14 373_4]
+G c Z s s [first gpr__ali__units 86 13 373_4]
+G c Z s s [last gpr__ali__units 89 13 373_4]
+G c Z s s [release gpr__ali__units 92 14 373_4]
+G c Z s s [set_last gpr__ali__units 95 14 373_4]
+G c Z s s [increment_last gpr__ali__units 98 14 373_4]
+G c Z s s [decrement_last gpr__ali__units 101 14 373_4]
+G c Z s s [append gpr__ali__units 104 14 373_4]
+G c Z s s [append_all gpr__ali__units 107 14 373_4]
+G c Z s s [set_item gpr__ali__units 110 14 373_4]
+G c Z s s [save gpr__ali__units 118 13 373_4]
+G c Z s s [restore gpr__ali__units 123 14 373_4]
+G c Z s s [allocate gpr__ali__units 128 14 373_4]
+G c Z s s [allocate gpr__ali__units 129 13 373_4]
+G c Z s s [with_recordIP gpr__ali 398 9 none]
+G c Z s s [table_typeIP gpr__ali__withs__tab 126 9 60_4_431_4]
+G c Z s s [empty_table_array_ptr_to_table_ptr gpr__ali__withs__tab 154 13 60_4_431_4]
+G c Z s s [is_empty gpr__ali__withs__tab 185 13 60_4_431_4]
+G c Z s s [init gpr__ali__withs__tab 188 14 60_4_431_4]
+G c Z s s [first gpr__ali__withs__tab 194 13 60_4_431_4]
+G c Z s s [last gpr__ali__withs__tab 198 13 60_4_431_4]
+G c Z s s [release gpr__ali__withs__tab 203 14 60_4_431_4]
+G c Z s s [set_last gpr__ali__withs__tab 215 14 60_4_431_4]
+G c Z s s [increment_last gpr__ali__withs__tab 224 14 60_4_431_4]
+G c Z s s [decrement_last gpr__ali__withs__tab 228 14 60_4_431_4]
+G c Z s s [append gpr__ali__withs__tab 232 14 60_4_431_4]
+G c Z s s [append_all gpr__ali__withs__tab 239 14 60_4_431_4]
+G c Z s s [set_item gpr__ali__withs__tab 242 14 60_4_431_4]
+G c Z s s [move gpr__ali__withs__tab 252 14 60_4_431_4]
+G c Z s s [allocate gpr__ali__withs__tab 255 14 60_4_431_4]
+G c Z s s [table_privateIP gpr__ali__withs__tab 282 9 60_4_431_4]
+G c Z s s [instanceIP gpr__ali__withs__tab 161 9 60_4_431_4]
+G c Z s s [last_allocated gpr__ali__withs__tab 45 13 60_4_431_4]
+G c Z s s [grow gpr__ali__withs__tab 49 14 60_4_431_4]
+G c Z s s [is_empty gpr__ali__withs 79 13 431_4]
+G c Z s s [init gpr__ali__withs 81 14 431_4]
+G c Z s s [free gpr__ali__withs 83 14 431_4]
+G c Z s s [first gpr__ali__withs 86 13 431_4]
+G c Z s s [last gpr__ali__withs 89 13 431_4]
+G c Z s s [release gpr__ali__withs 92 14 431_4]
+G c Z s s [set_last gpr__ali__withs 95 14 431_4]
+G c Z s s [increment_last gpr__ali__withs 98 14 431_4]
+G c Z s s [decrement_last gpr__ali__withs 101 14 431_4]
+G c Z s s [append gpr__ali__withs 104 14 431_4]
+G c Z s s [append_all gpr__ali__withs 107 14 431_4]
+G c Z s s [set_item gpr__ali__withs 110 14 431_4]
+G c Z s s [save gpr__ali__withs 118 13 431_4]
+G c Z s s [restore gpr__ali__withs 123 14 431_4]
+G c Z s s [allocate gpr__ali__withs 128 14 431_4]
+G c Z s s [allocate gpr__ali__withs 129 13 431_4]
+G c Z s s [table_typeIP gpr__ali__args__tab 126 9 60_4_452_4]
+G c Z s s [empty_table_array_ptr_to_table_ptr gpr__ali__args__tab 154 13 60_4_452_4]
+G c Z s s [is_empty gpr__ali__args__tab 185 13 60_4_452_4]
+G c Z s s [init gpr__ali__args__tab 188 14 60_4_452_4]
+G c Z s s [first gpr__ali__args__tab 194 13 60_4_452_4]
+G c Z s s [last gpr__ali__args__tab 198 13 60_4_452_4]
+G c Z s s [release gpr__ali__args__tab 203 14 60_4_452_4]
+G c Z s s [set_last gpr__ali__args__tab 215 14 60_4_452_4]
+G c Z s s [increment_last gpr__ali__args__tab 224 14 60_4_452_4]
+G c Z s s [decrement_last gpr__ali__args__tab 228 14 60_4_452_4]
+G c Z s s [append gpr__ali__args__tab 232 14 60_4_452_4]
+G c Z s s [append_all gpr__ali__args__tab 239 14 60_4_452_4]
+G c Z s s [set_item gpr__ali__args__tab 242 14 60_4_452_4]
+G c Z s s [move gpr__ali__args__tab 252 14 60_4_452_4]
+G c Z s s [allocate gpr__ali__args__tab 255 14 60_4_452_4]
+G c Z s s [table_privateIP gpr__ali__args__tab 282 9 60_4_452_4]
+G c Z s s [instanceIP gpr__ali__args__tab 161 9 60_4_452_4]
+G c Z s s [last_allocated gpr__ali__args__tab 45 13 60_4_452_4]
+G c Z s s [grow gpr__ali__args__tab 49 14 60_4_452_4]
+G c Z s s [is_empty gpr__ali__args 79 13 452_4]
+G c Z s s [init gpr__ali__args 81 14 452_4]
+G c Z s s [free gpr__ali__args 83 14 452_4]
+G c Z s s [first gpr__ali__args 86 13 452_4]
+G c Z s s [last gpr__ali__args 89 13 452_4]
+G c Z s s [release gpr__ali__args 92 14 452_4]
+G c Z s s [set_last gpr__ali__args 95 14 452_4]
+G c Z s s [increment_last gpr__ali__args 98 14 452_4]
+G c Z s s [decrement_last gpr__ali__args 101 14 452_4]
+G c Z s s [append gpr__ali__args 104 14 452_4]
+G c Z s s [append_all gpr__ali__args 107 14 452_4]
+G c Z s s [set_item gpr__ali__args 110 14 452_4]
+G c Z s s [save gpr__ali__args 118 13 452_4]
+G c Z s s [restore gpr__ali__args 123 14 452_4]
+G c Z s s [allocate gpr__ali__args 128 14 452_4]
+G c Z s s [allocate gpr__ali__args 129 13 452_4]
+G c Z s s [sdep_recordIP gpr__ali 476 9 none]
+G c Z s s [table_typeIP gpr__ali__sdep__tab 126 9 60_4_509_4]
+G c Z s s [empty_table_array_ptr_to_table_ptr gpr__ali__sdep__tab 154 13 60_4_509_4]
+G c Z s s [is_empty gpr__ali__sdep__tab 185 13 60_4_509_4]
+G c Z s s [init gpr__ali__sdep__tab 188 14 60_4_509_4]
+G c Z s s [first gpr__ali__sdep__tab 194 13 60_4_509_4]
+G c Z s s [last gpr__ali__sdep__tab 198 13 60_4_509_4]
+G c Z s s [release gpr__ali__sdep__tab 203 14 60_4_509_4]
+G c Z s s [set_last gpr__ali__sdep__tab 215 14 60_4_509_4]
+G c Z s s [increment_last gpr__ali__sdep__tab 224 14 60_4_509_4]
+G c Z s s [decrement_last gpr__ali__sdep__tab 228 14 60_4_509_4]
+G c Z s s [append gpr__ali__sdep__tab 232 14 60_4_509_4]
+G c Z s s [append_all gpr__ali__sdep__tab 239 14 60_4_509_4]
+G c Z s s [set_item gpr__ali__sdep__tab 242 14 60_4_509_4]
+G c Z s s [move gpr__ali__sdep__tab 252 14 60_4_509_4]
+G c Z s s [allocate gpr__ali__sdep__tab 255 14 60_4_509_4]
+G c Z s s [table_privateIP gpr__ali__sdep__tab 282 9 60_4_509_4]
+G c Z s s [instanceIP gpr__ali__sdep__tab 161 9 60_4_509_4]
+G c Z s s [last_allocated gpr__ali__sdep__tab 45 13 60_4_509_4]
+G c Z s s [grow gpr__ali__sdep__tab 49 14 60_4_509_4]
+G c Z s s [is_empty gpr__ali__sdep 79 13 509_4]
+G c Z s s [init gpr__ali__sdep 81 14 509_4]
+G c Z s s [free gpr__ali__sdep 83 14 509_4]
+G c Z s s [first gpr__ali__sdep 86 13 509_4]
+G c Z s s [last gpr__ali__sdep 89 13 509_4]
+G c Z s s [release gpr__ali__sdep 92 14 509_4]
+G c Z s s [set_last gpr__ali__sdep 95 14 509_4]
+G c Z s s [increment_last gpr__ali__sdep 98 14 509_4]
+G c Z s s [decrement_last gpr__ali__sdep 101 14 509_4]
+G c Z s s [append gpr__ali__sdep 104 14 509_4]
+G c Z s s [append_all gpr__ali__sdep 107 14 509_4]
+G c Z s s [set_item gpr__ali__sdep 110 14 509_4]
+G c Z s s [save gpr__ali__sdep 118 13 509_4]
+G c Z s s [restore gpr__ali__sdep 123 14 509_4]
+G c Z s s [allocate gpr__ali__sdep 128 14 509_4]
+G c Z s s [allocate gpr__ali__sdep 129 13 509_4]
+G c Z s b [initialize_ali gpr__ali 531 14 none]
+G c Z s b [scan_ali gpr__ali 534 13 none]
+G r c none [initialize_ali gpr__ali 531 14 none] [set_name_table_int gpr__names 83 14 none]
+G r c none [initialize_ali gpr__ali 531 14 none] [set_name_table_int gpr__names 82 14 none]
+G r c none [scan_ali gpr__ali 534 13 none] [set_name_table_int gpr__names 83 14 none]
+G r c none [scan_ali gpr__ali 534 13 none] [add_char_to_name_buffer gpr__names 62 14 none]
+G r c none [scan_ali gpr__ali 534 13 none] [add_str_to_name_buffer gpr__names 71 14 none]
+G r c none [scan_ali gpr__ali 534 13 none] [name_find gpr__names 55 13 none]
+G r c none [scan_ali gpr__ali 534 13 none] [canonical_case_file_name gpr__osint 173 17 none]
+G r c none [scan_ali gpr__ali 534 13 none] [name_find gpr__names 57 13 none]
+G r c none [scan_ali gpr__ali 534 13 none] [set_standard_error gpr__output 62 14 none]
+G r c none [scan_ali gpr__ali 534 13 none] [write_str gpr__output 97 14 none]
+G r c none [scan_ali gpr__ali 534 13 none] [write_eol gpr__output 86 14 none]
+G r c none [scan_ali gpr__ali 534 13 none] [write_unit_name gpr__names 133 14 none]
+G r c none [scan_ali gpr__ali 534 13 none] [write_name gpr__names 124 14 none]
+G r c none [scan_ali gpr__ali 534 13 none] [write_char gpr__output 82 14 none]
+G r c none [scan_ali gpr__ali 534 13 none] [set_standard_output gpr__output 69 14 none]
+G r c none [scan_ali gpr__ali 534 13 none] [get_name_table_int gpr__names 76 13 none]
+G r c none [scan_ali gpr__ali 534 13 none] [set_name_table_int gpr__names 82 14 none]
+G r c none [scan_ali gpr__ali 534 13 none] [get_name_string gpr__names 31 14 none]
+G r c none [scan_ali gpr__ali 534 13 none] [Oeq gpr__stamps 211 16 none]
+G r c none [scan_ali gpr__ali 534 13 none] [name_enter gpr__names 60 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 26|25r6 25r29
+X 8 a-string.ads
+16K13*Strings 35e16 26|25r10 25r33
+X 9 a-strfix.ads
+43K21*Fixed 596e22 26|25w18 25r41
+143V13*Index{natural} 26|750s22
+X 15 gnat.ads
+34K9*GNAT 57e9 25|31r6 214r24 373r25 431r25 452r24 509r24
+X 17 g-dyntab.ads
+105I12*Table_Last_Type<integer>
+126A9*Table_Type(25|90R9)<25|48I9>
+128A12*Big_Table_Type{126A9[22|60[25|373]]}<25|51I9>
+142P9*Table_Ptr(128A12[22|60[25|452]])
+X 22 g-table.ads
+47+9 Table_Component_Type 25|215r6 374r6 432r6 453r6 510r6
+48I9 Table_Index_Type 25|216r6 375r6 433r6 454r6 511r6
+50*4 Table_Low_Bound{48I9} 25|217r6 376r6 434r6 455r6 512r6
+51i4 Table_Initial{positive} 25|218r6 377r6 435r6 456r6 513r6
+52i4 Table_Increment{natural} 25|219r6 378r6 436r6 457r6 514r6
+57k14*Table 150e15 25|31w11 214r29 373r30 431r30 452r29 509r29
+69I12*Table_Last_Type{17|105I12[60[25|509]]}
+76p4*Table{17|142P9[60[25|214]]} 26|72r35[25|214] 76r36[25|373] 82r21[25|452]
+. 676r12[25|214] 757r21[25|214] 776r18[25|214] 778r18[25|214] 822r18[25|452]
+. 896r18[25|214] 897r18[25|214] 901r44[25|373] 928r49[25|214] 940r45[25|373]
+. 943r30[25|373] 944r30[25|373] 961r42[25|373] 963r37[25|373] 969r28[25|373]
+. 972r28[25|373] 983r19[25|373] 995r22[25|373] 999r25[25|373] 1009r25[25|373]
+. 1013r25[25|373] 1023r25[25|373] 1032r25[25|373] 1034r25[25|373] 1046r25[25|373]
+. 1055r25[25|373] 1057r25[25|373] 1059r25[25|373] 1070r25[25|373] 1072r25[25|373]
+. 1083r25[25|373] 1093r25[25|373] 1095r25[25|373] 1097r25[25|373] 1099r25[25|373]
+. 1110r25[25|373] 1121r25[25|373] 1123r25[25|373] 1125r25[25|373] 1136r25[25|373]
+. 1138r25[25|373] 1140r25[25|373] 1167r22[25|431] 1168r22[25|431] 1169r22[25|431]
+. 1170r22[25|431] 1171r22[25|431] 1172r22[25|431] 1173r22[25|431] 1174r22[25|431]
+. 1180r25[25|431] 1181r25[25|431] 1186r25[25|431] 1188r25[25|431] 1204r34[25|431]
+. 1212r34[25|431] 1217r34[25|431] 1226r37[25|431] 1243r16[25|373] 1244r16[25|373]
+. 1269r12[25|214] 1270r12[25|214] 1270r38[25|373] 1270r50[25|214] 1274r15[25|214]
+. 1274r45[25|214] 1275r16[25|373] 1275r28[25|214] 1276r16[25|373] 1276r28[25|214]
+. 1283r33[25|373] 1286r19[25|373] 1288r19[25|373] 1303r12[25|214] 1322r18[25|509]
+. 1325r18[25|509] 1326r18[25|509] 1327r21[25|509] 1361r24[25|509] 1369r18[25|509]
+. 1370r18[25|509] 1371r18[25|509] 1372r20[25|509] 1373r18[25|509] 1393r27[25|509]
+. 1396r27[25|509] 1405r24[25|509] 1414r24[25|509] 1424r12[25|214]
+81U14*Init 26|87s12[25|214] 89s13[25|373] 90s13[25|431] 91s12[25|509]
+86V13*First{25|48I9} 26|71s21[25|214] 75s22[25|373] 81s21[25|452]
+89V13*Last{69I12[25|214]} 26|71s35[25|214] 75s37[25|373] 81s35[25|452] 660s32[25|509]
+. 673s18[25|214] 787s25[25|452] 822s30[25|452] 897s49[25|373] 901s57[25|373]
+. 925s50[25|431] 940s58[25|373] 943s43[25|373] 961s55[25|373] 963s50[25|373]
+. 983s32[25|373] 983s56[25|373] 995s35[25|373] 999s38[25|373] 1009s38[25|373]
+. 1013s38[25|373] 1023s38[25|373] 1032s38[25|373] 1034s38[25|373] 1046s38[25|373]
+. 1055s38[25|373] 1057s38[25|373] 1059s38[25|373] 1070s38[25|373] 1072s38[25|373]
+. 1083s38[25|373] 1093s38[25|373] 1095s38[25|373] 1097s38[25|373] 1099s38[25|373]
+. 1110s38[25|373] 1121s38[25|373] 1123s38[25|373] 1125s38[25|373] 1136s38[25|373]
+. 1138s38[25|373] 1140s38[25|373] 1167s35[25|431] 1168s35[25|431] 1169s35[25|431]
+. 1170s35[25|431] 1171s35[25|431] 1172s35[25|431] 1173s35[25|431] 1174s35[25|431]
+. 1180s38[25|431] 1181s38[25|431] 1186s38[25|431] 1188s38[25|431] 1204s47[25|431]
+. 1212s47[25|431] 1217s47[25|431] 1226s50[25|431] 1243s29[25|373] 1243s54[25|431]
+. 1244s29[25|373] 1244s53[25|452] 1269s42[25|373] 1283s46[25|373] 1286s32[25|373]
+. 1288s32[25|373] 1303s42[25|509] 1322s30[25|509] 1325s30[25|509] 1326s30[25|509]
+. 1327s33[25|509] 1361s36[25|509] 1369s30[25|509] 1370s30[25|509] 1371s30[25|509]
+. 1372s32[25|509] 1373s30[25|509] 1393s39[25|509] 1396s39[25|509] 1405s36[25|509]
+. 1414s36[25|509] 1424s41[25|509]
+98U14*Increment_Last 26|672s12[25|214] 821s18[25|452] 894s16[25|373] 1166s22[25|431]
+. 1315s18[25|509]
+X 24 gpr.ads
+38K9*GPR 3004e8 25|33r6 33r21 35r9 593r5 26|27r6 27r22 28r6 28r22 30r14 1445r5
+40e4*EOF{character} 26|250r25 279r23 584r20 616r46 835r17 851r17 1428r14
+58I9*Int<integer> 25|125r23 131r18 137r26 208r32 211r27 26|674r30 939r29
+. 983r45
+61I12*Nat{58I9} 25|502r20 26|200r31 430r31 431r14
+67M9*Word 25|485r18 26|1335r22
+82I9*Source_Ptr<58I9>
+197A12*Time_Stamp_Type<string>(character)<integer> 25|481r15 26|204r33 458r33
+. 459r18
+207a7*Dummy_Time_Stamp{197A12} 26|466r20 1327r47
+211V17*"="{boolean} 26|1327s45
+251I9*Name_Id<integer> 25|118r22 493r22 496r19 26|176r52 307r14 332r52
+252i4*No_Name{251I9} 26|687r42 1369r52 1370r52
+253i4*Error_Name{251I9} 26|341r20 351r26
+258I9*Unit_Name_Type<251I9> 25|247r15 400r15 26|207r37 421r37 423r17
+274I9*File_Name_Type<251I9> 25|92r15 95r25 98r15 250r15 403r15 406r15 478r15
+. 498r15 535r21 540r21 26|114r21 119r21 161r51 305r51 321r20 1414r51
+279i4*No_File{274I9} 25|540r39 26|119r39 695r42 1180r53 1181r53
+693E9*Casing_Type 708e5 25|329r17 334r17
+695n7*All_Upper_Case{693E9} 26|1059r55 1072r55
+698n7*All_Lower_Case{693E9} 26|920r44 1055r55
+701n7*Mixed_Case{693E9} 26|919r44 1070r55
+X 25 gpr-ali.ads
+35K13*ALI 24|38k9 25|593l9 593e12 26|30b18 1445l9 1445t12
+37K12*Rident[47|75] 38r8
+48I9*ALI_Id<integer> 78r25 78r35 81r31 216r30 244r16 540r55 26|119r55 123r19
+51I9*Unit_Id<integer> 106r20 109r19 227r26 227r37 230r32 375r30 26|944r37
+. 969r35 972r35
+54I9*With_Id<integer> 303r20 306r19 392r26 392r37 395r32 433r30
+57I9*Arg_Id<integer> 309r19 312r18 446r25 446r35 449r31 454r30 26|125r19
+60I9*Sdep_Id<integer> 112r20 115r19 468r26 468r37 471r23 511r30
+63I9*Source_Id<integer>
+66I9*Interrupt_State_Id<integer>
+69I9*Priority_Specific_Dispatching_Id<integer>
+78i4*No_ALI_Id{48I9} 81r41 26|720r17 732r20 737r20 836r20 852r20 977r26 1232r32
+. 1363r26 1435r17 1442r17
+81i4*First_ALI_Entry{48I9} 217r30
+84i4*GNAT_Version_Max_Len{natural} 26|736r24 745r32
+87E9*Main_Program_Type 87e48 121r22
+87n31*None{87E9} 26|688r42
+87n37*Proc{87E9} 26|778r45
+87n43*Func{87E9} 26|776r45
+90R9*ALIs_Record 206e14 215r30
+92i7*Afile{24|274I9} 26|72r45 677m10
+95i7*Ofile_Full_Name{24|274I9} 26|691m10
+98i7*Sfile{24|274I9} 26|695m10 1270m23
+103b7*SAL_Interface{boolean} 26|694m10 928r60
+106i7*First_Unit{51I9} 26|680m10 896r29 897m29 1270r61 1274r26 1275r39
+109i7*Last_Unit{51I9} 26|683m10 1269m23 1274r56 1276r39
+112i7*First_Sdep{60I9} 26|679m10 1303m23
+115i7*Last_Sdep{60I9} 26|682m10 1424m23
+118i7*GNAT_Version{24|251I9} 26|687m10 757m32
+121e7*Main_Program{87E9} 26|688m10 776m29 778m29
+125i7*Main_Priority{24|58I9} 26|685m10
+131i7*Main_CPU{24|58I9} 26|686m10
+137i7*Time_Slice_Value{24|58I9} 26|698m10
+142e7*WC_Encoding{character} 26|699m10
+146e7*Locking_Policy{character} 26|684m10
+152e7*Partition_Elaboration_Policy{character} 26|692m10
+158e7*Queuing_Policy{character} 26|693m10
+164e7*Task_Dispatching_Policy{character} 26|697m10
+171b7*Compile_Errors{boolean} 26|678m10
+176b7*GNATprove_Mode{boolean} 26|681m10
+181b7*No_Object{boolean} 26|689m10
+185b7*Normalize_Scalars{boolean} 26|690m10
+189e7*SSO_Default{character} 26|696m10
+195b7*Unit_Exception_Table{boolean} 26|700m10
+199b7*Zero_Cost_Exceptions{boolean} 26|701m10
+203r7*Restrictions{47|322R9[37]} 26|702m10
+208i4*No_Main_Priority{24|58I9}
+211i4*No_Main_CPU{24|58I9}
+214K12*ALIs[22|57] 26|71r16 71r30 72r30 87r7 672r7 673r13 676r7 757r16 776r13
+. 778r13 896r13 897r13 928r44 1269r7 1270r7 1270r45 1274r10 1274r40 1275r23
+. 1276r23 1303r7 1424r7
+227i4*No_Unit_Id{51I9} 230r43 26|680r42 683r42 896r42
+230i4*First_Unit_Entry{51I9} 376r30
+233E9*Unit_Type 233e68 315r15
+233n23*Is_Spec{233E9} 26|1276r60
+233n32*Is_Body{233E9} 26|1275r60
+233n41*Is_Spec_Only{233E9} 26|1288r47
+233n55*Is_Body_Only{233E9} 26|1286r47
+239A12*Version_String{string}<integer> 326r17
+242R9*Unit_Record 371e14 374r30 26|901r18
+244i7*My_ALI{48I9} 26|907m16
+247i7*Uname{24|258I9} 26|76r46 904m16 940r64 961r61 969r51 983r38 1283r52
+250i7*Sfile{24|274I9} 26|908m16 943r49 944r53 963r56 972r51 1270r73
+253b7*Preelab{boolean} 26|910m16 1095m44
+256b7*No_Elab{boolean} 26|911m16 1083m44
+260b7*Pure{boolean} 26|909m16 1097m44
+263b7*Dynamic_Elab{boolean} 26|921m16 1023m44
+268b7*Elaborate_Body{boolean} 26|922m16 1032m44
+272b7*Set_Elab_Entity{boolean} 26|923m16 1034m44
+277b7*Has_RACW{boolean} 26|916m16 1125m44
+281b7*Remote_Types{boolean} 26|914m16 1123m44
+285b7*Serious_Errors{boolean} 26|915m16 1136m44
+289b7*Shared_Passive{boolean} 26|912m16 1138m44
+293b7*RCI{boolean} 26|913m16 1121m44
+297b7*Predefined{boolean} 26|905m16
+300b7*Internal{boolean} 26|906m16
+303i7*First_With{54I9} 26|925m16
+306i7*Last_With{54I9} 26|1243m35
+309i7*First_Arg{57I9} 26|926m16
+312i7*Last_Arg{57I9} 26|1244m35
+315e7*Utype{233E9} 26|1275m51 1276m50 1286m38 1288m38
+318b7*Is_Generic{boolean} 26|918m16 1046m44
+322e7*Unit_Kind{character} 26|1099m44 1140m44
+326a7*Version{239A12} 26|924m16 995m41 999m44
+329e7*Icasing{24|693E9} 26|919m16 1055m44 1059m44
+334e7*Kcasing{24|693E9} 26|920m16 1070m44 1072m44
+339i7*Elab_Position{natural} 26|927m16
+344b7*Init_Scalars{boolean} 26|917m16 1057m44
+348b7*SAL_Interface{boolean} 26|928m16
+351b7*Directly_Scanned{boolean} 26|929m16
+354b7*Body_Needed_For_SAL{boolean} 26|930m16 1013m44
+358b7*Elaborate_Body_Desirable{boolean} 26|931m16 1009m44
+365e7*Optimize_Alignment{character} 26|932m16 1110m44
+368b7*Has_Finalizer{boolean} 26|933m16 1093m44
+373K12*Units[22|57] 26|75r16 75r31 76r30 89r7 894r10 897r43 901r38 901r51
+. 940r39 940r52 943r24 943r37 944r24 961r36 961r49 963r31 963r44 969r22 972r22
+. 983r13 983r26 983r50 995r16 995r29 999r19 999r32 1009r19 1009r32 1013r19
+. 1013r32 1023r19 1023r32 1032r19 1032r32 1034r19 1034r32 1046r19 1046r32
+. 1055r19 1055r32 1057r19 1057r32 1059r19 1059r32 1070r19 1070r32 1072r19
+. 1072r32 1083r19 1083r32 1093r19 1093r32 1095r19 1095r32 1097r19 1097r32
+. 1099r19 1099r32 1110r19 1110r32 1121r19 1121r32 1123r19 1123r32 1125r19
+. 1125r32 1136r19 1136r32 1138r19 1138r32 1140r19 1140r32 1243r10 1243r23
+. 1244r10 1244r23 1269r36 1270r32 1275r10 1276r10 1283r27 1283r40 1286r13
+. 1286r26 1288r13 1288r26
+380b4*Stack_Check_Switch_Set{boolean} 26|816m16
+392i4*No_With_Id{54I9} 395r43
+395i4*First_With_Entry{54I9} 434r30
+398R9*With_Record 429e14 432r30
+400i7*Uname{24|258I9} 26|1167m41
+403i7*Sfile{24|274I9} 26|1180m44 1186m44
+406i7*Afile{24|274I9} 26|1181m44 1188m44
+409b7*Elaborate{boolean} 26|1168m41 1212m53
+412b7*Elaborate_All{boolean} 26|1169m41 1217m53
+415b7*Elab_All_Desirable{boolean} 26|1171m41 1204m53
+418b7*Elab_Desirable{boolean} 26|1170m41 1226m56
+421b7*SAL_Interface{boolean} 26|1172m41
+424b7*Limited_With{boolean} 26|1173m41
+427b7*Implicit_With_From_Instantiation{boolean} 26|1174m41
+431K12*Withs[22|57] 26|90r7 925r44 1166r16 1167r16 1167r29 1168r16 1168r29
+. 1169r16 1169r29 1170r16 1170r29 1171r16 1171r29 1172r16 1172r29 1173r16
+. 1173r29 1174r16 1174r29 1180r19 1180r32 1181r19 1181r32 1186r19 1186r32
+. 1188r19 1188r32 1204r28 1204r41 1212r28 1212r41 1217r28 1217r41 1226r31
+. 1226r44 1243r48
+446i4*No_Arg_Id{57I9} 449r41
+449i4*First_Arg_Entry{57I9} 455r30
+452K12*Args[22|57] 26|81r16 81r30 82r16 787r20 821r13 822r13 822r25 1244r48
+468i4*No_Sdep_Id{60I9} 471r34 26|679r42 682r42
+471i4*First_Sdep_Entry{60I9} 512r30 26|660m7
+476R9*Sdep_Record 507e14 510r30
+478i7*Sfile{24|274I9} 26|1322m36 1372r38
+481a7*Stamp{24|197A12} 26|1325m36 1327r39
+485m7*Checksum{24|67M9} 26|1361m42
+489b7*Dummy_Entry{boolean} 26|1326m36
+493i7*Subunit_Name{24|251I9} 26|1369m36 1393m45
+496i7*Unit_Name{24|251I9} 26|1370m36 1396m45
+498i7*Rfile{24|274I9} 26|1371m36 1414m42
+502i7*Start_Line{24|61I12} 26|1373m36 1405m42
+509K12*Sdep[22|57] 26|91r7 660r27 1303r37 1315r13 1322r13 1322r25 1325r13
+. 1325r25 1326r13 1326r25 1327r16 1327r28 1361r19 1361r31 1369r13 1369r25
+. 1370r13 1370r25 1371r13 1371r25 1372r15 1372r27 1373r13 1373r25 1393r22
+. 1393r34 1396r22 1396r34 1405r19 1405r31 1414r19 1414r31 1424r36
+531U14*Initialize_ALI 26|64b14 107l8 107t22
+534V13*Scan_ALI{48I9} 535>7 536>7 537>7 538>7 539>7 540>7 26|113b13 1443l8
+. 1443t16
+535i7 F{24|274I9} 26|114b7 674r27 677r42
+536p7 T{31|45P9} 26|115b7 121r34 403r53 408r53 583r17 587r20 597r17
+537b7 Ignore_ED{boolean} 26|116b7 1203r32 1225r35
+538b7 Err{boolean} 26|117b7 948r19
+539a7 Read_Lines{string} 26|118b7 666r16 667r18
+540i7 Object_Path{24|274I9} 26|119b7 691r42
+X 26 gpr-ali.adb
+39a4 Known_ALI_Lines(boolean) 273r24
+71i11 J<integer> 72r42
+75i11 J<integer> 76r43
+81i11 J<integer> 82r28
+121i7 P{31|39I12} 261m16 261r21 296m10 296r15 364m25 364r30 376m13 376r18
+. 403r56 408r56 583r13 586m13 586r18 587r23 597r20 610m16 610r21 621m13 621r18
+. 632m13 632r18 645m13 645r18 1197m25 1197r30 1209m25 1209r30 1215m28 1215r33
+. 1357m19 1357r24
+122i7 Line{31|57I9} 618m16 618r24
+123i7 Id{25|48I9} 673m7 674r35 676r19 757r28 776r25 778r25 896r25 897r25
+. 907r44 928r56 1269r19 1270r19 1270r57 1274r22 1274r52 1275r35 1276r35 1303r19
+. 1424r19 1429r17 1438r14
+124e7 C{character} 272r16 273r41 275r16 275r31 277m16 279r19 284m16 708m7
+. 714r10 764m7 769r10 773m10 775r13 777r16 782m10 791r27 827m10 834r13 835r13
+. 839m13 845m7 850r13 851r13 855m13 861r13 863m10 870r13 872m10 879r13 881m10
+. 888r27 990m13 994r16 994r40 995r56 998m19 999r59 1004r19 1005m16 1007r19
+. 1011r22 1018r19 1019m16 1021r19 1028r19 1029m16 1031r19 1033r22 1041r19
+. 1042m16 1044r19 1051r19 1052m16 1054r19 1056r22 1058r22 1066r19 1067m16
+. 1069r19 1071r22 1079r19 1080m16 1082r19 1089r19 1090m16 1092r19 1094r22
+. 1096r22 1098r22 1106r19 1107m16 1109r19 1109r35 1109r51 1109r67 1110r66
+. 1117r19 1118m16 1120r19 1122r22 1124r22 1132r19 1133m16 1135r19 1137r22
+. 1139r22 1146m16 1152m10 1158r33 1158r51 1158r69 1173r64 1175r64 1240m13
+. 1252r43 1254m13 1261r34 1263m13 1296r27 1298m10 1307r27 1421m10 1428r10
+. 1434r10
+125i7 First_Arg{25|57I9} 787m7 926r44
+127a7 Ignore(boolean) 664m7 667m10 793r13 1160r16 1309r13
+132V16 At_Eol{boolean} 248b16 251l11 251t17 340s13 350s19 357s22 465s13 608s17
+. 609s23 631s20 726s20 802s23 989s23 1179s19 1193s29 1342s29 1375s20
+135V16 At_End_Of_Field{boolean} 239b16 242l11 242t26 259s17 380s26 447s23
+. 1211s28 1360s36 1382s29 1410s29
+138U17 Check_At_End_Of_Field 257b17 264l11 264t32 1008s19 1012s19 1022s19
+. 1037s16 1045s19 1062s16 1075s16 1084s19 1102s16 1113s16 1128s16 1143s16
+. 1199s25 1216s28 1221s28
+141U17 Checkc 141>25 293b17 297l11 297t17 723s10 724s10 770s10 797s13 892s10
+. 1164s16 1198s25 1220s28 1313s13 1406s19
+141e25 C{character} 293b25 294r31
+144U17 Check_Unknown_Line 270b17 287l11 287t29 710s7 765s7 790s10 832s7 846s7
+. 868s7 877s7 887s10 1157s13 1251s13 1260s13 1295s10 1306s10 1432s7
+156V16 Getc{character} 284s21 344s18 354s24 361s30 378s41 445s43 483s22 581b16
+. 589l11 589t15 708s12 727s38 764s12 773s15 782s15 803s41 827s15 845s12 863s15
+. 872s15 881s15 990s18 998s24 1005s21 1019s21 1029s21 1042s21 1052s21 1067s21
+. 1080s21 1090s21 1107s21 1118s21 1133s21 1146s21 1152s15 1240s18 1254s18
+. 1263s18 1298s15 1383s47 1411s47 1421s15
+159V16 Get_File_Name{24|274I9} 160>10 161>10 303b16 323l11 323t24 908s44
+. 1186s53 1188s53 1323s15
+160b10 Lower{boolean} 304b10 317r13 908r59 1187r56 1189r56
+161b10 May_Be_Quoted{boolean} 305b10 311r43 1323r30
+173V16 Get_Name{24|251I9} 174>10 175>10 176>10 310s15 329b16 415l11 415t19
+. 423s33
+174b10 Ignore_Spaces{boolean} 330b10 380r55
+175b10 Ignore_Special{boolean} 310r25 331b10 382r23
+176b10 May_Be_Quoted{boolean} 311r25 332b10 348r13
+200V16 Get_Nat{24|61I12} 430b16 452l11 452t18 1405s56
+204V16 Get_Stamp{24|197A12} 458b16 487l11 487t20 1325s45
+207V16 Get_Unit_Name{24|258I9} 421b16 424l11 424t24 904s44 1167s63
+212V16 Nextc{character} 241s17 250s17 250s37 250s56 260s19 277s21 390s32
+. 390s52 391s32 391s52 392s32 392s52 393s32 397s32 403s32 408s32 439s18 448s23
+. 448s43 471s13 595b16 598l11 598t16 616s16 616s37 617s16 644s16 644s36 726s36
+. 731s13 839s18 855s18 1196s25 1208s28 1214s31 1344s22 1346s46 1348s25 1350s46
+. 1380s19 1404s19
+225U17 Skip_Eol 604b17 623l11 623t19 635s10 761s10 824s13 1150s10 1237s16
+. 1418s13
+229U17 Skip_Next_Line 276s16 283s16 629b17 636l11 636t25 781s10 794s13 838s13
+. 843s7 854s13 862s10 871s10 880s10 1161s16 1253s13 1262s13 1297s10 1310s13
+232U17 Skip_Space 338s10 434s10 463s10 606s10 642b17 647l11 647t21 771s10
+. 893s10 988s13 1165s16 1194s22 1314s13 1331s13 1376s16 1399s19
+307i10 F{24|251I9} 310m10 321r36
+334e10 Char{character} 344m10 348r36 354m16 356r19 361m22 363r25 370r41
+431i10 V{24|61I12} 443m10 445m13 445r18 451r17
+459a10 T{24|197A12} 472m13 473m13 482r28 483m13 486r17
+460i10 Start{integer} 474m13 479m13 482r19
+482i14 J{integer} 483r16
+666i11 J{integer} 667r30
+745a13 Raw{string} 749m13 756r19
+746i13 Last{natural} 749r23 749r50 750r47 756r37
+747i13 Start{natural} 750m13 752r16 756r24
+789l7 A_Loop 791r15 828l16 828e22
+886l7 U_Loop 888r15 1265l16 1265e22
+901r13 UL{25|242R9} 904r13 905r13 906r13 907r13 908r13 909r13 910r13 911r13
+. 912r13 913r13 914r13 915r13 916r13 917r13 918r13 919r13 920r13 921r13 922r13
+. 923r13 924r13 925r13 926r13 927r13 928r13 929r13 930r13 931r13 932r13 933r13
+939i13 Info{24|58I9} 942r16 944r46 969r44 972r44
+997i20 J{integer} 999r53
+1156l10 With_Loop 1158r18 1241l19 1241e28
+1250l10 Linker_Options_Loop 1252r18 1255l19 1255e38
+1259l10 Notes_Loop 1261r18 1264l19 1264e29
+1294l7 E_Loop 1296r15 1299l16 1299e22
+1305l7 D_Loop 1307r15 1422l16 1422e22
+1334i16 Ctr{natural} 1338m16 1342r44 1356m19 1356r26 1360r19
+1335m16 Chk{24|67M9} 1339m16 1345m22 1345r29 1349m22 1349r29 1361r54
+X 29 gpr-names.ads
+25K13*Names 26|27w10 27r26 29|172e14
+27a4*Name_Buffer{string} 26|318m39 318r39 383r22 385r41 749r32 750r29 813r24
+. 814r24 822r51 1285r13 1391r29
+28i4*Name_Len{natural} 26|318r57 337m10 384r32 385r54 725m10 736r13 746r40
+. 753m16 801m13 812r16 814r42 822r69 1248m10 1285r26 1381m19 1390r22 1391r42
+. 1395m22 1395r34 1408m19
+31U14*Get_Name_String 26|1283s10
+55V13*Name_Find{24|251I9} 26|414s17 757s48 1393s61 1396s58
+57V13*Name_Find{24|274I9} 26|319s20
+60V13*Name_Enter{24|251I9} 26|1414s67
+62U14*Add_Char_To_Name_Buffer 26|370s16 378s16 727s13 803s16 1383s22 1411s22
+71U14*Add_Str_To_Name_Buffer 26|754s16 755s16
+76V13*Get_Name_Table_Int{24|58I9} 26|939s36
+82U14*Set_Name_Table_Int 26|76s10 982s10
+83U14*Set_Name_Table_Int 26|72s10 674s7
+124U14*Write_Name 26|963s19 971s19
+133U14*Write_Unit_Name 26|961s19 968s19
+X 31 gpr-osint.ads
+29K13*Osint 25|33w10 33r25 31|222e14
+39I12*Text_Ptr{24|82I9} 26|121r19
+42A9*Text_Buffer(character)<24|82I9>
+45P9*Text_Buffer_Ptr(42A9) 25|536r21 26|115r21
+57I9*Line_Number<integer> 26|122r19
+158b7*File_Names_Case_Sensitive{boolean} 26|317r27
+173U17*Canonical_Case_File_Name 26|318s13
+X 32 gpr-output.ads
+33K13*Output 26|28w10 28r26 32|107e15
+62U14*Set_Standard_Error 26|956s19
+69U14*Set_Standard_Output 26|975s19
+82U14*Write_Char 26|964s19 973s19
+86U14*Write_Eol 26|958s19 965s19 974s19
+97U14*Write_Str 26|957s19 960s19 962s19 967s19 970s19
+X 35 system.ads
+37K9*System 25|29r6 37r26 35|174e11
+67M9*Address
+X 43 s-memory.ads
+53V13*Alloc{35|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{35|67M9} 105i<c,__gnat_realloc>22
+X 44 s-os_lib.ads
+67P12*String_Access{54|45P9} 25|453r30
+72U14*Free=72:62 26|82s10
+X 47 s-rident.ads
+75k16*Rident 25|29w13 37r33 47|643e18
+322R9*Restrictions_Info 25|203r22[37]
+363r4*No_Restrictions{322R9[25|37]} 26|702r42[25|37]
+X 54 s-string.ads
+45P9*String_Access(string)
+

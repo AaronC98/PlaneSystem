@@ -1,0 +1,1062 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>6. SPARK Tutorial &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7. Formal Verification with GNATprove" href="gnatprove.html" />
+    <link rel="prev" title="5.10. SPARK Libraries" href="source/spark_libraries.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gnatprove.html" title="7. Formal Verification with GNATprove"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="source/spark_libraries.html" title="5.10. SPARK Libraries"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">6. SPARK Tutorial</a><ul>
+<li><a class="reference internal" href="#writing-spark-programs">6.1. Writing SPARK Programs</a><ul>
+<li><a class="reference internal" href="#checking-spark-legality-rules">6.1.1. Checking SPARK Legality Rules</a></li>
+<li><a class="reference internal" href="#checking-spark-initialization-policy">6.1.2. Checking SPARK Initialization Policy</a></li>
+<li><a class="reference internal" href="#writing-functional-contracts">6.1.3. Writing Functional Contracts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#testing-spark-programs">6.2. Testing SPARK Programs</a></li>
+<li><a class="reference internal" href="#proving-spark-programs">6.3. Proving SPARK Programs</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="source/spark_libraries.html"
+                        title="previous chapter">5.10. SPARK Libraries</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gnatprove.html"
+                        title="next chapter">7. Formal Verification with GNATprove</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/en/tutorial.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="spark-tutorial">
+<span id="id1"></span><h1>6. SPARK Tutorial<a class="headerlink" href="#spark-tutorial" title="Permalink to this headline">¶</a></h1>
+<p>This chapter describes a simple use of the SPARK toolset on a program written
+completely in SPARK, within the GPS integrated development environment. All
+the tools may also be run from the command-line, see <a class="reference internal" href="appendix/command_line_invocation.html#command-line-invocation"><span class="std std-ref">Command Line Invocation</span></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you&#8217;re using SPARK Discovery instead of SPARK Pro, some of the proofs in
+this tutorial may not be obtained automatically. See the section on
+<a class="reference internal" href="appendix/alternative_provers.html#alternative-provers"><span class="std std-ref">Alternative Provers</span></a> to install additional provers that are not present
+in SPARK Discovery.</p>
+</div>
+<div class="section" id="writing-spark-programs">
+<h2>6.1. Writing SPARK Programs<a class="headerlink" href="#writing-spark-programs" title="Permalink to this headline">¶</a></h2>
+<p>As a running example, we consider a naive searching algorithm for an unordered
+collection of elements. The algorithm returns whether the collection contains
+the desired value, and if so, at which index. The collection is implemented
+here as an array. We deliberately start with an incorrect program for package
+<code class="docutils literal"><span class="pre">Search</span></code>, in order to explain how the SPARK toolset can help correct these
+errors. The final version of the <code class="docutils literal"><span class="pre">linear_search</span></code> example is part of the
+<a class="reference internal" href="source/examples_in_the_toolset_distribution.html#examples-in-the-toolset-distribution"><span class="std std-ref">Examples in the Toolset Distribution</span></a>.</p>
+<p>We start with creating a GNAT project file in <code class="docutils literal"><span class="pre">search.gpr</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="n">Search</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">Source_Dirs</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;.&quot;</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">package </span><span class="nf">Compiler</span> <span class="kr">is</span><span class="p"></span>
+      <span class="kr">for</span><span class="p"> </span><span class="n">Default_Switches</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;-gnatwa&quot;</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Compiler</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Search</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>It specifies that the source code to inspect is in the current directory, and
+that the code should be compiled at maximum warning level (switch
+<code class="docutils literal"><span class="pre">-gnatwa</span></code>). GNAT projects are used by most tools in the GNAT toolsuite;
+for in-depth documentation of this technology, consult the GNAT
+User&#8217;s Guide. Documentation and examples for the SPARK language and tools are
+also available via the <span class="menuselection">Help ‣ SPARK</span> menu in GPS.</p>
+<p>The obvious specification of <code class="docutils literal"><span class="pre">Linear_Search</span></code> is given
+in file <code class="docutils literal"><span class="pre">linear_search.ads</span></code>, where
+we specify that the spec is in SPARK by using aspect <code class="docutils literal"><span class="pre">SPARK_Mode</span></code>.</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Linear_Search</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Index</span> <span class="kr">is</span><span class="p"> </span><span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="p">;</span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Element</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Arr</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Index</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Element</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Search</span>
+     <span class="o">(</span><span class="n">A</span>        <span class="o">:</span> <span class="n">Arr</span><span class="p">;</span>
+      <span class="n">Val</span>      <span class="o">:</span> <span class="n">Element</span><span class="p">;</span>
+      <span class="n">At_Index</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Index</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span><span class="p">;</span>
+   <span class="c">--  Returns True if A contains value Val, in which case it also returns</span>
+   <span class="c">--  in At_Index the first index with value Val. Returns False otherwise.</span>
+<span class="k">end </span><span class="nf">Linear_Search</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The implementation of <code class="docutils literal"><span class="pre">Linear_Search</span></code> is given in
+file <code class="docutils literal"><span class="pre">linear_search.adb</span></code>, where we specify
+that the body is in SPARK by using aspect <code class="docutils literal"><span class="pre">SPARK_Mode</span></code>.  It is as obvious
+as its specification, using a loop to go through the array parameter <code class="docutils literal"><span class="pre">A</span></code> and
+looking for the first index at which <code class="docutils literal"><span class="pre">Val</span></code> is found, if there is such an
+index.</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Linear_Search</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="k">function </span><span class="nf">Search</span>
+     <span class="o">(</span><span class="n">A</span>        <span class="o">:</span> <span class="n">Arr</span><span class="p">;</span>
+      <span class="n">Val</span>      <span class="o">:</span> <span class="n">Element</span><span class="p">;</span>
+      <span class="n">At_Index</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Index</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span>
+   <span class="kr">is</span><span class="p"></span>
+      <span class="n">Pos</span> <span class="o">:</span> <span class="n">Index</span> <span class="o">:=</span> <span class="n">A</span><span class="na">&#39;First</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">while</span><span class="p"> </span><span class="n">Pos</span> <span class="o">&lt;</span> <span class="n">A</span><span class="na">&#39;Last</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="kr">if</span><span class="p"> </span><span class="n">A</span><span class="o">(</span><span class="n">Pos</span><span class="o">)</span> <span class="o">=</span> <span class="n">Val</span> <span class="kr">then</span><span class="p"></span>
+            <span class="n">At_Index</span> <span class="o">:=</span> <span class="n">Pos</span><span class="p">;</span>
+            <span class="kr">return</span><span class="p"> </span><span class="kc">True</span><span class="p">;</span>
+         <span class="k">end if</span><span class="p">;</span>
+
+         <span class="n">Pos</span> <span class="o">:=</span> <span class="n">Pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+
+      <span class="kr">return</span><span class="p"> </span><span class="kc">False</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Search</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Linear_Search</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>We can check that the above code is valid Ada by using the <code class="docutils literal"><span class="pre">Build</span> <span class="pre">&gt;</span> <span class="pre">Check</span>
+<span class="pre">Semantic</span></code> menu, which completes without any errors or warnings:</p>
+<img alt="../_images/search_check_semantic.png" src="../_images/search_check_semantic.png" />
+<div class="section" id="checking-spark-legality-rules">
+<h3>6.1.1. Checking SPARK Legality Rules<a class="headerlink" href="#checking-spark-legality-rules" title="Permalink to this headline">¶</a></h3>
+<p>Now, let us run GNATprove on this unit, using the <span class="menuselection">SPARK ‣
+Examine File</span> menu, so that it issues errors on SPARK code that violates
+SPARK rules:</p>
+<img alt="../_images/search_examine.png" src="../_images/search_examine.png" />
+<p>It detects here that function <code class="docutils literal"><span class="pre">Search</span></code> is not in SPARK, because it has
+an <code class="docutils literal"><span class="pre">out</span></code> parameter:</p>
+<img alt="../_images/search_not_spark.png" src="../_images/search_not_spark.png" />
+<p>The permission in Ada 2012 to have <code class="docutils literal"><span class="pre">out</span></code> parameters to functions is not
+allowed in SPARK, because it causes calls to have side-effects (assigning to
+their <code class="docutils literal"><span class="pre">out</span></code> parameters), which means that various calls in the same
+expression may be conflicting, yielding different results depending on the
+order of evaluation of the expression.</p>
+<p>We correct this problem by defining a record type <code class="docutils literal"><span class="pre">Search_Result</span></code> in
+<code class="docutils literal"><span class="pre">linear_search.ads</span></code> holding both the Boolean result and the index for cases
+when the value is found, and making <code class="docutils literal"><span class="pre">Search</span></code> return this type:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Linear_Search</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Index</span> <span class="kr">is</span><span class="p"> </span><span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="p">;</span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Element</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Arr</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Index</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Element</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Search_Result</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">Found</span>    <span class="o">:</span> <span class="n">Boolean</span><span class="p">;</span>
+      <span class="n">At_Index</span> <span class="o">:</span> <span class="n">Index</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Search</span>
+     <span class="o">(</span><span class="n">A</span>   <span class="o">:</span> <span class="n">Arr</span><span class="p">;</span>
+      <span class="n">Val</span> <span class="o">:</span> <span class="n">Element</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Search_Result</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Linear_Search</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The implementation of <code class="docutils literal"><span class="pre">Search</span></code> in <code class="docutils literal"><span class="pre">linear_search.adb</span></code> is modified to use
+this type:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Linear_Search</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="k">function </span><span class="nf">Search</span>
+     <span class="o">(</span><span class="n">A</span>   <span class="o">:</span> <span class="n">Arr</span><span class="p">;</span>
+      <span class="n">Val</span> <span class="o">:</span> <span class="n">Element</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Search_Result</span>
+   <span class="kr">is</span><span class="p"></span>
+      <span class="n">Pos</span> <span class="o">:</span> <span class="n">Index</span> <span class="o">:=</span> <span class="n">A</span><span class="na">&#39;First</span><span class="p">;</span>
+      <span class="n">Res</span> <span class="o">:</span> <span class="n">Search_Result</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">while</span><span class="p"> </span><span class="n">Pos</span> <span class="o">&lt;</span> <span class="n">A</span><span class="na">&#39;Last</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="kr">if</span><span class="p"> </span><span class="n">A</span><span class="o">(</span><span class="n">Pos</span><span class="o">)</span> <span class="o">=</span> <span class="n">Val</span> <span class="kr">then</span><span class="p"></span>
+            <span class="n">Res.At_Index</span> <span class="o">:=</span> <span class="n">Pos</span><span class="p">;</span>
+            <span class="n">Res.Found</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+            <span class="kr">return</span><span class="p"> </span><span class="n">Res</span><span class="p">;</span>
+         <span class="k">end if</span><span class="p">;</span>
+
+         <span class="n">Pos</span> <span class="o">:=</span> <span class="n">Pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+
+      <span class="n">Res.Found</span> <span class="o">:=</span> <span class="kc">False</span><span class="p">;</span>
+      <span class="kr">return</span><span class="p"> </span><span class="n">Res</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Search</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Linear_Search</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="checking-spark-initialization-policy">
+<span id="id2"></span><h3>6.1.2. Checking SPARK Initialization Policy<a class="headerlink" href="#checking-spark-initialization-policy" title="Permalink to this headline">¶</a></h3>
+<p>Re-running GNATprove on this unit, still using the <span class="menuselection">SPARK ‣
+Examine File</span> menu, now reports a different kind of error. This time it is the
+static analysis pass of GNATprove called <em>flow analysis</em> that detects an
+attempt of the program to return variable <code class="docutils literal"><span class="pre">Res</span></code> while it is not fully
+initialized, thus violating the initialization policy of SPARK:</p>
+<img alt="../_images/search_flow_error.png" src="../_images/search_flow_error.png" />
+<p>Inside the GPS editor, we can click on the icon, either on the left of the
+message, or on line 23 in file <code class="docutils literal"><span class="pre">linear_search.adb</span></code>, to show the path on which
+<code class="docutils literal"><span class="pre">Res.At_Index</span></code> is not initialized:</p>
+<img alt="../_images/search_flow_error_path.png" src="../_images/search_flow_error_path.png" />
+<p>Another click on the icon makes the path disappear.</p>
+<p>This shows that, when the value is not found, the component <code class="docutils literal"><span class="pre">At_Index</span></code> of the
+value returned is indeed not initialized. Although that is allowed in Ada,
+SPARK requires that all inputs and outputs of subprograms are completely
+initialized (and the value returned by a function is such an output). As a
+solution, we could give a dummy value to component <code class="docutils literal"><span class="pre">At_Index</span></code> when the search
+fails, but we choose here to turn the type <code class="docutils literal"><span class="pre">Search_Result</span></code> in
+<code class="docutils literal"><span class="pre">linear_search.ads</span></code> into a discriminant record, so that the component
+<code class="docutils literal"><span class="pre">At_Index</span></code> is only usable when the search succeeds:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="kr">type</span><span class="p"> </span><span class="n">Search_Result</span> <span class="o">(</span><span class="n">Found</span> <span class="o">:</span> <span class="n">Boolean</span> <span class="o">:=</span> <span class="kc">False</span><span class="o">)</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="kr">case</span><span class="p"> </span><span class="n">Found</span> <span class="kr">is</span><span class="p"></span>
+         <span class="kr">when</span><span class="p"> </span><span class="kc">True</span> <span class="o">=&gt;</span>
+            <span class="n">At_Index</span> <span class="o">:</span> <span class="n">Index</span><span class="p">;</span>
+         <span class="kr">when</span><span class="p"> </span><span class="kc">False</span> <span class="o">=&gt;</span>
+            <span class="kr">null</span><span class="p">;</span>
+      <span class="k">end </span><span class="nf">case</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Then, in the implementation of <code class="docutils literal"><span class="pre">Search</span></code> in <code class="docutils literal"><span class="pre">linear_search.adb</span></code>, we change
+the value of the discriminant depending on the success of the search:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="k">function </span><span class="nf">Search</span>
+     <span class="o">(</span><span class="n">A</span>   <span class="o">:</span> <span class="n">Arr</span><span class="p">;</span>
+      <span class="n">Val</span> <span class="o">:</span> <span class="n">Element</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Search_Result</span>
+   <span class="kr">is</span><span class="p"></span>
+      <span class="n">Pos</span> <span class="o">:</span> <span class="n">Index</span> <span class="o">:=</span> <span class="n">A</span><span class="na">&#39;First</span><span class="p">;</span>
+      <span class="n">Res</span> <span class="o">:</span> <span class="n">Search_Result</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">while</span><span class="p"> </span><span class="n">Pos</span> <span class="o">&lt;</span> <span class="n">A</span><span class="na">&#39;Last</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="kr">if</span><span class="p"> </span><span class="n">A</span><span class="o">(</span><span class="n">Pos</span><span class="o">)</span> <span class="o">=</span> <span class="n">Val</span> <span class="kr">then</span><span class="p"></span>
+            <span class="n">Res</span> <span class="o">:=</span> <span class="o">(</span><span class="n">Found</span>    <span class="o">=&gt;</span> <span class="kc">True</span><span class="p">,</span>
+                    <span class="n">At_Index</span> <span class="o">=&gt;</span> <span class="n">Pos</span><span class="o">)</span><span class="p">;</span>
+            <span class="kr">return</span><span class="p"> </span><span class="n">Res</span><span class="p">;</span>
+         <span class="k">end if</span><span class="p">;</span>
+
+         <span class="n">Pos</span> <span class="o">:=</span> <span class="n">Pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+
+      <span class="n">Res</span> <span class="o">:=</span> <span class="o">(</span><span class="n">Found</span> <span class="o">=&gt;</span> <span class="kc">False</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">return</span><span class="p"> </span><span class="n">Res</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Search</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Now re-running GNATprove on this unit, using the <span class="menuselection">SPARK ‣
+Examine File</span> menu, shows that there are no reads of uninitialized data.</p>
+</div>
+<div class="section" id="writing-functional-contracts">
+<h3>6.1.3. Writing Functional Contracts<a class="headerlink" href="#writing-functional-contracts" title="Permalink to this headline">¶</a></h3>
+<p>We now have a valid SPARK program. It is not yet very interesting SPARK code
+though, as it does not contain any contracts, which are necessary to be able to
+apply formal verification modularly on each subprogram, independently of the
+implementation of other subprograms. The precondition constrains the value of
+input parameters, while the postcondition states desired properties of the
+result of the function. See <a class="reference internal" href="source/subprogram_contracts.html#preconditions"><span class="std std-ref">Preconditions</span></a> and <a class="reference internal" href="source/subprogram_contracts.html#postconditions"><span class="std std-ref">Postconditions</span></a> for
+more details. Here, we can require in the precondition of <code class="docutils literal"><span class="pre">Search</span></code> in
+<code class="docutils literal"><span class="pre">linear_search.ads</span></code> that callers of <code class="docutils literal"><span class="pre">Search</span></code> always pass a non-negative
+value for parameter <code class="docutils literal"><span class="pre">Val</span></code>, and we can state that, when the search succeeds,
+the index returned points to the desired value in the array:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="k">function </span><span class="nf">Search</span>
+     <span class="o">(</span><span class="n">A</span>   <span class="o">:</span> <span class="n">Arr</span><span class="p">;</span>
+      <span class="n">Val</span> <span class="o">:</span> <span class="n">Element</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Search_Result</span>
+   <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">Val</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Search</span><span class="na">&#39;Result</span><span class="o">.</span><span class="n">Found</span> <span class="kr">then</span><span class="p"></span>
+                <span class="n">A</span> <span class="o">(</span><span class="n">Search</span><span class="na">&#39;Result</span><span class="o">.</span><span class="n">At_Index</span><span class="o">)</span> <span class="o">=</span> <span class="n">Val</span><span class="o">)</span><span class="p">,</span>
+</pre></div>
+</td></tr></table></div>
+<p>Notice the use of an if-expression in the postcondition to express an
+implication: if the search succeeds it implies that the value at the returned index
+is the value that was being searched for. Note also the use of <code class="docutils literal"><span class="pre">Search'Result</span></code>
+to denote the value returned by the function.</p>
+<p>This contract is still not very strong. Many faulty implementations of the
+search would pass this contract, for example one that always fails (thus
+returning with <code class="docutils literal"><span class="pre">Search'Result.Found</span> <span class="pre">=</span> <span class="pre">False</span></code>). We could reinforce the
+postcondition, but we choose here to do it through a contract by cases, which
+adds further constraints to the usual contract by precondition and
+postcondition. We want to consider here three cases:</p>
+<ul class="simple">
+<li>the desired value is found at the first index (1)</li>
+<li>the desired value is found at other indexes (2 to 10)</li>
+<li>the desired value is not found in the range 1 to 10</li>
+</ul>
+<p>In the first case, we want to state that the index returned is 1. In the second
+case, we want to state that the search succeeds. In the third case, we want to
+state that the search fails. We use a helper function <code class="docutils literal"><span class="pre">Value_Found_In_Range</span></code>
+in <code class="docutils literal"><span class="pre">linear_search.ads</span></code> to express that a value <code class="docutils literal"><span class="pre">Val</span></code> is found in an array
+<code class="docutils literal"><span class="pre">A</span></code> within given bounds <code class="docutils literal"><span class="pre">Low</span></code> and <code class="docutils literal"><span class="pre">Up</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="k">function </span><span class="nf">Value_Found_In_Range</span>
+     <span class="o">(</span><span class="n">A</span>       <span class="o">:</span> <span class="n">Arr</span><span class="p">;</span>
+      <span class="n">Val</span>     <span class="o">:</span> <span class="n">Element</span><span class="p">;</span>
+      <span class="n">Low</span><span class="p">,</span> <span class="n">Up</span> <span class="o">:</span> <span class="n">Index</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span>
+   <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">some</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">Low</span> <span class="o">..</span> <span class="n">Up</span> <span class="o">=&gt;</span> <span class="n">A</span><span class="o">(</span><span class="n">J</span><span class="o">)</span> <span class="o">=</span> <span class="n">Val</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Search</span>
+     <span class="o">(</span><span class="n">A</span>   <span class="o">:</span> <span class="n">Arr</span><span class="p">;</span>
+      <span class="n">Val</span> <span class="o">:</span> <span class="n">Element</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Search_Result</span>
+   <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">Val</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Search</span><span class="na">&#39;Result</span><span class="o">.</span><span class="n">Found</span> <span class="kr">then</span><span class="p"></span>
+                <span class="n">A</span> <span class="o">(</span><span class="n">Search</span><span class="na">&#39;Result</span><span class="o">.</span><span class="n">At_Index</span><span class="o">)</span> <span class="o">=</span> <span class="n">Val</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Contract_Cases</span> <span class="o">=&gt;</span>
+       <span class="o">(</span><span class="n">A</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="o">=</span> <span class="n">Val</span> <span class="o">=&gt;</span>
+          <span class="n">Search</span><span class="na">&#39;Result</span><span class="o">.</span><span class="n">At_Index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">Value_Found_In_Range</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">Val</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="o">)</span> <span class="o">=&gt;</span>
+          <span class="n">Search</span><span class="na">&#39;Result</span><span class="o">.</span><span class="n">Found</span><span class="p">,</span>
+        <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">Arr</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span> <span class="n">A</span><span class="o">(</span><span class="n">J</span><span class="o">)</span> <span class="o">/=</span> <span class="n">Val</span><span class="o">)</span> <span class="o">=&gt;</span>
+          <span class="kr">not</span><span class="p"> </span><span class="n">Search</span><span class="na">&#39;Result</span><span class="o">.</span><span class="n">Found</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that we express <code class="docutils literal"><span class="pre">Value_Found_In_Range</span></code> as an expression function, a
+function whose body consists of a single expression, which can be given in a
+specification file.</p>
+<p>Note also the use of quantified expressions to express properties over
+collections: <code class="docutils literal"><span class="pre">for</span> <span class="pre">some</span></code> in <code class="docutils literal"><span class="pre">Value_Found_In_Range</span></code> expresses an existential
+property (there exists an index in this range such that ...), <code class="docutils literal"><span class="pre">for</span> <span class="pre">all</span></code> in
+the third contract case expresses a universal property (all indexes in this
+range are such that ...).</p>
+<p>Each contract case consists of a guard (on the left of the arrow symbol)
+evaluated on subprogram entry, and a consequence (on the right of the arrow
+symbol) evaluated on subprogram exit. The special expression
+<code class="docutils literal"><span class="pre">Search'Result</span></code> may be used in consequence expressions. The three
+guards here should cover all possible cases, and be disjoint. When a contract
+case is activated (meaning its guard holds on entry), its consequence should
+hold on exit.</p>
+<p>The program obtained so far is a valid SPARK program, which GNAT
+analyzes semantically without errors or warnings.</p>
+</div>
+</div>
+<div class="section" id="testing-spark-programs">
+<h2>6.2. Testing SPARK Programs<a class="headerlink" href="#testing-spark-programs" title="Permalink to this headline">¶</a></h2>
+<p>We can compile the above program, and test it on a set of selected inputs. The
+following test program in file <code class="docutils literal"><span class="pre">test_search.adb</span></code> exercises the case where the
+searched value is present in the array and the case where it is not:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Linear_Search</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Linear_Search;</span><span class="p"></span>
+<span class="kr">with</span><span class="nn"> Ada.Text_IO;</span>   <span class="kr">use</span><span class="p"> </span><span class="n">Ada.Text_IO</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Test_Search</span> <span class="kr">is</span><span class="p"></span>
+   <span class="n">A</span>   <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Arr</span> <span class="o">:=</span> <span class="o">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">Res</span> <span class="o">:</span> <span class="n">Search_Result</span><span class="p">;</span>
+
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Res</span> <span class="o">:=</span> <span class="n">Search</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">1</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">if</span><span class="p"> </span><span class="n">Res.Found</span> <span class="kr">then</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">Res.At_Index</span> <span class="o">=</span> <span class="mi">1</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;OK: Found existing value at first index&quot;</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+         <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;not OK: Found existing value at other index&quot;</span><span class="o">)</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="kr">else</span><span class="p"></span>
+      <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;not OK: Did not find existing value&quot;</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end if</span><span class="p">;</span>
+
+   <span class="n">Res</span> <span class="o">:=</span> <span class="n">Search</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">6</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">if</span><span class="p"> </span><span class="kr">not</span><span class="p"> </span><span class="n">Res.Found</span> <span class="kr">then</span><span class="p"></span>
+      <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;OK: Did not find non-existing value&quot;</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">else</span><span class="p"></span>
+      <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;not OK: Found non-existing value&quot;</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end if</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Test_Search</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>We can check that the implementation of <code class="docutils literal"><span class="pre">Linear_Search</span></code> passes this test by
+compiling and running the test program:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gnatmake test_search.adb
+$ test_search
+&gt; OK: Found existing value at first index
+&gt; OK: Did not find non-existing value
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We use above the command-line interface to compile and run the test program
+<code class="docutils literal"><span class="pre">test_search.adb</span></code>. You can do the same inside GPS by selecting the menu
+<span class="menuselection">Project ‣ Properties</span> and inside the panel
+<span class="guilabel">Main</span> of folder <span class="guilabel">Sources</span>, add <code class="docutils literal"><span class="pre">test_search.adb</span></code> as a
+main file. Then, click <span class="guilabel">OK</span>. To generate the <code class="docutils literal"><span class="pre">test_search</span></code>
+executable, you can now select the menu <span class="menuselection">Build ‣ Project
+‣ test_search.adb</span> and to run the <code class="docutils literal"><span class="pre">test_search</span></code> executable, you can
+select the menu <span class="menuselection">Build ‣ Run ‣ test_search</span>.</p>
+</div>
+<p>But only part of the program was really tested, as the contract was not checked
+during execution. To check the contract at run time, we recompile with the
+switch <code class="docutils literal"><span class="pre">-gnata</span></code> (<code class="docutils literal"><span class="pre">a</span></code> for assertions, plus switch <code class="docutils literal"><span class="pre">-f</span></code> to force
+recompilation of sources that have not changed):</p>
+<ul class="simple">
+<li>a check is inserted that the precondition holds on subprogram entry</li>
+<li>a check is inserted that the postcondition holds on subprogram exit</li>
+<li>a check is inserted that the guards of contract cases are disjoint on
+subprogram entry (no two cases are activated at the same time)</li>
+<li>a check is inserted that the guards of contract cases are complete on
+subprogram entry (one case must be activated)</li>
+<li>a check is inserted that the consequence of the activated contract case holds
+on subprogram exit</li>
+</ul>
+<p>Note that the evaluation of the above assertions may also trigger other
+run-time check failures, like an index out of bounds. With these additional
+run-time checks, an error is reported when running the test program:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gnatmake -gnata -f test_search.adb
+$ test_search
+&gt; raised SYSTEM.ASSERTIONS.ASSERT_FAILURE : contract cases overlap <span class="k">for</span> subprogram search
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We use above the command-line interface to add compilation switch <code class="docutils literal"><span class="pre">-gnata</span></code>
+and force recompilation with switch <code class="docutils literal"><span class="pre">-f</span></code>. You can do the same inside GPS
+by selecting the menu <span class="menuselection">Project ‣ Properties</span> and inside the
+panel <span class="guilabel">Ada</span> of the subfolder <span class="guilabel">Switches</span> of folder
+<span class="guilabel">Build</span>, select the checkbox <span class="guilabel">Enable assertions</span>. Then,
+click <span class="guilabel">OK</span>. To force recompilation with the new switch, you can
+now select the menu <span class="menuselection">Build ‣ Clean ‣ Clean All</span> followed
+by recompilation with <span class="menuselection">Build ‣ Project ‣
+test_search.adb</span>. Then run the <code class="docutils literal"><span class="pre">test_search</span></code> executable with
+<span class="menuselection">Build ‣ Run ‣ test_search</span>.</p>
+</div>
+<p>It appears that two contract cases for <code class="docutils literal"><span class="pre">Search</span></code> are activated at the same
+time! More information can be generated at run time if the code is compiler
+with the switch <code class="docutils literal"><span class="pre">-gnateE</span></code>:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gnatmake -gnata -gnateE -f test_search.adb
+$ test_search
+&gt; raised SYSTEM.ASSERTIONS.ASSERT_FAILURE : contract cases overlap <span class="k">for</span> subprogram search
+&gt;   <span class="k">case</span> guard at linear_search.ads:33 evaluates to True
+&gt;   <span class="k">case</span> guard at linear_search.ads:35 evaluates to True
+</pre></div>
+</div>
+<p>It shows here that the guards of the first and second contract cases hold at
+the same time. This failure in annotations can be debugged with <code class="docutils literal"><span class="pre">gdb</span></code> like a
+failure in the code (provided the program was compiled with appropriate
+switches, like <code class="docutils literal"><span class="pre">-g</span> <span class="pre">-O0</span></code>). The stack trace inside GPS shows that the error
+occurs on the first call to <code class="docutils literal"><span class="pre">Search</span></code> in the test program:</p>
+<img alt="../_images/search_gdb.png" src="../_images/search_gdb.png" />
+<p>Indeed, the value 1 is present twice in the array, at indexes 1 and 8, which
+makes the two guards <code class="docutils literal"><span class="pre">A(1)</span> <span class="pre">=</span> <span class="pre">Val</span></code> and <code class="docutils literal"><span class="pre">Value_Found_In_Range</span> <span class="pre">(A,</span> <span class="pre">Val,</span> <span class="pre">2,</span>
+<span class="pre">10)</span></code> evaluate to <code class="docutils literal"><span class="pre">True</span></code>. We correct the contract of <code class="docutils literal"><span class="pre">Search</span></code> in
+<code class="docutils literal"><span class="pre">linear_search.ads</span></code> by strengthening the guard of the second contract case,
+so that it only applies when the value is not found at index 1:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>     <span class="n">Contract_Cases</span> <span class="o">=&gt;</span>
+       <span class="o">(</span><span class="n">A</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="o">=</span> <span class="n">Val</span> <span class="o">=&gt;</span>
+          <span class="n">Search</span><span class="na">&#39;Result</span><span class="o">.</span><span class="n">At_Index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">A</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="o">/=</span> <span class="n">Val</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">Value_Found_In_Range</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">Val</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="o">)</span> <span class="o">=&gt;</span>
+          <span class="n">Search</span><span class="na">&#39;Result</span><span class="o">.</span><span class="n">Found</span><span class="p">,</span>
+        <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">Arr</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span> <span class="n">A</span><span class="o">(</span><span class="n">J</span><span class="o">)</span> <span class="o">/=</span> <span class="n">Val</span><span class="o">)</span> <span class="o">=&gt;</span>
+          <span class="kr">not</span><span class="p"> </span><span class="n">Search</span><span class="na">&#39;Result</span><span class="o">.</span><span class="n">Found</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>With this updated contract, the test passes again, but this time with
+assertions checked at run time:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gnatmake -gnata test_search.adb
+$ test_search
+&gt; OK: Found existing value at first index
+&gt; OK: Did not find non-existing value
+</pre></div>
+</div>
+<p>The program obtained so far passes successfully a test campaign (of one test!)
+that achieves 100% coverage for all the common coverage criteria, once
+impossible paths have been ruled out: statement coverage, condition coverage,
+the MC/DC coverage used in avionics, and even the full static path coverage.</p>
+</div>
+<div class="section" id="proving-spark-programs">
+<span id="id3"></span><h2>6.3. Proving SPARK Programs<a class="headerlink" href="#proving-spark-programs" title="Permalink to this headline">¶</a></h2>
+<p>Formal verification of SPARK programs is a two-step process:</p>
+<ol class="arabic simple">
+<li>the first step checks that flows through the program correctly implement the
+specified flows (if any), and that all values read are initialized.</li>
+<li>the second step checks that the program correctly implement its specified
+contracts (if any), and that no run-time error can be raised.</li>
+</ol>
+<p>Step 1 is implemented as a static analysis pass in the tool GNATprove, in
+<code class="docutils literal"><span class="pre">flow</span></code> mode. We have seen this flow analysis at work earlier (see
+<a class="reference internal" href="#checking-spark-initialization-policy"><span class="std std-ref">Checking SPARK Initialization Policy</span></a>). Step 2 is implemented as a
+deductive verification (a.k.a. <cite>proof</cite>) pass in the tool GNATprove, in the
+default <code class="docutils literal"><span class="pre">all</span></code> mode.</p>
+<p>The difference between these two steps should be emphasized. Flow analysis in
+step 1 is a terminating algorithm, which typically takes 2 to 10 times as long
+as compilation to complete. Proof in step 2 is based on the generation of
+logical formulas for each check to prove, which are then passed on to automatic
+provers to decide whether the logical formula holds or not. The generation of
+logical formulas is a translation phase, which typically takes 10 times as long
+as compilation to complete. The automatic proof of logical formulas may take a
+very long time, or never terminate, hence the use of a timeout (1s at proof
+level 0) for each call to the automatic provers. It is this last step which
+takes the most time when calling GNATprove on a program, but it is also a
+step which can be completely parallelized (using switch <code class="docutils literal"><span class="pre">-j</span></code> to specify the
+number of parallel processes): each logical formula can be proved
+independently, so the more cores are available the faster it completes.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The proof results presented in this tutorial may slightly vary from
+the results you obtain on your machine, as automatic provers may take
+more or less time to complete a proof depending on the platform and machine
+used.</p>
+</div>
+<p>Let us continue with our running example. This time we will see how step 2
+works to prove contracts and absence of run-time errors, using the main
+mode <code class="docutils literal"><span class="pre">all</span></code> of GNATprove reached through the <span class="menuselection">SPARK ‣
+Prove File</span> menu.</p>
+<img alt="../_images/search_prove_file.png" src="../_images/search_prove_file.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The proof panels presented in this tutorial correspond to an advanced user
+profile. A simpler proof panel is displayed when the basic user profile is
+selected (the default). You can switch to the advanced user profile in menu
+<span class="menuselection">Edit ‣ Preferences ‣ SPARK</span>, by changing the value of
+<span class="guilabel">User profile</span> from <code class="docutils literal"><span class="pre">Basic</span></code> to <code class="docutils literal"><span class="pre">Advanced</span></code>. See <a class="reference internal" href="source/how_to_run_gnatprove.html#running-gnatprove-from-gps"><span class="std std-ref">Running GNATprove from GPS</span></a> for details.</p>
+</div>
+<p>We use the default settings and click on <span class="menuselection">Execute</span>. It completes
+in a few seconds, with a message stating that some checks could not be proved:</p>
+<img alt="../_images/search_not_proved.png" src="../_images/search_not_proved.png" />
+<p>Note that there is no such message on the postcondition of <code class="docutils literal"><span class="pre">Search</span></code>,
+which means that it was proved. Likewise, there are no such messages on the
+body of <code class="docutils literal"><span class="pre">Search</span></code>, which means that no run-time errors can be raised
+when executing the function.</p>
+<p>These messages correspond to checks done when exiting from <code class="docutils literal"><span class="pre">Search</span></code>. It is
+expected that not much can be proved at this point, given that the body of
+<code class="docutils literal"><span class="pre">Search</span></code> has a loop but no loop invariant, so the formulas generated for
+these checks assume the worst about locations modified in the loop. A loop
+invariant is a special pragma <code class="docutils literal"><span class="pre">Loop_Invariant</span></code> stating an assertion in a
+loop, which can be both executed at run-time like a regular pragma <code class="docutils literal"><span class="pre">Assert</span></code>,
+and used by GNATprove to summarize the effect of successive iterations of the
+loop. We need to add a loop invariant in <code class="docutils literal"><span class="pre">linear_search.adb</span></code> stating enough
+properties about the cumulative effect of loop iterations, so that the contract
+cases of <code class="docutils literal"><span class="pre">Search</span></code> become provable. Here, it should state that the value
+searched was not previously found:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span>         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span>
+           <span class="o">(</span><span class="kr">not</span><span class="p"> </span><span class="n">Value_Found_In_Range</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">Val</span><span class="p">,</span> <span class="n">A</span><span class="na">&#39;First</span><span class="p">,</span> <span class="n">Pos</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>As stated above, this invariant holds exactly between the two statements in the
+loop in <code class="docutils literal"><span class="pre">linear_search.adb</span></code> (after the if-statement, before the increment of
+the index). Thus, it should be inserted at this place. With this loop
+invariant, two checks previously not proved are now proved, and a check
+previously proved becomes unproved:</p>
+<img alt="../_images/search_loopinv.png" src="../_images/search_loopinv.png" />
+<p>The new unproved checks may seem odd, since all we did was add information in
+the form of a loop invariant. The reason is that we also removed information at
+the same time. By adding a loop invariant, we require GNATprove to prove
+iterations around the (virtual) loop formed by the following steps:</p>
+<ol class="arabic simple">
+<li>Take any context satisfying the loop invariant, which summarizes all
+previous iterations of the loop.</li>
+<li>Execute the end of a source loop iteration (just the increment here).</li>
+<li>Test whether the loop exits, and continue with values which do not exit.</li>
+<li>Execute the start of a source loop iteration (just the if-statement here).</li>
+<li>Check that the loop invariant still holds.</li>
+</ol>
+<p>Around this virtual loop, nothing guarantees that the index <code class="docutils literal"><span class="pre">Pos</span></code> is
+below the maximal index at step 2 (the increment), so the range check
+cannot be proved. It was previously proved because, in the absence of a
+loop invariant, GNATprove proves iterations around the source loop, and
+then we get the information that, since the loop did not exit, its test
+<code class="docutils literal"><span class="pre">Pos</span> <span class="pre">&lt;</span> <span class="pre">A'Last</span></code> is false, so the range check can be proved.</p>
+<p>We solve this issue by setting the type of <code class="docutils literal"><span class="pre">Pos</span></code> in <code class="docutils literal"><span class="pre">linear_search.adb</span></code> to
+the base type of <code class="docutils literal"><span class="pre">Index</span></code>, which ranges past the last value of
+<code class="docutils literal"><span class="pre">Index</span></code>. (This may not be the simplest solution, but we use it here for the
+dynamics of this tutorial.)</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span>      <span class="n">Pos</span> <span class="o">:</span> <span class="n">Index</span><span class="na">&#39;Base</span> <span class="o">:=</span> <span class="n">A</span><span class="na">&#39;First</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>And we add the range information for <code class="docutils literal"><span class="pre">Pos</span></code> to the loop invariant in
+<code class="docutils literal"><span class="pre">linear_search.adb</span></code>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span>         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span>
+           <span class="o">(</span><span class="n">Pos</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span>
+              <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"></span>
+            <span class="kr">not</span><span class="p"> </span><span class="n">Value_Found_In_Range</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">Val</span><span class="p">,</span> <span class="n">A</span><span class="na">&#39;First</span><span class="p">,</span> <span class="n">Pos</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This allows GNATprove to prove the range check, but not the contract:</p>
+<img alt="../_images/search_contract_not_proved.png" src="../_images/search_contract_not_proved.png" />
+<p>This is actually progress! Indeed, the loop invariant should be strong enough
+to:</p>
+<ol class="arabic simple">
+<li>prove the absence of run-time errors in the loop and after the loop</li>
+<li>prove that it is preserved from iteration to iteration</li>
+<li>prove the postcondition and contract cases of the subprogram</li>
+</ol>
+<p>So we have just achieved goal 1 above!</p>
+<p>As we have modified the code and annotations, it is a good time to compile and
+run our test program, before doing any more formal verification work. This
+helps catch bugs early, and it&#8217;s easy to do! In particular, the loop
+invariant will be dynamically checked at each iteration through the loop.
+Here, testing does not show any problems:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gnatmake -gnata test_search.adb
+$ test_search
+&gt; OK: Found existing value at first index
+&gt; OK: Did not find non-existing value
+</pre></div>
+</div>
+<p>The next easy thing to do is to increase the timeout of automatic provers. Its
+default of 1s is deliberately low, to facilitate interaction with GNATprove
+during the development of annotations, but it is not sufficient to prove the
+more complex checks. Let&#8217;s increase it to 10s (or equivalently set the <code class="docutils literal"><span class="pre">Proof</span>
+<span class="pre">level</span></code> to 2 in the proof panel corresponding to a basic user profile), and
+rerun GNATprove:</p>
+<img alt="../_images/search_10s_timeout.png" src="../_images/search_10s_timeout.png" />
+<p>The unproved check remains in the contract cases of <code class="docutils literal"><span class="pre">Linear_Search</span></code>. The next
+step is to use the <span class="menuselection">SPARK ‣ Prove Line</span> contextual menu
+available on line 35:</p>
+<img alt="../_images/search_prove_line.png" src="../_images/search_prove_line.png" />
+<p>We select the <code class="docutils literal"><span class="pre">Progressively</span> <span class="pre">split</span></code> value for choice <code class="docutils literal"><span class="pre">Proof</span> <span class="pre">strategy</span></code> in
+the window raised in order to maximize proof precision (or equivalently set the
+<code class="docutils literal"><span class="pre">Proof</span> <span class="pre">level</span></code> to 3 in the proof panel corresponding to a basic user profile),
+and click on <span class="menuselection">Execute</span>:</p>
+<img alt="../_images/search_prove_line_by_path.png" src="../_images/search_prove_line_by_path.png" />
+<p>This runs GNATprove only on the checks that originate from line 35, in a
+special mode which considers separately individual execution paths if
+needed. The check is still not proved, but GPS now displays an icon, either on
+the left of the message, or on line 35 in file <code class="docutils literal"><span class="pre">linear_search.ads</span></code>, to show the path
+on which the contract case is not proved:</p>
+<img alt="../_images/search_path_info.png" src="../_images/search_path_info.png" />
+<p>This corresponds to a case where the implementation of <code class="docutils literal"><span class="pre">Search</span></code> does not find
+the searched value, but the guard of the second contract case holds, meaning
+that the value is present in the range 2 to 10. Looking more closely at the
+path highlighted, we can see that the loop exits when <code class="docutils literal"><span class="pre">Pos</span> <span class="pre">=</span> <span class="pre">A'Last</span></code>, so the
+value 10 is never considered! We correct this bug by changing the loop test in
+<code class="docutils literal"><span class="pre">linear_search.adb</span></code> from a strict to a non-strict comparison operation:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span>      <span class="kr">while</span><span class="p"> </span><span class="n">Pos</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="na">&#39;Last</span> <span class="kr">loop</span><span class="p"></span>
+</pre></div>
+</div>
+<p>On this modified code, we rerun GNATprove on line 35, checking the box
+<code class="docutils literal"><span class="pre">Report</span> <span class="pre">checks</span> <span class="pre">proved</span></code> to get information even when a check is proved. The
+reassuring green color (and the accompanying info message) show that the check
+was proved this time:</p>
+<img alt="../_images/search_case_proved.png" src="../_images/search_case_proved.png" />
+<p>As usual after code changes, we rerun the test program, which shows no
+errors. Rerunning GNATprove on the complete file shows no more unproved
+checks. The <code class="docutils literal"><span class="pre">Linear_Search</span></code> unit has been fully proved. To see all the checks that
+were proved, we can rerun the tool with box <code class="docutils literal"><span class="pre">Report</span> <span class="pre">checks</span> <span class="pre">proved</span></code> checked,
+which displays the results previously computed:</p>
+<img alt="../_images/search_all_proved.png" src="../_images/search_all_proved.png" />
+<p>Note that one thing that was not proved is that <code class="docutils literal"><span class="pre">Search</span></code>
+terminates. As it contains a while-loop, it could loop forever. To prove that
+it is not the case, we add a loop variant, which specifies a quantity varying
+monotonically with each iteration. Since this quantity is bounded by its type,
+and we have proved absence of run-time errors in <code class="docutils literal"><span class="pre">Search</span></code>, proving
+this monotonicity property also shows that there cannot be an infinite number
+of iterations of the loop. The natural loop variant for <code class="docutils literal"><span class="pre">Search</span></code> is
+the index <code class="docutils literal"><span class="pre">Pos</span></code>, which increases at each loop iteration:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span>         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Variant</span> <span class="o">(</span><span class="n">Increases</span> <span class="o">=&gt;</span> <span class="n">Pos</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>With this line inserted after the loop invariant in <code class="docutils literal"><span class="pre">linear_search.adb</span></code>, the
+test program still runs without errors (it checks dynamically that the loop
+variant is respected), and the program is still fully proved. Here is the final
+version of <code class="docutils literal"><span class="pre">Linear_Search</span></code>, with the complete annotations:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Linear_Search</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Index</span> <span class="kr">is</span><span class="p"> </span><span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="p">;</span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Element</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Arr</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Index</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Element</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Search_Result</span> <span class="o">(</span><span class="n">Found</span> <span class="o">:</span> <span class="n">Boolean</span> <span class="o">:=</span> <span class="kc">False</span><span class="o">)</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="kr">case</span><span class="p"> </span><span class="n">Found</span> <span class="kr">is</span><span class="p"></span>
+         <span class="kr">when</span><span class="p"> </span><span class="kc">True</span> <span class="o">=&gt;</span>
+            <span class="n">At_Index</span> <span class="o">:</span> <span class="n">Index</span><span class="p">;</span>
+         <span class="kr">when</span><span class="p"> </span><span class="kc">False</span> <span class="o">=&gt;</span>
+            <span class="kr">null</span><span class="p">;</span>
+      <span class="k">end </span><span class="nf">case</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Value_Found_In_Range</span>
+     <span class="o">(</span><span class="n">A</span>       <span class="o">:</span> <span class="n">Arr</span><span class="p">;</span>
+      <span class="n">Val</span>     <span class="o">:</span> <span class="n">Element</span><span class="p">;</span>
+      <span class="n">Low</span><span class="p">,</span> <span class="n">Up</span> <span class="o">:</span> <span class="n">Index</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span>
+   <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">some</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">Low</span> <span class="o">..</span> <span class="n">Up</span> <span class="o">=&gt;</span> <span class="n">A</span><span class="o">(</span><span class="n">J</span><span class="o">)</span> <span class="o">=</span> <span class="n">Val</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Search</span>
+     <span class="o">(</span><span class="n">A</span>   <span class="o">:</span> <span class="n">Arr</span><span class="p">;</span>
+      <span class="n">Val</span> <span class="o">:</span> <span class="n">Element</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Search_Result</span>
+   <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">Val</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Search</span><span class="na">&#39;Result</span><span class="o">.</span><span class="n">Found</span> <span class="kr">then</span><span class="p"></span>
+                <span class="n">A</span> <span class="o">(</span><span class="n">Search</span><span class="na">&#39;Result</span><span class="o">.</span><span class="n">At_Index</span><span class="o">)</span> <span class="o">=</span> <span class="n">Val</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Contract_Cases</span> <span class="o">=&gt;</span>
+       <span class="o">(</span><span class="n">A</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="o">=</span> <span class="n">Val</span> <span class="o">=&gt;</span>
+          <span class="n">Search</span><span class="na">&#39;Result</span><span class="o">.</span><span class="n">At_Index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">A</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="o">/=</span> <span class="n">Val</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">Value_Found_In_Range</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">Val</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="o">)</span> <span class="o">=&gt;</span>
+          <span class="n">Search</span><span class="na">&#39;Result</span><span class="o">.</span><span class="n">Found</span><span class="p">,</span>
+        <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">Arr</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span> <span class="n">A</span><span class="o">(</span><span class="n">J</span><span class="o">)</span> <span class="o">/=</span> <span class="n">Val</span><span class="o">)</span> <span class="o">=&gt;</span>
+          <span class="kr">not</span><span class="p"> </span><span class="n">Search</span><span class="na">&#39;Result</span><span class="o">.</span><span class="n">Found</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Linear_Search</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Linear_Search</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="k">function </span><span class="nf">Search</span>
+     <span class="o">(</span><span class="n">A</span>   <span class="o">:</span> <span class="n">Arr</span><span class="p">;</span>
+      <span class="n">Val</span> <span class="o">:</span> <span class="n">Element</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Search_Result</span>
+   <span class="kr">is</span><span class="p"></span>
+      <span class="n">Pos</span> <span class="o">:</span> <span class="n">Index</span><span class="na">&#39;Base</span> <span class="o">:=</span> <span class="n">A</span><span class="na">&#39;First</span><span class="p">;</span>
+      <span class="n">Res</span> <span class="o">:</span> <span class="n">Search_Result</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">while</span><span class="p"> </span><span class="n">Pos</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="na">&#39;Last</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="kr">if</span><span class="p"> </span><span class="n">A</span><span class="o">(</span><span class="n">Pos</span><span class="o">)</span> <span class="o">=</span> <span class="n">Val</span> <span class="kr">then</span><span class="p"></span>
+            <span class="n">Res</span> <span class="o">:=</span> <span class="o">(</span><span class="n">Found</span>    <span class="o">=&gt;</span> <span class="kc">True</span><span class="p">,</span>
+                    <span class="n">At_Index</span> <span class="o">=&gt;</span> <span class="n">Pos</span><span class="o">)</span><span class="p">;</span>
+            <span class="kr">return</span><span class="p"> </span><span class="n">Res</span><span class="p">;</span>
+         <span class="k">end if</span><span class="p">;</span>
+
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span>
+           <span class="o">(</span><span class="n">Pos</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span>
+              <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"></span>
+            <span class="kr">not</span><span class="p"> </span><span class="n">Value_Found_In_Range</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">Val</span><span class="p">,</span> <span class="n">A</span><span class="na">&#39;First</span><span class="p">,</span> <span class="n">Pos</span><span class="o">))</span><span class="p">;</span>
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Variant</span> <span class="o">(</span><span class="n">Increases</span> <span class="o">=&gt;</span> <span class="n">Pos</span><span class="o">)</span><span class="p">;</span>
+
+         <span class="n">Pos</span> <span class="o">:=</span> <span class="n">Pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+
+      <span class="n">Res</span> <span class="o">:=</span> <span class="o">(</span><span class="n">Found</span> <span class="o">=&gt;</span> <span class="kc">False</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">return</span><span class="p"> </span><span class="n">Res</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Search</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Linear_Search</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The final version of the <code class="docutils literal"><span class="pre">linear_search</span></code> example is part of the
+<a class="reference internal" href="source/examples_in_the_toolset_distribution.html#examples-in-the-toolset-distribution"><span class="std std-ref">Examples in the Toolset Distribution</span></a>. This concludes our tutorial on the
+SPARK toolset.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gnatprove.html" title="7. Formal Verification with GNATprove"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="source/spark_libraries.html" title="5.10. SPARK Libraries"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

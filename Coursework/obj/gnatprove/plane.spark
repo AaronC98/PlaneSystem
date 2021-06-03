@@ -1,0 +1,164 @@
+{
+  "spark": [
+    {
+      "name": "plane",
+      "sloc": [
+        {
+          "file": "plane.ads",
+          "line": 1
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "plane.startTestPlane",
+      "sloc": [
+        {
+          "file": "plane.ads",
+          "line": 43
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+    {
+      "file": "plane.ads",
+      "line": 44,
+      "col": 9,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "plane.startTestPlane",
+        "sloc": [
+          {
+            "file": "plane.ads",
+            "line": 43
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    }
+  ],
+  "proof": [
+    {
+      "file": "plane.ads",
+      "line": 46,
+      "col": 17,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "plane.startTestPlane",
+        "sloc": [
+          {
+            "file": "plane.ads",
+            "line": 43
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "plane.ads",
+      "check_line": 46,
+      "check_col": 17,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "plane",
+          "sloc": [
+            {
+              "file": "plane.ads",
+              "line": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "plane.startTestPlane",
+          "sloc": [
+            {
+              "file": "plane.ads",
+              "line": 43
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "plane.startTestPlane",
+          "sloc": [
+            {
+              "file": "plane.ads",
+              "line": 43
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "plane.startTestPlane",
+          "sloc": [
+            {
+              "file": "plane.ads",
+              "line": 43
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "timings": {
+    "marking": 2.92999990051612E-04,
+    "globals (basic)": 3.30999988364056E-04,
+    "globals/properties (advanced)": 4.64000011561438E-04,
+    "flow analysis": 5.72300003841519E-03,
+    "codepeer results": 9.99999974737875E-06,
+    "init_why_sections": 7.71999999415129E-04,
+    "translation of standard": 4.65299980714917E-03,
+    "translation of compilation unit": 3.58900008723140E-03,
+    "proof": 5.12005984783173E-01
+  }
+}

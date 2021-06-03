@@ -1,0 +1,38 @@
+V "GNAT Lib v2019"
+A -gnatA
+A -mtune=core2
+A -mmacosx-version-min=10.16.0
+A -fPIC
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U door%b		door.adb		3741910e NE OO PK IL
+
+U door%s		door.ads		5e466e85 EE NE OO PK IL
+
+D door.ads		20210506210426 5e466e85 door%s
+D door.adb		20210506210458 6907ff8b door%b
+D system.ads		20190518041255 085b6ffb system%s
+G a e
+G c Z s b [opendoor door 9 14 none]
+G c Z s b [closedoor door 13 14 none]
+G c Z s b [closelockdoor door 17 14 none]
+G c Z s s [doorsystemIP door 5 9 none]
+X 1 door.ads
+1K9*door 21l5 21e9 2|1b14 25l5 25t9
+3E9*door_state 3e54 6r13
+3n24*Open{3E9} 11r34 14r33 2|6r31 12r29
+3n30*Closed{3E9} 10r33 15r34 18r33 2|5r29 13r31 19r29
+3n38*ClosedAndLocked{3E9} 19r34 2|20r30
+5R9*DoorSystem 7e14 9r44 13r45 17r49 2|3r44 10r42 17r46
+6e7*door{3E9} 10r26 11r27 14r26 15r27 18r26 19r27 2|5r22 6m23 12r22 13m23
+. 19r22 20m22
+9U14*OpenDoor 9=23 2|3b14 8l8 8t16
+9r23 current_door{5R9} 10r13 11r14 2|3b23 5r9 6m10
+13U14*CloseDoor 13=24 2|10b11 15l5 15t14
+13r24 current_door{5R9} 14r13 15r14 2|10b21 12r9 13m10
+17U14*CloseLockDoor 17=28 2|17b11 23l5 23t18
+17r28 current_door{5R9} 18r13 19r14 2|17b25 19r9 20m9
+

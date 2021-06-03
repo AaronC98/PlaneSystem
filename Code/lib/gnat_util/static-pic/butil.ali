@@ -1,0 +1,218 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U butil%b		butil.adb		4c18645b NE OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W gnat%s		gnat.ads		gnat.ali
+W opt%s			opt.adb			opt.ali
+W output%s		output.adb		output.ali
+W system%s		system.ads		system.ali
+W system.os_lib%s	s-os_lib.adb		s-os_lib.ali
+W unchecked_deallocation%s
+
+U butil%s		butil.ads		0d752381 BN EE NE OO PK
+W namet%s		namet.adb		namet.ali
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D butil.ads		20190518044709 67e1721b butil%s
+D butil.adb		20190518044709 7c1d42e4 butil%b
+D debug.ads		20190518044709 1ac546f9 debug%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D namet.ads		20190518044709 b520bebe namet%s
+D namet.adb		20190518044709 64106062 namet%b
+D opt.ads		20190518044710 3d2ce478 opt%s
+D output.ads		20190518044709 a916e413 output%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D widechar.ads		20190518044709 afb9abd7 widechar%s
+G a e
+G c Z s b [is_predefined_unit butil 39 13 none]
+G c Z s b [is_internal_unit butil 45 13 none]
+G c Z s b [uname_less butil 54 13 none]
+G c Z s b [write_unit_name butil 57 14 none]
+G c Z s b [has_next butil 71 13 none]
+G c Z s b [iterate_forced_units butil 75 13 none]
+G c Z s b [next butil 79 14 none]
+G c Z s s [forced_units_iteratorIP butil 90 9 none]
+G c Z b b [parse_next_unit_name butil 46 14 none]
+G c Z b b [read_forced_elab_order_file butil 50 13 none]
+G r c none [uname_less butil 54 13 none] [get_name_string namet 600 14 none]
+G r c none [write_unit_name butil 57 14 none] [get_name_string namet 600 14 none]
+G r c none [write_unit_name butil 57 14 none] [write_str output 130 14 none]
+G r c none [has_next butil 71 13 none] [present namet 661 13 none]
+G r c none [iterate_forced_units butil 75 13 none] [name_find namet 345 13 none]
+G r c none [next butil 79 14 none] [present namet 661 13 none]
+G r c none [next butil 79 14 none] [name_find namet 345 13 none]
+G r c none [parse_next_unit_name butil 46 14 none] [name_find namet 345 13 none]
+X 6 butil.ads
+37K9*Butil 88E4 109l5 109e10 7|40b14 653l5 653t10
+39V13*Is_Predefined_Unit{boolean} 7|73s14 86b13 106l8 106t26
+45V13*Is_Internal_Unit{boolean} 7|71b13 77l8 77t24
+54V13*Uname_Less{boolean} 54>25 54>29 7|605b13 633l8 633t18
+54i25 U1{12|653I9} 7|605b25 607r24
+54i29 U2{12|653I9} 7|605b29 615r27
+57U14*Write_Unit_Name 57>31 7|639b14 651l8 651t23
+57i31 U{12|653I9} 7|639b31 641r24
+69R9*Forced_Units_Iterator 71r30 75r41 80r26 90c9 107e14 7|46r50 59r30 112r41
+. 113r14 127r26 147r50
+71V13*Has_Next{boolean} 71>23 72r19 7|59b13 62l8 62t16 132s14
+71r23 Iter{69R9} 7|59b23 61r23
+75V13*Iterate_Forced_Units{69R9} 76r19 7|112b13 120l8 120t28
+79U14*Next 80=7 81<7 82<7 83r19 7|126b14 141l8 141t12
+80r7 Iter{69R9} 7|127b7 132r24 136r20 137r20 140m29
+81i7 Unit_Name{12|653I9} 7|128b7 137m7 138r31
+82i7 Unit_Line{32|162I9} 7|129b7 136m7
+88i4 First_Line_Number{32|162I9} 98r43
+91p7*Order{32|113P9} 7|116m12 163m48
+95i7*Order_Index{positive} 7|161m48
+98i7*Order_Line{32|162I9} 7|162m48
+101i7*Unit_Line{32|162I9} 7|136r25 396m15 519m12
+105i7*Unit_Name{12|653I9} 7|61r28 137r25 402m18 406m18 412m18 520m12
+X 7 butil.adb
+46U14 Parse_Next_Unit_Name 46=36 117s7 140s7 147b14 542l8 542t28
+46r36 Iter{6|69R9} 147b36 161m43 161r43 162m43 162r43 163r43 396m10 402m13
+. 406m13 412m13 519m7 520m7
+50V13 Read_Forced_Elab_Order_File{32|113P9} 116s21 548b13 599l8 599t35
+87i7 L=87:27{natural} 90r18 91r18 92r18 93r18 94r18 95r18 96r18 97r18 98r18
+. 99r18 100r18 101r18 102r18 103r18 104r18 105r18
+88a7 B=88:27{string} 90r34 91r34 92r34 93r34 94r34 95r34 96r34 97r34 98r34
+. 99r34 100r34 101r34 102r34 103r34 104r34 105r34
+113r7 Iter{6|69R9} 116m7 117m29 117r29 119r14
+148a7 Body_Suffix{string} 150r42 382r60
+149a7 Body_Type{string} 403r57
+150i7 Body_Length{positive} 151r42 385r32
+151i7 Body_Offset{natural} 381r41 382r36
+153a7 Comment_Header{string} 154r44 228r65
+154i7 Comment_Offset{natural} 227r41 228r47
+156a7 Spec_Suffix{string} 158r42 388r60
+157a7 Spec_Type{string} 407r57
+158i7 Spec_Length{positive} 159r42 391r32
+159i7 Spec_Offset{natural} 387r44 388r36
+161i7 Index{positive} 228r30 228r39 237r61 246r61 329r16 329r25 335r13 335r22
+. 341r19 341r28 350r45 360r23 382r28 382r51 385r13 385r24 388r28 388r51 391r13
+. 391r24 403r48 407r48 412r64 423r10 439r13 439r22 451r10 451r19 463r16 463r25
+. 481r23 482r23
+162i7 Line{32|162I9} 396r28 452r10 452r19
+163p7 Order{32|113P9} 228r23 237r54 246r54 382r21 388r21 403r26 407r26 412r42
+. 480r12 481r46 482r46
+165V16 At_Comment{boolean} 166r22 217b16 229l11 229t21 281s29 322s19 432s25
+. 528s13
+170V16 At_Terminator{boolean} 171r22 235b16 238l11 238t24 282s29 325s22 435s16
+. 449s25 534s16
+175V16 At_Whitespace{boolean} 176r22 244b16 247l11 247t24 283s29 340s19 462s16
+180V16 Is_Terminator{boolean} 180>31 181r22 237s39 253b16 260l11 260t24
+180e31 C{character} 253b31 259r17
+184V16 Is_Whitespace{boolean} 184>31 185r22 246s39 266b16 274l11 274t24
+184e31 C{character} 266b31 269r12 270r22 271r22 272r22 273r22
+188U17 Parse_Unit_Name 189r22 280b17 424l11 424t26 538s13
+192U17 Skip_Comment 193r22 430b17 441l11 441t23 529s13
+196U17 Skip_Terminator 197r22 447b17 453l11 453t26 535s13
+200U17 Skip_Whitespace 201r22 459b17 468l11 468t26 526s10
+204V16 Within_Order{boolean} 205>10 206>10 207r22 227s12 237s17 246s17 284s25
+. 321s19 339s19 381s13 387s16 434s16 461s16 474b16 483l11 483t23 525s13 531s20
+205i10 Low_Offset{natural} 381r27 387r30 475b10 481r31
+206i10 High_Offset{natural} 227r26 476b10 482r31
+286U20 Find_End_Index_Of_Unit_Name 287r25 295b20 346l14 346t41 359s10
+350i10 Start_Index{positive} 362r25 403r33 407r33 412r49
+352i10 End_Index{positive} 360m10 362r40 423r19
+353b10 Is_Body{boolean} 384m13 401r13
+354b10 Is_Spec{boolean} 390m13 405r16
+549U17 Free[34|20] 585s10 594s10
+551i7 Descr{20|183I9} 564m7 566r10 573r36 580r25 589r14
+552i7 Len{natural} 573m7 575r10 579r36 580r52 584r22
+553i7 Len_Read{natural} 580m7 584r10
+554p7 Result{32|113P9} 579m7 580r32 585m16 585r16 594m16 594r16 598r14
+555b7 Success{boolean} 589m21 593r14
+610a10 U1_Name{string} 617r24 620r27 624r16 626r19 631r17
+612i10 Min_Length{natural} 618m13 620m13 623r24
+623i14 J{integer} 624r25 624r43 626r28 626r46
+X 9 gnat.ads
+34K9*GNAT 7|36w6 36r16 9|57e9
+50X4*Iterator_Exhausted 7|133r16
+X 12 namet.ads
+37K9*Namet 6|34w6 34r17 12|768e10
+169a4*Name_Buffer{string} 7|74r41 76r41 88r27 611r22 624r30 626r33 642r18
+. 644r10
+170i4*Name_Len{natural} 7|74r18 87r27 610r42 611r40 617r13 618r27 631r32
+. 642r36 644r23 650r7 650r19
+188I9*Name_Id<integer>
+204I12*Valid_Name_Id{188I9}
+345V13*Name_Find{204I12} 7|403s15 407s15 412s31
+600U14*Get_Name_String 7|607s7 615s10 641s7
+653I9*Unit_Name_Type<188I9> 6|54r34 57r35 81r23 105r19 7|128r23 605r34 639r35
+658i4*No_Unit_Name{653I9} 6|105r37 7|520r25
+661V13*Present{boolean}<207p13> 7|61s14 138s22
+X 14 opt.ads
+50K9*Opt 7|32w6 32r18 14|2414e8
+721p4*Force_Elab_Order_File{32|113P9} 7|558r10 564r27
+X 15 output.ads
+44K9*Output 7|33w6 33r18 15|213e11
+130U14*Write_Str 7|642s7 645s10 647s10
+X 16 system.ads
+37K9*System 7|38r6 38r25 16|174e11
+67M9*Address
+X 19 s-memory.ads
+53V13*Alloc{16|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{16|67M9} 105i<c,__gnat_realloc>22
+X 20 s-os_lib.ads
+56K16*OS_Lib 7|38w13 38r32 20|1114e18
+183I9*File_Descriptor<integer> 7|551r18
+191i4*Invalid_FD{183I9} 7|566r18
+197U14*Close 7|589s7
+278n18*Binary{278E9} 7|564r54
+367V13*File_Length{long_integer} 7|573s23
+568V13*Open_Read{183I9} 7|564s16
+581V13*Read{integer} 7|580s19
+X 32 types.ads
+52K9*Types 6|35w6 35r17 32|948e10
+113P9*String_Ptr(string) 6|91r15 7|50r48 163r15 548r48 549r61 554r18
+162I9*Logical_Line_Number<integer> 6|82r23 88r33 98r20 101r19 7|129r23 162r15
+169i4*No_Line_Number{162I9} 6|88r56 101r42 7|519r25
+X 34 unchdeal.ads
+20u11*Unchecked_Deallocation 7|34w6 549r29
+

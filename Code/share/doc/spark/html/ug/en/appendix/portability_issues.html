@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Portability Issues &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Semantics of Floating Point Operations" href="semantics_of_floating_point_operations.html" />
+    <link rel="prev" title="GNATprove Limitations" href="gnatprove_limitations.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="semantics_of_floating_point_operations.html" title="Semantics of Floating Point Operations"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gnatprove_limitations.html" title="GNATprove Limitations"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Portability Issues</a><ul>
+<li><a class="reference internal" href="#compiling-with-a-non-spark-aware-compiler">Compiling with a non-SPARK Aware Compiler</a></li>
+<li><a class="reference internal" href="#implementation-specific-decisions">Implementation-specific Decisions</a><ul>
+<li><a class="reference internal" href="#parenthesized-arithmetic-operations">Parenthesized Arithmetic Operations</a></li>
+<li><a class="reference internal" href="#base-type-of-user-defined-integer-types">Base Type of User-Defined Integer Types</a></li>
+<li><a class="reference internal" href="#size-of-image-and-img-attributes">Size of &#8216;Image and &#8216;Img attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gnatprove_limitations.html"
+                        title="previous chapter">GNATprove Limitations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="semantics_of_floating_point_operations.html"
+                        title="next chapter">Semantics of Floating Point Operations</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/appendix/portability_issues.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="portability-issues">
+<span id="id1"></span><h1>Portability Issues<a class="headerlink" href="#portability-issues" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="compiling-with-a-non-spark-aware-compiler">
+<h2>Compiling with a non-SPARK Aware Compiler<a class="headerlink" href="#compiling-with-a-non-spark-aware-compiler" title="Permalink to this headline">¶</a></h2>
+<p>To execute a SPARK program, it is expected that users will compile
+the program (as an Ada program) using an Ada compiler.
+The SPARK language definition defines a number of implementation-defined
+(with respect to the Ada language definition) aspects,
+attributes, pragmas, and conventions.
+Ideally a SPARK program will be compiled using an Ada compiler that
+supports all of these constructs. Portability problems may arise
+if this is not the case.</p>
+<p>This section is a discussion of the strategies available for coping
+with this situation.</p>
+<p>Probably the most important rule is that pragmas should be used instead
+of aspect_specification syntax wherever this option is available. For example,
+use pragma Abstract_State rather than specifying the Abstract_State aspect
+of a package using aspect_specification syntax. Ada specifies that
+unrecognized pragmas shall be ignored, as opposed to being rejected.
+This is not the case for (syntactic) aspect specifications
+(this terminology is a bit confusing because a pragma can be used to
+specify an aspect; such a pragma is semantically, but not syntactically,
+an aspect specification).
+Furthermore, aspect specification syntax was introduced in Ada 2012
+and will be rejected if the program is compiled as, for example, an
+Ada 95 program.</p>
+<p>Many SPARK-defined constructs have no dynamic semantics (e.g., the Global,
+Depends, and Abstract_State aspects), so the run-time behavior of
+a program is unaffected if they are ignored by a compiler. Thus, there is
+no problem if these constructs are expressed as pragmas which are
+then ignored by the Ada compiler.</p>
+<p>Of those constructs which do have dynamic semantics, most are run-time
+assertions. These include Loop_Variant, Loop_Invariant, Assert_And_Cut,
+Contract_Cases, Initial_Condition, and Refined_Postcondition. Because
+SPARK requires that the success of these assertions must be statically
+proven (and that the evaluation of the asserted condition can have no side
+effects), the run-time behavior of a program is unaffected if they are ignored
+by a compiler.</p>
+<p>The situation with pragma Assume is slightly different because the
+success of the given condition is not statically proven. If ignoring
+an Assume pragma at run time is deemed to be unacceptable, then it can
+be replaced with an Assert pragma (at the cost of introducing a source
+code difference between the SPARK program that is analyzed statically
+and the Ada program that is executed). An ignored Assume pragma is the
+only case where the use of a SPARK-specific construct can lead to a
+portability problem which is not detected at compile time. In all
+other cases, either the Ada compiler will reject (as opposed to ignore)
+an unrecognized construct or the construct can safely be ignored.</p>
+<p>An Ada compiler which does not support convention Ghost will reject
+any use of this convention. Two safe transformations are available for
+dealing with this situation - either replace uses of convention Ghost with
+convention Ada or delete the entities declared with a convention of Ghost.
+Just as was mentioned above in the case of modifying an Assume pragma,
+either choice introduces an analyzed/executed source code difference.</p>
+<p>There are two SPARK attributes which cannot be used
+if they are not supported by the Ada compiler in question: the
+Update and Loop_Entry attributes.</p>
+<p>SPARK includes a rule that a package which declares a state
+abstraction requires a body. In the case of a library unit package
+(or generic package) which requires a body only because of this rule,
+an Ada compiler that knows nothing about state abstractions would
+reject the body of the package because of the rule (introduced in Ada 95)
+that a library unit package (or generic package) body is never optional;
+if it is not required then it is forbidden. In the unlikely event
+that this scenario arises in practice, the solution is to force the
+library unit package to require a body for some other reason, typically
+by adding an Elaborate_Body pragma.</p>
+<p>If a SPARK program is to be compiled and executed as an Ada 95 program
+(or any other pre-2012 version of Ada), then of course any construct
+introduced in a later version of Ada must be avoided (unless it is
+expressed as a safely-ignored pragma). This seems worth mentioning because
+Ada 2012 constructs such as quantified expressions
+and conditional expressions are often heavily used in SPARK programs.</p>
+</div>
+<div class="section" id="implementation-specific-decisions">
+<h2>Implementation-specific Decisions<a class="headerlink" href="#implementation-specific-decisions" title="Permalink to this headline">¶</a></h2>
+<p>To make analysis as precise as possible and avoid producing too many false
+alarms, GNATprove makes some assumptions about the behavior of constructs
+which are listed in the reference manual of Ada as implementation specific.
+Note that GNATprove always adopts the same choices as the GNAT compiler, so
+these assumptions should be adequate when compiling with GNAT. However, when
+another compiler is used, it may be better to avoid these implementation
+specific constructs (see <a class="reference internal" href="../usage_scenarios.html#benefits-of-using-spark-for-portability"><span class="std std-ref">Benefits of Using SPARK for Portability</span></a> for
+more details on how this can be achieved).</p>
+<div class="section" id="parenthesized-arithmetic-operations">
+<span id="id2"></span><h3>Parenthesized Arithmetic Operations<a class="headerlink" href="#parenthesized-arithmetic-operations" title="Permalink to this headline">¶</a></h3>
+<p>In Ada, non-parenthesized arithmetic operations could be re-ordered by the
+compiler, which may result in a failing computation (due to overflow checking)
+becoming a successful one, and vice-versa. By default, GNATprove evaluates
+all expressions left-to-right, like GNAT. When the switch <code class="docutils literal"><span class="pre">--pedantic</span></code> is
+used, a warning is emitted for every operation that could be re-ordered:</p>
+<ul class="simple">
+<li>any operand of a binary adding operation (+,-) that is itself a binary adding
+operation;</li>
+<li>any operand of a binary multiplying operation (*,/,mod,rem) that is itself a
+binary multiplying operation.</li>
+</ul>
+</div>
+<div class="section" id="base-type-of-user-defined-integer-types">
+<span id="id3"></span><h3>Base Type of User-Defined Integer Types<a class="headerlink" href="#base-type-of-user-defined-integer-types" title="Permalink to this headline">¶</a></h3>
+<p>GNATprove follows GNAT in choosing as base type
+the smallest multiple-words-size integer type that contains the type
+bounds. For example, a user-defined type ranging from 1 to 100 will be given
+a base type ranging from -128 to 127 by both GNAT and GNATprove. The
+choice of base types influences in which cases intermediate overflows may be
+raised during computation. The choice made in GNATprove is the strictest
+one among existing compilers, as far as we know, which ensures that
+GNATprove&#8216;s analysis detects a superset of the overflows that may occur at
+run time.</p>
+</div>
+<div class="section" id="size-of-image-and-img-attributes">
+<h3>Size of &#8216;Image and &#8216;Img attributes<a class="headerlink" href="#size-of-image-and-img-attributes" title="Permalink to this headline">¶</a></h3>
+<p>To avoid spurious range checks on string operations involving occurrences of
+the <code class="docutils literal"><span class="pre">'Img</span></code>, <code class="docutils literal"><span class="pre">'Image</span></code>, <code class="docutils literal"><span class="pre">'Wide_Image</span></code>, and <code class="docutils literal"><span class="pre">'Wide_Wide_Image</span></code> attributes,
+GNATprove makes an assumption about the maximal length of the returned string.
+If the attribute applies to an integer type, the bounds are the maximal size
+of the result of the attribute as specified in the language depending of the
+type&#8217;s base type. Otherwise, GNATprove assumes that the length of such a
+string cannot exceed 255 (the maximal number of characters in a line) times 8
+(the maximal size of a Wide_Wide_Character).</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="semantics_of_floating_point_operations.html" title="Semantics of Floating Point Operations"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gnatprove_limitations.html" title="GNATprove Limitations"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

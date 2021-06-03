@@ -1,0 +1,46 @@
+             G N A T T E S T   E X A M P L E S
+             
+In order to generate and compile test driver, make sure that 'gnattest' and
+'gprbuild' commands are in your path and AUnit is in your default project path.
+
+To generate a test driver for a number of sources you need to use gnattest
+utility. Note that in order to process given files, gnattest has to
+semantically analyze the Ada sources. Therefore, test packages can only be
+generated legal Ada units. Moreover, when a unit depends semantically upon
+units located outside the current directory, the source search path has to be
+provided when calling gnattest through a specified project file.
+
+Using non-gnattest aunit based tests
+------------------------------------
+
+This example illustrates two ways of including already written tests into
+main suite of the generated test driver. Directory additional contains a AUnit
+based test driver written by hand.
+
+Harness only mode
+-----------------
+
+To create a test driver for already written tests use --harness-only option:
+  $ gnattest -Padditional/harness/harness.gpr --harness-dir=harness_only \
+    --harness-only
+  $ gprbuild -Padditional/harness/obj/harness_only/test_driver.gpr
+  $ additional/harness/obj/harness_only/test_runner
+
+In such mode gnattest looks through all argument sources searching for test
+routines. All procedures with a single in out parameter of a type which is
+a derivation of AUnit.Test_Fixtures.Test_Fixture declared in package
+specifications are added to the suites and then are executed by test driver.
+Also for all types declared in package specifications that are derivations of
+AUnit.Simple_Test_Cases.Test_Case or AUnit.Test_Cases.Test_Case an object of
+such type is created and added to the suite.
+
+Adding old style tests
+----------------------
+
+Another way of using previously written tests is to add them to the main suite:
+  $ gnattest -Psimple.gpr --additional-tests=additional/harness/harness.gpr \
+    --harness-dir=mixing
+  $ gprbuild -Pobj/mixing/test_driver.gpr
+  $ obj/mixing/test_runner
+
+User written tests are run along with generated ones.

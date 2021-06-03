@@ -1,0 +1,1854 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>6. Subprograms &#8212; SPARK 2014 Reference Manual 2019</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. Packages" href="packages.html" />
+    <link rel="prev" title="5. Statements" href="statements.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="packages.html" title="7. Packages"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="statements.html" title="5. Statements"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">6. Subprograms</a><ul>
+<li><a class="reference internal" href="#subprogram-declarations">6.1. Subprogram Declarations</a><ul>
+<li><a class="reference internal" href="#preconditions-and-postconditions">6.1.1. Preconditions and Postconditions</a></li>
+<li><a class="reference internal" href="#subprogram-contracts">6.1.2. Subprogram Contracts</a></li>
+<li><a class="reference internal" href="#contract-cases">6.1.3. Contract Cases</a></li>
+<li><a class="reference internal" href="#global-aspects">6.1.4. Global Aspects</a></li>
+<li><a class="reference internal" href="#depends-aspects">6.1.5. Depends Aspects</a></li>
+<li><a class="reference internal" href="#class-wide-global-and-depends-aspects">6.1.6. Class-Wide Global and Depends Aspects</a></li>
+<li><a class="reference internal" href="#extensions-visible-aspects">6.1.7. Extensions_Visible Aspects</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#formal-parameter-modes">6.2. Formal Parameter Modes</a></li>
+<li><a class="reference internal" href="#subprogram-bodies">6.3. Subprogram Bodies</a><ul>
+<li><a class="reference internal" href="#conformance-rules">6.3.1. Conformance Rules</a></li>
+<li><a class="reference internal" href="#inline-expansion-of-subprograms">6.3.2. Inline Expansion of Subprograms</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#subprogram-calls">6.4. Subprogram Calls</a><ul>
+<li><a class="reference internal" href="#parameter-associations">6.4.1. Parameter Associations</a></li>
+<li><a class="reference internal" href="#anti-aliasing">6.4.2. Anti-Aliasing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#return-statements">6.5. Return Statements</a><ul>
+<li><a class="reference internal" href="#nonreturning-procedures">6.5.1. Nonreturning Procedures</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#overloading-of-operators">6.6. Overloading of Operators</a></li>
+<li><a class="reference internal" href="#null-procedures">6.7. Null Procedures</a></li>
+<li><a class="reference internal" href="#expression-functions">6.8. Expression Functions</a></li>
+<li><a class="reference internal" href="#ghost-entities">6.9. Ghost Entities</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="statements.html"
+                        title="previous chapter">5. Statements</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="packages.html"
+                        title="next chapter">7. Packages</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/subprograms.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="subprograms">
+<h1>6. Subprograms<a class="headerlink" href="#subprograms" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subprogram-declarations">
+<span id="id1"></span><h2>6.1. Subprogram Declarations<a class="headerlink" href="#subprogram-declarations" title="Permalink to this headline">¶</a></h2>
+<p>We distinguish the <em>declaration view</em> introduced by a <code class="docutils literal"><span class="pre">subprogram_declaration</span></code>
+from the <em>implementation view</em> introduced by a <code class="docutils literal"><span class="pre">subprogram_body</span></code> or an
+<code class="docutils literal"><span class="pre">expression_function_declaration</span></code>. For subprograms that are not declared by
+a <code class="docutils literal"><span class="pre">subprogram_declaration</span></code>, the <code class="docutils literal"><span class="pre">subprogram_body</span></code> or
+<code class="docutils literal"><span class="pre">expression_function_declaration</span></code> also introduces a declaration view which
+may be in SPARK 2014 even if the implementation view is not.</p>
+<p>Rules are imposed in SPARK 2014 to ensure that the execution of a function
+call does not modify any variables declared outside of the function.
+It follows as a consequence of these rules that the evaluation
+of any SPARK 2014 expression is side-effect free.</p>
+<p>We also introduce the notion of a <em>global item</em>, which is a name that denotes a
+global object or a state abstraction (see <a class="reference internal" href="packages.html#abstract-state"><span class="std std-ref">Abstraction of State</span></a>). Global items
+are presented in Global aspects (see <a class="reference internal" href="#global-aspects"><span class="std std-ref">Global Aspects</span></a>).</p>
+<p>An <em>entire object</em> is an object which is not a subcomponent of a larger
+containing object.  More specifically, an <em>entire object</em> is
+an object declared by an <code class="docutils literal"><span class="pre">object_declaration</span></code> (as opposed to, for example,
+a slice or the result object of a function call) or a formal parameter of
+a subprogram. In particular, a component of a protected unit is not
+an <em>entire object</em>.</p>
+<p>An object O1 is said to be a <em>reachable element</em> of an object O2 if</p>
+<ul class="simple">
+<li>O1 is a part of O2; or</li>
+<li>O1 is a reachable element of the object designated by
+(the value of) an access-valued part of O2.</li>
+</ul>
+<p class="centered">
+<strong><strong>Static Semantics</strong></strong></p><ol class="arabic simple">
+<li>The <em>exit</em> value of a global item or parameter of a subprogram is its
+value immediately following the successful call of the subprogram.</li>
+<li>The <em>entry</em> value of a global item or parameter of a subprogram is its
+value at the call of the subprogram.</li>
+<li>An <em>output</em> of a subprogram is a global item or parameter whose final value,
+or the final value of any of its reachable elements, may be updated by a
+successful call to the subprogram. The result of a
+function is also an output.  A global item or parameter which is an external
+state with the property Async_Readers =&gt; True, and for which intermediate
+values are written during an execution leading to a successful call, is also
+an output even if the final state is the same as the initial state. (see
+<a class="reference internal" href="packages.html#external-state"><span class="std std-ref">External State</span></a>). [On the contrary, a global item or parameter is not
+an output of the subprogram if it is updated only on paths that lead to an
+explicit <code class="docutils literal"><span class="pre">raise_statement</span></code> or to a <code class="docutils literal"><span class="pre">pragma</span> <span class="pre">Assert</span> <span class="pre">(statically_False)</span></code> or
+to a call to a subprogram marked <code class="docutils literal"><span class="pre">No_Return</span></code>.]</li>
+<li>An <em>input</em> of a subprogram is a global item or parameter whose
+initial value (or that of any of its reachable elements)
+may be used in determining the exit value of an
+output of the subprogram.  For a global item or parameter which is
+an external state with Async_Writers =&gt; True, each successive value
+read from the external state is also an input of the subprogram
+(see <a class="reference internal" href="packages.html#external-state"><span class="std std-ref">External State</span></a>).  As a special case, a global item or
+parameter is also an input if it is mentioned in a
+<code class="docutils literal"><span class="pre">null_dependency_clause</span></code> in the Depends aspect of the subprogram
+(see <a class="reference internal" href="#depends-aspects"><span class="std std-ref">Depends Aspects</span></a>).</li>
+<li>An output of a subprogram is said to be <em>fully initialized</em> by a call
+if all parts of the output are initialized as a result of any successful
+execution of a call of the subprogram. In the case of a parameter X
+of a class-wide type T&#8217;Class, this set of &#8220;all parts&#8221; is not limited
+to the (statically known) parts of T. For example, if the underlying
+dynamic tag of X is T2&#8217;Tag, where T2 is an extension of T that declares
+a component C, then C would be included in the set. In this case,
+this set of &#8220;all parts&#8221; is not known statically.
+[In order to fully initialize such a parameter, it is necessary
+to use some form of dispatching assignment. This can be done by either
+a direct (class-wide) assignment to X, passing X as an actual out-mode
+parameter in a call where the formal parameter is of a class-wide type,
+or passing X as a controlling out-mode parameter in a dispatching call.]
+The meaning of &#8220;all parts&#8221; in the case of a parameter of a specific
+tagged type is determined by the applicable Extensions_Visible aspect
+(see <a class="reference internal" href="#extensions-visible-aspects"><span class="std std-ref">Extensions_Visible Aspects</span></a>).
+[A state abstraction cannot be fully initialized by initializing
+individual constituents unless its refinement is visible.]</li>
+</ol>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-fe-subprogram-declarations-06" start="6">
+<li>A function declaration shall not have a <code class="docutils literal"><span class="pre">parameter_specification</span></code>
+with a mode of <strong>out</strong> or <strong>in out</strong>. This rule also applies to
+a <code class="docutils literal"><span class="pre">subprogram_body</span></code> for a function for which no explicit declaration
+is given. A function shall have no outputs other than its result.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-subprogram-declarations-07" start="7">
+<li>A subprogram parameter of mode <strong>in</strong> shall not be an output of its
+subprogram unless the type of the parameter is an access type and
+the subprogram is not a function.</li>
+</ol>
+<div class="section" id="preconditions-and-postconditions">
+<span id="etu-subprogram-declarations"></span><span id="id2"></span><h3>6.1.1. Preconditions and Postconditions<a class="headerlink" href="#preconditions-and-postconditions" title="Permalink to this headline">¶</a></h3>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-sf-preconditions-and-postconditions-01">
+<li>The corresponding expression for an inherited Pre&#8217;Class or Post&#8217;Class of an
+inherited subprogram S of a tagged type T shall not call a non-inherited
+primitive function of type T.</li>
+</ol>
+<p>[The notion of corresponding expression is defined in Ada RM 6.1.1(18/4) as
+follows: If a Pre&#8217;Class or Post&#8217;Class aspect is specified for a primitive
+subprogram S of a tagged type T, or such an aspect defaults to True, then a
+corresponding expression also applies to the corresponding primitive subprogram
+S of each descendant of T.]</p>
+<p>[The rationale for this rule is that, otherwise, if the contract applicable to
+an inherited subprogram changes due to called subprograms in its contract being
+overridden, then the inherited subprogram would have to be re-verified for the
+derived type. This rule forbids the cases that require re-verification.]</p>
+<ol class="arabic simple" id="tu-sf-preconditions-and-postconditions-02" start="2">
+<li>The Pre aspect shall not be specified for a primitive operation of a
+type T at a point where T is tagged. [Pre&#8217;Class
+should be used instead to express preconditions.]</li>
+</ol>
+<p>[The rationale for this rule is that, otherwise, the combination of dynamic
+semantics and verification rules below would force an identical Pre&#8217;Class
+each time Pre is used on a dispatching operation.]</p>
+<ol class="arabic simple" id="tu-sf-preconditions-and-postconditions-03" start="3">
+<li>A subprogram_renaming_declaration shall not declare a primitive
+operation of a tagged type.</li>
+</ol>
+<p>[Consider</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Outer</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">T</span> <span class="kr">is</span><span class="p"> </span><span class="kr">tagged</span><span class="p"> </span><span class="kr">null</span><span class="p"> </span><span class="kr">record</span><span class="p">;</span>
+   <span class="k">package </span><span class="nf">Nested</span> <span class="kr">is</span><span class="p"></span>
+      <span class="k">procedure </span><span class="nf">Op</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">T</span><span class="o">)</span> <span class="kr">with</span><span class="p"> </span><span class="n">Pre</span> <span class="o">=&gt;</span> <span class="o">...</span><span class="p">,</span> <span class="n">Post</span> <span class="o">=&gt;</span> <span class="o">...</span> <span class="p">;</span>
+      <span class="c">-- not a primitive, so Pre/Post specs are ok</span>
+   <span class="k">end </span><span class="nf">Nested</span><span class="p">;</span>
+   <span class="k">procedure </span><span class="nf">Renamed_Op</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">T</span><span class="o">)</span> <span class="kr">renames</span><span class="p"> </span><span class="n">Nested.Op</span><span class="p">;</span> <span class="c">-- illegal</span>
+<span class="k">end </span><span class="nf">Outer</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Allowing this example in SPARK would introduce a case of a dispatching
+operation which is subject to a Pre (and Post) aspect specification.
+This rule is also intended to avoid problematic interactions between
+the Pre/Pre&#8217;Class/Post/Post&#8217;Class aspects of the renamed subprogram
+and the Pre&#8217;Class/Post&#8217;Class inheritance associated with the declaration
+of a primitive operation of a tagged type.</p>
+<p>Note that a dispatching subprogram can be renamed as long as the renaming
+does not itself declare a dispatching operation. Note also that this rule
+would never apply to a renaming-as-body.]</p>
+<p class="centered" id="etu-preconditions-and-postconditions">
+<strong><strong>Verification Rules</strong></strong></p><p>For a call on a nondispatching operation,
+a verification condition is introduced (as
+for any run-time check) to ensure that the specific precondition
+check associated with the statically denoted callee will succeed.
+Upon entry to such a subprogram, the specific preconditions of
+the subprogram may then be assumed.</p>
+<p>For a call (dispatching or not) on a dispatching operation,
+a verification condition is introduced (as
+for any run-time check) to ensure that the class-wide precondition
+check associated with the statically denoted callee will succeed.</p>
+<p>The verification condition associated with the specific precondition
+of a dispatching subprogram is imposed on the callee, as opposed to
+on callers of the subprogram. Upon entry to a subprogram, the
+class-wide preconditions of the subprogram may be assumed. Given
+this, the specific preconditions of the subprogram must be proven.</p>
+<p>The callee is responsible for discharging the verification conditions associated
+with any postcondition checks, class-wide or specific. The success of these
+checks may then be assumed by the caller.</p>
+<p>In the case of an overriding dispatching operation whose Pre&#8217;Class
+attribute is explicitly specified, a verification condition is introduced
+to ensure that the specified Pre&#8217;Class condition is implied by the
+Pre&#8217;Class condition of the overridden inherited subprogram(s). Similarly,
+in the case of an overriding dispatching operation whose Post&#8217;Class
+attribute is explicitly specified, a verification condition is introduced
+to ensure that the specified Post&#8217;Class condition implies the
+Post&#8217;Class condition of the overridden inherited subprogram(s).
+[These verification conditions do not correspond to any run-time check.
+They are intended to, in effect, require users to make explicit the implicit
+disjunction/conjunction of class-wide preconditions/postconditions
+that is described in Ada RM 6.1.1.]</p>
+</div>
+<div class="section" id="subprogram-contracts">
+<h3>6.1.2. Subprogram Contracts<a class="headerlink" href="#subprogram-contracts" title="Permalink to this headline">¶</a></h3>
+<p>In order to extend Ada&#8217;s support for specification of subprogram contracts
+(e.g., the Pre and Post) by providing more precise and/or concise contracts, the
+SPARK 2014 aspects, Global, Depends, and Contract_Cases are defined.</p>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-nt-subprogram-contracts-01">
+<li>The Global, Depends and Contract_Cases aspects may be
+specified for a subprogram with an <code class="docutils literal"><span class="pre">aspect_specification</span></code>. More
+specifically, such aspect specifications are allowed in the same
+contexts as Pre or Post aspect specifications. [In particular,
+these aspects may be specified for a generic subprogram but not
+for an instance of a generic subprogram.]</li>
+<li>The Global, Depends and Contract_Cases aspects shall not be specified for an
+abstract subprogram or a null procedure. Only Global&#8217;Class and Depends&#8217;Class
+may be specified for such a subprogram.</li>
+</ol>
+<p id="etu-subprogram-contracts">See section <a class="reference internal" href="#contract-cases"><span class="std std-ref">Contract Cases</span></a> for further detail on Contract_Case aspects, section
+<a class="reference internal" href="#global-aspects"><span class="std std-ref">Global Aspects</span></a> for further detail on Global aspects and section <a class="reference internal" href="#depends-aspects"><span class="std std-ref">Depends Aspects</span></a>
+for further detail on Depends aspects.</p>
+</div>
+<div class="section" id="contract-cases">
+<span id="id3"></span><h3>6.1.3. Contract Cases<a class="headerlink" href="#contract-cases" title="Permalink to this headline">¶</a></h3>
+<p>The Contract_Cases aspect provides a structured way of defining a subprogram
+contract using mutually exclusive subcontract cases. The final case in the
+Contract_Case aspect may be the keyword <strong>others</strong> which means that, in a
+specific call to the subprogram, if all the <code class="docutils literal"><span class="pre">conditions</span></code> are False this
+<code class="docutils literal"><span class="pre">contract_case</span></code> is taken. If an <strong>others</strong> <code class="docutils literal"><span class="pre">contract_case</span></code> is not specified,
+then in a specific call of the subprogram exactly one of the guarding
+<code class="docutils literal"><span class="pre">conditions</span></code> should be True.</p>
+<p>A Contract_Cases aspect may be used in conjunction with the
+language-defined aspects Pre and Post in which case the precondition
+specified by the Pre aspect is augmented with a check that exactly one
+of the <code class="docutils literal"><span class="pre">conditions</span></code> of the <code class="docutils literal"><span class="pre">contract_case_list</span></code> is satisfied and
+the postcondition specified by the Post aspect is conjoined with
+conditional expressions representing each of the <code class="docutils literal"><span class="pre">contract_cases</span></code>.
+For example:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">P</span> <span class="o">(...)</span>
+   <span class="kr">with</span><span class="p"> </span><span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">General_Precondition</span><span class="p">,</span>
+        <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">General_Postcondition</span><span class="p">,</span>
+        <span class="n">Contract_Cases</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">A1</span> <span class="o">=&gt;</span> <span class="n">B1</span><span class="p">,</span>
+                           <span class="n">A2</span> <span class="o">=&gt;</span> <span class="n">B2</span><span class="p">,</span>
+                           <span class="o">...</span>
+                           <span class="n">An</span> <span class="o">=&gt;</span> <span class="n">Bn</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>is short hand for</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">P</span> <span class="o">(...)</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">General_Precondition</span>
+                 <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">Exactly_One_Of</span> <span class="o">(</span><span class="n">A1</span><span class="p">,</span> <span class="n">A2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">An</span><span class="o">)</span><span class="p">,</span>
+       <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">General_Postcondition</span>
+                 <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">A1</span><span class="na">&#39;Old</span> <span class="kr">then</span><span class="p"> </span><span class="n">B1</span><span class="o">)</span>
+                 <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">A2</span><span class="na">&#39;Old</span> <span class="kr">then</span><span class="p"> </span><span class="n">B2</span><span class="o">)</span>
+                 <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="o">...</span>
+                 <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">An</span><span class="na">&#39;Old</span> <span class="kr">then</span><span class="p"> </span><span class="n">Bn</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>where</p>
+<blockquote>
+<div><p>A1 .. An are Boolean expressions involving the entry values of
+formal parameters and global objects and</p>
+<p>B1 .. Bn are Boolean expressions that may also use the exit values of
+formal parameters, global objects and results.</p>
+<p><code class="docutils literal"><span class="pre">Exactly_One_Of(A1,A2...An)</span></code> evaluates to True if exactly one of its inputs evaluates
+to True and all other of its inputs evaluate to False.</p>
+</div></blockquote>
+<p>The Contract_Cases aspect is specified with an <code class="docutils literal"><span class="pre">aspect_specification</span></code> where
+the <code class="docutils literal"><span class="pre">aspect_mark</span></code> is Contract_Cases and the <code class="docutils literal"><span class="pre">aspect_definition</span></code> must follow
+the grammar of <code class="docutils literal"><span class="pre">contract_case_list</span></code> given below.</p>
+<p class="centered">
+<strong><strong>Syntax</strong></strong></p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">contract_case_list</span>  <span class="p">::</span><span class="o">=</span> <span class="p">(</span><span class="n">contract_case</span> <span class="p">{,</span> <span class="n">contract_case</span><span class="p">})</span>
+<span class="n">contract_case</span>       <span class="p">::</span><span class="o">=</span> <span class="n">condition</span> <span class="o">=&gt;</span> <span class="n">consequence</span>
+                      <span class="o">|</span> <span class="n">others</span> <span class="o">=&gt;</span> <span class="n">consequence</span>
+</pre></div>
+</div>
+<p>where</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">consequence</span> <span class="pre">::=</span></code> <em>Boolean_</em><code class="docutils literal"><span class="pre">expression</span></code></div></blockquote>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-fe-contract-cases-01">
+<li>A Contract_Cases aspect may have at most one <strong>others</strong>
+<code class="docutils literal"><span class="pre">contract_case</span></code> and if it exists it shall be the last one in the
+<code class="docutils literal"><span class="pre">contract_case_list</span></code>.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-contract-cases-02" start="2">
+<li>A <code class="docutils literal"><span class="pre">consequence</span></code> expression is considered to be a postcondition
+expression for purposes of determining the legality of Old or
+Result <code class="docutils literal"><span class="pre">attribute_references</span></code>.</li>
+</ol>
+<p class="centered" id="etu-contract-cases-lr">
+<strong><strong>Static Semantics</strong></strong></p><ol class="arabic simple" id="tu-fe-contract-cases-03" start="3">
+<li>A Contract_Cases aspect is an assertion (as defined in RM
+11.4.2(1.1/3)); its assertion expressions are as described
+below. Contract_Cases may be specified as an
+<code class="docutils literal"><span class="pre">assertion_aspect_mark</span></code> in an Assertion_Policy pragma.</li>
+</ol>
+<p class="centered" id="etu-contract-cases-ss">
+<strong><strong>Dynamic Semantics</strong></strong></p><ol class="arabic simple" id="tu-fe-contract-cases-04" start="4">
+<li>Upon a call of a subprogram which is subject to an enabled
+Contract_Cases aspect, Contract_Cases checks are
+performed as follows:<ul>
+<li>Immediately after the specific precondition expression is
+evaluated and checked (or, if that check is disabled, at the
+point where the check would have been performed if it were
+enabled), all of the <code class="docutils literal"><span class="pre">conditions</span></code> of the <code class="docutils literal"><span class="pre">contract_case_list</span></code>
+are evaluated in textual order. A check is performed that exactly
+one (if no <strong>others</strong> <code class="docutils literal"><span class="pre">contract_case</span></code> is provided) or at most
+one (if an <strong>others</strong> <code class="docutils literal"><span class="pre">contract_case</span></code> is provided) of these
+<code class="docutils literal"><span class="pre">conditions</span></code> evaluates to True; Assertions.Assertion_Error is
+raised if this check fails.</li>
+<li>Immediately after the specific postcondition expression is
+evaluated and checked (or, if that check is disabled, at the
+point where the check would have been performed if it were
+enabled), exactly one of the <code class="docutils literal"><span class="pre">consequences</span></code> is evaluated. The
+<code class="docutils literal"><span class="pre">consequence</span></code> to be evaluated is the one corresponding to the
+one <code class="docutils literal"><span class="pre">condition</span></code> whose evaluation yielded True (if such a
+<code class="docutils literal"><span class="pre">condition</span></code> exists), or to the <strong>others</strong> <code class="docutils literal"><span class="pre">contract_case</span></code> (if
+every <code class="docutils literal"><span class="pre">condition</span></code>&#8216;s evaluation yielded False). A check
+is performed that the evaluation of the selected <code class="docutils literal"><span class="pre">consequence</span></code>
+evaluates to True; Assertions.Assertion_Error is raised if this
+check fails.</li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-contract-cases-05" start="5">
+<li>If an Old <code class="docutils literal"><span class="pre">attribute_reference</span></code> occurs within a <code class="docutils literal"><span class="pre">consequence</span></code>
+other than the <code class="docutils literal"><span class="pre">consequence</span></code> selected for (later) evaluation
+as described above, then the associated implicit constant declaration
+(see Ada RM 6.1.1) is not elaborated. [In particular, the prefix of the
+Old <code class="docutils literal"><span class="pre">attribute_reference</span></code> is not evaluated].</li>
+</ol>
+<p class="centered" id="etu-contract-cases-ds">
+<strong><strong>Verification Rules</strong></strong></p><p>The verification conditions associated with the Contract_Cases runtime checks
+performed at the beginning of a call are assigned in the same way
+as those associated with a specific precondition check. More specifically,
+the verification condition is imposed on the caller or on the callee depending
+on whether the subprogram in question is a dispatching operation.</p>
+<p class="centered">
+<strong><strong>Examples</strong></strong></p><div class="highlight-ada"><div class="highlight"><pre><span></span><span class="c">-- This subprogram is specified using a Contract_Cases aspect.</span>
+<span class="c">-- The prover will check that the cases are disjoint and</span>
+<span class="c">-- cover the domain of X.</span>
+<span class="k">procedure </span><span class="nf">Incr_Threshold</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span> <span class="n">Threshold</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Contract_Cases</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span> <span class="o">&lt;</span> <span class="n">Threshold</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                          <span class="n">X</span> <span class="o">&gt;=</span> <span class="n">Threshold</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="na">&#39;Old</span><span class="o">)</span><span class="p">;</span>
+
+<span class="c">-- This is the equivalent specification not using Contract_Cases.</span>
+<span class="c">-- It is noticeably more complex and the prover is not able to check</span>
+<span class="c">-- for disjoint cases or that he domain of X is covered.</span>
+<span class="k">procedure </span><span class="nf">Incr_Threshold_1</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span> <span class="n">Threshold</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span> <span class="o">&lt;</span> <span class="n">Threshold</span> <span class="kr">and</span><span class="p"> </span><span class="kr">not</span><span class="p"> </span><span class="o">(</span><span class="n">X</span> <span class="o">=</span> <span class="n">Threshold</span><span class="o">))</span>
+                  <span class="kr">or</span><span class="p"> </span><span class="kr">else</span><span class="p"> </span><span class="o">(</span><span class="kr">not</span><span class="p"> </span><span class="o">(</span><span class="n">X</span> <span class="o">&lt;</span> <span class="n">Threshold</span><span class="o">)</span> <span class="kr">and</span><span class="p"> </span><span class="n">X</span> <span class="o">=</span> <span class="n">Threshold</span><span class="o">)</span><span class="p">,</span>
+       <span class="n">Post</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">X</span><span class="na">&#39;Old</span> <span class="o">&lt;</span> <span class="n">Threshold</span> <span class="kr">then</span><span class="p"> </span><span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="kr">elsif</span><span class="p"> </span><span class="n">X</span><span class="na">&#39;Old</span> <span class="o">=</span> <span class="n">Threshold</span> <span class="kr">then</span><span class="p"> </span><span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="na">&#39;Old</span><span class="o">)</span><span class="p">;</span>
+
+<span class="c">-- Contract_Cases can be used in conjunction with  pre and postconditions.</span>
+<span class="k">procedure </span><span class="nf">Incr_Threshold_2</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span> <span class="n">Threshold</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="kr">in</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="n">Threshold</span><span class="p">,</span>
+       <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&gt;=</span> <span class="n">X</span><span class="na">&#39;Old</span><span class="p">,</span>
+       <span class="n">Contract_Cases</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span> <span class="o">&lt;</span> <span class="n">Threshold</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                          <span class="n">X</span> <span class="o">=</span> <span class="n">Threshold</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="na">&#39;Old</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="global-aspects">
+<span id="id4"></span><h3>6.1.4. Global Aspects<a class="headerlink" href="#global-aspects" title="Permalink to this headline">¶</a></h3>
+<p>A Global aspect of a subprogram lists the global items whose values
+are used or affected by a call of the subprogram.</p>
+<p>The Global aspect shall only be specified for the initial declaration of a
+subprogram (which may be a declaration, a body or a body stub), of a
+protected entry, or of a task unit.
+The implementation of a subprogram body shall be consistent with the
+subprogram&#8217;s Global aspect. Similarly, the implementation of an entry or
+task body shall be consistent with the entry or task&#8217;s Global aspect.</p>
+<p>Note that a Refined_Global aspect may be applied to a subprogram body when
+using state abstraction; see section <a class="reference internal" href="packages.html#refined-global-aspect"><span class="std std-ref">Refined_Global Aspects</span></a> for further
+details.</p>
+<p>The Global aspect is introduced by an <code class="docutils literal"><span class="pre">aspect_specification</span></code> where
+the <code class="docutils literal"><span class="pre">aspect_mark</span></code> is Global and the <code class="docutils literal"><span class="pre">aspect_definition</span></code> must
+follow the grammar of <code class="docutils literal"><span class="pre">global_specification</span></code></p>
+<p>For purposes of the rules concerning the Global, Depends, Refined_Global, and
+Refined_Depends aspects, when any of these aspects are specified for a
+task unit the task unit&#8217;s body is considered to be the body of a
+nonreturning procedure and the current instance of the task unit is
+considered to be a formal parameter (of that notional procedure)
+of mode <strong>in out</strong>. [For example, rules which refer to the
+&#8220;subprogram body&#8221; refer, in the case of a task unit, to the
+task body.]
+[Because a task (even a
+discriminated task) is effectively a constant, one might think that a
+mode of <strong>in</strong> would make more sense. However, the current instance of
+a task unit is, strictly speaking, a variable; for example, it may be
+passed as an actual <strong>out</strong> or <strong>in out</strong> mode parameter in a call.]
+The Depends and Refined_Depends aspect of a task unit T need not mention
+this implicit parameter; an implicit specification of &#8220;T =&gt; T&#8221; is
+assumed, although this may be confirmed explicitly.</p>
+<p>Similarly, for purposes of the rules concerning the Global, Refined_Global,
+Depends, and Refined_Depends aspects as they apply to protected operations,
+the current instance of the enclosing protected unit is considered to be
+a formal parameter (of mode <strong>in</strong> for a protected function, of mode
+<strong>in out</strong> otherwise) and a protected entry is considered to be
+a protected procedure. [For example, rules which refer to the
+&#8220;subprogram body&#8221; refer, in the case of a protected entry, to the
+entry body. As another example, the Global aspect of a subprogram nested
+within a protected operation might name the current instance of the
+protected unit as a global in the same way that it might name any
+other parameter of the protected operation.]</p>
+<p>[Note that AI12-0169 modifies the Ada RM syntax for an <code class="docutils literal"><span class="pre">entry_body</span></code>
+to allow an optional <code class="docutils literal"><span class="pre">aspect_specification</span></code> immediately before the
+<code class="docutils literal"><span class="pre">entry_barrier</span></code>. This is relevant for aspects such as Refined_Global
+and Refined_Depends.]</p>
+<p class="centered">
+<strong><strong>Syntax</strong></strong></p><div class="highlight-default" id="tu-fe-global-aspects-syntax"><div class="highlight"><pre><span></span><span class="n">global_specification</span>        <span class="p">::</span><span class="o">=</span> <span class="p">(</span><span class="n">moded_global_list</span> <span class="p">{,</span> <span class="n">moded_global_list</span><span class="p">})</span>
+                              <span class="o">|</span> <span class="n">global_list</span>
+                              <span class="o">|</span> <span class="n">null_global_specification</span>
+<span class="n">moded_global_list</span>           <span class="p">::</span><span class="o">=</span> <span class="n">mode_selector</span> <span class="o">=&gt;</span> <span class="n">global_list</span>
+<span class="n">global_list</span>                 <span class="p">::</span><span class="o">=</span> <span class="n">global_item</span>
+                              <span class="o">|</span> <span class="p">(</span><span class="n">global_item</span> <span class="p">{,</span> <span class="n">global_item</span><span class="p">})</span>
+<span class="n">mode_selector</span>               <span class="p">::</span><span class="o">=</span> <span class="n">Input</span> <span class="o">|</span> <span class="n">Output</span> <span class="o">|</span> <span class="n">In_Out</span> <span class="o">|</span> <span class="n">Proof_In</span>
+<span class="n">global_item</span>                 <span class="p">::</span><span class="o">=</span> <span class="n">name</span>
+<span class="n">null_global_specification</span>   <span class="p">::</span><span class="o">=</span> <span class="n">null</span>
+</pre></div>
+</div>
+<p class="centered" id="etu-global-aspects-syntax">
+<strong><strong>Static Semantics</strong></strong></p><ol class="arabic simple" id="tu-fa-global-aspects-01">
+<li>A <code class="docutils literal"><span class="pre">global_specification</span></code> that is a <code class="docutils literal"><span class="pre">global_list</span></code> is shorthand for a
+<code class="docutils literal"><span class="pre">moded_global_list</span></code> with the <code class="docutils literal"><span class="pre">mode_selector</span></code> Input.</li>
+</ol>
+<ol class="arabic simple" id="tu-cbatu-global-aspects-02" start="2">
+<li>A <code class="docutils literal"><span class="pre">global_item</span></code> is <em>referenced</em> by a subprogram if:<ul>
+<li>It denotes an input or an output of the subprogram, or;</li>
+<li>Its entry value is used to determine the value of an assertion
+expression within the subprogram, or;</li>
+<li>Its entry value is used to determine the value of an assertion
+expression within another subprogram that is called either directly or
+indirectly by this subprogram.</li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" id="tu-fa-global-aspects-03" start="3">
+<li>A <code class="docutils literal"><span class="pre">null_global_specification</span></code> indicates that the subprogram does not
+reference any <code class="docutils literal"><span class="pre">global_item</span></code> directly or indirectly.</li>
+</ol>
+<ol class="arabic" id="tu-fa-global-aspects-04" start="4">
+<li><p class="first">If a subprogram&#8217;s Global aspect is not otherwise specified and either</p>
+<ul class="simple">
+<li>the subprogram is a library-level subprogram declared in a library
+unit that is declared pure (i.e., a subprogram to which the
+implementation permissions of Ada RM 10.2.1 apply); or</li>
+<li>a Pure_Function pragma applies to the subprogram</li>
+</ul>
+<p>then a Global aspect of <em>null</em> is implicitly specified for the subprogram.</p>
+</li>
+</ol>
+<p class="centered" id="etu-global-aspects-ss">
+<strong><strong>Name Resolution Rules</strong></strong></p><ol class="arabic simple" id="tu-fe-global-aspects-05" start="5">
+<li>A <code class="docutils literal"><span class="pre">global_item</span></code> shall denote an entire object or a state abstraction.
+[This is a name resolution rule because a <code class="docutils literal"><span class="pre">global_item</span></code> can unambiguously
+denote a state abstraction even if a function having the same fully qualified
+name is also present].</li>
+</ol>
+<p class="centered" id="etu-global-aspects-nr">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-fe-global-aspects-06" start="6">
+<li>The Global aspect may only be specified for the initial declaration of a
+subprogram (which may be a declaration, a body or a body stub), of a
+protected entry, or of a task unit.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-global-aspects-07" start="7">
+<li>A <code class="docutils literal"><span class="pre">global_item</span></code> occurring in a Global aspect specification of a subprogram
+shall not denote a formal parameter of the subprogram.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-global-aspects-08" start="8">
+<li>A <code class="docutils literal"><span class="pre">global_item</span></code> shall not denote a state abstraction whose
+refinement is visible. [A state abstraction cannot be named within
+its enclosing package&#8217;s body other than in its refinement. Its
+constituents shall be used rather than the state abstraction.]</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-global-aspects-09" start="9">
+<li>Each <code class="docutils literal"><span class="pre">mode_selector</span></code> shall occur at most once in a single
+Global aspect.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-global-aspects-10" start="10">
+<li>A function subprogram shall not have a <code class="docutils literal"><span class="pre">mode_selector</span></code> of
+Output or In_Out in its Global aspect.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-global-aspects-11" start="11">
+<li>The <code class="docutils literal"><span class="pre">global_items</span></code> in a single Global aspect specification shall denote
+distinct entities.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-global-aspects-12" start="12">
+<li>If a subprogram is nested within another and if the
+<code class="docutils literal"><span class="pre">global_specification</span></code> of the outer subprogram has an entity
+denoted by a <code class="docutils literal"><span class="pre">global_item</span></code> with a <code class="docutils literal"><span class="pre">mode_specification</span></code> of
+Input or the entity is a formal parameter with a mode of <strong>in</strong>,
+then a <code class="docutils literal"><span class="pre">global_item</span></code> of the <code class="docutils literal"><span class="pre">global_specification</span></code> of the
+inner subprogram shall not denote the same entity with a
+<code class="docutils literal"><span class="pre">mode_selector</span></code> of In_Out or Output.</li>
+</ol>
+<p class="centered" id="etu-global-aspects-lr">
+<strong><strong>Dynamic Semantics</strong></strong></p><p>There are no dynamic semantics associated with a Global aspect as it
+is used purely for static analysis purposes and is not executed.</p>
+<p class="centered">
+<strong><strong>Verification Rules</strong></strong></p><ol class="arabic simple" id="tu-fa-global-aspects-13" start="13">
+<li>For a subprogram that has a <code class="docutils literal"><span class="pre">global_specification</span></code>, an object (except a
+constant without variable inputs, or a constant that is only referenced
+within assertions) or state abstraction that is declared outside the scope
+of the subprogram, shall only be referenced within its implementation if it
+is a <code class="docutils literal"><span class="pre">global_item</span></code> in the <code class="docutils literal"><span class="pre">global_specification</span></code>.</li>
+</ol>
+<ol class="arabic simple" id="tu-fa-global-aspects-14" start="14">
+<li>A <code class="docutils literal"><span class="pre">global_item</span></code> shall occur in a Global aspect of a subprogram only if it
+denotes an entity that is referenced by the subprogram, and it is neither a
+constant without variable inputs, or a constant that is only referenced
+within assertions. [The rationale for excluding such constants is that they
+do not participate in the data- and information-flows specified in Global
+and Depends aspects.]</li>
+</ol>
+<ol class="arabic simple" id="tu-cbatu-global-aspects-15" start="15">
+<li>Where the refinement of a state abstraction is not visible (see
+<a class="reference internal" href="packages.html#state-refinement"><span class="std std-ref">State Refinement</span></a>) and a subprogram references one or more
+of its constituents the constituents may be represented by a
+<code class="docutils literal"><span class="pre">global_item</span></code> that denotes the state abstraction in the
+<code class="docutils literal"><span class="pre">global_specification</span></code> of the subprogram. [The state abstraction
+encapsulating a constituent is known from the Part_Of indicator on
+the declaration of the constituent.]</li>
+</ol>
+<ol class="arabic simple" id="tu-fa-global-aspects-16" start="16">
+<li>Each entity denoted by a <code class="docutils literal"><span class="pre">global_item</span></code> in a
+<code class="docutils literal"><span class="pre">global_specification</span></code> of a subprogram that is an input or
+output of the subprogram shall satisfy the following mode
+specification rules [which are checked during analysis of the
+subprogram body]:<ul>
+<li>a <code class="docutils literal"><span class="pre">global_item</span></code> that denotes an input but not an output has a
+<code class="docutils literal"><span class="pre">mode_selector</span></code> of Input;</li>
+<li>a <code class="docutils literal"><span class="pre">global_item</span></code> has a <code class="docutils literal"><span class="pre">mode_selector</span></code> of Output if:<ul>
+<li>it denotes an output but not an input, other than the use of a
+discriminant or an attribute related to a property, not its
+value, of the <code class="docutils literal"><span class="pre">global_item</span></code> [examples of attributes that may
+be used are A&#8217;Last, A&#8217;First and A&#8217;Length; examples of
+attributes that are dependent on the value of the object and
+shall not be used are X&#8217;Old and X&#8217;Update] and</li>
+<li>is always fully initialized by a call of the subprogram;</li>
+</ul>
+</li>
+<li>otherwise the <code class="docutils literal"><span class="pre">global_item</span></code> denotes both an input and an output, and
+has a <code class="docutils literal"><span class="pre">mode_selector</span></code> of In_Out.</li>
+</ul>
+</li>
+</ol>
+<blockquote id="tu-fa-global-aspects-16-1">
+<div>[For purposes of determining whether an output of a subprogram shall have a
+<code class="docutils literal"><span class="pre">mode_selector</span></code> of Output or In_Out, reads of array bounds, discriminants,
+or tags of any part of the output are ignored. Similarly, for purposes of
+determining whether an entity is fully initialized as a result of any
+successful execution of the call, only nondiscriminant parts are considered.
+This implies that given an output of a discriminated type that is not known
+to be constrained (&#8220;known to be constrained&#8221; is defined in Ada RM 3.3), the
+discriminants of the output might or might not be updated by the call.]</div></blockquote>
+<ol class="arabic simple" id="tu-fa-global-aspects-17" start="17">
+<li>An entity that is denoted by a <code class="docutils literal"><span class="pre">global_item</span></code> which is referenced by a
+subprogram but is neither an input nor an output but is only referenced
+directly, or indirectly in assertion expressions has a <code class="docutils literal"><span class="pre">mode_selector</span></code> of
+Proof_In. [Redundant: Such an entity cannot be constant.]</li>
+</ol>
+<ol class="arabic simple" id="tu-fa-global-aspects-18" start="18">
+<li>A <code class="docutils literal"><span class="pre">global_item</span></code> shall not denote a constant object other than a formal
+parameter [of an enclosing subprogram] of mode <strong>in</strong>, a generic formal
+object of mode <strong>in</strong>, or a <em>constant with variable inputs</em>.</li>
+</ol>
+<blockquote id="etu-global-aspects-vr1">
+<div>If a <code class="docutils literal"><span class="pre">global_item</span></code> denotes a generic formal object of mode <strong>in</strong>,
+then the corresponding <code class="docutils literal"><span class="pre">global_item</span></code> in an instance of the generic
+unit may denote a constant which has no variable inputs. [This can occur
+if the corresponding actual parameter is an expression which has no
+variable inputs]. Outside of the instance, such a <code class="docutils literal"><span class="pre">global_item</span></code> is
+ignored. For example,</div></blockquote>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">generic</span><span class="p"></span>
+   <span class="n">Xxx</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="k">package </span><span class="nf">Ggg</span> <span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Ppp</span> <span class="o">(</span><span class="n">Yyy</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"> </span><span class="n">Global</span> <span class="o">=&gt;</span> <span class="n">Xxx</span><span class="p">,</span>
+                                             <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Yyy</span> <span class="o">=&gt;+</span> <span class="n">Xxx</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Ggg</span><span class="p">;</span>
+
+<span class="k">package body </span><span class="nf">Ggg</span> <span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Ppp</span> <span class="o">(</span><span class="n">Yyy</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Yyy</span> <span class="o">:=</span> <span class="n">Integer</span><span class="na">&#39;Max</span> <span class="o">(</span><span class="n">Xxx</span><span class="p">,</span> <span class="n">Yyy</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Ppp</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Ggg</span><span class="p">;</span>
+
+<span class="k">package </span><span class="nf">Iii</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Ggg</span>
+  <span class="o">(</span><span class="n">Xxx</span> <span class="o">=&gt;</span> <span class="mi">123</span><span class="o">)</span><span class="p">;</span> <span class="c">-- actual parameter lacks variable inputs</span>
+
+<span class="k">procedure </span><span class="nf">Qqq</span> <span class="o">(</span><span class="n">Zzz</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"> </span><span class="n">Global</span> <span class="o">=&gt;</span> <span class="kr">null</span><span class="p">,</span>
+                                          <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Zzz</span> <span class="o">=&gt;+</span> <span class="n">null</span><span class="o">)</span><span class="p">;</span>
+<span class="k">procedure </span><span class="nf">Qqq</span> <span class="o">(</span><span class="n">Zzz</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Iii.Ppp</span> <span class="o">(</span><span class="n">Yyy</span> <span class="o">=&gt;</span> <span class="n">Zzz</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Qqq</span><span class="p">;</span>
+
+<span class="c">-- Qqq&#39;s Global and Depends aspects don&#39;t mention Iii.Xxx even though</span>
+<span class="c">-- Qqq calls Iii.Ppp which does reference Iii.Xxx as a global.</span>
+<span class="c">-- As seen from outside of Iii, Iii.Ppp&#39;s references to Iii.Xxx in its</span>
+<span class="c">-- Global and Depends aspect specifications are ignored.</span>
+</pre></div>
+</div>
+<ol class="arabic simple" id="tu-fa-global-aspects-19" start="19">
+<li>The <code class="docutils literal"><span class="pre">mode_selector</span></code> of a <code class="docutils literal"><span class="pre">global_item</span></code> denoting a <em>constant with
+variable inputs</em> shall be <code class="docutils literal"><span class="pre">Input</span></code>.</li>
+</ol>
+<ol class="arabic simple" id="tu-fa-global-aspects-20" start="20">
+<li>The <code class="docutils literal"><span class="pre">mode_selector</span></code> of a <code class="docutils literal"><span class="pre">global_item</span></code> denoting a variable marked
+as a <em>constant after elaboration</em> shall be <code class="docutils literal"><span class="pre">Input</span></code> or <code class="docutils literal"><span class="pre">Proof_In</span></code> [,
+to ensure that such variables are only updated directly by package
+elaboration code].
+A subprogram or entry having such a <code class="docutils literal"><span class="pre">global_item</span></code> shall not be called
+during library unit elaboration[, to ensure only the final (&#8220;constant&#8221;)
+value of the object is referenced].</li>
+</ol>
+<p class="centered" id="etu-global-aspects-vr">
+<strong><strong>Examples</strong></strong></p><div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Global</span> <span class="o">=&gt;</span> <span class="kr">null</span><span class="p">;</span> <span class="c">-- Indicates that the subprogram does not reference</span>
+                     <span class="c">-- any global items.</span>
+<span class="kr">with</span><span class="p"> </span><span class="n">Global</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="p">;</span>    <span class="c">-- Indicates that V is an input of the subprogram.</span>
+<span class="kr">with</span><span class="p"> </span><span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="o">)</span><span class="p">;</span>  <span class="c">-- X, Y and Z are inputs of the subprogram.</span>
+<span class="kr">with</span><span class="p"> </span><span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Input</span>    <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">;</span> <span class="c">-- Indicates that V is an input of the subprogram.</span>
+<span class="kr">with</span><span class="p"> </span><span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Input</span>    <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="o">))</span><span class="p">;</span> <span class="c">-- X, Y and Z are inputs of the subprogram.</span>
+<span class="kr">with</span><span class="p"> </span><span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span>   <span class="o">=&gt;</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="o">))</span><span class="p">;</span> <span class="c">-- A, B and C are outputs of</span>
+                                        <span class="c">-- the subprogram.</span>
+<span class="kr">with</span><span class="p"> </span><span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span>   <span class="o">=&gt;</span> <span class="o">(</span><span class="n">D</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">F</span><span class="o">))</span><span class="p">;</span> <span class="c">-- D, E and F are both inputs and</span>
+                                        <span class="c">-- outputs of the subprogram</span>
+<span class="kr">with</span><span class="p"> </span><span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Proof_In</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">G</span><span class="p">,</span> <span class="n">H</span><span class="o">))</span><span class="p">;</span>    <span class="c">-- G and H are only used in</span>
+                                        <span class="c">-- assertion expressions within</span>
+                                        <span class="c">-- the subprogram</span>
+<span class="kr">with</span><span class="p"> </span><span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Input</span>    <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="o">)</span><span class="p">,</span>
+                <span class="n">Output</span>   <span class="o">=&gt;</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="o">)</span><span class="p">,</span>
+                <span class="n">In_Out</span>   <span class="o">=&gt;</span> <span class="o">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span><span class="o">)</span><span class="p">,</span>
+                <span class="n">Proof_In</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">))</span><span class="p">;</span>
+                <span class="c">-- A global aspect with all types of global specification</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="depends-aspects">
+<span id="id5"></span><h3>6.1.5. Depends Aspects<a class="headerlink" href="#depends-aspects" title="Permalink to this headline">¶</a></h3>
+<p>A Depends aspect defines a <em>dependency relation</em> for a subprogram
+which may be given in the <code class="docutils literal"><span class="pre">aspect_specification</span></code> of the subprogram.
+A dependency relation is a sort of formal specification which
+specifies a simple relationship between inputs and outputs of the
+subprogram.  It may be used with or without a postcondition.</p>
+<p>The Depends aspect shall only be specified for the initial declaration of a
+subprogram (which may be a declaration, a body or a body stub), of a
+protected entry, or of a task unit.</p>
+<p>Unlike a postcondition, the Depends aspect must be
+complete in the sense that every input and output of the subprogram
+must appear in it.  A postcondition need only
+specify properties of particular interest.</p>
+<p>Like a postcondition, the dependency relation may be omitted from a
+subprogram declaration when it defaults to the conservative
+relation that each output depends on every input of the subprogram.  A
+particular SPARK 2014 tool may synthesize a more accurate approximation
+from the subprogram implementation if it is present (see
+<a class="reference internal" href="introduction.html#verific-modes"><span class="std std-ref">Synthesis of SPARK 2014 Aspects</span></a>).</p>
+<p>For accurate information flow analysis the Depends aspect should be
+present on every subprogram.</p>
+<p>A Depends aspect for a subprogram specifies for each output every
+input on which it depends. The meaning of <em>X depends on Y</em> in this
+context is that the input value(s) of <em>Y</em> may affect:</p>
+<ul class="simple">
+<li>the exit value of <em>X</em>; and</li>
+<li>the intermediate values of <em>X</em> if it is an external state
+(see section  <a class="reference internal" href="packages.html#external-state"><span class="std std-ref">External State</span></a>), or if the subprogram
+is a nonreturning procedure [, possibly the notional nonreturning
+procedure corresponding to a task body].</li>
+</ul>
+<p>This is written <em>X =&gt; Y</em>. As in UML, the entity at the tail of the
+arrow depends on the entity at the head of the arrow.</p>
+<p>If an output does not depend on any input this is indicated
+using a <strong>null</strong>, e.g., <em>X =&gt;</em> <strong>null</strong>. An output may be
+self-dependent but not dependent on any other input. The shorthand
+notation denoting self-dependence is useful here, X =&gt;+ <strong>null</strong>.</p>
+<p>Note that a Refined_Depends aspect may be applied to a subprogram body when
+using state abstraction; see section <a class="reference internal" href="packages.html#refined-depends-aspect"><span class="std std-ref">Refined_Depends Aspects</span></a> for further
+details.</p>
+<p>See section <a class="reference internal" href="#global-aspects"><span class="std std-ref">Global Aspects</span></a> regarding how the rules given in this
+section apply to protected operations and to task bodies.</p>
+<p>The Depends aspect is introduced by an <code class="docutils literal"><span class="pre">aspect_specification</span></code> where
+the <code class="docutils literal"><span class="pre">aspect_mark</span></code> is Depends and the <code class="docutils literal"><span class="pre">aspect_definition</span></code> must follow
+the grammar of <code class="docutils literal"><span class="pre">dependency_relation</span></code> given below.</p>
+<p class="centered">
+<strong><strong>Syntax</strong></strong></p><div class="highlight-default" id="tu-fe-depends-aspects-syntax"><div class="highlight"><pre><span></span><span class="n">dependency_relation</span>    <span class="p">::</span><span class="o">=</span> <span class="n">null</span>
+                         <span class="o">|</span> <span class="p">(</span><span class="n">dependency_clause</span> <span class="p">{,</span> <span class="n">dependency_clause</span><span class="p">})</span>
+<span class="n">dependency_clause</span>      <span class="p">::</span><span class="o">=</span> <span class="n">output_list</span> <span class="o">=&gt;</span><span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">input_list</span>
+                         <span class="o">|</span> <span class="n">null_dependency_clause</span>
+<span class="n">null_dependency_clause</span> <span class="p">::</span><span class="o">=</span> <span class="n">null</span> <span class="o">=&gt;</span> <span class="n">input_list</span>
+<span class="n">output_list</span>            <span class="p">::</span><span class="o">=</span> <span class="n">output</span>
+                         <span class="o">|</span> <span class="p">(</span><span class="n">output</span> <span class="p">{,</span> <span class="n">output</span><span class="p">})</span>
+<span class="n">input_list</span>             <span class="p">::</span><span class="o">=</span> <span class="nb">input</span>
+                         <span class="o">|</span> <span class="p">(</span><span class="nb">input</span> <span class="p">{,</span> <span class="nb">input</span><span class="p">})</span>
+                         <span class="o">|</span> <span class="n">null</span>
+<span class="nb">input</span>                  <span class="p">::</span><span class="o">=</span> <span class="n">name</span>
+<span class="n">output</span>                 <span class="p">::</span><span class="o">=</span> <span class="n">name</span> <span class="o">|</span> <span class="n">function_result</span>
+</pre></div>
+</div>
+<p>where</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">function_result</span></code> is a function Result <code class="docutils literal"><span class="pre">attribute_reference</span></code>.</div></blockquote>
+<p class="centered" id="etu-depends-aspects-syntax">
+<strong><strong>Name Resolution Rules</strong></strong></p><ol class="arabic simple" id="tu-fe-depends-aspects-01">
+<li>An <code class="docutils literal"><span class="pre">input</span></code> or <code class="docutils literal"><span class="pre">output</span></code> of a <code class="docutils literal"><span class="pre">dependency_relation</span></code> shall denote only
+an entire object or a state abstraction. [This is a name resolution rule
+because an <code class="docutils literal"><span class="pre">input</span></code> or <code class="docutils literal"><span class="pre">output</span></code> can unambiguously denote a state
+abstraction even if a function having the same fully qualified name is also
+present.]</li>
+</ol>
+<p class="centered" id="etu-depends-aspects-nr">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-fe-depends-aspects-02" start="2">
+<li>The Depends aspect shall only be specified for the initial declaration of a
+subprogram (which may be a declaration, a body or a body stub), of a
+protected entry, or of a task unit.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-depends-aspects-03" start="3">
+<li>An <code class="docutils literal"><span class="pre">input</span></code> or <code class="docutils literal"><span class="pre">output</span></code> of a <code class="docutils literal"><span class="pre">dependency_relation</span></code> shall not denote a
+state abstraction whose refinement is visible [a state abstraction cannot be
+named within its enclosing package&#8217;s body other than in its refinement].</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-depends-aspects-04" start="4">
+<li>The <em>explicit input set</em> of a subprogram is the set of formal parameters of
+the subprogram of mode <strong>in</strong> and <strong>in out</strong> along with the entities denoted
+by <code class="docutils literal"><span class="pre">global_items</span></code> of the Global aspect of the subprogram with a
+<code class="docutils literal"><span class="pre">mode_selector</span></code> of Input and In_Out.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-depends-aspects-05" start="5">
+<li>The <em>input set</em> of a subprogram is the explicit input set of the
+subprogram augmented with those formal parameters of mode <strong>out</strong> and
+those <code class="docutils literal"><span class="pre">global_items</span></code> with a <code class="docutils literal"><span class="pre">mode_selector</span></code> of Output having discriminants,
+array bounds, or a tag which can be read and whose values are not
+implied by the subtype of the parameter. More specifically, it includes formal
+parameters of mode <strong>out</strong> and <code class="docutils literal"><span class="pre">global_items</span></code> with a <code class="docutils literal"><span class="pre">mode_selector</span></code> of
+Output which are of an unconstrained array subtype, an unconstrained
+discriminated subtype, a tagged type (with one exception), or a type having
+a subcomponent of an unconstrained discriminated subtype. The exception
+mentioned in the previous sentence is in the case where the formal
+parameter is of a specific tagged type and the applicable Extensions_Visible
+aspect is False. In that case, the tag of the parameter cannot be read
+and so the fact that the parameter is tagged does not cause it to
+included in the subprogram&#8217;s <em>input_set</em>, although it may be included
+for some other reason (e.g., if the parameter is of an unconstrained
+discriminated subtype).</li>
+</ol>
+<ol class="arabic" id="tu-fe-depends-aspects-06" start="6">
+<li><p class="first">The <em>output set</em> of a subprogram is the set of formal parameters of the
+subprogram of mode <strong>in out</strong> and <strong>out</strong> along with the entities denoted by
+<code class="docutils literal"><span class="pre">global_items</span></code> of the Global aspect of the subprogram with a
+<code class="docutils literal"><span class="pre">mode_selector</span></code> of In_Out and Output and (for a function) the
+<code class="docutils literal"><span class="pre">function_result</span></code>.</p>
+<p>[TBD: include in-mode parameters that are outputs. Do we want to
+define a term for such parameters?]</p>
+</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-depends-aspects-07" start="7">
+<li>The entity denoted by each <code class="docutils literal"><span class="pre">input</span></code> of a <code class="docutils literal"><span class="pre">dependency_relation</span></code> of a
+subprogram shall be a member of the input set of the subprogram.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-depends-aspects-08" start="8">
+<li>Every member of the explicit input set of a subprogram shall be denoted by
+at least one <code class="docutils literal"><span class="pre">input</span></code> of the <code class="docutils literal"><span class="pre">dependency_relation</span></code> of the subprogram.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-depends-aspects-09" start="9">
+<li>The entity denoted by each <code class="docutils literal"><span class="pre">output</span></code> of a <code class="docutils literal"><span class="pre">dependency_relation</span></code> of a
+subprogram shall be a member of the output set of the subprogram.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-depends-aspects-10" start="10">
+<li>Every member of the output set of a subprogram shall be denoted by exactly
+one <code class="docutils literal"><span class="pre">output</span></code> in the <code class="docutils literal"><span class="pre">dependency_relation</span></code> of the subprogram.</li>
+</ol>
+<ol class="arabic simple" id="tu-fa-depends-aspects-11" start="11">
+<li>For the purposes of determining the legality of a Result
+<code class="docutils literal"><span class="pre">attribute_reference</span></code>, a <code class="docutils literal"><span class="pre">dependency_relation</span></code> is considered
+to be a postcondition of the function to which the enclosing
+<code class="docutils literal"><span class="pre">aspect_specification</span></code> applies.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-depends-aspects-12" start="12">
+<li>In a <code class="docutils literal"><span class="pre">dependency_relation</span></code> there can be at most one
+<code class="docutils literal"><span class="pre">dependency_clause</span></code> which is a <code class="docutils literal"><span class="pre">null_dependency_clause</span></code> and if
+it exists it shall be the last <code class="docutils literal"><span class="pre">dependency_clause</span></code> in the
+<code class="docutils literal"><span class="pre">dependency_relation</span></code>.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-depends-aspects-13" start="13">
+<li>An entity denoted by an <code class="docutils literal"><span class="pre">input</span></code> which is in an <code class="docutils literal"><span class="pre">input_list</span></code> of
+a <code class="docutils literal"><span class="pre">null_dependency_clause</span></code> shall not be denoted by an <code class="docutils literal"><span class="pre">input</span></code>
+in another <code class="docutils literal"><span class="pre">input_list</span></code> of the same <code class="docutils literal"><span class="pre">dependency_relation</span></code>.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-depends-aspects-14" start="14">
+<li>The <code class="docutils literal"><span class="pre">inputs</span></code> in a single <code class="docutils literal"><span class="pre">input_list</span></code> shall denote distinct entities.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-depends-aspects-15" start="15">
+<li>A <code class="docutils literal"><span class="pre">null_dependency_clause</span></code> shall not have an <code class="docutils literal"><span class="pre">input_list</span></code> of <strong>null</strong>.</li>
+</ol>
+<p class="centered" id="etu-depends-aspects-lr">
+<strong><strong>Static Semantics</strong></strong></p><ol class="arabic simple" id="tu-fa-depends-aspects-16" start="16">
+<li>A <code class="docutils literal"><span class="pre">dependency_clause</span></code> with a &#8220;+&#8221; symbol in the syntax
+<code class="docutils literal"><span class="pre">output_list</span></code> =&gt;+ <code class="docutils literal"><span class="pre">input_list</span></code> means that each <code class="docutils literal"><span class="pre">output</span></code> in
+the <code class="docutils literal"><span class="pre">output_list</span></code> has a <em>self-dependency</em>, that is, it is
+dependent on itself. [The text (A, B, C) =&gt;+ Z is shorthand for
+(A =&gt; (A, Z), B =&gt; (B, Z), C =&gt; (C, Z)).]</li>
+</ol>
+<ol class="arabic simple" id="tu-cbatu-depends-aspects-17" start="17">
+<li>A <code class="docutils literal"><span class="pre">dependency_clause</span></code> of the form A =&gt;+ A has the same meaning
+as A =&gt; A.  [The reason for this rule is to allow the short hand:
+((A, B) =&gt;+ (A, C)) which is equivalent to (A =&gt; (A, C), B =&gt; (A,
+B, C)).]</li>
+</ol>
+<ol class="arabic simple" id="tu-fa-depends-aspects-18" start="18">
+<li>A <code class="docutils literal"><span class="pre">dependency_clause</span></code> with a <strong>null</strong> <code class="docutils literal"><span class="pre">input_list</span></code> means that
+the final value of the entity denoted by each <code class="docutils literal"><span class="pre">output</span></code> in the
+<code class="docutils literal"><span class="pre">output_list</span></code> does not depend on any member of the input set of
+the subprogram (other than itself, if the <code class="docutils literal"><span class="pre">output_list</span></code> =&gt;+
+<strong>null</strong> self-dependency syntax is used).</li>
+</ol>
+<ol class="arabic simple" id="tu-fa-depends-aspects-19" start="19">
+<li>The <code class="docutils literal"><span class="pre">inputs</span></code> in the <code class="docutils literal"><span class="pre">input_list</span></code> of a
+<code class="docutils literal"><span class="pre">null_dependency_clause</span></code> may be read by the subprogram but play
+no role in determining the values of any outputs of the
+subprogram.</li>
+</ol>
+<ol class="arabic simple" id="tu-fa-depends-aspects-20" start="20">
+<li>A Depends aspect of a subprogram with a <strong>null</strong>
+<code class="docutils literal"><span class="pre">dependency_relation</span></code> indicates that the subprogram has no
+<code class="docutils literal"><span class="pre">inputs</span></code> or <code class="docutils literal"><span class="pre">outputs</span></code>.  [From an information flow analysis
+viewpoint it is a null operation (a no-op).]</li>
+</ol>
+<ol class="arabic simple" id="tu-cbatu-depends-aspects-21" start="21">
+<li>A function without an explicit Depends aspect specification has
+the default <code class="docutils literal"><span class="pre">dependency_relation</span></code> that its result is dependent
+on all of its inputs. [Generally an explicit Depends aspect is
+not required for a function declaration.]</li>
+</ol>
+<ol class="arabic simple" id="tu-fa-depends-aspects-22" start="22">
+<li>A procedure without an explicit Depends aspect specification has a
+default <code class="docutils literal"><span class="pre">dependency_relation</span></code> that each member of its output set
+is dependent on every member of its input set. [This conservative
+approximation may be improved by analyzing the body of the
+subprogram if it is present.]</li>
+</ol>
+<p class="centered" id="etu-depends-aspects-ss">
+<strong><strong>Dynamic Semantics</strong></strong></p><p>There are no dynamic semantics associated with a Depends aspect
+as it is used purely for static analysis purposes and is not executed.</p>
+<p class="centered">
+<strong><strong>Verification Rules</strong></strong></p><ol class="arabic simple" id="tu-fa-depends-aspects-23" start="23">
+<li>Each entity denoted by an <code class="docutils literal"><span class="pre">output</span></code> given in the Depends aspect
+of a subprogram shall be an output in the implementation of the
+subprogram body and the output shall depend on all, but only, the
+entities denoted by the <code class="docutils literal"><span class="pre">inputs</span></code> given in the <code class="docutils literal"><span class="pre">input_list</span></code>
+associated with the <code class="docutils literal"><span class="pre">output</span></code>.</li>
+</ol>
+<ol class="arabic simple" id="tu-fa-depends-aspects-24" start="24">
+<li>Each output of the implementation of the subprogram body is denoted by
+an <code class="docutils literal"><span class="pre">output</span></code> in the Depends aspect of the subprogram.</li>
+</ol>
+<ol class="arabic simple" id="tu-fa-depends-aspects-25" start="25">
+<li>Each input of the implementation of a subprogram body is denoted by an
+<code class="docutils literal"><span class="pre">input</span></code> of the Depends aspect of the subprogram.</li>
+</ol>
+<ol class="arabic" id="tu-fa-depends-aspects-26" start="26">
+<li><p class="first">If not all parts of an output are updated, then the updated entity is
+dependent on itself as the parts that are not updated have their
+current value preserved.</p>
+<p>[In the case of a parameter of a tagged type (specific or class-wide),
+see the definition of &#8220;fully initialized&#8221; for a clarification of what
+the phrase &#8220;all parts&#8221; means in the preceding sentence.]</p>
+</li>
+</ol>
+<p class="centered" id="etu-depends-aspects-vr">
+<strong><strong>Examples</strong></strong></p><div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">P</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="kr">in</span><span class="p"> </span><span class="o">:</span> <span class="n">Integer</span><span class="p">;</span> <span class="n">Result</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Boolean</span><span class="o">)</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Result</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="o">))</span><span class="p">;</span>
+<span class="c">-- The exit value of Result depends on the entry values of X, Y and Z</span>
+
+<span class="k">procedure </span><span class="nf">Q</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="kr">in</span><span class="p"> </span><span class="o">:</span> <span class="n">Integer</span><span class="p">;</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">E</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">((</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">)</span><span class="p">,</span>
+                   <span class="n">C</span>      <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Z</span><span class="o">)</span><span class="p">,</span>
+                   <span class="n">D</span>      <span class="o">=&gt;</span> <span class="n">Y</span><span class="p">,</span>
+                   <span class="n">E</span>      <span class="o">=&gt;</span> <span class="n">null</span><span class="o">)</span><span class="p">;</span>
+<span class="c">-- The exit values of A and B depend on the entry values of X and Y.</span>
+<span class="c">-- The exit value of C depends on the entry values of X and Z.</span>
+<span class="c">-- The exit value of D depends on the entry value of Y.</span>
+<span class="c">-- The exit value of E does not depend on any input value.</span>
+
+<span class="k">procedure </span><span class="nf">R</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">((</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="o">)</span> <span class="o">=&gt;+</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">)</span><span class="p">,</span>
+                   <span class="n">C</span>      <span class="o">=&gt;+</span> <span class="n">Z</span><span class="p">,</span>
+                   <span class="n">D</span>      <span class="o">=&gt;+</span> <span class="n">null</span><span class="o">)</span><span class="p">;</span>
+<span class="c">-- The &quot;+&quot; sign attached to the arrow indicates self-dependency, that is</span>
+<span class="c">-- the exit value of A depends on the entry value of A as well as the</span>
+<span class="c">-- entry values of X and Y.</span>
+<span class="c">-- Similarly, the exit value of B depends on the entry value of B</span>
+<span class="c">-- as well as the entry values of A, X and Y.</span>
+<span class="c">-- The exit value of C depends on the entry value of C and Z.</span>
+<span class="c">-- The exit value of D depends only on the entry value of D.</span>
+
+<span class="k">procedure </span><span class="nf">S</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Input</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="o">)</span><span class="p">,</span>
+                   <span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="o">))</span><span class="p">,</span>
+       <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">((</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="o">)</span> <span class="o">=&gt;+</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="o">)</span><span class="p">,</span>
+                   <span class="n">C</span>      <span class="o">=&gt;+</span> <span class="n">Y</span><span class="p">,</span>
+                   <span class="n">D</span>      <span class="o">=&gt;+</span> <span class="n">null</span><span class="o">)</span><span class="p">;</span>
+<span class="c">-- Here globals are used rather than parameters and global items may appear</span>
+<span class="c">-- in the Depends aspect as well as formal parameters.</span>
+
+<span class="k">function </span><span class="nf">F</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Global</span>  <span class="o">=&gt;</span> <span class="n">G</span><span class="p">,</span>
+       <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">F</span><span class="na">&#39;Result</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">G</span><span class="p">,</span> <span class="n">X</span><span class="o">)</span><span class="p">,</span>
+                   <span class="kr">null</span><span class="p"> </span>    <span class="o">=&gt;</span> <span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+<span class="c">-- Depends aspects are only needed for special cases like here where the</span>
+<span class="c">-- parameter Y has no discernible effect on the result of the function.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="class-wide-global-and-depends-aspects">
+<span id="id6"></span><h3>6.1.6. Class-Wide Global and Depends Aspects<a class="headerlink" href="#class-wide-global-and-depends-aspects" title="Permalink to this headline">¶</a></h3>
+<p>The Global&#8217;Class and Depends&#8217;Class aspects may be specified for
+a dispatching subprogram just as the Global and Depends aspects
+may be specified for any subprogram (dispatching or not). [The
+syntax, static semantics, and legality rules are all the same,
+except that the Depends&#8217;Class aspect of a subprogram is
+checked for consistency with the Global&#8217;Class aspect of the
+subprogram rather than with the Global aspect.]</p>
+<p class="centered">
+<strong><strong>Verification Rules</strong></strong></p><p>When analyzing a dispatching call, the Global and Depends aspects
+of the statically denoted callee play no role; the corresponding
+class-wide aspects are used instead.</p>
+<p>[No relationship between the Global&#8217;Class/Depends&#8217;Class aspects of a
+subprogram and the subprogram&#8217;s implementation is explicitly verified.
+This is instead accomplished implicitly by
+checking the consistency of the subprogram&#8217;s implementation with
+its Global/Depends aspects (as described in preceding sections) and then
+checking (as described in this section) the consistency of the
+Global/Depends aspects with the Global&#8217;Class/Depends&#8217;Class
+aspects.]</p>
+<p class="centered">
+<strong><strong>Static Semantics</strong></strong></p><p>A Global or Global&#8217;Class aspect specification G2 is said to be
+a <em>valid overriding</em> of another such specification, G1, if the following
+conditions are met:</p>
+<ul class="simple">
+<li>each Input-mode item of G2 is an Input-mode or an In_Out-mode
+item of G1 or a direct or indirect constituent thereof; and</li>
+<li>each In_Out-mode item of G2 is an In_Out-mode item of G1 or a
+direct or indirect constituent thereof; and</li>
+<li>each Output-mode item of G2 is an Output-mode or In_Out-mode item of G1
+or a direct or indirect constituent therof; and</li>
+<li>each Output-mode item of G1 which is not a state abstraction whose
+refinment is visible at the point of G2 is an Output-mode item of G2; and</li>
+<li>for each Output-mode item of G1 which is a state abstraction whose
+refinment is visible at the point of G2, each direct or indirect
+constituent thereof is an Output-mode item of G2.</li>
+</ul>
+<p>A Depends or Depends&#8217;Class aspect specification D2 is said to be a
+<em>valid overriding</em> of another such specification, D1, if the set of
+dependencies of D2 is a subset of the dependencies of D1 or, in the
+case where D1 mentions a state abstraction whose refinement is
+visible at the point of D2, if D2 is derivable from such a subset
+as described in <a class="reference internal" href="packages.html#refined-depends-aspect"><span class="std std-ref">Refined_Depends Aspects</span></a>.</p>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><p>The Global aspect of a subprogram shall be a valid overriding of the
+Global&#8217;Class aspect of the subprogram. The Global&#8217;Class aspect of an
+an overriding subprogram shall be a valid overriding of the Global&#8217;Class
+aspect(s) of the overridden inherited subprogram(s).</p>
+<p>The Depends aspect of a subprogram shall be a valid overriding of the
+Depends&#8217;Class aspect of the subprogram. The Depends&#8217;Class aspect of an
+an overriding subprogram shall be a valid overriding of the Depends&#8217;Class
+aspect(s) of the overridden inherited subprogram(s).</p>
+</div>
+<div class="section" id="extensions-visible-aspects">
+<span id="id7"></span><h3>6.1.7. Extensions_Visible Aspects<a class="headerlink" href="#extensions-visible-aspects" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>The Extensions_Visible aspect provides a mechanism for ensuring that
+&#8220;hidden&#8221; components of a formal parameter of a specific tagged type
+are unreferenced.
+For example, if a formal parameter of a specific tagged type T is converted
+to a class-wide type and then used as a controlling operand in a dispatching
+call, then the (dynamic) callee might reference components of the parameter
+which are declared in some extension of T. Such a use of the formal parameter
+could be forbidden via an Extensions_Visible aspect specification as
+described below. The aspect also plays a corresponding role in the analysis
+of callers of the subprogram.</li>
+</ol>
+<p class="centered">
+<strong><strong>Static Semantics</strong></strong></p><ol class="arabic simple" start="2">
+<li>Extensions_Visible is a Boolean-valued aspect which may be specified for a
+noninstance subprogram or a generic subprogram.
+If directly specified, the aspect_definition shall be a static
+[Boolean] expression. The aspect is inherited by an inherited primitive
+subprogram. If the aspect is neither inherited nor directly specified
+for a subprogram, then the aspect is False, except in the case of the
+predefined equality operator of a type extension. In that case, the
+aspect value is that of the primitive [(possibly user-defined)] equality
+operator for the parent type.</li>
+</ol>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" start="3">
+<li>If the Extensions_Visible aspect is False for a subprogram, then
+certain restrictions are imposed on the use of any parameter of the
+subprogram which is of a specific tagged type (or of a private type
+whose full view is a specific tagged type).
+Such a parameter shall not be converted (implicitly or explicitly) to
+a class-wide type. Such a parameter shall not be passed as an actual
+parameter in a call to a subprogram whose Extensions_Visible aspect is
+True. These restrictions also apply to any parenthesized expression,
+qualified expression, or type conversion whose operand is subject to
+these restrictions, to any Old, Update, or Loop_Entry
+<code class="docutils literal"><span class="pre">attribute_reference</span></code> whose prefix is subject to these restrictions,
+and to any conditional expression having at least one dependent_expression
+which is subject to these restrictions.
+[A subcomponent of a parameter is not itself a parameter and is therefore
+not subject to these restrictions. A parameter whose type is class-wide
+is not subject to these restrictions. An Old, Update, or
+Loop_Entry <code class="docutils literal"><span class="pre">attribute_reference</span></code> does not itself violate these
+restrictions (despite the fact that (in the tagged case) each of these
+attributes yields a result having the same underlying dynamic tag as their
+prefix).]</li>
+<li>A subprogram whose Extensions_Visible aspect is True shall not override
+an inherited primitive operation of a tagged type whose
+Extensions_Visible aspect is False. [The reverse is allowed.]</li>
+<li>If a nonnull type extension inherits a
+procedure having both a False Extensions_Visible aspect and one or
+more controlling out-mode parameters, then the inherited procedure
+requires overriding. [This is because the inherited procedure would not
+initialize the noninherited component(s).]</li>
+<li>The Extensions_Visible aspect shall not be specified for a subprogram
+which has no parameters of either a specific tagged type or a private
+type unless the subprogram is declared in an instance of a generic
+unit and the corresponding subprogram in the generic unit satisfies
+this rule. [Such an aspect specification, if allowed, would be ineffective.]</li>
+<li>[These rules ensure that the value of the underlying tag (at run time) of
+the actual parameter of a call to a subprogram whose Extensions_Visible
+aspect is False will have no effect on the behavior of that call.
+In particular, if the actual parameter has any additional components
+which are not components of the type of the formal parameter, then these
+components are unreferenced by the execution of the call.]</li>
+</ol>
+<p class="centered">
+<strong><strong>Verification Rules</strong></strong></p><ol class="arabic simple" start="8">
+<li>SPARK 2014 requires that an actual parameter corresponding
+to an in mode or in out mode formal parameter in a call shall be fully
+initialized before the call; similarly, the callee is responsible
+for fully initializing any out-mode parameters before returning.</li>
+<li>In the case of a formal parameter of a specific tagged type T (or of a
+private type whose full view is a specific tagged type), the set of
+components which shall be initialized in order to meet these requirements
+depends on the Extensions_Visible aspect of the callee.
+If the aspect is False, then that set of components is the
+[statically known] set of nondiscriminant components of T.
+If the aspect is True, then this set is the set of nondiscriminant
+components of the specific type associated with the tag of the
+corresponding actual parameter. [In general, this is not statically known.
+This set will always include the nondiscriminant components of T, but
+it may also include additional components.]</li>
+<li>[To put it another way, if the applicable Extensions_Visible aspect
+is True, then the initialization requirements (for both the caller and
+the callee) for a parameter of a specific tagged type T are the same as
+if the formal parameter&#8217;s type were T&#8217;Class. If the aspect is False,
+then components declared in proper descendants of T need not be initialized.
+In the case of an out mode parameter, such initialization by the callee
+is not only not required, it is effectively forbidden because
+such an out-mode parameter could not be fully initialized
+without some form of dispatching (e.g., a class-wide assignment or a
+dispatching call in which an out-mode parameter is a controlling operand).
+Such a dispatching assignment will always fully initialize its controlling
+out-mode parameters, regardless of the Extensions_Visible aspect
+of the callee. An assignment statement whose target is of a class-wide
+type T&#8217;Class is treated, for purposes of formal verification, like a call
+to a procedure with two parameters of type T&#8217;Class, one of mode out and
+one of mode in.]</li>
+<li>[In the case of an actual parameter of a call to a subprogram whose
+Extensions_Visible aspect is False where the corresponding formal parameter
+is of a specific tagged type T, these rules imply that formal verification
+can safely assume that any components of the actual parameter which are not
+components of T will be neither read nor written by the call.]</li>
+</ol>
+</div>
+</div>
+<div class="section" id="formal-parameter-modes">
+<h2>6.2. Formal Parameter Modes<a class="headerlink" href="#formal-parameter-modes" title="Permalink to this headline">¶</a></h2>
+<p>In flow analysis, particularly information flow analysis, the update
+of a component of composite object is treated as updating the whole of
+the composite object with the component set to its new value and the
+remaining components of the composite object with their value preserved.</p>
+<p>This means that if a formal parameter of a subprogram is a composite
+type and only individual components, but not all, are updated, then
+the mode of the formal parameter should be <strong>in out</strong>.</p>
+<p>In general, it is not possible to statically determine whether all
+elements of an array have been updated by a subprogram if individual
+array elements are updated. The mode of a formal parameter of an
+array with such updates should be <strong>in out</strong>.</p>
+<p>A formal parameter with a mode of <strong>out</strong> is treated as not having an
+entry value (apart from any discriminant or attributes of properties
+of the formal parameter). Hence, a subprogram cannot read a value of
+a formal parameter of mode <strong>out</strong> until the subprogram has updated
+it.</p>
+<p class="centered">
+<strong><strong>Verification Rules</strong></strong></p><ol class="arabic simple" id="tu-fa-formal-parameter-modes-01">
+<li>A subprogram formal parameter of a composite type which is updated
+but not fully initialized by the subprogram shall have a mode of
+<strong>in out</strong>.</li>
+</ol>
+<ol class="arabic simple" id="tu-fa-formal-parameter-modes-02" start="2">
+<li>A subprogram formal parameter of mode <strong>out</strong> shall not be read by
+the subprogram until it has been updated by the subprogram.  The
+use of a discriminant or an attribute related to a property, not
+its value, of the formal parameter is not considered to be a read
+of the formal parameter. [Examples of attributes that may be used
+are A&#8217;First, A&#8217;Last and A&#8217;Length; examples of attributes that are
+dependent on the value of the formal parameter and shall not be
+used are X&#8217;Old and X&#8217;Update.]</li>
+</ol>
+<p class="centered" id="etu-formal-parameter-modes">
+<strong><strong>Examples</strong></strong></p><div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">-- The following example is acceptable in Ada</span>
+<span class="c">-- but will raise a flow anomaly in SPARK stating that</span>
+<span class="c">-- X may not be initialized because an out parameter indicates</span>
+<span class="c">-- that the entire String is initialized.</span>
+<span class="k">procedure </span><span class="nf">Param_1_Illegal</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">String</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="kr">if</span><span class="p"> </span><span class="n">X</span><span class="na">&#39;Length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="n">X</span><span class="na">&#39;First</span> <span class="o">=</span> <span class="mi">1</span> <span class="kr">then</span><span class="p"></span>
+      <span class="n">X</span> <span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="o">:=</span> <span class="sc">&#39;?&#39;</span><span class="p">;</span>
+   <span class="k">end if</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Param_1_Illegal</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">-- In SPARK the parameter mode should be in out meaning that the</span>
+<span class="c">-- entire array is initialized before the call to the subprogram.</span>
+<span class="k">procedure </span><span class="nf">Param_1_Legal</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">String</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="kr">if</span><span class="p"> </span><span class="n">X</span><span class="na">&#39;Length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="n">X</span><span class="na">&#39;First</span> <span class="o">=</span> <span class="mi">1</span> <span class="kr">then</span><span class="p"></span>
+      <span class="n">X</span> <span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="o">:=</span> <span class="sc">&#39;?&#39;</span><span class="p">;</span>
+   <span class="k">end if</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Param_1_Legal</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="subprogram-bodies">
+<h2>6.3. Subprogram Bodies<a class="headerlink" href="#subprogram-bodies" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="conformance-rules">
+<h3>6.3.1. Conformance Rules<a class="headerlink" href="#conformance-rules" title="Permalink to this headline">¶</a></h3>
+<p>No extensions or restrictions.</p>
+</div>
+<div class="section" id="inline-expansion-of-subprograms">
+<h3>6.3.2. Inline Expansion of Subprograms<a class="headerlink" href="#inline-expansion-of-subprograms" title="Permalink to this headline">¶</a></h3>
+<p>No extensions or restrictions.</p>
+</div>
+</div>
+<div class="section" id="subprogram-calls">
+<h2>6.4. Subprogram Calls<a class="headerlink" href="#subprogram-calls" title="Permalink to this headline">¶</a></h2>
+<p>No extensions or restrictions.</p>
+<div class="section" id="parameter-associations">
+<h3>6.4.1. Parameter Associations<a class="headerlink" href="#parameter-associations" title="Permalink to this headline">¶</a></h3>
+<p>No extensions or restrictions.</p>
+</div>
+<div class="section" id="anti-aliasing">
+<span id="id8"></span><h3>6.4.2. Anti-Aliasing<a class="headerlink" href="#anti-aliasing" title="Permalink to this headline">¶</a></h3>
+<p>An alias is a name which refers to the same object as another name.
+The presence of aliasing is inconsistent with the underlying flow
+analysis and proof models used by the tools which assume that
+different names represent different entities.  In general, it is not
+possible or is difficult to deduce that two names refer to the same
+object and problems arise when one of the names is used to update the
+object (although object renaming declarations are not problematic in
+SPARK 2014).</p>
+<p>A common place for aliasing to be introduced is through the actual
+parameters and between actual parameters and
+global variables in a procedure call. Extra verification rules are
+given that avoid the possibility of aliasing through actual
+parameters and global variables.  A function is not allowed to have
+side-effects and cannot update an actual parameter or global
+variable.  Therefore, function calls cannot introduce aliasing and
+are excluded from the anti-aliasing rules given below for procedure
+calls.</p>
+<p class="centered">
+<strong><strong>Static Semantics</strong></strong></p><ol class="arabic">
+<li><p class="first">An object is said to be <em>interfering</em> if it is unsynchronized (see section
+<a class="reference internal" href="tasks-and-synchronization.html#tasks-and-synchronization"><span class="std std-ref">Tasks and Synchronization</span></a>) or it is synchronized only due to being
+<em>constant after elaboration</em> (see section <a class="reference internal" href="declarations-and-types.html#object-declarations"><span class="std std-ref">Object Declarations</span></a>).</p>
+<p>Two names that potentially overlap (see section <a class="reference internal" href="declarations-and-types.html#access-types"><span class="std std-ref">Access Types</span></a>)
+and which each denotes an interfering object are said to
+<em>potentially introduce aliasing via parameter passing</em>.
+[This definition has the effect of exempting most synchronized objects
+from the anti-aliasing rules given below; aliasing of most synchronized
+objects via parameter passing is allowed.]</p>
+</li>
+<li><p class="first">A formal parameter is said to be <em>immutable</em> in the following cases:</p>
+<ul class="simple">
+<li>it is an anonymous access-to-constant parameter; or</li>
+<li>it is of mode <strong>in</strong> and not of an access type.</li>
+</ul>
+<p>Otherwise, the formal parameter is said to be <em>mutable</em>.</p>
+</li>
+</ol>
+<p class="centered">
+<strong><strong>Verification Rules</strong></strong></p><ol class="arabic simple" id="tu-anti-aliasing-03" start="3">
+<li>A procedure call shall not pass two actual parameters which potentially
+introduce aliasing via parameter passing unless either<ul>
+<li>both of the corresponding formal parameters are immutable; or</li>
+<li>at least one of the corresponding formal parameters is immutable and is of
+a by-copy type that is not an access type.</li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" id="tu-anti-aliasing-04" start="4">
+<li>If an actual parameter in a procedure call and a <code class="docutils literal"><span class="pre">global_item</span></code> referenced
+by the called procedure potentially introduce aliasing via parameter
+passing, then<ul>
+<li>the corresponding formal parameter shall be immutable; and</li>
+<li>if the <code class="docutils literal"><span class="pre">global_item</span></code>&#8216;s mode is Output or In_Out, then the
+corresponding formal parameter shall be of a by-copy type that is not an
+access type.</li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" id="tu-anti-aliasing-05" start="5">
+<li>Where one of these rules prohibits the occurrence of an object V or any of
+its subcomponents as an actual parameter, the following constructs are also
+prohibited in this context:<ul>
+<li>A type conversion whose operand is a prohibited construct;</li>
+<li>A call to an instance of Unchecked_Conversion whose operand is a prohibited construct;</li>
+<li>A qualified expression whose operand is a prohibited construct;</li>
+<li>A prohibited construct enclosed in parentheses.</li>
+</ul>
+</li>
+</ol>
+<p class="centered" id="etu-anti-aliasing">
+<strong><strong>Examples</strong></strong></p><div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Anti_Aliasing</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Rec</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+      <span class="n">Y</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Arr</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Arr_With_Rec</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Rec</span><span class="p">;</span>
+
+   <span class="n">Local_1</span><span class="p">,</span> <span class="n">Local_2</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+
+   <span class="n">Rec_1</span> <span class="o">:</span> <span class="n">Rec</span> <span class="o">:=</span> <span class="o">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="n">Arr_1</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">:=</span> <span class="o">(</span><span class="kr">others</span><span class="p"> </span><span class="o">=&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="n">Arr_Rec</span> <span class="o">:</span> <span class="n">Arr_With_Rec</span> <span class="o">:=</span> <span class="o">(</span><span class="kr">others</span><span class="p"> </span><span class="o">=&gt;</span> <span class="o">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">))</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">One_In_One_Out</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Y</span> <span class="o">:=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">One_In_One_Out</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Two_In_Out</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"> </span><span class="n">Global</span> <span class="o">=&gt;</span> <span class="kr">null</span><span class="p"></span>
+   <span class="kr">is</span><span class="p"></span>
+      <span class="n">Temp</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Temp</span> <span class="o">:=</span> <span class="n">Y</span><span class="p">;</span>
+      <span class="n">Y</span> <span class="o">:=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span><span class="p">;</span>
+      <span class="n">X</span> <span class="o">:=</span> <span class="n">Temp</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Two_In_Out</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">With_In_Global</span> <span class="o">(</span><span class="n">I</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span>
+     <span class="kr">with</span><span class="p"> </span><span class="n">Global</span> <span class="o">=&gt;</span> <span class="n">Local_1</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">I</span> <span class="o">:=</span> <span class="n">I</span> <span class="o">+</span> <span class="n">Local_1</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">With_In_Global</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">With_In_Out_Global</span> <span class="o">(</span><span class="n">I</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span>
+     <span class="kr">with</span><span class="p"> </span><span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">Local_1</span><span class="o">)</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Local_1</span> <span class="o">:=</span> <span class="n">I</span> <span class="o">+</span> <span class="n">Local_1</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">With_In_Out_Global</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">With_Composite_In_Out_Global</span> <span class="o">(</span><span class="n">I</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span>
+     <span class="kr">with</span><span class="p"> </span><span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">Rec_1</span><span class="o">)</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Rec_1.X</span> <span class="o">:=</span> <span class="n">I</span> <span class="o">+</span> <span class="n">Rec_1.X</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">With_Composite_In_Out_Global</span><span class="p">;</span>
+
+<span class="kr">begin</span><span class="p"></span>
+   <span class="c">-- This is ok because parameters are by copy and there</span>
+   <span class="c">-- is only one out parameter</span>
+   <span class="n">One_In_One_Out</span> <span class="o">(</span><span class="n">Local_1</span><span class="p">,</span> <span class="n">Local_1</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="c">-- This is erroneous both parameters are in out and</span>
+   <span class="c">-- the actual parameters overlap</span>
+   <span class="n">Two_In_Out</span> <span class="o">(</span><span class="n">Local_1</span><span class="p">,</span> <span class="n">Local_1</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="c">-- This is ok the variables do not overlap even though</span>
+   <span class="c">-- they are part of the same record.</span>
+   <span class="n">Two_In_Out</span> <span class="o">(</span><span class="n">Rec_1.X</span><span class="p">,</span> <span class="n">Rec_1.Y</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="c">-- This is ok the variables do not overlap they</span>
+   <span class="c">-- can statically determined to be distinct elements</span>
+   <span class="n">Two_In_Out</span> <span class="o">(</span><span class="n">Arr_1</span> <span class="o">(</span><span class="mi">1</span><span class="o">)</span><span class="p">,</span> <span class="n">Arr_1</span> <span class="o">(</span><span class="mi">2</span><span class="o">))</span><span class="p">;</span>
+
+   <span class="c">-- This is erroneous because it cannot be determined statically</span>
+   <span class="c">-- whether the elements overlap</span>
+   <span class="n">Two_In_Out</span> <span class="o">(</span><span class="n">Arr_1</span> <span class="o">(</span><span class="n">Local_1</span><span class="o">)</span><span class="p">,</span> <span class="n">Arr_1</span> <span class="o">(</span><span class="n">Local_2</span><span class="o">))</span><span class="p">;</span>
+
+   <span class="c">-- This is ok the variables do not overlap they</span>
+   <span class="c">-- can statically determined to be distinct components</span>
+   <span class="n">Two_In_Out</span> <span class="o">(</span><span class="n">Arr_Rec</span> <span class="o">(</span><span class="n">Local_1</span><span class="o">).</span><span class="n">X</span> <span class="p">,</span> <span class="n">Arr_Rec</span> <span class="o">(</span><span class="n">Local_2</span><span class="o">).</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="c">-- This erroneous Global and formal in out parameter overlap.</span>
+   <span class="n">With_In_Global</span> <span class="o">(</span><span class="n">Local_1</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="c">-- This erroneous Global In_Out and formal parameter overlap.</span>
+   <span class="n">With_In_Out_Global</span> <span class="o">(</span><span class="n">Local_1</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="c">-- This erroneous Global In_Out and formal parameter overlap.</span>
+   <span class="n">With_Composite_In_Out_Global</span> <span class="o">(</span><span class="n">Rec_1.Y</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Anti_Aliasing</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="return-statements">
+<h2>6.5. Return Statements<a class="headerlink" href="#return-statements" title="Permalink to this headline">¶</a></h2>
+<p>No extensions or restrictions.</p>
+<div class="section" id="nonreturning-procedures">
+<h3>6.5.1. Nonreturning Procedures<a class="headerlink" href="#nonreturning-procedures" title="Permalink to this headline">¶</a></h3>
+<p class="centered">
+<strong><strong>Verification Rules</strong></strong></p><ol class="arabic" id="tu-nonreturning-procedures-01">
+<li><p class="first">A call to a nonreturning procedure introduces an obligation to prove that
+the statement will not be executed, much like the verification condition
+associated with</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">pragma</span> <span class="pre">Assert</span> <span class="pre">(False);</span></code></p>
+</div></blockquote>
+<p>[In other words, the verification conditions introduced for a call to a
+nonreturning procedure are the same as those introduced for a runtime check
+which fails unconditionally. See also section <a class="reference internal" href="exceptions.html#exceptions"><span class="std std-ref">Exceptions</span></a>, where a
+similar verification rule is imposed on <code class="docutils literal"><span class="pre">raise_statements</span></code>.]</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="overloading-of-operators">
+<span id="etu-nonreturning-procedures-vr"></span><span id="id9"></span><h2>6.6. Overloading of Operators<a class="headerlink" href="#overloading-of-operators" title="Permalink to this headline">¶</a></h2>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-overloading-of-operators-01">
+<li><dl class="first docutils">
+<dt>[The declaration and body of a user-defined equality operation on a record</dt>
+<dd>type shall not have any variable inputs; see <a class="reference internal" href="names-and-expressions.html#expressions"><span class="std std-ref">Expressions</span></a> for the
+statement of this rule.]</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="null-procedures">
+<span id="etu-overloading-of-operators-lr"></span><h2>6.7. Null Procedures<a class="headerlink" href="#null-procedures" title="Permalink to this headline">¶</a></h2>
+<p>No extensions or restrictions.</p>
+</div>
+<div class="section" id="expression-functions">
+<h2>6.8. Expression Functions<a class="headerlink" href="#expression-functions" title="Permalink to this headline">¶</a></h2>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-expression-functions-01">
+<li>Contract_Cases, Global and Depends aspects may be applied to an
+expression function as for any other function declaration if it
+does not have a separate declaration.  If it has a separate
+declaration then the aspects are applied to that.  It may have
+refined aspects applied (see <a class="reference internal" href="packages.html#state-refinement"><span class="std std-ref">State Refinement</span></a>).</li>
+</ol>
+<p class="centered" id="etu-expression-functions-lr">
+<strong><strong>Examples</strong></strong></p><div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Expr_Func_1</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">X</span> <span class="o">+</span> <span class="n">Y</span><span class="o">)</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&lt;=</span> <span class="n">Natural</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="n">Y</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ghost-entities">
+<span id="ghost-functions"></span><h2>6.9. Ghost Entities<a class="headerlink" href="#ghost-entities" title="Permalink to this headline">¶</a></h2>
+<p>Ghost entities are intended for use in discharging verification conditions
+and in making it easier to express assertions about a program. The essential
+property of ghost entities is that they have no effect on the dynamic behavior
+of a valid SPARK program. More specifically, if one
+were to take a valid SPARK program and remove all ghost entity declarations
+from it and all &#8220;innermost&#8221; statements, declarations, and pragmas which
+refer to those declarations (replacing removed statements with null statements
+when syntactically required), then the resulting  program might no longer be
+a valid SPARK program (e.g., it might no longer be possible to discharge all
+of the program&#8217;s verification conditions) but its dynamic semantics (when
+viewed as an Ada program) should be unaffected by this transformation. [This
+transformation might affect the performance characteristics of the program
+(e.g., due to no longer evaluating provably true assertions), but that
+is not what we are talking about here. In rare cases, it might be necessary
+to make a small additional change after the removals
+(e.g., adding an Elaborate_Body pragma) in order to avoid producing a
+library package that no longer needs a body (see Ada RM 7.2(4))].</p>
+<p class="centered">
+<strong><strong>Static Semantics</strong></strong></p><ol class="arabic" id="tu-cbatu-ghost-entities-01">
+<li><p class="first">SPARK 2014 defines the Boolean-valued representation aspect Ghost.
+Ghost is an aspect of all entities (e.g., subprograms, types, objects).
+An entity whose Ghost aspect is True is said to be a ghost entity;
+terms such as &#8220;ghost function&#8221; or &#8220;ghost variable&#8221; are defined analogously
+(e.g., a function whose Ghost aspect is True is said to be a ghost function).
+In addition, a subcomponent of a ghost object is a ghost object.</p>
+<p>Ghost is an assertion aspect.
+[This means that Ghost can be named in an Assertion_Policy pragma.]</p>
+</li>
+</ol>
+<ol class="arabic simple" id="tu-nt-ghost-entities-02" start="2">
+<li>The Ghost aspect of an entity declared inside of a ghost entity (e.g.,
+within the body of a ghost subprogram) is defined to be True.
+The Ghost aspect of an entity implicitly declared as part of the
+explicit declaration of a ghost entity (e.g., an implicitly declared
+subprogram associated with the declaration of a ghost type) is defined
+to be True. The Ghost aspect of a child of a ghost library unit
+is defined to be True.</li>
+</ol>
+<ol class="arabic simple" id="tu-nt-ghost-entities-03" start="3">
+<li>A statement or pragma is said to be a &#8220;ghost statement&#8221; if<ul>
+<li>it occurs within a ghost subprogram or package; or</li>
+<li>it is a call to a ghost procedure; or</li>
+<li>it is an assignment statement whose target is a ghost variable; or</li>
+<li>it is a pragma which encloses a name denoting a ghost entity or
+which specifies an aspect of a ghost entity.</li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" id="tu-nt-ghost-entities-04" start="4">
+<li>If the Ghost assertion policy in effect at the point of a
+ghost statement or the declaration of a ghost entity is Ignore, then the
+elaboration of that construct (at run time) has no effect,
+other Ada or SPARK 2014 rules notwithstanding. Similarly, the elaboration
+of the completion of a ghost entity has no effect if the Ghost
+assertion policy in effect at the point of the entity&#8217;s
+initial declaration is Ignore.
+[A Ghost assertion policy of Ignore can be used to ensure that
+a compiler generates no code for ghost constructs.]
+Such a declaration is said to be a <em>disabled ghost declaration</em>;
+terms such as &#8220;disabled ghost type&#8221; and &#8220;disabled ghost subprogram&#8221;
+are defined analogously.</li>
+</ol>
+<p class="centered" id="etu-ghost-entities-ss">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-fe-ghost-entities-05" start="5">
+<li>The Ghost aspect may only be specified [explicitly] for
+the declaration of a subprogram, a
+generic subprogram, a type (including a partial view thereof),
+an object (or list of objects, in the case of an <code class="docutils literal"><span class="pre">aspect_specification</span></code>
+for an <code class="docutils literal"><span class="pre">object_declaration</span></code> having more than one <code class="docutils literal"><span class="pre">defining_identifier</span></code>),
+a package, or a generic package.
+The Ghost aspect may be specified via either an <code class="docutils literal"><span class="pre">aspect_specification</span></code>
+or via a pragma. The representation pragma Ghost takes a single
+argument, a name denoting one or more entities whose Ghost aspect is
+then specified to be True.
+[In particular, SPARK 2014 does not currently include any form of
+ghost components of non-ghost record types, or ghost parameters of non-ghost
+subprograms. SPARK 2014 does define
+ghost state abstractions, but these are described elsewhere.]</li>
+</ol>
+<ol class="arabic" id="tu-fe-ghost-entities-06" start="6">
+<li><p class="first">A Ghost aspect value of False shall not be explicitly specified
+except in a confirming aspect specification. [For example, a
+non-ghost declaration cannot occur within a ghost subprogram.]</p>
+<p>The value specified for the Ghost assertion policy in an
+Assertion_Policy pragma shall be either Check or Ignore.
+[In other words, implementation-defined assertion policy values
+are not permitted.] The Ghost assertion policy in effect at any
+point of a SPARK program shall be either Check or Ignore.</p>
+</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-ghost-entities-07" start="7">
+<li>A ghost type or object shall not be effectively volatile.
+A ghost object shall not be imported or exported.
+[In other words, no ghost objects for which reading or writing
+would constitute an external effect (see Ada RM 1.1.3).]</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-ghost-entities-08" start="8">
+<li>A ghost primitive subprogram of a non-ghost type extension shall
+not override an inherited non-ghost primitive subprogram.
+A non-ghost primitive subprogram of a type extension shall
+not override an inherited ghost primitive subprogram.
+[A ghost subprogram may be a primitive subprogram of a non-ghost tagged
+type.
+A ghost type extension may have a non-ghost parent type or progenitor;
+primitive subprograms of such a type may override inherited (ghost or
+non-ghost) subprograms.]</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-ghost-entities-09" start="9">
+<li>A Ghost pragma which applies to a declaration occuring
+in the visible part of a package shall not occur in the
+private part of that package.
+[This rule is to ensure that the ghostliness of a visible entity can be
+determined without having to look into the private part of the
+enclosing package.]</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-ghost-entities-10" start="10">
+<li>A ghost entity shall only be referenced:<ul>
+<li>from within an assertion expression; or</li>
+<li>from within an aspect specification [(i.e., either an
+<code class="docutils literal"><span class="pre">aspect_specification</span></code> or an aspect-specifying pragma)]; or</li>
+<li>within the declaration or completion of a
+ghost entity (e.g., from within the body of a ghost subprogram); or</li>
+<li>within a ghost statement; or</li>
+<li>within a <code class="docutils literal"><span class="pre">with_clause</span></code> or <code class="docutils literal"><span class="pre">use_clause</span></code>; or</li>
+<li>within a renaming_declaration which either renames a ghost entity
+or occurs within a ghost subprogram or package.</li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-ghost-entities-11" start="11">
+<li>A ghost entity shall not be referenced within an aspect specification
+[(including an aspect-specifying pragma)]
+which specifies an aspect of a non-ghost entity except in the
+following cases:<ul>
+<li>the reference occurs within an assertion expression which is
+not a predicate expression; or</li>
+<li>the specified aspect is either Global, Depends,
+Refined_Global, Refined_Depends, Initializes, or Refined_State.
+[For example, the Global aspect of a non-ghost subprogram might
+refer to a ghost variable.]</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<div>[Predicate expressions are excluded because predicates participate
+in membership tests; no Assertion_Policy pragma has any effect on
+this participation. In the case of a Static_Predicate expression,
+there are also other reasons (e.g., case statements).]</div></blockquote>
+<ol class="arabic simple" id="tu-fe-ghost-entities-12" start="12">
+<li>An <strong>out</strong> or <strong>in out</strong> mode actual parameter in a call to a ghost
+subprogram shall be a ghost variable.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-ghost-entities-13" start="13">
+<li>If the Ghost assertion policy in effect at the point of the declaration
+of a ghost entity is Ignore, then the Ghost assertion policy in effect
+at the point of any reference to that entity shall be Ignore.
+If the Ghost assertion policy in effect at the point of the declaration
+of a ghost variable is Check, then the Ghost assertion policy in effect
+at the point of any assignment to a part of that variable shall be Check.
+[This includes both assignment statements and passing a ghost variable
+as an <strong>out</strong> or <strong>in out</strong> mode actual parameter.]</li>
+</ol>
+<ol class="arabic" id="tu-fe-ghost-entities-14" start="14">
+<li><p class="first">An Assertion_Policy pragma specifying a Ghost assertion policy
+shall not occur within a ghost subprogram or package.
+If a ghost entity has a completion then the Ghost assertion policies in
+effect at the declaration and at the completion of the entity shall
+be the same. [This rule applies to subprograms, packages, types,
+and deferred constants.]</p>
+<p>The Ghost assertion policies in effect at the point of the declaration
+of an entity and at the point of an aspect specification
+which applies to that entity shall be the same.</p>
+</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-ghost-entities-15" start="15">
+<li>The Ghost assertion policies in effect at the declaration of a
+state abstraction and at the declaration of each constituent of that
+abstraction shall be the same.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-ghost-entities-16" start="16">
+<li>The Ghost assertion policies in effect at the declaration of a
+primitive subprogram of a ghost tagged type and at
+the declaration of the ghost tagged type shall be the same.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-ghost-entities-17" start="17">
+<li>If a tagged type is not a disabled ghost type, and if a
+primitive operation of the tagged type overrides an inherited operation,
+then the corresponding operation of the ancestor type shall be
+a disabled ghost subprogram if and only if the overriding subprogram
+is a disabled ghost subprogram.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-ghost-entities-18" start="18">
+<li>If the Ghost assertion policy in effect at the point of an
+a reference to a Ghost entity which occurs within an assertion expression
+is Ignore, then the assertion policy which governs the assertion
+expression (e.g., Pre for a precondition expression, Assert for the
+argument of an Assert pragma) shall [also] be Ignore.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-ghost-entities-19" start="19">
+<li>A ghost type shall not have a task or protected part.
+A ghost object shall not be of a type which yields synchronized objects
+(see section <a class="reference internal" href="tasks-and-synchronization.html#tasks-and-synchronization"><span class="std std-ref">Tasks and Synchronization</span></a>).
+A ghost object shall not have a volatile part.
+A synchronized state abstraction shall not be a ghost state abstraction
+(see <a class="reference internal" href="packages.html#abstract-state-aspect"><span class="std std-ref">Abstract_State Aspects</span></a>).</li>
+</ol>
+<p class="centered" id="etu-ghost-entities-lr">
+<strong><strong>Verification Rules</strong></strong></p><ol class="arabic simple" id="tu-fe-ghost-entities-20" start="20">
+<li>A ghost procedure shall not have a non-ghost [global] output.</li>
+</ol>
+<ol class="arabic simple" id="tu-cbatu-ghost-entities-21" start="21">
+<li>An output of a non-ghost subprogram other than a state abstraction
+or a ghost global shall not depend on a ghost input. [It is intended
+that this follows as a consequence of other rules. Although a
+non-ghost state abstraction output which depends on a ghost input may
+have a non-ghost constituent, other rules prevent such a non-ghost
+constituent from depending on the ghost input.]</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-ghost-entities-22" start="22">
+<li>A ghost procedure shall not have an effectively volatile global input
+with the properties Async_Writers or Effective_Reads set to True.
+[This rule says, in effect, that ghost procedures are
+subject to the same restrictions as non-ghost nonvolatile
+functions with respect to reading volatile objects.]
+A name occurring within a ghost statement shall not denote an
+effectively volatile object with the properties Async_Writers or
+Effective_Reads set to True. [In other words, a ghost statement is
+subject to effectively the same restrictions as a ghost procedure.]</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-ghost-entities-23" start="23">
+<li>If the Ghost assertion policy in effect at the point of the declaration
+of a ghost variable or ghost state abstraction is Check, then the Ghost
+assertion policy in effect at the point of any call to a procedure
+for which that variable or state abstraction is a global output shall
+be Check.</li>
+</ol>
+<p class="centered" id="etu-ghost-entities-vr">
+<strong><strong>Examples</strong></strong></p><div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">A_Ghost_Expr_Function</span> <span class="o">(</span><span class="n">Lo</span><span class="p">,</span> <span class="n">Hi</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">is</span><span class="p"></span>
+  <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Lo</span> <span class="o">&gt;</span> <span class="n">Integer</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="n">Hi</span> <span class="kr">then</span><span class="p"> </span><span class="n">Lo</span> <span class="kr">else</span><span class="p"> </span><span class="o">((</span><span class="n">Lo</span> <span class="o">+</span> <span class="n">Hi</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">))</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Pre</span>        <span class="o">=&gt;</span> <span class="n">Lo</span> <span class="o">&lt;=</span> <span class="n">Hi</span><span class="p">,</span>
+       <span class="n">Post</span>       <span class="o">=&gt;</span> <span class="n">A_Ghost_Expr_Function</span><span class="na">&#39;Result</span> <span class="kr">in</span><span class="p"> </span><span class="n">Lo</span> <span class="o">..</span> <span class="n">Hi</span><span class="p">,</span>
+       <span class="n">Ghost</span><span class="p">;</span>
+
+<span class="k">function </span><span class="nf">A_Ghost_Function</span> <span class="o">(</span><span class="n">Lo</span><span class="p">,</span> <span class="n">Hi</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Pre</span>        <span class="o">=&gt;</span> <span class="n">Lo</span> <span class="o">&lt;=</span> <span class="n">Hi</span><span class="p">,</span>
+       <span class="n">Post</span>       <span class="o">=&gt;</span> <span class="n">A_Ghost_Function</span><span class="na">&#39;Result</span> <span class="kr">in</span><span class="p"> </span><span class="n">Lo</span> <span class="o">..</span> <span class="n">Hi</span><span class="p">,</span>
+       <span class="n">Ghost</span><span class="p">;</span>
+<span class="c">-- The body of the function is declared elsewhere.</span>
+
+<span class="k">function </span><span class="nf">A_Nonexecutable_Ghost_Function</span> <span class="o">(</span><span class="n">Lo</span><span class="p">,</span> <span class="n">Hi</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Pre</span>        <span class="o">=&gt;</span> <span class="n">Lo</span> <span class="o">&lt;=</span> <span class="n">Hi</span><span class="p">,</span>
+       <span class="n">Post</span>       <span class="o">=&gt;</span> <span class="n">A_Nonexecutable_Ghost_Function</span><span class="na">&#39;Result</span> <span class="kr">in</span><span class="p"> </span><span class="n">Lo</span> <span class="o">..</span> <span class="n">Hi</span><span class="p">,</span>
+       <span class="n">Ghost</span><span class="p">,</span>
+       <span class="n">Import</span><span class="p">;</span>
+<span class="c">-- The body of the function is not declared elsewhere.</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="packages.html" title="7. Packages"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="statements.html" title="5. Statements"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

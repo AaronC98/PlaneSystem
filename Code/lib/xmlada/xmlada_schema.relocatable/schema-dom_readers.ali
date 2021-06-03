@@ -1,0 +1,451 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U schema.dom_readers%b	schema-dom_readers.adb	c997244b OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W dom%s			dom.ads			dom.ali
+W dom.core%s		dom-core.adb		dom-core.ali
+W dom.core.attrs%s	dom-core-attrs.adb	dom-core-attrs.ali
+W dom.core.character_datas%s  dom-core-character_datas.adb  dom-core-character_datas.ali
+W dom.core.documents%s	dom-core-documents.adb	dom-core-documents.ali
+W dom.core.elements%s	dom-core-elements.adb	dom-core-elements.ali
+W dom.core.nodes%s	dom-core-nodes.adb	dom-core-nodes.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W sax%s			sax.ads			sax.ali
+W sax.attributes%s	sax-attributes.adb	sax-attributes.ali
+W sax.readers%s		sax-readers.adb		sax-readers.ali
+W sax.utils%s		sax-utils.adb		sax-utils.ali
+W schema%s		schema.adb		schema.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+
+U schema.dom_readers%s	schema-dom_readers.ads	7f2b9ba3 EE OO PF PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W dom%s			dom.ads			dom.ali
+W dom.core%s		dom-core.adb		dom-core.ali
+W sax%s			sax.ads			sax.ali
+W sax.exceptions%s	sax-exceptions.adb	sax-exceptions.ali
+W sax.readers%s		sax-readers.adb		sax-readers.ali
+W sax.symbols%s		sax-symbols.adb		sax-symbols.ali
+W sax.utils%s		sax-utils.adb		sax-utils.ali
+W schema%s		schema.adb		schema.ali
+W schema.readers%s	schema-readers.adb	schema-readers.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-charac.ads		20190518041256 2d3ec45b ada.characters%s
+D a-chlat1.ads		20190518041256 66457d31 ada.characters.latin_1%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-ioexce.ads		20190518041255 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-string.ads		20190518041256 90ac6797 ada.strings%s
+D a-strmap.ads		20190518041256 e8bb714a ada.strings.maps%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-textio.ads		20190518041257 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D dom.ads		20190430051631 2bd88f63 dom%s
+D dom-core.ads		20190430051631 3a4cc7f1 dom.core%s
+D dom-core-attrs.ads	20190430051631 73a71d1a dom.core.attrs%s
+D dom-core-character_datas.ads  20190430051631 3a77e04a dom.core.character_datas%s
+D dom-core-documents.ads  20190430051631 a040c510 dom.core.documents%s
+D dom-core-elements.ads	20190430051631 aeb5e62f dom.core.elements%s
+D dom-core-nodes.ads	20190430051631 06d13589 dom.core.nodes%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-dirope.ads		20190518041255 940c4438 gnat.directory_operations%s
+D g-dyntab.ads		20190518041256 21cef781 gnat.dynamic_tables%s
+D g-dyntab.adb		20190518041257 8cc056dd gnat.dynamic_tables%b
+D g-hesorg.ads		20190518041255 106922da gnat.heap_sort_g%s
+D g-regpat.ads		20190518041257 b85d88ef gnat.regpat%s
+D g-tasloc.ads		20190518041255 9c49392e gnat.task_lock%s
+D input_sources.ads	20190430051631 9ec704a2 input_sources%s
+D input_sources-file.ads  20190430051631 b313acf6 input_sources.file%s
+D input_sources-strings.ads  20190430051631 8045c77b input_sources.strings%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041255 e53d8b8e interfaces.c_streams%s
+D sax.ads		20190430051631 17965ec6 sax%s
+D sax-attributes.ads	20190430051631 baf0c3bb sax.attributes%s
+D sax-encodings.ads	20190430051631 22d791a3 sax.encodings%s
+D sax-exceptions.ads	20190430051631 32ef2902 sax.exceptions%s
+D sax-htable.ads	20190430051631 2df615ad sax.htable%s
+D sax-locators.ads	20190430051631 c21ab44e sax.locators%s
+D sax-models.ads	20190430051631 9f245dcd sax.models%s
+D sax-pointers.ads	20190430051631 d9877e85 sax.pointers%s
+D sax-pointers.adb	20190430051631 8f6422c0 sax.pointers%b
+D sax-readers.ads	20190430051631 41cb3ec9 sax.readers%s
+D sax-readers.adb	20190430051631 0ae2791b sax.readers%b
+D sax-state_machines.ads  20190430051631 b43fd4c9 sax.state_machines%s
+D sax-symbols.ads	20190430051631 d3179de8 sax.symbols%s
+D sax-symbols.adb	20190430051631 d4150ebd sax.symbols%b
+D sax-utils.ads		20190430051631 617205ad sax.utils%s
+D sax-utils.adb		20190430051631 ab7feb07 sax.utils%b
+D schema.ads		20190430051631 350cfe44 schema%s
+D schema-date_time.ads	20190430051631 27960bdd schema.date_time%s
+D schema-decimal.ads	20190430051631 7d99f7cb schema.decimal%s
+D schema-dom_readers.ads  20190430051631 66ca1f20 schema.dom_readers%s
+D schema-dom_readers.adb  20190430051630 b834f774 schema.dom_readers%b
+D schema-readers.ads	20190430051630 bf156a13 schema.readers%s
+D schema-simple_types.ads  20190430051631 3ab774bb schema.simple_types%s
+D schema-validators.ads	20190430051631 43453275 schema.validators%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-addima.ads		20190518041256 a1ec9d3a system.address_image%s
+D s-crtl.ads		20190518041255 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041257 078245e4 system.file_control_block%s
+D s-finmas.ads		20190518041256 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-imgint.ads		20190518041255 02dbe0c2 system.img_int%s
+D s-imguns.ads		20190518041256 9ff43cf7 system.img_uns%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041255 ede33ef8 system.pool_global%s
+D s-regpat.ads		20190518041256 825a9b7f system.regpat%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stalib.adb		20190518041255 f2fe2716 system.standard_library%b
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20190518041256 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-stposu.ads		20190518041255 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20190518041255 aedef97e system.stream_attributes%s
+D s-stratt.adb		20190518041256 56ef263e system.stream_attributes%b
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-ststop.ads		20190518041255 5fbf1b38 system.strings.stream_ops%s
+D s-tasloc.ads		20190518041255 618a376e system.task_lock%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D unicode.ads		20190430051631 a421878d unicode%s
+D unicode-ccs.ads	20190430051631 184e29de unicode.ccs%s
+D unicode-ces.ads	20190430051631 68f558ab unicode.ces%s
+D unicode-ces-basic_8bit.ads  20190430051631 a56f8139 unicode.ces.basic_8bit%s
+D unicode-ces-utf32.ads	20190430051631 b5f035ac unicode.ces.utf32%s
+D unicode-ces-utf8.ads	20190430051631 dcbef85d unicode.ces.utf8%s
+D unicode-encodings.ads	20190430051631 d94939b2 unicode.encodings%s
+D unicode-names.ads	20190430051631 fec77f75 unicode.names%s
+D unicode-names-basic_latin.ads  20190430051631 aa07d1b5 unicode.names.basic_latin%s
+G a e
+G c Z s b [get_tree schema__dom_readers 47 13 none]
+G c Z s b [current_node schema__dom_readers 50 13 none]
+G c Z s b [free schema__dom_readers 55 25 none]
+G c Z s b [set_warnings_as_errors schema__dom_readers 61 14 none]
+G c Z s b [start_document schema__dom_readers 76 25 none]
+G c Z s b [start_element schema__dom_readers 77 25 none]
+G c Z s b [end_element schema__dom_readers 82 25 none]
+G c Z s b [characters schema__dom_readers 86 25 none]
+G c Z s b [ignorable_whitespace schema__dom_readers 89 25 none]
+G c Z s b [processing_instruction schema__dom_readers 92 25 none]
+G c Z s b [start_dtd schema__dom_readers 96 25 none]
+G c Z s b [end_dtd schema__dom_readers 101 25 none]
+G c Z s b [comment schema__dom_readers 102 25 none]
+G c Z s b [error schema__dom_readers 105 25 none]
+G c Z s b [warning schema__dom_readers 108 25 none]
+G c Z s s [tree_readerDA schema__dom_readers 68 9 none]
+G c Z s s [tree_readerDF schema__dom_readers 68 9 none]
+G c Z s s [tree_readerDI schema__dom_readers 68 9 none]
+G c Z s s [tree_readerIP schema__dom_readers 68 9 none]
+G r c none [free schema__dom_readers 55 25 none] [free schema__readers 131 25 none]
+G r c none [start_document schema__dom_readers 76 25 none] [get_symbol_table sax__readers 701 13 none]
+G r c none [start_document schema__dom_readers 76 25 none] [create_document dom__core 122 13 none]
+G r e pointer [start_document schema__dom_readers 76 25 none] [finalize sax__utils__symbol_table_pointers 88 17 171_4]
+G r c none [start_element schema__dom_readers 77 25 none] [get_symbol_table sax__readers 701 13 none]
+G r c none [start_element schema__dom_readers 77 25 none] [get_uri sax__utils 204 13 none]
+G r c none [start_element schema__dom_readers 77 25 none] [get_prefix sax__utils 203 13 none]
+G r c none [start_element schema__dom_readers 77 25 none] [create_element_ns dom__core__documents 47 13 none]
+G r c none [start_element schema__dom_readers 77 25 none] [append_child dom__core__nodes 143 13 none]
+G r e pointer [start_element schema__dom_readers 77 25 none] [finalize sax__utils__symbol_table_pointers 88 17 171_4]
+G r c none [start_element schema__dom_readers 77 25 none] [get_length sax__readers 307 13 none]
+G r c none [start_element schema__dom_readers 77 25 none] [get_name sax__readers 335 13 none]
+G r c none [start_element schema__dom_readers 77 25 none] [get_prefix sax__readers 333 13 none]
+G r c none [start_element schema__dom_readers 77 25 none] [create_attribute_ns dom__core__documents 98 13 none]
+G r c none [start_element schema__dom_readers 77 25 none] [get_value sax__readers 274 13 none]
+G r c none [start_element schema__dom_readers 77 25 none] [set_value dom__core__attrs 41 14 none]
+G r c none [start_element schema__dom_readers 77 25 none] [set_attribute_node dom__core__elements 107 13 none]
+G r c none [start_element schema__dom_readers 77 25 none] [get_type sax__readers 298 13 none]
+G r c none [start_element schema__dom_readers 77 25 none] [set_id_attribute_node dom__core__elements 124 14 none]
+G r c none [end_element schema__dom_readers 82 25 none] [parent_node dom__core__nodes 64 13 none]
+G r c none [characters schema__dom_readers 86 25 none] [last_child dom__core__nodes 61 13 none]
+G r c none [characters schema__dom_readers 86 25 none] [node_type dom__core__nodes 45 13 none]
+G r c none [characters schema__dom_readers 86 25 none] [create_text_node dom__core__documents 64 13 none]
+G r c none [characters schema__dom_readers 86 25 none] [append_child dom__core__nodes 143 13 none]
+G r c none [characters schema__dom_readers 86 25 none] [append_data dom__core__character_datas 47 14 none]
+G r c none [ignorable_whitespace schema__dom_readers 89 25 none] [create_text_node dom__core__documents 64 13 none]
+G r c none [ignorable_whitespace schema__dom_readers 89 25 none] [append_child dom__core__nodes 143 13 none]
+G r c none [processing_instruction schema__dom_readers 92 25 none] [create_processing_instruction dom__core__documents 80 13 none]
+G r c none [processing_instruction schema__dom_readers 92 25 none] [append_child dom__core__nodes 143 13 none]
+G r c none [comment schema__dom_readers 102 25 none] [create_comment dom__core__documents 71 13 none]
+G r c none [comment schema__dom_readers 102 25 none] [append_child dom__core__nodes 143 13 none]
+G r c none [error schema__dom_readers 105 25 none] [fatal_error sax__readers 217 14 none]
+G r c none [warning schema__dom_readers 108 25 none] [fatal_error sax__readers 217 14 none]
+G r j validating_reader [tree_readerDA schema__dom_readers 68 9 none] [validating_readerDA schema__readers 142 9 none]
+G r k validating_reader [tree_readerDF schema__dom_readers 68 9 none] [validating_readerDF schema__readers 142 9 none]
+G r s validating_reader [tree_readerIP schema__dom_readers 68 9 none] [validating_readerIP schema__readers 142 9 none]
+G r s encoding_scheme [tree_readerIP schema__dom_readers 68 9 none] [encoding_schemeIP unicode__ces 139 9 none]
+X 14 dom.ads
+37K9*DOM 39e8 52|35r6 35r27 53|29r6 29r32 30r6 30r32 31r6 31r32 32r6 32r32
+. 33r6 33r36
+X 15 dom-core.ads
+38K13*Core 382e13 52|35w10 35r31 53|29r10 29r36 30r10 30r36 31r10 31r36 32r10
+. 32r36 33r10 33r40
+69n7*Text_Node{62E9} 53|117r66
+79P9*Node(78R9) 52|50r54 70r27 53|111r13 135r13 150r13 170r13 265r54
+83P12*Attr{79P9} 53|60r19
+90P12*Document{79P9} 52|47r50 69r27 53|184r50
+112R9*DOM_Implementation 53|43r24
+122V13*Create_Document{79P9} 53|45s23
+127r7 Symbols{47|174R12} 53|46r26
+X 16 dom-core-attrs.ads
+26K18*Attrs 53e19 53|29w15 29r41
+41U14*Set_Value 53|80s10
+X 17 dom-core-character_datas.ads
+26K18*Character_Datas 70e29 53|33w15 33r45
+47U14*Append_Data 53|119s10
+X 18 dom-core-documents.ads
+24K18*Documents 168e23 53|31w15 31r41
+47V13*Create_Element_NS{15|82P12} 53|65s10
+49r7 Symbols{47|174R12} 53|67r13
+50p7 Namespace_URI{45|41P9} 53|68r13
+51p7 Prefix{45|41P9} 53|69r13
+52p7 Local_Name{45|41P9} 53|70r13
+64V13*Create_Text_Node{15|88P12} 53|122s35 156s35
+71V13*Create_Comment{15|89P12} 53|139s32
+80V13*Create_Processing_Instruction{15|87P12} 53|176s13
+98V13*Create_Attribute_NS{15|83P12} 53|74s17
+100r7 Symbols{47|174R12} 53|76r13
+101p7 Namespace_URI{45|41P9} 53|77r13
+102p7 Prefix{45|41P9} 53|78r13
+103p7 Local_Name{45|41P9} 53|79r13
+X 19 dom-core-elements.ads
+26K18*Elements 156e22 53|32w15 32r41
+107V13*Set_Attribute_Node{15|83P12} 53|81s18
+124U14*Set_Id_Attribute_Node 53|83s13
+125b39 Is_Id{boolean} 53|83r63
+X 20 dom-core-nodes.ads
+28K18*Nodes 332e19 53|30w15 30r41
+45V13*Node_Type{15|62E9} 53|117s18
+61V13*Last_Child{15|79P9} 53|116s10 117s29 119s23
+64V13*Parent_Node{15|79P9} 53|100s31
+143V13*Append_Child{15|79P9} 53|63s31 121s17 138s14 155s17 174s17
+X 28 input_sources.ads
+46P9*Input_Source_Access(43R9)
+X 33 sax.ads
+33K9*Sax 35e8 52|29r6 30r6 31r6 32r6 79r23 80r23 81r23 84r23 85r23 107r17
+. 110r17 53|25r6 25r32 26r6 26r32 34r6 34r32 56r23 57r23 58r23 94r23 95r23
+. 221r17 232r16
+X 34 sax-attributes.ads
+35K13*Attributes 255e19 53|25w10 25r36
+44n14*Id{43E9} 53|82r34
+X 36 sax-exceptions.ads
+28K13*Exceptions 92e19 52|29w10 107r21 110r21 53|221r21 232r20
+65R9*Sax_Parse_Exception<34R9> 91e14 52|107r32 110r32 53|221r32 232r31
+X 40 sax-pointers.ads
+59R12*Pointer<5|43R9>
+X 42 sax-readers.ads
+40K13*Readers 1176e16 52|30w10 81r27 53|34w10 34r36 58r27
+77U14*Set_XML_Version
+79V13*Get_XML_Version{47|34E9}
+82U14*Set_Feature
+84V13*Get_Feature{boolean}
+89U14*Use_Basename_In_Error_Messages
+92V13*Use_Basename_In_Error_Messages{boolean}
+217U14*Fatal_Error 53|223s7 235s10
+237R9*Sax_Attribute_List 1017e14 52|81r35 53|58r35
+274V13*Get_Value{45|41P9} 53|80s26
+298V13*Get_Type{34|43E9} 53|82s13
+307V13*Get_Length{natural} 53|73s21
+327p7*NS{45|41P9} 53|77r50
+328p7*Local{45|41P9} 53|79r50
+333V13*Get_Prefix{45|41P9} 53|78s31
+335V13*Get_Name{326R9} 53|77s31 79s31
+351U14*Set_Document_Locator
+361V13*Current_Location{38|41R9}
+372U14*End_Document
+378U14*Start_Prefix_Mapping
+391U14*End_Prefix_Mapping
+459U14*Skipped_Entity
+480U14*Unparsed_Entity_Decl
+488U14*Notation_Decl
+506V13*Resolve_Entity{28|46P9}
+552U14*Start_Cdata
+557U14*End_Cdata
+560U14*Start_Entity
+567U14*End_Entity
+596U14*Internal_Entity_Decl
+608U14*External_Entity_Decl
+616U14*Element_Decl
+628U14*Attribute_Decl
+669P9*Hook_Data_Access(668R9)
+701V13*Get_Symbol_Table{47|174R12} 53|46s37 67s30 76s31
+753V13*Get_Hooks_Data{669P9}
+756U14*Set_Hooks
+X 44 sax-state_machines.ads
+61R9*NFA
+354H9*Abstract_NFA_Matcher
+405R12*NFA_Matcher<354R9[56|289]>
+X 45 sax-symbols.ads
+33K13*Symbols 103e16 52|32w10 80r27 85r27 53|57r27 95r27
+41P9*Symbol<90|43P9> 52|80r35 85r35 53|57r35 95r35
+X 47 sax-utils.ads
+32K13*Utils 262e14 52|31w10 79r27 84r27 53|26w10 26r36 56r27 94r27
+174R12*Symbol_Table{40|59R12[171]}
+198P9*XML_NS 52|79r33 84r33 53|56r33 94r33
+203V13*Get_Prefix{45|41P9} 53|69s30
+204V13*Get_URI{45|41P9} 53|68s30
+X 49 schema.ads
+27K9*Schema 83e11 52|33r6 37r9 39r28 68r28 112r5 53|36r14 248r7 248r28 270r5
+X 52 schema-dom_readers.ads
+37K16*Dom_Readers 49|27k9 52|68E9 112l12 112e23 53|36b21 270l12 270t23
+39R9*Tree_Reader<54|34R9> 42|77p14 79p13 82p14 84p13 89p14 92p13 217p14 351p14
+. 361p13 372p14 378p14 391p14 459p14 480p14 488p14 506p13 552p14 557p14 560p14
+. 567p14 596p14 608p14 616p14 628p14 753p13 756p14 52|40r42 47p13 47r30 50p13
+. 50r34 55P25 55r45 61p14 62r21 68c9 74e14 76P25 76r58 77P25 78r30 82P25
+. 83r30 86P25 87r24 89P25 90r24 92P25 93r24 96P25 97r26 101P25 101r51 102P25
+. 103r24 105P25 106r24 108P25 109r24 53|42r47 55r30 93r30 108r24 131r24 147r24
+. 165r24 184r30 194r26 210r40 220r24 231r24 243r34 256r21 265r34 54|60p14
+. 63p13 85p14 104P25 110p13 122p14 135P25 56|628P25 632p14 642p13
+40P9*Tree_Reader_Access(39R9)
+47V13*Get_Tree{15|90P12} 47>23 53|184b13 187l8 187t16
+47r23 Read{39R9} 53|184b23 186r14
+50V13*Current_Node{15|79P9} 50>27 53|265b13 268l8 268t20
+50r27 Read{39R9} 53|265b27 267r14
+55U25*Free<54|131p25> 55=31 53|243b14 249l8 249t12
+55r31 Read{39R9} 53|243b20 247m7 248m62 248r62
+61U14*Set_Warnings_As_Errors 62=7 62>34 53|255b14 259l8 259t30
+62r7 Read{39R9} 53|256b7 258m7
+62b34 Warnings_As_Error{boolean} 53|256b34 258r33
+69p7 Tree{15|90P12} 53|45m15 47r39 66r21 75r21 122r61 139r56 154r42 156r61
+. 176r52 186r19 247m12
+70p7 Current_Node{15|79P9} 53|47m15 63m15 64r18 81r46 83r44 100m15 100r52
+. 116r30 117r49 119r43 122r21 139r18 154r18 156r21 175r21 267r19
+71r7 Internal_Encoding{90|139R9}
+72b7 In_DTD{boolean} 53|173r22 203m15 212m15
+73b7 Warnings_As_Error{boolean} 53|234r18 258m12
+76U25 Start_Document<42|367p14> 76=41 53|42b14 48l8 48t22
+76r41 Handler{39R9} 53|42b30 45m7 46r55 47m7 47r31
+77U25 Start_Element<42|397p14> 78=7 79>7 80>7 81>7 53|54b25 86l8 86t21
+78r7 Handler{39R9} 53|55b7 63m7 64r10 66r13 67r48 75r13 76r49 81r38 83r36
+79p7 NS{47|198P9} 53|56b7 68r39 69r42
+80p7 Local_Name{45|41P9} 53|57b7 70r30
+81r7 Atts{42|237R9} 53|58b7 73r33 77r41 78r43 79r41 80r37 82r23
+82U25 End_Element<42|421p14> 83=7 84>7 85>7 53|92b25 101l8 101t19
+83r7 Handler{39R9} 53|93b7 100m7 100r44
+84p7 NS{47|198P9} 53|94b7 97r29
+85p7 Local_Name{45|41P9} 53|95b7 98r29
+86U25 Characters<42|427p14> 87=7 88>7 53|107b14 124l8 124t18
+87r7 Handler{39R9} 53|108b7 110r26 116r22 117r41 119r35 122r13 122r53
+88a7 Ch{90|41A12} 53|108b37 119r58 122r67
+89U25 Ignorable_Whitespace<42|439p14> 90=7 91>7 53|146b14 158l8 158t28
+90r7 Handler{39R9} 53|147b7 149r26 154r10 154r34 156r13 156r53
+91a7 Ch{90|41A12} 53|147b37 156r67
+92U25 Processing_Instruction<42|450p14> 93=7 94>7 95>7 53|164b14 178l8 178t30
+93r7 Handler{39R9} 53|165b7 169r26 173r14 175r13 176r44
+94a7 Target{90|41A12} 53|166b7 176r58
+95a7 Data{90|41A12} 53|167b7 176r66
+96U25 Start_DTD<42|572p14> 97=7 98>7 99>7 100>7 53|193b14 204l8 204t17
+97r7 Handler{39R9} 53|194b7 203m7
+98a7 Name{90|41A12} 53|195b7 199r29
+99a7 Public_Id{90|41A12} 53|196b7 200r29
+100a7 System_Id{90|41A12} 53|197b7 201r29
+101U25 End_DTD<42|586p14> 101=34 53|210b14 213l8 213t15
+101r34 Handler{39R9} 53|210b23 212m7
+102U25 Comment<42|547p14> 103=7 104>7 53|130b14 140l8 140t15
+103r7 Handler{39R9} 53|131b7 134r26 139r10 139r48
+104a7 Comment{90|41A12} 53|132b7 139r62
+105U25 Error<42|205p14> 106=7 107>7 53|219b14 224l8 224t13
+106r7 Handler{39R9} 53|220b7 223m20
+107c7 Except<36|65R9> 53|221b7 223r29
+108U25 Warning<42|195p14> 109=7 110>7 53|230b14 237l8 237t15
+109r7 Handler{39R9} 53|231b7 234r10 235m23
+110c7 Except<36|65R9> 53|232b7 235r32
+X 53 schema-dom_readers.adb
+43r7 Implementation{15|112R9} 46r10
+60p7 Att{15|83P12} 74m10 80r21 81r60 83r58
+60p12 Att2{15|83P12} 61r29 81m10
+73i11 J{integer} 77r47 78r49 79r47 80r43 82r29
+111p7 Tmp{15|79P9} 112r28 121m10
+135p7 Tmp{15|79P9} 136r28 138m7
+150p7 Tmp{15|79P9} 151r28 155m10
+170p7 Tmp{15|79P9} 171r28 174m10
+X 54 schema-readers.ads
+32K16*Readers 52|33w13 39r35 68r35 53|248r14 248r35 54|158e19
+34R9*Validating_Reader<56|447R9> 52|39r43 68r43 53|248r43 54|156e14
+60U14*Set_Grammar
+63V13*Get_Grammar{56|56R9}
+85U14*Parse_Grammar
+104U25*Set_Symbol_Table<42|65p14>
+110V13*To_Absolute_URI{45|41P9}
+122U14*Get_Namespace_From_Prefix
+131U25*Free<56|625p14> 53|248s22
+135U25*Parse<42|54p14>
+X 56 schema-validators.ads
+56R9*XML_Grammar<40|59R12[912]>
+628U25*Initialize_Symbols<42|695p14>
+632U14*Validation_Error
+642V13*Get_Error_Message{90|41A12}
+X 57 system.ads
+67M9*Address
+X 66 s-memory.ads
+53V13*Alloc{57|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{57|67M9} 105i<c,__gnat_realloc>22
+X 74 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+X 88 unicode.ads
+111K9*Unicode 52|34r6 71r27 88r17 91r17 94r17 95r17 98r19 99r19 100r19 104r17
+. 53|27w6 27r32 28r6 28r32 108r42 132r17 147r42 166r17 167r17 195r19 196r19
+. 197r19 88|157e12
+X 90 unicode-ces.ads
+35K17*CES 52|34w14 71r35 88r25 91r25 94r25 95r25 98r27 99r27 100r27 104r25
+. 53|28w14 28r40 108r50 132r25 147r50 166r25 167r25 195r27 196r27 197r27
+. 90|171e16
+41A12*Byte_Sequence{string}<integer> 52|88r29 91r29 94r29 95r29 98r31 99r31
+. 100r31 104r29 53|108r54 132r29 147r54 166r29 167r29 195r31 196r31 197r31
+43P9*Cst_Byte_Sequence_Access(41A12)
+139R9*Encoding_Scheme 52|71r39 90|145e14
+

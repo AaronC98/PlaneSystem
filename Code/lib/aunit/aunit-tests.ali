@@ -1,0 +1,74 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatp
+A -gnatn
+A -gnatwa
+A -gnatw.X
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U aunit.tests%s		aunit-tests.ads		6b6cea8f EE OO PF PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W aunit%s		aunit.adb		aunit.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D aunit.ads		20190430040725 76cdf7c6 aunit%s
+D aunit-tests.ads	20190430040725 1da11d49 aunit.tests%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-finmas.ads		20190518041256 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041255 ede33ef8 system.pool_global%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stalib.adb		20190518041255 f2fe2716 system.standard_library%b
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20190518041256 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+G a e
+G c Z s s [testDF aunit__tests 43 9 none]
+G c Z s s [testIP aunit__tests 43 9 none]
+X 7 aunit.ads
+34K9*AUnit 48e10 8|36r9 45r5
+X 8 aunit-tests.ads
+36K15*Tests 7|34k9 8|43E9 45l11 45e16
+38H9*Test 39r35 43c9 43e52
+39P9*Test_Access(38R9)
+X 9 system.ads
+67M9*Address
+X 13 s-memory.ads
+53V13*Alloc{9|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{9|67M9} 105i<c,__gnat_realloc>22
+X 20 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+

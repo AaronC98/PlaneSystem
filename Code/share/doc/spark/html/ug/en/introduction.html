@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2. Introduction &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Installation of GNATprove" href="install.html" />
+    <link rel="prev" title="1. Getting Started with SPARK" href="getting_started.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="install.html" title="3. Installation of GNATprove"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="getting_started.html" title="1. Getting Started with SPARK"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="getting_started.html"
+                        title="previous chapter">1. Getting Started with SPARK</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="install.html"
+                        title="next chapter">3. Installation of GNATprove</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/en/introduction.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<h1>2. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>SPARK 2014 is a programming language and a set of verification tools designed
+to meet the needs of high-assurance software development.  SPARK 2014 is based
+on Ada 2012, both subsetting the language to remove features that defy
+verification, but also extending the system of contracts and aspects to support
+modular, formal verification.</p>
+<p>The new aspects support abstraction and refinement and facilitate deep static
+analysis to be performed including flow analysis and formal verification of an
+implementation against a specification.</p>
+<p>SPARK 2014 is a much larger and more flexible language than its predecessor
+SPARK 2005. The language can be configured to suit a number of application
+domains and standards, from server-class high-assurance systems (such as
+air-traffic management applications), to embedded, hard real-time, critical
+systems (such as avionic systems complying with DO-178C Level A).</p>
+<p>A major feature of SPARK 2014 is the support for a mixture of proof and other
+verification methods such as testing, which facilitates in particular the use
+of unit proof in place of unit testing; an approach now formalized in DO-178C
+and the DO-333 formal methods supplement.  Certain units may be formally proven
+and other units validated through testing.</p>
+<p>SPARK 2014 is supported by various tools in the GNAT toolsuite:</p>
+<ul class="simple">
+<li>the GNAT compiler</li>
+<li>the GPS integrated development environment</li>
+<li>the GNATtest tool for unit testing harness generation</li>
+<li>the GNATprove tool for formal program verification</li>
+</ul>
+<p>In the rest of this document, we&#8217;ll simply say SPARK to refer to SPARK 2014.</p>
+<p>The remainder of this document is structured as follows:</p>
+<ul class="simple">
+<li><a class="reference internal" href="install.html#installation-of-gnatprove"><span class="std std-ref">Installation of GNATprove</span></a> goes through the installation steps on
+different platforms.</li>
+<li><a class="reference internal" href="spark_mode.html#identifying-spark-code"><span class="std std-ref">Identifying SPARK Code</span></a> describes the various means to identify the
+part of the program in SPARK that should be analyzed.</li>
+<li><a class="reference internal" href="spark_2014.html#overview-of-spark-language"><span class="std std-ref">Overview of SPARK Language</span></a> provides an overview of the SPARK
+language.</li>
+<li><a class="reference internal" href="tutorial.html#spark-tutorial"><span class="std std-ref">SPARK Tutorial</span></a> gives an introduction
+to writing, testing and proving SPARK programs.</li>
+<li><a class="reference internal" href="gnatprove.html#formal-verification-with-gnatprove"><span class="std std-ref">Formal Verification with GNATprove</span></a> describes the use of the
+GNATprove formal verification tool.</li>
+<li><a class="reference internal" href="usage_scenarios.html#applying-spark-in-practice"><span class="std std-ref">Applying SPARK in Practice</span></a> lists the main objectives and project
+scenarios for using SPARK.</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="install.html" title="3. Installation of GNATprove"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="getting_started.html" title="1. Getting Started with SPARK"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

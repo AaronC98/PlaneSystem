@@ -1,0 +1,845 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3. Declarations and Types &#8212; SPARK 2014 Reference Manual 2019</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Names and Expressions" href="names-and-expressions.html" />
+    <link rel="prev" title="2. Lexical Elements" href="lexical-elements.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="names-and-expressions.html" title="4. Names and Expressions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="lexical-elements.html" title="2. Lexical Elements"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3. Declarations and Types</a><ul>
+<li><a class="reference internal" href="#declarations">3.1. Declarations</a></li>
+<li><a class="reference internal" href="#types-and-subtypes">3.2. Types and Subtypes</a><ul>
+<li><a class="reference internal" href="#type-declarations">3.2.1. Type Declarations</a></li>
+<li><a class="reference internal" href="#subtype-declarations">3.2.2. Subtype Declarations</a></li>
+<li><a class="reference internal" href="#classification-of-operations">3.2.3. Classification of Operations</a></li>
+<li><a class="reference internal" href="#subtype-predicates">3.2.4. Subtype Predicates</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#objects-and-named-numbers">3.3. Objects and Named Numbers</a><ul>
+<li><a class="reference internal" href="#object-declarations">3.3.1. Object Declarations</a></li>
+<li><a class="reference internal" href="#number-declarations">3.3.2. Number Declarations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#derived-types-and-classes">3.4. Derived Types and Classes</a></li>
+<li><a class="reference internal" href="#scalar-types">3.5. Scalar Types</a></li>
+<li><a class="reference internal" href="#array-types">3.6. Array Types</a></li>
+<li><a class="reference internal" href="#discriminants">3.7. Discriminants</a></li>
+<li><a class="reference internal" href="#record-types">3.8. Record Types</a></li>
+<li><a class="reference internal" href="#tagged-types-and-type-extensions">3.9. Tagged Types and Type Extensions</a><ul>
+<li><a class="reference internal" href="#type-extensions">3.9.1. Type Extensions</a></li>
+<li><a class="reference internal" href="#dispatching-operations-of-tagged-types">3.9.2. Dispatching Operations of Tagged Types</a></li>
+<li><a class="reference internal" href="#abstract-types-and-subprograms">3.9.3. Abstract Types and Subprograms</a></li>
+<li><a class="reference internal" href="#interface-types">3.9.4. Interface Types</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#access-types">3.10. Access Types</a></li>
+<li><a class="reference internal" href="#declarative-parts">3.11. Declarative Parts</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="lexical-elements.html"
+                        title="previous chapter">2. Lexical Elements</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="names-and-expressions.html"
+                        title="next chapter">4. Names and Expressions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/declarations-and-types.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="declarations-and-types">
+<h1>3. Declarations and Types<a class="headerlink" href="#declarations-and-types" title="Permalink to this headline">¶</a></h1>
+<p>No extensions or restrictions.</p>
+<div class="section" id="declarations">
+<span id="id1"></span><h2>3.1. Declarations<a class="headerlink" href="#declarations" title="Permalink to this headline">¶</a></h2>
+<p>The view of an entity is in SPARK 2014 if and only if the corresponding
+declaration is in SPARK 2014. When clear from the context, we say <em>entity</em> instead
+of using the more formal term <em>view of an entity</em>. If the initial declaration
+of an entity (e.g., a subprogram, a private type, or a deferred
+constant) requires a completion, it is possible that the initial declaration
+might be in SPARK 2014 (and therefore can be referenced in SPARK 2014 code)
+even if the completion is not in SPARK 2014. [This distinction between views
+is much less important in &#8220;pure&#8221; SPARK 2014 than in the case where SPARK_Mode is
+used (as described in the SPARK Toolset User&#8217;s Guide) to allow mixing
+of SPARK 2014 and non-SPARK 2014 code.]</p>
+<p>A type is said to <em>define full default initialization</em> if it is</p>
+<blockquote>
+<div><ul class="simple">
+<li>a scalar type with a specified Default_Value; or</li>
+<li>an access type; or</li>
+<li>an array-of-scalar type with a specified Default_Component_Value; or</li>
+<li>an array type whose element type defines default initialization; or</li>
+<li>a record type, type extension, or protected type each of whose
+<code class="docutils literal"><span class="pre">component_declarations</span></code> either includes a <code class="docutils literal"><span class="pre">default_expression</span></code> or
+has a type which defines full default initialization and, in the case of
+a type extension, is an extension of a type which defines full default
+initialization; or</li>
+<li>a task type; or</li>
+<li>a private type whose Default_Initial_Condition aspect is specified to be a
+<em>Boolean_</em><code class="docutils literal"><span class="pre">expression</span></code>.</li>
+</ul>
+</div></blockquote>
+<p>[The discriminants of a discriminated type play no role in determining
+whether the type defines full default initialization.]</p>
+</div>
+<div class="section" id="types-and-subtypes">
+<h2>3.2. Types and Subtypes<a class="headerlink" href="#types-and-subtypes" title="Permalink to this headline">¶</a></h2>
+<p>No extensions or restrictions.</p>
+<div class="section" id="type-declarations">
+<h3>3.2.1. Type Declarations<a class="headerlink" href="#type-declarations" title="Permalink to this headline">¶</a></h3>
+<p>No extensions or restrictions.</p>
+</div>
+<div class="section" id="subtype-declarations">
+<span id="id2"></span><h3>3.2.2. Subtype Declarations<a class="headerlink" href="#subtype-declarations" title="Permalink to this headline">¶</a></h3>
+<p>A <code class="docutils literal"><span class="pre">constraint</span></code> in SPARK 2014 cannot be defined using variable
+expressions except when it is the <code class="docutils literal"><span class="pre">range</span></code> of a
+<code class="docutils literal"><span class="pre">loop_parameter_specification</span></code>. Dynamic subtypes are permitted but
+they must be defined using constants whose values may be derived from
+expressions containing variables. Note that a formal parameter of a
+subprogram of mode <strong>in</strong> is a constant and may be used in defining a
+constraint. This restriction gives an explicit constant which can be
+referenced in analysis and proof.</p>
+<p>An expression with a <em>variable input</em> reads a variable or calls a
+function which (directly or indirectly) reads a variable.</p>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-subtype-declarations-01">
+<li>[A <code class="docutils literal"><span class="pre">constraint</span></code>, excluding the <code class="docutils literal"><span class="pre">range</span></code> of a
+<code class="docutils literal"><span class="pre">loop_parameter_specification</span></code>, shall not be defined using an
+expression with a variable input;
+see <a class="reference internal" href="names-and-expressions.html#expressions"><span class="std std-ref">Expressions</span></a> for the statement of this rule.]</li>
+</ol>
+</div>
+<div class="section" id="classification-of-operations">
+<span id="etu-subtype-declarations-lr"></span><h3>3.2.3. Classification of Operations<a class="headerlink" href="#classification-of-operations" title="Permalink to this headline">¶</a></h3>
+<p>No restrictions or extensions.</p>
+</div>
+<div class="section" id="subtype-predicates">
+<span id="id3"></span><h3>3.2.4. Subtype Predicates<a class="headerlink" href="#subtype-predicates" title="Permalink to this headline">¶</a></h3>
+<p>Static predicates and dynamic predicates are both in
+SPARK 2014, but subject to some restrictions.</p>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-sf-subtype-predicates-01">
+<li>[A Dynamic_Predicate expression shall not have a variable input;
+see <a class="reference internal" href="names-and-expressions.html#expressions"><span class="std std-ref">Expressions</span></a> for the statement of this rule.]</li>
+</ol>
+<span id="etu-subtype-predicates-01"></span><ol class="arabic simple" id="tu-sf-subtype-predicates-02" start="2">
+<li>If a Dynamic_Predicate applies to the subtype of a composite object,
+then a verification condition is generated to ensure that the object
+satisfies its predicate immediately after any subcomponent or slice
+of the given object is either</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>the target of an assignment statement or;</li>
+<li>an actual parameter of mode <strong>out</strong> or <strong>in out</strong> in a call.</li>
+</ul>
+<p>[These verification conditions do not correspond to any run-time
+check. Roughly speaking, if object X is of subtype S, then verification
+conditions are generated as if an implicitly generated</p>
+<blockquote>
+<div>pragma Assert (X in S);</div></blockquote>
+<p>were present immediately after any assignment statement or call which
+updates a subcomponent (or slice) of X.]</p>
+<p>[No such proof obligations are generated for assignments
+to subcomponents of the result object of an aggregate,
+an extension aggregate, or an update expression (see section
+<a class="reference internal" href="names-and-expressions.html#update-expressions"><span class="std std-ref">Update Expressions</span></a>).
+These are assignment operations but not assignment statements.]</p>
+</div></blockquote>
+<span id="etu-subtype-predicates-02"></span><ol class="arabic simple" id="tu-sf-subtype-predicates-03" start="3">
+<li>A Static_Predicate or Dynamic_Predicate shall not apply to an effectively
+volatile type.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="objects-and-named-numbers">
+<span id="etu-subtype-predicates-03"></span><h2>3.3. Objects and Named Numbers<a class="headerlink" href="#objects-and-named-numbers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="object-declarations">
+<span id="id4"></span><h3>3.3.1. Object Declarations<a class="headerlink" href="#object-declarations" title="Permalink to this headline">¶</a></h3>
+<p>The Boolean aspect Constant_After_Elaboration may be specified as part of
+the declaration of a library-level variable.
+If the aspect is directly specified, the aspect_definition, if any,
+shall be a static [Boolean] expression. [As with most Boolean-valued
+aspects,] the aspect defaults to False if unspecified and to True if
+it is specified without an aspect_definition.</p>
+<p>A variable whose Constant_After_Elaboration aspect is True, or any part
+thereof, is said to be <em>constant after elaboration</em>.
+[The Constant_After_Elaboration aspect indicates that the variable will not
+be modified after execution of the main subprogram begins
+(see section <a class="reference internal" href="tasks-and-synchronization.html#tasks-and-synchronization"><span class="std std-ref">Tasks and Synchronization</span></a>).]</p>
+<p>A stand-alone constant is a <em>constant with variable inputs</em> if its
+initialization expression depends on:</p>
+<blockquote>
+<div><ul class="simple">
+<li>A variable or parameter; or</li>
+<li>Another <em>constant with variable inputs</em></li>
+</ul>
+</div></blockquote>
+<p>Otherwise, a stand-alone constant is a <em>constant without variable inputs</em>.</p>
+<p class="centered">
+<strong><strong>Verification Rules</strong></strong></p><ol class="arabic simple" id="tu-object-declarations-01">
+<li>Constants without variable inputs shall not be denoted in Global,
+Depends, Initializes or Refined_State aspect specifications.
+[Two elaborations of such a constant declaration will always
+yield equal initialization expression values.]</li>
+</ol>
+<p class="centered" id="etu-object-declarations-vr">
+<strong><strong>Examples</strong></strong></p><div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Integer</span> <span class="o">:=</span> <span class="mi">12</span><span class="p">;</span>
+<span class="c">--  No variable inputs</span>
+
+<span class="n">B</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Integer</span> <span class="o">:=</span> <span class="n">F</span> <span class="o">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">A</span><span class="o">)</span><span class="p">;</span>
+<span class="c">--  No variable inputs if F is a function without global inputs (although</span>
+<span class="c">--  it could have global proof inputs)</span>
+
+<span class="n">C</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Integer</span> <span class="o">:=</span> <span class="n">Param</span> <span class="o">+</span> <span class="n">Var</span><span class="p">;</span>
+<span class="c">--  Constant with variable inputs</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="number-declarations">
+<h3>3.3.2. Number Declarations<a class="headerlink" href="#number-declarations" title="Permalink to this headline">¶</a></h3>
+<p>No extensions or restrictions.</p>
+</div>
+</div>
+<div class="section" id="derived-types-and-classes">
+<h2>3.4. Derived Types and Classes<a class="headerlink" href="#derived-types-and-classes" title="Permalink to this headline">¶</a></h2>
+<p>The following rules apply to derived types in SPARK 2014.</p>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-derived-types-01">
+<li>A private type that is not visibly tagged but whose full view is tagged
+cannot be derived.</li>
+</ol>
+<p>[The rationale for this rule is that, otherwise, given that visible operations
+on this type cannot have class-wide preconditions and postconditions, it is
+impossible to check the verification rules associated to overridding operations
+on the derived type.]</p>
+</div>
+<div class="section" id="scalar-types">
+<span id="etu-derived-types"></span><h2>3.5. Scalar Types<a class="headerlink" href="#scalar-types" title="Permalink to this headline">¶</a></h2>
+<p>The Ada RM states that, in the case of a fixed point type declaration,
+&#8220;The base range of the type does not necessarily include the specified
+bounds themselves&#8221;. A fixed point type for which this inclusion does
+not hold is not in SPARK 2014.</p>
+<p>For example, given</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">T</span> <span class="kr">is</span><span class="p"> </span><span class="kr">delta</span><span class="p"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span> <span class="kr">range</span><span class="p"> </span><span class="o">-(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span> <span class="o">**</span> <span class="mi">31</span><span class="o">)</span> <span class="o">..</span> <span class="o">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span> <span class="o">**</span> <span class="mi">31</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>it might be the case that (2.0 ** 31) is greater
+than T&#8217;Base&#8217;Last. If this is the case, then the type T is not in SPARK 2014.</p>
+<p>[This rule applies even in the case where the bounds
+specified in the <code class="docutils literal"><span class="pre">real_range_specification</span></code> of an
+<code class="docutils literal"><span class="pre">ordinary_fixed_point_definition</span></code> define a null range.]</p>
+</div>
+<div class="section" id="array-types">
+<h2>3.6. Array Types<a class="headerlink" href="#array-types" title="Permalink to this headline">¶</a></h2>
+<p>No extensions or restrictions.</p>
+</div>
+<div class="section" id="discriminants">
+<span id="id5"></span><h2>3.7. Discriminants<a class="headerlink" href="#discriminants" title="Permalink to this headline">¶</a></h2>
+<p>The following rules apply to discriminants in SPARK 2014.</p>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-discriminants-01">
+<li>The type of a <code class="docutils literal"><span class="pre">discriminant_specification</span></code> shall be discrete.</li>
+</ol>
+<ol class="arabic simple" id="tu-discriminants-02" start="2">
+<li>A <code class="docutils literal"><span class="pre">discriminant_specification</span></code> shall not occur as part of a
+derived type declaration.</li>
+</ol>
+<ol class="arabic simple" id="tu-discriminants-03" start="3">
+<li>[The <code class="docutils literal"><span class="pre">default_expression</span></code> of a <code class="docutils literal"><span class="pre">discriminant_specification</span></code>
+shall not have a variable input;
+see <a class="reference internal" href="names-and-expressions.html#expressions"><span class="std std-ref">Expressions</span></a> for the statement of this rule.]</li>
+</ol>
+</div>
+<div class="section" id="record-types">
+<span id="etu-discriminants"></span><span id="id6"></span><h2>3.8. Record Types<a class="headerlink" href="#record-types" title="Permalink to this headline">¶</a></h2>
+<p>Default initialization expressions must not have variable inputs in SPARK 2014.</p>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-record-types-01">
+<li>[The <code class="docutils literal"><span class="pre">default_expression</span></code> of a <code class="docutils literal"><span class="pre">component_declaration</span></code> shall not
+have any variable inputs, nor shall it contain a name denoting
+the current instance of the enclosing type;
+see <a class="reference internal" href="names-and-expressions.html#expressions"><span class="std std-ref">Expressions</span></a> for the statement of this rule.]</li>
+</ol>
+<p id="etu-record-types">[The rule in this section applies to any <code class="docutils literal"><span class="pre">component_declaration</span></code>; this
+includes the case of a <code class="docutils literal"><span class="pre">component_declaration</span></code> which is a
+<code class="docutils literal"><span class="pre">protected_element_declaration</span></code>. In other words, this rule also applies to
+components of a protected type.]</p>
+</div>
+<div class="section" id="tagged-types-and-type-extensions">
+<h2>3.9. Tagged Types and Type Extensions<a class="headerlink" href="#tagged-types-and-type-extensions" title="Permalink to this headline">¶</a></h2>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-tagged-types-01">
+<li>No construct shall introduce a semantic dependence on the Ada language
+defined package Ada.Tags.  [See Ada RM 10.1.1 for the definition of semantic
+dependence.  This rule implies, among other things, that any use of the Tag
+attribute is not in SPARK 2014.]</li>
+</ol>
+<ol class="arabic simple" id="tu-tagged-types-02" start="2">
+<li>The identifier External_Tag shall not be used as an
+<code class="docutils literal"><span class="pre">attribute_designator</span></code>.</li>
+</ol>
+<div class="section" id="type-extensions">
+<span id="etu-tagged-types"></span><h3>3.9.1. Type Extensions<a class="headerlink" href="#type-extensions" title="Permalink to this headline">¶</a></h3>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-type-extensions-01">
+<li>A type extension shall not be declared within a subprogram body, block
+statement, or generic body which does not also enclose the declaration of
+each of its ancestor types.</li>
+</ol>
+</div>
+<div class="section" id="dispatching-operations-of-tagged-types">
+<span id="etu-type-extensions"></span><h3>3.9.2. Dispatching Operations of Tagged Types<a class="headerlink" href="#dispatching-operations-of-tagged-types" title="Permalink to this headline">¶</a></h3>
+<p>No extensions or restrictions.</p>
+</div>
+<div class="section" id="abstract-types-and-subprograms">
+<h3>3.9.3. Abstract Types and Subprograms<a class="headerlink" href="#abstract-types-and-subprograms" title="Permalink to this headline">¶</a></h3>
+<p>No extensions or restrictions.</p>
+</div>
+<div class="section" id="interface-types">
+<h3>3.9.4. Interface Types<a class="headerlink" href="#interface-types" title="Permalink to this headline">¶</a></h3>
+<p>No extensions or restrictions.</p>
+</div>
+</div>
+<div class="section" id="access-types">
+<span id="id7"></span><h2>3.10. Access Types<a class="headerlink" href="#access-types" title="Permalink to this headline">¶</a></h2>
+<p>In order to reduce the complexity associated with the specification
+and verification of a program&#8217;s behavior in the face of pointer-related
+aliasing, SPARK 2014 supports only &#8220;owning&#8221; access-to-object types (described
+below); other access types (including access-to-subprogram types and
+access discriminants) are not in SPARK 2014.</p>
+<p>Restrictions are imposed on the use of &#8220;owning&#8221; access objects in order
+to ensure, roughly speaking (and using terms that have not been defined yet),
+that at any given point in a program&#8217;s execution, there is a unique &#8220;owning&#8221;
+reference to any given allocated object. The &#8220;owner&#8221; of that allocated
+object is the object containing that &#8220;owning&#8221; reference. If an object&#8217;s
+owner is itself an allocated object then it too has an owner; this chain
+of ownership will always eventually lead to a (single) nonallocated object.</p>
+<p>Ownership of an allocated object may change over time (e.g., if an allocated
+object is removed from one list and then appended onto another) but
+at any given time the object has only one owner. Similarly, at any given time
+there is only one access path (i.e., the name of a &#8220;declared&#8221; (as opposed
+to allocated) object followed by a sequence of component selections,
+array indexings, and access value dereferences) which yields a given
+(non-null) access value. At least that&#8217;s the general idea - this paragraph
+oversimplifies some things (e.g., see &#8220;borrowing&#8221; and &#8220;observing&#8221;
+below - these operations extend SPARK&#8217;s existing &#8220;single writer,
+multiple reader&#8221; treatment of concurrency and of aliasing to apply to
+allocated objects), but hopefully it provides useful intuition.</p>
+<p>This means that data structures which depend on having multiple
+outstanding references to a given object cannot be expressed in the usual
+way. For example, a doubly-linked list (unlike a singly-linked list)
+typically requires being able to refer to a list element both from its
+predecessor element and from its successor element; that would violate
+the &#8220;single owner&#8221; rule. Such data structures can still be expressed in
+SPARK 2014 (e.g., by storing access values in an array and then using array
+indices instead of access values), but such data structures may be harder
+to reason about.</p>
+<p>The single-owner model statically prevents storage leaks because
+a storage leak requires either an object with no outstanding pointers
+to it or an &#8220;orphaned&#8221; cyclic data structure (i.e., a set of multiple
+allocated objects each reachable from any other but with
+no references to any of those objects from any object outside of the set).</p>
+<p>For purposes of flow analysis (e.g., Global and Depends aspect
+specifications), a read or write of some part of an allocated object is
+treated like a read or write of the owner of that allocated object.
+For example, an assignment to Some_Standalone_Variable.Some_Component.all is
+treated like an assignment to Some_Standalone_Variable.Some_Component.
+Similarly, there is no explicit mention of anything related to access types
+in a Refined_State or Initializes aspect specification; allocated objects
+are treated like components of their owners and, like components, they are
+not mentioned in these contexts.
+This approach has the benefit that the same SPARK 2014 language rules which
+prevent unsafe concurrent access to non-allocated variables also
+provide the same safeguards for allocated objects.</p>
+<p>The rules which accomplish all of this are described below.</p>
+<p class="centered">
+<strong><strong>Static Semantics</strong></strong></p><p>An access-to-variable type is said to be an <em>owning</em> access type if
+if it is either a (named) pool-specific access type, the anonymous
+type of a stand-alone object (including a generic formal <strong>in</strong> mode object),
+the anonymous type of an object renaming declaration,
+or an anonymous type occuring in the profile (either as a
+parameter type or as the function result type) of a traversal function
+(defined below).</p>
+<p>An access-to-constant type is said to be an <em>observing</em> access type if
+if it is either a (named) pool-specific access type, the anonymous
+type of a stand-alone object (including a generic formal <strong>in</strong> mode object),
+the anonymous type of an object renaming declaration,
+or an anonymous type occuring in the profile (either as a
+parameter type or as the function result type) of a traversal function
+(defined below).</p>
+<p>Access types (named or anonymous) which are neither owning nor
+observing are not in SPARK 2014.
+[Redundant: For example, named general access types, access discriminants,
+and access-to-subprogram types are not in SPARK 2014.]</p>
+<p>User-defined storage pools are not in SPARK 2014; more specifically, the package
+System.Storage_Pools, Storage_Pool aspect specifications, and the Storage_Pool
+attribute are not in SPARK 2014.</p>
+<p>A composite type is also said to be an <em>owning</em> type if it has an
+access subcomponent [redundant: , regardless of whether the subcomponent&#8217;s
+type is access-to-constant or access-to-variable].</p>
+<p>Privacy is ignored in determining whether a type is an owning or
+observing type. A generic formal private type is not an owning type
+[redundant: , although the corresponding actual parameter in an instance
+of the generic might be an owning type].
+A tagged type shall not be an owning type.
+A composite type which is not a by-reference type shall not be an owning type.
+[Redundant: The requirement than an owning type must be a by-reference
+type is imposed in part in order to avoid problematic scenarios involving
+a parameter of an owning type passed by value in the case where the
+call propagates an exception instead of returning normally. SPARK programs
+are not supposed to raise exceptions, but this rule still seems desirable.]</p>
+<p>An object of an owning access type is said to be an <em>owning</em> object;
+an object of an observing access type is said to be an <em>observing</em> object.
+An object that is a part of an object of an owning or observing type, or that
+is part of a dereference of an access value is said to be a <em>managed</em> object.</p>
+<p>In the case of a constant object of an access-to-variable type where the
+object is not a stand-alone object and not a formal parameter (e.g.,
+if the object is a subcomponent of an enclosing object or is designated
+by an access value), a dereference of the object provides a constant
+view of the designated object [redundant: , despite the fact that the
+object is of an access-to-variable type. This is
+because a subcomponent of a constant is itself a constant and a dereference
+of a subcomponent is treated, for purposes of analysis, like a
+subcomponent].</p>
+<p>A function is said to be a <em>traversal function</em> if the result type
+of the function is an anonymous access-to-object type, the function has
+at least one formal parameter, and the function&#8217;s first parameter is of
+an access type [redundant: , either named or anonymous].
+The first parameter of the function is called the <em>traversed</em> parameter.
+[Redundant: We will see later that if a traversal
+function yields a non-null result, then that result is &#8220;reachable&#8221; from the
+traversed parameter in the sense that it could be obtained from the traversed
+parameter by some sequence of component selections, array indexing
+operations, and access value dereferences.]</p>
+<p>The <em>root object</em> of a name that denotes an object is defined as follows:</p>
+<ul class="simple">
+<li>if the name is a component_selection, an indexed_component, a slice,
+or a dereference (implicit or explicit)
+then it is the root object of the prefix of the name;</li>
+<li>if the name denotes a call on a traversal function,
+then it is the root object of the name denoting the actual
+traversed parameter;</li>
+<li>if the name denotes an object renaming, the root object is the
+root object of the renamed name;</li>
+<li>if the name is a function_call, and the function called is not a traversal
+function, the root object is the result object of the call;</li>
+<li>if the name is a qualified_expression or a type conversion, the root
+object is the root object of the operand of the name;</li>
+<li>otherwise, the name statically denotes an object and the root
+object is the statically denoted object.</li>
+</ul>
+<p>Two names are said to be <em>potential aliases</em> when:</p>
+<ul class="simple">
+<li>both names statically denote the same entity [redundant: , which
+might be an object renaming declaration]; or</li>
+<li>both names are selected components, they have the same selector, and
+their prefixes are potential aliases; or</li>
+<li>both names are indexed components, their prefixes are potential
+aliases, and if all indexing expressions are static then each
+pair of corresponding indexing expressions have the same value; or</li>
+<li>both names are slices, their prefixes are potential aliases, and
+if both discrete_ranges are static ranges then the two
+discrete_ranges overlap; or</li>
+<li>one name is a slice and the other is an indexed component, their
+prefixes are potential aliases, and if both the discrete_range and
+the indexing expression are static then the value of the indexing
+expression is within the range; or</li>
+<li>one name is a slice whose prefix is a potential alias of the other name
+and the other name is neither a slice nor an indexed component; or</li>
+<li>both names are dereferences and their prefixes are potential aliases; or</li>
+<li>at least one name denotes an object renaming declaration, and the other
+is a potential alias with the object_name denoting the renamed entity.</li>
+</ul>
+<p>Two names N1 and N2 are said to <em>potentially overlap</em> if</p>
+<ul class="simple">
+<li>some prefix of N1 is a potential alias of N2 (or vice versa); or</li>
+<li>N1 is a call on a traversal function and the actual traversed
+parameter of the call potentially overlaps N2 (or vice versa).</li>
+</ul>
+<p>[Note that for a given name N which denotes an object of an access
+type, the names N and N.all potentially overlap. Access value dereferencing
+is treated, for purposes of this definition, like record component selection
+or array indexing.]</p>
+<p>The prefix and the name that are potential aliases are called the
+<em>potentially aliased parts</em> of the potentially overlapping names.</p>
+<p>A name that denotes a managed object can be in one of the
+following ownership states: Unrestricted, Observed, Borrowed, or Moved.</p>
+<p>A given name may take on different states at different points in the
+program. For example, within a block_statement which declares an observer
+(observers have not been defined yet), a name might have a state of Observed
+while having a state of Unrestricted immediately before and immediately
+after the block_statement. [Redundant: This is a compile-time notion;
+no object-to-state mapping of any sort is maintained at runtime.]</p>
+<p>In the Unrestricted state, no additional restrictions are imposed on the
+use of the name. In particular, if the name denotes a variable
+of an access-to-variable type then a dereference of the name provides a
+variable view.</p>
+<p>In the Observed state, the name provides a constant view (even if the
+named object is a variable). If it denotes an access object then
+a dereference of the name provides a constant view [redundant: , even if
+the object is of an access-to-variable type].</p>
+<p>In the Moved state, the name is unusable for reading
+(although the name itself can be assigned to).</p>
+<p>In the Borrowed state, the name is unusable for writing, observing and
+borrowing (see below).</p>
+<p>A name that denotes a managed object has an initial ownership state
+of Unrestricted unless otherwise specified.
+Certain constructs (described below) are said to <em>observe</em>, <em>borrow</em>,
+or <em>move</em> the value of a managed object; these may change the ownership
+state (to Observed, Borrowed, or Moved respectively) of a name within a
+certain portion of the program text (described below). In the first two
+cases (i.e. observing and borrowing), the ownership state of a name
+reverts to its previous value at the end of this region of text.</p>
+<p>The following operations <em>observe</em> a name that denotes a managed object
+and identify a corresponding <em>observer</em>:</p>
+<ul>
+<li><p class="first">An assignment operation that is used to initialize an access object,
+where this target object (the observer) is a stand-alone variable of an
+anonymous access-to-constant type, or a constant (including a formal
+parameter of a procedure or generic formal object of mode <strong>in</strong>) of an
+anonymous access-to-constant type.</p>
+<p>The source expression of the assignment shall be either a name denoting a
+part of a stand-alone object or of a parameter, or a call on a traversal
+function whose result type is an (anonymous) access type.  If the source of
+the assignment is a call on a traversal function then the name being observed
+denotes the actual traversed parameter of the call. Otherwise the name being
+observed denotes the source of the assignment.</p>
+</li>
+<li><p class="first">An assignment operation that is used to initialize a constant object
+(including a generic formal object of mode <strong>in</strong>) of an owning composite
+type. The name being observed denotes the source of the assignment. The
+initialized object is the observer.</p>
+</li>
+<li><p class="first">A procedure call where an actual parameter is a name denoting a managed
+object, and the corresponding formal parameter is of mode <strong>in</strong> and composite
+or aliased. The name being observed denotes the actual parameter.  The formal
+parameter is the observer.</p>
+</li>
+</ul>
+<p>Such an operation is called an <em>observing operation</em>.</p>
+<p>In the region of program text beween the point where a name denoting a
+managed object is observed and the end of the scope of the observer, the
+ownership state of the name is Observed. While a name that denotes a managed
+object is in the Observed state it provides a constant view
+[redundant: , even if the name denotes a variable].</p>
+<p>At the point where a name that denotes a managed object is observed,
+every name of a reachable element of the object is observed.</p>
+<p>The following operations <em>borrow</em> a name that denotes a managed object
+and identify a corresponding <em>borrower</em>:</p>
+<ul>
+<li><p class="first">An assignment operation that is used to initialize an access object, where
+this target object (the borrower) is a stand-alone variable of an anonymous
+access-to-variable type, or a constant (including a formal parameter of a
+procedure or generic formal object of mode <strong>in</strong>) of a (named or anonymous)
+access-to-variable type.</p>
+<p>The source expression of the assignment shall be either a name denoting a
+part of a stand-alone object or of a parameter, or a call on a traversal
+function whose result type is an (anonymous) access-to-variable type.  If the
+source of the assignment is a call on a traversal function then the name
+being borrowed denotes the actual traversed parameter of the call. Otherwise
+the name being borrowed denotes the source of the assignment.</p>
+</li>
+<li><p class="first">A call (or instantiation) where the (borrowed) name denotes an actual
+parameter that is a managed object other than an owning access object, and
+the formal parameter (the borrower) is of mode <strong>out</strong> or <strong>in out</strong> (or the
+generic formal object is of mode <strong>in out</strong>).</p>
+</li>
+<li><p class="first">An object renaming where the (borrowed) name is the object_name denoting the
+renamed object. In this case, the renamed object shall not be in the Observed
+or Borrowed state. The newly declared name is the borrower.</p>
+</li>
+</ul>
+<p>Such an operation is called a <em>borrowing operation</em>.</p>
+<p>In the region of program text beween the point where a name denoting a
+managed object is borrowed and the end of the scope of the borrower, the
+ownership state of the name is Borrowed.</p>
+<p>An indirect borrower of a name is defined to be a borrower either of
+a borrower of the name or of an indirect borrower of the name.
+A direct borrower of a name is just another term for a borrower of
+the name, usually used together with the term &#8220;indirect borrower&#8221;.
+The terms &#8220;indirect observer&#8221; and &#8220;direct observer&#8221; are defined analogously.</p>
+<p>While a name that denotes a managed object is in the Borrowed state it
+provides a constant view [redundant: , even if the name denotes a variable].
+Furthermore, the only permitted read of a managed object in the Borrowed
+state is the introduction of a new observer of the object. Within the
+scope of such a new observer any direct or indirect borrower
+of the original name similarly enters the Observed state and provides
+only a constant view.</p>
+<p>At the point where a name that denotes a managed object is borrowed,
+every name of a reachable element of the object is borrowed.</p>
+<p>The following operations are said to be <em>move</em> operations:</p>
+<ul>
+<li><p class="first">An assignment operation, where the target is a variable or return object (see
+Ada RM 6.5) of an owning type.</p>
+<p>[Redundant: In the case of a formal parameter of an access type of mode <strong>in
+out</strong> or <strong>out</strong>, this includes all assignments to or from such a formal
+parameter: copy-in before the call, copy-back after the call, and any
+assignments to or from the parameter during the call.]</p>
+</li>
+<li><p class="first">An assignment operation where the target is part of an aggregate of an owning
+type.</p>
+</li>
+</ul>
+<p>[Redundant: Passing a parameter by reference is not a move operation.]</p>
+<p>A move operation results in a transfer of ownership. The state of
+the source object of the assignment operation becomes Moved and
+remains in this state until the object is assigned another value.</p>
+<p>[Redundant: Roughly speaking, any access-valued parts of an object in the
+Moved state can be thought of as being &#8220;poisoned&#8221;; such a poisoned object
+is treated analogously to an uninitialized object in the sense that various
+rules statically prevent the reading of such a value. Thus, an assignment
+like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Pointer_1</span> <span class="p">:</span> <span class="n">Some_Access_Type</span> <span class="p">:</span><span class="o">=</span> <span class="n">new</span> <span class="n">Designated_Type</span><span class="s1">&#39;(...);</span>
+<span class="n">Pointer_2</span> <span class="p">:</span> <span class="n">Some_Access_Type</span> <span class="p">:</span><span class="o">=</span> <span class="n">Pointer_1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>does not violate the &#8220;single owner&#8221; rule because the move operation
+poisons Pointer_1, leaving Pointer_2 as the unique owner of the
+allocated object. Any attempt to read such a poisoned value is detected and
+rejected.</p>
+<p>Note that a name may be &#8220;poisoned&#8221; even if its value is &#8220;obviously&#8221; null.
+For example, given:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="p">:</span> <span class="n">Linked_List_Node</span> <span class="p">:</span><span class="o">=</span> <span class="p">(</span><span class="n">Data</span> <span class="o">=&gt;</span> <span class="mi">123</span><span class="p">,</span> <span class="n">Link</span> <span class="o">=&gt;</span> <span class="n">null</span><span class="p">);</span>
+<span class="n">Y</span> <span class="p">:</span> <span class="n">Linked_List_Node</span> <span class="p">:</span><span class="o">=</span> <span class="n">X</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>X.Link is poisoned by the assignment to Y.]</p>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><p>[Redundant: For clarity of presentation, some legality rules are stated
+in the preceding &#8220;Static Semantics&#8221; section (e.g., the rule that an
+owning type shall not be a tagged type; stating that rule earlier eliminates
+the need to say anything about about the circumstances, if any, under which
+a class-wide type might be an owning type).]</p>
+<ol class="arabic simple" id="tu-access-types-01">
+<li>At the point of a move operation the state of the source object (if any) and
+all of its reachable elements shall be Unrestricted. After a move operation,
+the state of any access parts of the source object (if there is one) becomes
+Moved.</li>
+</ol>
+<ol class="arabic" id="tu-access-types-02" start="2">
+<li><p class="first">An owning object&#8217;s state shall be Moved or Unrestricted at any point where</p>
+<ul class="simple">
+<li>the object is the target of an assignment operation; or</li>
+<li>the object is part of an actual parameter of mode <strong>out</strong> in a call.</li>
+</ul>
+<p>[Redundant: In the case of a call, the state of an actual parameter of mode
+<strong>in</strong> or <strong>in out</strong> remains unchanged (although one might choose to think
+of it as being borrowed at the point of the call and then &#8220;unborrowed&#8221; when
+the call returns - either model yields the same results); the state of an
+actual parameter of mode <strong>out</strong> becomes Unrestricted.]</p>
+</li>
+</ol>
+<ol class="arabic" id="tu-access-types-03" start="3">
+<li><p class="first">If the target of an assignment operation is an object of an anonymous
+access-to-object type (including copy-in for a parameter), then the source
+shall be a name denoting a part of a stand-alone object, a part of a
+parameter, or a call to a traversal function.</p>
+<p>[Redundant: One consequence of this rule is that every allocator is of a
+named access type.]</p>
+</li>
+</ol>
+<ol class="arabic simple" id="tu-access-types-04" start="4">
+<li>A declaration of a stand-alone object of an anonymous access type shall
+have an explicit initial value and shall occur (directly or indirectly)
+within a subprogram body, an entry body, or a block statement.</li>
+</ol>
+<ol class="arabic simple" id="tu-access-types-05" start="5">
+<li>A return statement that applies to a traversal function that has an
+anonymous access-to-constant (respectively, access-to-variable) result type,
+shall return either the literal null or an access object denoted by a direct
+or indirect observer (respectively, borrower) of the traversed parameter.
+[Redundant: Roughly speaking, a traversal function always yields either null
+or a result which is reachable from the traversed parameter.]</li>
+</ol>
+<ol class="arabic simple" id="tu-access-types-06" start="6">
+<li>If a prefix of a name is of an owning type, then the prefix shall denote
+neither a non-traversal function call, an aggregate, an allocator, nor any
+other expression whose associated object is (or, as in the case of a
+conditional expression, might be) the same as that of such a forbidden
+expression (e.g., a qualified expression or type conversion whose operand
+would be forbidden as a prefix by this rule).</li>
+</ol>
+<ol class="arabic simple" id="tu-access-types-07" start="7">
+<li>If the root of the name of a managed object denotes an object whose scope
+includes any portion of the visible part of a package, then a declaration
+that observes or borrows the managed object shall not occur within the
+private part or body of the package, nor within a private descendant of the
+package, unless the accessibility level of the declaration is statically
+deeper than that of the package.</li>
+</ol>
+<ol class="arabic simple" id="tu-access-types-08" start="8">
+<li>For an assignment statement where the target is a stand-alone object of an
+anonymous access-to-object type:<ul>
+<li>If the type of the target is an anonymous access-to-variable type (an
+owning access type), the source shall be an owning access object denoted
+by a name that is in the Unrestricted state, and whose root object is the
+target object itself;</li>
+<li>If the type of the target is an anonymous access-to-constant type (an
+observing access type), the source shall be an owning access object
+denoted by a name that is not in the Moved state, and whose root object is
+not in the Moved state and is not declared at a statically deeper
+accessibility level than that of the target object.</li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" id="tu-access-types-09" start="9">
+<li>At the point of a dereference of an object, the object shall not be in the
+Moved or Borrowed state.</li>
+</ol>
+<ol class="arabic" id="tu-access-types-10" start="10">
+<li><p class="first">At the point of a read of an object, or of passing an object as an actual
+parameter of mode <strong>in</strong> or <strong>in out</strong>, or of a call where the object is a
+global input of the callee, neither the object nor any of its reachable
+elements shall be in the Moved or Borrowed state.</p>
+<p>At the point of a return statement, or at any other point where a call
+completes normally (e.g., the end of a procedure body), no inputs or
+outputs of the callee being returned from shall be in the Moved state.
+In the case of an input of the callee which is not also an output,
+this rule may be enforced at the point of the move operation (because
+there is no way for the moved input to transition out of the Moved
+state), even in the case of a subprogram which never returns.</p>
+<p>Similarly, at the end of the elaboration of both the declaration and of
+the body of a package, no reachable element of an object denoted by the
+name of an initialization_item of the package&#8217;s Initializes aspect or by
+an input occuring in the input_list of such an initialization_item
+shall be in the Moved state.</p>
+<p>The source of a move operation shall not be a part of a library-level
+constant without variable inputs.</p>
+</li>
+</ol>
+<ol class="arabic simple" id="tu-access-types-11" start="11">
+<li>If the state of a name that denotes a managed object is Observed, the name
+shall not be moved, borrowed, or assigned.</li>
+</ol>
+<ol class="arabic simple" id="tu-access-types-12" start="12">
+<li>If the state of a name that denotes a managed object is Borrowed, the name
+shall not be moved, borrowed, observed, or assigned.</li>
+</ol>
+<ol class="arabic simple" id="tu-access-types-13" start="13">
+<li>At the point of a call, any name that denotes a managed object that is a
+global output of the callee (i.e., an output other than a parameter of the
+callee or a function result) shall not be in the Observed or Borrowed
+state.  Similarly, any name that denotes a managed object that is a global
+input of the callee shall not be in the Moved or Borrowed state.</li>
+</ol>
+<ol class="arabic simple" id="tu-access-types-14" start="14">
+<li>The prefix of an Old or Loop_Entry attribute reference shall not be of an
+owning or observing type unless the prefix is a function_call and the
+called function is not a traversal function.</li>
+</ol>
+<p class="centered">
+<strong><strong>Verification Rules</strong></strong></p><ol class="arabic" id="tu-access-types-15" start="15">
+<li><p class="first">When an owning access object other than a borrower, an observer,
+or an object in the Moved state is finalized, or when such an object
+is passed as a part of an actual parameter of mode <strong>out</strong>, its value
+shall be null.</p>
+<p>[Redundant: This rule disallows storage leaks. Without this rule,
+it would be possible to &#8220;lose&#8221; the last reference to an allocated
+object.]</p>
+<p>[Redundant: This rule applies to any finalization associated with a
+call to an instance of Ada.Unchecked_Deallocation. For details, see
+the Ada RM 13.11.2 rule &#8220;Free(X), ... first performs finalization of
+the object designated by X&#8221;.]</p>
+</li>
+</ol>
+</div>
+<div class="section" id="declarative-parts">
+<span id="etu-access-types"></span><h2>3.11. Declarative Parts<a class="headerlink" href="#declarative-parts" title="Permalink to this headline">¶</a></h2>
+<p>No extensions or restrictions.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="names-and-expressions.html" title="4. Names and Expressions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="lexical-elements.html" title="2. Lexical Elements"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

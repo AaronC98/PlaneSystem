@@ -1,0 +1,1041 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>15. Language-Defined Aspects and Attributes (Annex K) &#8212; SPARK 2014 Reference Manual 2019</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="16. Language-Defined Pragmas (Annex L)" href="language-defined-pragmas.html" />
+    <link rel="prev" title="14. Predefined Language Environment (Annex A)" href="the-standard-library.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="language-defined-pragmas.html" title="16. Language-Defined Pragmas (Annex L)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="the-standard-library.html" title="14. Predefined Language Environment (Annex A)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">15. Language-Defined Aspects and Attributes (Annex K)</a><ul>
+<li><a class="reference internal" href="#language-defined-aspects">15.1. Language-Defined Aspects</a></li>
+<li><a class="reference internal" href="#language-defined-attributes">15.2. Language-Defined Attributes</a></li>
+<li><a class="reference internal" href="#gnat-implementation-defined-attributes">15.3. GNAT Implementation-Defined Attributes</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="the-standard-library.html"
+                        title="previous chapter">14. Predefined Language Environment (Annex A)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="language-defined-pragmas.html"
+                        title="next chapter">16. Language-Defined Pragmas (Annex L)</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/language-defined-aspects-and-attributes.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="language-defined-aspects-and-attributes-annex-k">
+<h1>15. Language-Defined Aspects and Attributes (Annex K)<a class="headerlink" href="#language-defined-aspects-and-attributes-annex-k" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="language-defined-aspects">
+<h2>15.1. Language-Defined Aspects<a class="headerlink" href="#language-defined-aspects" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple" id="tu-fe-language-defined-aspects-01">
+<li>Ada language aspects are permitted as shown in the following table:</li>
+</ol>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="22%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Aspect</th>
+<th class="head">Allowed in SPARK 2014</th>
+<th class="head">Comment</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Address</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Alignment (object)</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Alignment (subtype)</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>All_Calls_Remote</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Asynchronous</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Atomic</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Atomic_Components</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Attach_Handler</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Bit_Order</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Coding</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Component_Size</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Constant_Indexing</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Convention</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>CPU</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Default_Component_Value</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Default_Iterator</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Default_Storage_Pool</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Default_Value</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Default_Storage_Pool</td>
+<td>No</td>
+<td>Restricted access types</td>
+</tr>
+<tr class="row-odd"><td>Dispatching_Domain</td>
+<td>No</td>
+<td>Ravenscar</td>
+</tr>
+<tr class="row-even"><td>Dynamic_Predicate</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Elaborate_Body</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Export</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>External_Name</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>External_Tag</td>
+<td>No</td>
+<td>No tags</td>
+</tr>
+<tr class="row-odd"><td>Implicit_Dereference</td>
+<td>No</td>
+<td>Restricted access types</td>
+</tr>
+<tr class="row-even"><td>Import</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Independent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Independent_Components</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Inline</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Interrupt_Handler</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Interrupt_Priority</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Iterator_Element</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Layout (record)</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Link_Name</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Machine_Radix</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>No_Return</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Output</td>
+<td>No</td>
+<td>No streams</td>
+</tr>
+<tr class="row-even"><td>Pack</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Pre</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Pre&#8217;Class</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Post</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Post&#8217;Class</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Predicate_Failure</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Preelaborate</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Priority</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Pure</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Relative_Deadline</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Remote_Call_Interface</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Remote_Types</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Shared_Passive</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Size (object)</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Size (subtype)</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Small</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Static_Predicate</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Storage_Pool</td>
+<td>No</td>
+<td>Restricted access types</td>
+</tr>
+<tr class="row-even"><td>Storage_Size (access)</td>
+<td>No</td>
+<td>Restricted access types</td>
+</tr>
+<tr class="row-odd"><td>Storage_Size (task)</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Stream_Size</td>
+<td>No</td>
+<td>No streams</td>
+</tr>
+<tr class="row-odd"><td>Synchronization</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Type_Invariant</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Type_Invariant&#8217;Class</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Unchecked_Union</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Variable_Indexing</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Volatile</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Volatile_Components</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Write</td>
+<td>No</td>
+<td>No streams</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" id="tu-fe-language-defined-aspects-02" start="2">
+<li>SPARK 2014 defines the following aspects:</li>
+</ol>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="22%" />
+<col width="49%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Aspect</th>
+<th class="head">Allowed in SPARK 2014</th>
+<th class="head">Comment</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Abstract_State</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Async_Readers</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Async_Writers</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Constant_After_Elaboration</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Contract_Cases</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Default_Initial_Condition</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Depends</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Depends&#8217;Class</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Effective_Reads</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Effective_Writes</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Extensions_Visible</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Ghost</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Global</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Global&#8217;Class</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Initial_Condition</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Initializes</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Part_Of</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Refined_Depends</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Refined_Global</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Refined_Post</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Refined_State</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>SPARK_Mode</td>
+<td>Yes</td>
+<td>Language defined but implementation dependent</td>
+</tr>
+<tr class="row-even"><td>Volatile_Function</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="language-defined-attributes">
+<span id="id1"></span><h2>15.2. Language-Defined Attributes<a class="headerlink" href="#language-defined-attributes" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple" id="tu-fe-language-defined-attributes-01">
+<li>The following attributes are in SPARK 2014.</li>
+</ol>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="20%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute</th>
+<th class="head">Allowed in SPARK 2014</th>
+<th class="head">Comment</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>P&#8217;Access</td>
+<td>No</td>
+<td>Restricted access types</td>
+</tr>
+<tr class="row-odd"><td>X&#8217;Access</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>X&#8217;Address</td>
+<td>No</td>
+<td>Only allowed in representation clauses</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Adjacent</td>
+<td>Yes</td>
+<td>Implicit precondition (Ada RM A.5.3(50))</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Aft</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Alignment</td>
+<td>Warn</td>
+<td>Warning in pedantic mode</td>
+</tr>
+<tr class="row-even"><td>X&#8217;Alignment</td>
+<td>Warn</td>
+<td>Warning in pedantic mode</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Base</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Bit_Order</td>
+<td>Warn</td>
+<td>Warning in pedantic mode</td>
+</tr>
+<tr class="row-odd"><td>P&#8217;Body_Version</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>T&#8217;Callable</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>E&#8217;Caller</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Ceiling</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Class</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>X&#8217;Component_Size</td>
+<td>Warn</td>
+<td>Warning in pedantic mode</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Compose</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>A&#8217;Constrained</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Copy_Sign</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>E&#8217;Count</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Definite</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Delta</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Denorm</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Digits</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Exponent</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;External_Tag</td>
+<td>No</td>
+<td>No tags</td>
+</tr>
+<tr class="row-odd"><td>A&#8217;First</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;First</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>A&#8217;First(N)</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>R.C&#8217;First_Bit</td>
+<td>Warn</td>
+<td>Warning in Pedantic mode</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;First_Valid</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Floor</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Fore</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Fraction</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>X&#8217;Has_Same_Storage</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>E&#8217;Identity</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>T&#8217;Identity</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>X&#8217;Image</td>
+<td>Yes</td>
+<td>Same as S&#8217;Image(X) (Ada RM 3.5(55.4/4))</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Image</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Class&#8217;Input</td>
+<td>No</td>
+<td>No streams</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Input</td>
+<td>No</td>
+<td>No streams</td>
+</tr>
+<tr class="row-even"><td>A&#8217;Last</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Last</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>A&#8217;Last(N)</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>R.C&#8217;Last_Bit</td>
+<td>Warn</td>
+<td>Warning in pedantic mode</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Last_Valid</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Leading_Part</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>A&#8217;Length</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>A&#8217;Length(N)</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>X&#8217;Loop_Entry</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Machine</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Machine_Emax</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Machine_Emin</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Machine_Mantissa</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Machine_Overflows</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Machine_Radix</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Machine_Rounding</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Machine_Rounds</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Max</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Max_Alignment_For_Allocation</td>
+<td>No</td>
+<td>Restricted access types</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Max_Size_In_Storage_Elements</td>
+<td>No</td>
+<td>Restricted access types</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Min</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Mod</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Model</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Model_Emin</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Model_Epsilon</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Model_Mantissa</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Model_Small</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Modulus</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>X&#8217;Old</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Class&#8217;Output</td>
+<td>No</td>
+<td>No streams</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Output</td>
+<td>No</td>
+<td>No streams</td>
+</tr>
+<tr class="row-odd"><td>X&#8217;Overlaps_Storage</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>D&#8217;Partition_Id</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Pos</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>R.C&#8217;Position</td>
+<td>Warn</td>
+<td>Warning in pedantic mode</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Pred</td>
+<td>Yes</td>
+<td>Implicit precondition (Ada RM 3.5(27))</td>
+</tr>
+<tr class="row-even"><td>P&#8217;Priority</td>
+<td>No</td>
+<td>Ravenscar</td>
+</tr>
+<tr class="row-odd"><td>A&#8217;Range</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Range</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>A&#8217;Range(N)</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Class&#8217;Read</td>
+<td>No</td>
+<td>No streams</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Read</td>
+<td>No</td>
+<td>No streams</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Remainder</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>F&#8217;Result</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Round</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Rounding</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Safe_First</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Safe_Last</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Scale</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Scaling</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Size</td>
+<td>Warn</td>
+<td>Warning in pedantic</td>
+</tr>
+<tr class="row-odd"><td>X&#8217;Size</td>
+<td>Warn</td>
+<td>Warning in pedantic</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Small</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Storage_Pool</td>
+<td>No</td>
+<td>Restricted access types</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Storage_Size</td>
+<td>No</td>
+<td>Restricted access types</td>
+</tr>
+<tr class="row-odd"><td>T&#8217;Storage_Size</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Stream_Size</td>
+<td>No</td>
+<td>No streams</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Succ</td>
+<td>Yes</td>
+<td>Implicit precondition (Ada RM 3.5(24))</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Tag</td>
+<td>No</td>
+<td>No tags</td>
+</tr>
+<tr class="row-odd"><td>X&#8217;Tag</td>
+<td>No</td>
+<td>No tags</td>
+</tr>
+<tr class="row-even"><td>T&#8217;Terminated</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>System&#8217;To_Address</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Truncation</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Truncation</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>X&#8217;Unchecked_Access</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>X&#8217;Update</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Val</td>
+<td>Yes</td>
+<td>Implicit precondition (Ada RM 3.5.5(7))</td>
+</tr>
+<tr class="row-odd"><td>X&#8217;Valid</td>
+<td>Yes</td>
+<td>Assumed to be True at present</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Value</td>
+<td>Yes</td>
+<td>Implicit precondition (Ada RM 3.5(55/3))</td>
+</tr>
+<tr class="row-odd"><td>P&#8217;Version</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Wide_Image</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Wide_Value</td>
+<td>Yes</td>
+<td>Implicit precondition (Ada RM 3.5(43/3))</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Wide_Wide_Image</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Wide_Wide_Value</td>
+<td>Yes</td>
+<td>Implicit precondition (Ada RM 3.5(39.12/3))</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Wide_Wide_Width</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Wide_Width</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Width</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>S&#8217;Class&#8217;Write</td>
+<td>No</td>
+<td>No streams</td>
+</tr>
+<tr class="row-even"><td>S&#8217;Write</td>
+<td>No</td>
+<td>No streams</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gnat-implementation-defined-attributes">
+<span id="etu-language-defined-attributes"></span><h2>15.3. GNAT Implementation-Defined Attributes<a class="headerlink" href="#gnat-implementation-defined-attributes" title="Permalink to this headline">¶</a></h2>
+<p>The following GNAT implementation-defined attributes are permitted in SPARK 2014:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="20%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute</th>
+<th class="head">Allowed in SPARK 2014</th>
+<th class="head">Comment</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>X&#8217;Img</td>
+<td>Yes</td>
+<td>Same as X&#8217;Image (Ada RM 3.5(55.4/4))</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="language-defined-pragmas.html" title="16. Language-Defined Pragmas (Annex L)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="the-standard-library.html" title="14. Predefined Language Environment (Annex A)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

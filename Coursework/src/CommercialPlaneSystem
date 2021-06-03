@@ -1,0 +1,110 @@
+with Ada.Text_IO; use Ada.Text_IO;
+
+package body commercialPlane with SPARK_Mode is
+
+   procedure TakeOff is
+      begin
+      if (commercialPlane.mode = Idle and commercialPlane.cockpit = Closed
+      and commercialPlane.extDoor = Closed and commercialPlane.fuelTank >= 50 and
+      commercialPlane.ignition = On) then
+         commercialPlane.mode := TakeOff;
+      end if;
+   end TakeOff;
+
+   procedure Flying is
+   begin
+      if (commercialPlane.mode = TakeOff and commercialPlane.velocity >= 250
+      and commercialPlane.height >= 500) then
+         commercialPlane.mode := Flying;
+      end if;
+   end Flying;
+
+   procedure fuelUsage is
+   begin
+      if (commercialPlane.mode = Flying and commercialPlane.fuelTank >= 10) then
+         commercialPlane.fuelTank := commercialPlane.fuelTank -10;
+      end if;
+   end fuelUsage;
+
+   procedure Landing is
+   begin
+      if (commercialPlane.mode = Landing and commercialPlane.velocity >= 100 and
+            commercialPlane.height >= 100) then
+         commercialPlane.landGear := Lowered;
+      end if;
+   end Landing;
+
+   procedure InTow is
+   begin
+      if (commercialPlane.mode = Idle and commercialPlane.velocity = 0 and commercialPlane.height = 0) then
+         commercialPlane.ignition := Off;
+      end if;
+   end InTow;
+
+   procedure fuelWarning is
+   begin
+      if (commercialPlane.mode = Flying and commercialPlane.fuelTank >= 25) then
+         commercialPlane.fuelWarning := Red;
+          Put_Line("Warning - Low fuel.");
+      end if;
+   end fuelWarning;
+
+   procedure speedWarning is
+   begin
+      if (commercialPlane.mode = Flying and commercialPlane.velocity <= 250) then
+         commercialPlane.speedWarning := Red;
+          Put_Line("Warning - going too slow.");
+      end if;
+      if (commercialPlane.mode = Flying and commercialPlane.velocity >= 1000) then
+         commercialPlane.speedWarning := Red;
+          Put_Line("Warning - going too fast.");
+      end if;
+   end speedWarning;
+
+   procedure altitudeWarning is
+   begin
+      if (commercialPlane.mode = Flying and commercialPlane.height < 500) then
+         commercialPlane.heightWarning := Red;
+            Put_Line("Warning - flying too low.");
+      end if;
+      if (commercialPlane.mode = Flying and commercialPlane.height > 1200) then
+         commercialPlane.heightWarning := Red;
+          Put_Line("Warning - flying to high.");
+      end if;
+   end altitudeWarning;
+
+   procedure FlyingIdle is
+   begin
+      if (commercialPlane.mode = Flying and commercialPlane.height <= 1200 and commercialPlane.height > 500
+      and commercialPlane.velocity <= 250 and commercialPlane.velocity > 1000) then
+         commercialPlane.mode := Flying;
+      end if;
+   end FlyingIdle;
+
+    procedure increaseAirspeed is
+      begin
+      commercialPlane.velocity := commercialPlane.velocity + 10;
+      Put_Line("Taking off.");
+    end takeoffSpeed;
+
+    procedure increaseAltitude is
+    begin
+      commercialPlane.height := commercialPlane.height + 50;
+      if (commercialPlane.height > 100 and commercialPlane.landGear = Lowered) then
+         commercialPlane.landGear := Unlowered;
+      end if;
+   end increaseAltitude;
+
+   procedure decreaseAirspeed is
+   begin
+      commercialPlane.velocity := commercialPlane.velocity - 10;
+      Put_Line("Slowing down. commercialPlane velocity is "&commercialPlane.velocity'Image);
+   end speedWarningResponse;
+
+   procedure decreaseAltitude is
+   begin
+      commercialPlane.height := commercialPlane.height - 50;
+      Put_Line("Decreasing altitude. commercialPlane altitude is "&commercialPlane.height'Image);
+   end altitudeWarningResponse;
+
+end commercialPlane;

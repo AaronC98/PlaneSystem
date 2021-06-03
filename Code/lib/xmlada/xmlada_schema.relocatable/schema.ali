@@ -1,0 +1,111 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_IO
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U schema%b		schema.adb		ea67648f NE OO PK
+W ada%s			ada.ads			ada.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U schema%s		schema.ads		7c178659 BN EE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-ioexce.ads		20190518041255 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-textio.ads		20190518041257 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041255 e53d8b8e interfaces.c_streams%s
+D schema.ads		20190430051631 350cfe44 schema%s
+D schema.adb		20190430051631 719f4fa6 schema%b
+D system.ads		20190518041256 085b6ffb system%s
+D s-crtl.ads		20190518041255 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-exctab.adb		20190518041256 c756f391 system.exception_table%b
+D s-ficobl.ads		20190518041257 078245e4 system.file_control_block%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+G a e
+G c Z s b [set_debug_output schema 29 14 none]
+G c Z s b [debug_push_prefix schema 58 14 none]
+G c Z s b [debug_pop_prefix schema 60 14 none]
+G c Z s b [debug_tag_name schema 63 13 none]
+G c Z s b [debug_output schema 66 14 none]
+G c Z s b [output_action schema 71 14 none]
+G c Z s b [output_seen schema 72 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 10|25r14 63r36 11|24r6 24r24 114r36 115r30
+X 5 a-tags.ads
+69K13*Tags 621e13 10|25w18 63r40 11|114r40 115r34
+73P9*Tag 10|63r45 11|114r45
+86V13*External_Tag{string} 11|115s39
+X 6 a-textio.ads
+57K13*Text_IO 727e16 11|24w10 24r28
+264U14*New_Line 11|55s7
+465U14*Put 11|38s7 44s13 46s13 49s7 52s10
+X 10 schema.ads
+27K9*Schema 53E9 83l5 83e11 11|26b14 126l5 126t11
+29U14*Set_Debug_Output 29>32 11|80b14 83l8 83t24
+29b32 Output{boolean} 11|80b32 82r16
+32X4*XML_Not_Implemented
+35X4*XML_Limitation
+39b4*Dump_Internal_XSD{boolean}
+53E9 Debug_Output_Mode 56e20 59r31 67r28 11|36r14 90r31
+54n7 Debug_Default{53E9} 59r52 67r49 11|36r35 41r15 51r18 90r52
+55n7 Debug_Seen{53E9} 11|43r15 73r34
+56n7 Debug_Action{53E9} 11|45r15 64r34
+58U14 Debug_Push_Prefix 59>7 59>24 11|89b14 97l8 97t25
+59a7 Append{string} 11|90b7 94r24
+59e24 Mode{53E9} 11|90b24 94r32
+60U14 Debug_Pop_Prefix 11|103b14 108l8 108t24
+63V13 Debug_Tag_Name{string} 63>29 11|114b13 124l8 124t22
+63p29 Self{5|73P9} 11|114b29 115r53
+66U14 Debug_Output 67>7 67>21 68r19 11|34b14 56l8 56t20 64s7 73s7 94s10
+67a7 Str{string} 11|35b7 49r12
+67e21 Mode{53E9} 11|36b7 40r12 51r10 64r26 73r26
+71U14 Output_Action 71>29 73r19 11|62b14 65l8 65t21
+71a29 Str{string} 11|62b29 64r21
+72U14 Output_Seen 72>27 73r34 11|71b14 74l8 74t19
+72a27 Str{string} 11|71b27 73r21
+77b4 Debug{boolean} 11|82m7 93r10 105r10
+X 11 schema.adb
+28i4 Debug_Prefixes_Level{natural} 38r18 95m10 95r34 106m10 106r34
+115a7 E{string} 117r24 118r13 119r20 119r32 123r14
+117i11 P{integer} 118r16 119r23
+

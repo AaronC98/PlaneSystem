@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>8. Visibility Rules &#8212; SPARK 2014 Reference Manual 2019</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="9. Tasks and Synchronization" href="tasks-and-synchronization.html" />
+    <link rel="prev" title="7. Packages" href="packages.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tasks-and-synchronization.html" title="9. Tasks and Synchronization"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="packages.html" title="7. Packages"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">8. Visibility Rules</a><ul>
+<li><a class="reference internal" href="#declarative-region">8.1. Declarative Region</a></li>
+<li><a class="reference internal" href="#scope-of-declarations">8.2. Scope of Declarations</a></li>
+<li><a class="reference internal" href="#visibility">8.3. Visibility</a><ul>
+<li><a class="reference internal" href="#overriding-indicators">8.3.1. Overriding Indicators</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#use-clauses">8.4. Use Clauses</a></li>
+<li><a class="reference internal" href="#renaming-declarations">8.5. Renaming Declarations</a><ul>
+<li><a class="reference internal" href="#object-renaming-declarations">8.5.1. Object Renaming Declarations</a></li>
+<li><a class="reference internal" href="#exception-renaming-declarations">8.5.2. Exception Renaming Declarations</a></li>
+<li><a class="reference internal" href="#package-renaming-declarations">8.5.3. Package Renaming Declarations</a></li>
+<li><a class="reference internal" href="#subprogram-renaming-declarations">8.5.4. Subprogram Renaming Declarations</a></li>
+<li><a class="reference internal" href="#generic-renaming-declarations">8.5.5. Generic Renaming Declarations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-context-of-overload-resolution">8.6. The Context of Overload Resolution</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="packages.html"
+                        title="previous chapter">7. Packages</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tasks-and-synchronization.html"
+                        title="next chapter">9. Tasks and Synchronization</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/visibility-rules.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="visibility-rules">
+<h1>8. Visibility Rules<a class="headerlink" href="#visibility-rules" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="declarative-region">
+<h2>8.1. Declarative Region<a class="headerlink" href="#declarative-region" title="Permalink to this headline">¶</a></h2>
+<p>No extensions or restrictions.</p>
+</div>
+<div class="section" id="scope-of-declarations">
+<h2>8.2. Scope of Declarations<a class="headerlink" href="#scope-of-declarations" title="Permalink to this headline">¶</a></h2>
+<p>No extensions or restrictions.</p>
+</div>
+<div class="section" id="visibility">
+<h2>8.3. Visibility<a class="headerlink" href="#visibility" title="Permalink to this headline">¶</a></h2>
+<p>No extensions or restrictions.</p>
+<div class="section" id="overriding-indicators">
+<h3>8.3.1. Overriding Indicators<a class="headerlink" href="#overriding-indicators" title="Permalink to this headline">¶</a></h3>
+<p>No extensions or restrictions.</p>
+</div>
+</div>
+<div class="section" id="use-clauses">
+<h2>8.4. Use Clauses<a class="headerlink" href="#use-clauses" title="Permalink to this headline">¶</a></h2>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-use-clauses-01">
+<li>Use clauses are always in SPARK 2014, even if the unit mentioned is
+not completely in SPARK 2014.</li>
+</ol>
+</div>
+<div class="section" id="renaming-declarations">
+<span id="etu-use-clauses"></span><h2>8.5. Renaming Declarations<a class="headerlink" href="#renaming-declarations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="object-renaming-declarations">
+<span id="id1"></span><h3>8.5.1. Object Renaming Declarations<a class="headerlink" href="#object-renaming-declarations" title="Permalink to this headline">¶</a></h3>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-object-renaming-declarations-01">
+<li>[An expression or range occurring as part of an
+<code class="docutils literal"><span class="pre">object_renaming_declaration</span></code> shall not have a variable input;
+see <a class="reference internal" href="names-and-expressions.html#expressions"><span class="std std-ref">Expressions</span></a> for the statement of this rule.]
+[This rule can apply to an index of an indexed_component and the range
+of a slice.]</li>
+</ol>
+</div>
+<div class="section" id="exception-renaming-declarations">
+<span id="etu-object-renaming-declarations"></span><h3>8.5.2. Exception Renaming Declarations<a class="headerlink" href="#exception-renaming-declarations" title="Permalink to this headline">¶</a></h3>
+<p>No extensions or restrictions.</p>
+</div>
+<div class="section" id="package-renaming-declarations">
+<h3>8.5.3. Package Renaming Declarations<a class="headerlink" href="#package-renaming-declarations" title="Permalink to this headline">¶</a></h3>
+<p>No extensions or restrictions.</p>
+</div>
+<div class="section" id="subprogram-renaming-declarations">
+<h3>8.5.4. Subprogram Renaming Declarations<a class="headerlink" href="#subprogram-renaming-declarations" title="Permalink to this headline">¶</a></h3>
+<p>From the point of view of both static and dynamic verification, a
+<em>renaming-as-body</em> is treated as a one-line subprogram that &#8220;calls
+through&#8221; to the renamed unit.</p>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-subprogram-renaming-declarations-01">
+<li>The <code class="docutils literal"><span class="pre">aspect_specification</span></code> on a <code class="docutils literal"><span class="pre">subprogram_renaming_declaration</span></code> shall not
+include any of the SPARK 2014-defined aspects introduced in this document.</li>
+</ol>
+</div>
+<div class="section" id="generic-renaming-declarations">
+<span id="etu-subprogram-renaming-declarations"></span><h3>8.5.5. Generic Renaming Declarations<a class="headerlink" href="#generic-renaming-declarations" title="Permalink to this headline">¶</a></h3>
+<p>No extensions or restrictions.</p>
+</div>
+</div>
+<div class="section" id="the-context-of-overload-resolution">
+<h2>8.6. The Context of Overload Resolution<a class="headerlink" href="#the-context-of-overload-resolution" title="Permalink to this headline">¶</a></h2>
+<p>No extensions or restrictions.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tasks-and-synchronization.html" title="9. Tasks and Synchronization"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="packages.html" title="7. Packages"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

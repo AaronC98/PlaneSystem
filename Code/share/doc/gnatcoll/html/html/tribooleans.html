@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>15. Tribooleans: Three state logic &mdash; GNATColl 2019 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="GNATColl 2019 documentation" href="index.html" />
+    <link rel="next" title="16. Geometry: primitive geometric operations" href="geometry.html" />
+    <link rel="prev" title="14. VFS: Manipulating Files" href="vfs.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="geometry.html" title="16. Geometry: primitive geometric operations"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="vfs.html" title="14. VFS: Manipulating Files"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">GNATColl 2019 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="vfs.html"
+                        title="previous chapter">14. <strong>VFS</strong>: Manipulating Files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="geometry.html"
+                        title="next chapter">16. <strong>Geometry</strong>: primitive geometric operations</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tribooleans-three-state-logic">
+<span id="three-state-logic"></span><h1>15. <strong>Tribooleans</strong>: Three state logic<a class="headerlink" href="#tribooleans-three-state-logic" title="Permalink to this headline">¶</a></h1>
+<p>Through the package <cite>GNATCOLL.Tribooleans</cite>, GNATColl provides
+a type that extends the classical <cite>Boolean</cite> type with an
+<cite>Indeterminate</cite> value.</p>
+<p>There are various cases where such a type is useful. One example we have
+is when a user is doing a search (on a database or any set of data), and
+can specify some optional boolean criteria (&#8220;must the contact be french?&#8221;).
+He can choose to only see french people (&#8220;True&#8221;), to see no french people
+at all (&#8220;False&#8221;), or to get all contacts (&#8220;Indeterminate&#8221;). With a classical
+boolean, there is no way to cover all these cases.</p>
+<p>Of course, there are more advanced use cases for such a type. To support
+these cases, the <cite>Tribooleans</cite> package overrides the usual logical
+operations <cite>&#8220;and&#8221;</cite>, <cite>&#8220;or&#8221;</cite>, <cite>&#8220;xor&#8221;</cite>, <cite>&#8220;not&#8221;</cite> and
+provides an <cite>Equal</cite> function.</p>
+<p>See the specs of the package to see the truth tables associated with those
+operators.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="geometry.html" title="16. Geometry: primitive geometric operations"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="vfs.html" title="14. VFS: Manipulating Files"
+             >previous</a> |</li>
+        <li><a href="index.html">GNATColl 2019 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2007-2019, AdaCore.
+    </div>
+  </body>
+</html>

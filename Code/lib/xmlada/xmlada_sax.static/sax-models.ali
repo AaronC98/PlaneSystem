@@ -1,0 +1,234 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U sax.models%b		sax-models.adb		04b7b9cb NE OO PK
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_deallocation%s
+Z interfaces%s		interfac.ads		interfac.ali
+W sax%s			sax.ads			sax.ali
+W sax.encodings%s	sax-encodings.ads	sax-encodings.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+
+U sax.models%s		sax-models.ads		3350c648 EE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W sax%s			sax.ads			sax.ali
+W sax.symbols%s		sax-symbols.adb		sax-symbols.ali
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-charac.ads		20190518041256 2d3ec45b ada.characters%s
+D a-chlat1.ads		20190518041256 66457d31 ada.characters.latin_1%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-string.ads		20190518041256 90ac6797 ada.strings%s
+D a-strmap.ads		20190518041256 e8bb714a ada.strings.maps%s
+D a-strsea.ads		20190518041255 b9bc90ba ada.strings.search%s
+D a-strunb.ads		20190518041256 1656705b ada.strings.unbounded%s
+D a-strunb.adb		20190518041257 750cba06 ada.strings.unbounded%b
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-tasloc.ads		20190518041255 9c49392e gnat.task_lock%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D sax.ads		20190430051631 17965ec6 sax%s
+D sax-encodings.ads	20190430051631 22d791a3 sax.encodings%s
+D sax-htable.ads	20190430051631 2df615ad sax.htable%s
+D sax-models.ads	20190430051631 9f245dcd sax.models%s
+D sax-models.adb	20190430051631 8c35b9fa sax.models%b
+D sax-pointers.ads	20190430051631 d9877e85 sax.pointers%s
+D sax-symbols.ads	20190430051631 d3179de8 sax.symbols%s
+D sax-symbols.adb	20190430051631 d4150ebd sax.symbols%b
+D system.ads		20190518041256 085b6ffb system%s
+D s-addima.ads		20190518041256 a1ec9d3a system.address_image%s
+D s-atocou.ads		20190518041257 b45c2d8d system.atomic_counters%s
+D s-carun8.ads		20190518041257 a903718d system.compare_array_unsigned_8%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-exctab.adb		20190518041256 c756f391 system.exception_table%b
+D s-finmas.ads		20190518041256 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041255 ede33ef8 system.pool_global%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stalib.adb		20190518041255 f2fe2716 system.standard_library%b
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-stposu.ads		20190518041255 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20190518041255 aedef97e system.stream_attributes%s
+D s-tasloc.ads		20190518041255 618a376e system.task_lock%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D unicode.ads		20190430051631 a421878d unicode%s
+D unicode-ccs.ads	20190430051631 184e29de unicode.ccs%s
+D unicode-ces.ads	20190430051631 68f558ab unicode.ces%s
+D unicode-ces-utf32.ads	20190430051631 b5f035ac unicode.ces.utf32%s
+D unicode-ces-utf8.ads	20190430051631 dcbef85d unicode.ces.utf8%s
+G a e
+G c Z s b [ref sax__models 80 14 none]
+G c Z s b [unref sax__models 81 14 none]
+G c Z s b [create_model sax__models 87 13 none]
+G c Z s b [free sax__models 92 14 none]
+G c Z s b [get_element_model sax__models 95 13 none]
+G c Z s b [to_string sax__models 100 13 none]
+G c Z s b [is_mixed sax__models 106 13 none]
+G c Z s s [content_modelIP sax__models 123 9 none]
+G c Z s s [element_modelIP sax__models 48 9 none]
+G c Z s s [element_model_arrayIP sax__models 45 9 none]
+G c Z s s [model_itemIP sax__models 117 9 none]
+G c Z b b [to_string sax__models 32 13 none]
+G r c none [to_string sax__models 100 13 none] [get sax__symbols 53 13 none]
+G r c none [to_string sax__models 32 13 none] [get sax__symbols 53 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 22|26r6 27r6 27r37 52r39 189r29 191r33
+X 7 a-string.ads
+16K13*Strings 35e16 22|27r10 27r41
+X 10 a-strunb.ads
+82K21*Unbounded 756e26 22|27w18 27r49
+87R9*Unbounded_String<5|43R9> 739e14 22|122r13
+116V13*To_String{string} 22|163s17
+135U14*Append 22|153s16 156s22 158s22
+X 14 a-uncdea.ads
+20u15*Unchecked_Deallocation 22|26w10 52r43 189r33 191r37
+X 18 sax.ads
+33K9*Sax 35e8 21|28r6 31r9 53r20 130r5 22|28r6 28r37 30r14 135r20 209r5
+X 19 sax-encodings.ads
+28K13*Encodings 160e18 22|28w10 28r41
+61a4*Any_Sequence{52|41A12} 22|132r20
+68a4*Empty_Sequence{52|41A12} 22|129r20
+89a4*Pcdata_Sequence{52|41A12} 22|126r20
+104a4*Vertical_Line_Sequence{52|41A12} 22|156r35
+105a4*Comma_Sequence{52|41A12} 22|158r35
+106a4*Closing_Parenthesis_Sequence{52|41A12} 22|163r35
+107a4*Opening_Parenthesis_Sequence{52|41A12} 22|162r20
+108a4*Star_Sequence{52|41A12} 22|173r52
+109a4*Question_Mark_Sequence{52|41A12} 22|175r52
+110a4*Plus_Sign_Sequence{52|41A12} 22|177r52
+X 21 sax-models.ads
+31K13*Models 18|33k9 21|115E9 130l9 130e15 22|30b18 209l9 209t15
+33E9*Content_Spec 41e7 48r34
+34n7*Character_Data{33E9} 50r15 22|98r50 125r15 139r44 196r18
+35n7*Element_Ref{33E9} 52r15 22|134r15 196r54
+36n7*Any_Of{33E9} 55r15 22|97r26 137r15 155r38 197r18
+37n7*Sequence{33E9} 55r24 22|137r24 140r38 197r27
+38n7*Repeat{33E9} 58r15 22|165r15 202r18
+39n7*Empty{33E9} 50r32 22|128r15 148r51 167r44 196r46
+40n7*Anything{33E9} 50r40 22|131r15 147r44 166r37 196r35
+43R9*Element_Model 44r37 48c9 48d24 63e14 22|33r17 120r17 192r10
+44P9*Element_Model_Ptr(43R9) 45r60 61r20 87r37 92r35 96r37 106r27 118r15
+. 125r19 22|70r37 85r37 94r27 188r35 192r25
+45A9*Element_Model_Array(44P9)<integer> 46r43 22|190r10
+46P9*Element_Model_Array_Ptr(45A9) 56r20 22|190r31
+48R9*Element_Model
+48e24*Content{33E9} 49r12 22|97r16 98r40 124r18 139r34 140r28 147r34 148r41
+. 155r28 166r27 167r34 195r21
+53p13*Name{24|41P9} 22|135r43
+56p13*List{46P9} 22|98r20 98r28 138r28 139r25 141r40 147r25 148r32 153r46
+. 154r30 198r31 199r31 201m28
+59i13*Min{natural} 22|172r22 174r25 176r25
+60i13*Max{positive} 22|172r45 174r48 176r48
+61p13*Elem{44P9} 22|166r22 167r29 173r40 175r40 177r40 203m28
+75R9*Content_Model 76r29 80r29 81r36 87r63 96r15 101r15 123c9 126e14 128r29
+. 22|40r27 51r36 70r63 85r15 106r15
+76r4*Unknown_Model{75R9} 128c4 22|73r17
+80U14*Ref 80>21 22|40b14 45l8 45t11
+80r21 Model{75R9} 22|40b19 42r10 43r10 43r33
+81U14*Unref 81=21 22|51b14 64l8 64t13
+81r21 Model{75R9} 22|51b21 55r10 56r18 58r10 58r33 59r13 60m29 60r29 61m19
+. 61r19
+87V13*Create_Model{75R9} 87>27 22|70b13 78l8 78t20
+87p27 Element{44P9} 22|70b27 72r10 75r31
+92U14*Free 92=20 22|61s13 188b14 199s19 203s16 207l8 207t12
+92p20 Model{44P9} 22|188b20 194r10 195r15 198r25 199r25 201r22 203r22 205m20
+95V13*Get_Element_Model{44P9} 96>7 22|84b13 88l8 88t25
+96r7 Model{75R9} 22|85b7 87r14
+100V13*To_String{52|41A12} 101>7 22|105b13 113l8 113t17
+101r7 Model{75R9} 22|106b7 108r10 111r28
+106V13*Is_Mixed{boolean} 106>23 22|94b13 99l8 99t16
+106p23 M{44P9} 22|94b23 96r22 97r14 98r18 98r26
+110X4*Invalid_Content_Model 22|143r28 150r25 169r22 179r22
+115R9 Model_Item 116r30 117c9 120e14
+116P9 Model_List(115R9) 119r15
+118p7*State{44P9}
+119p7*Next{116P9}
+122P9 Natural_Access(natural) 124r19 22|53r19
+124p7*Ref_Count{122P9} 22|42r16 43r16 43r39 55r16 56r24 58r16 58r39 59r19
+. 60m35 76m18
+125p7*Model{44P9} 22|61m25 75m18 87r20 108r16 111r34
+X 22 sax-models.adb
+32V13 To_String{52|41A12} 33>7 111s17 119b13 153s29 173s23 175s23 177s23
+. 182l8 182t17
+33r7 Model{21|48R9} 120b7 124r12 135r37 138r22 139r19 140r22 141r34 147r19
+. 148r26 153r40 154r24 155r22 166r16 167r23 172r16 172r39 173r34 174r19 174r42
+. 175r34 176r19 176r42 177r34
+52U17 Unchecked_Free[14|20] 60s13
+122r7 Str{10|87R9} 153m24 153r24 156m30 156r30 158m30 158r30 163r28
+138i17 J{integer} 139r31 141r29 147r31 148r38 153r52 154r19
+189U17 Free[14|20] 201s16
+191U17 Internal[14|20] 205s10
+198i20 J{integer} 199r37
+X 24 sax-symbols.ads
+33K13*Symbols 21|28w10 53r24 22|135r24 24|103e16
+41P9*Symbol<52|43P9> 21|53r32
+53V13*Get{52|43P9} 22|135s32
+X 26 system.ads
+67M9*Address
+X 34 s-memory.ads
+53V13*Alloc{26|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{26|67M9} 105i<c,__gnat_realloc>22
+X 41 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+X 50 unicode.ads
+111K9*Unicode 21|29r6 101r37 22|24w6 24r37 25r6 25r37 33r39 106r37 120r39
+. 50|157e12
+X 52 unicode-ces.ads
+35K17*CES 21|29w14 101r45 22|25w14 25r45 33r47 106r45 120r47 52|171e16
+41A12*Byte_Sequence{string}<integer> 21|101r49 22|33r51 106r49 120r51
+43P9*Cst_Byte_Sequence_Access(41A12)
+

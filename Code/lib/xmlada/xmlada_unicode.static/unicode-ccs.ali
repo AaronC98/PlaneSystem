@@ -1,0 +1,63 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U unicode.ccs%b		unicode-ccs.adb		50a7378d NE OO PK
+W unicode%s		unicode.adb		unicode.ali
+
+U unicode.ccs%s		unicode-ccs.ads		bc6fae53 EE OO PK
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+W unicode%s		unicode.adb		unicode.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-exctab.adb		20190518041256 c756f391 system.exception_table%b
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D unicode.ads		20190430051631 a421878d unicode%s
+D unicode-ccs.ads	20190430051631 184e29de unicode.ccs%s
+D unicode-ccs.adb	20190430051631 48e91e53 unicode.ccs%b
+G a e
+G c Z s b [identity unicode__ccs 56 13 none]
+G c Z s s [character_setIP unicode__ccs 47 9 none]
+X 14 unicode.ads
+111K9*Unicode 157e12 15|31r9 72r5 16|24r14 35r5
+114M9*Unicode_Char 15|45r23 45r44 56r30 56r51 16|30r30 30r51
+X 15 unicode-ccs.ads
+31K17*CCS 14|111k9 15|72l13 72e16 16|24b22 35l13 35t16
+44P9*Conversion_Function(14|114M9) 45>16 48r20 49r20
+45m16 Char{14|114M9}
+47R9*Character_Set 50e14 59r37
+48p7*To_Unicode{44P9} 60m7
+49p7*To_CS{44P9} 61m7
+56V13*Identity{14|114M9} 56>23 60r21 61r21 16|30b13 33l8 33t16
+56m23 Char{14|114M9} 16|30b23 32r14
+59r4*Unicode_Character_Set{47R9}
+63X4*Invalid_Code
+68X4*Unknown_Character_Set
+

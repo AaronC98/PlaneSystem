@@ -1,0 +1,962 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnat12
+A -gnaty
+A -gnatQ
+A -gnata
+A -gnatn
+A -gnatws
+A -g1
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U gpr.err%b		gpr-err.adb		ae8ada83 OO PK IU
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W gpr%s			gpr.adb			gpr.ali
+W gpr.cset%s		gpr-cset.adb		gpr-cset.ali
+W gpr.erroutc%s		gpr-erroutc.adb		gpr-erroutc.ali
+W gpr.names%s		gpr-names.adb		gpr-names.ali
+W gpr.opt%s		gpr-opt.ads		gpr-opt.ali
+W gpr.osint%s		gpr-osint.adb		gpr-osint.ali
+W gpr.output%s		gpr-output.adb		gpr-output.ali
+W gpr.scans%s		gpr-scans.adb		gpr-scans.ali
+W gpr.sinput%s		gpr-sinput.adb		gpr-sinput.ali
+W gpr.snames%s		gpr-snames.adb		gpr-snames.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W system%s		system.ads		system.ali
+W system.crc32%s	s-crc32.adb		s-crc32.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.utf_32%s	s-utf_32.adb		s-utf_32.ali
+W system.wch_cnv%s	s-wchcnv.adb		s-wchcnv.ali
+W system.wch_con%s	s-wchcon.adb		s-wchcon.ali
+
+U gpr.err%s		gpr-err.ads		08f17ba8 EE NE OO PK IU
+W gpr%s			gpr.adb			gpr.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-ioexce.ads		20190518041255 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-textio.ads		20190518041257 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-byorma.ads		20190518041256 2b13b02c gnat.byte_order_mark%s
+D g-dynhta.ads		20190518041255 b061de91 gnat.dynamic_htables%s
+D g-dyntab.ads		20190518041256 21cef781 gnat.dynamic_tables%s
+D g-dyntab.adb		20190518041257 8cc056dd gnat.dynamic_tables%b
+D g-hesorg.ads		20190518041255 106922da gnat.heap_sort_g%s
+D g-os_lib.ads		20190518041255 0db74523 gnat.os_lib%s
+D g-table.ads		20190518041256 b4b07c4d gnat.table%s
+D g-table.adb		20190518041256 04d15fc2 gnat.table%b
+D gpr.ads		20190518044756 e8837047 gpr%s
+D gpr-cset.ads		20190518044756 c4bc34eb gpr.cset%s
+D gpr-cset.adb		20190518044756 52cb6b48 gpr.cset%b
+D gpr-debug.ads		20190518044756 01f40d45 gpr.debug%s
+D gpr-err.ads		20190518044756 e0720bef gpr.err%s
+D gpr-err.adb		20190518044756 fc5d3071 gpr.err%b
+D gpr-err-scanner.adb	20190518044756 37222898 gpr.err.scanner
+D gpr-erroutc.ads	20190518044756 4b055166 gpr.erroutc%s
+D gpr-erroutc.adb	20190518044756 86240c4a gpr.erroutc%b
+D gpr-names.ads		20190518044756 97f8a5e7 gpr.names%s
+D gpr-names.adb		20190518044756 533d9c9e gpr.names%b
+D gpr-opt.ads		20190518044757 5a675452 gpr.opt%s
+D gpr-osint.ads		20190518044757 f418aaff gpr.osint%s
+D gpr-output.ads	20190518044756 be97932e gpr.output%s
+D gpr-scans.ads		20190518044756 a9e8e657 gpr.scans%s
+D gpr-sinput.ads	20190518044756 24c6823b gpr.sinput%s
+D gpr-sinput.adb	20190518044757 1ebb07b2 gpr.sinput%b
+D gpr-snames.ads	20190518044756 d73bb0a7 gpr.snames%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041255 e53d8b8e interfaces.c_streams%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-assert.ads		20190518041256 cd8d2c94 system.assertions%s
+D s-crc32.ads		20190518041255 e3a788c7 system.crc32%s
+D s-crc32.adb		20190518041257 ff21072d system.crc32%b
+D s-crtl.ads		20190518041255 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041257 078245e4 system.file_control_block%s
+D s-finmas.ads		20190518041256 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-imgint.ads		20190518041255 02dbe0c2 system.img_int%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041255 ede33ef8 system.pool_global%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-utf_32.ads		20190518041256 9e89e9cc system.utf_32%s
+D s-utf_32.adb		20190518041257 b9451faf system.utf_32%b
+D s-wchcnv.ads		20190518041255 0fb7baf3 system.wch_cnv%s
+D s-wchcnv.adb		20190518041255 72f42cd5 system.wch_cnv%b
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D s-wchjis.ads		20190518041257 94ba8100 system.wch_jis%s
+G a e
+G c Z s b [initialize gpr__err 45 14 none]
+G c Z s b [finalize gpr__err 49 14 none]
+G c Z s b [error_msg gpr__err 53 14 none]
+G c Z s b [error_msg gpr__err 65 14 none]
+G c Z s b [initialize_scanner gpr__err__scanner 75 17 none]
+G c Z s b [scan gpr__err__scanner 81 17 none]
+G c Z s b [set_end_of_line_as_token gpr__err__scanner 90 17 none]
+G c Z s b [set_comment_as_token gpr__err__scanner 94 17 none]
+G c Z s b [set_special_character gpr__err__scanner 98 17 none]
+G c Z s b [reset_special_characters gpr__err__scanner 102 17 none]
+G c Z b b [Tstring_bufferBIP gpr__err__scanner 53 4 none]
+G c Z b b [accumulate_token_checksum gpr__err__scanner 60 14 none]
+G c Z b b [accumulate_token_checksum_gnat_6_3 gpr__err__scanner 66 14 none]
+G c Z b b [accumulate_token_checksum_gnat_5_03 gpr__err__scanner 72 14 none]
+G c Z b b [accumulate_checksum gpr__err__scanner 79 14 none]
+G c Z b b [accumulate_checksum gpr__err__scanner 90 14 none]
+G c Z b b [end_string gpr__err__scanner 97 13 none]
+G c Z b b [error_illegal_character gpr__err__scanner 99 14 none]
+G c Z b b [initialize_checksum gpr__err__scanner 103 14 none]
+G c Z b b [is_keyword_name gpr__err__scanner 107 13 none]
+G c Z b b [scan_wide gpr__err__scanner 110 14 none]
+G c Z b b [set_start_column gpr__err__scanner 124 13 none]
+G c Z b b [skip_line_terminators gpr__err__scanner 132 14 none]
+G c Z b b [start_string gpr__err__scanner 167 14 none]
+G c Z b b [store_string_char gpr__err__scanner 170 14 none]
+G c Z b b [token_value gpr__err__scanner 173 13 none]
+G c Z b b [post_scan gpr__err 40 14 none]
+G c Z b b [output_source_line gpr__err 43 14 none]
+G c Z b b [prescan_message gpr__err 52 14 none]
+G c Z b b [set_msg_text gpr__err 77 14 none]
+G r c none [finalize gpr__err 49 14 none] [check_duplicate_message gpr__erroutc 296 14 none]
+G r c none [finalize gpr__err 49 14 none] [set_standard_error gpr__output 62 14 none]
+G r c none [finalize gpr__err 49 14 none] [reference_name gpr__sinput 136 13 none]
+G r c none [finalize gpr__err 49 14 none] [get_name_string gpr__names 41 13 none]
+G r c none [finalize gpr__err 49 14 none] [write_str gpr__output 97 14 none]
+G r c none [finalize gpr__err 49 14 none] [full_ref_name gpr__sinput 135 13 none]
+G r c none [finalize gpr__err 49 14 none] [write_char gpr__output 82 14 none]
+G r c none [finalize gpr__err 49 14 none] [write_int gpr__output 93 14 none]
+G r c none [finalize gpr__err 49 14 none] [output_msg_text gpr__erroutc 320 14 none]
+G r c none [finalize gpr__err 49 14 none] [write_eol gpr__output 86 14 none]
+G r c none [finalize gpr__err 49 14 none] [set_standard_output gpr__output 69 14 none]
+G r c none [finalize gpr__err 49 14 none] [full_file_name gpr__sinput 134 13 none]
+G r c none [finalize gpr__err 49 14 none] [write_name gpr__names 123 14 none]
+G r c none [finalize gpr__err 49 14 none] [output_line_number gpr__erroutc 313 14 none]
+G r c none [finalize gpr__err 49 14 none] [line_start gpr__sinput 123 13 none]
+G r c none [finalize gpr__err 49 14 none] [source_text gpr__sinput 139 13 none]
+G r c none [finalize gpr__err 49 14 none] [output_error_msgs gpr__erroutc 308 14 none]
+G r c none [finalize gpr__err 49 14 none] [num_source_lines gpr__sinput 129 13 none]
+G r c none [error_msg gpr__err 53 14 none] [debug_output gpr 2812 14 none]
+G r c none [error_msg gpr__err 53 14 none] [set_msg_insertion_file_name gpr__erroutc 332 14 none]
+G r c none [error_msg gpr__err 53 14 none] [set_msg_insertion_reserved_name gpr__erroutc 340 14 none]
+G r c none [error_msg gpr__err 53 14 none] [set_msg_char gpr__erroutc 327 14 none]
+G r c none [error_msg gpr__err 53 14 none] [set_msg_insertion_reserved_word gpr__erroutc 343 14 none]
+G r c none [error_msg gpr__err 53 14 none] [set_msg_str gpr__erroutc 352 14 none]
+G r c none [error_msg gpr__err 53 14 none] [set_msg_insertion_name gpr__erroutc 337 14 none]
+G r c none [error_msg gpr__err 53 14 none] [set_msg_insertion_name_literal gpr__erroutc 335 14 none]
+G r c none [error_msg gpr__err 53 14 none] [get_source_file_index gpr__sinput 113 13 none]
+G r c none [error_msg gpr__err 53 14 none] [get_line_number gpr__sinput 106 13 none]
+G r c none [error_msg gpr__err 53 14 none] [get_column_number gpr__sinput 101 13 none]
+G r c none [error_msg gpr__err 65 14 none] [set_msg_insertion_file_name gpr__erroutc 332 14 none]
+G r c none [error_msg gpr__err 65 14 none] [set_msg_insertion_reserved_name gpr__erroutc 340 14 none]
+G r c none [error_msg gpr__err 65 14 none] [set_msg_char gpr__erroutc 327 14 none]
+G r c none [error_msg gpr__err 65 14 none] [set_msg_insertion_reserved_word gpr__erroutc 343 14 none]
+G r c none [error_msg gpr__err 65 14 none] [set_msg_str gpr__erroutc 352 14 none]
+G r c none [error_msg gpr__err 65 14 none] [set_msg_insertion_name gpr__erroutc 337 14 none]
+G r c none [error_msg gpr__err 65 14 none] [set_msg_insertion_name_literal gpr__erroutc 335 14 none]
+G r c none [error_msg gpr__err 65 14 none] [get_source_file_index gpr__sinput 113 13 none]
+G r c none [error_msg gpr__err 65 14 none] [get_line_number gpr__sinput 106 13 none]
+G r c none [error_msg gpr__err 65 14 none] [get_column_number gpr__sinput 101 13 none]
+G r c none [initialize_scanner gpr__err__scanner 75 17 none] [source_text gpr__sinput 139 13 none]
+G r c none [initialize_scanner gpr__err__scanner 75 17 none] [source_first gpr__sinput 137 13 none]
+G r c none [scan gpr__err__scanner 81 17 none] [source_last gpr__sinput 138 13 none]
+G r c none [scan gpr__err__scanner 81 17 none] [identifier_char gpr__cset 35 13 none]
+G r c none [scan gpr__err__scanner 81 17 none] [set_msg_insertion_file_name gpr__erroutc 332 14 none]
+G r c none [scan gpr__err__scanner 81 17 none] [set_msg_insertion_reserved_name gpr__erroutc 340 14 none]
+G r c none [scan gpr__err__scanner 81 17 none] [set_msg_char gpr__erroutc 327 14 none]
+G r c none [scan gpr__err__scanner 81 17 none] [set_msg_insertion_reserved_word gpr__erroutc 343 14 none]
+G r c none [scan gpr__err__scanner 81 17 none] [set_msg_str gpr__erroutc 352 14 none]
+G r c none [scan gpr__err__scanner 81 17 none] [set_msg_insertion_name gpr__erroutc 337 14 none]
+G r c none [scan gpr__err__scanner 81 17 none] [set_msg_insertion_name_literal gpr__erroutc 335 14 none]
+G r c none [scan gpr__err__scanner 81 17 none] [get_source_file_index gpr__sinput 113 13 none]
+G r c none [scan gpr__err__scanner 81 17 none] [get_line_number gpr__sinput 106 13 none]
+G r c none [scan gpr__err__scanner 81 17 none] [get_column_number gpr__sinput 101 13 none]
+G r c none [scan gpr__err__scanner 81 17 none] [name_find gpr__names 55 13 none]
+G r c none [scan gpr__err__scanner 81 17 none] [get_char_code gpr__names 94 13 none]
+G r c none [scan gpr__err__scanner 81 17 none] [skip_wide gpr__sinput 141 14 none]
+G r c none [scan gpr__err__scanner 81 17 none] [add_line_tables_entry gpr__sinput 280 14 none]
+G r c none [scan gpr__err__scanner 81 17 none] [fold_lower gpr__cset 38 13 none]
+G r c none [scan gpr__err__scanner 81 17 none] [store_encoded_character gpr__names 112 14 none]
+G r c none [scan gpr__err__scanner 81 17 none] [get_character gpr__names 106 13 none]
+G r c none [scan gpr__err__scanner 81 17 none] [in_character_range gpr__names 101 13 none]
+G r c none [end_string gpr__err__scanner 97 13 none] [name_find gpr__names 55 13 none]
+G r c none [error_illegal_character gpr__err__scanner 99 14 none] [set_msg_insertion_file_name gpr__erroutc 332 14 none]
+G r c none [error_illegal_character gpr__err__scanner 99 14 none] [set_msg_insertion_reserved_name gpr__erroutc 340 14 none]
+G r c none [error_illegal_character gpr__err__scanner 99 14 none] [set_msg_char gpr__erroutc 327 14 none]
+G r c none [error_illegal_character gpr__err__scanner 99 14 none] [set_msg_insertion_reserved_word gpr__erroutc 343 14 none]
+G r c none [error_illegal_character gpr__err__scanner 99 14 none] [set_msg_str gpr__erroutc 352 14 none]
+G r c none [error_illegal_character gpr__err__scanner 99 14 none] [set_msg_insertion_name gpr__erroutc 337 14 none]
+G r c none [error_illegal_character gpr__err__scanner 99 14 none] [set_msg_insertion_name_literal gpr__erroutc 335 14 none]
+G r c none [error_illegal_character gpr__err__scanner 99 14 none] [get_source_file_index gpr__sinput 113 13 none]
+G r c none [error_illegal_character gpr__err__scanner 99 14 none] [get_line_number gpr__sinput 106 13 none]
+G r c none [error_illegal_character gpr__err__scanner 99 14 none] [get_column_number gpr__sinput 101 13 none]
+G r c none [skip_line_terminators gpr__err__scanner 132 14 none] [skip_wide gpr__sinput 141 14 none]
+G r c none [skip_line_terminators gpr__err__scanner 132 14 none] [add_line_tables_entry gpr__sinput 280 14 none]
+G r c none [output_source_line gpr__err 43 14 none] [write_str gpr__output 97 14 none]
+G r c none [output_source_line gpr__err 43 14 none] [full_file_name gpr__sinput 134 13 none]
+G r c none [output_source_line gpr__err 43 14 none] [write_name gpr__names 123 14 none]
+G r c none [output_source_line gpr__err 43 14 none] [write_eol gpr__output 86 14 none]
+G r c none [output_source_line gpr__err 43 14 none] [output_line_number gpr__erroutc 313 14 none]
+G r c none [output_source_line gpr__err 43 14 none] [line_start gpr__sinput 123 13 none]
+G r c none [output_source_line gpr__err 43 14 none] [source_text gpr__sinput 139 13 none]
+G r c none [output_source_line gpr__err 43 14 none] [write_char gpr__output 82 14 none]
+G r c none [set_msg_text gpr__err 77 14 none] [set_msg_insertion_file_name gpr__erroutc 332 14 none]
+G r c none [set_msg_text gpr__err 77 14 none] [set_msg_insertion_reserved_name gpr__erroutc 340 14 none]
+G r c none [set_msg_text gpr__err 77 14 none] [set_msg_char gpr__erroutc 327 14 none]
+G r c none [set_msg_text gpr__err 77 14 none] [set_msg_insertion_reserved_word gpr__erroutc 343 14 none]
+G r c none [set_msg_text gpr__err 77 14 none] [set_msg_str gpr__erroutc 352 14 none]
+G r c none [set_msg_text gpr__err 77 14 none] [set_msg_insertion_name gpr__erroutc 337 14 none]
+G r c none [set_msg_text gpr__err 77 14 none] [set_msg_insertion_name_literal gpr__erroutc 335 14 none]
+X 13 g-dyntab.ads
+105I12*Table_Last_Type<19|58I9>
+126A9*Table_Type(34|249R9)<19|101I9>
+128A12*Big_Table_Type{126A9[17|60[26|218]]}<26|107I9>
+142P9*Table_Ptr(128A12[17|60[26|218]])
+X 17 g-table.ads
+69I12*Table_Last_Type{13|105I12[60[26|218]]}
+76p4*Table{13|142P9[60[26|218]]} 24|149r19[26|218] 149r50[26|218] 151r20[26|218]
+. 151r51[26|218] 152r37[26|218] 156r29[26|218] 170r25[26|218] 171r16[26|218]
+. 172r25[26|218] 173r16[26|218] 179r24[26|218] 189r27[26|218] 190r30[26|218]
+. 213r17[26|218] 216r14[26|218] 220r17[26|218] 223r20[26|218] 230r20[26|218]
+. 252r24[26|218] 256r28[26|218] 256r52[26|218] 259r25[26|218] 272r27[26|218]
+. 275r47[26|218] 278r50[26|218] 282r39[26|218] 285r26[26|218] 289r39[26|218]
+. 295r25[26|218] 311r23[26|218] 312r23[26|218] 25|2343r36[34|296]
+81U14*Init 24|410s14[26|218] 422s16[26|281]
+89V13*Last{69I12[26|218]} 24|143s26[26|218]
+104U14*Append 24|124s14[26|218] 425s19[26|281]
+104r22 New_Val{26|137R9} 24|125r10[26|218] 426r13[26|281]
+X 19 gpr.ads
+38K9*GPR 3004e8 23|39r9 108r5 24|27r6 27r23 28r6 28r23 29r6 29r23 30r6 30r23
+. 31r6 31r23 32r6 32r23 33r6 33r23 34r6 34r23 36r14 776r5 25|32r6 32r22 34r11
+40e4*EOF{character} 24|467r66 25|1019r15 1264r45 1697r45 2352r27
+58I9*Int<integer> 24|282r27 289r27 25|502r17 505r22 508r22 511r18 517r33
+. 535r29 539r32 539r44 594r32 594r44 596r20 669r21 669r47 674r21 674r47 679r21
+. 679r47
+61I12*Nat{58I9}
+67M9*Word
+72E12*Upper_Half_Character{character} 25|859r37 920r21 1298r46 1610r15 1917r39
+. 1936r37
+82I9*Source_Ptr<58I9> 23|56r18 65r55 24|89r55 97r14 100r14 427r26 428r26
+. 442r11 510r18 514r23 25|112r20 133r25 422r26 433r14 886r17 1272r41 1706r41
+. 2050r44 2169r20 2307r25
+89i4*No_Location{82I9} 23|56r32 24|510r32 534r26 540r26
+101I9*Source_File_Index<58I9> 23|76r18 24|38r32 45r15 439r15 25|370r15
+104i4*No_Source_File{101I9} 24|38r53
+110I9*Node_Id<integer>
+113i4*Empty_Node{110I9} 25|384r36
+126X4*Unrecoverable_Error 25|1840r16
+251I9*Name_Id<integer> 24|452r22 25|97r31 107r34 173r30 335r31 396r34 2382r30
+252i4*No_Name{251I9} 24|429r26 25|385r36 2115r24
+253i4*Error_Name{251I9} 25|945r21
+274I9*File_Name_Type<251I9>
+436P9*Project_Id(435R9) 23|57r18 24|511r18
+2111i7*Location{82I9} 24|537r35
+2653R9*Processing_Flags 2933e14 23|54r18 24|508r18
+2668P9*Error_Handler
+2670b7 Is_Warning{boolean} 24|563r13
+2799n40*High{2799E9} 24|528r30 546r33
+2806e4*Current_Verbosity{2799E9} 24|528r10 546r13
+2812U14*Debug_Output 24|529s10 547s13
+2824i4*Total_Errors_Detected{61I12} 24|228m10 228r35 324r13 340r13 358r13
+. 361r16 365r24 394m10 395r12 414m7
+2826i4*Warnings_Detected{61I12} 24|221m10 221r31 324r37 340r37 369r13 371r24
+. 374r16 381r19 395r36 396m10 415m7
+2835i4 Serious_Errors_Detected{61I12} 24|231m13 231r40 413m7
+2839i4 Info_Messages{61I12} 24|224m13 224r30 369r33 371r44 374r36 381r39
+. 395r56 396r31 416m7
+2918p7*Report_Error{2668P9} 24|560r16 561r16
+2929b7*Incomplete_Withs{boolean} 24|519r38
+X 20 gpr-cset.ads
+25K13*Cset 44e13 24|27w10 27r27
+35V13*Identifier_Char{boolean} 25|714s26 927s21 1526s26 1624s19 1642s16 1916s10
+. 1982s27 2003s29
+38V13*Fold_Lower{character} 25|1941s31 1987s37
+X 23 gpr-err.ads
+39K13*Err 19|38k9 23|108l9 108e12 24|36b18 776l9 776t12 25|34r15
+45U14*Initialize 24|408b14 431l8 431t18
+49U14*Finalize 24|241b14 402l8 402t16
+53U14*Error_Msg 54>7 55>7 56>7 57>7 58>7 24|507b14 571l8 571t17
+54r7 Flags{19|2653R9} 24|508b7 519r32 560r10 561r10
+55a7 Msg{string} 24|509b7 529r36 556r18 564r15 564r20 565r26 565r31 567r26
+. 567r31 568r36 568r41
+56i7 Location{19|82I9} 24|510b7 514r37
+57p7 Project{19|436P9} 24|511b7 535r18 537r27 562r13
+58b7 Always{boolean} 24|512b7 519r15
+65U14*Error_Msg 65>25 65>39 24|89b14 235l8 235t17 556s7 25|352s7 855s25 860s25
+. 1396s22 1837s10
+65a25 Msg{string} 24|89b25 106r24 107r21
+65i39 Flag_Location{19|82I9} 24|89b39 97r33 100r33
+72K12*Scanner 106l8 106e15 24|774b17 25|35b14 2542l5 2542t12
+73E12*Language 73e38 77r18 25|42r27 371r15
+73n25*Ada{73E12} 25|399r15 1654r39
+73n30*Project{73E12} 25|42r39 402r15 874r36
+75U17*Initialize_Scanner 76>10 77>10 25|369b14 390l8 390t26
+76i10 Index{19|101I9} 25|370b7 378r36
+77e10 Lang{73E12} 25|371b7 374r31
+81U17*Scan 25|420b14 2128l8 2128t12
+90U17*Set_End_Of_Line_As_Token 90>43 25|2143b14 2146l8 2146t32
+90b43 Value{boolean} 25|2143b40 2145r31
+94U17*Set_Comment_As_Token 94>39 25|2134b14 2137l8 2137t28
+94b39 Value{boolean} 25|2134b36 2136r27
+98U17*Set_Special_Character 98>40 25|2152b14 2161l8 2161t29
+98e40 C{character} 25|2152b37 2154r12 2156r33
+102U17*Reset_Special_Characters 25|411b14 414l8 414t32
+X 24 gpr-err.adb
+38i4 Current_Error_Source_File{19|101I9} 449r19 455m10
+40U14 Post_Scan 488b14 501l8 501t17 25|1326s13 1400s22 1419s16 1476s16 1494s16
+. 1562s13 2125s10
+43U14 Output_Source_Line 44>7 45>7 46>7 310s13 437b14 482l8 482t26
+44i7 L{31|57I9} 438b7 459r30 463r24
+45i7 Sfile{19|101I9} 439b7 449r10 452r47 455r39 463r27 466r28
+46b7 Errs{boolean} 440b7 458r10 469r13
+52U14 Prescan_Message 52>31 106s7 577b14 668l8 668t23
+52a31 Msg{string} 577b31 583r10 583r15 597r9 597r33 597r38 597r51 599r12
+. 600r18 604r13 609r16 609r38 610r31 616r45 618r27 619r25 623r32 623r50 624r34
+. 625r34 626r34 627r34 629r45 645r16 649r21 649r39 656r16
+77U14 Set_Msg_Text 77>28 107s7 674b14 772l8 772t20
+77a28 Text{string} 674b28 681r12 683r18 684r15 690r21 690r40 750r27 756r26
+. 757r21 760r46
+91i7 Next_Msg{26|107I9} 145m7 147r13 149r57 151r58 152r44 155r22 156m10 156r36
+. 216r38
+94i7 Prev_Msg{26|107I9} 144m7 155m10 169r10 170r32 172r32 189r34 210r10 213r24
+97i7 Sptr=97:33{19|82I9} 129r48 130r25 132r42 133r44 152r23
+100i7 Optr=100:33{19|82I9} 131r25
+242i7 Cur{26|107I9} 250m7 251r13 252r31 256r59 258r38 262m10
+243i7 Nxt{26|107I9} 252m10 254r15 262r17
+244i7 E{26|107I9} 268m10 271r16 272r34 275r54 278r57 282r46 285r33 289r46
+. 291r33 295m13 295r32 304m10 308r16 311r30 312r30 314m32 314r32
+244i10 F{26|107I9} 254m10 255r16 256r35 258r43 259m13 259r32
+442i7 S{19|82I9} 463m7 466r36 473m10 473r15
+443e7 C{character} 466m10 467r20 467r41 467r62 470r25
+445b7 Line_Number_Output{boolean} 460m10 479r10
+489b7 Debug_Tokens{boolean} 492r10
+514i7 Real_Location{19|82I9} 534r10 537m10 540r10 556r23
+578i7 J{natural} 599m7 600r13 604r18 605m13 605r18 609r21 609r43 610r36 612m13
+. 612r18 616r50 618r22 619r30 621m25 621r30 623r28 623r55 624r39 625r39 626r39
+. 627r39 629r50 630m25 630r30 645r21 647m13 647r18 649r16 649r44 651m16 651r21
+. 656r21 658m13 658r18 661m13 661r18
+616e19 C{character} 619r35 623r64
+675e7 C{character} 684m10 689r13 697r16 703r16 706r16 712r16 715r16 721r16
+. 724r16 727r16 730r16 733r16 737r16 740r16 743r16 746r16 749r16 755r16 762r16
+. 768r27
+676i7 P{natural} 681m7 683r13 684r21 685m10 685r15 690r16 690r46 691m16 691r21
+. 750r33 751m13 751r18 756r21 757r27 759m13 759r18 760m52 760r52
+X 25 gpr-err-scanner.adb
+37E12 Line_Terminator{character} 854r30 1258r46 1695r46
+40E12 Graphic_Character{character} 853r31 1239r57 1241r57 1243r57 1245r57
+. 1247r57 1687r43
+42e4 Language_For_Scanner{23|73E12} 374m7 398r12 874r13 1654r16
+44a4 Special_Characters(boolean) 413m7 1589r16 1666r16 2156m13
+47b4 Comment_Is_Token{boolean} 1311r19 2136m7
+50b4 End_Of_Line_Is_Token{boolean} 1846r10 1867r16 2145m7
+53a4 String_Buffer(28|90M12) 340r44 2375m7
+54i4 String_Last{natural} 337r19 339r21 2366m7 2374m7 2374r22 2375r22
+60U14 Accumulate_Token_Checksum 61r19 203b14 208l8 208t33 784s13 2106s13
+. 2122s13
+66U14 Accumulate_Token_Checksum_GNAT_6_3 214b14 264l8 264t42 2101s19
+72U14 Accumulate_Token_Checksum_GNAT_5_03 270b14 329l8 329t43 2099s19
+79U14 Accumulate_Checksum 79>35 80r19 181b14 184l8 184t27 189s10 190s10 191s10
+. 193s10 196s7 475s13 557s16 621s16 649s13 667s19 672s19 677s19 692s22 699s19
+. 706s19 730s13 735s16 739s16 817s10 828s16 832s16 851s19 1030s13 1047s13
+. 1050s16 1065s13 1087s13 1114s13 1124s13 1143s13 1161s13 1182s13 1212s16
+. 1345s13 1407s19 1416s16 1427s13 1442s13 1456s13 1464s13 1484s13 1502s13
+. 1548s19 1571s13 1582s13 1891s13 1896s13 1923s13 1939s13 1985s19
+79e35 C{character} 181b35 183r59
+90U14 Accumulate_Checksum 90>35 186b14 197l8 197t27 848s19 1373s19 2029s22
+. 2038s22 2046s22
+90m35 C{28|90M12} 186b35 188r10 189r46 190r47 191r47 193r46 196r43
+97V13 End_String{19|251I9} 335b13 344l8 344t18 875s27
+99U14 Error_Illegal_Character 350b14 354l8 354t31 1303s22 1630s19 1653s13
+. 1736s16
+103U14 Initialize_Checksum 104r19 360b14 363l8 363t27 389s7
+107V13 Is_Keyword_Name{boolean} 107>30 396b13 405l8 405t23 2093s10
+107i30 N{19|251I9} 396b30 400r20 400r49 403r20
+110U14 Scan_Wide 111>7 112=7 113<7 114<7 842s19 893s13 1277s25 1372s19 1711s25
+. 1761s10 1971s16 2167b14 2213l8 2213t17
+111p7 S{31|87P9} 2168b7 2186r17
+112i7 P{19|82I9} 2169b7 2185m10 2185r15 2186r20 2211m10 2211r15
+113m7 C{28|90M12} 2170b7 2201m10 2203m10 2210m10
+114b7 Err{boolean} 2171b7 2206m7 2212m10
+124V13 Set_Start_Column{31|62I9} 386s36 1861s41 2225b13 2300l8 2300t24
+132U14 Skip_Line_Terminators 133=7 134<7 1854s10 2306b14 2358l8 2358t29
+133i7 P{19|82I9} 2307b7 2310r43 2315r21 2316m13 2316r18 2318m13 2318r18 2322m10
+. 2322r15 2325m10 2325r15 2332m29 2352r21 2353r21 2355r39
+134b7 Physical{boolean} 2308b7 2326m10 2346m10
+167U14 Start_String 819s10 2364b14 2367l8 2367t20
+170U14 Store_String_Char 170>33 870s13 2372b14 2376l8 2376t25
+170m33 Code{28|90M12} 2372b33 2375r38
+173V13 Token_Value{33|30E9} 173>26 2095s22 2107s22 2382b13 2540l8 2540t19
+173i26 N{19|251I9} 2382b26 2384r12
+339i11 J{integer} 340r23 340r59
+422i7 Start_Of_Comment{19|82I9} 1221m16 1312r51 1314r37
+425b7 Underline_Found{boolean} 1546m19 1569m13 1579m13 1600m13 1626m19 1776m13
+. 1802m13 1810m13 1820m13 1902m10 1925r20 1926m16 1943m13 1988m19 2031m22
+. 2040m22 2048r25 2058m25 2082r10 2083m10
+433i7 Wptr{19|82I9} 841m19 1371m19 1760m10 1774r25 1794r25 1800r25 1808r25
+. 1818r25 1970m16 2052r40
+436V16 Double_Char_Token{boolean} 436>35 472b16 488l11 488t28 1067s16 1126s16
+. 1145s16 1163s16 1167s19 1184s16 1188s19 1192s19 1444s16
+436e35 C{character} 472b35 474r37 475r34 480r45
+446U17 Nlit 494b17 788l11 788t15 1556s13
+453U17 Slit 794b17 879l11 879t15 1325s13 1399s22
+460U17 Skip_Other_Format_Characters 885b17 900l11 900t39 1560s13
+464V16 Start_Of_Wide_Character{boolean} 840s22 891s16 906b16 936l11 936t34
+. 1270s25 1370s19 1704s25
+496e10 C{character} 613m10 615r13 620r19 625m16 627r19 639r16 640r21 649r34
+. 650r26 661m13 666r19 667r40 669r41 671r22 672r70 674r41 676r22 677r40 679r41
+. 688m16 690r19 694m22 695r32 698r22 701m19 705r22 706r40 710r22 710r38 714r43
+499e10 Base_Char{character} 650m13 705r26
+502i10 Base{19|58I9} 602m10 651m13 653r16 653r33 654m16 685r50
+505i10 Int_Value{19|58I9} 558m16 560r22 603m10 607r23 629r32 651r21 662m13
+. 685m16 685r38 720r26 748m13 755r33 757r33
+508i10 Num_Value{19|58I9} 607m10 629m19 720m13 772r37
+511i10 Scale{19|58I9} 563m16 563r25 604m10 612m10 663m13 686m16 686r25 703m19
+. 726m13 755m16 755r25 757m16 757r25 771r16
+514b10 Exponent_Is_Negative{boolean} 732m13 742m19 754r16
+517i10 Extended_Digit_Value{19|58I9} 668m19 673m19 678m19 685r57
+520b10 Point_Scanned{boolean} 606m10 623m16 702m19 725r17 741r19 763r13
+527U20 Scan_Integer 547b20 588l14 588t26 605s10 628s19 751s16
+535i10 Int_Max{19|58I9} 596r29
+539V19 Max_Int{19|58I9} 539>28 540r25 559s18 594b19 597l14 597t21 685s29
+539i28 N{19|58I9} 594b28 596r38
+548e13 C{character} 552m13 557r37 561r39 564m16 568r19 576m22 577r32 580r22
+. 585r29
+796e10 Delimiter{character} 816m10 817r31 827r20 830r47 836r36
+799e10 C{character} 825m13 827r16 828r37 831r39 832r37 836r19 837r42 851r40
+. 853r22 854r25 859r28 865r42
+802m10 Code{28|90M12} 831m16 837m19 842m48 845m22 848r40 865m19 870r32
+805b10 Err{boolean} 842m54 844r22
+886i10 P{19|82I9} 892m13 896r28
+887m10 Code{28|90M12} 893m42 895r45
+888b10 Err{boolean} 893m48
+907e10 C{character} 913r13 920r16 925r16
+952L9 Scan_Next_Character 1766r18 1783r18 1789r18 1826r18 1874r12
+1205q22 Minus_Case 1320l14 1320e24
+1272i25 Wptr{19|82I9} 1283r40 1288r40
+1273m25 Code{28|90M12} 1277m54 1287r66
+1274b25 Err{boolean} 1277m60 1282r28
+1340q22 Char_Literal_Case 1422l14 1422e31
+1341m16 Code{28|90M12} 1372m48 1373r40 1376m22 1409m19 1418r34
+1342b16 Err{boolean} 1372m54 1375r22
+1463q22 Vertical_Bar_Case 1479l14 1479e31
+1483q22 Exclamation_Case 1497l14 1497e30
+1501q22 Plus_Case 1506l14 1506e23
+1516e16 C{character} 1521r19 1521r43 1526r43 1533r23 1533r39
+1706i25 Wptr{19|82I9} 1717r40 1722r40
+1707m25 Code{28|90M12} 1711m54 1721r66
+1708b25 Err{boolean} 1711m60 1716r28
+1752L9 Scan_Wide_Character 1096r21 1615r21 1644r21
+1755m10 Code{28|90M12} 1761m39 1769r39 1793r51
+1756e10 Cat{62|56E9} 1769m10 1773r31 1782r33 1788r33 1799r39 1807r32 1817r33
+1757b10 Err{boolean} 1761m45 1765r13
+1834L9 Scan_Line_Terminator 1009r18 1795r18
+1851b10 Physical{boolean} 1854m43 1859r13
+1881L9 Scan_Identifier 1550r24 1573r18 1584r18 1601r18 1627r24 1777r18 1803r18
+. 1811r18 1821r18 1932r18 1944r18 2006r30 2068r21
+1964m16 Code{28|90M12} 1971m45 1981r42 1982r59 1984r41 1993r48 2027m22 2028r65
+. 2029r43 2030r47 2038r43 2039r47 2046r43 2057r50
+1965b16 Err{boolean} 1971m51 1975r19
+1966e16 Chr{character} 1984m19 1985r40 1987r49
+1967e16 Cat{62|56E9} 1993m19 2002r39 2011r42 2026r40 2035r42 2036r45 2045r48
+2050i28 Cend{19|82I9} 2053r40
+2076L9 Scan_Identifier_Complete 2004r30 2012r27
+2174e7 Chr{character} 2194m7 2200r10 2201r33 2203r33
+2176V16 In_Char{character} 2183b16 2187l11 2187t18 2189r54 2194s14
+2189V16 WC_In[64|83]{64|53I9} 2201s26 2203s26 65|44b13
+2226i7 Start_Column{31|62I9} 2245m34 2245r50 2248m34 2248r50 2253m31 2253r47
+. 2258m28 2258r44 2263m25 2263r41 2268m22 2268r38 2273m19 2273r35 2285m13
+. 2285r30 2291r14 2299r17
+2231l7 Tabs_Loop 2287r18 2289l16 2289e25
+2236l10 Blanks_Loop 2249r39 2254r36 2259r33 2264r30 2269r27 2274r24 2277r21
+. 2279l19 2279e30
+2310e7 Chr{character} 2314r10 2321r13 2324r13 2324r30
+2342r10 S{34|249R9} 2353r25 2353r40 2355r36
+X 26 gpr-erroutc.ads
+32K13*Erroutc 24|28w10 28r27 26|358e16
+34b4*Continuation{boolean} 24|111r10 140r25 180r25 195r23 206r14 725m13
+39b4*Has_Double_Exclam{boolean} 24|592m7 650m16
+43b4*Is_Serious_Error{boolean} 24|138r25 589m7 657m13 666m10
+47b4*Is_Unconditional_Msg{boolean} 24|139r25 590m7 646m13
+51b4*Is_Warning_Msg{boolean} 24|117r10 134r25 591m7 610m13 614r16 665r10
+55b4*Is_Info_Msg{boolean} 24|135r25 596m7
+60e4*Warning_Msg_Char{character} 24|137r25 611m13 620m25 629m25
+77b4*Last_Killed{boolean} 24|111r27 196m19 207m10
+82b4*Manual_Quote_Mode{boolean} 24|679m7 734m13 734r38
+92a4*Msg_Buffer{string} 24|126r37
+95i4*Msglen{integer} 24|126r54 680m7
+107I9*Error_Msg_Id<19|58I9> 24|91r18 94r18 242r18 243r18 244r18
+112i4*No_Error_Msg{107I9} 24|118r21 127r25 128r25 144r19 147r25 169r22 210r21
+. 251r20 255r21 271r21 308r21 401r26 411r26 412r26 417r18
+116i4*Cur_Msg{107I9} 24|118m10 143m7 149r26 151r27 171r23 173r23 179r31 190r37
+. 211r29 213r42 216r21 220r24 223r27 230r27 417m7
+138p7*Text{50|67P12} 24|126m13
+141i7*Next{107I9} 24|127m13 156r46 213m34 216m30 252r36 259r35 295r35
+145i7*Prev{107I9} 24|128m13
+150i7*Sfile{19|101I9} 24|129m13 149r35 149r67 151r36 151r68 172r42 173r32
+. 275r57 278r60 312r33
+155i7*Sptr{19|82I9} 24|130m13 152r54 256r38 256r64
+162i7*Optr{19|82I9} 24|131m13
+171i7*Line{31|57I9} 24|132m13 170r42 171r32 282r49 311r33
+174i7*Col{31|62I9} 24|133m13 285r36 289r49
+177b7*Warn{boolean} 24|134m13 189r44 190r46 220r33
+180b7*Info{boolean} 24|135m13 223r36
+183b7*Warn_Err{boolean} 24|136m13
+187e7*Warn_Chr{character} 24|137m13
+198b7*Serious{boolean} 24|138m13 230r36
+201b7*Uncond{boolean} 24|139m13 179r40
+204b7*Msg_Cont{boolean} 24|140m13
+213b7*Deleted{boolean} 24|141m13 272r37
+218K12*Errors[17|57] 24|124r7 143r19 149r12 149r43 151r13 151r44 152r30 156r22
+. 170r18 171r9 172r18 173r9 179r17 189r20 190r23 213r10 216r7 220r10 223r13
+. 230r13 252r17 256r21 256r45 259r18 272r20 275r40 278r43 282r32 285r19 289r32
+. 295r18 311r16 312r16 410r7
+225i4*First_Error_Msg{107I9} 24|145r19 211m10 250r14 268r15 304r15 401m7
+. 411m7
+230i4*Last_Error_Msg{107I9} 24|412m7
+241b4*Error_Msg_Warn{boolean} 24|566r36 569r36 610r53
+243a4*Error_Msg_String{string} 24|763r26
+244i4*Error_Msg_Strlen{natural} 24|763r49
+276i7*Start{19|82I9} 24|427m16
+277i7*Stop{19|82I9} 24|428m16
+278i7*Reason{19|251I9} 24|429m16
+281K12*Warnings[17|57] 24|422r7 425r10
+296U14*Check_Duplicate_Message 24|258s13
+308U14*Output_Error_Msgs 24|314s13
+313U14*Output_Line_Number 24|459s10
+320U14*Output_Msg_Text 24|291s16
+327U14*Set_Msg_Char 24|735s13 750s13 768s13
+332U14*Set_Msg_Insertion_File_Name 24|704s13
+335U14*Set_Msg_Insertion_Name_Literal 24|692s16
+337U14*Set_Msg_Insertion_Name 24|694s16
+340U14*Set_Msg_Insertion_Reserved_Name 24|713s13
+343U14*Set_Msg_Insertion_Reserved_Word 24|760s13
+352U14*Set_Msg_Str 24|763s13
+X 28 gpr-names.ads
+25K13*Names 24|29w10 29r27 28|172e14
+27a4*Name_Buffer{string} 25|340m10 1313m19 1547m19 1548r40 1570m13 1571r34
+. 1580m13 1582r34 1598m13 1890m13 1894m13 1896r34 1928m16
+28i4*Name_Len{natural} 25|337m7 1312m19 1313r37 1545m19 1568m13 1578m13 1597m13
+. 1625m19 1643m16 1775m13 1801m13 1809m13 1819m13 1890r26 1894r26 1896r47
+. 1904m10 1904r22 1927m16 1927r28 1928r29
+39V13*Get_Name_String{string} 24|498s32
+41V13*Get_Name_String{string} 24|274s30 277s30
+55V13*Name_Find{19|251I9} 25|343s14 1315s33 2078s21
+87M9*Char_Code_Base
+90M12*Char_Code{87M9} 25|53r43 90r39 113r17 170r40 186r39 802r17 887r17 1273r32
+. 1341r23 1707r32 1755r17 1964r23 2028r24 2170r17 2201r15 2203r15 2210r15
+. 2372r40
+94V13*Get_Char_Code{90M12} 25|831s24 837s27 845s30 865s27 1409s27 1941s16
+. 1987s22
+101V13*In_Character_Range{boolean} 25|1981s22
+106V13*Get_Character{character} 25|1982s44 1984s26
+112U14*Store_Encoded_Character 25|1940s13 1986s19 2030s22 2039s22 2057s25
+123U14*Write_Name 24|452s10
+X 30 gpr-opt.ads
+29K13*Opt 24|30w10 30r27 117r34 320r10 320r32 25|2094r13 30|263e12
+31b4*Brief_Output{boolean} 24|267r10 341r25
+73b4*Checksum_Accumulate_Token_Checksum{boolean} 25|783r13 2097r16 2121r13
+78b4*Checksum_GNAT_6_3{boolean} 25|2094r17
+81b4*Checksum_GNAT_5_03{boolean} 25|2098r19
+123b4*Full_Path_Name_For_Brief_Errors{boolean} 24|273r19
+204b4*Upper_Half_Encoding{boolean} 25|920r51 1614r16 1918r27 1937r25
+215b4*Verbose_Mode{boolean} 24|267r30 303r10 342r21
+219n40*Low{219E9} 24|320r36
+221e4*Verbosity_Level{219E9} 24|320r14
+238n31*Suppress{238E9} 24|117r53 424r25
+238n49*Treat_As_Error{238E9} 24|136r40 378r31 393r25
+239e4*Warning_Mode{238E9} 24|117r38 136r25 378r16 393r10 424r10
+248i4*Wide_Character_Encoding_Method{66|94I9} 25|914r21 2203r38
+X 31 gpr-osint.ads
+29K13*Osint 24|31w10 31r27 31|222e14
+42A9*Text_Buffer(character)<19|82I9>
+57I9*Line_Number<integer> 24|44r15 438r15
+62I9*Column_Number<short_integer> 25|124r37 2225r37 2226r22
+83A12*Big_Source_Buffer{42A9}<19|82I9>
+87P9*Source_Buffer_Ptr(83A12) 25|111r13 2168r13
+X 32 gpr-output.ads
+33K13*Output 24|32w10 32r27 32|107e15
+62U14*Set_Standard_Error 24|269s10 344s13
+69U14*Set_Standard_Output 24|298s10 390s10
+82U14*Write_Char 24|281s16 283s16 286s19 375s16 382s19 385s16 470s13
+86U14*Write_Eol 24|292s16 309s13 325s13 389s10 453s10 480s10
+93U14*Write_Int 24|282s16 289s16 350s10 365s13 371s13
+97U14*Write_Str 24|274s19 277s19 290s16 349s10 353s13 355s13 359s13 362s13
+. 366s13 370s13 372s13 379s16 450s10
+104U14*Write_Line 24|493s10 498s13
+X 33 gpr-scans.ads
+28K13*Scans 24|33w10 33r27 33|291e14
+30E9*Token_Type 24|493r22 25|173r46 207r25 238r31 244r31 262r31 262r47 292r31
+. 297r31 304r31 316r31 327r31 2382r46 33|145e16
+31n7*Tok_Integer_Literal{30E9} 25|221r15 277r15 769r22
+32n7*Tok_Real_Literal{30E9} 25|221r37 277r37 764r22
+33n7*Tok_String_Literal{30E9} 24|496r28 25|221r56 277r56 878r19
+34n7*Tok_Char_Literal{30E9} 25|222r15 278r15 1417r25
+35n7*Tok_Operator_Symbol{30E9} 25|222r34 278r34
+36n7*Tok_Identifier{30E9} 24|495r21 25|222r56 244r47 278r56 297r47 1356r29
+. 2089r16
+37n7*Tok_Double_Asterisk{30E9} 25|223r15 279r15 1052r25
+38n7*Tok_Ampersand{30E9} 25|223r37 279r37 1039r25
+39n7*Tok_Minus{30E9} 25|223r53 279r53 1214r25
+40n7*Tok_Plus{30E9} 25|223r65 279r65 1504r22
+41n7*Tok_Asterisk{30E9} 25|224r15 280r15 1057r25
+42n7*Tok_Mod{30E9} 25|224r30 280r30 2506r20
+43n7*Tok_Rem{30E9} 25|224r40 280r40 2470r20
+44n7*Tok_Slash{30E9} 25|224r50 280r50 1449r25
+45n7*Tok_New{30E9} 25|224r62 280r62 2444r20
+46n7*Tok_Abs{30E9} 25|225r15 281r15 2388r20
+47n7*Tok_Others{30E9} 25|225r25 281r25 2454r20
+48n7*Tok_Null{30E9} 25|225r38 281r38 2448r20
+49n7*Tok_Raise{30E9} 25|249r15 309r15 2466r20
+50n7*Tok_Dot{30E9} 25|225r49 281r49 1135r25
+51n7*Tok_Apostrophe{30E9} 25|225r59 281r59 1362r25 1391r31
+52n7*Tok_Left_Paren{30E9} 25|226r15 282r15 1089r22 1100r25 1108r22
+53n7*Tok_Delta{30E9} 25|226r32 282r32 2502r20
+54n7*Tok_Digits{30E9} 25|226r44 282r44 2504r20
+55n7*Tok_Range{30E9} 25|226r57 282r57 1390r35 2508r20
+56n7*Tok_Right_Paren{30E9} 25|227r15 283r15 1357r37 1429r22 1436r22
+57n7*Tok_Comma{30E9} 25|227r33 283r33 1116r22
+58n7*Tok_And{30E9} 25|227r45 283r45 1034r25 2392r20
+59n7*Tok_Or{30E9} 25|227r55 283r55 1470r25 2452r20
+60n7*Tok_Xor{30E9} 25|227r64 283r64 2498r20
+61n7*Tok_Less{30E9} 25|228r15 284r15 1198r25
+62n7*Tok_Equal{30E9} 25|228r26 284r26 1154r22
+63n7*Tok_Greater{30E9} 25|228r38 284r38 1173r25
+64n7*Tok_Not_Equal{30E9} 25|228r52 284r52 1445r25 1488r25
+65n7*Tok_Greater_Equal{30E9} 25|229r15 285r15 1164r25
+66n7*Tok_Less_Equal{30E9} 25|229r35 285r35 1185r25
+67n7*Tok_In{30E9} 25|229r52 285r52 2436r20
+68n7*Tok_Not{30E9} 25|229r61 285r61 2446r20
+69n7*Tok_Box{30E9} 25|230r15 286r15 1189r25
+70n7*Tok_Colon_Equal{30E9} 25|230r25 286r25 1068r25 1074r25
+71n7*Tok_Colon{30E9} 25|230r43 286r43 1080r25
+72n7*Tok_Greater_Greater{30E9} 25|230r55 286r55 1168r25
+73n7*Tok_Abstract{30E9} 25|231r15 287r15 2510r20
+74n7*Tok_Access{30E9} 25|231r30 287r30 2500r20
+75n7*Tok_Aliased{30E9} 25|231r43 287r43 2512r20
+76n7*Tok_All{30E9} 25|231r57 287r57 1358r37 2394r20
+77n7*Tok_Array{30E9} 25|231r67 287r67 2396r20
+78n7*Tok_At{30E9} 25|232r15 288r15 2398r20
+79n7*Tok_Body{30E9} 25|232r24 288r24 2402r20
+80n7*Tok_Constant{30E9} 25|232r35 288r35 2406r20
+81n7*Tok_Do{30E9} 25|232r50 288r50 2412r20
+82n7*Tok_Is{30E9} 25|232r59 288r59 2438r20
+83n7*Tok_Interface{30E9} 25|233r15 294r15 2530r20
+84n7*Tok_Limited{30E9} 25|233r31 299r15 2440r20
+85n7*Tok_Of{30E9} 25|233r45 299r29 2450r20
+86n7*Tok_Out{30E9} 25|233r54 299r38 2456r20
+87n7*Tok_Record{30E9} 25|233r64 299r48 2468r20
+88n7*Tok_Renames{30E9} 25|234r15 300r15 2472r20
+89n7*Tok_Reverse{30E9} 25|234r29 300r29 2476r20
+90n7*Tok_Some{30E9} 25|240r15 294r31 2536r20
+91n7*Tok_Tagged{30E9} 25|246r15 306r15 2520r20
+92n7*Tok_Then{30E9} 25|246r28 306r28 2488r20
+93n7*Tok_Less_Less{30E9} 25|246r39 306r39 1193r25
+94n7*Tok_Abort{30E9} 25|246r55 306r55 2386r20
+95n7*Tok_Accept{30E9} 25|246r67 306r67 2390r20
+96n7*Tok_Case{30E9} 25|247r15 307r15 2404r20
+97n7*Tok_Delay{30E9} 25|247r26 307r26 2410r20
+98n7*Tok_Else{30E9} 25|247r38 307r38 2414r20
+99n7*Tok_Elsif{30E9} 25|247r49 307r49 2416r20
+100n7*Tok_End{30E9} 25|247r61 307r61 2418r20
+101n7*Tok_Exception{30E9} 25|248r15 308r15 2422r20
+102n7*Tok_Exit{30E9} 25|248r31 308r31 2424r20
+103n7*Tok_Goto{30E9} 25|248r42 308r42 2432r20
+104n7*Tok_If{30E9} 25|248r53 308r53 2434r20
+105n7*Tok_Pragma{30E9} 25|248r62 308r62 2460r20
+106n7*Tok_Requeue{30E9} 25|249r27 309r27 2518r20
+107n7*Tok_Return{30E9} 25|249r41 309r41 2474r20
+108n7*Tok_Select{30E9} 25|249r54 309r54 2478r20
+109n7*Tok_Terminate{30E9} 25|250r15 310r15 2486r20
+110n7*Tok_Until{30E9} 25|250r31 310r31 2516r20
+111n7*Tok_When{30E9} 25|250r43 310r43 2494r20
+112n7*Tok_Begin{30E9} 25|250r54 310r54 2400r20
+113n7*Tok_Declare{30E9} 25|250r66 310r66 2408r20
+114n7*Tok_For{30E9} 25|251r15 311r15 2426r20
+115n7*Tok_Loop{30E9} 25|251r25 311r25 2442r20
+116n7*Tok_While{30E9} 25|251r36 311r36
+117n7*Tok_Entry{30E9} 25|251r48 311r48 2420r20
+118n7*Tok_Protected{30E9} 25|251r60 311r60 2514r20
+119n7*Tok_Task{30E9} 25|252r15 312r15 2484r20
+120n7*Tok_Type{30E9} 25|252r26 312r26 2490r20
+121n7*Tok_Subtype{30E9} 25|252r37 312r37 2482r20
+122n7*Tok_Overriding{30E9} 25|252r51 294r42 2532r20
+123n7*Tok_Synchronized{30E9} 25|253r15 294r59 2534r20
+124n7*Tok_Use{30E9} 25|253r34 318r15 2492r20
+125n7*Tok_Function{30E9} 25|253r44 318r25 2428r20
+126n7*Tok_Generic{30E9} 25|253r59 318r40 2430r20
+127n7*Tok_Package{30E9} 25|254r15 319r15 2458r20
+128n7*Tok_Procedure{30E9} 25|254r29 319r29 2464r20
+129n7*Tok_Private{30E9} 25|254r45 319r45 2462r20
+130n7*Tok_With{30E9} 25|254r59 319r59 2496r20
+131n7*Tok_Separate{30E9} 25|255r15 320r15 2480r20
+132n7*Tok_EOF{30E9} 25|255r30 320r30 1021r25 1655r25
+133n7*Tok_Semicolon{30E9} 25|255r40 320r40 1458r22
+134n7*Tok_Arrow{30E9} 25|255r56 320r56 1146r25 1208r25
+135n7*Tok_Vertical_Bar{30E9} 25|256r15 321r15 1475r25 1493r25
+136n7*Tok_Dot_Dot{30E9} 25|256r34 321r34 1127r25
+137n7*Tok_Project{30E9} 25|256r48 321r48 1359r37 2522r20
+138n7*Tok_Extends{30E9} 25|256r62 321r62 2524r20
+139n7*Tok_External{30E9} 25|257r15 322r15 2526r20
+140n7*Tok_External_As_List{30E9} 25|257r30 322r30 2528r20
+141n7*Tok_Comment{30E9} 25|257r53 322r53 1316r28
+142n7*Tok_End_Of_Line{30E9} 25|258r15 323r15 1868r25
+143n7*Tok_Special{30E9} 25|258r33 323r33 1592r25 1668r25
+144n7*Tok_SPARK_Hide{30E9} 25|258r47 323r47
+145n7*No_Token{30E9} 25|258r64 323r64 381r36 2538r20
+153E12*Token_Class_Literal{30E9} 25|1360r38
+170e4*Special_Character{character} 25|1593m16 1669m16
+188i4*Scan_Ptr{19|82I9} 25|352r39 353m7 353r19 380m7 382r36 383r36 387r36
+. 474r21 476m13 476r25 479r24 480r29 482m13 482r25 552r26 562m16 562r28 564r29
+. 575m22 575r34 576r35 613r23 620r44 624m16 624r28 625r29 641r32 643r32 645r32
+. 647r32 657m13 657r25 661r26 687m16 687r28 688r29 693m22 693r34 694r35 700m19
+. 700r31 701r32 707m19 707r31 711m19 711r31 729r21 729r53 731m13 731r25 734r24
+. 736m16 736r28 738r27 745m16 745r28 750r24 816r31 820m10 820r22 825r26 829m16
+. 829r28 830r34 833m16 833r28 838m19 838r31 841r27 842m38 842r38 856r52 861r59
+. 866m19 866r31 892r18 893m32 893r32 896m16 907r44 926r29 927r46 957r24 958r24
+. 959m16 959r28 963r24 964m16 964r28 968r24 969m16 969r28 973r24 974m16 974r28
+. 978r24 979m16 979r28 983r24 984m16 984r28 988r24 989m16 989r28 993m13 993r25
+. 999r23 1004r23 1014m13 1014r25 1020r16 1024m16 1024r28 1032r24 1033m16
+. 1033r28 1038m16 1038r28 1049r24 1051m16 1051r28 1056m16 1056r28 1071r27
+. 1072r32 1075m16 1075r28 1079m16 1079r28 1088m13 1088r25 1095r24 1099m16
+. 1099r28 1107m13 1107r25 1115m13 1115r25 1130r27 1131m16 1131r28 1134m16
+. 1134r28 1149r27 1150m16 1150r28 1153m13 1153r25 1172m16 1172r28 1197m16
+. 1197r28 1206r24 1207m16 1207r28 1211r27 1213m16 1213r28 1220m16 1220r28
+. 1221r36 1239r40 1240m22 1240r34 1241r40 1242m22 1242r34 1243r40 1244m22
+. 1244r34 1245r40 1246m22 1246r34 1247r40 1248m22 1248r34 1253r30 1254m22
+. 1254r34 1258r33 1264r33 1272r55 1277m44 1277r44 1283m28 1288m28 1298r33
+. 1301m22 1301r34 1312r40 1314r57 1346m13 1346r25 1371r27 1372m38 1372r38
+. 1379r30 1380m22 1380r34 1389r30 1395m22 1395r34 1398r25 1407r48 1409r50
+. 1410m19 1410r31 1428m13 1428r25 1435m13 1435r25 1448m16 1448r28 1457m13
+. 1457r25 1468r24 1469m16 1469r28 1474m16 1474r28 1486r24 1487m16 1487r28
+. 1492m16 1492r28 1503m13 1503r25 1516r50 1534r36 1535r46 1536r46 1537r46
+. 1547r46 1549m19 1549r31 1570r40 1572m13 1572r25 1581r53 1583m13 1583r25
+. 1590r29 1591m16 1591r28 1599m13 1599r25 1624r44 1666r44 1667r29 1669r45
+. 1670m16 1670r28 1675r27 1676r33 1676r49 1678r33 1678r49 1680r33 1680r49
+. 1682r33 1682r49 1687r30 1689r30 1691m22 1691r34 1695r33 1697r33 1706r55
+. 1711m44 1711r44 1717m28 1722m28 1731m22 1731r34 1760r18 1761m29 1761r29
+. 1774m13 1794m13 1800m13 1808m13 1818m13 1836r10 1847r23 1854m33 1854r33
+. 1860r41 1862r41 1887r21 1888r28 1890r51 1891r42 1893r24 1895r53 1903m10
+. 1903r22 1916r35 1917r26 1922r21 1931m13 1931r25 1936r24 1939r42 1941r51
+. 1942m13 1942r25 1950r24 1951r29 1970r24 1971m35 1971r35 2003r54 2050r58
+. 2052m28 2053m28 2237r24 2238r27 2239r30 2240r33 2241r36 2242r39 2243r42
+. 2244m34 2244r46 2247m34 2247r46 2252m31 2252r43 2257m28 2257r40 2262m25
+. 2262r37 2267m22 2267r34 2272m19 2272r31 2283r21 2284m13 2284r25
+192e4*Token{30E9} 24|493r40 495r13 496r20 25|207r41 220r12 238r47 262r64
+. 276r12 292r47 304r47 316r47 327r47 381m7 764m13 769m13 878m10 943r21 1021m16
+. 1034m16 1039m16 1052m16 1057m16 1068m16 1074m16 1080m16 1089m13 1100m16
+. 1108m13 1116m13 1127m16 1135m16 1146m16 1154m13 1164m16 1168m16 1173m16
+. 1185m16 1189m16 1193m16 1198m16 1208m16 1214m16 1316m19 1362m16 1391m22
+. 1417m16 1429m13 1436m13 1445m16 1449m16 1458m13 1470m16 1475m16 1488m16
+. 1493m16 1504m13 1592m16 1655m16 1668m16 1868m16 2089m7 2095m13 2107m13
+195i4*Token_Ptr{19|82I9} 25|382m7 944r25 999m10 1590m16 1667m16 1847m10
+198i4*Current_Line_Start{19|82I9} 25|383m7 1836r21 1839r13 1860m13
+201i4*Start_Column{31|62I9} 25|386m7 1861m13
+212m4*Checksum{19|67M9} 25|183m48 183r48 206m30 206r30 237m36 237r36 243m36
+. 243r36 261m36 261r36 291m36 291r36 296m36 296r36 303m36 303r36 315m36 315r36
+. 326m36 326r36 362m52 362r52
+217i4*First_Non_Blank_Location{19|82I9} 25|387m7 1862m13
+222i4*Token_Node{19|110I9} 25|384m7
+228i4*Token_Name{19|251I9} 24|498r49 25|385m7 875m13 945m7 2078m7 2093r27
+. 2095r35 2107r35 2115m10
+237e4*Prev_Token{30E9} 25|943m7 1356r16 1357r24 1358r24 1359r24 1360r24 1390r22
+240i4*Prev_Token_Ptr{19|82I9} 25|944m7
+243i4*Comment_Id{19|251I9} 25|1315m19
+247m4*Character_Code{28|90M12} 25|1418m16
+251i4*Int_Literal_Value{19|58I9} 25|772m16 779m16
+X 34 gpr-sinput.ads
+61K13*Sinput 24|34w10 34r27 34|336e15
+72i4*Main_Source_File{19|101I9} 24|350r39 352r31
+101V13*Get_Column_Number{31|62I9} 24|133s25
+106V13*Get_Line_Number{31|57I9} 24|132s25
+113V13*Get_Source_File_Index{19|101I9} 24|129s25
+123V13*Line_Start{19|82I9} 24|463s12
+129V13*Num_Source_Lines{19|61I12} 24|350s21 352s13
+134V13*Full_File_Name{19|274I9} 24|452s31
+135V13*Full_Ref_Name{19|274I9} 24|275s25
+136V13*Reference_Name{19|274I9} 24|278s27
+137V13*Source_First{19|82I9} 25|380s36
+138V13*Source_Last{19|82I9} 25|1020s27
+139V13*Source_Text{31|87P9} 24|466s15 25|379s36
+141U14*Skip_Wide 25|2332s10
+172i4*Current_Source_File{19|101I9} 25|378m7 379r49 380r50 1020r40 2343r43
+177p4*Source{31|87P9} 25|379m7 474r13 479r16 480r21 552r18 564r21 576r27
+. 613r15 620r36 625r21 641r24 643r24 645r24 647r24 661r18 688r21 694r27 701r24
+. 729r13 729r45 734r16 738r19 750r16 816r23 825r18 830r26 842r30 893r24 907r36
+. 926r21 927r38 957r16 958r16 963r16 968r16 973r16 978r16 983r16 988r16 1004r15
+. 1032r16 1049r16 1071r19 1072r24 1095r16 1130r19 1149r19 1206r16 1211r19
+. 1239r32 1241r32 1243r32 1245r32 1247r32 1253r22 1258r25 1264r25 1277r36
+. 1298r25 1314r29 1372r30 1379r22 1389r22 1407r40 1409r42 1468r16 1486r16
+. 1516r42 1534r28 1535r38 1536r38 1537r38 1547r38 1570r32 1581r45 1624r36
+. 1666r36 1669r37 1675r19 1676r25 1678r25 1680r25 1682r25 1687r22 1689r22
+. 1695r25 1697r25 1711r36 1761r21 1887r13 1888r20 1890r43 1891r34 1893r16
+. 1895r45 1916r27 1917r18 1922r13 1936r16 1939r34 1941r43 1950r16 1951r21
+. 1971r27 2003r46 2237r16 2238r19 2239r22 2240r25 2241r28 2242r31 2243r34
+. 2283r13 2310r35 2315r13 2332r21 2352r13
+240A9*Lines_Table_Type(19|82I9)<31|57I9>
+244P9*Lines_Table_Ptr(240A9)
+249R9*Source_File_Record 25|2342r14 34|278e14
+260i7*Last_Source_Line{31|57I9} 25|2353r42
+266p7*Lines_Table{244P9} 25|2353r27
+280U14*Add_Line_Tables_Entry 25|2355s13
+296K12*Source_File[17|57] 25|2343r24
+X 36 gpr-snames.ads
+25K13*Snames 25|32w10 32r26 36|333e15
+55i4*Name_Abort{19|251I9} 25|2385r15
+56i4*Name_Abs{19|251I9} 25|2387r15
+57i4*Name_Accept{19|251I9} 25|2389r15
+58i4*Name_And{19|251I9} 25|2391r15
+59i4*Name_All{19|251I9} 25|2393r15
+60i4*Name_Array{19|251I9} 25|2395r15
+61i4*Name_At{19|251I9} 25|2397r15
+62i4*Name_Begin{19|251I9} 25|2399r15
+63i4*Name_Body{19|251I9} 25|2401r15
+64i4*Name_Case{19|251I9} 25|2403r15
+65i4*Name_Constant{19|251I9} 25|2405r15
+66i4*Name_Declare{19|251I9} 25|2407r15
+67i4*Name_Delay{19|251I9} 25|2409r15
+68i4*Name_Do{19|251I9} 25|2411r15
+69i4*Name_Else{19|251I9} 25|2413r15
+70i4*Name_Elsif{19|251I9} 25|2415r15
+71i4*Name_End{19|251I9} 25|2417r15
+72i4*Name_Entry{19|251I9} 25|2419r15
+73i4*Name_Exception{19|251I9} 25|2421r15
+74i4*Name_Exit{19|251I9} 25|2423r15
+75i4*Name_For{19|251I9} 25|2425r15
+76i4*Name_Function{19|251I9} 25|2427r15
+77i4*Name_Generic{19|251I9} 25|2429r15
+78i4*Name_Goto{19|251I9} 25|2431r15
+79i4*Name_If{19|251I9} 25|2433r15
+80i4*Name_In{19|251I9} 25|2435r15
+81i4*Name_Is{19|251I9} 25|2437r15
+82i4*Name_Limited{19|251I9} 25|2439r15
+83i4*Name_Loop{19|251I9} 25|2441r15
+84i4*Name_New{19|251I9} 25|2443r15
+85i4*Name_Not{19|251I9} 25|2445r15
+86i4*Name_Null{19|251I9} 25|2447r15
+87i4*Name_Of{19|251I9} 25|2449r15
+88i4*Name_Or{19|251I9} 25|2451r15
+89i4*Name_Others{19|251I9} 25|2453r15
+90i4*Name_Out{19|251I9} 25|2455r15
+91i4*Name_Package{19|251I9} 25|2457r15
+92i4*Name_Pragma{19|251I9} 25|2459r15
+93i4*Name_Private{19|251I9} 25|2461r15
+94i4*Name_Procedure{19|251I9} 25|2463r15
+95i4*Name_Raise{19|251I9} 25|2465r15
+96i4*Name_Record{19|251I9} 25|2467r15
+97i4*Name_Rem{19|251I9} 25|2469r15
+98i4*Name_Renames{19|251I9} 25|2471r15
+99i4*Name_Return{19|251I9} 25|2473r15
+100i4*Name_Reverse{19|251I9} 25|2475r15
+101i4*Name_Select{19|251I9} 25|2477r15
+102i4*Name_Separate{19|251I9} 25|2479r15
+103i4*Name_Subtype{19|251I9} 25|2481r15
+104i4*Name_Task{19|251I9} 25|2483r15
+105i4*Name_Terminate{19|251I9} 25|2485r15
+106i4*Name_Then{19|251I9} 25|2487r15
+107i4*Name_Type{19|251I9} 25|2489r15
+108i4*Name_Use{19|251I9} 25|2491r15
+109i4*Name_When{19|251I9} 25|2493r15
+111i4*Name_With{19|251I9} 25|2495r15
+112i4*Name_Xor{19|251I9} 25|2497r15
+113i4*Name_Access{19|251I9} 25|2499r15
+114i4*Name_Delta{19|251I9} 25|2501r15
+115i4*Name_Digits{19|251I9} 25|2503r15
+116i4*Name_Mod{19|251I9} 25|2505r15
+117i4*Name_Range{19|251I9} 25|2507r15
+118i4*Name_Abstract{19|251I9} 25|2509r15
+119i4*Name_Aliased{19|251I9} 25|2511r15
+120i4*Name_Protected{19|251I9} 25|2513r15
+121i4*Name_Until{19|251I9} 25|2515r15
+122i4*Name_Requeue{19|251I9} 25|2517r15
+123i4*Name_Tagged{19|251I9} 25|2519r15
+124i4*Name_Project{19|251I9} 25|2521r15
+125i4*Name_Extends{19|251I9} 25|2523r15
+126i4*Name_External{19|251I9} 25|2525r15
+127i4*Name_External_As_List{19|251I9} 25|2527r15
+128i4*Name_Interface{19|251I9} 25|2529r15
+129i4*Name_Overriding{19|251I9} 25|2531r15
+130i4*Name_Synchronized{19|251I9} 25|2533r15
+131i4*Name_Some{19|251I9} 25|2535r15
+324I12*Reserved_Ada_95{19|251I9} 25|400r25
+326I12*Reserved_Ada_Project{19|251I9} 25|403r25
+328I12*Reserved_Ada_Other{19|251I9} 25|400r54
+X 37 interfac.ads
+74M9*Unsigned_32
+X 39 system.ads
+37K9*System 25|26r6 27r6 27r26 28r6 28r26 29r6 29r26 183r7 183r28 205r7 206r10
+. 236r13 237r16 242r13 243r16 260r13 261r16 290r13 291r16 295r13 296r16 302r13
+. 303r16 314r13 315r16 325r13 326r16 362r7 362r32 39|174e11
+67M9*Address
+X 41 s-crc32.ads
+61K16*CRC32 25|26w13 183r14 183r35 205r14 206r17 236r20 237r23 242r20 243r23
+. 260r20 261r23 290r20 291r23 295r20 296r23 302r20 303r23 314r20 315r23 325r20
+. 326r23 362r14 362r39 41|83e17
+63M9*CRC32<37|74M9> 25|183r41 206r23 237r29 243r29 261r29 291r29 296r29 303r29
+. 315r29 326r29 362r45
+66U14*Initialize 25|362s20
+70U14*Update 25|183s20 205s20 236s26 242s26 260s26 290s26 295s26 302s26 314s26
+. 325s26
+X 49 s-memory.ads
+53V13*Alloc{39|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{39|67M9} 105i<c,__gnat_realloc>22
+X 50 s-os_lib.ads
+67P12*String_Access{59|45P9}
+X 59 s-string.ads
+45P9*String_Access(string)
+X 62 s-utf_32.ads
+46K16*UTF_32 25|27w13 27r33 62|212e18
+49I9*UTF_32<integer> 25|895r37 1287r58 1721r58 1769r31 1793r43 1993r40 2028r57
+56E9*Category 25|1756r17 1967r23 62|87e9
+89V13*Get_Category{56E9} 25|1769s17 1993s26
+103V13*Is_UTF_32_Letter{boolean} 25|1773s13 2026s22
+115V13*Is_UTF_32_Digit{boolean} 25|1817s16 2035s25
+121V13*Is_UTF_32_Line_Terminator{boolean} 25|1287s31 1721s31 1793s16
+130V13*Is_UTF_32_Mark{boolean} 25|1807s16 2036s29
+138V13*Is_UTF_32_Other{boolean} 25|895s20
+139V13*Is_UTF_32_Other{boolean} 25|1788s16 2002s22
+148V13*Is_UTF_32_Punctuation{boolean} 25|1799s16 2045s25
+156V13*Is_UTF_32_Space{boolean} 25|1782s16 2011s25
+202V13*UTF_32_To_Upper_Case{49I9} 25|2028s35
+X 64 s-wchcnv.ads
+50K16*WCh_Cnv 25|29w13 29r33 64|116e19
+53I9*UTF_32_Code<integer>
+83v13*Char_Sequence_To_UTF_32 25|2189r29
+X 66 s-wchcon.ads
+41K16*WCh_Con 25|28w13 28r33 66|220e19
+94I9*WC_Encoding_Method<short_short_integer>
+156i4*WCEM_Brackets{94I9} 25|2201r38
+180I12*WC_ESC_Encoding_Method{94I9} 25|914r55
+

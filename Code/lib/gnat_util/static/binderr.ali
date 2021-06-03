@@ -1,0 +1,162 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U binderr%b		binderr.adb		51084cdc NE OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W butil%s		butil.adb		butil.ali
+W opt%s			opt.adb			opt.ali
+W output%s		output.adb		output.ali
+
+U binderr%s		binderr.ads		070d98dd EE NE OO PK
+W namet%s		namet.adb		namet.ali
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D binderr.ads		20190518044709 6d99c947 binderr%s
+D binderr.adb		20190518044709 cf4af7eb binderr%b
+D butil.ads		20190518044709 67e1721b butil%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D namet.ads		20190518044709 b520bebe namet%s
+D opt.ads		20190518044710 3d2ce478 opt%s
+D output.ads		20190518044709 a916e413 output%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+G a e
+G c Z s b [error_msg binderr 113 14 none]
+G c Z s b [error_msg_info binderr 118 14 none]
+G c Z s b [error_msg_output binderr 124 14 none]
+G c Z s b [finalize_binderr binderr 132 14 none]
+G c Z s b [initialize_binderr binderr 135 14 none]
+G r c none [error_msg binderr 113 14 none] [set_standard_error output 77 14 none]
+G r c none [error_msg binderr 113 14 none] [write_str output 130 14 none]
+G r c none [error_msg binderr 113 14 none] [write_eol output 113 14 none]
+G r c none [error_msg binderr 113 14 none] [get_name_string namet 600 14 none]
+G r c none [error_msg binderr 113 14 none] [write_char output 106 14 none]
+G r c none [error_msg binderr 113 14 none] [write_unit_name butil 57 14 none]
+G r c none [error_msg binderr 113 14 none] [write_int output 123 14 none]
+G r c none [error_msg binderr 113 14 none] [set_standard_output output 84 14 none]
+G r c none [error_msg binderr 113 14 none] [write_line output 137 14 none]
+G r c none [error_msg_info binderr 118 14 none] [set_standard_error output 77 14 none]
+G r c none [error_msg_info binderr 118 14 none] [write_str output 130 14 none]
+G r c none [error_msg_info binderr 118 14 none] [write_eol output 113 14 none]
+G r c none [error_msg_info binderr 118 14 none] [get_name_string namet 600 14 none]
+G r c none [error_msg_info binderr 118 14 none] [write_char output 106 14 none]
+G r c none [error_msg_info binderr 118 14 none] [write_unit_name butil 57 14 none]
+G r c none [error_msg_info binderr 118 14 none] [write_int output 123 14 none]
+G r c none [error_msg_info binderr 118 14 none] [set_standard_output output 84 14 none]
+G r c none [error_msg_output binderr 124 14 none] [write_str output 130 14 none]
+G r c none [error_msg_output binderr 124 14 none] [write_eol output 113 14 none]
+G r c none [error_msg_output binderr 124 14 none] [get_name_string namet 600 14 none]
+G r c none [error_msg_output binderr 124 14 none] [write_char output 106 14 none]
+G r c none [error_msg_output binderr 124 14 none] [write_unit_name butil 57 14 none]
+G r c none [error_msg_output binderr 124 14 none] [write_int output 123 14 none]
+G r c none [finalize_binderr binderr 132 14 none] [write_eol output 113 14 none]
+G r c none [finalize_binderr binderr 132 14 none] [write_str output 130 14 none]
+G r c none [finalize_binderr binderr 132 14 none] [write_int output 123 14 none]
+X 6 binderr.ads
+38K9*Binderr 138l5 138e12 7|36b14 239l5 239t12
+40i4*Errors_Detected{28|62I12} 7|50m13 50r32 56m10 56r29 66r13 85r10 122r30
+. 205r13 208r16 212r24 235m7
+43i4*Warnings_Detected{28|62I12} 7|52m13 52r34 66r31 75r10 122r10 216r13
+. 219r16 221r24 236m7
+46b4*Info_Prefix_Suppress{boolean} 7|140r17
+94i4*Error_Msg_Name_1{11|188I9} 7|149r30
+97i4*Error_Msg_File_1{11|624I9} 7|159r33
+98i4*Error_Msg_File_2{11|624I9} 7|156r33
+101i4*Error_Msg_Unit_1{11|653I9} 7|173r33
+102i4*Error_Msg_Unit_2{11|653I9} 7|170r33
+105i4*Error_Msg_Nat_1{28|62I12} 7|183r27
+106i4*Error_Msg_Nat_2{28|62I12} 7|180r27
+113U14*Error_Msg 113>25 7|42b14 91l8 91t17
+113a25 Msg{string} 7|42b25 44r10 44r15 61r28 70r28
+118U14*Error_Msg_Info 118>30 7|97b14 109l8 109t22
+118a30 Msg{string} 7|97b30 101r28 106r28
+124U14*Error_Msg_Output 124>32 124>46 7|61s10 70s10 101s10 106s10 115b14
+. 192l8 192t24
+124a32 Msg{string} 7|115b32 130r16 131r13 147r16 148r13 154r16 166r16 178r16
+. 186r16 187r25
+124b46 Info{boolean} 7|61r33 70r33 101r33 106r33 115b46 139r13
+132U14*Finalize_Binderr 7|198b14 227l8 227t24
+135U14*Initialize_Binderr 7|233b14 237l8 237t26
+X 7 binderr.adb
+116b7 Use_Second_File{boolean} 155r16 158m16
+117b7 Use_Second_Unit{boolean} 169r16 172m16
+118b7 Use_Second_Nat{boolean} 179r16 182m16
+119b7 Warning{boolean} 132m13 137r10
+130i11 J{integer} 131r18
+147i11 J{integer} 148r18 154r21 166r21 178r21 186r21 187r30
+X 8 butil.ads
+37K9*Butil 7|32w6 32r18 8|109e10
+57U14*Write_Unit_Name 7|170s16 173s16
+X 11 namet.ads
+37K9*Namet 6|35w6 35r17 11|768e10
+169a4*Name_Buffer{string} 7|151r24 163r24
+170i4*Name_Len{natural} 7|151r42 163r42
+188I9*Name_Id<integer> 6|94r23
+600U14*Get_Name_String 7|149s13 156s16 159s16
+624I9*File_Name_Type<188I9> 6|97r23 98r23
+653I9*Unit_Name_Type<188I9> 6|101r23 102r23
+X 12 opt.ads
+50K9*Opt 7|33w6 33r18 12|2414e8
+295b4*Brief_Output{boolean} 7|59r10 99r10
+1100i4*Maximum_Messages{28|59I9} 7|75r30 85r28 122r48
+1710b4*Verbose_Mode{boolean} 7|59r36 65r10 99r36 105r10 202r10
+1934n7*Suppress{1933E9} 7|45r28 80r26
+1934n25*Treat_As_Error{1933E9} 7|49r28
+1935e4*Warning_Mode{1933E9} 7|45r13 49r13 80m10
+X 13 output.ads
+44K9*Output 7|34w6 34r18 13|213e11
+77U14*Set_Standard_Error 7|60s10 76s10 86s10 100s10
+84U14*Set_Standard_Output 7|62s10 79s10 88s10 102s10
+106U14*Write_Char 7|150s13 152s13 162s13 164s13 167s13 176s13 187s13
+113U14*Write_Eol 7|67s13 124s10 191s7 203s10 225s10
+123U14*Write_Int 7|180s16 183s16 212s13 221s13
+130U14*Write_Str 7|123s10 138s10 141s13 144s10 151s13 163s13 206s13 209s13
+. 213s13 217s13 220s13 222s13
+137U14*Write_Line 7|77s10 78s10 87s10
+X 14 system.ads
+67M9*Address
+X 17 s-memory.ads
+53V13*Alloc{14|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{14|67M9} 105i<c,__gnat_realloc>22
+X 28 types.ads
+52K9*Types 6|36w6 36r17 28|948e10
+59I9*Int<integer>
+62I12*Nat{59I9} 6|40r22 43r24 105r22 106r22
+783X4*Unrecoverable_Error 7|89r16
+

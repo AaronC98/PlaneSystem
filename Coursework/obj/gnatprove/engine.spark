@@ -1,0 +1,243 @@
+{
+  "spark": [
+    {
+      "name": "engine",
+      "sloc": [
+        {
+          "file": "engine.ads",
+          "line": 1
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "engine.TurnOn",
+      "sloc": [
+        {
+          "file": "engine.ads",
+          "line": 9
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "engine.TurnOff",
+      "sloc": [
+        {
+          "file": "engine.ads",
+          "line": 13
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+  ],
+  "proof": [
+    {
+      "file": "engine.ads",
+      "line": 11,
+      "col": 14,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "engine.TurnOn",
+        "sloc": [
+          {
+            "file": "engine.ads",
+            "line": 9
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "engine.ads",
+      "check_line": 11,
+      "check_col": 14,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "engine.ads",
+      "line": 15,
+      "col": 14,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "engine.TurnOff",
+        "sloc": [
+          {
+            "file": "engine.ads",
+            "line": 13
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "engine.ads",
+      "check_line": 15,
+      "check_col": 14,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "engine.TurnOn",
+          "sloc": [
+            {
+              "file": "engine.ads",
+              "line": 9
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "engine.TurnOn",
+          "sloc": [
+            {
+              "file": "engine.ads",
+              "line": 9
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "engine.TurnOn",
+          "sloc": [
+            {
+              "file": "engine.ads",
+              "line": 9
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "engine.TurnOff",
+          "sloc": [
+            {
+              "file": "engine.ads",
+              "line": 13
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "engine.TurnOff",
+          "sloc": [
+            {
+              "file": "engine.ads",
+              "line": 13
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "engine.TurnOff",
+          "sloc": [
+            {
+              "file": "engine.ads",
+              "line": 13
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "engine",
+          "sloc": [
+            {
+              "file": "engine.ads",
+              "line": 1
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "timings": {
+    "marking": 2.57000006968156E-04,
+    "globals (basic)": 2.87000002572313E-04,
+    "globals/properties (advanced)": 4.60999988717958E-04,
+    "flow analysis": 3.74899990856647E-03,
+    "codepeer results": 1.10000000859145E-05,
+    "init_why_sections": 9.01999999769032E-04,
+    "translation of standard": 6.14700000733137E-03,
+    "translation of compilation unit": 3.55300004594028E-03,
+    "proof": 8.83014023303986E-01
+  }
+}

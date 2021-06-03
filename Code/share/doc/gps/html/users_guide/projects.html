@@ -1,0 +1,650 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7. Project Handling &#8212; GPS 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/adacore.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="8. Searching and Replacing" href="searching.html" />
+    <link rel="prev" title="6. Source Navigation" href="navigation.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="searching.html" title="8. Searching and Replacing"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="navigation.html" title="6. Source Navigation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">7. Project Handling</a><ul>
+<li><a class="reference internal" href="#description-of-the-projects">7.1. Description of the Projects</a><ul>
+<li><a class="reference internal" href="#project-files-and-gnat-tools">7.1.1. Project files and GNAT tools</a></li>
+<li><a class="reference internal" href="#contents-of-project-files">7.1.2. Contents of project files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#supported-languages">7.2. Supported Languages</a></li>
+<li><a class="reference internal" href="#scenarios-and-configuration-variables">7.3. Scenarios and Configuration Variables</a><ul>
+<li><a class="reference internal" href="#creating-new-scenario-variables">7.3.1. Creating new scenario variables</a></li>
+<li><a class="reference internal" href="#editing-existing-scenario-variables">7.3.2. Editing existing scenario variables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#extending-projects">7.4. Extending Projects</a><ul>
+<li><a class="reference internal" href="#description-of-project-extensions">7.4.1. Description of project extensions</a></li>
+<li><a class="reference internal" href="#creating-project-extensions">7.4.2. Creating project extensions</a></li>
+<li><a class="reference internal" href="#adding-files-to-project-extensions">7.4.3. Adding files to project extensions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#aggregate-projects">7.5. Aggregate projects</a></li>
+<li><a class="reference internal" href="#disabling-editing-of-the-project-file">7.6. Disabling Editing of the Project File</a></li>
+<li><a class="reference internal" href="#the-project-wizard">7.7. The Project Wizard</a></li>
+<li><a class="reference internal" href="#the-project-properties-editor">7.8. The Project Properties Editor</a></li>
+<li><a class="reference internal" href="#the-switches-editor">7.9. The Switches Editor</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="navigation.html"
+                        title="previous chapter">6. Source Navigation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="searching.html"
+                        title="next chapter">8. Searching and Replacing</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/projects.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="project-handling">
+<span id="id1"></span><h1>7. Project Handling<a class="headerlink" href="#project-handling" title="Permalink to this headline">¶</a></h1>
+<p>The discussion of the <span class="guilabel">Project</span> view (see
+<a class="reference internal" href="main_window.html#the-project-view"><span class="std std-ref">The Project view</span></a>) gave a brief overview of what the projects are and
+the information they contain.  This chapter provides more in-depth
+information and describes how you create and maintain projects.</p>
+<div class="section" id="description-of-the-projects">
+<span id="index-0"></span><span id="id2"></span><h2>7.1. Description of the Projects<a class="headerlink" href="#description-of-the-projects" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="project-files-and-gnat-tools">
+<h3>7.1.1. Project files and GNAT tools<a class="headerlink" href="#project-files-and-gnat-tools" title="Permalink to this headline">¶</a></h3>
+<p>The projects used by GPS are the same as the ones used by GNAT: all
+command-line GNAT tools are project aware.  Projects files are text (with
+the extension <code class="file docutils literal"><span class="pre">.gpr</span></code>), which you can edit with any text editor or
+through GPS&#8217;s interface.  GPS can load any project file, even those you
+created or edited manually, and you can manually edit project files created
+by GPS.  Most features of project files can be accessed without using GPS.</p>
+<p>The detailed syntax and semantics of project files is fully described in
+the GNAT User&#8217;s Guide and GNAT Reference Manual.  Read these sections if
+you want to use the more advanced capabilities of project files that are not
+supported by GPS&#8217;s graphical interface.</p>
+<p>You usually will not need to edit project files manually, since GPS provides
+several graphical tools such as the project wizard (see
+<a class="reference internal" href="#the-project-wizard"><span class="std std-ref">The Project Wizard</span></a>) and the properties editor (see
+<a class="reference internal" href="#the-project-properties-editor"><span class="std std-ref">The Project Properties Editor</span></a>).</p>
+<p id="index-1">GPS does not preserve the layout or comments of projects you created
+manually after you have edited them in GPS. For example, multiple case
+statements in the project are merged into a single case statement.  GPS
+needs to do this normalization to be able to preserve the previous
+semantics of the project in addition to supporting the new settings.</p>
+<span class="target" id="index-2"></span><p id="index-3">GPS uses the same mechanisms to locate project files as GNAT:</p>
+<ul>
+<li><p class="first">absolute paths</p>
+</li>
+<li><p class="first">relative paths</p>
+<p>These paths, when used in a <strong class="command">with</strong> line as described below, are
+relative to the location of the project containing the <strong class="command">with</strong>.</p>
+</li>
+<li><p class="first"><cite>ADA_PROJECT_PATH</cite></p>
+<p>If set, an environment variable containing a colon-separated (semicolon
+under Windows) list of directories to be searched for project files.</p>
+</li>
+<li><p class="first"><cite>GPR_PROJECT_PATH</cite></p>
+<p>If set, an environment variable containing a colon-separated (semicolon
+under Windows) list of directories to be searched for project files.</p>
+</li>
+<li><p class="first">predefined project path</p>
+<p>The compiler internally defines a predefined project path in which standard
+libraries can be installed, for example XML/Ada.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="contents-of-project-files">
+<h3>7.1.2. Contents of project files<a class="headerlink" href="#contents-of-project-files" title="Permalink to this headline">¶</a></h3>
+<p>Project files contain all the information describing the organization of
+your source files, object files, and executables.</p>
+<p id="index-4">A project file can contain comments, which have the same format as in Ada:
+they start with &#8220;&#8211;&#8221; and extend to the end of the line.  You can add
+comments when you edit the project file manually. GPS attempts to preserve
+them when you save the project through the menu, but this is not always
+possible.  GPS is more likely to preserve them if the comments are put at
+the end of the line:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="n">Default</span> <span class="kr">is</span>
+    <span class="kr">for</span> <span class="n">Source_Dirs</span> <span class="kn">use</span> <span class="p">();</span>  <span class="c1">--  No source in this project</span>
+<span class="kr">end</span> <span class="nf">Default</span><span class="p">;</span>
+</pre></div>
+</div>
+<p id="index-5">Often, one project file is not enough to describe a complex system. If so,
+you will create and use a project hierarchy, with a root project importing
+subprojects. Each project and subproject is responsible for its own set of
+sources (including compiling them with the appropriate switches and putting
+the resulting files in the correct directories).</p>
+<p>Each project file contains the following information (see the GNAT
+User&#8217;s Guide for the full list):</p>
+<ul>
+<li><p class="first"><code class="file docutils literal"><span class="pre">List</span> <span class="pre">of</span> <span class="pre">imported</span> <span class="pre">projects</span></code></p>
+<p id="index-6">When compiling sources from this project, the builder first makes sure it
+correctly recompiled all the imported projects and that they are up to
+date. This properly handles dependencies between source files.</p>
+<p>If one source file of project A depends on some source files from project
+B, B must be marked as imported by A.  If this is not done, the compiler
+will complain that those source files cannot be found.</p>
+<p>Each source file name must be unique in the project hierarchy (i.e., a
+file cannot be under control of two different projects), ensuring that
+the file will be found no matter what project is managing it.</p>
+</li>
+<li><p class="first"><code class="file docutils literal"><span class="pre">List</span> <span class="pre">of</span> <span class="pre">source</span> <span class="pre">directories</span></code></p>
+<p id="index-7">All sources managed by a project are located in one or more source
+directories. Each project can have multiple source directories and a
+given source directory may be shared by multiple projects.</p>
+</li>
+<li><p class="first"><code class="file docutils literal"><span class="pre">Object</span> <span class="pre">directory</span></code></p>
+<p id="index-8">When sources of the project are compiled, the resulting object files are
+put in this directory. There must be exactly one object directory for
+each project. If you need to split the object files across multiple
+directories, you must create multiple projects importing each other.</p>
+<p>When sources from imported subprojects are recompiled, the resulting
+object files are put in the subproject&#8217;s own object directory and not the
+parent&#8217;s object directory.</p>
+</li>
+<li><p class="first"><code class="file docutils literal"><span class="pre">Exec</span> <span class="pre">directory</span></code></p>
+<p id="index-9">When the object files are linked into an executable, this executable is
+put in the exec directory specified by this attribute. If it is omitted,
+the builder puts the executable into the object directory.</p>
+</li>
+<li><p class="first"><code class="file docutils literal"><span class="pre">List</span> <span class="pre">of</span> <span class="pre">source</span> <span class="pre">files</span></code></p>
+<p id="index-10">Each project is responsible for managing its set of source files. These
+files can be written in any programming language, but the graphical
+interface supports only Ada, C, and C++.</p>
+<p>By default, these source files are found by taking all the files in the
+source directories that follow the naming scheme (see below) for each
+language. You can also edit the project file manually to provide an
+explicit list of source files.</p>
+<p>This attribute cannot be modified graphically.</p>
+</li>
+<li><p class="first"><code class="file docutils literal"><span class="pre">List</span> <span class="pre">of</span> <span class="pre">main</span> <span class="pre">units</span></code></p>
+<p id="index-11">The main units of a project (or main files in some languages) are the
+units containing the main subprogram of the application.  The name of the
+file is generally related to the name of the executable.</p>
+<p>A project file hierarchy can be used to compile and link several
+executables. GPS automatically updates the <span class="guilabel">Compile</span>,
+<span class="guilabel">Run</span> and <span class="guilabel">Debug</span> menu with the list of executables
+based on this list.</p>
+</li>
+<li><p class="first"><code class="file docutils literal"><span class="pre">Naming</span> <span class="pre">schemes</span></code></p>
+<p id="index-12">The naming scheme refers to the way files are named for each language
+used by your project.  GPS uses this to choose the language to use when
+you open a source file and what tools to use to compile or otherwise
+manipulate a source file.</p>
+</li>
+<li><p class="first"><code class="file docutils literal"><span class="pre">Embedded</span> <span class="pre">targets</span> <span class="pre">and</span> <span class="pre">cross</span> <span class="pre">environments</span></code></p>
+<p id="index-13">GPS supports cross environment software development: GPS itself can run
+on one host, such as GNU/Linux, while compilation, execution, and
+debugging occur on a different remote host, such as Sun/Solaris.</p>
+<p id="index-14">GPS also supports embedded targets such as VxWorks by specifying
+alternate names for the build and debug tools.</p>
+<p>The project file contains the information required to log on to the
+remote host.</p>
+</li>
+<li><p class="first"><code class="file docutils literal"><span class="pre">Tools</span></code></p>
+<p>Project files provide a simple way of specifying the compiler and
+debugger commands to use.</p>
+</li>
+<li><p class="first"><code class="file docutils literal"><span class="pre">Switches</span></code></p>
+<p id="index-15">Each tool used by GPS (such as the compiler, pretty-printer, and
+debugger) has its own set of switches. Moreover, these switches may
+depend on the file being processed and the programming language it is
+written in.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="supported-languages">
+<span id="index-16"></span><span id="id3"></span><h2>7.2. Supported Languages<a class="headerlink" href="#supported-languages" title="Permalink to this headline">¶</a></h2>
+<p>Other information stored in the project file is the list of languages used
+by the project. GPS supports any language, each with a name you choose, but
+advanced support is only provided by default for some languages (Ada, C, and
+C++).  You can specify other properties of the languages through
+customization files (see <a class="reference internal" href="extending.html#adding-support-for-new-languages"><span class="std std-ref">Adding support for new languages</span></a>).</p>
+<p>The graphical interface only allows you to choose languages currently known
+to GPS, either through built-in support or your customization files.
+Supporting a languages means syntax highlighting in the editor, and
+possibly the <span class="guilabel">Outline</span> view.  Other languages have advanced
+cross-references facilities available.  You can edit the project files by
+hand to add support for any language.</p>
+<p>Languages are a very important part of the project definition. For each
+language, you should specify a naming scheme to allow GPS to associate files
+with that language.  For example, you could specify that all <code class="file docutils literal"><span class="pre">.adb</span></code>
+files are Ada, all <code class="file docutils literal"><span class="pre">.txt</span></code> files are standard text files, etc.</p>
+<p id="index-17">Only files that have an associated known language are displayed in the
+<span class="guilabel">Project</span> view and available for selection through the
+<span class="menuselection">Find ‣ Find File in Project</span> menu. Similarly, only these
+files are shown in the Version Control System interface.  It is important to
+properly set up your project to make these files conveniently available in
+GPS although you can still open any file through the <span class="menuselection">File
+‣ Open File</span> menu.</p>
+<p>If your project includes <code class="file docutils literal"><span class="pre">README</span></code> files, or other text files, you
+should add &#8220;txt&#8221; as a language (the name is arbitrary) and ensure these
+files are associated with that language in the <span class="menuselection">Edit ‣
+Project Properties...</span>.</p>
+</div>
+<div class="section" id="scenarios-and-configuration-variables">
+<span id="index-18"></span><span id="id4"></span><h2>7.3. Scenarios and Configuration Variables<a class="headerlink" href="#scenarios-and-configuration-variables" title="Permalink to this headline">¶</a></h2>
+<p>You can further tailor the behavior of project by using scenarios.</p>
+<p id="index-19">You can specify the value of all attributes of a project except its list of
+imported projects based on the value of external variables, each of which
+comes from either the host computer environment or is specifically set in
+GPS. The interface to manipulate these scenarios is the
+<span class="guilabel">Scenario</span> view, which you display by selecting the menu
+<span class="menuselection">View ‣ Scenario</span> (<a class="reference internal" href="main_window.html#scenario-view"><span class="std std-ref">The Scenario View</span></a>).  You may want to drop this window above the
+<span class="guilabel">Project</span> view so you can see both at the same time.</p>
+<p>The <span class="guilabel">Scenario</span> view allows you to select new values for the
+scenario variables defined in your project and thus dynamically change the
+view GPS has of your project and its source files.</p>
+<p>For example, you can use this facility to compile all the sources either in
+debug mode (so the executables can be run in the debugger) or in optimized
+mode (to reduce the space and increase the speed when delivering the
+software).  In that scenario, most of the attributes (such as source
+directories and tools) remain the same, but compilation switches differ.
+You could also maintain a completely separate hierarchy of projects, but
+it is much more efficient to create a new configuration variable and edit
+the switches for the appropriate scenario (see
+<a class="reference internal" href="#the-project-properties-editor"><span class="std std-ref">The Project Properties Editor</span></a>).</p>
+<p>There is one limitation on what GPS can do with scenario variables:
+although <strong class="program">gnatmake</strong> and <strong class="program">gprbuild</strong> can use scenario
+variables whose default value is something other than static string (for
+example, a concatenation or the value of another scenario variable), GPS
+cannot edit such a project graphically, though such projects load
+correctly.</p>
+<div class="section" id="creating-new-scenario-variables">
+<span id="index-20"></span><h3>7.3.1. Creating new scenario variables<a class="headerlink" href="#creating-new-scenario-variables" title="Permalink to this headline">¶</a></h3>
+<p>Create a new scenario variable through the contextual menu (right-click) in
+the <span class="guilabel">Project</span> or <span class="guilabel">Scenario</span> views themselves. Select
+the <span class="menuselection">Project ‣ Add Scenario Variable</span> menu, which
+opens the following dialog:</p>
+<img alt="_images/scenarios.png" src="_images/scenarios.png" />
+<p>There are two main areas in this dialog.  You specify the name of the
+variable in the top line. This name is used for two purposes:</p>
+<ul>
+<li><p class="first">It is displayed in the <span class="guilabel">Scenario</span> view</p>
+</li>
+<li><p class="first">It is the name of the environment variable from which the initial value is
+read. When GPS starts, all configuration variables are initialized from
+the host computer environment, although you can later change their values
+inside GPS.  Selecting a new value for the scenario variable does not
+change the value of the environment variable, which is only used to get
+the default initial value of the scenario variable.</p>
+<p>When you spawn external tools like <strong class="program">gnatmake</strong> you can also
+specify the value they should use for the scenario variable by using a
+command line switch, typically <strong class="command">-X</strong>.</p>
+</li>
+</ul>
+<p>Click on the arrow on the right of the name area to display the list of all
+currently-defined environment variables. However, you can choose any
+variable; the environment variable need not exist when you start GPS.</p>
+<p>The second area in this dialog is the list of possible values for this
+variable.  GPS generates an error and will not load the project if you specify
+any other value.  One of these values is the default (the one whose button
+in the <span class="guilabel">Default</span> column is selected). If the environment variable
+is not defined when GPS starts, it behaves as if it had this default
+value.</p>
+<p>You can edit the list of possible values by right-clicking on the name of
+the variable and selecting either <span class="guilabel">Edit properties</span> or
+<span class="guilabel">Delete variable</span>.</p>
+</div>
+<div class="section" id="editing-existing-scenario-variables">
+<span id="index-21"></span><h3>7.3.2. Editing existing scenario variables<a class="headerlink" href="#editing-existing-scenario-variables" title="Permalink to this headline">¶</a></h3>
+<p>If at least one configuration variable is defined in your project, the
+<span class="guilabel">Scenario</span> view contains something similar to:</p>
+<img alt="_images/views-scenario.png" src="_images/views-scenario.png" />
+<p>You can change the current value of any of these variables by clicking on
+one, which displays a pop-up window with the list of possible values, from
+which you select the one you want to use.</p>
+<p>As soon as a new value is selected, GPS recomputes the <span class="guilabel">Project</span>
+view (in case source directories, object directories or list of source
+files have changed).  GPS also updates other items such as the list of
+executables in the <span class="guilabel">Compile</span>, <span class="guilabel">Run</span>, and
+<span class="guilabel">Debug</span> menus.</p>
+<span class="target" id="index-22"></span><p id="index-23">Because it can be time consuming and costly of system resources, GPS does
+not recompute the contents of the various browsers, such as the call graph
+and dependencies, for this updated project. You must explicitly request that
+they be updated if you want them recomputed.</p>
+<p>Change the list of possible values for a configuration variable at any time
+by clicking on the <span class="guilabel">edit</span> button in the local toolbar. This pops
+up the same dialog used to create new variables, and also allows you to
+change the name of the scenario variable (the same name as the
+environment variable used to set the initial value of the scenario
+variable).</p>
+<p id="index-24">To remove a variable, select it and click the <span class="guilabel">remove</span> button in
+the local toolbar. GPS displays a confirmation dialog.  When the variable
+is removed, GPS acts as if the variable always had the value it had when it
+was removed.</p>
+</div>
+</div>
+<div class="section" id="extending-projects">
+<span id="index-25"></span><span id="id5"></span><h2>7.4. Extending Projects<a class="headerlink" href="#extending-projects" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="description-of-project-extensions">
+<h3>7.4.1. Description of project extensions<a class="headerlink" href="#description-of-project-extensions" title="Permalink to this headline">¶</a></h3>
+<p>Project files are designed to support large projects, with several hundred
+or even several thousand source files. In such contexts, one developer will
+generally work on a subset of the sources.  Such a project may often take
+several hours to be fully compiled.  Most developers do not need to have the
+full copy of the project compiled on their own machine.</p>
+<p>However, it can still be useful to access other source files from the
+application. For example, a developer may need to find out whether
+a subprogram can be changed, and where it is currently called.</p>
+<p>Such a setup can be achieved through project extensions. These are special
+types of projects that inherit most of their attributes and source files
+from another project and can have, in their source directories, some source
+files that hide those inherited from the original project.</p>
+<p>When compiling such projects, the compiler puts the newly created project
+files in the extension project&#8217;s directory and leaves the original
+directory untouched. As a result, the original project can be shared
+read-only among several developers (for example, the original project is
+often the result of a nightly build of the application).</p>
+</div>
+<div class="section" id="creating-project-extensions">
+<h3>7.4.2. Creating project extensions<a class="headerlink" href="#creating-project-extensions" title="Permalink to this headline">¶</a></h3>
+<p>The project wizard allows you to create extension projects.  Select an
+empty directory (which is created if it does not exist), as well as a list of
+initial source files (new files can be added later).  GPS copies the
+selected source files to the directory and creates a number of project
+files there. It then loads a new project, with the same properties as the
+previous one, except that some files are found in the new directory and
+object files resulting from the compilation are put into that directory
+instead of the object directory of the original project.</p>
+</div>
+<div class="section" id="adding-files-to-project-extensions">
+<h3>7.4.3. Adding files to project extensions<a class="headerlink" href="#adding-files-to-project-extensions" title="Permalink to this headline">¶</a></h3>
+<p id="index-26">Once you load a project extension in GPS, most things are transparent to
+the extension. If you open a file through the <span class="menuselection">Find ‣ Find
+File in Project</span> dialog, the files found in the local directory of the
+extension project are picked up first.  Build actions create object files
+in the project extensions&#8217; directory, leaving the original project
+untouched.</p>
+<p>You may want to work on a source file you did not put in the project
+extension when you created it. You could edit the file in the original
+project (provided, of course, you have write access to it).  However, it is
+generally better to edit it in the context of the project extension, so the
+original project can be shared among developers.  Do this by clicking the
+file in the <span class="guilabel">Project</span> view and selecting the <span class="menuselection">Add
+To Extending Project</span> menu.  You will see a dialog asking whether you want
+GPS to copy the file to the project extension&#8217;s directory.  GPS may also
+create some new project files in that directory, if necessary, and
+automatically reload the project as needed. From that point on, if you use
+the menu <span class="menuselection">Find ‣ Find File in Project</span>, GPS uses the file
+from the project extension.  Open editors will still edit the same files
+they previously contained, so you should open the new file in them if
+needed.</p>
+</div>
+</div>
+<div class="section" id="aggregate-projects">
+<span id="disabling-project-edition-features"></span><span id="index-27"></span><h2>7.5. Aggregate projects<a class="headerlink" href="#aggregate-projects" title="Permalink to this headline">¶</a></h2>
+<p>Aggregate projects are a convenient way to group several independent
+projects into a single project that you can load in GPS. Using an
+aggregate project has several advantages:</p>
+<ul class="simple">
+<li>There is no restriction on duplicate names within aggregate sources and
+projects.  There can be duplicate file names between the aggregate
+projects or duplicate projects. For example, if you have a project
+<code class="file docutils literal"><span class="pre">liba.gpr</span></code> containing a library used by both <code class="file docutils literal"><span class="pre">projectA.gpr</span></code>
+and <code class="file docutils literal"><span class="pre">projectB.gpr</span></code>, you can still aggregate the latter two
+projects. A source file is also permitted to belong to both
+<code class="file docutils literal"><span class="pre">projectA.gpr</span></code> and <code class="file docutils literal"><span class="pre">projectB.gpr</span></code>.</li>
+<li>You can use <strong class="program">gprbuild</strong> to build the main units of all aggregate
+projects with a single command.</li>
+<li>The aggregated project can contain attributes to setup your environment,
+in particular you can use <code class="file docutils literal"><span class="pre">External</span></code> to set the value of the
+scenario variables and <code class="file docutils literal"><span class="pre">Project_Path</span></code> to set the project path to be
+used to load the aggregated projects.</li>
+</ul>
+<p>Here is a short example of an aggregate project:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">aggregate</span> <span class="n">project</span> <span class="n">BuildAll</span> <span class="kr">is</span>
+    <span class="c1">--  &quot;liba.gpr&quot; as described above, is automatically imported, but</span>
+    <span class="c1">--  not aggregated so its main units are not build</span>
+    <span class="kr">for</span> <span class="n">Project_Files</span> <span class="kn">use</span> <span class="p">(</span><span class="s">&quot;projecta/projecta.gpr&quot;</span><span class="p">,</span>
+                           <span class="s">&quot;projectb/projectb.gpr&quot;</span><span class="p">);</span>
+
+    <span class="c1">--  Set environment variables</span>
+    <span class="kr">for</span> <span class="n">External</span> <span class="p">(</span><span class="s">&quot;BUILD&quot;</span><span class="p">)</span> <span class="kn">use</span> <span class="s">&quot;Debug&quot;</span><span class="p">;</span>
+<span class="kr">end</span> <span class="nf">BuildAll</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>GPS helps you use aggregate projects in the following ways:</p>
+<ul>
+<li><p class="first">Since a source file can now belong to several projects, each editor is
+associated with a specific project.  If the <code class="file docutils literal"><span class="pre">common.ads</span></code> file is
+part of multiple projects, you may end up with two editors, one for
+<code class="file docutils literal"><span class="pre">common.ads</span></code> in the context of <code class="file docutils literal"><span class="pre">projectA.gpr</span></code>, and the other
+in the context of <code class="file docutils literal"><span class="pre">projectB.gpr</span></code>. The project matters when doing
+cross-reference queries, since a <cite>with C;</cite> in <code class="file docutils literal"><span class="pre">common.ads</span></code>
+could point to different files depending on which project owns that
+editor.</p>
+<p>To help with this, GPS shows the name of the project in the notebook
+tabs.</p>
+</li>
+<li><p class="first">The omni-search (at the top-right corner of the GPS window) may list the
+a file several times, once per each project that owns it. So you need to
+select the one you are interested in.</p>
+</li>
+<li><p class="first">After you perform a cross-reference (<span class="menuselection">Navigate ‣ Goto
+declaration</span>), the newly opened editor automatically selects the proper
+project.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="disabling-editing-of-the-project-file">
+<h2>7.6. Disabling Editing of the Project File<a class="headerlink" href="#disabling-editing-of-the-project-file" title="Permalink to this headline">¶</a></h2>
+<p>You should generally consider project files part of the sources and put
+them under the control of a version control system.  This will prevent
+accidental editing of the project files, either by you or someone else
+using the same GPS installation.</p>
+<p>One way to prevent such accidents is to change the write permissions of the
+project files themselves. On Unix systems, you could also change the owner
+of the file. When GPS cannot write a project file, it reports an error to
+the user.  However, the above does not prevent a user from trying to make
+changes at the GUI level, since the error message only occurs when trying
+to save the project (this is by design, so that temporary modification can
+be done in memory).</p>
+<p>You can disable all the project editing related menus in GPS by adding a
+special startup switch, typically by creating a short script that spawns
+GPS with these switches.  Use the following command line:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">gps</span> <span class="c1">--traceoff=MODULE.PROJECT_VIEWER --traceoff=MODULE.PROJECT_PROPERTIES</span>
+</pre></div>
+</div>
+<p>This prevents the loading of the two GPS modules responsible for editing
+project files. However, this also has an impact on the Python functions
+that are exported by GPS and thus could break some plugins. Another
+possible solution is to hide the corresponding project editing menus and
+contextual menus.  You could do this by enabling the
+<code class="file docutils literal"><span class="pre">prevent_project_edition.py</span></code> plugin via the
+<span class="menuselection">Edit ‣ Preferences...</span> menu.</p>
+</div>
+<div class="section" id="the-project-wizard">
+<span id="index-28"></span><span id="id6"></span><h2>7.7. The Project Wizard<a class="headerlink" href="#the-project-wizard" title="Permalink to this headline">¶</a></h2>
+<p>The project wizard lets you create a new project file in a few steps.
+It contains a number of project templates, making it easy to create
+projects that rely on a particular technology (e.g: GtkAda).</p>
+<p>You normally access this wizard through the <span class="menuselection">File ‣
+New Project...</span> menu.</p>
+<p>The first page of the wizard lists the various project templates. Selecting one
+of them and clicking on the <span class="guilabel">Next</span> button will show a page allowing
+you to modify the project template settings. Once modified, click on
+<span class="guilabel">Apply</span> to actually create your project.</p>
+<img alt="_images/project-wizard.png" src="_images/project-wizard.png" />
+<span class="target" id="index-29"></span></div>
+<div class="section" id="the-project-properties-editor">
+<span id="index-30"></span><span id="id7"></span><h2>7.8. The Project Properties Editor<a class="headerlink" href="#the-project-properties-editor" title="Permalink to this headline">¶</a></h2>
+<p>Use the <span class="guilabel">Project Properties</span> editor at any time to access the
+properties of your project through the <span class="menuselection">Edit ‣
+Project Properties...</span> menu or the contextual menu <span class="menuselection">Properties</span>
+on any project item, e.g. from the <span class="guilabel">Project</span>
+views or the <span class="guilabel">Project</span> browser.</p>
+<p>In some cases, GPS cannot edit your project graphically. It will still
+display a read-only version of the <span class="guilabel">Project Properties</span> dialog.
+This is the case, among others, when:</p>
+<blockquote>
+<div><ul class="simple">
+<li>the project loaded with errors, such as invalid syntax or missing
+directories;</li>
+<li>you are editing an aggregate project;</li>
+<li>the project was written manually before and uses advanced features
+like variables (<code class="samp docutils literal"><span class="pre">Var</span> <span class="pre">:=</span> <span class="pre">...</span></code>).</li>
+</ul>
+</div></blockquote>
+<img alt="_images/project-properties.png" src="_images/project-properties.png" />
+<p>The <span class="guilabel">Project Properties</span> editor is divided into three parts:</p>
+<p><em>The attributes editor</em></p>
+<blockquote>
+<div><p>The contents of this editor are very similar to that of the project
+wizard (see <a class="reference internal" href="#the-project-wizard"><span class="std std-ref">The Project Wizard</span></a>). In fact, all pages but the
+<span class="guilabel">General</span> page are exactly the same; read their description in
+the project wizard section.</p>
+<p>See also <a class="reference internal" href="cross_env.html#working-in-a-cross-environment"><span class="std std-ref">Working in a Cross Environment</span></a> for more info on the
+<span class="guilabel">Cross environment</span> attributes.</p>
+</div></blockquote>
+<p><em>The project selector</em></p>
+<blockquote>
+<div><p>This area, the top-right corner of the properties editor, displays a list
+of all projects in the hierarchy. The value in the attributes editor is
+applied to all the selected projects in this selector. You cannot unselect
+the project for which you activated the contextual menu.</p>
+<p>Clicking on the right title bar (<span class="guilabel">Project</span>) of this selector
+sorts the projects in ascending or descending order.  Clicking on the
+left title bar (untitled) selects or unselects all the projects.</p>
+<p>This selector has two different possible presentations, chosen by the
+toggle button on top: either a sorted list of all the projects, each
+appearing only once, or the same project hierarchy displayed in the
+<span class="guilabel">Project</span> view.</p>
+</div></blockquote>
+<p><em>The scenario selector</em></p>
+<blockquote>
+<div><p>This area, the bottom-right corner of the properties editor, displays all
+scenario variables declared in the project hierarchy. By selecting some
+or all of their values, you can choose to which scenario the modifications
+in the attributes editor apply.</p>
+<p>Clicking on the left title bar (untitled, on the left of the
+<span class="guilabel">Scenario</span> label) selects or unselects all values of all
+variables.</p>
+<p>To select all values of a given variable, click on the corresponding
+check button.</p>
+</div></blockquote>
+</div>
+<div class="section" id="the-switches-editor">
+<span id="id8"></span><h2>7.9. The Switches Editor<a class="headerlink" href="#the-switches-editor" title="Permalink to this headline">¶</a></h2>
+<p>The switches editor, available through the <span class="menuselection">Edit ‣
+Project Properties...</span> menu, displays all source files associated with the
+selected project.</p>
+<p>For each file, it lists the compiler switches for that file. These switches
+are displayed in gray if they are the default switches defined at the
+project level (see <a class="reference internal" href="#the-project-properties-editor"><span class="std std-ref">The Project Properties Editor</span></a>) and in black if
+they are specific to that file.</p>
+<p>Edit the switches for the file by double-clicking in the switches column.
+You can edit the switches for multiple files at the same time by selecting
+them before displaying the contextual menu <span class="menuselection">Edit switches
+for all selected files</span>.</p>
+<p>When you double-click in one of the columns containing switches, GPS opens
+a new dialog allowing you to edit the switches specific to the selected
+files.  This dialog has a button titled <span class="guilabel">Revert</span>, which cancels
+any file-specific switch and reverts to the default switches defined at the
+project level.</p>
+<img alt="_images/switch-editor-revert.jpg" src="_images/switch-editor-revert.jpg" />
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="searching.html" title="8. Searching and Replacing"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="navigation.html" title="6. Source Navigation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

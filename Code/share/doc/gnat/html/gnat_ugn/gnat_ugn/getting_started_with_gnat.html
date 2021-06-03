@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2. Getting Started with GNAT &#8212; GNAT User&#39;s Guide for Native Platforms 2019 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. The GNAT Compilation Model" href="the_gnat_compilation_model.html" />
+    <link rel="prev" title="1. About This Guide" href="about_this_guide.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="the_gnat_compilation_model.html" title="3. The GNAT Compilation Model"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="about_this_guide.html" title="1. About This Guide"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_ugn.html">GNAT User&#39;s Guide for Native Platforms 2019 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../gnat_ugn.html">
+              <img class="logo" src="../_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../gnat_ugn.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2. Getting Started with GNAT</a><ul>
+<li><a class="reference internal" href="#running-gnat">2.1. Running GNAT</a></li>
+<li><a class="reference internal" href="#running-a-simple-ada-program">2.2. Running a Simple Ada Program</a></li>
+<li><a class="reference internal" href="#running-a-program-with-multiple-units">2.3. Running a Program with Multiple Units</a></li>
+<li><a class="reference internal" href="#using-the-gnatmake-utility">2.4. Using the <code class="docutils literal"><span class="pre">gnatmake</span></code> Utility</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="about_this_guide.html"
+                        title="previous chapter">1. About This Guide</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="the_gnat_compilation_model.html"
+                        title="next chapter">3. The GNAT Compilation Model</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnat_ugn/getting_started_with_gnat.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-started-with-gnat">
+<span id="id1"></span><h1>2. Getting Started with GNAT<a class="headerlink" href="#getting-started-with-gnat" title="Permalink to this headline">¶</a></h1>
+<p>This chapter describes how to use GNAT&#8217;s command line interface to build
+executable Ada programs.
+On most platforms a visually oriented Integrated Development Environment
+is also available, the GNAT Programming Studio (GPS).
+GPS offers a graphical &#8220;look and feel&#8221;, support for development in
+other programming languages, comprehensive browsing features, and
+many other capabilities.
+For information on GPS please refer to
+<cite>Using the GNAT Programming Studio</cite>.</p>
+<div class="section" id="running-gnat">
+<span id="id2"></span><h2>2.1. Running GNAT<a class="headerlink" href="#running-gnat" title="Permalink to this headline">¶</a></h2>
+<p>Three steps are needed to create an executable file from an Ada source
+file:</p>
+<ul class="simple">
+<li>The source file(s) must be compiled.</li>
+<li>The file(s) must be bound using the GNAT binder.</li>
+<li>All appropriate object files must be linked to produce an executable.</li>
+</ul>
+<p>All three steps are most commonly handled by using the <code class="docutils literal"><span class="pre">gnatmake</span></code>
+utility program that, given the name of the main program, automatically
+performs the necessary compilation, binding and linking steps.</p>
+</div>
+<div class="section" id="running-a-simple-ada-program">
+<span id="id3"></span><h2>2.2. Running a Simple Ada Program<a class="headerlink" href="#running-a-simple-ada-program" title="Permalink to this headline">¶</a></h2>
+<p>Any text editor may be used to prepare an Ada program.
+(If Emacs is used, the optional Ada mode may be helpful in laying out the
+program.)
+The program text is a normal text file. We will assume in our initial
+example that you have used your editor to prepare the following
+standard format text file:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Ada.Text_IO</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Ada.Text_IO;</span>
+<span class="k">procedure </span><span class="nf">Hello</span> <span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;Hello WORLD!&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Hello</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This file should be named <code class="file docutils literal"><span class="pre">hello.adb</span></code>.
+With the normal default file naming conventions, GNAT requires
+that each file
+contain a single compilation unit whose file name is the
+unit name,
+with periods replaced by hyphens; the
+extension is <code class="file docutils literal"><span class="pre">ads</span></code> for a
+spec and <code class="file docutils literal"><span class="pre">adb</span></code> for a body.
+You can override this default file naming convention by use of the
+special pragma <code class="docutils literal"><span class="pre">Source_File_Name</span></code> (for further information please
+see <a class="reference internal" href="the_gnat_compilation_model.html#using-other-file-names"><span class="std std-ref">Using Other File Names</span></a>).
+Alternatively, if you want to rename your files according to this default
+convention, which is probably more convenient if you will be using GNAT
+for all your compilations, then the <code class="docutils literal"><span class="pre">gnatchop</span></code> utility
+can be used to generate correctly-named source files
+(see <a class="reference internal" href="the_gnat_compilation_model.html#renaming-files-with-gnatchop"><span class="std std-ref">Renaming Files with gnatchop</span></a>).</p>
+<p>You can compile the program using the following command (<code class="docutils literal"><span class="pre">$</span></code> is used
+as the command prompt in the examples in this document):</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ gcc -c hello.adb
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">gcc</span></code> is the command used to run the compiler. This compiler is
+capable of compiling programs in several languages, including Ada and
+C. It assumes that you have given it an Ada program if the file extension is
+either <code class="file docutils literal"><span class="pre">.ads</span></code> or <code class="file docutils literal"><span class="pre">.adb</span></code>, and it will then call
+the GNAT compiler to compile the specified file.</p>
+<p>The <code class="switch docutils literal"><span class="pre">-c</span></code> switch is required. It tells <code class="docutils literal"><span class="pre">gcc</span></code> to only do a
+compilation. (For C programs, <code class="docutils literal"><span class="pre">gcc</span></code> can also do linking, but this
+capability is not used directly for Ada programs, so the <code class="switch docutils literal"><span class="pre">-c</span></code>
+switch must always be present.)</p>
+<p>This compile command generates a file
+<code class="file docutils literal"><span class="pre">hello.o</span></code>, which is the object
+file corresponding to your Ada program. It also generates
+an &#8216;Ada Library Information&#8217; file <code class="file docutils literal"><span class="pre">hello.ali</span></code>,
+which contains additional information used to check
+that an Ada program is consistent.
+To build an executable file,
+use <code class="docutils literal"><span class="pre">gnatbind</span></code> to bind the program
+and <code class="docutils literal"><span class="pre">gnatlink</span></code> to link it. The
+argument to both <code class="docutils literal"><span class="pre">gnatbind</span></code> and <code class="docutils literal"><span class="pre">gnatlink</span></code> is the name of the
+<code class="file docutils literal"><span class="pre">ALI</span></code> file, but the default extension of <code class="file docutils literal"><span class="pre">.ali</span></code> can
+be omitted. This means that in the most common case, the argument
+is simply the name of the main program:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ gnatbind hello
+$ gnatlink hello
+</pre></div>
+</div>
+<p>A simpler method of carrying out these steps is to use <code class="docutils literal"><span class="pre">gnatmake</span></code>,
+a master program that invokes all the required
+compilation, binding and linking tools in the correct order. In particular,
+<code class="docutils literal"><span class="pre">gnatmake</span></code> automatically recompiles any sources that have been
+modified since they were last compiled, or sources that depend
+on such modified sources, so that &#8216;version skew&#8217; is avoided.</p>
+<div class="highlight-sh" id="index-0"><div class="highlight"><pre><span></span>$ gnatmake hello.adb
+</pre></div>
+</div>
+<p>The result is an executable program called <code class="file docutils literal"><span class="pre">hello</span></code>, which can be
+run by entering:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ hello
+</pre></div>
+</div>
+<p>assuming that the current directory is on the search path
+for executable programs.</p>
+<p>and, if all has gone well, you will see:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Hello WORLD!
+</pre></div>
+</div>
+<p>appear in response to this command.</p>
+</div>
+<div class="section" id="running-a-program-with-multiple-units">
+<span id="id4"></span><h2>2.3. Running a Program with Multiple Units<a class="headerlink" href="#running-a-program-with-multiple-units" title="Permalink to this headline">¶</a></h2>
+<p>Consider a slightly more complicated example that has three files: a
+main program, and the spec and body of a package:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Greetings</span> <span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Hello</span><span class="p">;</span>
+   <span class="k">procedure </span><span class="nf">Goodbye</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Greetings</span><span class="p">;</span>
+
+<span class="kr">with</span><span class="nn"> Ada.Text_IO;</span> <span class="kr">use</span><span class="p"> </span><span class="n">Ada.Text_IO</span><span class="p">;</span>
+<span class="k">package body </span><span class="nf">Greetings</span> <span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Hello</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;Hello WORLD!&quot;</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Hello</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Goodbye</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Put_Line</span> <span class="o">(</span><span class="s">&quot;Goodbye WORLD!&quot;</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Goodbye</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Greetings</span><span class="p">;</span>
+
+<span class="kr">with</span><span class="nn"> Greetings;</span>
+<span class="k">procedure </span><span class="nf">Gmain</span> <span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Greetings.Hello</span><span class="p">;</span>
+   <span class="n">Greetings.Goodbye</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Gmain</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Following the one-unit-per-file rule, place this program in the
+following three separate files:</p>
+<dl class="docutils">
+<dt><em>greetings.ads</em></dt>
+<dd>spec of package <code class="docutils literal"><span class="pre">Greetings</span></code></dd>
+<dt><em>greetings.adb</em></dt>
+<dd>body of package <code class="docutils literal"><span class="pre">Greetings</span></code></dd>
+<dt><em>gmain.adb</em></dt>
+<dd>body of main program</dd>
+</dl>
+<p>To build an executable version of
+this program, we could use four separate steps to compile, bind, and link
+the program, as follows:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ gcc -c gmain.adb
+$ gcc -c greetings.adb
+$ gnatbind gmain
+$ gnatlink gmain
+</pre></div>
+</div>
+<p>Note that there is no required order of compilation when using GNAT.
+In particular it is perfectly fine to compile the main program first.
+Also, it is not necessary to compile package specs in the case where
+there is an accompanying body; you only need to compile the body. If you want
+to submit these files to the compiler for semantic checking and not code
+generation, then use the <code class="switch docutils literal"><span class="pre">-gnatc</span></code> switch:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ gcc -c greetings.ads -gnatc
+</pre></div>
+</div>
+<p>Although the compilation can be done in separate steps as in the
+above example, in practice it is almost always more convenient
+to use the <code class="docutils literal"><span class="pre">gnatmake</span></code> tool. All you need to know in this case
+is the name of the main program&#8217;s source file. The effect of the above four
+commands can be achieved with a single one:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ gnatmake gmain.adb
+</pre></div>
+</div>
+<p>In the next section we discuss the advantages of using <code class="docutils literal"><span class="pre">gnatmake</span></code> in
+more detail.</p>
+</div>
+<div class="section" id="using-the-gnatmake-utility">
+<span id="id5"></span><h2>2.4. Using the <code class="docutils literal"><span class="pre">gnatmake</span></code> Utility<a class="headerlink" href="#using-the-gnatmake-utility" title="Permalink to this headline">¶</a></h2>
+<p>If you work on a program by compiling single components at a time using
+<code class="docutils literal"><span class="pre">gcc</span></code>, you typically keep track of the units you modify. In order to
+build a consistent system, you compile not only these units, but also any
+units that depend on the units you have modified.
+For example, in the preceding case,
+if you edit <code class="file docutils literal"><span class="pre">gmain.adb</span></code>, you only need to recompile that file. But if
+you edit <code class="file docutils literal"><span class="pre">greetings.ads</span></code>, you must recompile both
+<code class="file docutils literal"><span class="pre">greetings.adb</span></code> and <code class="file docutils literal"><span class="pre">gmain.adb</span></code>, because both files contain
+units that depend on <code class="file docutils literal"><span class="pre">greetings.ads</span></code>.</p>
+<p><code class="docutils literal"><span class="pre">gnatbind</span></code> will warn you if you forget one of these compilation
+steps, so that it is impossible to generate an inconsistent program as a
+result of forgetting to do a compilation. Nevertheless it is tedious and
+error-prone to keep track of dependencies among units.
+One approach to handle the dependency-bookkeeping is to use a
+makefile. However, makefiles present maintenance problems of their own:
+if the dependencies change as you change the program, you must make
+sure that the makefile is kept up-to-date manually, which is also an
+error-prone process.</p>
+<p>The <code class="docutils literal"><span class="pre">gnatmake</span></code> utility takes care of these details automatically.
+Invoke it using either one of the following forms:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ gnatmake gmain.adb
+$ gnatmake gmain
+</pre></div>
+</div>
+<p>The argument is the name of the file containing the main program;
+you may omit the extension. <code class="docutils literal"><span class="pre">gnatmake</span></code>
+examines the environment, automatically recompiles any files that need
+recompiling, and binds and links the resulting set of object files,
+generating the executable file, <code class="file docutils literal"><span class="pre">gmain</span></code>.
+In a large program, it
+can be extremely helpful to use <code class="docutils literal"><span class="pre">gnatmake</span></code>, because working out by hand
+what needs to be recompiled can be difficult.</p>
+<p>Note that <code class="docutils literal"><span class="pre">gnatmake</span></code> takes into account all the Ada rules that
+establish dependencies among units. These include dependencies that result
+from inlining subprogram bodies, and from
+generic instantiation. Unlike some other
+Ada make tools, <code class="docutils literal"><span class="pre">gnatmake</span></code> does not rely on the dependencies that were
+found by the compiler on a previous compilation, which may possibly
+be wrong when sources change. <code class="docutils literal"><span class="pre">gnatmake</span></code> determines the exact set of
+dependencies from scratch each time it is run.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="the_gnat_compilation_model.html" title="3. The GNAT Compilation Model"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="about_this_guide.html" title="1. About This Guide"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../gnat_ugn.html">GNAT User&#39;s Guide for Native Platforms 2019 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2019, Free Software Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

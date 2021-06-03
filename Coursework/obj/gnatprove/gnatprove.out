@@ -1,0 +1,69 @@
+Summary of SPARK analysis
+=========================
+
+---------------------------------------------------------------------------------------------------------
+SPARK Analysis results        Total        Flow   Interval   CodePeer      Provers   Justified   Unproved
+---------------------------------------------------------------------------------------------------------
+Data Dependencies                25          25          .          .            .           .          .
+Flow Dependencies                 .           .          .          .            .           .          .
+Initialization                    .           .          .          .            .           .          .
+Non-Aliasing                      .           .          .          .            .           .          .
+Run-time Checks                  16           .          .          .    16 (CVC4)           .          .
+Assertions                        .           .          .          .            .           .          .
+Functional Contracts             30           .          .          .    30 (CVC4)           .          .
+LSP Verification                  .           .          .          .            .           .          .
+---------------------------------------------------------------------------------------------------------
+Total                            71    25 (35%)          .          .     46 (65%)           .          .
+
+
+max steps used for successful proof: 1
+
+Analyzed 8 units
+in unit commercialplane, 14 subprograms and packages out of 14 analyzed
+  commercialPlane at commercialplane.ads:3 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  commercialPlane.Flying at commercialplane.ads:61 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  commercialPlane.FlyingIdle at commercialplane.ads:106 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  commercialPlane.InTow at commercialplane.ads:76 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  commercialPlane.Landing at commercialplane.ads:71 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  commercialPlane.TakeOff at commercialplane.ads:45 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  commercialPlane.altitudeWarning at commercialplane.ads:96 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  commercialPlane.altitudeWarningResponse at commercialplane.ads:101 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (3 checks)
+  commercialPlane.fuelUsage at commercialplane.ads:66 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (2 checks)
+  commercialPlane.fuelWarning at commercialplane.ads:81 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  commercialPlane.speedWarning at commercialplane.ads:86 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  commercialPlane.speedWarningResponse at commercialplane.ads:91 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (3 checks)
+  commercialPlane.takeoffAltitude at commercialplane.ads:56 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (2 checks)
+  commercialPlane.takeoffSpeed at commercialplane.ads:51 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (2 checks)
+in unit commercialplanesystem, 9 subprograms and packages out of 9 analyzed
+  CommercialPlaneSystem at commercialplanesystem.ads:6 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  CommercialPlaneSystem.InTow at commercialplanesystem.ads:44 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  CommercialPlaneSystem.addPassenger at commercialplanesystem.ads:69 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (2 checks)
+  CommercialPlaneSystem.adjustFuelUsage at commercialplanesystem.ads:74 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (2 checks)
+  CommercialPlaneSystem.decreaseAirspeed at commercialplanesystem.ads:54 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (3 checks)
+  CommercialPlaneSystem.decreaseAltitude at commercialplanesystem.ads:64 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (3 checks)
+  CommercialPlaneSystem.fuelUsage at commercialplanesystem.ads:39 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (2 checks)
+  CommercialPlaneSystem.increaseAirspeed at commercialplanesystem.ads:49 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (2 checks)
+  CommercialPlaneSystem.increaseAltitude at commercialplanesystem.ads:59 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (2 checks)
+in unit door, 4 subprograms and packages out of 4 analyzed
+  door at door.ads:1 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  door.CloseDoor at door.ads:13 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  door.CloseLockDoor at door.ads:17 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  door.OpenDoor at door.ads:9 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+in unit engine, 3 subprograms and packages out of 3 analyzed
+  engine at engine.ads:1 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  engine.TurnOff at engine.ads:13 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  engine.TurnOn at engine.ads:9 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+in unit main, 0 subprograms and packages out of 1 analyzed
+  Main at main.adb:8 skipped
+in unit plane, 2 subprograms and packages out of 2 analyzed
+  plane at plane.ads:1 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  plane.startTestPlane at plane.ads:43 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+in unit planestatus, 4 subprograms and packages out of 4 analyzed
+  planestatus at planestatus.ads:5 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  planestatus.Flying at planestatus.ads:20 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  planestatus.Landing at planestatus.ads:25 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  planestatus.TakeOff at planestatus.ads:14 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+in unit warningsystem, 0 subprograms and packages out of 3 analyzed
+  WarningSystem.altitudeWarning at warningsystem.ads:23 skipped
+  WarningSystem.fuelWarning at warningsystem.ads:13 skipped
+  WarningSystem.speedWarning at warningsystem.ads:18 skipped

@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7.9. GNATprove by Example &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7.9.1. Basic Examples" href="../../gnatprove_by_example/basic.html" />
+    <link rel="prev" title="7.8. How to Investigate Unproved Checks" href="how_to_investigate_unproved_checks.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../gnatprove_by_example/basic.html" title="7.9.1. Basic Examples"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="how_to_investigate_unproved_checks.html" title="7.8. How to Investigate Unproved Checks"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" accesskey="U">7. Formal Verification with GNATprove</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="how_to_investigate_unproved_checks.html"
+                        title="previous chapter">7.8. How to Investigate Unproved Checks</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../../gnatprove_by_example/basic.html"
+                        title="next chapter">7.9.1. Basic Examples</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/gnatprove_by_example.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="gnatprove-by-example">
+<h1>7.9. GNATprove by Example<a class="headerlink" href="#gnatprove-by-example" title="Permalink to this headline">¶</a></h1>
+<p>GNATprove is based on advanced technology for modular static analysis and
+deductive verification. It is very different both from compilers, which do very
+little analysis of the code, and static analyzers, which execute symbolically
+the program. GNATprove does a very powerful local analysis of the program,
+but it generally does not cross subprogram boundaries. Instead, it uses the
+<a class="reference internal" href="subprogram_contracts.html#subprogram-contracts"><span class="std std-ref">Subprogram Contracts</span></a> provided by users to analyze calls. GNATprove
+also requires sometimes that users direct the analysis with <a class="reference internal" href="assertion_pragmas.html#assertion-pragmas"><span class="std std-ref">Assertion Pragmas</span></a>. Thus, it is essential to understand how GNATprove uses contracts
+and assertion pragmas. This section aims at providing a deeper insight into how
+GNATprove&#8216;s flow analysis and proof work, through a step-by-step exploration
+of small code examples.</p>
+<p>All the examples presented in this section, as well as some code snippets
+presented in the <a class="reference internal" href="../spark_2014.html#overview-of-spark-language"><span class="std std-ref">Overview of SPARK Language</span></a>, are available in the
+example called <code class="docutils literal"><span class="pre">gnatprove_by_example</span></code> distributed with the SPARK
+toolset. It can be found in the <code class="docutils literal"><span class="pre">share/examples/spark</span></code> directory below the
+directory where the toolset is installed, and can be accessed from the IDE
+(either GPS or GNATBench) via the <span class="menuselection">Help ‣ SPARK ‣ Examples</span>
+menu item.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gnatprove_by_example/basic.html">7.9.1. Basic Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gnatprove_by_example/loop.html">7.9.2. Loop Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gnatprove_by_example/manual_proof.html">7.9.3. Manual Proof Examples</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../gnatprove_by_example/basic.html" title="7.9.1. Basic Examples"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="how_to_investigate_unproved_checks.html" title="7.8. How to Investigate Unproved Checks"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" >7. Formal Verification with GNATprove</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

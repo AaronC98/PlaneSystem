@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>23. Promises: deferring work &mdash; GNATColl 2019 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="GNATColl 2019 documentation" href="index.html" />
+    <link rel="prev" title="22. Terminal: controlling the console" href="terminals.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="terminals.html" title="22. Terminal: controlling the console"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">GNATColl 2019 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="terminals.html"
+                        title="previous chapter">22. <strong>Terminal</strong>: controlling the console</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="promises-deferring-work">
+<h1>23. <strong>Promises</strong>: deferring work<a class="headerlink" href="#promises-deferring-work" title="Permalink to this headline">¶</a></h1>
+<p>This package provides a way to synchronize work between some
+asynchronous workers (or threads).</p>
+<p>Promises are a way to encapsulate a yet unknown value, immediately
+return to the caller, and work in the background to actually
+execute the work.</p>
+<p>For instance, you could have a function that reads some data from
+a socket. This takes time, and we do not want to block the application
+while retrieving the data (and if there is an error retrieving it,
+we certainly want to properly handle it).</p>
+<p>The main thread (for instance a graphical user interface) needs to
+keep processing events and refresh itself. As soon as the data
+becomes available from the socket, we should let this main thread
+know so that it can take further action, like post-processing the
+data and then displaying it.</p>
+<p>A general scheme to do that is to have a callback function that is
+called whenever the work is finished. Promises build on that simple
+idea so that you can easily chain multiple callbacks to build
+more complex actions.</p>
+<p>See the extensive documentation in <code class="file docutils literal"><span class="pre">gnatcoll-promises.ads</span></code></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="terminals.html" title="22. Terminal: controlling the console"
+             >previous</a> |</li>
+        <li><a href="index.html">GNATColl 2019 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2007-2019, AdaCore.
+    </div>
+  </body>
+</html>

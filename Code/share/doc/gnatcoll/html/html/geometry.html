@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>16. Geometry: primitive geometric operations &mdash; GNATColl 2019 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="GNATColl 2019 documentation" href="index.html" />
+    <link rel="next" title="17. Projects: manipulating gpr files" href="projects.html" />
+    <link rel="prev" title="15. Tribooleans: Three state logic" href="tribooleans.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="projects.html" title="17. Projects: manipulating gpr files"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tribooleans.html" title="15. Tribooleans: Three state logic"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">GNATColl 2019 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tribooleans.html"
+                        title="previous chapter">15. <strong>Tribooleans</strong>: Three state logic</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="projects.html"
+                        title="next chapter">17. <strong>Projects</strong>: manipulating gpr files</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="geometry-primitive-geometric-operations">
+<h1>16. <strong>Geometry</strong>: primitive geometric operations<a class="headerlink" href="#geometry-primitive-geometric-operations" title="Permalink to this headline">¶</a></h1>
+<p>GNATColl provides the package <cite>GNATCOLL.Geometry</cite>. This
+package includes a number of primitive operations on geometric figures
+like points, segments, lines, circles, rectangles and polygons.
+In particular, you can compute their intersections, the distances,...</p>
+<p>This package is generic, so that you can specify the type of coordinates
+you wish to handle:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span class="kr">declare</span>
+   <span class="kd">package</span> <span class="nc">Float_Geometry</span> <span class="kr">is new</span> <span class="nc">GNATCOLL.Geometry</span> <span class="p">(</span>Float<span class="p">);</span>
+   <span class="kn">use</span> <span class="nn">Float_Geometry</span><span class="p">;</span>
+
+   <span class="no">P1</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">Point</span> <span class="p">:=</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+   <span class="no">P2</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">Point</span> <span class="p">:=</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">);</span>
+<span class="kr">begin</span>
+   <span class="n">Put_Line</span> <span class="p">(</span><span class="s">&quot;Distance P1-P2 is&quot;</span> <span class="o">&amp;</span> <span class="n">Distance</span> <span class="p">(</span><span class="n">P1</span><span class="p">,</span> <span class="n">P2</span><span class="p">)&#39;</span><span class="na">Img</span><span class="p">);</span>
+   <span class="c1">--  Will print 2.23607</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Or some operations involving a polygon:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span class="kr">declare</span>
+   <span class="no">P3</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">Point</span> <span class="p">:=</span> <span class="p">(</span><span class="mf">3.7</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">);</span>
+   <span class="no">P</span>  <span class="p">:</span> <span class="kr">constant</span> <span class="n">Polygon</span> <span class="p">:=</span>
+      <span class="p">((</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">),</span> <span class="p">(</span><span class="mf">4.1</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">5.3</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">));</span>
+<span class="kr">begin</span>
+   <span class="n">Put_Line</span> <span class="p">(</span><span class="s">&quot;Area of polygon:&quot;</span> <span class="o">&amp;</span> <span class="n">Area</span> <span class="p">(</span><span class="n">P</span><span class="p">));</span>   <span class="c1">--   3.015</span>
+   <span class="n">Put_Line</span> <span class="p">(</span><span class="s">&quot;P3 inside polygon ? &quot;</span> <span class="o">&amp;</span> <span class="n">Inside</span> <span class="p">(</span><span class="n">P3</span><span class="p">,</span> <span class="n">P</span><span class="p">)&#39;</span><span class="na">Img</span><span class="p">);</span>  <span class="c1">--  True</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="projects.html" title="17. Projects: manipulating gpr files"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tribooleans.html" title="15. Tribooleans: Three state logic"
+             >previous</a> |</li>
+        <li><a href="index.html">GNATColl 2019 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2007-2019, AdaCore.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,2289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7.4. How to Write Subprogram Contracts &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7.5. How to Write Object Oriented Contracts" href="how_to_write_object_oriented_contracts.html" />
+    <link rel="prev" title="7.3. How to Use GNATprove in a Team" href="how_to_use_gnatprove_in_a_team.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="how_to_write_object_oriented_contracts.html" title="7.5. How to Write Object Oriented Contracts"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="how_to_use_gnatprove_in_a_team.html" title="7.3. How to Use GNATprove in a Team"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" accesskey="U">7. Formal Verification with GNATprove</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">7.4. How to Write Subprogram Contracts</a><ul>
+<li><a class="reference internal" href="#generation-of-dependency-contracts">7.4.1. Generation of Dependency Contracts</a><ul>
+<li><a class="reference internal" href="#auto-completion-for-incomplete-contracts">7.4.1.1. Auto Completion for Incomplete Contracts</a><ul>
+<li><a class="reference internal" href="#writing-only-the-data-dependencies">Writing Only the Data Dependencies</a></li>
+<li><a class="reference internal" href="#writing-only-the-flow-dependencies">Writing Only the Flow Dependencies</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#precise-generation-for-spark-subprograms">7.4.1.2. Precise Generation for SPARK Subprograms</a><ul>
+<li><a class="reference internal" href="#case-1-no-state-abstraction">Case 1: No State Abstraction</a></li>
+<li><a class="reference internal" href="#case-2-state-abstraction-without-dependencies">Case 2: State Abstraction Without Dependencies</a></li>
+<li><a class="reference internal" href="#case-3-state-abstraction-without-refined-dependencies">Case 3: State Abstraction Without Refined Dependencies</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#coarse-generation-for-non-spark-subprograms">7.4.1.3. Coarse Generation for non-SPARK Subprograms</a></li>
+<li><a class="reference internal" href="#writing-dependency-contracts">7.4.1.4. Writing Dependency Contracts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#writing-contracts-for-program-integrity">7.4.2. Writing Contracts for Program Integrity</a></li>
+<li><a class="reference internal" href="#writing-contracts-for-functional-correctness">7.4.3. Writing Contracts for Functional Correctness</a></li>
+<li><a class="reference internal" href="#writing-contracts-on-main-programs">7.4.4. Writing Contracts on Main Programs</a></li>
+<li><a class="reference internal" href="#writing-contracts-on-imported-subprograms">7.4.5. Writing Contracts on Imported Subprograms</a></li>
+<li><a class="reference internal" href="#contextual-analysis-of-subprograms-without-contracts">7.4.6. Contextual Analysis of Subprograms Without Contracts</a></li>
+<li><a class="reference internal" href="#subprogram-termination">7.4.7. Subprogram Termination</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="how_to_use_gnatprove_in_a_team.html"
+                        title="previous chapter">7.3. How to Use GNATprove in a Team</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="how_to_write_object_oriented_contracts.html"
+                        title="next chapter">7.5. How to Write Object Oriented Contracts</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/how_to_write_subprogram_contracts.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-write-subprogram-contracts">
+<span id="id1"></span><h1>7.4. How to Write Subprogram Contracts<a class="headerlink" href="#how-to-write-subprogram-contracts" title="Permalink to this headline">¶</a></h1>
+<p>GNATprove relies on contracts to perform its analysis. User-specified
+subprogram contracts are assumed to analyze a subprogram&#8217;s callers, and
+verified when the body of the subprogram is analyzed.</p>
+<p>By default, no contracts are compulsory in GNATprove. In the absence of
+user-provided contracts, GNATprove internally generates default
+contracts, which may or not be suitable depending on the verification
+objective:</p>
+<ul>
+<li><p class="first">data dependencies (<code class="docutils literal"><span class="pre">Global</span></code>)</p>
+<p>See <a class="reference internal" href="#generation-of-dependency-contracts"><span class="std std-ref">Generation of Dependency Contracts</span></a>. The generated contract may
+be exact when completed from user-specified flow dependencies (Depends),
+or precise when generated from a body in SPARK, or coarse when generated
+from a body in full Ada.</p>
+</li>
+<li><p class="first">flow dependencies (<code class="docutils literal"><span class="pre">Depends</span></code>)</p>
+<p>See <a class="reference internal" href="#generation-of-dependency-contracts"><span class="std std-ref">Generation of Dependency Contracts</span></a>. The contract is generated from
+the user-specified or generated data dependencies, by considering that all
+outputs depend on all inputs.</p>
+</li>
+<li><p class="first">precondition (<code class="docutils literal"><span class="pre">Pre</span></code>)</p>
+<p>A default precondition of <code class="docutils literal"><span class="pre">True</span></code> is used in absence of a user-specified
+precondition.</p>
+</li>
+<li><p class="first">postcondition (<code class="docutils literal"><span class="pre">Post</span></code>)</p>
+<p>A default postcondition of <code class="docutils literal"><span class="pre">True</span></code> is used in absence of a user-specified
+postcondition, except for expression functions. For the latter, the body of
+the expression function is used to generate a matching postcondition. See
+<a class="reference internal" href="specification_features.html#expression-functions"><span class="std std-ref">Expression Functions</span></a>.</p>
+</li>
+</ul>
+<p>Knowing which contracts to write depends on the specific verification
+objectives to achieve.</p>
+<div class="section" id="generation-of-dependency-contracts">
+<span id="id2"></span><h2>7.4.1. Generation of Dependency Contracts<a class="headerlink" href="#generation-of-dependency-contracts" title="Permalink to this headline">¶</a></h2>
+<p>By default, GNATprove does not require the user to write data dependencies
+(introduced with aspect <code class="docutils literal"><span class="pre">Global</span></code>) and flow dependencies (introduced
+with aspect <code class="docutils literal"><span class="pre">Depends</span></code>), as it can automatically generate them from the
+program.</p>
+<p>This behavior can be disabled using the <code class="docutils literal"><span class="pre">--no-global-generation</span></code> switch,
+which means a missing data dependency is the same as <code class="docutils literal"><span class="pre">Global</span> <span class="pre">=&gt;</span> <span class="pre">null</span></code>.
+Note that this option also forces <code class="docutils literal"><span class="pre">--no-inlining</span></code> (see <a class="reference internal" href="#contextual-analysis-of-subprograms-without-contracts"><span class="std std-ref">Contextual Analysis of Subprograms Without Contracts</span></a>).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">GNATprove does not generate warning or check messages when the body of a
+subprogram does not respect a generated contract. Indeed, the generated
+contract is a safe over-approximation of the real contract, hence it is
+unlikely that the subprogram body respects it. The generated contract is
+used instead to verify proper initialization and respect of dependency
+contracts in the callers of the subprogram.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Intrinsic subprograms such as arithmetic operations, and shift/rotate
+functions without user-provided functional contracts (precondition,
+postcondition or contract cases) are handled specially by GNATprove.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal"><span class="pre">--no-global-generation</span></code> switch makes GNATprove behave more like
+the previous SPARK 2005 tools, which makes this switch attractive
+for project trying to migrate to the new GNATprove tools, or for
+projects that maintain dual annotations.</p>
+</div>
+<div class="section" id="auto-completion-for-incomplete-contracts">
+<span id="id3"></span><h3>7.4.1.1. Auto Completion for Incomplete Contracts<a class="headerlink" href="#auto-completion-for-incomplete-contracts" title="Permalink to this headline">¶</a></h3>
+<p>When only the data dependencies (resp. only the flow dependencies) are given on
+a subprogram, GNATprove completes automatically the subprogram contract with
+the matching flow dependencies (resp. data dependencies).</p>
+<div class="section" id="writing-only-the-data-dependencies">
+<h4>Writing Only the Data Dependencies<a class="headerlink" href="#writing-only-the-data-dependencies" title="Permalink to this headline">¶</a></h4>
+<p>When only the data dependencies are given on a subprogram, GNATprove
+completes them with flow dependencies that have all outputs depending on all
+inputs. This is a safe over-approximation of the real contract of the
+subprogram, which allows to detect all possible errors of initialization and
+contract violation in the subprogram and its callers, but which may also lead
+to false alarms because it is imprecise.</p>
+<p>Take for example procedures <code class="docutils literal"><span class="pre">Add</span></code> and <code class="docutils literal"><span class="pre">Swap</span></code> for which data dependencies
+are given, but no flow dependencies:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Only_Data_Dependencies</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">V</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Add</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Swap</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Call_Add</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">V</span> <span class="o">=&gt;+</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">))</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Call_Swap</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span> <span class="o">=&gt;</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">V</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Only_Data_Dependencies</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove completes the contract of <code class="docutils literal"><span class="pre">Add</span></code> and <code class="docutils literal"><span class="pre">Swap</span></code> with flow
+dependencies that are equivalent to:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Add</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">,</span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">V</span> <span class="o">=&gt;+</span> <span class="n">X</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Swap</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">,</span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">((</span><span class="n">X</span><span class="p">,</span> <span class="n">V</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">V</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Other flow dependencies with fewer dependencies between inputs and outputs
+would be compatible with the given data dependencies of <code class="docutils literal"><span class="pre">Add</span></code> and
+<code class="docutils literal"><span class="pre">Swap</span></code>. GNATprove chooses the contracts with the most dependencies. Here,
+this corresponds to the actual contract for <code class="docutils literal"><span class="pre">Add</span></code>, but to an imprecise
+contract for <code class="docutils literal"><span class="pre">Swap</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Only_Data_Dependencies</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Add</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">V</span> <span class="o">:=</span> <span class="n">V</span> <span class="o">+</span> <span class="n">X</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Add</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Swap</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+      <span class="n">Tmp</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Integer</span> <span class="o">:=</span> <span class="n">V</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">V</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+      <span class="n">X</span> <span class="o">:=</span> <span class="n">Tmp</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Swap</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Call_Add</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Add</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Add</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Call_Add</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Call_Swap</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Swap</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Swap</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Swap</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Call_Swap</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Only_Data_Dependencies</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>This results in false alarms when GNATprove verifies the dependency contract
+of procedure <code class="docutils literal"><span class="pre">Call_Swap</span></code> which calls <code class="docutils literal"><span class="pre">Swap</span></code>, while it succeeds in verifying
+the dependency contract of <code class="docutils literal"><span class="pre">Call_Add</span></code> which calls <code class="docutils literal"><span class="pre">Add</span></code>:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>only_data_dependencies.ads:7:06: info: data dependencies proved
+only_data_dependencies.ads:10:06: info: data dependencies proved
+only_data_dependencies.ads:13:06: info: data dependencies proved
+only_data_dependencies.ads:14:06: info: flow dependencies proved
+only_data_dependencies.ads:17:06: info: data dependencies proved
+only_data_dependencies.ads:18:18: medium: missing dependency &quot;X =&gt; V&quot;
+only_data_dependencies.ads:18:18: medium: missing self-dependency &quot;X =&gt; X&quot;
+only_data_dependencies.ads:18:26: medium: missing dependency &quot;Y =&gt; V&quot;
+only_data_dependencies.ads:18:26: medium: missing self-dependency &quot;Y =&gt; Y&quot;
+only_data_dependencies.ads:18:34: medium: missing dependency &quot;V =&gt; X&quot;
+only_data_dependencies.ads:18:34: medium: missing dependency &quot;V =&gt; Y&quot;
+</pre></div>
+</div>
+<p>The most precise dependency contract for <code class="docutils literal"><span class="pre">Swap</span></code> would be:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Swap</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">,</span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">V</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">X</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If you add this precise contract in the program, then GNATprove can also
+verify the dependency contract of <code class="docutils literal"><span class="pre">Call_Swap</span></code>.</p>
+<p>Note that the generated dependency contracts are used in the analysis of
+callers, but GNATprove generates no warnings or check messages if the body of
+<code class="docutils literal"><span class="pre">Add</span></code> or <code class="docutils literal"><span class="pre">Swap</span></code> have fewer flow dependencies, as seen above. That&#8217;s a
+difference between these contracts being present in the code or auto completed.</p>
+</div>
+<div class="section" id="writing-only-the-flow-dependencies">
+<h4>Writing Only the Flow Dependencies<a class="headerlink" href="#writing-only-the-flow-dependencies" title="Permalink to this headline">¶</a></h4>
+<p>When only the flow dependencies are given on a subprogram, GNATprove
+completes it with the only compatible data dependencies.</p>
+<p>Take for example procedures <code class="docutils literal"><span class="pre">Add</span></code> and <code class="docutils literal"><span class="pre">Swap</span></code> as previously, expect now flow
+dependencies are given, but no data dependencies:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Only_Flow_Dependencies</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">V</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Add</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">V</span> <span class="o">=&gt;+</span> <span class="n">X</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Swap</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">V</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">X</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Call_Add</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">V</span> <span class="o">=&gt;+</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">))</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Call_Swap</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span> <span class="o">=&gt;</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">V</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Only_Flow_Dependencies</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The body of the unit is the same as before:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Only_Flow_Dependencies</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Add</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">V</span> <span class="o">:=</span> <span class="n">V</span> <span class="o">+</span> <span class="n">X</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Add</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Swap</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+      <span class="n">Tmp</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Integer</span> <span class="o">:=</span> <span class="n">V</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">V</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+      <span class="n">X</span> <span class="o">:=</span> <span class="n">Tmp</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Swap</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Call_Add</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Add</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Add</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Call_Add</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Call_Swap</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Swap</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Swap</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Swap</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Call_Swap</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Only_Flow_Dependencies</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove verifies the data and flow dependencies of all
+subprograms, including <code class="docutils literal"><span class="pre">Call_Add</span></code> and <code class="docutils literal"><span class="pre">Call_Swap</span></code>, based on the completed
+contracts for <code class="docutils literal"><span class="pre">Add</span></code> and <code class="docutils literal"><span class="pre">Swap</span></code>.</p>
+</div>
+</div>
+<div class="section" id="precise-generation-for-spark-subprograms">
+<h3>7.4.1.2. Precise Generation for SPARK Subprograms<a class="headerlink" href="#precise-generation-for-spark-subprograms" title="Permalink to this headline">¶</a></h3>
+<p>When no data or flow dependencies are given on a SPARK subprogram,
+GNATprove generates precise data and flow dependencies by using
+path-sensitive flow analysis to track data flows in the subprogram body:</p>
+<blockquote>
+<div><ul class="simple">
+<li>if a variable is written completely on all paths in a subprogram body, it is
+considered an output of the subprogram; and</li>
+<li>other variables that are written in a subprogram body are considered both
+inputs and outputs of the subprogram (even if they are not read explicitly,
+their output value may depend on their input value); and</li>
+<li>if a variable is only read in a subprogram body, it is considered an input
+of the subprogram; and</li>
+<li>all outputs are considered to potentially depend on all inputs.</li>
+</ul>
+</div></blockquote>
+<div class="section" id="case-1-no-state-abstraction">
+<h4>Case 1: No State Abstraction<a class="headerlink" href="#case-1-no-state-abstraction" title="Permalink to this headline">¶</a></h4>
+<p>Take for example a procedure <code class="docutils literal"><span class="pre">Set_Global</span></code> without contract which initializes
+a global variable <code class="docutils literal"><span class="pre">V</span></code> and is called in a number of contexts:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Gen_Global</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Set_Global</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Do_Nothing</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Twice</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Gen_Global</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Gen_Global</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">V</span> <span class="o">:</span> <span class="n">Boolean</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">V</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Set_Global</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Do_Nothing</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">null</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Do_Nothing</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Twice</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Set_Global</span><span class="p">;</span>
+      <span class="n">Set_Global</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Set_Global_Twice</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Conditionally</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Boolean</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">V</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="o">)</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Set_Global</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+         <span class="n">V</span> <span class="o">:=</span> <span class="kc">False</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Set_Global_Conditionally</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Gen_Global</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove generates data and flow dependencies for procedure
+<code class="docutils literal"><span class="pre">Set_Global</span></code> that are equivalent to:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Set_Global</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">,</span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">V</span> <span class="o">=&gt;</span> <span class="n">null</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Note that the above contract would be illegal as given, because it refers to
+global variable <code class="docutils literal"><span class="pre">V</span></code> which is not visible at the point where <code class="docutils literal"><span class="pre">Set_Global</span></code> is
+declared in <code class="docutils literal"><span class="pre">gen_global.ads</span></code>. Instead, a user who would like to write this
+contract on <code class="docutils literal"><span class="pre">Set_Global</span></code> would have to use abstract state.</p>
+<p>That generated contract for <code class="docutils literal"><span class="pre">Set_Global</span></code> allows GNATprove to both detect
+possible errors when calling <code class="docutils literal"><span class="pre">Set_Global</span></code> and to verify contracts given by
+the user on callers of <code class="docutils literal"><span class="pre">Set_Global</span></code>. For example, procedure
+<code class="docutils literal"><span class="pre">Set_Global_Twice</span></code> calls <code class="docutils literal"><span class="pre">Set_Global</span></code> twice in a row, which makes the first
+call useless as the value written in <code class="docutils literal"><span class="pre">V</span></code> is immediately overwritten by the
+second call. This is detected by GNATprove, which issues two warnings on
+line 18:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>gen_global.adb:18:07: warning: statement has no effect
+gen_global.adb:18:07: warning: unused assignment to &quot;V&quot;
+gen_global.adb:23:06: info: data dependencies proved
+gen_global.adb:23:28: info: initialization of &quot;V&quot; proved
+gen_global.adb:24:06: info: flow dependencies proved
+gen_global.ads:6:14: warning: subprogram &quot;Do_Nothing&quot; has no effect
+</pre></div>
+</div>
+<p>Note that GNATprove also issues a warning on subprogram <code class="docutils literal"><span class="pre">Do_Nothing</span></code> which
+has no effect, while it correctly analyzes that <code class="docutils literal"><span class="pre">Set_Global</span></code> has an effect,
+even if it has the same signature with no contract as <code class="docutils literal"><span class="pre">Do_Nothing</span></code>.</p>
+<p>GNATprove also uses the generated contract for <code class="docutils literal"><span class="pre">Set_Global</span></code> to analyze
+procedure <code class="docutils literal"><span class="pre">Set_Global_Conditionally</span></code>, which allows it to verify the contract
+given by the user for <code class="docutils literal"><span class="pre">Set_Global_Conditionally</span></code>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Set_Global_Conditionally</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Boolean</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">,</span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">V</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="case-2-state-abstraction-without-dependencies">
+<h4>Case 2: State Abstraction Without Dependencies<a class="headerlink" href="#case-2-state-abstraction-without-dependencies" title="Permalink to this headline">¶</a></h4>
+<p>If an abstract state (see <a class="reference internal" href="package_contracts.html#state-abstraction"><span class="std std-ref">State Abstraction</span></a>)
+is declared by the user but no dependencies are specified on
+subprogram declarations, then GNATprove generates data and flow dependencies
+which take abstract state into account.</p>
+<p>For example, take unit <code class="docutils literal"><span class="pre">Gen_Global</span></code> previously seen, where an abstract state
+<code class="docutils literal"><span class="pre">State</span></code> is defined for package <code class="docutils literal"><span class="pre">Gen_Abstract_Global</span></code>, and refined into
+global variable <code class="docutils literal"><span class="pre">V</span></code> in the body of the package:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Gen_Abstract_Global</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="n">State</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Set_Global</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Twice</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Conditionally</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Boolean</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">State</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Gen_Abstract_Global</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Gen_Abstract_Global</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Refined_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">V</span> <span class="o">:</span> <span class="n">Boolean</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">V</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Set_Global</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Twice</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Set_Global</span><span class="p">;</span>
+      <span class="n">Set_Global</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Set_Global_Twice</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Conditionally</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Boolean</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Refined_Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Refined_Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">V</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="o">)</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Set_Global</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+         <span class="n">V</span> <span class="o">:=</span> <span class="kc">False</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Set_Global_Conditionally</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Gen_Abstract_Global</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>We have chosen here to declare procedure <code class="docutils literal"><span class="pre">Set_Global_Conditionally</span></code> in
+<code class="docutils literal"><span class="pre">gen_abstract_global.ads</span></code>, and so to express its user contract abstractly. We
+could also have kept it local to the unit.</p>
+<p>GNATprove gives the same results on this unit as before: it issues warnings
+for the possible error in <code class="docutils literal"><span class="pre">Set_Global_Twice</span></code> and it verifies the contract
+given by the user for <code class="docutils literal"><span class="pre">Set_Global_Conditionally</span></code>:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>gen_abstract_global.adb:14:07: warning: statement has no effect
+gen_abstract_global.adb:14:07: warning: unused assignment to &quot;V&quot; constituent of &quot;State&quot;
+gen_abstract_global.adb:19:36: info: initialization of &quot;V&quot; constituent of &quot;State&quot; proved
+gen_abstract_global.ads:10:06: info: data dependencies proved
+gen_abstract_global.ads:11:06: info: flow dependencies proved
+</pre></div>
+</div>
+</div>
+<div class="section" id="case-3-state-abstraction-without-refined-dependencies">
+<h4>Case 3: State Abstraction Without Refined Dependencies<a class="headerlink" href="#case-3-state-abstraction-without-refined-dependencies" title="Permalink to this headline">¶</a></h4>
+<p>If abstract state is declared by the user and abstract dependencies are
+specified on subprogram declarations, but no refined dependencies are specified
+on subprogram implementations (as described <a class="reference internal" href="subprogram_contracts.html#state-abstraction-and-dependencies"><span class="std std-ref">State Abstraction and Dependencies</span></a>), then GNATprove generates refined data and flow dependencies
+for subprogram implementations.</p>
+<p>For example, take unit <code class="docutils literal"><span class="pre">Gen_Abstract_Global</span></code> previously seen, where only
+abstract data and flow dependencies are specified:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Gen_Refined_Global</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="n">State</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Set_Global</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">State</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Twice</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">State</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Conditionally</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Boolean</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">State</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Gen_Refined_Global</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Gen_Refined_Global</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Refined_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">V</span> <span class="o">:</span> <span class="n">Boolean</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">V</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Set_Global</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Twice</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Set_Global</span><span class="p">;</span>
+      <span class="n">Set_Global</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Set_Global_Twice</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Conditionally</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Boolean</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Set_Global</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+         <span class="n">Set_Global</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Set_Global_Conditionally</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Gen_Refined_Global</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove gives the same results on this unit as before: it issues warnings
+for the possible error in <code class="docutils literal"><span class="pre">Set_Global_Twice</span></code> and it verifies the contract
+given by the user for <code class="docutils literal"><span class="pre">Set_Global_Conditionally</span></code>:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>gen_refined_global.adb:14:07: warning: statement has no effect
+gen_refined_global.adb:14:07: warning: unused assignment to &quot;V&quot; constituent of &quot;State&quot;
+gen_refined_global.ads:6:06: info: data dependencies proved
+gen_refined_global.ads:9:06: info: data dependencies proved
+gen_refined_global.ads:12:06: info: data dependencies proved
+gen_refined_global.ads:13:06: info: flow dependencies proved
+</pre></div>
+</div>
+<p>Note that although abstract and refined dependencies are the same here, this is
+not always the case, and GNATprove will use the more precise generated
+dependencies to analyze calls to subprograms inside the unit.</p>
+</div>
+</div>
+<div class="section" id="coarse-generation-for-non-spark-subprograms">
+<span id="id4"></span><h3>7.4.1.3. Coarse Generation for non-SPARK Subprograms<a class="headerlink" href="#coarse-generation-for-non-spark-subprograms" title="Permalink to this headline">¶</a></h3>
+<p>When no data or flow dependencies are given on a non-SPARK subprogram,
+GNATprove generates coarser data and flow dependencies based on the
+reads and writes to variables in the subprogram body:</p>
+<blockquote>
+<div><ul class="simple">
+<li>if a variable is written in a subprogram body, it is considered both an
+input and an output of the subprogram; and</li>
+<li>if a variable is only read in a subprogram body, it is considered an input
+of the subprogram; and</li>
+<li>all outputs are considered to potentially depend on all inputs.</li>
+</ul>
+</div></blockquote>
+<p>For example, take unit <code class="docutils literal"><span class="pre">Gen_Global</span></code> previously seen, where the body of
+<code class="docutils literal"><span class="pre">Set_Global</span></code> is marked with <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span> <span class="pre">Off</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Gen_Ada_Global</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Set_Global</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Twice</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Gen_Ada_Global</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Gen_Ada_Global</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">V</span> <span class="o">:</span> <span class="n">Boolean</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">Off</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">V</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Set_Global</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Twice</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Set_Global</span><span class="p">;</span>
+      <span class="n">Set_Global</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Set_Global_Twice</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Conditionally</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Boolean</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">V</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="o">)</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Set_Global</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+         <span class="n">V</span> <span class="o">:=</span> <span class="kc">False</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Set_Global_Conditionally</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Gen_Ada_Global</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove generates a data and flow dependencies for procedure
+<code class="docutils literal"><span class="pre">Set_Global</span></code> that are equivalent to:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Set_Global</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">,</span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">V</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This is a safe over-approximation of the real contract for
+<code class="docutils literal"><span class="pre">Set_Global</span></code>, which allows to detect all possible errors of initialization
+and contract violation in <code class="docutils literal"><span class="pre">Set_Global</span></code> callers, but which may also lead to
+false alarms because it is imprecise. Here, GNATprove generates a wrong
+high message that the call to <code class="docutils literal"><span class="pre">Set_Global</span></code> on line 25 reads an uninitialized value
+for <code class="docutils literal"><span class="pre">V</span></code>:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>gen_ada_global.adb:20:06: info: data dependencies proved
+gen_ada_global.adb:21:06: info: flow dependencies proved
+gen_ada_global.adb:25:10: high: &quot;V&quot; is not an input in the Global contract of subprogram &quot;Set_Global_Conditionally&quot; at line 19
+gen_ada_global.adb:25:10: high: &quot;V&quot; is not initialized
+gen_ada_global.adb:25:10: high: either make &quot;V&quot; an input in the Global contract or initialize it before use
+</pre></div>
+</div>
+<p>This is because the generated contract for <code class="docutils literal"><span class="pre">Set_Global</span></code> is not precise
+enough, and considers <code class="docutils literal"><span class="pre">V</span></code> as an input of the procedure. Even if the body of
+<code class="docutils literal"><span class="pre">Set_Global</span></code> is not in SPARK, the user can easily provide the precise
+information to GNATprove by adding a suitable contract to <code class="docutils literal"><span class="pre">Set_Global</span></code>,
+which requires to define an abstract state <code class="docutils literal"><span class="pre">State</span></code> like in the previous
+section:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Set_Global</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">State</span><span class="o">)</span><span class="p">,</span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="n">null</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>With such a user contract on <code class="docutils literal"><span class="pre">Set_Global</span></code>, GNATprove can verify the
+contract of <code class="docutils literal"><span class="pre">Set_Global_Conditionally</span></code> without false alarms.</p>
+</div>
+<div class="section" id="writing-dependency-contracts">
+<h3>7.4.1.4. Writing Dependency Contracts<a class="headerlink" href="#writing-dependency-contracts" title="Permalink to this headline">¶</a></h3>
+<p>Since GNATprove generates data and flow dependencies, you don&#8217;t need
+in general to add such contracts if you don&#8217;t want to.</p>
+<p>The main reason to add such contracts is when you want GNATprove to verify
+that the implementation respects specified data dependencies and flow
+dependencies. For those projects submitted to certification, verification of
+data coupling and input/output relations may be a required verification
+objective, which can be achieved automatically with GNATprove provided the
+specifications are written as contracts.</p>
+<p>Even if you write dependency contracts for the publicly
+visible subprograms, which describe the services offered by the unit, there is
+no need to write similar contracts on internal subprograms defined in the unit
+body. GNATprove can generate data and flow dependencies on these.</p>
+<p>Also, as seen in the previous section, the data and flow dependencies
+generated by GNATprove may be imprecise, in which case it is necessary to add
+manual contracts to avoid false alarms.</p>
+</div>
+</div>
+<div class="section" id="writing-contracts-for-program-integrity">
+<span id="id5"></span><h2>7.4.2. Writing Contracts for Program Integrity<a class="headerlink" href="#writing-contracts-for-program-integrity" title="Permalink to this headline">¶</a></h2>
+<p>The most common use of contracts is to ensure program integrity, that is, the
+program keeps running within safe boundaries. For example, this includes the
+fact that the control flow of the program cannot be circumvented (e.g. through
+a buffer overflow vulnerability) and that data is not corrupted (e.g. data
+invariants are preserved).</p>
+<p>Preconditions can be written to ensure program integrity, and in particular
+they ensure:</p>
+<ul class="simple">
+<li>absence of run-time errors (AoRTE): no violations of language rules which
+would lead to raising an exception at run time (preconditions added to all
+subprograms which may raise a run-time error); and</li>
+<li>defensive programming: no execution of a subprogram from an unexpected state
+(preconditions added to subprograms in the public API, to guard against
+possible misuse by client units); and</li>
+<li>support of maintenance: prevent decrease in integrity (regressions, code rot)
+introduced during program evolution (preconditions added to internal
+subprograms, to guard against violations of the conditions to call these
+subprograms inside the unit itself); and</li>
+<li>invariant checking: ensure key data invariants are maintained throughout
+execution (preconditions added to all subprograms which may break the
+invariant).</li>
+</ul>
+<p>For example, unit <code class="docutils literal"><span class="pre">Integrity</span></code> contains examples of all four kinds of
+preconditions:</p>
+<ul class="simple">
+<li>Precondition <code class="docutils literal"><span class="pre">X</span> <span class="pre">&gt;=</span> <span class="pre">0</span></code> on procedure <code class="docutils literal"><span class="pre">Seen_One</span></code> ensures AoRTE, as otherwise
+a negative value for <code class="docutils literal"><span class="pre">X</span></code> would cause the call to <code class="docutils literal"><span class="pre">Update</span></code> to fail a range
+check, as <code class="docutils literal"><span class="pre">Update</span></code> expects a non-negative value for its parameter.</li>
+<li>Precondition <code class="docutils literal"><span class="pre">X</span> <span class="pre">&lt;</span> <span class="pre">Y</span></code> on procedure <code class="docutils literal"><span class="pre">Seen_Two</span></code> ensures defensive
+programming, as the logic of the procedure is only correctly updating global
+variables <code class="docutils literal"><span class="pre">Max1</span></code> and <code class="docutils literal"><span class="pre">Max2</span></code> to the two maximal values seen if parameters
+<code class="docutils literal"><span class="pre">X</span></code> and <code class="docutils literal"><span class="pre">Y</span></code> are given in strictly increasing order.</li>
+<li>Precondition <code class="docutils literal"><span class="pre">X</span> <span class="pre">&gt;</span> <span class="pre">Max2</span></code> on procedure <code class="docutils literal"><span class="pre">Update</span></code> ensures support of
+maintenance, as this internal procedure relies on this condition on its
+parameter to operate properly.</li>
+<li>Precondition <code class="docutils literal"><span class="pre">Invariant</span></code> on procedure <code class="docutils literal"><span class="pre">Update</span></code> ensures invariant
+checking, as the property that <code class="docutils literal"><span class="pre">Max2</span></code> is less than <code class="docutils literal"><span class="pre">Max1</span></code> expressed in
+<code class="docutils literal"><span class="pre">Invariant</span></code> should be always respected.</li>
+</ul>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Assertion_Policy</span> <span class="o">(</span><span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">Check</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">package </span><span class="nf">Integrity</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Seen_One</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c">--  AoRTE</span>
+
+   <span class="k">procedure </span><span class="nf">Seen_Two</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&lt;</span> <span class="n">Y</span><span class="p">;</span>  <span class="c">--  defensive programming</span>
+
+<span class="k">end </span><span class="nf">Integrity</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Integrity</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Max1</span> <span class="o">:</span> <span class="n">Natural</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c">--  max value seen</span>
+   <span class="n">Max2</span> <span class="o">:</span> <span class="n">Natural</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c">--  second max value seen</span>
+
+   <span class="k">function </span><span class="nf">Invariant</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">is</span><span class="p"></span>
+      <span class="o">(</span><span class="n">Max2</span> <span class="o">&lt;=</span> <span class="n">Max1</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Update</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max2</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span> <span class="c">--  support of maintenance</span>
+            <span class="n">Invariant</span>          <span class="c">--  invariant checking</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max1</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Max2</span> <span class="o">:=</span> <span class="n">Max1</span><span class="p">;</span>
+         <span class="n">Max1</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+      <span class="kr">elsif</span><span class="p"> </span><span class="n">X</span> <span class="o">&lt;</span> <span class="n">Max1</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Max2</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Update</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Seen_One</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max2</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Update</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Seen_One</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Seen_Two</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max1</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Max1</span> <span class="o">:=</span> <span class="n">Y</span><span class="p">;</span>
+         <span class="n">Max2</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+      <span class="kr">elsif</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max2</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Update</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+         <span class="n">Seen_One</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+         <span class="n">Seen_One</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Seen_Two</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Integrity</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that <code class="docutils literal"><span class="pre">pragma</span> <span class="pre">Assertion_Policy</span> <span class="pre">(Pre</span> <span class="pre">=&gt;</span> <span class="pre">Check)</span></code> in <code class="docutils literal"><span class="pre">integrity.ads</span></code>
+ensures that the preconditions on the public procedures <code class="docutils literal"><span class="pre">Seen_One</span></code> and
+<code class="docutils literal"><span class="pre">Seen_Two</span></code> are always enabled at run time, while the precondition on internal
+subprogram <code class="docutils literal"><span class="pre">Update</span></code> is only enabled at run time if compiled with switch
+<code class="docutils literal"><span class="pre">-gnata</span></code> (typically set only for debugging or testing). GNATprove always
+takes contracts into account, whatever value of <code class="docutils literal"><span class="pre">Assertion_Policy</span></code>.</p>
+<p>GNATprove cannot verify that all preconditions on <code class="docutils literal"><span class="pre">Integrity</span></code> are
+respected. Namely, it cannot verify that the call to <code class="docutils literal"><span class="pre">Update</span></code> inside
+<code class="docutils literal"><span class="pre">Seen_One</span></code> respects its precondition, as it is not known from the calling
+context that <code class="docutils literal"><span class="pre">Invariant</span></code> holds:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>integrity.adb:26:10: medium: precondition might fail, cannot prove (Invariant) (e.g. when Max1 = 0 and Max2 = 1) [possible explanation: precondition of subprogram at integrity.ads:6 should mention Max1 and Max2]
+integrity.adb:26:18: info: range check proved
+integrity.adb:36:10: info: precondition proved
+integrity.adb:37:10: info: precondition proved
+integrity.adb:39:10: info: precondition proved
+</pre></div>
+</div>
+<p>Note that, although <code class="docutils literal"><span class="pre">Invariant</span></code> is not required to hold either on entry to
+<code class="docutils literal"><span class="pre">Seen_Two</span></code>, the tests performed in if-statements in the body of <code class="docutils literal"><span class="pre">Seen_Two</span></code>
+ensure that <code class="docutils literal"><span class="pre">Invariant</span></code> holds when calling <code class="docutils literal"><span class="pre">Update</span></code> inside <code class="docutils literal"><span class="pre">Seen_Two</span></code>.</p>
+<p>To prove completely the integrity of unit <code class="docutils literal"><span class="pre">Integrity</span></code>, it is sufficient to
+add <code class="docutils literal"><span class="pre">Invariant</span></code> as a precondition and postcondition on every subprogram which
+modifies the value of global variables <code class="docutils literal"><span class="pre">Max1</span></code> and <code class="docutils literal"><span class="pre">Max2</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Assertion_Policy</span> <span class="o">(</span><span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">Check</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">package </span><span class="nf">Integrity_Proved</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Seen_One</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span>  <span class="c">--  AoRTE</span>
+             <span class="n">Invariant</span><span class="p">,</span>        <span class="c">--  invariant checking</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Invariant</span><span class="p">;</span>        <span class="c">--  invariant checking</span>
+
+   <span class="k">procedure </span><span class="nf">Seen_Two</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&lt;</span> <span class="n">Y</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span>   <span class="c">--  defensive programming</span>
+             <span class="n">Invariant</span><span class="p">,</span>        <span class="c">--  invariant checking</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Invariant</span><span class="p">;</span>        <span class="c">--  invariant checking</span>
+
+   <span class="k">function </span><span class="nf">Invariant</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Integrity_Proved</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Integrity_Proved</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Max1</span> <span class="o">:</span> <span class="n">Natural</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c">--  max value seen</span>
+   <span class="n">Max2</span> <span class="o">:</span> <span class="n">Natural</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c">--  second max value seen</span>
+
+   <span class="k">function </span><span class="nf">Invariant</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Max2</span> <span class="o">&lt;=</span> <span class="n">Max1</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Update</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max2</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span> <span class="c">--  support of maintenance</span>
+             <span class="n">Invariant</span><span class="p">,</span>         <span class="c">--  invariant checking</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Invariant</span>          <span class="c">--  invariant checking</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max1</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Max2</span> <span class="o">:=</span> <span class="n">Max1</span><span class="p">;</span>
+         <span class="n">Max1</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+      <span class="kr">elsif</span><span class="p"> </span><span class="n">X</span> <span class="o">&lt;</span> <span class="n">Max1</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Max2</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Update</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Seen_One</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max2</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Update</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Seen_One</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Seen_Two</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max1</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Max1</span> <span class="o">:=</span> <span class="n">Y</span><span class="p">;</span>
+         <span class="n">Max2</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+      <span class="kr">elsif</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max2</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Update</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+         <span class="n">Seen_One</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+         <span class="n">Seen_One</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Seen_Two</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Integrity_Proved</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Here is the result of running GNATprove:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>integrity_proved.adb:12:14: info: postcondition proved
+integrity_proved.adb:26:10: info: precondition proved
+integrity_proved.adb:26:18: info: range check proved
+integrity_proved.adb:36:10: info: precondition proved
+integrity_proved.adb:37:10: info: precondition proved
+integrity_proved.adb:39:10: info: precondition proved
+integrity_proved.ads:9:14: info: postcondition proved
+integrity_proved.ads:14:14: info: postcondition proved
+</pre></div>
+</div>
+</div>
+<div class="section" id="writing-contracts-for-functional-correctness">
+<span id="id6"></span><h2>7.4.3. Writing Contracts for Functional Correctness<a class="headerlink" href="#writing-contracts-for-functional-correctness" title="Permalink to this headline">¶</a></h2>
+<p>Going beyond program integrity, it is possible to express functional properties
+of the program as subprogram contracts. Such a contract can express either
+partially or completely the behavior of the subprogram. Typical simple
+functional properties express the range/constraints for parameters on entry and
+exit of subprograms (encoding their <cite>type-state</cite>), and the state of the
+module/program on entry and exit of subprograms (encoding a safety or security
+automaton). For those projects submitted to certification, expressing a
+subprogram requirement or specification as a complete functional contract
+allows GNATprove to verify automatically the implementation against the
+requirement/specification.</p>
+<p>For example, unit <code class="docutils literal"><span class="pre">Functional</span></code> is the same as <code class="docutils literal"><span class="pre">Integrity_Proved</span></code> seen
+previously, with additional functional contracts:</p>
+<ul class="simple">
+<li>The postcondition on procedure <code class="docutils literal"><span class="pre">Update</span></code> (expressed as a <code class="docutils literal"><span class="pre">Post</span></code> aspect) is
+a complete functional description of the behavior of the subprogram. Note the
+use of an if-expression.</li>
+<li>The postcondition on procedure <code class="docutils literal"><span class="pre">Seen_Two</span></code> (expressed as a <code class="docutils literal"><span class="pre">Post</span></code> aspect)
+is a partial functional description of the behavior of the subprogram.</li>
+<li>The postcondition on procedure <code class="docutils literal"><span class="pre">Seen_One</span></code> (expressed as a
+<code class="docutils literal"><span class="pre">Contract_Cases</span></code> aspect) is a complete functional description of the
+behavior of the subprogram. There are three cases which correspond to
+different possible behaviors depending on the values of parameter <code class="docutils literal"><span class="pre">X</span></code> and
+global variables <code class="docutils literal"><span class="pre">Max1</span></code> and <code class="docutils literal"><span class="pre">Max2</span></code>. The benefit of expressing the
+postcondition as contract cases is both the gain in readability (no need to
+use <code class="docutils literal"><span class="pre">'Old</span></code> for the guards, as in the postcondition of <code class="docutils literal"><span class="pre">Update</span></code>) and the
+automatic verification that the cases are disjoint and complete.</li>
+</ul>
+<p>Note that global variables <code class="docutils literal"><span class="pre">Max1</span></code> and <code class="docutils literal"><span class="pre">Max2</span></code> are referred to through public
+accessor functions <code class="docutils literal"><span class="pre">Max_Value_Seen</span></code> and <code class="docutils literal"><span class="pre">Second_Max_Value_Seen</span></code>. These
+accessor functions can be declared after the contracts in which they appear, as
+contracts are semantically analyzed only at the end of package declaration.</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Assertion_Policy</span> <span class="o">(</span><span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">Check</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">package </span><span class="nf">Functional</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Seen_One</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span>  <span class="c">--  AoRTE</span>
+             <span class="n">Invariant</span><span class="p">,</span>        <span class="c">--  invariant checking</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Invariant</span><span class="p">,</span>        <span class="c">--  invariant checking</span>
+     <span class="n">Contract_Cases</span> <span class="o">=&gt;</span>         <span class="c">--  full functional</span>
+       <span class="o">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max_Value_Seen</span> <span class="o">=&gt;</span>
+          <span class="c">--  max value updated</span>
+          <span class="n">Max_Value_Seen</span> <span class="o">=</span> <span class="n">X</span> <span class="kr">and</span><span class="p"></span>
+          <span class="n">Second_Max_Value_Seen</span> <span class="o">=</span> <span class="n">Max_Value_Seen</span><span class="na">&#39;Old</span><span class="p">,</span>
+        <span class="n">X</span> <span class="o">&gt;</span> <span class="n">Second_Max_Value_Seen</span> <span class="kr">and</span><span class="p"></span>
+        <span class="n">X</span> <span class="o">&lt;</span> <span class="n">Max_Value_Seen</span> <span class="o">=&gt;</span>
+          <span class="c">--  second max value updated</span>
+          <span class="n">Max_Value_Seen</span> <span class="o">=</span> <span class="n">Max_Value_Seen</span><span class="na">&#39;Old</span> <span class="kr">and</span><span class="p"></span>
+          <span class="n">Second_Max_Value_Seen</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">Max_Value_Seen</span> <span class="kr">or</span><span class="p"></span>
+        <span class="n">X</span> <span class="o">&lt;=</span> <span class="n">Second_Max_Value_Seen</span> <span class="o">=&gt;</span>
+          <span class="c">--  no value updated</span>
+          <span class="n">Max_Value_Seen</span> <span class="o">=</span> <span class="n">Max_Value_Seen</span><span class="na">&#39;Old</span> <span class="kr">and</span><span class="p"></span>
+          <span class="n">Second_Max_Value_Seen</span> <span class="o">=</span> <span class="n">Second_Max_Value_Seen</span><span class="na">&#39;Old</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Seen_Two</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&lt;</span> <span class="n">Y</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span>              <span class="c">--  defensive programming</span>
+             <span class="n">Invariant</span><span class="p">,</span>                   <span class="c">--  invariant checking</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Invariant</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span>          <span class="c">--  invariant checking</span>
+             <span class="n">Max_Value_Seen</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span> <span class="c">--  partial functional</span>
+             <span class="n">Max_Value_Seen</span> <span class="o">/=</span> <span class="n">Second_Max_Value_Seen</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Invariant</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Max_Value_Seen</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Second_Max_Value_Seen</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Functional</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Functional</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Max1</span> <span class="o">:</span> <span class="n">Natural</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c">--  max value seen</span>
+   <span class="n">Max2</span> <span class="o">:</span> <span class="n">Natural</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c">--  second max value seen</span>
+
+   <span class="k">function </span><span class="nf">Invariant</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Max2</span> <span class="o">&lt;=</span> <span class="n">Max1</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Max_Value_Seen</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Max1</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Second_Max_Value_Seen</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Max2</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Update</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max2</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span>     <span class="c">--  support of maintenance</span>
+             <span class="n">Invariant</span><span class="p">,</span>             <span class="c">--  invariant checking</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Invariant</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span>    <span class="c">--  invariant checking</span>
+             <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max1</span><span class="na">&#39;Old</span> <span class="kr">then</span><span class="p"> </span> <span class="c">--  complete functional</span>
+                <span class="n">Max2</span> <span class="o">=</span> <span class="n">Max1</span><span class="na">&#39;Old</span> <span class="kr">and</span><span class="p"> </span><span class="n">Max1</span> <span class="o">=</span> <span class="n">X</span>
+              <span class="kr">elsif</span><span class="p"> </span><span class="n">X</span> <span class="o">&lt;</span> <span class="n">Max1</span><span class="na">&#39;Old</span> <span class="kr">then</span><span class="p"></span>
+                <span class="n">Max2</span> <span class="o">=</span> <span class="n">X</span> <span class="kr">and</span><span class="p"> </span><span class="n">Max1</span> <span class="o">=</span> <span class="n">Max1</span><span class="na">&#39;Old</span>
+              <span class="kr">else</span><span class="p"></span>
+                <span class="n">Max2</span> <span class="o">=</span> <span class="n">Max2</span><span class="na">&#39;Old</span> <span class="kr">and</span><span class="p"> </span><span class="n">Max1</span> <span class="o">=</span> <span class="n">Max1</span><span class="na">&#39;Old</span><span class="o">)</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max1</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Max2</span> <span class="o">:=</span> <span class="n">Max1</span><span class="p">;</span>
+         <span class="n">Max1</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+      <span class="kr">elsif</span><span class="p"> </span><span class="n">X</span> <span class="o">&lt;</span> <span class="n">Max1</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Max2</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Update</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Seen_One</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max2</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Update</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Seen_One</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Seen_Two</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max1</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Max1</span> <span class="o">:=</span> <span class="n">Y</span><span class="p">;</span>
+         <span class="n">Max2</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+      <span class="kr">elsif</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max2</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Update</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+         <span class="n">Seen_One</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+         <span class="n">Seen_One</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Seen_Two</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Functional</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove manages to prove automatically almost all of these functional
+contracts, except for the postcondition of <code class="docutils literal"><span class="pre">Seen_Two</span></code> (note in particular the
+proof that the contract cases for <code class="docutils literal"><span class="pre">Seen_One</span></code> on line 10 are disjoint and
+complete):</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>functional.adb:16:14: info: postcondition proved
+functional.adb:36:10: info: precondition proved
+functional.adb:36:18: info: range check proved
+functional.adb:46:10: info: precondition proved
+functional.adb:47:10: info: precondition proved
+functional.adb:49:10: info: precondition proved
+functional.ads:9:14: info: postcondition proved
+functional.ads:10:06: info: complete contract cases proved
+functional.ads:10:06: info: disjoint contract cases proved
+functional.ads:11:28: info: contract case proved
+functional.ads:16:28: info: contract case proved
+functional.ads:21:36: info: contract case proved
+functional.ads:31:14: medium: postcondition might fail, cannot prove Max_Value_Seen /= (Second_Max_Value_Seen) (e.g. when Max1 = Natural&#39;Last and Max2 = Natural&#39;Last)
+</pre></div>
+</div>
+<p>The counterexample displayed for the postcondition not proved corresponds to a
+case where <code class="docutils literal"><span class="pre">Max1</span> <span class="pre">=</span> <span class="pre">Max2</span> <span class="pre">=</span> <span class="pre">2</span></code> on entry to procedure <code class="docutils literal"><span class="pre">Seen_Two</span></code>. By
+highlighting the path for the counterexample in GPS (see <a class="reference internal" href="how_to_run_gnatprove.html#running-gnatprove-from-gps"><span class="std std-ref">Running GNATprove from GPS</span></a>), the values of parameters for this counterexample are also
+displayed, here <code class="docutils literal"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal"><span class="pre">Y</span> <span class="pre">=</span> <span class="pre">1</span></code>. With these values, <code class="docutils literal"><span class="pre">Max1</span></code> and <code class="docutils literal"><span class="pre">Max2</span></code>
+would still be equal to 2 on exit, thus violating the part of the postcondition
+stating that <code class="docutils literal"><span class="pre">Max_Value_Seen</span> <span class="pre">/=</span> <span class="pre">Second_Max_Value_Seen</span></code>.</p>
+<p>Another way to see it is to run GNATprove in mode <code class="docutils literal"><span class="pre">per_path</span></code> (see
+<a class="reference internal" href="how_to_run_gnatprove.html#running-gnatprove-from-the-command-line"><span class="std std-ref">Running GNATprove from the Command Line</span></a> or <a class="reference internal" href="how_to_run_gnatprove.html#running-gnatprove-from-gps"><span class="std std-ref">Running GNATprove from GPS</span></a>), and highlight the path on which the postcondition is not proved, which
+shows that when the last branch of the if-statement is taken, the following
+property is not proved:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">functional</span><span class="o">.</span><span class="n">ads</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span> <span class="n">medium</span><span class="p">:</span> <span class="n">postcondition</span> <span class="n">might</span> <span class="n">fail</span><span class="p">,</span> <span class="n">cannot</span> <span class="n">prove</span> <span class="n">Max_Value_Seen</span> <span class="o">/=</span> <span class="p">(</span><span class="n">Second_Max_Value_Seen</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The missing piece of information here is that <code class="docutils literal"><span class="pre">Max1</span></code> and <code class="docutils literal"><span class="pre">Max2</span></code> are never
+equal, except when they are both zero (the initial value). This can be added to
+function <code class="docutils literal"><span class="pre">Invariant</span></code> as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span>   <span class="k">function </span><span class="nf">Invariant</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">is</span><span class="p"></span>
+     <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Max1</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">then</span><span class="p"> </span><span class="n">Max2</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">else</span><span class="p"> </span><span class="n">Max2</span> <span class="o">&lt;</span> <span class="n">Max1</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>With this more precise definition for <code class="docutils literal"><span class="pre">Invariant</span></code>, all contracts are now
+proved by GNATprove:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>functional_proved.adb:17:14: info: postcondition proved
+functional_proved.adb:37:10: info: precondition proved
+functional_proved.adb:37:18: info: range check proved
+functional_proved.adb:47:10: info: precondition proved
+functional_proved.adb:48:10: info: precondition proved
+functional_proved.adb:50:10: info: precondition proved
+functional_proved.ads:9:14: info: postcondition proved
+functional_proved.ads:10:06: info: complete contract cases proved
+functional_proved.ads:10:06: info: disjoint contract cases proved
+functional_proved.ads:11:28: info: contract case proved
+functional_proved.ads:16:28: info: contract case proved
+functional_proved.ads:21:36: info: contract case proved
+functional_proved.ads:29:14: info: postcondition proved
+</pre></div>
+</div>
+<p>In general, it may be needed to further refine the preconditions of subprograms
+to be able to prove their functional postconditions, to express either specific
+constraints on their calling context, or invariants maintained throughout the
+execution.</p>
+</div>
+<div class="section" id="writing-contracts-on-main-programs">
+<span id="id7"></span><h2>7.4.4. Writing Contracts on Main Programs<a class="headerlink" href="#writing-contracts-on-main-programs" title="Permalink to this headline">¶</a></h2>
+<p>Parameterless procedures and parameterless functions with Integer return type,
+that are in their own compilation unit, are identified by GNATprove as
+potential main subprograms. These subprograms are special because they can
+serve as an entry point to the program. If a main subprogram has a
+precondition, SPARK will generate a check that this precondition holds at the
+beginning of the execution of the main program, assuming the
+<code class="docutils literal"><span class="pre">Initial_Condition</span></code> aspects of all with&#8217;ed packages.</p>
+<p>Note that apart from this additional check, main subprograms behave like any
+other subprogram. They can be called from anywhere, and their preconditions
+need to be checked when they are called.</p>
+</div>
+<div class="section" id="writing-contracts-on-imported-subprograms">
+<span id="id8"></span><h2>7.4.5. Writing Contracts on Imported Subprograms<a class="headerlink" href="#writing-contracts-on-imported-subprograms" title="Permalink to this headline">¶</a></h2>
+<p>Contracts are particularly useful to specify the behavior of imported
+subprograms, which cannot be analyzed by GNATprove. It is compulsory to
+specify in data dependencies the global variables these imported subprograms
+may read and/or write, otherwise GNATprove assumes <code class="docutils literal"><span class="pre">null</span></code> data dependencies
+(no global variable read or written).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A subprogram whose implementation is not available to GNATprove, either
+because the corresponding unit body has not been developed yet, or because
+the unit body is not part of the files analyzed by GNATprove (see
+<a class="reference internal" href="../spark_mode.html#specifying-files-to-analyze"><span class="std std-ref">Specifying Files To Analyze</span></a> and <a class="reference internal" href="../spark_mode.html#excluding-files-from-analysis"><span class="std std-ref">Excluding Files From Analysis</span></a>), is treated by GNATprove like an imported subprogram.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Intrinsic subprograms such as arithmetic operations and shift/rotate
+functions are handled specially by GNATprove. Except for shift/rotate
+operations with a user-provided functional contract (precondition,
+postcondition or contract cases) which are treated like regular functions.</p>
+</div>
+<p>For example, unit <code class="docutils literal"><span class="pre">Gen_Imported_Global</span></code> is a modified version of the
+<code class="docutils literal"><span class="pre">Gen_Abstract_Global</span></code> unit seen previously in <a class="reference internal" href="#generation-of-dependency-contracts"><span class="std std-ref">Generation of Dependency Contracts</span></a>, where procedure <code class="docutils literal"><span class="pre">Set_Global</span></code> is imported from C:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Gen_Imported_Global</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="n">State</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Set_Global</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Import</span><span class="p">,</span>
+     <span class="n">Convention</span> <span class="o">=&gt;</span> <span class="n">C</span><span class="p">,</span>
+     <span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">State</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Twice</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Conditionally</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Boolean</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">State</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Gen_Imported_Global</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that we added data dependencies to procedure <code class="docutils literal"><span class="pre">Set_Global</span></code>, which can
+be used to analyze its callers. We did not add flow dependencies, as
+they are the same as the auto completed ones (see <a class="reference internal" href="#auto-completion-for-incomplete-contracts"><span class="std std-ref">Auto Completion for Incomplete Contracts</span></a>).</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">System.Storage_Elements</span><span class="p">;</span>
+
+<span class="k">package body </span><span class="nf">Gen_Imported_Global</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Refined_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">V</span> <span class="o">:</span> <span class="n">Boolean</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Address</span> <span class="o">=&gt;</span> <span class="n">System.Storage_Elements.To_Address</span> <span class="o">(</span><span class="mi">16#8000_0000#</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Twice</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Set_Global</span><span class="p">;</span>
+      <span class="n">Set_Global</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Set_Global_Twice</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Set_Global_Conditionally</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Boolean</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Refined_Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">V</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Refined_Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">V</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="o">)</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Set_Global</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+         <span class="n">V</span> <span class="o">:=</span> <span class="kc">False</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Set_Global_Conditionally</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Gen_Imported_Global</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that we added an <code class="docutils literal"><span class="pre">Address</span></code> aspect to global variable <code class="docutils literal"><span class="pre">V</span></code>, so that it
+can be read/written from a C file.</p>
+<p>GNATprove gives the same results on this unit as before: it issues warnings
+for the possible error in <code class="docutils literal"><span class="pre">Set_Global_Twice</span></code> and it verifies the contract
+given by the user for <code class="docutils literal"><span class="pre">Set_Global_Conditionally</span></code>:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>gen_imported_global.adb:12:07: warning: statement has no effect
+gen_imported_global.adb:12:07: warning: unused assignment to &quot;V&quot; constituent of &quot;State&quot;
+gen_imported_global.adb:17:36: info: initialization of &quot;V&quot; constituent of &quot;State&quot; proved
+gen_imported_global.ads:13:06: info: data dependencies proved
+gen_imported_global.ads:14:06: info: flow dependencies proved
+</pre></div>
+</div>
+<p>It is also possible to add functional contracts on imported subprograms, which
+GNATprove uses to prove properties of their callers.  It is compulsory to
+specify in a precondition the conditions for calling these imported subprograms
+without errors, otherwise GNATprove assumes a default precondition of
+<code class="docutils literal"><span class="pre">True</span></code> (no constraints on the calling context). One benefit of these
+contracts is that they are verified at run time when the corresponding
+assertion is enabled in Ada (either with pragma <code class="docutils literal"><span class="pre">Assertion_Policy</span></code> or
+compilation switch <code class="docutils literal"><span class="pre">-gnata</span></code>).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A subprogram whose implementation is not in SPARK is treated by
+GNATprove almost like an imported subprogram, except that coarse data and
+flow dependencies are generated (see <a class="reference internal" href="#coarse-generation-for-non-spark-subprograms"><span class="std std-ref">Coarse Generation for non-SPARK Subprograms</span></a>). In particular, unless the user adds a precondition to such a
+subprogram, GNATprove assumes a default precondition of <code class="docutils literal"><span class="pre">True</span></code>.</p>
+</div>
+<p>For example, unit <code class="docutils literal"><span class="pre">Functional_Imported</span></code> is a modified version of the
+<code class="docutils literal"><span class="pre">Functional_Proved</span></code> unit seen previously in <a class="reference internal" href="#writing-contracts-for-functional-correctness"><span class="std std-ref">Writing Contracts for Functional Correctness</span></a>, where procedures <code class="docutils literal"><span class="pre">Update</span></code> and <code class="docutils literal"><span class="pre">Seen_One</span></code> are
+imported from C:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Assertion_Policy</span> <span class="o">(</span><span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">Check</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">package </span><span class="nf">Functional_Imported</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Abstract_State</span> <span class="o">=&gt;</span> <span class="n">Max_And_Snd</span><span class="p">,</span>
+  <span class="n">Initializes</span> <span class="o">=&gt;</span> <span class="n">Max_And_Snd</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Seen_One</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Import</span><span class="p">,</span>
+     <span class="n">Convention</span> <span class="o">=&gt;</span> <span class="n">C</span><span class="p">,</span>
+     <span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">Max_And_Snd</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span>  <span class="c">--  AoRTE</span>
+             <span class="n">Invariant</span><span class="p">,</span>        <span class="c">--  invariant checking</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Invariant</span><span class="p">,</span>        <span class="c">--  invariant checking</span>
+     <span class="n">Contract_Cases</span> <span class="o">=&gt;</span>         <span class="c">--  full functional</span>
+       <span class="o">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max_Value_Seen</span> <span class="o">=&gt;</span>
+          <span class="c">--  max value updated</span>
+          <span class="n">Max_Value_Seen</span> <span class="o">=</span> <span class="n">X</span> <span class="kr">and</span><span class="p"></span>
+          <span class="n">Second_Max_Value_Seen</span> <span class="o">=</span> <span class="n">Max_Value_Seen</span><span class="na">&#39;Old</span><span class="p">,</span>
+        <span class="n">X</span> <span class="o">&gt;</span> <span class="n">Second_Max_Value_Seen</span> <span class="kr">and</span><span class="p"></span>
+        <span class="n">X</span> <span class="o">&lt;</span> <span class="n">Max_Value_Seen</span> <span class="o">=&gt;</span>
+          <span class="c">--  second max value updated</span>
+          <span class="n">Max_Value_Seen</span> <span class="o">=</span> <span class="n">Max_Value_Seen</span><span class="na">&#39;Old</span> <span class="kr">and</span><span class="p"></span>
+          <span class="n">Second_Max_Value_Seen</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">Max_Value_Seen</span> <span class="kr">or</span><span class="p"></span>
+        <span class="n">X</span> <span class="o">&lt;=</span> <span class="n">Second_Max_Value_Seen</span> <span class="o">=&gt;</span>
+          <span class="c">--  no value updated</span>
+          <span class="n">Max_Value_Seen</span> <span class="o">=</span> <span class="n">Max_Value_Seen</span><span class="na">&#39;Old</span> <span class="kr">and</span><span class="p"></span>
+          <span class="n">Second_Max_Value_Seen</span> <span class="o">=</span> <span class="n">Second_Max_Value_Seen</span><span class="na">&#39;Old</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Seen_Two</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&lt;</span> <span class="n">Y</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span>              <span class="c">--  defensive programming</span>
+             <span class="n">Invariant</span><span class="p">,</span>                   <span class="c">--  invariant checking</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Invariant</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span>          <span class="c">--  invariant checking</span>
+             <span class="n">Max_Value_Seen</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span> <span class="c">--  partial functional</span>
+             <span class="n">Max_Value_Seen</span> <span class="o">/=</span> <span class="n">Second_Max_Value_Seen</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Invariant</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Max_Value_Seen</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Second_Max_Value_Seen</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Functional_Imported</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">System.Storage_Elements</span><span class="p">;</span>
+
+<span class="k">package body </span><span class="nf">Functional_Imported</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Refined_State</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Max_And_Snd</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Max</span><span class="p">,</span> <span class="n">Snd</span><span class="o">))</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Max</span> <span class="o">:</span> <span class="n">Natural</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c">--  max value seen</span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">Max</span><span class="na">&#39;Address</span> <span class="kr">use</span><span class="p"> </span><span class="n">System.Storage_Elements.To_Address</span> <span class="o">(</span><span class="mi">16#8000_0000#</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="n">Snd</span> <span class="o">:</span> <span class="n">Natural</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c">--  second max value seen</span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">Snd</span><span class="na">&#39;Address</span> <span class="kr">use</span><span class="p"> </span><span class="n">System.Storage_Elements.To_Address</span> <span class="o">(</span><span class="mi">16#8000_0004#</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Invariant</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">is</span><span class="p"></span>
+     <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Max</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">then</span><span class="p"> </span><span class="n">Snd</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">else</span><span class="p"> </span><span class="n">Snd</span> <span class="o">&lt;</span> <span class="n">Max</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Max_Value_Seen</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Max</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Second_Max_Value_Seen</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Snd</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Update</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Import</span><span class="p">,</span>
+     <span class="n">Convention</span> <span class="o">=&gt;</span> <span class="n">C</span><span class="p">,</span>
+     <span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Max</span><span class="p">,</span> <span class="n">Snd</span><span class="o">))</span><span class="p">,</span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&gt;</span> <span class="n">Snd</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span>     <span class="c">--  support of maintenance</span>
+             <span class="n">Invariant</span><span class="p">,</span>            <span class="c">--  invariant checking</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Invariant</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span>   <span class="c">--  invariant checking</span>
+             <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max</span><span class="na">&#39;Old</span> <span class="kr">then</span><span class="p"> </span> <span class="c">--  complete functional</span>
+                <span class="n">Snd</span> <span class="o">=</span> <span class="n">Max</span><span class="na">&#39;Old</span> <span class="kr">and</span><span class="p"> </span><span class="n">Max</span> <span class="o">=</span> <span class="n">X</span>
+              <span class="kr">elsif</span><span class="p"> </span><span class="n">X</span> <span class="o">&lt;</span> <span class="n">Max</span><span class="na">&#39;Old</span> <span class="kr">then</span><span class="p"></span>
+                <span class="n">Snd</span> <span class="o">=</span> <span class="n">X</span> <span class="kr">and</span><span class="p"> </span><span class="n">Max</span> <span class="o">=</span> <span class="n">Max</span><span class="na">&#39;Old</span>
+              <span class="kr">else</span><span class="p"></span>
+                <span class="n">Snd</span> <span class="o">=</span> <span class="n">Snd</span><span class="na">&#39;Old</span> <span class="kr">and</span><span class="p"> </span><span class="n">Max</span> <span class="o">=</span> <span class="n">Max</span><span class="na">&#39;Old</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Seen_Two</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Max</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Max</span> <span class="o">:=</span> <span class="n">Y</span><span class="p">;</span>
+         <span class="n">Snd</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+      <span class="kr">elsif</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Snd</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Update</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+         <span class="n">Seen_One</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+         <span class="n">Seen_One</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Seen_Two</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Functional_Imported</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that we added data dependencies to the imported procedures, as
+GNATprove would assume otherwise incorrectly <code class="docutils literal"><span class="pre">null</span></code> data dependencies.</p>
+<p>As before, all contracts are proved by GNATprove:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>functional_imported.adb:40:10: info: precondition proved
+functional_imported.adb:41:10: info: precondition proved
+functional_imported.adb:43:10: info: precondition proved
+functional_imported.ads:6:03: info: flow dependencies proved
+functional_imported.ads:15:06: info: complete contract cases proved
+functional_imported.ads:15:06: info: disjoint contract cases proved
+functional_imported.ads:34:14: info: postcondition proved
+</pre></div>
+</div>
+</div>
+<div class="section" id="contextual-analysis-of-subprograms-without-contracts">
+<span id="id9"></span><h2>7.4.6. Contextual Analysis of Subprograms Without Contracts<a class="headerlink" href="#contextual-analysis-of-subprograms-without-contracts" title="Permalink to this headline">¶</a></h2>
+<p>It may be convenient to create local subprograms without necessarily specifying
+a contract for these. GNATprove attempts to perform a contextual analysis of
+these local subprograms without contract, at each call site, as if the code of
+the subprograms was inlined. Thus, the analysis proceeds in that case as if it
+had the most precise contract for the local subprogram, in the context of its
+calls.</p>
+<p>Let&#8217;s consider as previously a subprogram which adds two to its integer input:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Arith_With_Local_Subp</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Add_Two</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&lt;=</span> <span class="n">Integer</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Arith_With_Local_Subp</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>And let&#8217;s implement it by calling two local subprograms without contracts
+(which may or not have a separate declaration), which each increment the input
+by one:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Arith_With_Local_Subp</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="c">--  Local procedure without external visibility</span>
+   <span class="k">procedure </span><span class="nf">Increment_In_Body</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">X</span> <span class="o">:=</span> <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Increment_In_Body</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Add_Two</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+
+      <span class="c">--  Local procedure defined inside Add_Two</span>
+      <span class="k">procedure </span><span class="nf">Increment_Nested</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+      <span class="kr">begin</span><span class="p"></span>
+         <span class="n">X</span> <span class="o">:=</span> <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">end </span><span class="nf">Increment_Nested</span><span class="p">;</span>
+
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Increment_In_Body</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Increment_Nested</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Add_Two</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Arith_With_Local_Subp</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove would not be able to prove that the addition in
+<code class="docutils literal"><span class="pre">Increment_In_Body</span></code> or <code class="docutils literal"><span class="pre">Increment_Nested</span></code> cannot overflow in any
+context. If it was using only the default contract for these subprograms, it
+also would not prove that the contract of <code class="docutils literal"><span class="pre">Add_Two</span></code> is respected.  But since
+it analyzes these subprograms in the context of their calls only, it proves
+here that no overflow is possible, and that the two increments correctly
+implement the contract of <code class="docutils literal"><span class="pre">Add_Two</span></code>:</p>
+<div class="highlight-none"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>arith_with_local_subp.adb:7:14: info: overflow check proved, in call inlined at arith_with_local_subp.adb:19
+arith_with_local_subp.adb:15:17: info: overflow check proved, in call inlined at arith_with_local_subp.adb:20
+arith_with_local_subp.ads:6:14: info: postcondition proved
+arith_with_local_subp.ads:6:24: info: overflow check proved
+</pre></div>
+</td></tr></table></div>
+<p>This contextual analysis is available only for regular functions (not
+expression functions) or procedures that are not externally visible (not
+declared in the public part of the unit), without contracts (any of Global,
+Depends, Pre, Post, Contract_Cases), and respect the following conditions:</p>
+<blockquote>
+<div><ul class="simple">
+<li>does not contain nested subprogram or package declarations or instantiations</li>
+<li>not recursive</li>
+<li>not a generic instance</li>
+<li>not defined in a generic instance</li>
+<li>has a single point of return at the end of the subprogram</li>
+<li>not called in an assertion or a contract</li>
+<li>not called in a potentially unevaluated context</li>
+<li>not called before its body is seen</li>
+</ul>
+</div></blockquote>
+<p>If any of the above conditions is violated, GNATprove issues a warning to
+explain why the subprogram could not be analyzed in the context of its calls,
+and then proceeds to analyze it normally, using the default
+contract. Otherwise, both flow analysis and proof are done for the subprogram
+in the context of its calls.</p>
+<p>Note that it is very simple to prevent contextual analysis of a local
+subprogram, by adding a contract to it, for example a simple <code class="docutils literal"><span class="pre">Pre</span> <span class="pre">=&gt;</span> <span class="pre">True</span></code> or
+<code class="docutils literal"><span class="pre">Global</span> <span class="pre">=&gt;</span> <span class="pre">null</span></code>. To prevent contextual analysis of all subprograms, pass the
+switch <code class="docutils literal"><span class="pre">--no-inlining</span></code> to GNATprove. This may be convenient during
+development if the ultimate goal is to add contracts to subprograms to analyze
+them separately, as contextual analysis may cause the analysis to take much
+more time and memory.</p>
+</div>
+<div class="section" id="subprogram-termination">
+<span id="id10"></span><h2>7.4.7. Subprogram Termination<a class="headerlink" href="#subprogram-termination" title="Permalink to this headline">¶</a></h2>
+<p>GNATprove is only concerned with partial correctness of subprograms, that is,
+it only checks that the contract of a subprogram holds when it terminates
+normally. What is more, GNATprove will enforce that no exception will be
+raised at runtime. Together, these two points ensure that every SPARK
+subprogram formally verified using GNATprove will always return normally in a
+state that respects its postcondition, as long as it terminates.</p>
+<p>In general, GNATprove does not attempt to verify termination of subprograms.
+It can be instructed to do so using a GNATprove specific Annotate pragma. On
+the following example, we instruct GNATprove that the five <code class="docutils literal"><span class="pre">F</span></code> functions
+should terminate:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Terminating_Annotations</span> <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="kr">is</span><span class="p"></span>
+
+   <span class="k">function </span><span class="nf">F_Rec</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Terminating</span><span class="p">,</span> <span class="n">F_Rec</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">F_While</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Terminating</span><span class="p">,</span> <span class="n">F_While</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">F_Not_SPARK</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Terminating</span><span class="p">,</span> <span class="n">F_Not_SPARK</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Not_SPARK</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">function </span><span class="nf">F_Call</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Terminating</span><span class="p">,</span> <span class="n">F_Call</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">F_Term</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Terminating</span><span class="p">,</span> <span class="n">F_Term</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Terminating_Annotations</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>If every subprogram in a package is terminating, the package itself can be
+annotated with the terminating annotation. If the annotation is located on a
+generic package, then it should be valid for every instance of the package.</p>
+<p>An aspect can be used instead of a pragma for both packages and subprograms:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Pack</span> <span class="kr">with</span><span class="p"></span>
+   <span class="n">Annotate</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Terminating</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Proc</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Annotate</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Terminating</span><span class="o">)</span><span class="p">;</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>If a subprogram in SPARK is explicitly annotated as terminating, flow analysis
+will attempt to make sure that all the paths through the subprogram effectively
+return. In effect, it will look for while loops with no loop variants, recursive
+calls and calls to subprograms which are not known to be terminating. If
+GNATprove cannot make sure that the annotated subprogram is always
+terminating, it will then emit a failed check. As an example, let us consider
+the following implementation of the five <code class="docutils literal"><span class="pre">F</span></code> functions:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Terminating_Annotations</span> <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="kr">is</span><span class="p"></span>
+
+   <span class="k">function </span><span class="nf">F_Rec</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">then</span><span class="p"></span>
+         <span class="kr">return</span><span class="p"> </span><span class="mi">0</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+         <span class="kr">return</span><span class="p"> </span><span class="n">F_Rec</span> <span class="o">(</span><span class="n">X</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">F_Rec</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">F_While</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">is</span><span class="p"></span>
+      <span class="n">Y</span> <span class="o">:</span> <span class="n">Natural</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">while</span><span class="p"> </span><span class="n">Y</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="n">Y</span> <span class="o">:=</span> <span class="n">Y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+      <span class="kr">return</span><span class="p"> </span><span class="n">Y</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">F_While</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">F_Not_SPARK</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">Off</span> <span class="kr">is</span><span class="p"></span>
+      <span class="n">Y</span> <span class="o">:</span> <span class="n">Natural</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">while</span><span class="p"> </span><span class="n">Y</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="n">Y</span> <span class="o">:=</span> <span class="n">Y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+      <span class="kr">return</span><span class="p"> </span><span class="n">Y</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">F_Not_SPARK</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Not_SPARK</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">Off</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">null</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Not_SPARK</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">F_Call</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Not_SPARK</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">return</span><span class="p"> </span><span class="mi">0</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">F_Call</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">F_Term</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">is</span><span class="p"></span>
+      <span class="n">Y</span> <span class="o">:</span> <span class="n">Natural</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Y</span> <span class="o">:=</span> <span class="n">F_Rec</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Y</span> <span class="o">:=</span> <span class="n">F_While</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Y</span> <span class="o">:=</span> <span class="n">F_Not_SPARK</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Y</span> <span class="o">:=</span> <span class="n">F_Call</span> <span class="o">(</span><span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+
+      <span class="kr">while</span><span class="p"> </span><span class="n">Y</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Variant</span> <span class="o">(</span><span class="n">Decreases</span> <span class="o">=&gt;</span> <span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+         <span class="n">Y</span> <span class="o">:=</span> <span class="n">Y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+      <span class="kr">return</span><span class="p"> </span><span class="n">Y</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">F_Term</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Terminating_Annotations</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>As can be easily verified by review, all these functions terminate, and all
+return 0. As can be seen below, GNATprove will fail to verify that <code class="docutils literal"><span class="pre">F_Rec</span></code>,
+<code class="docutils literal"><span class="pre">F_While</span></code>, and <code class="docutils literal"><span class="pre">F_Call</span></code> terminate.</p>
+<div class="highlight-none"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>terminating_annotations.ads:3:13: medium: subprogram &quot;F_Rec&quot; might not terminate, terminating annotation could be incorrect
+terminating_annotations.ads:6:13: medium: subprogram &quot;F_While&quot; might not terminate, terminating annotation could be incorrect
+terminating_annotations.ads:13:13: medium: subprogram &quot;F_Call&quot; might not terminate, terminating annotation could be incorrect
+terminating_annotations.ads:16:13: info: subprogram &quot;F_Term&quot; will terminate, terminating annotation has been proved
+</pre></div>
+</td></tr></table></div>
+<p>Let us look at each function to understand what happens. The function <code class="docutils literal"><span class="pre">F_Rec</span></code>
+is recursive, and the function <code class="docutils literal"><span class="pre">F_While</span></code> contains a while loop. Both cases
+can theoretically lead to an infinite path in the subprogram, which is why
+GNATprove cannot verify that they terminate. GNATprove does not complain
+about not being able to verify the termination of <code class="docutils literal"><span class="pre">F_Not_SPARK</span></code>. Clearly, it
+is not because it could verify it, as it contains exactly the same loop as
+<code class="docutils literal"><span class="pre">F_While</span></code>. It is because, as the body of <code class="docutils literal"><span class="pre">F_Not_SPARK</span></code> has been excluded
+from analysis using <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span> <span class="pre">Off</span></code>, GNATprove does not attempt to
+prove that it terminates.  When looking at the body of <code class="docutils literal"><span class="pre">F_Call</span></code>, we can see
+that it calls a procedure <code class="docutils literal"><span class="pre">Not_SPARK</span></code>. Clearly, this procedure is
+terminating, as it does not do anything. But, as the body of <code class="docutils literal"><span class="pre">No_SPARK</span></code> has
+been hidden from analysis using <code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span> <span class="pre">Off</span></code>, GNATprove cannot
+deduce that it terminates. As a result, it stays in the safe side, and assumes
+that <code class="docutils literal"><span class="pre">Not_SPARK</span></code> could loop, which causes the verification of <code class="docutils literal"><span class="pre">F_Call</span></code> to
+fail. Finally, GNATprove is able to verify that <code class="docutils literal"><span class="pre">F_Term</span></code> terminates, though
+it contains a while loop.  Indeed, the number of possible iterations of the
+loop has been bounded using a <code class="docutils literal"><span class="pre">Loop_Variant</span></code>. Also note that, though it was
+not able to prove termination of <code class="docutils literal"><span class="pre">F_Rec</span></code>, <code class="docutils literal"><span class="pre">F_While</span></code>, and <code class="docutils literal"><span class="pre">F_Call</span></code>,
+GNATprove will still trust the annotation and consider them as terminating when
+verifying <code class="docutils literal"><span class="pre">F_Term</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Possible nontermination of a subprogram may influence GNATprove proof
+capabilities. Indeed, to avoid soundness issues due to nontermination in
+logical formulas, GNATprove will not be able to see the contract of
+nonterminating functions if they are called from definitions of constants,
+from contracts, or from assertions. In such a case, an information message
+will be emitted, stating that (implicit) contracts of the function are not
+available for proof. This message won&#8217;t appear if a <code class="docutils literal"><span class="pre">Terminating</span></code>
+annotation is supplied for the function as explained above.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="how_to_write_object_oriented_contracts.html" title="7.5. How to Write Object Oriented Contracts"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="how_to_use_gnatprove_in_a_team.html" title="7.3. How to Use GNATprove in a Team"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" >7. Formal Verification with GNATprove</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7.2.5.2. Messages reported by Flow Analysis &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7.3. How to Use GNATprove in a Team" href="how_to_use_gnatprove_in_a_team.html" />
+    <link rel="prev" title="7.2.5.1. Messages reported by Proof" href="proof_checks_table.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="how_to_use_gnatprove_in_a_team.html" title="7.3. How to Use GNATprove in a Team"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="proof_checks_table.html" title="7.2.5.1. Messages reported by Proof"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" >7. Formal Verification with GNATprove</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="how_to_view_gnatprove_output.html" accesskey="U">7.2. How to View GNATprove Output</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="proof_checks_table.html"
+                        title="previous chapter">7.2.5.1. Messages reported by Proof</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="how_to_use_gnatprove_in_a_team.html"
+                        title="next chapter">7.3. How to Use GNATprove in a Team</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/flow_checks_table.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="messages-reported-by-flow-analysis">
+<h1>7.2.5.2. Messages reported by Flow Analysis<a class="headerlink" href="#messages-reported-by-flow-analysis" title="Permalink to this headline">¶</a></h1>
+<p>The following table shows all flow analysis messages, (E)rrors, (W)arnings and (C)hecks.</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Message Kind</th>
+<th class="head">Class</th>
+<th class="head">CWE</th>
+<th class="head">Explanation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>aliasing between subprogram parameters</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>Aliasing between formal parameters or global objects.</td>
+</tr>
+<tr class="row-odd"><td>dead code</td>
+<td>W</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/561.html">561</a></td>
+<td>A statement is never executed.</td>
+</tr>
+<tr class="row-even"><td>wrong Default_Initial_Condition aspect</td>
+<td>C</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/457.html">457</a></td>
+<td>A type is wrongly declared as initialized by default.</td>
+</tr>
+<tr class="row-odd"><td>input item missing from the null dependency clause</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>An input item is missing from the null dependency clause.</td>
+</tr>
+<tr class="row-even"><td>input item missing from the dependency clause</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>An input is missing from the dependency clause.</td>
+</tr>
+<tr class="row-odd"><td>output item missing from the dependency clause</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>An output item is missing from the dependency clause.</td>
+</tr>
+<tr class="row-even"><td>extra input item in the dependency clause</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>Extra input item in the dependency clause.</td>
+</tr>
+<tr class="row-odd"><td>incomplete Global or Initializes contract</td>
+<td>E</td>
+<td>&nbsp;</td>
+<td>A Global or Initializes contract fails to mention some objects.</td>
+</tr>
+<tr class="row-even"><td>an extra item in the Global or Initializes contract</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>A Global or Initializes contract wrongly mentions some objects.</td>
+</tr>
+<tr class="row-odd"><td>subprogram output depends on a Proof_In global</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>Subprogram output depends on a Proof_In global.</td>
+</tr>
+<tr class="row-even"><td>constants with variable inputs that is not a state constituent</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>Constants with variable inputs that are not state constituents.</td>
+</tr>
+<tr class="row-odd"><td>illegal write of a global input</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>Illegal write of a global input.</td>
+</tr>
+<tr class="row-even"><td>a state abstraction that is impossible to initialize</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>A state abstraction that is impossible to initialize.</td>
+</tr>
+<tr class="row-odd"><td>a statement with no effect on subprogram&#8217;s outputs</td>
+<td>W</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/1164.html">1164</a></td>
+<td>A statement with no effect on subprogram&#8217;s outputs.</td>
+</tr>
+<tr class="row-even"><td>an extra item in the Initializes contract</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>An object that shall not appear in the Initializes contract</td>
+</tr>
+<tr class="row-odd"><td>an IN OUT parameter or an In_Out global that is not written</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>An IN OUT parameter or an In_Out global that is not written.</td>
+</tr>
+<tr class="row-even"><td>all execution paths raise exceptions or do not return</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>All execution paths raise exceptions or do not return.</td>
+</tr>
+<tr class="row-odd"><td>illegal write of an object declared as constant after elaboration</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>Illegal write of an object declared as constant after elaboration.</td>
+</tr>
+<tr class="row-even"><td>use of an abstract state of a package that was not yet elaborated</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>Use of an abstract state of a package that was not yet elaborated.</td>
+</tr>
+<tr class="row-odd"><td>a missing pragma Elaborate_Body</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>A missing pragma Elaborate_Body.</td>
+</tr>
+<tr class="row-even"><td>constant with no variable inputs as an abstract state&#8217;s constituent</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>Constant with no variable inputs as an abstract state&#8217;s constituent.</td>
+</tr>
+<tr class="row-odd"><td>function with side effects</td>
+<td>E</td>
+<td>&nbsp;</td>
+<td>A function with side effects.</td>
+</tr>
+<tr class="row-even"><td>loop with stable statement</td>
+<td>W</td>
+<td>&nbsp;</td>
+<td>A loop with stable statement.</td>
+</tr>
+<tr class="row-odd"><td>use of an uninitialized variable</td>
+<td>C</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/457.html">457</a></td>
+<td>Flow analysis has detected the use of an uninitialized variable.</td>
+</tr>
+<tr class="row-even"><td>object is not used</td>
+<td>W</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/563.html">563</a></td>
+<td>A global or locally declared object is never used.</td>
+</tr>
+<tr class="row-odd"><td>initial value of an object is not used</td>
+<td>W</td>
+<td>CWE <a class="reference external" href="http://cwe.mitre.org/data/definitions/563.html">563</a></td>
+<td>The initial value of an object is not used.</td>
+</tr>
+<tr class="row-even"><td>volatile function wrongly declared as non-volatile</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>A volatile function wrongly declared as non-volatile.</td>
+</tr>
+<tr class="row-odd"><td>non-volatile function wrongly declared as volatile</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>A non-volatile function wrongly declared as volatile.</td>
+</tr>
+<tr class="row-even"><td>illegal reference to a global object in precondition of a protected operation</td>
+<td>C</td>
+<td>&nbsp;</td>
+<td>An illegal reference to global in precondition of a protected operation</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Certain messages emitted by flow analysis are classified as errors and consequently cannot be suppressed or justified.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="how_to_use_gnatprove_in_a_team.html" title="7.3. How to Use GNATprove in a Team"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="proof_checks_table.html" title="7.2.5.1. Messages reported by Proof"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" >7. Formal Verification with GNATprove</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="how_to_view_gnatprove_output.html" >7.2. How to View GNATprove Output</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

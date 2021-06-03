@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Implementation Defined Pragmas &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="External Axiomatizations" href="external_axiomatizations.html" />
+    <link rel="prev" title="Project Attributes" href="project_attributes.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="external_axiomatizations.html" title="External Axiomatizations"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="project_attributes.html" title="Project Attributes"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Implementation Defined Pragmas</a><ul>
+<li><a class="reference internal" href="#pragma-spark-mode">Pragma <code class="docutils literal"><span class="pre">SPARK_Mode</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="project_attributes.html"
+                        title="previous chapter">Project Attributes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="external_axiomatizations.html"
+                        title="next chapter">External Axiomatizations</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/appendix/implementation_defined_pragmas.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="implementation-defined-pragmas">
+<h1>Implementation Defined Pragmas<a class="headerlink" href="#implementation-defined-pragmas" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pragma-spark-mode">
+<span id="id1"></span><h2>Pragma <code class="docutils literal"><span class="pre">SPARK_Mode</span></code><a class="headerlink" href="#pragma-spark-mode" title="Permalink to this headline">¶</a></h2>
+<p>SPARK_Mode is a three-valued aspect. At least until we get to the
+next paragraph, a SPARK_Mode of On, Off, or Auto is associated
+with each Ada construct. Roughly, the meaning of the three values is the
+following:</p>
+<blockquote>
+<div><ul class="simple">
+<li>a value of On means that the construct is required to be in SPARK, and
+the construct will be analyzed by GNATprove.</li>
+<li>a value of Off means that the construct will not be analyzed by
+GNATprove, and does not need to obey the SPARK restrictions. The
+construct also cannot be referenced from other parts that are required to
+be in SPARK.</li>
+<li>a value of Auto means that the construct will not be analyzed, and
+GNATprove will infer whether this construct can be used in other SPARK
+parts or not.</li>
+</ul>
+</div></blockquote>
+<p>We now explain in more detail how the SPARK_Mode pragma works.</p>
+<p>Some Ada constructs are said to have more than one &#8220;section&#8221;.
+For example, a declaration which requires a completion will have (at least)
+two sections: the initial declaration and the completion. The SPARK_Modes
+of the different sections of one entity may differ. In other words,
+SPARK_Mode is not an aspect of an entity but rather of a section of an entity.</p>
+<p>For example, if a subprogram declaration has a SPARK_Mode of On while
+its body has a SPARK_Mode of Off, then an error would be generated if
+the subprogram  took a parameter of an access type but not if
+the subprogram declared a local variable of an
+access type (recall that access types are not in SPARK).</p>
+<p>A package is defined to have 4 sections: its visible part, its private part,
+its body declarations, and its body statements. A protected or task unit has
+3 sections: its visible part, its private part, and its body.
+Other declarations which require a completion have two sections, as noted
+above; all other entities and constructs have only one section.</p>
+<p>If the SPARK_Mode of a section of an entity is Off, then the SPARK_Mode
+of a later section of that entity shall not be On. [For example, a subprogram
+can have a SPARK declaration and a non-SPARK body, but not vice versa.]</p>
+<p>If the SPARK_Mode of a section of an entity is Auto, then the SPARK_Mode
+of a later section of that entity shall not be On or Off.</p>
+<p>The SPARK_Mode aspect can be specified either via a pragma or via an
+aspect_specification. In some contexts, only a pragma can be used
+because of syntactic limitations. In those contexts where an
+aspect_specification can be used, it has the same effect as a
+corresponding pragma.</p>
+<p>The form of a pragma SPARK_Mode is as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">SPARK_Mode</span> [ <span class="o">(</span><span class="n">On</span> <span class="o">|</span> <span class="n">Off</span><span class="o">)</span> ]
+</pre></div>
+</div>
+<p>The form for the aspect_definition of a SPARK_Mode aspect_specification is
+as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span>[ <span class="n">On</span> <span class="o">|</span> <span class="n">Off</span> ]
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">P</span>
+   <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">On</span>
+<span class="kr">is</span><span class="p"></span>
+</pre></div>
+</div>
+<p>The pragma can be used as a configuration pragma. The effect of
+such a configuration pragma is described below in the rules for
+determining the SPARK_Mode aspect value for an arbitrary section of an
+arbitrary Ada entity or construct.</p>
+<p>Pragma <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> shall be used as a local pragma in only the following
+contexts and has the described semantics:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="60%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Pragma placement</th>
+<th class="head">Affected construct</th>
+<th class="head">Alternative aspect form</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Start of the visible declarations (preceded only by other pragmas) of a
+package declaration</td>
+<td>Visible part of the package</td>
+<td>As part of the
+package_specification</td>
+</tr>
+<tr class="row-odd"><td>Start of the visible declarations (preceded only by other pragmas) of a task
+or protected unit</td>
+<td>Visible part of the unit</td>
+<td>As part of the declaration</td>
+</tr>
+<tr class="row-even"><td>Start of the private declarations of a package, a protected unit, or a task
+unit (only other pragmas can appear between the <code class="docutils literal"><span class="pre">private</span></code> keyword and the
+<code class="docutils literal"><span class="pre">SPARK_Mode</span></code> pragma)</td>
+<td>Private part</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Immediately at the start of the declarations of a package body (preceded only
+by other pragmas)</td>
+<td>Body declarations of the package</td>
+<td>As part of the
+package_body</td>
+</tr>
+<tr class="row-even"><td>Start of the elaboration statements of a package body (only other pragmas can
+appear between the <code class="docutils literal"><span class="pre">begin</span></code> keyword and the <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> pragma)</td>
+<td>Body
+statements of the package</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Start of the declarations of a protected or task body (preceded only by other
+pragmas)</td>
+<td>Body</td>
+<td>As part of the protected or task body</td>
+</tr>
+<tr class="row-even"><td>After a subprogram declaration (with only other pragmas intervening). [This
+does not include the case of a subprogram whose initial declaration is via a
+subprogram_body_stub. Such a subprogram has only one section because a subunit
+is not a completion.]</td>
+<td>Subprogram&#8217;s specification</td>
+<td>As part of the
+subprogram_declaration</td>
+</tr>
+<tr class="row-odd"><td>Start of the declarations of a subprogram body (preceded only by other
+pragmas)</td>
+<td>Subprogram&#8217;s body</td>
+<td>As part of the subprogram_body</td>
+</tr>
+</tbody>
+</table>
+<p>A default argument of On is assumed for any SPARK_Mode pragma or
+aspect_specification for which no argument is explicitly specified.</p>
+<p>A SPARK_Mode of Auto cannot be explicitly specified; the
+cases in which a SPARK_Mode of Auto is implicitly specified are
+described below. Roughly speaking, Auto indicates that it is left up to
+the formal verification tools to determine whether or not a given construct
+is in SPARK.</p>
+<p>A SPARK_Mode pragma or aspect specification shall only apply to a
+(section of a) package, generic package, subprogram, or
+generic subprogram.</p>
+<p>A SPARK_Mode of On shall only apply to a (section of a) library-level entity,
+except for the case of SPARK_Mode specifications occurring within generic
+instances. A SPARK_Mode of On applying to a non-library-level entity within a
+generic instance has no effect.</p>
+<p>The SPARK_Mode aspect value of an arbitrary section of an arbitrary
+Ada entity or construct is then defined to be the following value
+(except if this yields a result of Auto for a non-package; see below):</p>
+<ul class="simple">
+<li>If SPARK_Mode has been specified for the given section of the
+given entity or construct, then the specified value;</li>
+<li>else for the private part of a public child unit whose parent unit&#8217;s
+private part has a SPARK_Mode of Off, the SPARK_Mode is Off;</li>
+<li>else for the private part of a package or a protected or task unit,
+the SPARK_Mode of the visible part;</li>
+<li>else for a package body&#8217;s statements, the SPARK_Mode of the
+package body&#8217;s declarations;</li>
+<li>else for the first section (in the case of a package, the visible part)
+of a public child unit, the SPARK_Mode of the visible part of the
+parent unit;</li>
+<li>else for the first section (in the case of a package, the visible part)
+of a private child unit, the SPARK_Mode of the private part of the
+parent unit;</li>
+<li>else for any of the visible part or body declarations of a library
+unit package or either section of a library unit subprogram,
+if there is an applicable SPARK_Mode configuration pragma then the
+value specified by the pragma; if no such configuration pragma
+applies, then an implicit specification of Auto is assumed;</li>
+<li>else the SPARK_Mode of the enclosing section of the nearest enclosing
+package or subprogram;</li>
+<li>Corner cases: the SPARK_Mode of the visible declarations of the
+limited view of a package is always Auto; the SPARK_Mode of any
+section of a generic library unit is On.
+[Recall that any generic unit is in SPARK.]</li>
+</ul>
+<p>If the above computation yields a result of Auto for any construct
+other than one of the four sections of a package, then a result of On
+or Off is determined instead based on the legality (with respect to
+the rules of SPARK) of the construct. The construct&#8217;s SPARK_Mode is
+On if and only if the construct is in SPARK. [A SPARK_Mode of Auto
+is therefore only possible for (sections of) a package.]</p>
+<p>In code where SPARK_Mode is On (also called &#8220;SPARK code&#8221;), the rules of
+SPARK are enforced. In particular, such code shall not reference
+non-SPARK entities, although such code may reference a SPARK declaration
+with one or more non-SPARK subsequent sections (e.g., a package whose
+visible part has a SPARK_Mode of On but whose private part has a SPARK_Mode
+of Off; a package whose visible part has a SPARK_Mode of Auto may also be
+referenced).</p>
+<p>Code where SPARK_Mode is Off shall not enclose code where Spark_Mode is On.
+However, if an instance of a generic unit is enclosed
+by code where SPARK_Mode is Off and if any SPARK_Mode specifications occur
+within the generic unit, then the corresponding SPARK_Mode specifications
+occurring within the instance have no semantic effect. [In particular,
+such an ignored SPARK_Mode specification could not violate the preceding
+&#8220;Off shall not enclose On&#8221; rule because the SPARK_Mode of the
+entire instance is Off. Similarly, such an ignored SPARK_Mode specification
+could not violate the preceding rule that a SPARK_Mode specification
+shall only apply to a (section of a) library-level entity.]</p>
+<p>For purposes of the &#8220;Off shall not enclose On&#8221; rule just described, the
+initial section of a child unit is considered to occur immediately
+within either the visible part (for a public child unit) or the private
+part (for a private child unit) of the parent unit. In addition, the private
+part of a public child package is considered to occur immediately
+within the private part of the parent unit. [This follows Ada&#8217;s visibility
+rules for child units. This means, for example, that if a parent unit&#8217;s
+private part has a SPARK_Mode of Off, then the private part of a
+public child package shall not have a SPARK_Node of On. Note also that
+a SPARK_Mode configuration pragma which applies only to the specification
+(not the body) of a child unit is always ineffective; this is a consequence
+of the rules given above for determining the SPARK_Mode of the first
+section of a child unit.]</p>
+<p>The rules for a protected
+unit follow from the rules given for other constructs after notionally
+rewriting the protected unit as a package.</p>
+<p>A protected unit declaration such as</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">protected</span><span class="p"> </span><span class="kr">type</span><span class="p"> </span><span class="n">Prot</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">On</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Op1</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">procedure </span><span class="nf">Op2</span><span class="p">;</span>
+   <span class="k">procedure </span><span class="nf">Non_SPARK_Profile</span> <span class="o">(</span><span class="n">Ptr</span> <span class="o">:</span> <span class="kr">access</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span>
+     <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">Off</span><span class="p">;</span>
+<span class="kr">private</span><span class="p"></span>
+   <span class="n">Aaa</span><span class="p">,</span> <span class="n">Bbb</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Prot</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>can be thought of, for purposes of SPARK_Mode rules, as being
+a lot like</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Pkg</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">On</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Prot</span> <span class="kr">is</span><span class="p"> </span><span class="kr">limited</span><span class="p"> </span><span class="kr">private</span><span class="p">;</span>
+   <span class="k">procedure </span><span class="nf">Op1</span> <span class="o">(</span><span class="n">Obj</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Prot</span><span class="p">;</span> <span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">procedure </span><span class="nf">Op2</span> <span class="o">(</span><span class="n">Obj</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Prot</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">procedure </span><span class="nf">Non_SPARK_Profile</span> <span class="o">(</span><span class="n">Obj</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Prot</span><span class="p">;</span> <span class="n">Ptr</span> <span class="o">:</span> <span class="kr">access</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span>
+     <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="o">=&gt;</span> <span class="n">Off</span><span class="p">;</span>
+<span class="kr">private</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Prot</span> <span class="kr">is</span><span class="p"></span>
+     <span class="kr">limited</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+        <span class="n">Aaa</span><span class="p">,</span> <span class="n">Bbb</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+     <span class="k">end record</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Pkg</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>which is legal. The point is that a protected type which is
+in SPARK can have protected operation whose declaration is not in SPARK.</p>
+<p>SPARK_Mode is an implementation-defined Ada aspect; it is not (strictly
+speaking) part of the SPARK language. It is used to notionally transform
+programs which would otherwise not be in SPARK so that they can
+be viewed (at least in part) as SPARK programs.</p>
+<p>Note that if you would like to mark all your code in SPARK_Mode, the
+simplest solution is to specify in your project file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">Builder</span> <span class="ow">is</span>
+   <span class="k">for</span> <span class="n">Global_Configuration_Pragmas</span> <span class="n">use</span> <span class="s2">&quot;spark.adc&quot;</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">Builder</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>and provide a file <cite>spark.adc</cite> which contains:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pragma</span> <span class="n">SPARK_Mode</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="external_axiomatizations.html" title="External Axiomatizations"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="project_attributes.html" title="Project Attributes"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

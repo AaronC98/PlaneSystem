@@ -1,0 +1,143 @@
+V "GNAT Lib v2019"
+A -O2
+A -fno-common
+A -gnatp
+A -gnatg
+A -gnatn
+A -gnatU
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U ada.interrupts.names%s  a-intnam.ads		5d4391b3 NE OL PK
+W ada.interrupts%s	a-interr.adb		a-interr.ali
+W system%s		system.ads		system.ali
+W system.os_interface%s	s-osinte.adb		s-osinte.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-interr.ads		20190518041258 bdf68b51 ada.interrupts%s
+D a-intnam.ads		20190518041258 e106b7a5 ada.interrupts.names%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-taside.ads		20190518041258 00e3a3f6 ada.task_identification%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D i-c.ads		20190518041255 5421119b interfaces.c%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-atacco.ads		20190518041257 4c36d12f system.address_to_access_conversions%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-interr.ads		20190518041257 269c22db system.interrupts%s
+D s-multip.ads		20190518041255 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20190518124529 e40aaf2d system.os_constants%s
+D s-osinte.ads		20190518041258 01b3ad47 system.os_interface%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stausa.ads		20190518041256 017a0a05 system.stack_usage%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-tasinf.ads		20190518041257 801abd01 system.task_info%s
+D s-taspri.ads		20190518041257 f40ac08d system.task_primitives%s
+D s-taskin.ads		20190518041258 b9d612e2 system.tasking%s
+D s-taprob.ads		20190518041257 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20190518041258 60ad3dae system.tasking.protected_objects.entries%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+G a e
+X 1 ada.ads
+16K9*Ada 20e8 5|47r9 153r5
+X 4 a-interr.ads
+40K13*Interrupts 1|16k9 4|100e19 5|47r13 153r9
+42I9*Interrupt_ID<16|64I9> 5|57r25 60r25 63r25 66r25 69r25 72r25 75r25 78r25
+. 81r25 84r25 87r25 90r25 93r25 96r25 99r25 102r25 105r25 108r25 111r25 114r25
+. 117r25 120r25 123r25 126r25 129r25 132r25 135r25 138r25 141r25 144r25 147r25
+. 150r25
+X 5 a-intnam.ads
+47K24*Names 4|40k13 5|153l20 153e25
+57i4*SIGHUP{4|42I9}
+60i4*SIGINT{4|42I9}
+63i4*SIGQUIT{4|42I9}
+66i4*SIGILL{4|42I9}
+69i4*SIGTRAP{4|42I9}
+72i4*SIGIOT{4|42I9}
+75i4*SIGABRT{4|42I9}
+78i4*SIGEMT{4|42I9}
+81i4*SIGFPE{4|42I9}
+84i4*SIGKILL{4|42I9}
+87i4*SIGBUS{4|42I9}
+90i4*SIGSEGV{4|42I9}
+93i4*SIGSYS{4|42I9}
+96i4*SIGPIPE{4|42I9}
+99i4*SIGALRM{4|42I9}
+102i4*SIGTERM{4|42I9}
+105i4*SIGURG{4|42I9}
+108i4*SIGSTOP{4|42I9}
+111i4*SIGTSTP{4|42I9}
+114i4*SIGCONT{4|42I9}
+117i4*SIGCHLD{4|42I9}
+120i4*SIGTTIN{4|42I9}
+123i4*SIGTTOU{4|42I9}
+126i4*SIGIO{4|42I9}
+129i4*SIGXCPU{4|42I9}
+132i4*SIGXFSZ{4|42I9}
+135i4*SIGVTALRM{4|42I9}
+138i4*SIGPROF{4|42I9}
+141i4*SIGWINCH{4|42I9}
+144i4*SIGINFO{4|42I9}
+147i4*SIGUSR1{4|42I9}
+150i4*SIGUSR2{4|42I9}
+X 12 system.ads
+37K9*System 5|45r6 58r6 61r6 64r6 67r6 70r6 73r6 76r6 79r6 82r6 85r6 88r6
+. 91r6 94r6 97r6 100r6 103r6 106r6 109r6 112r6 115r6 118r6 121r6 124r6 127r6
+. 130r6 133r6 136r6 139r6 142r6 145r6 148r6 151r6 12|174e11
+X 16 s-interr.ads
+64I9*Ada_Interrupt_ID<short_short_integer>
+X 19 s-osinte.ads
+44K16*OS_Interface 5|45w13 58r13 61r13 64r13 67r13 70r13 73r13 76r13 79r13
+. 82r13 85r13 88r13 91r13 94r13 97r13 100r13 103r13 106r13 109r13 112r13
+. 115r13 118r13 121r13 124r13 127r13 130r13 133r13 136r13 139r13 142r13 145r13
+. 148r13 151r13 19|598e24
+78N4*SIGHUP 5|58r26
+79N4*SIGINT 5|61r26
+80N4*SIGQUIT 5|64r26
+81N4*SIGILL 5|67r26
+82N4*SIGTRAP 5|70r26
+83N4*SIGIOT 5|73r26
+84N4*SIGABRT 5|76r26
+85N4*SIGEMT 5|79r26
+86N4*SIGFPE 5|82r26
+87N4*SIGKILL 5|85r26
+88N4*SIGBUS 5|88r26
+89N4*SIGSEGV 5|91r26
+90N4*SIGSYS 5|94r26
+91N4*SIGPIPE 5|97r26
+92N4*SIGALRM 5|100r26
+93N4*SIGTERM 5|103r26
+94N4*SIGURG 5|106r26
+95N4*SIGSTOP 5|109r26
+96N4*SIGTSTP 5|112r26
+97N4*SIGCONT 5|115r26
+98N4*SIGCHLD 5|118r26
+99N4*SIGTTIN 5|121r26
+100N4*SIGTTOU 5|124r26
+101N4*SIGIO 5|127r26
+102N4*SIGXCPU 5|130r26
+103N4*SIGXFSZ 5|133r26
+104N4*SIGVTALRM 5|136r26
+105N4*SIGPROF 5|139r26
+106N4*SIGWINCH 5|142r26
+107N4*SIGINFO 5|145r26
+108N4*SIGUSR1 5|148r26
+109N4*SIGUSR2 5|151r26
+X 24 s-stausa.ads
+203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
+268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
+

@@ -1,0 +1,55 @@
+V "GNAT Lib v2019"
+A -gnatA
+A -mtune=core2
+A -mmacosx-version-min=10.16.0
+A -fPIC
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U plane%b		plane.adb		23bffde8 NE OO PK IL
+
+U plane%s		plane.ads		1c1afcca EE NE OO PK IL
+
+D plane.ads		20210427123217 1c1afcca plane%s
+D plane.adb		20210427122139 3fa50122 plane%b
+D system.ads		20190518041255 085b6ffb system%s
+G a e
+G c Z s s [planeIP plane 23 9 none]
+G c Z s b [starttestplane plane 45 17 none]
+X 1 plane.ads
+1K9*plane 52l5 52e10 2|1b14 11l5 11t10
+11I9*Fuel<short_short_integer> 24r18
+12I9*Airspeed<integer> 25r18
+13I9*Altitude<integer> 26r16
+14E9*Light 14e37 27r22
+14n19*Red{14E9}
+14n24*Amber{14E9}
+14n31*Green{14E9} 38r23 47r41
+15E9*ExternalDoor 15e39 30r17
+15n26*Open{15E9}
+15n32*Closed{15E9} 41r18
+16E9*LandingGear 16e44 28r18
+16n25*Lowered{16E9}
+16n34*Unlowered{16E9} 39r19
+17E9*CockpitDoor 17e38 29r18
+17n25*Open{17E9}
+17n31*Closed{17E9} 40r19
+19E9*Engine 19e28 31r18
+19n20*On{19E9} 48r38 2|5r29
+19n24*Off{19E9} 42r19
+23R9*Plane 32e14 34r16
+24i7*fuselage{11I9} 35m7
+25i7*velocity{12I9} 36m7
+26i7*height{13I9} 37m7
+27e7*warningLight{14E9} 38m7 47r26
+28e7*landGear{16E9} 39m7
+29e7*cockDoor{17E9} 40m7
+30e7*extDoor{15E9} 41m7
+31e7*ignition{19E9} 42m7 48r27 2|5m17
+34r4*testPlane{23R9} 46r30 47r16 48r17 2|5m7
+45U17*startTestPlane 2|3b14 6l8 6t22
+

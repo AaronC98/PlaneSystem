@@ -1,0 +1,114 @@
+             G N A T T E S T   E X A M P L E S
+
+In order to generate and compile test driver, make sure that 'gnattest' and
+'gprbuild' commands are in your path and AUnit is in your default project path.
+
+To generate a test driver for a number of sources you need to use gnattest
+utility. Note that in order to process given files, gnattest has to
+semantically analyze the Ada sources. Therefore, test packages can only be
+generated legal Ada units.
+
+Getting started
+---------------
+
+Source example in this directory represents a three-layered system. At the
+top is the Ops subsystem that provides two routines, Sum returning the sum of
+two numbers, and Sum_Of_Sums that returns the sum of two Sum calls. Sum obtains
+the arguments from the function Read_Number supplied by subsystem Input. The
+latter converts the numbers from the strings provided by the Console subsystem.
+
+The objective of our testing campaign is to test the Ops subsystem
+independently from Input, and Input subsystem independently from Console. This
+is achieved by the so-called "stubbing" of the dependencies. 
+
+Invocation
+----------
+
+To generate the skeleton infrastructure for a stubbed test suite, just type:
+  $ gnattest -Pops --stub -r
+
+The -r switch tells gnattest to consider the entire hierarchy of projects, not
+just the top-most Ops one. As a result, gnattest will generate four individual
+test drivers: for routines Sum, Sum_Of_Sums, Read_Number, and Read_String.
+
+As before, to compile and run the test driver do the following:
+  $ cd obj/gnattest/harness
+  $ make
+  $ gnattest test_drivers.list
+
+Notice that in addition to a Makefile, gnattest also generates an aggregate
+project test_drivers.gpr, which can be used in place of the Makefile to build
+the test drivers (i.e. instead of calling "make" you can call
+"gprbuild -Ptest_drivers"). This project is also handy to open the entire
+hierarchy of test harness projects in a single GPS session.
+
+Writing Actual Tests
+--------------------
+
+Now, let's write the actual tests for our routines.
+
+First, for the Console.Read_String: we aren't interested in that one as it is
+too low-level, so let's make the test automatically pass by modifying the
+assertion in Console.Test_Data.Tests to read...
+
+      AUnit.Assertions.Assert (True, "Not part of the testing campaign");
+
+Then, for Input.Read_Number: this time, Console.Read_String has been stubbed, so
+using this stub let's verify that the string "25" makes Read_Number return
+the value 25, by modifying Input.Test_Data.Tests to read...
+
+      Console.Stub_Data.Set_Stub_Read_String_<tag> (new String'("25"));
+
+      AUnit.Assertions.Assert (Input.Read_Number = 25, "Wrong conversion");
+
+Then, for Sum.Sum: it is now the turn of Input.Read_Number to be stubbed, so
+using this stub let's verify that given the input of 1 and 2 the result is 3.
+Here it becomes trickier than before, because the stubbed routine will be
+called twice and should return different values, but the automatically
+generated version doesn't know how to do that. We need to enhance the setter
+infrastructure in Input.Stub_Data for that. In particular, let's rewrite
+the type Stub_Data_Type_Read_Number_<tag> as follows:
+
+   type Int_Array is array (1 .. 10) of Integer;
+   
+   type Stub_Data_Type_Read_Number_<tag> is record
+      Read_Number_Result : Int_Array;
+
+      Stub_Counter : Natural := 0;
+   end record;
+
+Such a type will allow us to get a sequence of up to 10 values from a stub,
+rather than always the same one. To use it, we need to make a few more changes
+in the code: first, profile of procedure Set_Stub_Read_Number_<tag> becomes...
+
+   procedure Set_Stub_Read_Number_<tag>
+     (Read_Number_Result : Int_Array := Stub_Data_Read_Number_<tag>.Read_Number_Result);
+
+Also, the return statement in the stubbed Input.Read_Number becomes...
+
+      return Stub_Data.Stub_Data_Read_Number_<tag>.Read_Number_Result (Stub_Data_Read_Number_<tag>.Stub_Counter);
+
+What the above means is that we are making use of the stub call counter to get
+the proper value in the sequence.
+
+At last, we can implement the test itself in Sum.Test_Data.Tests.Test_Sum:
+
+      Input.Stub_Data.Set_Stub_Read_Number_<tag> ((1, 2, others => 0));
+
+      AUnit.Assertions.Assert (Sum = 3, "1 + 2 /= 3");
+
+Finally, it's the turn of Sum_Of_Sums routine. Note that since the Sum
+function that it calls is located in the same package, it is not stubbed, to
+guarantee that the source file under test is literally the same source file as
+used in production. This means that a call to Sum_Of_Sums results in indirectly
+calling the stubbed Input.Read_Number 4 times. So let's verify that given the
+values of 1, 2, 3 and 4, the result is 10. Fortunately the groundwork we
+laid down at the last step is sufficient, so we can write a test in
+Sum.Test_Data.Tests.Test_Sum_of_Sums:
+
+      Input.Stub_Data.Set_Stub_Read_Number_<tag> ((1, 2, 3, 4, others => 0));
+
+      AUnit.Assertions.Assert (Sum_of_Sums = 10, "(1 + 2) + (3 + 4) /= 10");
+
+After rebuilding and rerunning the test drivers you should see that all 4 tests
+now successfully pass.

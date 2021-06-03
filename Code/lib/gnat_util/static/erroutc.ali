@@ -1,0 +1,940 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P SS ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U erroutc%b		erroutc.adb		623310b9 NE OO PK
+W atree%s		atree.adb		atree.ali
+W casing%s		casing.adb		casing.ali
+W csets%s		csets.adb		csets.ali
+W debug%s		debug.adb		debug.ali
+W err_vars%s		err_vars.ads		err_vars.ali
+W fname%s		fname.adb		fname.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W namet%s		namet.adb		namet.ali
+W opt%s			opt.adb			opt.ali
+W output%s		output.adb		output.ali  AD
+W sinput%s		sinput.adb		sinput.ali
+W snames%s		snames.adb		snames.ali
+W stringt%s		stringt.adb		stringt.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W targparm%s		targparm.adb		targparm.ali
+W uintp%s		uintp.adb		uintp.ali
+W widechar%s		widechar.adb		widechar.ali
+
+U erroutc%s		erroutc.ads		34c69e85 EE OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+W table%s		table.adb		table.ali
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D aspects.ads		20190518044710 bc94048b aspects%s
+D atree.ads		20190518044709 2c9e949c atree%s
+D atree.adb		20190518044709 3ab87b63 atree%b
+D casing.ads		20190518044709 9b922bd9 casing%s
+D csets.ads		20190518044709 e948558f csets%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D einfo.ads		20190518044709 0cc0e22d einfo%s
+D err_vars.ads		20190518044709 572d4c83 err_vars%s
+D erroutc.ads		20190518044709 4502cfdd erroutc%s
+D erroutc.adb		20190518044709 c8a4864d erroutc%b
+D fname.ads		20190518044709 b3fc94d8 fname%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-byorma.ads		20190518041256 2b13b02c gnat.byte_order_mark%s
+D g-hesorg.ads		20190518041255 106922da gnat.heap_sort_g%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D namet.ads		20190518044709 b520bebe namet%s
+D namet.adb		20190518044709 64106062 namet%b
+D nlists.ads		20190518044709 0f3f40a5 nlists%s
+D opt.ads		20190518044710 3d2ce478 opt%s
+D output.ads		20190518044709 a916e413 output%s
+D output.adb		20190518044709 906fa916 output%b
+D rident.ads		20190518044709 770cd2d0 rident%s
+D scans.ads		20190518044709 8b26a439 scans%s
+D sinfo.ads		20190518044709 4a0f957d sinfo%s
+D sinput.ads		20190518044709 573062f0 sinput%s
+D sinput.adb		20190518044709 d9451392 sinput%b
+D snames.ads		20190518132638 5f03100c snames%s
+D stringt.ads		20190518044709 36edeb84 stringt%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-rident.ads		20190518041257 50efdf23 system.rident%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcnv.ads		20190518041255 0fb7baf3 system.wch_cnv%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D targparm.ads		20190518044709 39b98a1c targparm%s
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D uintp.ads		20190518044709 c6012b27 uintp%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D urealp.ads		20190518044709 e500ee51 urealp%s
+D widechar.ads		20190518044709 afb9abd7 widechar%s
+D widechar.adb		20190518044709 7acfb26a widechar%b
+G a e
+G c s s s [s erroutc 38 1 none]
+G c Z s b [get_msg_id erroutc 162 13 none]
+G c Z s b [get_location erroutc 166 13 none]
+G c Z s s [error_msg_objectIP erroutc 180 9 none]
+G c Z s s [init erroutc__errors 142 17 272_4]
+G c Z s s [last erroutc__errors 149 16 272_4]
+G c Z s s [release erroutc__errors 156 17 272_4]
+G c Z s s [free erroutc__errors 168 17 272_4]
+G c Z s s [set_last erroutc__errors 175 17 272_4]
+G c Z s s [increment_last erroutc__errors 184 17 272_4]
+G c Z s s [decrement_last erroutc__errors 188 17 272_4]
+G c Z s s [append erroutc__errors 192 17 272_4]
+G c Z s s [append_all erroutc__errors 200 17 272_4]
+G c Z s s [set_item erroutc__errors 203 17 272_4]
+G c Z s s [save erroutc__errors 215 16 272_4]
+G c Z s s [restore erroutc__errors 219 17 272_4]
+G c Z s s [tree_write erroutc__errors 223 17 272_4]
+G c Z s s [tree_read erroutc__errors 226 17 272_4]
+G c Z s s [table_typeIP erroutc__errors 110 12 272_4]
+G c Z s s [saved_tableIP erroutc__errors 241 12 272_4]
+G c Z s s [reallocate erroutc__errors 58 17 272_4]
+G c Z s s [tree_get_table_address erroutc__errors 63 16 272_4]
+G c Z s s [to_address erroutc__errors 72 16 272_4]
+G c Z s s [to_pointer erroutc__errors 73 16 272_4]
+G c Z s s [warnings_entryIP erroutc 317 9 none]
+G c Z s s [init erroutc__warnings 142 17 323_4]
+G c Z s s [last erroutc__warnings 149 16 323_4]
+G c Z s s [release erroutc__warnings 156 17 323_4]
+G c Z s s [free erroutc__warnings 168 17 323_4]
+G c Z s s [set_last erroutc__warnings 175 17 323_4]
+G c Z s s [increment_last erroutc__warnings 184 17 323_4]
+G c Z s s [decrement_last erroutc__warnings 188 17 323_4]
+G c Z s s [append erroutc__warnings 192 17 323_4]
+G c Z s s [append_all erroutc__warnings 200 17 323_4]
+G c Z s s [set_item erroutc__warnings 203 17 323_4]
+G c Z s s [save erroutc__warnings 215 16 323_4]
+G c Z s s [restore erroutc__warnings 219 17 323_4]
+G c Z s s [tree_write erroutc__warnings 223 17 323_4]
+G c Z s s [tree_read erroutc__warnings 226 17 323_4]
+G c Z s s [table_typeIP erroutc__warnings 110 12 323_4]
+G c Z s s [saved_tableIP erroutc__warnings 241 12 323_4]
+G c Z s s [reallocate erroutc__warnings 58 17 323_4]
+G c Z s s [tree_get_table_address erroutc__warnings 63 16 323_4]
+G c Z s s [to_address erroutc__warnings 72 16 323_4]
+G c Z s s [to_pointer erroutc__warnings 73 16 323_4]
+G c Z s s [specific_warning_entryIP erroutc 335 9 none]
+G c Z s s [init erroutc__specific_warnings 142 17 359_4]
+G c Z s s [last erroutc__specific_warnings 149 16 359_4]
+G c Z s s [release erroutc__specific_warnings 156 17 359_4]
+G c Z s s [free erroutc__specific_warnings 168 17 359_4]
+G c Z s s [set_last erroutc__specific_warnings 175 17 359_4]
+G c Z s s [increment_last erroutc__specific_warnings 184 17 359_4]
+G c Z s s [decrement_last erroutc__specific_warnings 188 17 359_4]
+G c Z s s [append erroutc__specific_warnings 192 17 359_4]
+G c Z s s [append_all erroutc__specific_warnings 200 17 359_4]
+G c Z s s [set_item erroutc__specific_warnings 203 17 359_4]
+G c Z s s [save erroutc__specific_warnings 215 16 359_4]
+G c Z s s [restore erroutc__specific_warnings 219 17 359_4]
+G c Z s s [tree_write erroutc__specific_warnings 223 17 359_4]
+G c Z s s [tree_read erroutc__specific_warnings 226 17 359_4]
+G c Z s s [table_typeIP erroutc__specific_warnings 110 12 359_4]
+G c Z s s [saved_tableIP erroutc__specific_warnings 241 12 359_4]
+G c Z s s [reallocate erroutc__specific_warnings 58 17 359_4]
+G c Z s s [tree_get_table_address erroutc__specific_warnings 63 16 359_4]
+G c Z s s [to_address erroutc__specific_warnings 72 16 359_4]
+G c Z s s [to_pointer erroutc__specific_warnings 73 16 359_4]
+G c Z s b [add_class erroutc 388 14 none]
+G c Z s b [buffer_ends_with erroutc 391 13 none]
+G c Z s b [buffer_ends_with erroutc 394 13 none]
+G c Z s b [buffer_remove erroutc 397 14 none]
+G c Z s b [buffer_remove erroutc 400 14 none]
+G c Z s b [compilation_errors erroutc 404 13 none]
+G c Z s b [dmsg erroutc 408 14 none]
+G c Z s b [debug_output erroutc 411 14 none]
+G c Z s b [check_duplicate_message erroutc 415 14 none]
+G c Z s b [get_warning_tag erroutc 422 13 none]
+G c Z s b [output_error_msgs erroutc 426 14 none]
+G c Z s b [output_line_number erroutc 431 14 none]
+G c Z s b [output_msg_text erroutc 438 14 none]
+G c Z s b [prescan_message erroutc 445 14 none]
+G c Z s b [purge_messages erroutc 473 14 none]
+G c Z s b [same_error erroutc 477 13 none]
+G c Z s b [set_msg_blank erroutc 482 14 none]
+G c Z s b [set_msg_blank_conditional erroutc 487 14 none]
+G c Z s b [set_msg_char erroutc 492 14 none]
+G c Z s b [set_msg_insertion_file_name erroutc 497 14 none]
+G c Z s b [set_msg_insertion_line_number erroutc 500 14 none]
+G c Z s b [set_msg_insertion_name_literal erroutc 505 14 none]
+G c Z s b [set_msg_insertion_name erroutc 507 14 none]
+G c Z s b [set_msg_insertion_reserved_name erroutc 510 14 none]
+G c Z s b [set_msg_insertion_reserved_word erroutc 513 14 none]
+G c Z s b [set_msg_insertion_run_time_name erroutc 522 14 none]
+G c Z s b [set_msg_insertion_uint erroutc 529 14 none]
+G c Z s b [set_msg_int erroutc 532 14 none]
+G c Z s b [set_msg_name_buffer erroutc 536 14 none]
+G c Z s b [set_msg_quote erroutc 540 14 none]
+G c Z s b [set_msg_str erroutc 543 14 none]
+G c Z s b [set_next_non_deleted_msg erroutc 549 14 none]
+G c Z s b [set_specific_warning_off erroutc 556 14 none]
+G c Z s b [set_specific_warning_on erroutc 573 14 none]
+G c Z s b [set_warnings_mode_off erroutc 584 14 none]
+G c Z s b [set_warnings_mode_on erroutc 589 14 none]
+G c Z s b [warnings_suppressed erroutc 593 13 none]
+G c Z s b [warning_specifically_suppressed erroutc 603 13 none]
+G c Z s b [warning_treated_as_error erroutc 618 13 none]
+G c Z s b [validate_specific_warnings erroutc 625 14 none]
+G c Z b b [matches erroutc 54 13 none]
+G c Z b b [sloc_in_range erroutc 59 13 none]
+G r i none [s erroutc 38 1 none] [table table 59 12 none]
+G r c none [s erroutc 38 1 none] [write_str output 130 14 none]
+G r c none [s erroutc 38 1 none] [write_int output 123 14 none]
+G r c none [s erroutc 38 1 none] [write_eol output 113 14 none]
+G r c none [s erroutc 38 1 none] [set_standard_error output 77 14 none]
+G r c none [s erroutc 38 1 none] [set_standard_output output 84 14 none]
+G r c none [init erroutc__errors 142 17 272_4] [write_str output 130 14 none]
+G r c none [init erroutc__errors 142 17 272_4] [write_int output 123 14 none]
+G r c none [init erroutc__errors 142 17 272_4] [write_eol output 113 14 none]
+G r c none [init erroutc__errors 142 17 272_4] [set_standard_error output 77 14 none]
+G r c none [init erroutc__errors 142 17 272_4] [set_standard_output output 84 14 none]
+G r c none [release erroutc__errors 156 17 272_4] [write_str output 130 14 none]
+G r c none [release erroutc__errors 156 17 272_4] [write_int output 123 14 none]
+G r c none [release erroutc__errors 156 17 272_4] [write_eol output 113 14 none]
+G r c none [release erroutc__errors 156 17 272_4] [set_standard_error output 77 14 none]
+G r c none [release erroutc__errors 156 17 272_4] [set_standard_output output 84 14 none]
+G r c none [set_last erroutc__errors 175 17 272_4] [write_str output 130 14 none]
+G r c none [set_last erroutc__errors 175 17 272_4] [write_int output 123 14 none]
+G r c none [set_last erroutc__errors 175 17 272_4] [write_eol output 113 14 none]
+G r c none [set_last erroutc__errors 175 17 272_4] [set_standard_error output 77 14 none]
+G r c none [set_last erroutc__errors 175 17 272_4] [set_standard_output output 84 14 none]
+G r c none [increment_last erroutc__errors 184 17 272_4] [write_str output 130 14 none]
+G r c none [increment_last erroutc__errors 184 17 272_4] [write_int output 123 14 none]
+G r c none [increment_last erroutc__errors 184 17 272_4] [write_eol output 113 14 none]
+G r c none [increment_last erroutc__errors 184 17 272_4] [set_standard_error output 77 14 none]
+G r c none [increment_last erroutc__errors 184 17 272_4] [set_standard_output output 84 14 none]
+G r c none [append erroutc__errors 192 17 272_4] [write_str output 130 14 none]
+G r c none [append erroutc__errors 192 17 272_4] [write_int output 123 14 none]
+G r c none [append erroutc__errors 192 17 272_4] [write_eol output 113 14 none]
+G r c none [append erroutc__errors 192 17 272_4] [set_standard_error output 77 14 none]
+G r c none [append erroutc__errors 192 17 272_4] [set_standard_output output 84 14 none]
+G r c none [append_all erroutc__errors 200 17 272_4] [write_str output 130 14 none]
+G r c none [append_all erroutc__errors 200 17 272_4] [write_int output 123 14 none]
+G r c none [append_all erroutc__errors 200 17 272_4] [write_eol output 113 14 none]
+G r c none [append_all erroutc__errors 200 17 272_4] [set_standard_error output 77 14 none]
+G r c none [append_all erroutc__errors 200 17 272_4] [set_standard_output output 84 14 none]
+G r c none [set_item erroutc__errors 203 17 272_4] [write_str output 130 14 none]
+G r c none [set_item erroutc__errors 203 17 272_4] [write_int output 123 14 none]
+G r c none [set_item erroutc__errors 203 17 272_4] [write_eol output 113 14 none]
+G r c none [set_item erroutc__errors 203 17 272_4] [set_standard_error output 77 14 none]
+G r c none [set_item erroutc__errors 203 17 272_4] [set_standard_output output 84 14 none]
+G r c none [save erroutc__errors 215 16 272_4] [write_str output 130 14 none]
+G r c none [save erroutc__errors 215 16 272_4] [write_int output 123 14 none]
+G r c none [save erroutc__errors 215 16 272_4] [write_eol output 113 14 none]
+G r c none [save erroutc__errors 215 16 272_4] [set_standard_error output 77 14 none]
+G r c none [save erroutc__errors 215 16 272_4] [set_standard_output output 84 14 none]
+G r c none [tree_write erroutc__errors 223 17 272_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write erroutc__errors 223 17 272_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read erroutc__errors 226 17 272_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read erroutc__errors 226 17 272_4] [write_str output 130 14 none]
+G r c none [tree_read erroutc__errors 226 17 272_4] [write_int output 123 14 none]
+G r c none [tree_read erroutc__errors 226 17 272_4] [write_eol output 113 14 none]
+G r c none [tree_read erroutc__errors 226 17 272_4] [set_standard_error output 77 14 none]
+G r c none [tree_read erroutc__errors 226 17 272_4] [set_standard_output output 84 14 none]
+G r c none [tree_read erroutc__errors 226 17 272_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate erroutc__errors 58 17 272_4] [write_str output 130 14 none]
+G r c none [reallocate erroutc__errors 58 17 272_4] [write_int output 123 14 none]
+G r c none [reallocate erroutc__errors 58 17 272_4] [write_eol output 113 14 none]
+G r c none [reallocate erroutc__errors 58 17 272_4] [set_standard_error output 77 14 none]
+G r c none [reallocate erroutc__errors 58 17 272_4] [set_standard_output output 84 14 none]
+G r c none [init erroutc__warnings 142 17 323_4] [write_str output 130 14 none]
+G r c none [init erroutc__warnings 142 17 323_4] [write_int output 123 14 none]
+G r c none [init erroutc__warnings 142 17 323_4] [write_eol output 113 14 none]
+G r c none [init erroutc__warnings 142 17 323_4] [set_standard_error output 77 14 none]
+G r c none [init erroutc__warnings 142 17 323_4] [set_standard_output output 84 14 none]
+G r c none [release erroutc__warnings 156 17 323_4] [write_str output 130 14 none]
+G r c none [release erroutc__warnings 156 17 323_4] [write_int output 123 14 none]
+G r c none [release erroutc__warnings 156 17 323_4] [write_eol output 113 14 none]
+G r c none [release erroutc__warnings 156 17 323_4] [set_standard_error output 77 14 none]
+G r c none [release erroutc__warnings 156 17 323_4] [set_standard_output output 84 14 none]
+G r c none [set_last erroutc__warnings 175 17 323_4] [write_str output 130 14 none]
+G r c none [set_last erroutc__warnings 175 17 323_4] [write_int output 123 14 none]
+G r c none [set_last erroutc__warnings 175 17 323_4] [write_eol output 113 14 none]
+G r c none [set_last erroutc__warnings 175 17 323_4] [set_standard_error output 77 14 none]
+G r c none [set_last erroutc__warnings 175 17 323_4] [set_standard_output output 84 14 none]
+G r c none [increment_last erroutc__warnings 184 17 323_4] [write_str output 130 14 none]
+G r c none [increment_last erroutc__warnings 184 17 323_4] [write_int output 123 14 none]
+G r c none [increment_last erroutc__warnings 184 17 323_4] [write_eol output 113 14 none]
+G r c none [increment_last erroutc__warnings 184 17 323_4] [set_standard_error output 77 14 none]
+G r c none [increment_last erroutc__warnings 184 17 323_4] [set_standard_output output 84 14 none]
+G r c none [append erroutc__warnings 192 17 323_4] [write_str output 130 14 none]
+G r c none [append erroutc__warnings 192 17 323_4] [write_int output 123 14 none]
+G r c none [append erroutc__warnings 192 17 323_4] [write_eol output 113 14 none]
+G r c none [append erroutc__warnings 192 17 323_4] [set_standard_error output 77 14 none]
+G r c none [append erroutc__warnings 192 17 323_4] [set_standard_output output 84 14 none]
+G r c none [append_all erroutc__warnings 200 17 323_4] [write_str output 130 14 none]
+G r c none [append_all erroutc__warnings 200 17 323_4] [write_int output 123 14 none]
+G r c none [append_all erroutc__warnings 200 17 323_4] [write_eol output 113 14 none]
+G r c none [append_all erroutc__warnings 200 17 323_4] [set_standard_error output 77 14 none]
+G r c none [append_all erroutc__warnings 200 17 323_4] [set_standard_output output 84 14 none]
+G r c none [set_item erroutc__warnings 203 17 323_4] [write_str output 130 14 none]
+G r c none [set_item erroutc__warnings 203 17 323_4] [write_int output 123 14 none]
+G r c none [set_item erroutc__warnings 203 17 323_4] [write_eol output 113 14 none]
+G r c none [set_item erroutc__warnings 203 17 323_4] [set_standard_error output 77 14 none]
+G r c none [set_item erroutc__warnings 203 17 323_4] [set_standard_output output 84 14 none]
+G r c none [save erroutc__warnings 215 16 323_4] [write_str output 130 14 none]
+G r c none [save erroutc__warnings 215 16 323_4] [write_int output 123 14 none]
+G r c none [save erroutc__warnings 215 16 323_4] [write_eol output 113 14 none]
+G r c none [save erroutc__warnings 215 16 323_4] [set_standard_error output 77 14 none]
+G r c none [save erroutc__warnings 215 16 323_4] [set_standard_output output 84 14 none]
+G r c none [tree_write erroutc__warnings 223 17 323_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write erroutc__warnings 223 17 323_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read erroutc__warnings 226 17 323_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read erroutc__warnings 226 17 323_4] [write_str output 130 14 none]
+G r c none [tree_read erroutc__warnings 226 17 323_4] [write_int output 123 14 none]
+G r c none [tree_read erroutc__warnings 226 17 323_4] [write_eol output 113 14 none]
+G r c none [tree_read erroutc__warnings 226 17 323_4] [set_standard_error output 77 14 none]
+G r c none [tree_read erroutc__warnings 226 17 323_4] [set_standard_output output 84 14 none]
+G r c none [tree_read erroutc__warnings 226 17 323_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate erroutc__warnings 58 17 323_4] [write_str output 130 14 none]
+G r c none [reallocate erroutc__warnings 58 17 323_4] [write_int output 123 14 none]
+G r c none [reallocate erroutc__warnings 58 17 323_4] [write_eol output 113 14 none]
+G r c none [reallocate erroutc__warnings 58 17 323_4] [set_standard_error output 77 14 none]
+G r c none [reallocate erroutc__warnings 58 17 323_4] [set_standard_output output 84 14 none]
+G r c none [init erroutc__specific_warnings 142 17 359_4] [write_str output 130 14 none]
+G r c none [init erroutc__specific_warnings 142 17 359_4] [write_int output 123 14 none]
+G r c none [init erroutc__specific_warnings 142 17 359_4] [write_eol output 113 14 none]
+G r c none [init erroutc__specific_warnings 142 17 359_4] [set_standard_error output 77 14 none]
+G r c none [init erroutc__specific_warnings 142 17 359_4] [set_standard_output output 84 14 none]
+G r c none [release erroutc__specific_warnings 156 17 359_4] [write_str output 130 14 none]
+G r c none [release erroutc__specific_warnings 156 17 359_4] [write_int output 123 14 none]
+G r c none [release erroutc__specific_warnings 156 17 359_4] [write_eol output 113 14 none]
+G r c none [release erroutc__specific_warnings 156 17 359_4] [set_standard_error output 77 14 none]
+G r c none [release erroutc__specific_warnings 156 17 359_4] [set_standard_output output 84 14 none]
+G r c none [set_last erroutc__specific_warnings 175 17 359_4] [write_str output 130 14 none]
+G r c none [set_last erroutc__specific_warnings 175 17 359_4] [write_int output 123 14 none]
+G r c none [set_last erroutc__specific_warnings 175 17 359_4] [write_eol output 113 14 none]
+G r c none [set_last erroutc__specific_warnings 175 17 359_4] [set_standard_error output 77 14 none]
+G r c none [set_last erroutc__specific_warnings 175 17 359_4] [set_standard_output output 84 14 none]
+G r c none [increment_last erroutc__specific_warnings 184 17 359_4] [write_str output 130 14 none]
+G r c none [increment_last erroutc__specific_warnings 184 17 359_4] [write_int output 123 14 none]
+G r c none [increment_last erroutc__specific_warnings 184 17 359_4] [write_eol output 113 14 none]
+G r c none [increment_last erroutc__specific_warnings 184 17 359_4] [set_standard_error output 77 14 none]
+G r c none [increment_last erroutc__specific_warnings 184 17 359_4] [set_standard_output output 84 14 none]
+G r c none [append erroutc__specific_warnings 192 17 359_4] [write_str output 130 14 none]
+G r c none [append erroutc__specific_warnings 192 17 359_4] [write_int output 123 14 none]
+G r c none [append erroutc__specific_warnings 192 17 359_4] [write_eol output 113 14 none]
+G r c none [append erroutc__specific_warnings 192 17 359_4] [set_standard_error output 77 14 none]
+G r c none [append erroutc__specific_warnings 192 17 359_4] [set_standard_output output 84 14 none]
+G r c none [append_all erroutc__specific_warnings 200 17 359_4] [write_str output 130 14 none]
+G r c none [append_all erroutc__specific_warnings 200 17 359_4] [write_int output 123 14 none]
+G r c none [append_all erroutc__specific_warnings 200 17 359_4] [write_eol output 113 14 none]
+G r c none [append_all erroutc__specific_warnings 200 17 359_4] [set_standard_error output 77 14 none]
+G r c none [append_all erroutc__specific_warnings 200 17 359_4] [set_standard_output output 84 14 none]
+G r c none [set_item erroutc__specific_warnings 203 17 359_4] [write_str output 130 14 none]
+G r c none [set_item erroutc__specific_warnings 203 17 359_4] [write_int output 123 14 none]
+G r c none [set_item erroutc__specific_warnings 203 17 359_4] [write_eol output 113 14 none]
+G r c none [set_item erroutc__specific_warnings 203 17 359_4] [set_standard_error output 77 14 none]
+G r c none [set_item erroutc__specific_warnings 203 17 359_4] [set_standard_output output 84 14 none]
+G r c none [save erroutc__specific_warnings 215 16 359_4] [write_str output 130 14 none]
+G r c none [save erroutc__specific_warnings 215 16 359_4] [write_int output 123 14 none]
+G r c none [save erroutc__specific_warnings 215 16 359_4] [write_eol output 113 14 none]
+G r c none [save erroutc__specific_warnings 215 16 359_4] [set_standard_error output 77 14 none]
+G r c none [save erroutc__specific_warnings 215 16 359_4] [set_standard_output output 84 14 none]
+G r c none [tree_write erroutc__specific_warnings 223 17 359_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write erroutc__specific_warnings 223 17 359_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read erroutc__specific_warnings 226 17 359_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read erroutc__specific_warnings 226 17 359_4] [write_str output 130 14 none]
+G r c none [tree_read erroutc__specific_warnings 226 17 359_4] [write_int output 123 14 none]
+G r c none [tree_read erroutc__specific_warnings 226 17 359_4] [write_eol output 113 14 none]
+G r c none [tree_read erroutc__specific_warnings 226 17 359_4] [set_standard_error output 77 14 none]
+G r c none [tree_read erroutc__specific_warnings 226 17 359_4] [set_standard_output output 84 14 none]
+G r c none [tree_read erroutc__specific_warnings 226 17 359_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate erroutc__specific_warnings 58 17 359_4] [write_str output 130 14 none]
+G r c none [reallocate erroutc__specific_warnings 58 17 359_4] [write_int output 123 14 none]
+G r c none [reallocate erroutc__specific_warnings 58 17 359_4] [write_eol output 113 14 none]
+G r c none [reallocate erroutc__specific_warnings 58 17 359_4] [set_standard_error output 77 14 none]
+G r c none [reallocate erroutc__specific_warnings 58 17 359_4] [set_standard_output output 84 14 none]
+G r c none [add_class erroutc 388 14 none] [get_name_string namet 600 14 none]
+G r c none [add_class erroutc 388 14 none] [identifier_casing sinput 302 13 none]
+G r c none [add_class erroutc 388 14 none] [set_casing casing 84 14 none]
+G r c none [dmsg erroutc 408 14 none] [w output 199 14 none]
+G r c none [dmsg erroutc 408 14 none] [w output 196 14 none]
+G r c none [dmsg erroutc 408 14 none] [write_str output 130 14 none]
+G r c none [dmsg erroutc 408 14 none] [write_location sinput 693 14 none]
+G r c none [dmsg erroutc 408 14 none] [write_eol output 113 14 none]
+G r c none [dmsg erroutc 408 14 none] [w output 202 14 none]
+G r c none [dmsg erroutc 408 14 none] [w output 184 14 none]
+G r c none [debug_output erroutc 411 14 none] [write_str output 130 14 none]
+G r c none [debug_output erroutc 411 14 none] [write_int output 123 14 none]
+G r c none [debug_output erroutc 411 14 none] [write_eol output 113 14 none]
+G r c none [output_error_msgs erroutc 426 14 none] [write_str output 130 14 none]
+G r c none [output_error_msgs erroutc 426 14 none] [line_start sinput 568 13 none]
+G r c none [output_error_msgs erroutc 426 14 none] [is_start_of_wide_char widechar 93 13 none]
+G r c none [output_error_msgs erroutc 426 14 none] [skip_wide widechar 88 14 none]
+G r c none [output_error_msgs erroutc 426 14 none] [write_char output 106 14 none]
+G r c none [output_error_msgs erroutc 426 14 none] [source_text sinput 315 13 none]
+G r c none [output_error_msgs erroutc 426 14 none] [write_eol output 113 14 none]
+G r c none [output_error_msgs erroutc 426 14 none] [column output 148 13 none]
+G r c none [output_error_msgs erroutc 426 14 none] [write_spaces output 127 14 none]
+G r c none [output_error_msgs erroutc 426 14 none] [write_line output 137 14 none]
+G r c none [output_line_number erroutc 431 14 none] [write_char output 106 14 none]
+G r c none [output_line_number erroutc 431 14 none] [write_str output 130 14 none]
+G r c none [output_msg_text erroutc 438 14 none] [column output 148 13 none]
+G r c none [output_msg_text erroutc 438 14 none] [write_char output 106 14 none]
+G r c none [output_msg_text erroutc 438 14 none] [write_eol output 113 14 none]
+G r c none [output_msg_text erroutc 438 14 none] [write_spaces output 127 14 none]
+G r c none [output_msg_text erroutc 438 14 none] [write_line output 137 14 none]
+G r c none [set_msg_insertion_file_name erroutc 497 14 none] [get_name_string namet 600 14 none]
+G r c none [set_msg_insertion_line_number erroutc 500 14 none] [get_name_string namet 600 14 none]
+G r c none [set_msg_insertion_line_number erroutc 500 14 none] [set_casing casing 84 14 none]
+G r c none [set_msg_insertion_line_number erroutc 500 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [set_msg_insertion_line_number erroutc 500 14 none] [full_file_name sinput 300 13 none]
+G r c none [set_msg_insertion_line_number erroutc 500 14 none] [get_logical_line_number sinput 535 13 none]
+G r c none [set_msg_insertion_line_number erroutc 500 14 none] [reference_name sinput 311 13 none]
+G r c none [set_msg_insertion_line_number erroutc 500 14 none] [is_internal_file_name fname 93 13 none]
+G r c none [set_msg_insertion_line_number erroutc 500 14 none] [instantiation sinput 402 13 none]
+G r c none [set_msg_insertion_name_literal erroutc 505 14 none] [get_name_string namet 600 14 none]
+G r c none [set_msg_insertion_name erroutc 507 14 none] [get_unqualified_decoded_name_string namet 604 14 none]
+G r c none [set_msg_insertion_name erroutc 507 14 none] [identifier_casing sinput 302 13 none]
+G r c none [set_msg_insertion_name erroutc 507 14 none] [set_casing casing 84 14 none]
+G r c none [set_msg_insertion_reserved_name erroutc 510 14 none] [get_name_string namet 600 14 none]
+G r c none [set_msg_insertion_reserved_name erroutc 510 14 none] [keyword_casing sinput 307 13 none]
+G r c none [set_msg_insertion_reserved_name erroutc 510 14 none] [set_casing casing 84 14 none]
+G r c none [set_msg_insertion_reserved_word erroutc 513 14 none] [add_char_to_name_buffer namet 589 14 none]
+G r c none [set_msg_insertion_reserved_word erroutc 513 14 none] [keyword_casing sinput 307 13 none]
+G r c none [set_msg_insertion_reserved_word erroutc 513 14 none] [set_casing casing 84 14 none]
+G r c none [set_msg_insertion_run_time_name erroutc 522 14 none] [get_name_string namet 600 14 none]
+G r c none [set_msg_insertion_run_time_name erroutc 522 14 none] [set_casing casing 84 14 none]
+G r c none [set_msg_insertion_uint erroutc 529 14 none] [ui_image uintp 304 14 none]
+G r c none [set_specific_warning_off erroutc 556 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [set_specific_warning_off erroutc 556 14 none] [source_last sinput 314 13 none]
+G r c none [set_specific_warning_off erroutc 556 14 none] [write_str output 130 14 none]
+G r c none [set_specific_warning_off erroutc 556 14 none] [write_int output 123 14 none]
+G r c none [set_specific_warning_off erroutc 556 14 none] [write_eol output 113 14 none]
+G r c none [set_specific_warning_off erroutc 556 14 none] [set_standard_error output 77 14 none]
+G r c none [set_specific_warning_off erroutc 556 14 none] [set_standard_output output 84 14 none]
+G r c none [set_specific_warning_on erroutc 573 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [set_warnings_mode_off erroutc 584 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [set_warnings_mode_off erroutc 584 14 none] [instantiation sinput 402 13 none]
+G r c none [set_warnings_mode_off erroutc 584 14 none] [source_last sinput 314 13 none]
+G r c none [set_warnings_mode_off erroutc 584 14 none] [write_str output 130 14 none]
+G r c none [set_warnings_mode_off erroutc 584 14 none] [write_int output 123 14 none]
+G r c none [set_warnings_mode_off erroutc 584 14 none] [write_eol output 113 14 none]
+G r c none [set_warnings_mode_off erroutc 584 14 none] [set_standard_error output 77 14 none]
+G r c none [set_warnings_mode_off erroutc 584 14 none] [set_standard_output output 84 14 none]
+G r c none [set_warnings_mode_on erroutc 589 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [set_warnings_mode_on erroutc 589 14 none] [instantiation sinput 402 13 none]
+G r c none [warnings_suppressed erroutc 593 13 none] [instantiation_location sinput 605 13 none]
+G r c none [warning_specifically_suppressed erroutc 603 13 none] [instantiation_location sinput 605 13 none]
+G r c none [sloc_in_range erroutc 59 13 none] [instantiation_location sinput 605 13 none]
+X 7 atree.ads
+44K9*Atree 4321e10 15|32w6 32r20
+306i4*Serious_Errors_Detected{54|62I12} 15|171m19 171r46 919m19 919r46
+312i4*Total_Errors_Detected{54|62I12} 15|168m16 168r41 254r9 916m16 916r41
+318i4*Warnings_Detected{54|62I12} 15|152m19 152r40 158m16 158r37 255r20 913m16
+. 913r37
+323i4*Warning_Info_Messages{54|62I12} 15|151m19 151r44 255r40
+328i4*Report_Info_Messages{54|62I12} 15|154m19 154r43
+333i4*Check_Messages{54|62I12} 15|165m16 165r34
+337i4*Warnings_Treated_As_Errors{54|62I12} 15|257r19 678m16 678r46
+X 8 atree.adb
+2658V16 Traverse[7|601]{7|595E12} 2523b13[32|944]
+X 9 casing.ads
+35K9*Casing 98e11 15|33w6 33r20
+53n7*All_Lower_Case{48E9} 15|1283r49 1318r52
+56n7*Mixed_Case{48E9} 15|1335r22
+84U14*Set_Casing 15|75s10 1218s13 1283s7 1318s10 1335s10
+X 10 csets.ads
+32K9*Csets 97e10 15|34w6 34r20
+44A9*Translate_Table(character)<character>
+86a4*Fold_Lower{44A9} 15|349r33 406r16 406r40
+X 11 debug.ads
+36K9*Debug 256e10 15|35w6 35r20
+105b4*Debug_Flag_1{boolean} 15|266r10
+106b4*Debug_Flag_2{boolean} 15|457r14 556r13
+125b4*Debug_Flag_Dot_K{boolean} 15|1122r34
+X 13 err_vars.ads
+39K9*Err_Vars 158e13 15|36w6 36r20
+98b4*Warning_Doc_Switch{boolean} 15|641r32
+118i4*Error_Msg_Uint_1{55|48I9} 15|1348r17 1362m10
+119i4*Error_Msg_Uint_2{55|48I9} 15|1362r30
+125i4*Error_Msg_Name_1{22|188I9} 15|1174r10 1177r13 1183r47 1234m10 1245r10
+. 1248r13 1254r27 1269m10 1281r24
+126i4*Error_Msg_Name_2{22|188I9} 15|1234r30 1235m10 1269r30 1270m10
+127i4*Error_Msg_Name_3{22|188I9} 15|1235r30 1270r30
+130i4*Error_Msg_File_1{22|624I9} 15|1031r10 1034r13 1040r27 1055m10
+131i4*Error_Msg_File_2{22|624I9} 15|1055r30 1056m10
+132i4*Error_Msg_File_3{22|624I9} 15|1056r30
+143b4*Error_Msg_Warn{boolean} 15|831r53
+X 14 erroutc.ads
+38K9*Erroutc 630l5 630e12 15|48b14 1733l5 1733t12
+40b4*Class_Flag{boolean} 15|71r10 72m10
+44b4*Continuation{boolean}
+49b4*Continuation_New_Line{boolean}
+53i4*Flag_Source{54|575I9} 15|75r41 1218r44 1283r35 1318r38
+56b4*Has_Double_Exclam{boolean} 15|797m7 871m16
+60b4*Is_Serious_Error{boolean} 15|794m7 878m13 887m10
+64b4*Is_Unconditional_Msg{boolean} 15|795m7 867m13
+68b4*Is_Warning_Msg{boolean} 15|796m7 831m13 835r16 886r25
+72b4*Is_Info_Msg{boolean} 15|806m7 886r10
+77b4*Is_Check_Msg{boolean} 15|811m7 886r59
+81e4*Warning_Msg_Char{character} 15|832m13 841m25 850m25
+92b4*Is_Style_Msg{boolean} 15|801m7 886r43
+96b4*Kill_Message{boolean}
+102b4*Last_Killed{boolean}
+107i4*List_Pragmas_Index{54|59I9}
+110b4*List_Pragmas_Mode{boolean}
+113b4*Manual_Quote_Mode{boolean} 15|986r22 1002r22 1394r14
+116N4*Max_Msg_Length 123r30 15|1019r19
+123a4*Msg_Buffer{string} 15|86r34 93r18 94r18 983r18 984r18 985r18 999r18
+. 1000r18 1001r18 1021m10 1081r20
+126i4*Msglen{integer} 15|86r14 86r46 92r14 93r30 94r30 94r50 104m10 104r20
+. 111m10 111r20 982r10 983r30 984r30 985r30 998r10 999r30 1000r30 1001r30
+. 1019r10 1020m10 1020r20 1021r22 1080r13 1081r32 1081r46
+129b4*Suppress_Message{boolean}
+134b4*Suppress_Instance_Location{boolean} 15|1160r25
+141P9*Subprogram_Name_Type(string) 141>50 142r26
+141i50 N{54|397I9}
+142p4*Subprogram_Name_Ptr{141P9} 15|645r21 656r18
+150I9*Error_Msg_Id<54|59I9> 155r28 159r14 162r31 166r31 184r14 188r14 274r30
+. 280r22 285r21 408r25 415r48 422r35 426r44 438r35 477r34 549r51 15|119r48
+. 120r16 121r16 123r44 136r44 137r17 278r25 317r31 326r31 335r35 422r44 424r11
+. 425r11 617r35 896r11 898r34 906r34 952r34 1447r51
+155i4*No_Error_Msg{150I9} 159r30 15|184r20 222r18 228r21 442r18 465r21 549r18
+. 908r18 938r18 1449r14 1455r27
+159i4*Cur_Msg{150I9} 15|328r14
+162V13*Get_Msg_Id{150I9} 15|326b13 329l8 329t18
+166V13*Get_Location{54|220I12} 166>27 15|317b13 320l8 320t20
+166i27 E{150I9} 15|317b27 319r28
+180R9*Error_Msg_Object 270e14 273r30 15|279r11
+181p7*Text{54|113P9} 15|177r33 177r64 178m33 178r58 283r29 627r55 953r55
+. 954r55
+184i7*Next{150I9} 15|181r35 182r35 215r34 216r34 284r34 934r60 939r47 940m30
+. 941r46 941r52 944r32 1454r35
+188i7*Prev{150I9} 15|285r34
+193i7*Sfile{54|575I9} 15|286r34 444r35 444r60 467r38 467r63 471r62 551r35
+. 551r60
+198i7*Sptr{54|220I12} 15|290r25 319r31 446r30 446r54 459r44 476r43 505r40
+. 909r38 910r38
+205i7*Optr{54|220I12} 15|295r25
+214i7*Line{54|172I9} 15|298r34 443r35 443r59 466r38 466r62 550r35 550r59
+217i7*Col{54|178I9} 15|299r34
+220b7*Warn{boolean} 15|150r36 157r36 300r29 336r59 652r39 664r30 912r33
+223b7*Info{boolean} 15|148r33 664r60 668r33
+226b7*Check{boolean} 15|164r36 694r33
+229b7*Warn_Err{boolean} 15|301r29 673r36
+233e7*Warn_Chr{character} 15|302r31 337r59
+244b7*Style{boolean} 15|157r66 303r29 652r69 689r33 912r63
+247b7*Serious{boolean} 15|170r36 304r29 918r36
+250b7*Uncond{boolean} 15|305r29
+253b7*Msg_Cont{boolean} 15|184r62 195r28 196r35 222r61 228r64 306r29
+262b7*Deleted{boolean} 15|144m30 197r35 198r35 307r29 435r27 1455r69
+266i7*Node{54|397I9} 15|308r34 645m59 656m56
+272K12*Errors[50|59] 15|144r13 148r16 150r19 157r19 157r49 164r19 170r19
+. 177r16 177r47 178r16 178r41 181r18 182r18 184r45 195r10 196r17 197r17 198r17
+. 215r16 216r16 222r43 228r46 279r36 319r14 336r41 337r41 435r10 443r18 443r42
+. 444r18 444r43 446r13 446r37 459r27 466r21 466r45 467r21 467r46 471r45 476r26
+. 505r23 550r18 550r42 551r18 551r43 627r38 645r42 652r22 652r52 656r39 664r13
+. 664r43 668r16 673r19 689r16 694r16 909r21 910r21 912r16 912r46 918r19 934r29
+. 939r30 940r13 941r15 941r29 944r15 953r37 954r37 1454r18 1455r52
+280i4*First_Error_Msg{150I9} 15|933r27 934m10 934r43 937r12
+285i4*Last_Error_Msg{150I9}
+317R9*Warnings_Entry 321e14 324r30
+318i7*Start{54|220I12} 15|1546r49 1558m11 1590r49 1719r52
+319i7*Stop{54|220I12} 15|1547r56 1559m11 1591r56 1593m41 1720r52
+320i7*Reason{54|501I9} 15|1560m11 1722r39
+323K12*Warnings[50|59] 15|1545r10 1545r27 1546r18 1546r34 1547r25 1547r41
+. 1557r7 1589r10 1589r27 1590r18 1590r34 1591r25 1591r41 1593r10 1593r26
+. 1718r16 1718r34 1719r33 1720r33 1722r20
+335R9*Specific_Warning_Entry 357e14 360r30 15|1494r19 1628r19 1673r19
+336i7*Start{54|220I12} 15|1473m11 1498r34 1500r51 1638m26 1652m69 1680r47
+337i7*Stop{54|220I12} 15|1475m11 1503m20 1680r58
+341i7*Reason{54|501I9} 15|1476m11 1686r30
+344p7*Msg{54|113P9} 15|1474m11 1497r26 1649r25 1649r53 1682r41 1683r44
+347b7*Open{boolean} 15|1477m11 1499r28 1504m20 1635r23
+350b7*Used{boolean} 15|1478m11 1642r30 1685m23
+353b7*Config{boolean} 15|1479m11 1510m20 1631r24 1679r20
+359K12*Specific_Warnings[50|59] 15|1472r7 1492r21 1494r50 1626r16 1626r43
+. 1628r50 1671r16 1671r43 1673r50
+388U14*Add_Class 15|69b14 78l8 78t17
+391V13*Buffer_Ends_With{boolean} 391>31 15|84b13 87l8 87t24 103s10
+391e31 C{character} 15|84b31 86r56
+394V13*Buffer_Ends_With{boolean} 394>31 15|89b13 95l8 95t24 110s10
+394a31 S{string} 15|89b31 90r33 94r60
+397U14*Buffer_Remove 397>29 15|101b14 106l8 106t21
+397e29 C{character} 15|101b29 103r28
+400U14*Buffer_Remove 400>29 15|108b14 113l8 113t21
+400a29 S{string} 15|108b29 110r28 111r29
+404V13*Compilation_Errors{boolean} 15|251b13 258l8 258t26
+408U14*dmsg 408>20 15|278b14 311l8 311t12
+408i20 Id{150I9} 15|278b20 279r50 282r47
+411U14*Debug_Output 411>28 15|264b14 272l8 272t20
+411i28 N{54|397I9} 15|264b28 268r26
+415U14*Check_Duplicate_Message 415>39 415>43 15|119b14 245l8 245t31
+415i39 M1{150I9} 15|119b39 195r24 197r31 205r26 211r13 223r25 229r29
+415i43 M2{150I9} 15|119b43 196r31 198r31 205r30 212r13 223r29 229r25
+422V13*Get_Warning_Tag{string} 422>30 15|335b13 354l8 354t23 634s35
+422i30 Id{150I9} 15|335b30 336r55 337r55
+426U14*Output_Error_Msgs 426=33 15|422b14 569l8 569t25
+426i33 E{150I9} 15|422b33 431r12 443r56 444r57 446r51 459r41 466r59 467r60
+. 550r56 551r57 568m7
+431U14*Output_Line_Number 431>34 15|575b14 611l8 611t26
+431i34 L{54|162I9} 15|575b34 582r10 587r20
+438U14*Output_Msg_Text 438>31 15|554s10 617b14 776l8 776t23
+438i31 E{150I9} 15|617b31 627r52 634r52 645r56 652r36 652r66 656r53 664r27
+. 664r57 668r30 673r33 689r30 694r30
+445U14*Prescan_Message 445>31 15|782b14 889l8 889t23
+445a31 Msg{string} 15|782b31 788r10 788r15 802r9 802r33 802r38 802r51 807r9
+. 807r33 807r38 807r51 812r10 812r34 812r39 812r52 814r12 814r36 814r41 814r54
+. 816r12 816r36 816r41 816r54 820r12 821r18 825r13 830r16 830r38 831r31 837r45
+. 839r27 840r25 844r32 844r50 845r34 846r34 847r34 848r34 850r45 866r16 870r21
+. 870r39 877r16
+473U14*Purge_Messages 473>30 473>49 15|895b14 946l8 946t22
+473i30 From{54|220I12} 15|895b30 909r45
+473i49 To{54|220I12} 15|895b49 910r45
+477V13*Same_Error{boolean} 477>25 477>29 15|205s14 235s20 952b13 974l8 974t18
+477i25 M1{150I9} 15|952b25 953r51
+477i29 M2{150I9} 15|952b29 954r51
+482U14*Set_Msg_Blank 15|980b14 990l8 990t21 1035s10 1039s10 1090s7 1178s10
+. 1249s10 1253s10 1347s7
+487U14*Set_Msg_Blank_Conditional 15|996b14 1006l8 1006t33 1182s10 1280s7
+. 1297s7 1332s10
+492U14*Set_Msg_Char 492>28 15|73s10 988s10 1004s10 1012b14 1023l8 1023t20
+. 1123s16 1333s10 1337s10 1351s10 1376s7 1395s10 1438s13
+492e28 C{character} 15|1012b28 1021r33
+497U14*Set_Msg_Insertion_File_Name 15|1029b14 1058l8 1058t35
+500U14*Set_Msg_Insertion_Line_Number 500>45 500>50 15|1064b14 1163s13 1166l8
+. 1166t37
+500i45 Loc{54|220I12} 15|1064b45 1092r10 1096r13 1100r13 1103r13 1112r48
+. 1117r61 1124r59 1133r56
+500i50 Flag{54|220I12} 15|1064b50 1113r48 1163r72
+505U14*Set_Msg_Insertion_Name_Literal 15|1243b14 1272l8 1272t38
+507U14*Set_Msg_Insertion_Name 15|1172b14 1237l8 1237t30
+510U14*Set_Msg_Insertion_Reserved_Name 15|1278b14 1286l8 1286t39
+513U14*Set_Msg_Insertion_Reserved_Word 514>7 515=7 15|1292b14 1323l8 1323t39
+514a7 Text{string} 15|1293b7 1300r18 1300r37 1301r35
+515i7 J{integer} 15|1294b7 1300r13 1300r43 1301r41 1302m10 1302r15
+522U14*Set_Msg_Insertion_Run_Time_Name 15|1098s10 1329b14 1339l8 1339t39
+529U14*Set_Msg_Insertion_Uint 15|1345b14 1364l8 1364t30
+532U14*Set_Msg_Int 532>27 15|1124s16 1133s13 1370b14 1373s10 1377l8 1377t19
+532i27 Line{54|59I9} 15|1370b27 1372r10 1373r23 1376r59
+536U14*Set_Msg_Name_Buffer 15|76s10 1042s10 1120s13 1213s13 1220s13 1256s10
+. 1284s7 1308s10 1313s10 1320s10 1383b14 1386l8 1386t27
+540U14*Set_Msg_Quote 15|1041s10 1043s10 1219s13 1221s13 1255s10 1257s10 1282s7
+. 1285s7 1319s10 1321s10 1392b14 1397l8 1397t21
+543U14*Set_Msg_Str 543>27 15|1036s10 1083s13 1094s10 1097s10 1101s10 1104s10
+. 1131s13 1162s13 1179s10 1250s10 1336s10 1385s7 1403b14 1408s10 1411s10
+. 1414s10 1417s10 1420s10 1423s10 1426s10 1429s10 1432s10 1441l8 1441t19
+543a27 Text{string} 15|1403b27 1407r10 1410r13 1413r13 1416r13 1419r13 1422r13
+. 1425r13 1428r13 1431r13 1437r19 1438r27
+549U14*Set_Next_Non_Deleted_Msg 549=40 15|436s10 450s10 539s13 565s10 1447b14
+. 1458l8 1458t32
+549i40 E{150I9} 15|1447b40 1449r10 1454m13 1454r32 1455r23 1455r66
+556U14*Set_Specific_Warning_Off 557>7 558>7 559>7 560>7 561>7 15|1464b14
+. 1480l8 1480t32
+557i7 Loc{54|220I12} 15|1465b7 1473r25 1475r61
+558a7 Msg{string} 15|1466b7 1474r37
+559i7 Reason{54|501I9} 15|1467b7 1476r25
+560b7 Config{boolean} 15|1468b7 1479r25
+561b7 Used{boolean} 15|1469b7 1478r25
+573U14*Set_Specific_Warning_On 574>7 575>7 576<7 15|1486b14 1517l8 1517t31
+574i7 Loc{54|220I12} 15|1487b7 1498r24 1501r47 1503r28
+575a7 Msg{string} 15|1488b7 1497r16
+576b7 Err{boolean} 15|1489b7 1505m16 1516m7
+584U14*Set_Warnings_Mode_Off 584>37 584>55 15|1523b14 1561l8 1561t29
+584i37 Loc{54|220I12} 15|1523b37 1528r48 1546r58 1547r18 1558r21 1559r57
+584i55 Reason{54|501I9} 15|1523b55 1560r21
+589U14*Set_Warnings_Mode_On 589>36 15|1567b14 1595l8 1595t28
+589i36 Loc{54|220I12} 15|1567b36 1572r48 1590r58 1591r18 1593r49
+593V13*Warnings_Suppressed{54|501I9} 593>34 15|1714b13 1731l8 1731t27
+593i34 Loc{54|220I12} 15|1714b34 1719r28
+603V13*Warning_Specifically_Suppressed{54|501I9} 604>7 605>7 606>7 15|1663b13
+. 1693l8 1693t39
+604i7 Loc{54|220I12} 15|1664b7 1680r38
+605p7 Msg{54|113P9} 15|1665b7 1682r28
+606a7 Tag{string} 15|1666b7 1683r35
+618V13*Warning_Treated_As_Error{boolean} 618>39 15|1699b13 1708l8 1708t32
+618a39 Msg{string} 15|1699b39 1702r22
+623P9*Error_Msg_Proc 624>24 624>38 625r50 15|1620r50
+624a24 Msg{string}
+624i38 Flag_Location{54|220I12}
+625U14*Validate_Specific_Warnings 625>42 15|1620b14 1657l8 1657t34
+625p42 Eproc{623P9} 15|1620b42 1636r19 1651r19
+X 15 erroutc.adb
+54V13 Matches{boolean} 54>22 54>34 360b13 397s19 416l8 416t15 1682s19 1683s26
+. 1702s13
+54a22 S{string} 360b22 361r35 364r25 370r15 397r28 406r28
+54a34 P{string} 360b34 362r35 365r25 371r15 375r35 390r16 397r44 406r52
+59V13 Sloc_In_Range{boolean} 59>28 59>33 59>40 1601b13 1614l8 1614t21 1680s23
+. 1719s13
+59i28 Loc{54|220I12} 1601b28 1602r31
+59i33 Start{54|220I12} 1601b33 1606r13
+59i40 Stop{54|220I12} 1601b40 1606r50
+90i7 Len{natural} 92r23 93r39 94r39
+120i7 L1{14|150I9} 211m7 215r30 241m13
+120i11 L2{14|150I9} 212m7 216r30 242m13
+121i7 N1{14|150I9} 215m10 222r13 222r57 235r32 241r19
+121i11 N2{14|150I9} 216m10 228r16 228r60 235r36 242r19
+123U17 Delete_Msg 123>29 123>37 136b17 188l11 188t21 223s13 229s13
+123i29 Delete{14|150I9} 136b29 140r15
+123i37 Keep{14|150I9} 136b37 141r15
+137i10 D{14|150I9} 140m10 144r27 148r30 150r33 157r33 157r63 164r33 170r33
+. 177r61 178r55 181m13 181r32 184r16 184r59
+137i13 K{14|150I9} 141m10 177r30 178r30 182m13 182r32
+279r7 E{14|180R9} 283r27 284r32 285r32 286r32 290r23 295r23 298r32 299r32
+. 300r27 301r27 302r29 303r27 304r27 305r27 306r27 307r27 308r32
+336b7 Warn{boolean} 339r10
+337e7 Warn_Chr{character} 339r24 340r13 342r16 344r16 346r16 347r32 348r30
+. 349r45
+361i7 Slast{natural} 380r45 385r44 396r30 397r36
+362i7 PLast{natural} 375r20 380r23 385r23 397r59
+364i7 SPtr{natural} 370m7 380r38 385r37 396r22 406r31 407m13 407r21
+365i7 PPtr{natural} 371m7 375r13 375r38 380r16 385r16 390r19 397r47 406r55
+. 408m13 408r21
+396i17 J{integer} 397r31
+423i7 P{54|220I12} 459m10 476r22 480r27 482m22 482r27 488r30 489r58 491m38
+. 491r38 497m22 497r27 505r19 520r27 522m22 522r27 526r30 527r58 529m38 529r38
+. 534m22 534r27
+424i7 T{14|150I9} 441m7 442r13 443r32 444r32 446r27 450m36 450r36 464m10
+. 465r16 466r35 467r35 471r59 476r40 505r37 539m39 539r39 548m7 549r13 550r32
+. 551r32 554r27 565m36 565r36 568r12
+425i7 S{14|150I9} 431m7 435r24 436m36 436r36 441r12 464r15 548r12
+427i7 Flag_Num{54|65I12} 460m10 506r23 507r29 512r62 540m13 540r25
+428b7 Mult_Flags{boolean} 447m13 506r49
+470p16 Src{54|200P9} 480r22 488r25 489r53 491r33 520r22 526r25 527r53 529r33
+576i7 D{54|59I9} 591m13 595r16 603r36
+577e7 C{character} 597m19 599m19 603m16 606r25
+578b7 Z{boolean} 586m10 596r19 602m16
+579i7 N{54|59I9} 587m10 591r23 592m13 592r18
+579i10 M{54|59I9} 589m10 590r16 591r27 592r24 593m13 593r18
+618i7 Offs{54|62I12} 728r36 770r30
+621i7 Max{integer} 711m10 720m13 720r33 724r28 743r41 753r49 763r31 773m13
+624i7 Length{54|62I12} 706m13 708m13 711r26 773r29
+627p7 Text{54|113P9} 646r28 648r35 657r25 659r20
+628i7 Ptr{natural} 716m10 724r22 725r25 739r25 743r28 743r35 746m22 753r36
+. 753r43 756m22 763r25 764m16
+629i7 Split{natural} 745m22 755m22 763m16 764r23 768r25 769r42
+630i7 Start{natural} 739m16 768r16 769r33
+634a10 Tag{string} 641r13 646r45 648r52
+635p10 Txt{54|113P9} 643m16 648m16 654m13 659m13 669m16 669r46 679m16 679r47
+. 684m16 684r49 700m13 700r44 712r17 726r22 730r34 744r22 754r22 769r28
+636i10 Len{natural} 712m10 724r16 725r32
+725i20 J{integer} 726r27 730r39
+743i20 Scan{integer} 744r27 745r31 746r29
+753i20 Scan{integer} 754r27 755r31 756r29
+767L15 Continue 747r27 757r27
+783i7 J{natural} 820m7 821r13 825r18 826m13 826r18 830r21 830r43 831r36 833m13
+. 833r18 837r50 839r22 840r30 842m25 842r30 844r28 844r55 845r39 846r39 847r39
+. 848r39 850r50 851m25 851r30 866r21 868m13 868r18 870r16 870r44 872m16 872r21
+. 877r21 879m13 879r18 882m13 882r18
+837e19 C{character} 840r35 844r64
+896i7 E{14|150I9} 937m7 938r13 939r44 940r27 941r43 944m10 944r29
+898V16 To_Be_Purged{boolean} 898>30 906b16 928l11 928t23 933s13 939s16
+898i30 E{14|150I9} 906b30 908r13 909r35 910r35 912r30 912r60 918r33
+953p7 Msg1{54|113P9} 957r38 961r9 965r25 967r14 971r14
+954p7 Msg2{54|113P9} 956r38 961r20 965r14 971r25 973r14
+956i7 Msg2_Len{integer} 963r30 965r40 967r20 967r36 969r14
+957i7 Msg1_Len{integer} 963r14 969r30 971r40 973r20 973r36
+1065i7 Sindex_Loc{54|575I9} 1112m10 1115r29 1159r28 1163r59
+1066i7 Sindex_Flag{54|575I9} 1113m10 1115r60
+1067i7 Fname{22|624I9} 1117m13 1118r48 1119r30
+1068b7 Int_File{boolean} 1118m13 1122r21 1132m13
+1070U17 Set_At 1078b17 1085l11 1085t17 1093s10 1116s13 1130s13
+1350i11 J{integer} 1351r41
+1437i14 J{integer} 1438r33
+1492i11 J{integer} 1494r75
+1494r13 SWE{14|335R9} 1497r22 1498r30 1499r24 1500r47 1503r16 1504r16 1510r16
+1602i7 Cur_Loc{54|220I12} 1605r13 1606r22 1606r39 1610m10 1610r45
+1626i11 J{integer} 1628r75
+1628r13 SWE{14|335R9} 1631r20 1635r19 1638r22 1642r26 1649r21 1649r49 1652r65
+1671i11 J{integer} 1673r75
+1673r13 SWE{14|335R9} 1679r16 1680r43 1680r54 1682r37 1683r40 1685r19 1686r26
+1701i11 J{integer} 1702r47
+1718i11 J{integer} 1719r49 1720r49 1722r36
+X 16 fname.ads
+38K9*Fname 15|37w6 37r20 16|113e10
+93V13*Is_Internal_File_Name{boolean} 15|1118s25
+X 22 namet.ads
+37K9*Namet 15|38w6 38r20 22|768e10
+169a4*Name_Buffer{string} 15|1191r21 1192r22 1194r22 1202r35 1209r13 1210r20
+. 1211r20 1307r32 1312r35 1336r23 1385r20
+170i4*Name_Len{natural} 15|1190r13 1191r34 1192r35 1194r35 1196r13 1196r25
+. 1202r13 1202r48 1203r13 1203r25 1211r33 1298r7 1307r10 1312r13 1336r41
+. 1385r38
+188I9*Name_Id<integer>
+192i4*No_Name{188I9} 15|1174r29 1245r29 1331r46
+196i4*Error_Name{188I9} 15|1177r32 1248r32
+589U14*Add_Char_To_Name_Buffer 15|1301s10
+600U14*Get_Name_String 15|74s10 1040s10 1119s13 1254s10 1281s7 1334s10
+604U14*Get_Unqualified_Decoded_Name_String 15|1183s10
+624I9*File_Name_Type<188I9> 15|1067r21
+629i4*No_File{624I9} 15|1031r29
+637i4*Error_File_Name{624I9} 15|1034r32
+X 25 opt.ads
+50K9*Opt 15|39w6 39r20 699r16 25|2414e8
+564i4*Error_Msg_Line_Length{54|62I12} 15|705r13 708r23
+868b4*Include_Subprogram_In_Messages{boolean} 15|642r16 651r16
+1658b4*Unique_Error_Tag{boolean} 15|699r20
+1924b4*Warn_On_Warnings_Off{boolean} 15|1622r14
+1934n7*Suppress{1933E9} 15|1536r25 1580r25 1726r25
+1934n25*Treat_As_Error{1933E9} 15|256r45
+1935e4*Warning_Mode{1933E9} 15|256r30 1536r10 1580r10 1726r10
+1947i4*Warnings_As_Errors_Count{natural} 15|1701r21
+2259b4*GNATprove_Mode{boolean} 15|1537r22 1581r22
+2275a4*Warnings_As_Errors(54|113P9) 15|1702r27
+X 26 output.ads
+44K9*Output 15|40w6 40r20 26|213e11
+106U14*Write_Char 15|481s22 492s22 498s22 509s22 511s22 521s22 558s16 606s13
+. 730s22
+113U14*Write_Eol 15|270s10 291s7 296s7 310s7 543s10 564s10 727s22
+123U14*Write_Int 15|268s10
+127U14*Write_Spaces 15|728s22 770s16
+130U14*Write_Str 15|267s10 269s10 288s7 293s7 458s10 553s10 561s13 583s10
+. 609s10
+137U14*Write_Line 15|769s16
+148V13*Column{54|65I12} 15|557s19 618s30 711s35 773s38
+184U14*w 15|302s7
+196U14*w 15|283s7
+199U14*w 15|282s7 284s7 285s7 286s7 298s7 299s7 308s7
+202U14*w 15|300s7 301s7 303s7 304s7 305s7 306s7 307s7
+X 31 sinput.ads
+70K9*Sinput 15|41w6 41r20 31|967e11
+300V13*Full_File_Name{22|624I9} 15|1115s13 1115s44
+302V13*Identifier_Casing{9|48E9} 15|75s22 1218s25
+307V13*Keyword_Casing{9|48E9} 15|1283s19 1318s22
+311V13*Reference_Name{22|624I9} 15|1117s22
+314V13*Source_Last{54|220I12} 15|1475s25 1559s21
+315V13*Source_Text{54|200P9} 15|471s32
+402V13*Instantiation{54|220I12} 15|1159s13 1163s44 1528s10 1572s10
+535V13*Get_Logical_Line_Number{54|162I9} 15|1124s34 1133s31
+558V13*Get_Source_File_Index{54|575I9} 15|1112s25 1113s25 1117s38 1475s38
+. 1500s24 1501s24 1528s25 1559s34 1572s25
+568V13*Line_Start{54|220I12} 15|459s15
+605V13*Instantiation_Location{54|220I12} 15|1610s21
+693U14*Write_Location 15|290s7 295s7
+X 32 sinput.adb
+944U17 Traverse[7|627] 8|2657b14
+X 33 snames.ads
+34K9*Snames 15|42w6 42r20 33|2255e11
+1102i4*Name_Class{22|188I9} 15|74r27
+X 34 stringt.ads
+36K9*Stringt 15|43w6 43r20 34|180e12
+54i4*Null_String_Id{54|501I9} 15|1727r17
+X 35 system.ads
+67M9*Address
+X 38 s-memory.ads
+53V13*Alloc{35|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{35|67M9} 105i<c,__gnat_realloc>22
+X 50 table.ads
+46K9*Table 14|35w6 272r26 323r28 359r37 50|248e10
+50+12 Table_Component_Type 14|273r6 324r6 360r6
+51I12 Table_Index_Type 14|274r6 325r6 361r6
+53*7 Table_Low_Bound{51I12} 14|275r6 326r6 362r6
+54i7 Table_Initial{54|65I12} 14|276r6 327r6 363r6
+55i7 Table_Increment{54|62I12} 14|277r6 328r6 364r6
+56a7 Table_Name{string} 14|278r6 329r6 365r6
+59k12*Table 14|272r32 323r34 359r43 50|247e13
+110A12*Table_Type(14|180R9)<14|150I9>
+113A15*Big_Table_Type{110A12[14|272]}<14|150I9>
+121P12*Table_Ptr(113A15[14|272])
+125p7*Table{121P12[14|272]} 15|144r20[14|272] 148r23[14|272] 150r26[14|272]
+. 157r26[14|272] 157r56[14|272] 164r26[14|272] 170r26[14|272] 177r23[14|272]
+. 177r54[14|272] 178r23[14|272] 178r48[14|272] 181r25[14|272] 182r25[14|272]
+. 184r52[14|272] 195r17[14|272] 196r24[14|272] 197r24[14|272] 198r24[14|272]
+. 215r23[14|272] 216r23[14|272] 222r50[14|272] 228r53[14|272] 279r43[14|272]
+. 319r21[14|272] 336r48[14|272] 337r48[14|272] 435r17[14|272] 443r25[14|272]
+. 443r49[14|272] 444r25[14|272] 444r50[14|272] 446r20[14|272] 446r44[14|272]
+. 459r34[14|272] 466r28[14|272] 466r52[14|272] 467r28[14|272] 467r53[14|272]
+. 471r52[14|272] 476r33[14|272] 505r30[14|272] 550r25[14|272] 550r49[14|272]
+. 551r25[14|272] 551r50[14|272] 627r45[14|272] 645r49[14|272] 652r29[14|272]
+. 652r59[14|272] 656r46[14|272] 664r20[14|272] 664r50[14|272] 668r23[14|272]
+. 673r26[14|272] 689r23[14|272] 694r23[14|272] 909r28[14|272] 910r28[14|272]
+. 912r23[14|272] 912r53[14|272] 918r26[14|272] 934r36[14|272] 939r37[14|272]
+. 940r20[14|272] 941r22[14|272] 941r36[14|272] 944r22[14|272] 953r44[14|272]
+. 954r44[14|272] 1454r25[14|272] 1455r59[14|272] 1494r68[14|359] 1546r27[14|323]
+. 1547r34[14|323] 1590r27[14|323] 1591r34[14|323] 1593r19[14|323] 1628r68[14|359]
+. 1673r68[14|359] 1719r42[14|323] 1720r42[14|323] 1722r29[14|323]
+149V16*Last{integer} 15|1492s39[14|359] 1545s19[14|323] 1546s43[14|323] 1547s50[14|323]
+. 1589s19[14|323] 1590s43[14|323] 1591s50[14|323] 1593s35[14|323] 1626s61[14|359]
+. 1671s61[14|359] 1718s43[14|323]
+172i7*First{integer} 15|1545r36[14|323] 1589r36[14|323] 1626r34[14|359] 1671r34[14|359]
+. 1718r25[14|323]
+192U17*Append 15|1472s25[14|359] 1557s16[14|323]
+X 52 targparm.ads
+75K9*Targparm 15|44w6 1331r10 1334r27 52|625e13
+149i4*Run_Time_Name_On_Target{22|188I9} 15|1331r19 1334r36
+X 54 types.ads
+52K9*Types 14|36w6 36r17 54|948e10
+59I9*Int<integer> 14|107r25 116r44 150r29 532r34 15|268r21 282r42 284r27
+. 285r27 286r27 298r27 299r27 308r27 576r15 579r15 587r15 591r18 1124r29
+. 1133r26 1370r34
+62I12*Nat{59I9} 15|618r23 624r16 706r23
+65I12*Pos{59I9} 15|427r20
+113P9*String_Ptr(string) 14|181r14 344r13 605r13 15|627r24 635r16 953r23
+. 954r23 1665r13
+145I9*Text_Ptr<59I9>
+148A9*Text_Buffer(character)<145I9>
+162I9*Logical_Line_Number<integer> 14|431r38 15|575r38
+169i4*No_Line_Number{162I9} 15|582r14
+172I9*Physical_Line_Number<integer> 14|214r14
+178I9*Column_Number<short_integer> 14|116r49 217r13
+192A12*Source_Buffer{148A9}<145I9>
+200P9*Source_Buffer_Ptr(192A12) 15|470r22
+220I12*Source_Ptr{145I9} 14|166r52 198r14 205r14 318r16 319r16 336r15 337r15
+. 473r37 473r54 500r57 557r16 574r13 584r43 589r42 593r40 604r13 624r54 15|59r47
+. 317r52 423r11 895r37 895r54 1064r57 1465r16 1487r13 1523r43 1567r42 1601r47
+. 1602r17 1664r13 1714r40
+227i4*No_Location{220I12} 15|1092r16 1159r43 1528r57 1572r57 1605r24
+236i4*Standard_Location{220I12} 15|1100r19
+242i4*Standard_ASCII_Location{220I12} 15|1103r19
+245i4*System_Location{220I12} 15|1096r19
+397I9*Node_Id<integer> 14|141r54 266r14 411r32 15|264r32
+501I9*String_Id<integer> 14|320r16 341r16 559r16 584r64 593r59 606r34 15|1467r16
+. 1523r64 1666r34 1714r59
+504i4*No_String{501I9} 15|1692r14 1729r17
+575I9*Source_File_Index<59I9> 14|53r18 193r15 15|1065r21 1066r21
+X 55 uintp.ads
+42K9*Uintp 15|45w6 45r20 55|565e10
+48I9*Uint<54|59I9>
+300a4*UI_Image_Buffer{string} 15|1351r24
+301i4*UI_Image_Length{natural} 15|1350r21
+304U14*UI_Image 15|1348s7
+X 59 widechar.ads
+39K9*Widechar 15|46w6 46r20 59|101e13
+88U14*Skip_Wide 15|491s22 529s22
+93V13*Is_Start_Of_Wide_Char{boolean} 15|489s30 527s30
+

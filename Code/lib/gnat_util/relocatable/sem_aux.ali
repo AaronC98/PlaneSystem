@@ -1,0 +1,1432 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P SS ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_RECURSION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U sem_aux%b		sem_aux.adb		95e83238 NE OO PK
+W atree%s		atree.adb		atree.ali
+W einfo%s		einfo.adb		einfo.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z output%s		output.adb		output.ali  AD
+W snames%s		snames.adb		snames.ali
+W stand%s		stand.adb		stand.ali
+W uintp%s		uintp.adb		uintp.ali
+
+U sem_aux%s		sem_aux.ads		4c4ed801 BN EE OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W alloc%s		alloc.ads		alloc.ali
+W namet%s		namet.adb		namet.ali
+W sinfo%s		sinfo.adb		sinfo.ali
+Z system%s		system.ads		system.ali
+W table%s		table.adb		table.ali
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D aspects.ads		20190518044710 bc94048b aspects%s
+D atree.ads		20190518044709 2c9e949c atree%s
+D atree.adb		20190518044709 3ab87b63 atree%b
+D casing.ads		20190518044709 9b922bd9 casing%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D einfo.ads		20190518044709 0cc0e22d einfo%s
+D einfo.adb		20190518044709 ad5e25fd einfo%b
+D elists.ads		20190518044709 299e4c60 elists%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-hesorg.ads		20190518041255 106922da gnat.heap_sort_g%s
+D g-htable.ads		20190518041255 4b643b8d gnat.htable%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D namet.ads		20190518044709 b520bebe namet%s
+D nlists.ads		20190518044709 0f3f40a5 nlists%s
+D opt.ads		20190518044710 3d2ce478 opt%s
+D output.ads		20190518044709 a916e413 output%s
+D sem_aux.ads		20190518044709 558bfb27 sem_aux%s
+D sem_aux.adb		20190518044709 316d7287 sem_aux%b
+D sinfo.ads		20190518044709 4a0f957d sinfo%s
+D sinfo.adb		20190518044709 61e0e836 sinfo%b
+D sinput.ads		20190518044709 573062f0 sinput%s
+D snames.ads		20190518132638 5f03100c snames%s
+D stand.ads		20190518044709 4852f602 stand%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-htable.ads		20190518041257 84c2b3ea system.htable%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D uintp.ads		20190518044709 c6012b27 uintp%s
+D uintp.adb		20190518044709 db343839 uintp%b
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D urealp.ads		20190518044709 e500ee51 urealp%s
+G a e
+G c s s s [s sem_aux 47 1 none]
+G c Z s s [owt_recordIP sem_aux 56 9 none]
+G c Z s s [init sem_aux__obsolescent_warnings 142 17 64_4]
+G c Z s s [last sem_aux__obsolescent_warnings 149 16 64_4]
+G c Z s s [release sem_aux__obsolescent_warnings 156 17 64_4]
+G c Z s s [free sem_aux__obsolescent_warnings 168 17 64_4]
+G c Z s s [set_last sem_aux__obsolescent_warnings 175 17 64_4]
+G c Z s s [increment_last sem_aux__obsolescent_warnings 184 17 64_4]
+G c Z s s [decrement_last sem_aux__obsolescent_warnings 188 17 64_4]
+G c Z s s [append sem_aux__obsolescent_warnings 192 17 64_4]
+G c Z s s [append_all sem_aux__obsolescent_warnings 200 17 64_4]
+G c Z s s [set_item sem_aux__obsolescent_warnings 203 17 64_4]
+G c Z s s [save sem_aux__obsolescent_warnings 215 16 64_4]
+G c Z s s [restore sem_aux__obsolescent_warnings 219 17 64_4]
+G c Z s s [tree_write sem_aux__obsolescent_warnings 223 17 64_4]
+G c Z s s [tree_read sem_aux__obsolescent_warnings 226 17 64_4]
+G c Z s s [table_typeIP sem_aux__obsolescent_warnings 110 12 64_4]
+G c Z s s [saved_tableIP sem_aux__obsolescent_warnings 241 12 64_4]
+G c Z s s [reallocate sem_aux__obsolescent_warnings 58 17 64_4]
+G c Z s s [tree_get_table_address sem_aux__obsolescent_warnings 63 16 64_4]
+G c Z s s [to_address sem_aux__obsolescent_warnings 72 16 64_4]
+G c Z s s [to_pointer sem_aux__obsolescent_warnings 73 16 64_4]
+G c Z s b [initialize sem_aux 72 14 none]
+G c Z s b [tree_read sem_aux 77 14 none]
+G c Z s b [tree_write sem_aux 81 14 none]
+G c Z s b [ancestor_subtype sem_aux 89 13 none]
+G c Z s b [available_view sem_aux 94 13 none]
+G c Z s b [constant_value sem_aux 99 13 none]
+G c Z s b [corresponding_unsigned_type sem_aux 107 13 none]
+G c Z s b [enclosing_dynamic_scope sem_aux 112 13 none]
+G c Z s b [first_discriminant sem_aux 116 13 none]
+G c Z s b [first_stored_discriminant sem_aux 126 13 none]
+G c Z s b [first_subtype sem_aux 149 13 none]
+G c Z s b [first_tag_component sem_aux 154 13 none]
+G c Z s b [get_binary_nkind sem_aux 158 13 none]
+G c Z s b [get_called_entity sem_aux 164 13 none]
+G c Z s b [get_low_bound sem_aux 168 13 none]
+G c Z s b [get_unary_nkind sem_aux 171 13 none]
+G c Z s b [get_rep_item sem_aux 177 13 none]
+G c Z s b [get_rep_item sem_aux 189 13 none]
+G c Z s b [get_rep_pragma sem_aux 203 13 none]
+G c Z s b [get_rep_pragma sem_aux 216 13 none]
+G c Z s b [has_rep_item sem_aux 230 13 none]
+G c Z s b [has_rep_item sem_aux 241 13 none]
+G c Z s b [has_rep_item sem_aux 253 13 none]
+G c Z s b [has_rep_pragma sem_aux 257 13 none]
+G c Z s b [has_rep_pragma sem_aux 268 13 none]
+G c Z s b [has_external_tag_rep_clause sem_aux 281 13 none]
+G c Z s b [has_unconstrained_elements sem_aux 292 13 none]
+G c Z s b [has_variant_part sem_aux 296 13 none]
+G c Z s b [in_generic_body sem_aux 300 13 none]
+G c Z s b [initialization_suppressed sem_aux 303 13 none]
+G c Z s b [is_body sem_aux 309 13 none]
+G c Z s b [is_by_copy_type sem_aux 312 13 none]
+G c Z s b [is_by_reference_type sem_aux 316 13 none]
+G c Z s b [is_definite_subtype sem_aux 320 13 none]
+G c Z s b [is_derived_type sem_aux 328 13 none]
+G c Z s b [is_generic_formal sem_aux 332 13 none]
+G c Z s b [is_immutably_limited_type sem_aux 337 13 none]
+G c Z s b [is_limited_view sem_aux 343 13 none]
+G c Z s b [is_limited_type sem_aux 353 13 none]
+G c Z s b [is_protected_operation sem_aux 360 13 none]
+G c Z s b [nearest_ancestor sem_aux 364 13 none]
+G c Z s b [nearest_dynamic_scope sem_aux 382 13 none]
+G c Z s b [next_tag_component sem_aux 387 13 none]
+G c Z s b [number_components sem_aux 392 13 none]
+G c Z s b [number_discriminants sem_aux 396 13 none]
+G c Z s b [object_type_has_constrained_partial_view sem_aux 399 13 none]
+G c Z s b [package_body sem_aux 408 13 none]
+G c Z s b [package_spec sem_aux 412 13 none]
+G c Z s b [package_specification sem_aux 416 13 none]
+G c Z s b [subprogram_body sem_aux 420 13 none]
+G c Z s b [subprogram_body_entity sem_aux 424 13 none]
+G c Z s b [subprogram_spec sem_aux 429 13 none]
+G c Z s b [subprogram_specification sem_aux 433 13 none]
+G c Z s b [ultimate_alias sem_aux 439 13 none]
+G c Z s b [unit_declaration_node sem_aux 444 13 none]
+G r i none [s sem_aux 47 1 none] [table table 59 12 none]
+G r c none [s sem_aux 47 1 none] [write_str output 130 14 none]
+G r c none [s sem_aux 47 1 none] [write_int output 123 14 none]
+G r c none [s sem_aux 47 1 none] [write_eol output 113 14 none]
+G r c none [s sem_aux 47 1 none] [set_standard_error output 77 14 none]
+G r c none [s sem_aux 47 1 none] [set_standard_output output 84 14 none]
+G r c none [init sem_aux__obsolescent_warnings 142 17 64_4] [write_str output 130 14 none]
+G r c none [init sem_aux__obsolescent_warnings 142 17 64_4] [write_int output 123 14 none]
+G r c none [init sem_aux__obsolescent_warnings 142 17 64_4] [write_eol output 113 14 none]
+G r c none [init sem_aux__obsolescent_warnings 142 17 64_4] [set_standard_error output 77 14 none]
+G r c none [init sem_aux__obsolescent_warnings 142 17 64_4] [set_standard_output output 84 14 none]
+G r c none [release sem_aux__obsolescent_warnings 156 17 64_4] [write_str output 130 14 none]
+G r c none [release sem_aux__obsolescent_warnings 156 17 64_4] [write_int output 123 14 none]
+G r c none [release sem_aux__obsolescent_warnings 156 17 64_4] [write_eol output 113 14 none]
+G r c none [release sem_aux__obsolescent_warnings 156 17 64_4] [set_standard_error output 77 14 none]
+G r c none [release sem_aux__obsolescent_warnings 156 17 64_4] [set_standard_output output 84 14 none]
+G r c none [set_last sem_aux__obsolescent_warnings 175 17 64_4] [write_str output 130 14 none]
+G r c none [set_last sem_aux__obsolescent_warnings 175 17 64_4] [write_int output 123 14 none]
+G r c none [set_last sem_aux__obsolescent_warnings 175 17 64_4] [write_eol output 113 14 none]
+G r c none [set_last sem_aux__obsolescent_warnings 175 17 64_4] [set_standard_error output 77 14 none]
+G r c none [set_last sem_aux__obsolescent_warnings 175 17 64_4] [set_standard_output output 84 14 none]
+G r c none [increment_last sem_aux__obsolescent_warnings 184 17 64_4] [write_str output 130 14 none]
+G r c none [increment_last sem_aux__obsolescent_warnings 184 17 64_4] [write_int output 123 14 none]
+G r c none [increment_last sem_aux__obsolescent_warnings 184 17 64_4] [write_eol output 113 14 none]
+G r c none [increment_last sem_aux__obsolescent_warnings 184 17 64_4] [set_standard_error output 77 14 none]
+G r c none [increment_last sem_aux__obsolescent_warnings 184 17 64_4] [set_standard_output output 84 14 none]
+G r c none [append sem_aux__obsolescent_warnings 192 17 64_4] [write_str output 130 14 none]
+G r c none [append sem_aux__obsolescent_warnings 192 17 64_4] [write_int output 123 14 none]
+G r c none [append sem_aux__obsolescent_warnings 192 17 64_4] [write_eol output 113 14 none]
+G r c none [append sem_aux__obsolescent_warnings 192 17 64_4] [set_standard_error output 77 14 none]
+G r c none [append sem_aux__obsolescent_warnings 192 17 64_4] [set_standard_output output 84 14 none]
+G r c none [append_all sem_aux__obsolescent_warnings 200 17 64_4] [write_str output 130 14 none]
+G r c none [append_all sem_aux__obsolescent_warnings 200 17 64_4] [write_int output 123 14 none]
+G r c none [append_all sem_aux__obsolescent_warnings 200 17 64_4] [write_eol output 113 14 none]
+G r c none [append_all sem_aux__obsolescent_warnings 200 17 64_4] [set_standard_error output 77 14 none]
+G r c none [append_all sem_aux__obsolescent_warnings 200 17 64_4] [set_standard_output output 84 14 none]
+G r c none [set_item sem_aux__obsolescent_warnings 203 17 64_4] [write_str output 130 14 none]
+G r c none [set_item sem_aux__obsolescent_warnings 203 17 64_4] [write_int output 123 14 none]
+G r c none [set_item sem_aux__obsolescent_warnings 203 17 64_4] [write_eol output 113 14 none]
+G r c none [set_item sem_aux__obsolescent_warnings 203 17 64_4] [set_standard_error output 77 14 none]
+G r c none [set_item sem_aux__obsolescent_warnings 203 17 64_4] [set_standard_output output 84 14 none]
+G r c none [save sem_aux__obsolescent_warnings 215 16 64_4] [write_str output 130 14 none]
+G r c none [save sem_aux__obsolescent_warnings 215 16 64_4] [write_int output 123 14 none]
+G r c none [save sem_aux__obsolescent_warnings 215 16 64_4] [write_eol output 113 14 none]
+G r c none [save sem_aux__obsolescent_warnings 215 16 64_4] [set_standard_error output 77 14 none]
+G r c none [save sem_aux__obsolescent_warnings 215 16 64_4] [set_standard_output output 84 14 none]
+G r c none [tree_write sem_aux__obsolescent_warnings 223 17 64_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write sem_aux__obsolescent_warnings 223 17 64_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read sem_aux__obsolescent_warnings 226 17 64_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read sem_aux__obsolescent_warnings 226 17 64_4] [write_str output 130 14 none]
+G r c none [tree_read sem_aux__obsolescent_warnings 226 17 64_4] [write_int output 123 14 none]
+G r c none [tree_read sem_aux__obsolescent_warnings 226 17 64_4] [write_eol output 113 14 none]
+G r c none [tree_read sem_aux__obsolescent_warnings 226 17 64_4] [set_standard_error output 77 14 none]
+G r c none [tree_read sem_aux__obsolescent_warnings 226 17 64_4] [set_standard_output output 84 14 none]
+G r c none [tree_read sem_aux__obsolescent_warnings 226 17 64_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate sem_aux__obsolescent_warnings 58 17 64_4] [write_str output 130 14 none]
+G r c none [reallocate sem_aux__obsolescent_warnings 58 17 64_4] [write_int output 123 14 none]
+G r c none [reallocate sem_aux__obsolescent_warnings 58 17 64_4] [write_eol output 113 14 none]
+G r c none [reallocate sem_aux__obsolescent_warnings 58 17 64_4] [set_standard_error output 77 14 none]
+G r c none [reallocate sem_aux__obsolescent_warnings 58 17 64_4] [set_standard_output output 84 14 none]
+G r c none [initialize sem_aux 72 14 none] [write_str output 130 14 none]
+G r c none [initialize sem_aux 72 14 none] [write_int output 123 14 none]
+G r c none [initialize sem_aux 72 14 none] [write_eol output 113 14 none]
+G r c none [initialize sem_aux 72 14 none] [set_standard_error output 77 14 none]
+G r c none [initialize sem_aux 72 14 none] [set_standard_output output 84 14 none]
+G r c none [tree_read sem_aux 77 14 none] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read sem_aux 77 14 none] [write_str output 130 14 none]
+G r c none [tree_read sem_aux 77 14 none] [write_int output 123 14 none]
+G r c none [tree_read sem_aux 77 14 none] [write_eol output 113 14 none]
+G r c none [tree_read sem_aux 77 14 none] [set_standard_error output 77 14 none]
+G r c none [tree_read sem_aux 77 14 none] [set_standard_output output 84 14 none]
+G r c none [tree_read sem_aux 77 14 none] [tree_read_data tree_io 76 14 none]
+G r c none [tree_write sem_aux 81 14 none] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write sem_aux 81 14 none] [tree_write_data tree_io 108 14 none]
+G r c none [ancestor_subtype sem_aux 89 13 none] [is_base_type einfo 7612 13 none]
+G r c none [ancestor_subtype sem_aux 89 13 none] [is_first_subtype einfo 7306 13 none]
+G r c none [ancestor_subtype sem_aux 89 13 none] [nkind atree 657 13 none]
+G r c none [ancestor_subtype sem_aux 89 13 none] [subtype_indication sinfo 10249 13 none]
+G r c none [ancestor_subtype sem_aux 89 13 none] [entity sinfo 9568 13 none]
+G r c none [ancestor_subtype sem_aux 89 13 none] [subtype_mark sinfo 10252 13 none]
+G r c none [ancestor_subtype sem_aux 89 13 none] [declaration_node einfo 7597 13 none]
+G r c none [available_view sem_aux 94 13 none] [has_non_limited_view einfo 7606 13 none]
+G r c none [available_view sem_aux 94 13 none] [non_limited_view einfo 7416 13 none]
+G r c none [available_view sem_aux 94 13 none] [get_full_view einfo 8474 13 none]
+G r c none [constant_value sem_aux 99 13 none] [declaration_node einfo 7597 13 none]
+G r c none [constant_value sem_aux 99 13 none] [no atree 660 13 none]
+G r c none [constant_value sem_aux 99 13 none] [nkind atree 657 13 none]
+G r c none [constant_value sem_aux 99 13 none] [expression sinfo 9616 13 none]
+G r c none [constant_value sem_aux 99 13 none] [present atree 673 13 none]
+G r c none [constant_value sem_aux 99 13 none] [full_view einfo 7151 13 none]
+G r c none [constant_value sem_aux 99 13 none] [ekind atree 995 13 none]
+G r c none [constant_value sem_aux 99 13 none] [parent atree 665 13 none]
+G r c none [constant_value sem_aux 99 13 none] [name sinfo 10000 13 none]
+G r c none [constant_value sem_aux 99 13 none] [renamed_object einfo 7462 13 none]
+G r c none [corresponding_unsigned_type sem_aux 107 13 none] [base_type einfo 7596 13 none]
+G r c none [corresponding_unsigned_type sem_aux 107 13 none] [esize einfo 7133 13 none]
+G r c none [corresponding_unsigned_type sem_aux 107 13 none] [ui_eq uintp 152 13 none]
+G r c none [enclosing_dynamic_scope sem_aux 112 13 none] [scope sinfo 10213 13 none]
+G r c none [enclosing_dynamic_scope sem_aux 112 13 none] [no atree 660 13 none]
+G r c none [enclosing_dynamic_scope sem_aux 112 13 none] [full_view einfo 7151 13 none]
+G r c none [enclosing_dynamic_scope sem_aux 112 13 none] [is_dynamic_scope einfo 7617 13 none]
+G r c none [enclosing_dynamic_scope sem_aux 112 13 none] [present atree 673 13 none]
+G r c none [enclosing_dynamic_scope sem_aux 112 13 none] [is_private_type einfo 7574 13 none]
+G r c none [first_discriminant sem_aux 116 13 none] [first_entity einfo 7142 13 none]
+G r c none [first_discriminant sem_aux 116 13 none] [chars sinfo 9349 13 none]
+G r c none [first_discriminant sem_aux 116 13 none] [next_entity sinfo 10006 13 none]
+G r c none [first_discriminant sem_aux 116 13 none] [present atree 673 13 none]
+G r c none [first_discriminant sem_aux 116 13 none] [is_completely_hidden einfo 7284 13 none]
+G r c none [first_discriminant sem_aux 116 13 none] [ekind atree 995 13 none]
+G r c none [first_stored_discriminant sem_aux 126 13 none] [first_entity einfo 7142 13 none]
+G r c none [first_stored_discriminant sem_aux 126 13 none] [chars sinfo 9349 13 none]
+G r c none [first_stored_discriminant sem_aux 126 13 none] [next_entity sinfo 10006 13 none]
+G r c none [first_stored_discriminant sem_aux 126 13 none] [present atree 673 13 none]
+G r c none [first_stored_discriminant sem_aux 126 13 none] [is_itype einfo 7327 13 none]
+G r c none [first_stored_discriminant sem_aux 126 13 none] [is_completely_hidden einfo 7284 13 none]
+G r c none [first_stored_discriminant sem_aux 126 13 none] [ekind atree 995 13 none]
+G r c none [first_subtype sem_aux 149 13 none] [base_type einfo 7596 13 none]
+G r c none [first_subtype sem_aux 149 13 none] [freeze_node einfo 7149 13 none]
+G r c none [first_subtype sem_aux 149 13 none] [no atree 660 13 none]
+G r c none [first_subtype sem_aux 149 13 none] [first_subtype_link sinfo 9640 13 none]
+G r c none [first_subtype sem_aux 149 13 none] [present atree 673 13 none]
+G r c none [first_subtype sem_aux 149 13 none] [is_generic_type einfo 7561 13 none]
+G r c none [first_subtype sem_aux 149 13 none] [parent atree 665 13 none]
+G r c none [first_subtype sem_aux 149 13 none] [associated_node_for_itype einfo 7049 13 none]
+G r c none [first_subtype sem_aux 149 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [first_tag_component sem_aux 154 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [first_tag_component sem_aux 154 13 none] [root_type einfo 7659 13 none]
+G r c none [first_tag_component sem_aux 154 13 none] [is_private_type einfo 7574 13 none]
+G r c none [first_tag_component sem_aux 154 13 none] [underlying_type einfo 7668 13 none]
+G r c none [first_tag_component sem_aux 154 13 none] [no atree 660 13 none]
+G r c none [first_tag_component sem_aux 154 13 none] [first_entity einfo 7142 13 none]
+G r c none [first_tag_component sem_aux 154 13 none] [present atree 673 13 none]
+G r c none [first_tag_component sem_aux 154 13 none] [is_tag einfo 7367 13 none]
+G r c none [first_tag_component sem_aux 154 13 none] [next_entity sinfo 10006 13 none]
+G r c none [get_binary_nkind sem_aux 158 13 none] [chars sinfo 9349 13 none]
+G r c none [get_called_entity sem_aux 164 13 none] [name sinfo 10000 13 none]
+G r c none [get_called_entity sem_aux 164 13 none] [nkind atree 657 13 none]
+G r c none [get_called_entity sem_aux 164 13 none] [entity sinfo 9568 13 none]
+G r c none [get_called_entity sem_aux 164 13 none] [prefix sinfo 10117 13 none]
+G r c none [get_called_entity sem_aux 164 13 none] [selector_name sinfo 10219 13 none]
+G r c none [get_called_entity sem_aux 164 13 none] [etype sinfo 9592 13 none]
+G r c none [get_low_bound sem_aux 168 13 none] [ekind atree 995 13 none]
+G r c none [get_low_bound sem_aux 168 13 none] [type_low_bound einfo 7667 13 none]
+G r c none [get_low_bound sem_aux 168 13 none] [string_literal_low_bound einfo 7498 13 none]
+G r c none [get_unary_nkind sem_aux 171 13 none] [chars sinfo 9349 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [first_rep_item einfo 7147 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [present atree 673 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [pragma_name sinfo 11601 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [pragma_name_unmapped sinfo 11606 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [nkind atree 657 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [chars sinfo 9349 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [entity sinfo 9568 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [identifier sinfo 9745 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [no atree 660 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [present_in_rep_item einfo 8453 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [declaration_node einfo 7597 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [original_node atree 1157 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [type_definition sinfo 10300 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [is_entity_name einfo 8479 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [subtype_mark sinfo 10252 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [subtype_indication sinfo 10249 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [full_view einfo 7151 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [is_private_type einfo 7574 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [ekind atree 995 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [base_type einfo 7596 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [root_type einfo 7659 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [is_type einfo 7584 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [is_numeric_type einfo 7570 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [freeze_node einfo 7149 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [first_subtype_link sinfo 9640 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [is_generic_type einfo 7561 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [parent atree 665 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [associated_node_for_itype einfo 7049 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [get_rep_item sem_aux 177 13 none] [next_rep_item sinfo 11457 14 none]
+G r c none [get_rep_item sem_aux 189 13 none] [first_rep_item einfo 7147 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [present atree 673 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [pragma_name sinfo 11601 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [pragma_name_unmapped sinfo 11606 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [nkind atree 657 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [chars sinfo 9349 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [entity sinfo 9568 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [identifier sinfo 9745 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [no atree 660 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [present_in_rep_item einfo 8453 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [declaration_node einfo 7597 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [original_node atree 1157 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [type_definition sinfo 10300 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [is_entity_name einfo 8479 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [subtype_mark sinfo 10252 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [subtype_indication sinfo 10249 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [full_view einfo 7151 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [is_private_type einfo 7574 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [ekind atree 995 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [base_type einfo 7596 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [root_type einfo 7659 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [is_type einfo 7584 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [is_numeric_type einfo 7570 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [freeze_node einfo 7149 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [first_subtype_link sinfo 9640 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [is_generic_type einfo 7561 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [parent atree 665 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [associated_node_for_itype einfo 7049 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [get_rep_item sem_aux 189 13 none] [next_rep_item sinfo 11457 14 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [first_rep_item einfo 7147 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [present atree 673 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [pragma_name sinfo 11601 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [pragma_name_unmapped sinfo 11606 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [nkind atree 657 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [chars sinfo 9349 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [entity sinfo 9568 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [identifier sinfo 9745 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [no atree 660 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [present_in_rep_item einfo 8453 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [declaration_node einfo 7597 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [original_node atree 1157 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [type_definition sinfo 10300 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [is_entity_name einfo 8479 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [subtype_mark sinfo 10252 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [subtype_indication sinfo 10249 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [full_view einfo 7151 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [is_private_type einfo 7574 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [ekind atree 995 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [base_type einfo 7596 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [root_type einfo 7659 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [is_type einfo 7584 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [is_numeric_type einfo 7570 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [freeze_node einfo 7149 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [first_subtype_link sinfo 9640 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [is_generic_type einfo 7561 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [parent atree 665 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [associated_node_for_itype einfo 7049 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [get_rep_pragma sem_aux 203 13 none] [next_rep_item sinfo 11457 14 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [first_rep_item einfo 7147 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [present atree 673 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [pragma_name sinfo 11601 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [pragma_name_unmapped sinfo 11606 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [nkind atree 657 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [chars sinfo 9349 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [entity sinfo 9568 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [identifier sinfo 9745 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [no atree 660 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [present_in_rep_item einfo 8453 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [declaration_node einfo 7597 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [original_node atree 1157 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [type_definition sinfo 10300 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [is_entity_name einfo 8479 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [subtype_mark sinfo 10252 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [subtype_indication sinfo 10249 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [full_view einfo 7151 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [is_private_type einfo 7574 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [ekind atree 995 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [base_type einfo 7596 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [root_type einfo 7659 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [is_type einfo 7584 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [is_numeric_type einfo 7570 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [freeze_node einfo 7149 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [first_subtype_link sinfo 9640 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [is_generic_type einfo 7561 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [parent atree 665 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [associated_node_for_itype einfo 7049 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [get_rep_pragma sem_aux 216 13 none] [next_rep_item sinfo 11457 14 none]
+G r c none [has_rep_item sem_aux 230 13 none] [first_rep_item einfo 7147 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [present atree 673 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [pragma_name sinfo 11601 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [pragma_name_unmapped sinfo 11606 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [nkind atree 657 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [chars sinfo 9349 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [entity sinfo 9568 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [identifier sinfo 9745 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [no atree 660 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [present_in_rep_item einfo 8453 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [declaration_node einfo 7597 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [original_node atree 1157 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [type_definition sinfo 10300 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [is_entity_name einfo 8479 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [subtype_mark sinfo 10252 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [subtype_indication sinfo 10249 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [full_view einfo 7151 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [is_private_type einfo 7574 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [ekind atree 995 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [base_type einfo 7596 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [root_type einfo 7659 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [is_type einfo 7584 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [is_numeric_type einfo 7570 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [freeze_node einfo 7149 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [first_subtype_link sinfo 9640 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [is_generic_type einfo 7561 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [parent atree 665 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [associated_node_for_itype einfo 7049 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [has_rep_item sem_aux 230 13 none] [next_rep_item sinfo 11457 14 none]
+G r c none [has_rep_item sem_aux 241 13 none] [first_rep_item einfo 7147 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [present atree 673 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [pragma_name sinfo 11601 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [pragma_name_unmapped sinfo 11606 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [nkind atree 657 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [chars sinfo 9349 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [entity sinfo 9568 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [identifier sinfo 9745 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [no atree 660 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [present_in_rep_item einfo 8453 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [declaration_node einfo 7597 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [original_node atree 1157 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [type_definition sinfo 10300 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [is_entity_name einfo 8479 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [subtype_mark sinfo 10252 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [subtype_indication sinfo 10249 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [full_view einfo 7151 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [is_private_type einfo 7574 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [ekind atree 995 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [base_type einfo 7596 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [root_type einfo 7659 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [is_type einfo 7584 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [is_numeric_type einfo 7570 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [freeze_node einfo 7149 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [first_subtype_link sinfo 9640 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [is_generic_type einfo 7561 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [parent atree 665 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [associated_node_for_itype einfo 7049 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [has_rep_item sem_aux 241 13 none] [next_rep_item sinfo 11457 14 none]
+G r c none [has_rep_item sem_aux 253 13 none] [first_rep_item einfo 7147 13 none]
+G r c none [has_rep_item sem_aux 253 13 none] [present atree 673 13 none]
+G r c none [has_rep_item sem_aux 253 13 none] [next_rep_item sinfo 10021 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [first_rep_item einfo 7147 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [present atree 673 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [pragma_name sinfo 11601 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [pragma_name_unmapped sinfo 11606 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [nkind atree 657 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [chars sinfo 9349 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [entity sinfo 9568 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [identifier sinfo 9745 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [no atree 660 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [present_in_rep_item einfo 8453 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [declaration_node einfo 7597 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [original_node atree 1157 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [type_definition sinfo 10300 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [is_entity_name einfo 8479 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [subtype_mark sinfo 10252 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [subtype_indication sinfo 10249 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [full_view einfo 7151 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [is_private_type einfo 7574 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [ekind atree 995 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [base_type einfo 7596 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [root_type einfo 7659 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [is_type einfo 7584 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [is_numeric_type einfo 7570 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [freeze_node einfo 7149 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [first_subtype_link sinfo 9640 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [is_generic_type einfo 7561 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [parent atree 665 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [associated_node_for_itype einfo 7049 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [has_rep_pragma sem_aux 257 13 none] [next_rep_item sinfo 11457 14 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [first_rep_item einfo 7147 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [present atree 673 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [pragma_name sinfo 11601 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [pragma_name_unmapped sinfo 11606 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [nkind atree 657 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [chars sinfo 9349 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [entity sinfo 9568 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [identifier sinfo 9745 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [no atree 660 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [present_in_rep_item einfo 8453 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [declaration_node einfo 7597 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [original_node atree 1157 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [type_definition sinfo 10300 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [is_entity_name einfo 8479 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [subtype_mark sinfo 10252 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [subtype_indication sinfo 10249 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [full_view einfo 7151 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [is_private_type einfo 7574 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [ekind atree 995 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [base_type einfo 7596 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [root_type einfo 7659 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [is_type einfo 7584 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [is_numeric_type einfo 7570 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [freeze_node einfo 7149 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [first_subtype_link sinfo 9640 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [is_generic_type einfo 7561 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [parent atree 665 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [associated_node_for_itype einfo 7049 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [has_rep_pragma sem_aux 268 13 none] [next_rep_item sinfo 11457 14 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [first_rep_item einfo 7147 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [present atree 673 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [pragma_name sinfo 11601 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [pragma_name_unmapped sinfo 11606 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [nkind atree 657 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [chars sinfo 9349 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [entity sinfo 9568 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [identifier sinfo 9745 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [no atree 660 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [present_in_rep_item einfo 8453 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [declaration_node einfo 7597 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [original_node atree 1157 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [type_definition sinfo 10300 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [is_entity_name einfo 8479 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [subtype_mark sinfo 10252 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [subtype_indication sinfo 10249 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [full_view einfo 7151 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [is_private_type einfo 7574 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [ekind atree 995 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [base_type einfo 7596 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [root_type einfo 7659 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [is_type einfo 7584 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [is_numeric_type einfo 7570 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [freeze_node einfo 7149 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [first_subtype_link sinfo 9640 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [is_generic_type einfo 7561 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [parent atree 665 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [associated_node_for_itype einfo 7049 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [has_external_tag_rep_clause sem_aux 281 13 none] [next_rep_item sinfo 11457 14 none]
+G r c none [has_unconstrained_elements sem_aux 292 13 none] [underlying_type einfo 7668 13 none]
+G r c none [has_unconstrained_elements sem_aux 292 13 none] [no atree 660 13 none]
+G r c none [has_unconstrained_elements sem_aux 292 13 none] [is_record_type einfo 7577 13 none]
+G r c none [has_unconstrained_elements sem_aux 292 13 none] [is_array_type einfo 7539 13 none]
+G r c none [has_unconstrained_elements sem_aux 292 13 none] [component_type einfo 7069 13 none]
+G r c none [has_unconstrained_elements sem_aux 292 13 none] [is_constrained einfo 7287 13 none]
+G r c none [has_unconstrained_elements sem_aux 292 13 none] [has_discriminants einfo 7174 13 none]
+G r c none [has_variant_part sem_aux 296 13 none] [is_type einfo 7584 13 none]
+G r c none [has_variant_part sem_aux 296 13 none] [base_type einfo 7596 13 none]
+G r c none [has_variant_part sem_aux 296 13 none] [freeze_node einfo 7149 13 none]
+G r c none [has_variant_part sem_aux 296 13 none] [no atree 660 13 none]
+G r c none [has_variant_part sem_aux 296 13 none] [first_subtype_link sinfo 9640 13 none]
+G r c none [has_variant_part sem_aux 296 13 none] [present atree 673 13 none]
+G r c none [has_variant_part sem_aux 296 13 none] [is_generic_type einfo 7561 13 none]
+G r c none [has_variant_part sem_aux 296 13 none] [parent atree 665 13 none]
+G r c none [has_variant_part sem_aux 296 13 none] [associated_node_for_itype einfo 7049 13 none]
+G r c none [has_variant_part sem_aux 296 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [has_variant_part sem_aux 296 13 none] [has_discriminants einfo 7174 13 none]
+G r c none [has_variant_part sem_aux 296 13 none] [declaration_node einfo 7597 13 none]
+G r c none [has_variant_part sem_aux 296 13 none] [nkind atree 657 13 none]
+G r c none [has_variant_part sem_aux 296 13 none] [type_definition sinfo 10300 13 none]
+G r c none [has_variant_part sem_aux 296 13 none] [component_list sinfo 9388 13 none]
+G r c none [has_variant_part sem_aux 296 13 none] [variant_part sinfo 10318 13 none]
+G r c none [in_generic_body sem_aux 300 13 none] [in_package_body einfo 7257 13 none]
+G r c none [in_generic_body sem_aux 300 13 none] [ekind atree 995 13 none]
+G r c none [in_generic_body sem_aux 300 13 none] [parent atree 665 13 none]
+G r c none [in_generic_body sem_aux 300 13 none] [no atree 660 13 none]
+G r c none [in_generic_body sem_aux 300 13 none] [nkind atree 657 13 none]
+G r c none [in_generic_body sem_aux 300 13 none] [is_subprogram einfo 7580 13 none]
+G r c none [in_generic_body sem_aux 300 13 none] [scope sinfo 10213 13 none]
+G r c none [in_generic_body sem_aux 300 13 none] [present atree 673 13 none]
+G r c none [initialization_suppressed sem_aux 303 13 none] [base_type einfo 7596 13 none]
+G r c none [initialization_suppressed sem_aux 303 13 none] [suppress_initialization einfo 7502 13 none]
+G r c none [is_body sem_aux 309 13 none] [nkind_in atree 706 13 none]
+G r c none [is_body sem_aux 309 13 none] [nkind atree 657 13 none]
+G r c none [is_by_copy_type sem_aux 312 13 none] [underlying_type einfo 7668 13 none]
+G r c none [is_by_copy_type sem_aux 312 13 none] [is_elementary_type einfo 7550 13 none]
+G r c none [is_by_copy_type sem_aux 312 13 none] [present atree 673 13 none]
+G r c none [is_by_copy_type sem_aux 312 13 none] [is_private_type einfo 7574 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [base_type einfo 7596 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [error_posted atree 648 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [is_private_type einfo 7574 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [is_incomplete_type einfo 7565 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [is_concurrent_type einfo 7545 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [is_record_type einfo 7577 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [is_array_type einfo 7539 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [has_volatile_components einfo 7249 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [component_type einfo 7069 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [is_volatile einfo 7381 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [is_tagged_type einfo 7368 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [is_limited_record einfo 7567 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [first_component einfo 7599 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [present atree 673 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [etype sinfo 9592 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [next_component einfo 7645 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [no atree 660 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [full_view einfo 7151 13 none]
+G r c none [is_by_reference_type sem_aux 316 13 none] [underlying_type einfo 7668 13 none]
+G r c none [is_definite_subtype sem_aux 320 13 none] [ekind atree 995 13 none]
+G r c none [is_definite_subtype sem_aux 320 13 none] [is_constrained einfo 7287 13 none]
+G r c none [is_definite_subtype sem_aux 320 13 none] [has_unknown_discriminants einfo 7247 13 none]
+G r c none [is_definite_subtype sem_aux 320 13 none] [has_discriminants einfo 7174 13 none]
+G r c none [is_definite_subtype sem_aux 320 13 none] [first_entity einfo 7142 13 none]
+G r c none [is_definite_subtype sem_aux 320 13 none] [chars sinfo 9349 13 none]
+G r c none [is_definite_subtype sem_aux 320 13 none] [next_entity sinfo 10006 13 none]
+G r c none [is_definite_subtype sem_aux 320 13 none] [present atree 673 13 none]
+G r c none [is_definite_subtype sem_aux 320 13 none] [is_completely_hidden einfo 7284 13 none]
+G r c none [is_definite_subtype sem_aux 320 13 none] [discriminant_default_value einfo 7107 13 none]
+G r c none [is_derived_type sem_aux 328 13 none] [ekind atree 995 13 none]
+G r c none [is_derived_type sem_aux 328 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [is_derived_type sem_aux 328 13 none] [base_type einfo 7596 13 none]
+G r c none [is_derived_type sem_aux 328 13 none] [root_type einfo 7659 13 none]
+G r c none [is_derived_type sem_aux 328 13 none] [is_type einfo 7584 13 none]
+G r c none [is_derived_type sem_aux 328 13 none] [is_numeric_type einfo 7570 13 none]
+G r c none [is_derived_type sem_aux 328 13 none] [freeze_node einfo 7149 13 none]
+G r c none [is_derived_type sem_aux 328 13 none] [no atree 660 13 none]
+G r c none [is_derived_type sem_aux 328 13 none] [first_subtype_link sinfo 9640 13 none]
+G r c none [is_derived_type sem_aux 328 13 none] [present atree 673 13 none]
+G r c none [is_derived_type sem_aux 328 13 none] [is_generic_type einfo 7561 13 none]
+G r c none [is_derived_type sem_aux 328 13 none] [parent atree 665 13 none]
+G r c none [is_derived_type sem_aux 328 13 none] [associated_node_for_itype einfo 7049 13 none]
+G r c none [is_derived_type sem_aux 328 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [is_derived_type sem_aux 328 13 none] [type_definition sinfo 10300 13 none]
+G r c none [is_derived_type sem_aux 328 13 none] [nkind atree 657 13 none]
+G r c none [is_generic_formal sem_aux 332 13 none] [no atree 660 13 none]
+G r c none [is_generic_formal sem_aux 332 13 none] [parent atree 665 13 none]
+G r c none [is_generic_formal sem_aux 332 13 none] [original_node atree 1157 13 none]
+G r c none [is_generic_formal sem_aux 332 13 none] [nkind atree 657 13 none]
+G r c none [is_generic_formal sem_aux 332 13 none] [ekind atree 995 13 none]
+G r c none [is_generic_formal sem_aux 332 13 none] [is_formal_subprogram einfo 7557 13 none]
+G r c none [is_generic_formal sem_aux 332 13 none] [nkind_in sinfo 11490 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [base_type einfo 7596 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [has_non_limited_view einfo 7606 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [non_limited_view einfo 7416 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [get_full_view einfo 8474 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [is_limited_record einfo 7567 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [parent atree 665 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [nkind atree 657 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [ekind atree 995 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [scope sinfo 10213 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [in_package_body einfo 7257 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [is_private_type einfo 7574 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [is_concurrent_type einfo 7545 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [etype sinfo 9592 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [is_generic_type einfo 7561 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [root_type einfo 7659 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [is_type einfo 7584 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [is_numeric_type einfo 7570 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [freeze_node einfo 7149 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [no atree 660 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [first_subtype_link sinfo 9640 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [present atree 673 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [associated_node_for_itype einfo 7049 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [type_definition sinfo 10300 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [underlying_type einfo 7668 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [is_limited_composite einfo 7331 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [is_interface einfo 7322 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [error_posted atree 648 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [is_record_type einfo 7577 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [is_array_type einfo 7539 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [component_type einfo 7069 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [is_limited_interface einfo 7332 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [first_component einfo 7599 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [next_component einfo 7645 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [is_task_interface einfo 7633 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [is_synchronized_interface einfo 7631 13 none]
+G r c none [is_immutably_limited_type sem_aux 337 13 none] [is_protected_interface einfo 7626 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [base_type einfo 7596 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [has_non_limited_view einfo 7606 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [non_limited_view einfo 7416 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [get_full_view einfo 8474 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [is_limited_record einfo 7567 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [parent atree 665 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [nkind atree 657 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [ekind atree 995 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [scope sinfo 10213 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [in_package_body einfo 7257 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [is_private_type einfo 7574 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [is_concurrent_type einfo 7545 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [is_record_type einfo 7577 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [is_array_type einfo 7539 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [component_type einfo 7069 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [first_component einfo 7599 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [present atree 673 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [etype sinfo 9592 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [is_interface einfo 7322 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [next_component einfo 7645 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [root_type einfo 7659 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [is_generic_type einfo 7561 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [is_type einfo 7584 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [is_numeric_type einfo 7570 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [freeze_node einfo 7149 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [no atree 660 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [first_subtype_link sinfo 9640 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [associated_node_for_itype einfo 7049 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [type_definition sinfo 10300 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [underlying_type einfo 7668 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [is_limited_composite einfo 7331 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [error_posted atree 648 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [is_limited_interface einfo 7332 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [is_task_interface einfo 7633 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [is_synchronized_interface einfo 7631 13 none]
+G r c none [is_limited_view sem_aux 343 13 none] [is_protected_interface einfo 7626 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [base_type einfo 7596 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [root_type einfo 7659 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [is_type einfo 7584 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [is_limited_composite einfo 7331 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [ekind atree 995 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [is_concurrent_type einfo 7545 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [is_interface einfo 7322 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [is_limited_record einfo 7567 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [error_posted atree 648 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [is_record_type einfo 7577 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [is_array_type einfo 7539 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [component_type einfo 7069 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [is_limited_interface einfo 7332 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [first_component einfo 7599 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [present atree 673 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [etype sinfo 9592 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [next_component einfo 7645 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [is_task_interface einfo 7633 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [is_synchronized_interface einfo 7631 13 none]
+G r c none [is_limited_type sem_aux 353 13 none] [is_protected_interface einfo 7626 13 none]
+G r c none [is_protected_operation sem_aux 360 13 none] [parent atree 665 13 none]
+G r c none [is_protected_operation sem_aux 360 13 none] [ekind atree 995 13 none]
+G r c none [is_protected_operation sem_aux 360 13 none] [no atree 660 13 none]
+G r c none [is_protected_operation sem_aux 360 13 none] [nkind atree 657 13 none]
+G r c none [is_protected_operation sem_aux 360 13 none] [is_subprogram einfo 7580 13 none]
+G r c none [is_protected_operation sem_aux 360 13 none] [is_entry einfo 7551 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [declaration_node einfo 7597 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [original_node atree 1157 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [nkind atree 657 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [type_definition sinfo 10300 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [is_entity_name einfo 8479 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [subtype_mark sinfo 10252 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [entity sinfo 9568 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [subtype_indication sinfo 10249 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [full_view einfo 7151 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [present atree 673 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [is_private_type einfo 7574 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [ekind atree 995 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [base_type einfo 7596 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [root_type einfo 7659 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [is_type einfo 7584 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [is_numeric_type einfo 7570 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [freeze_node einfo 7149 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [no atree 660 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [first_subtype_link sinfo 9640 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [is_generic_type einfo 7561 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [parent atree 665 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [associated_node_for_itype einfo 7049 13 none]
+G r c none [nearest_ancestor sem_aux 364 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [nearest_dynamic_scope sem_aux 382 13 none] [is_dynamic_scope einfo 7617 13 none]
+G r c none [nearest_dynamic_scope sem_aux 382 13 none] [scope sinfo 10213 13 none]
+G r c none [nearest_dynamic_scope sem_aux 382 13 none] [no atree 660 13 none]
+G r c none [nearest_dynamic_scope sem_aux 382 13 none] [full_view einfo 7151 13 none]
+G r c none [nearest_dynamic_scope sem_aux 382 13 none] [present atree 673 13 none]
+G r c none [nearest_dynamic_scope sem_aux 382 13 none] [is_private_type einfo 7574 13 none]
+G r c none [next_tag_component sem_aux 387 13 none] [next_entity sinfo 10006 13 none]
+G r c none [next_tag_component sem_aux 387 13 none] [present atree 673 13 none]
+G r c none [next_tag_component sem_aux 387 13 none] [is_tag einfo 7367 13 none]
+G r c none [number_components sem_aux 392 13 none] [has_discriminants einfo 7174 13 none]
+G r c none [number_components sem_aux 392 13 none] [first_component einfo 7599 13 none]
+G r c none [number_components sem_aux 392 13 none] [first_entity einfo 7142 13 none]
+G r c none [number_components sem_aux 392 13 none] [chars sinfo 9349 13 none]
+G r c none [number_components sem_aux 392 13 none] [next_entity sinfo 10006 13 none]
+G r c none [number_components sem_aux 392 13 none] [present atree 673 13 none]
+G r c none [number_components sem_aux 392 13 none] [is_completely_hidden einfo 7284 13 none]
+G r c none [number_components sem_aux 392 13 none] [ekind atree 995 13 none]
+G r c none [number_components sem_aux 392 13 none] [next_component_or_discriminant einfo 7646 13 none]
+G r c none [number_discriminants sem_aux 396 13 none] [first_entity einfo 7142 13 none]
+G r c none [number_discriminants sem_aux 396 13 none] [chars sinfo 9349 13 none]
+G r c none [number_discriminants sem_aux 396 13 none] [next_entity sinfo 10006 13 none]
+G r c none [number_discriminants sem_aux 396 13 none] [present atree 673 13 none]
+G r c none [number_discriminants sem_aux 396 13 none] [is_completely_hidden einfo 7284 13 none]
+G r c none [number_discriminants sem_aux 396 13 none] [ekind atree 995 13 none]
+G r c none [number_discriminants sem_aux 396 13 none] [next_discriminant einfo 7647 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [has_discriminants einfo 7174 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [is_constrained einfo 7287 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [is_array_type einfo 7539 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [is_tagged_type einfo 7368 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [base_type einfo 7596 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [ekind atree 995 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [is_class_wide_type einfo 7541 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [root_type einfo 7659 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [is_type einfo 7584 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [is_numeric_type einfo 7570 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [freeze_node einfo 7149 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [no atree 660 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [first_subtype_link sinfo 9640 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [present atree 673 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [is_generic_type einfo 7561 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [parent atree 665 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [associated_node_for_itype einfo 7049 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [type_definition sinfo 10300 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [nkind atree 657 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [is_private_type einfo 7574 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [in_package_body einfo 7257 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [is_subprogram einfo 7580 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [scope sinfo 10213 13 none]
+G r c none [object_type_has_constrained_partial_view sem_aux 399 13 none] [has_constrained_partial_view einfo 7164 13 none]
+G r c none [package_body sem_aux 408 13 none] [ekind atree 995 13 none]
+G r c none [package_body sem_aux 408 13 none] [parent atree 665 13 none]
+G r c none [package_body sem_aux 408 13 none] [nkind atree 657 13 none]
+G r c none [package_body sem_aux 408 13 none] [corresponding_body sinfo 9439 13 none]
+G r c none [package_body sem_aux 408 13 none] [present atree 673 13 none]
+G r c none [package_spec sem_aux 412 13 none] [parent atree 665 13 none]
+G r c none [package_spec sem_aux 412 13 none] [nkind atree 657 13 none]
+G r c none [package_specification sem_aux 416 13 none] [parent atree 665 13 none]
+G r c none [package_specification sem_aux 416 13 none] [nkind atree 657 13 none]
+G r c none [subprogram_body sem_aux 420 13 none] [parent atree 665 13 none]
+G r c none [subprogram_body sem_aux 420 13 none] [nkind atree 657 13 none]
+G r c none [subprogram_body sem_aux 420 13 none] [alias einfo 7042 13 none]
+G r c none [subprogram_body sem_aux 420 13 none] [corresponding_body sinfo 9439 13 none]
+G r c none [subprogram_body sem_aux 420 13 none] [no atree 660 13 none]
+G r c none [subprogram_body_entity sem_aux 424 13 none] [parent atree 665 13 none]
+G r c none [subprogram_body_entity sem_aux 424 13 none] [nkind atree 657 13 none]
+G r c none [subprogram_body_entity sem_aux 424 13 none] [alias einfo 7042 13 none]
+G r c none [subprogram_body_entity sem_aux 424 13 none] [corresponding_body sinfo 9439 13 none]
+G r c none [subprogram_spec sem_aux 429 13 none] [parent atree 665 13 none]
+G r c none [subprogram_spec sem_aux 429 13 none] [nkind atree 657 13 none]
+G r c none [subprogram_spec sem_aux 429 13 none] [alias einfo 7042 13 none]
+G r c none [subprogram_specification sem_aux 433 13 none] [parent atree 665 13 none]
+G r c none [subprogram_specification sem_aux 433 13 none] [nkind atree 657 13 none]
+G r c none [subprogram_specification sem_aux 433 13 none] [alias einfo 7042 13 none]
+G r c none [ultimate_alias sem_aux 439 13 none] [alias einfo 7042 13 none]
+G r c none [ultimate_alias sem_aux 439 13 none] [present atree 673 13 none]
+G r c none [unit_declaration_node sem_aux 444 13 none] [parent atree 665 13 none]
+G r c none [unit_declaration_node sem_aux 444 13 none] [ekind atree 995 13 none]
+G r c none [unit_declaration_node sem_aux 444 13 none] [no atree 660 13 none]
+G r c none [unit_declaration_node sem_aux 444 13 none] [nkind atree 657 13 none]
+X 5 alloc.ads
+42K9*Alloc 167e10 23|41w6 68r30 69r30
+110N4*Obsolescent_Warnings_Initial 23|68r36
+111N4*Obsolescent_Warnings_Increment 23|69r36
+X 7 atree.ads
+44K9*Atree 4321e10 24|33w6 33r18
+648V13*Error_Posted{boolean} 24|922s10 922s37 1183s13
+657V13*Nkind{25|8645E9} 24|60s13 61s16 111s13 117s13 134s13 471s10 475s13
+. 478s13 519s13 549s16 559s16 626s31 805s10 811s10 817s10 847s21 887s9 1054s24
+. 1055s24 1078s18 1086s27 1103s18 1240s18 1336s30 1353s10 1354s13 1362s13
+. 1363s18 1507s13 1517s16 1547s10 1583s12 1609s10 1626s10 1639s10 1697s13
+. 1698s18 1699s18 1700s18 1701s18 1702s18 1703s18 1704s18 1705s18 1706s18
+. 1707s18 1708s18 1709s18 1710s18 1711s18 1712s18 1713s18 1714s18 1715s18
+. 1716s18 1717s18 1718s18
+660V13*No{boolean} 24|106s10 195s13 350s10 415s13 540s22 594s10 596s13 647s10
+. 649s13 768s10 929s16 944s16 1072s10 1132s19 1269s19 1562s10 1725s13
+665V13*Parent{47|397I9} 24|130s20 367s25 368s44 1051s20 1078s40 1103s25 1240s25
+. 1336s37 1505s15 1508s18 1515s18 1518s21 1534s14 1545s12 1548s15 1565s17
+. 1574s31 1602s31 1624s12 1627s15 1686s22 1720s15
+673V13*Present{boolean} 24|122s13 128s18 206s31 242s13 286s16 320s16 367s16
+. 384s13 421s13 514s13 603s13 626s10 656s13 702s14 712s14 727s13 748s14 758s14
+. 820s17 835s13 910s31 967s22 1022s17 1053s20 1208s22 1298s22 1381s18 1418s13
+. 1451s13 1468s13 1514s13 1640s25 1673s13
+706V13*Nkind_In{boolean} 24|720s10 888s19
+995V13*Ekind{11|4791E9} 24|127s13 243s20 283s25 294s19 321s23 327s22 473s25
+. 494s10 839s13 1006s35 1045s18 1085s17 1102s13 1121s19 1160s13 1239s13 1258s19
+. 1504s10 1691s10
+1157V13*Original_Node{47|397I9} 24|1078s25 1086s34 1345s31
+X 11 einfo.ads
+37K9*Einfo 9617e10 24|34w6 34r18
+4791E9*Entity_Kind 5181e5 24|1006r20
+4808n7*E_Constant{4791E9} 24|127r27
+4811n7*E_Discriminant{4791E9} 24|243r34 283r39 294r33 321r37 327r36
+4991n7*E_String_Literal_Subtype{4791E9} 24|494r22
+5028n7*E_Limited_Private_Type{4791E9} 24|1102r29 1160r29 1239r29
+5068n7*E_Subprogram_Type{4791E9} 24|473r38 1045r33
+5086n7*E_Operator{4791E9} 24|1691r28
+5134n7*E_Generic_Package{4791E9} 24|839r25 1121r51 1258r51
+5155n7*E_Package{4791E9} 24|1085r29
+5158n7*E_Package_Body{4791E9} 24|1504r22
+5233E12*Array_Kind{4791E9} 24|1012r18
+5243E12*Class_Wide_Kind{4791E9} 24|1013r22
+7016B12*B{boolean} 24|1033r46
+7018I12*E{47|400I12} 24|1033r36 1153r24 1154r24 1204r20
+7021I12*N{47|397I9}
+7022I12*U{48|48I9}
+7042V13*Alias{7018I12} 24|1640s34 1641s41 1673s22 1674s25 1675s15
+7049V13*Associated_Node_For_Itype{7021I12} 24|370s44
+7069V13*Component_Type{7018I12} 24|773s45 991s44 992s35 1221s34 1320s34
+7107V13*Discriminant_Default_Value{7021I12} 24|1022s26
+7133V13*Esize{7022I12} 24|153s30 155s16 157s19 159s19 161s19 163s19
+7142V13*First_Entity{7018I12} 24|230s14 313s14 420s15
+7147V13*First_Rep_Item{7021I12} 24|513s12 602s12 655s12 726s15
+7149V13*Freeze_Node{7021I12} 24|338s35
+7151V13*Full_View{7018I12} 24|128s27 130s28 206s40 207s49 938s42 1381s27
+. 1383s35
+7164V13*Has_Constrained_Partial_View{7016E12} 24|1485s14
+7174V13*Has_Discriminants{7016E12} 24|228s10 310s10 771s17 796s14 1021s13
+. 1445s10 1493s28
+7247V13*Has_Unknown_Discriminants{7016E12} 24|228s42 311s19 1014s17
+7249V13*Has_Volatile_Components{7016E12} 24|993s22
+7257V13*In_Package_Body{7016E12} 24|840s21 1105s21 1122s27 1242s21 1259s27
+7284V13*Is_Completely_Hidden{7016E12} 24|244s25 295s24 322s24
+7287V13*Is_Constrained{7016E12} 24|771s54 1009s10 1492s47
+7306V13*Is_First_Subtype{7016E12} 24|50s10
+7322V13*Is_Interface{7016E12} 24|1174s22 1194s24 1306s26
+7327V13*Is_Itype{7016E12} 24|291s16
+7331V13*Is_Limited_Composite{7016E12} 24|1161s17
+7332V13*Is_Limited_Interface{7016E12} 24|1188s13
+7367V13*Is_Tag{7016E12} 24|422s13 1413s22 1419s13
+7368V13*Is_Tagged_Type{7016E12} 24|402s22 688s22 945s23 956s20 1490s32
+7381V13*Is_Volatile{7016E12} 24|957s20 975s29 976s29 990s12 992s22
+7416V13*Non_Limited_View{7018I12} 24|84s32
+7462V13*Renamed_Object{7021I12} 24|112s17
+7498V13*String_Literal_Low_Bound{7021I12} 24|495s17
+7502V13*Suppress_Initialization{7016E12} 24|867s14 868s17
+7539V13*Is_Array_Type{7016E12} 24|772s13 988s13 1220s13 1319s13 1491s33
+7541V13*Is_Class_Wide_Type{7016E12} 24|404s10 1039s22 1199s16 1289s13
+7545V13*Is_Concurrent_Type{7016E12} 24|951s13 1140s13 1165s13 1277s13
+7550V13*Is_Elementary_Type{7016E12} 24|908s9 911s31
+7551V13*Is_Entry{7016E12} 24|1334s9
+7557V13*Is_Formal_Subprogram{7016E12} 24|1083s22
+7561V13*Is_Generic_Type{7016E12} 24|366s16 1113s21 1250s21 1487s28
+7565V13*Is_Incomplete_Type{7016E12} 24|936s13
+7567V13*Is_Limited_Record{7016E12} 24|955s13 1099s10 1173s13 1193s16 1236s10
+7570V13*Is_Numeric_Type{7016E12} 24|1047s17
+7574V13*Is_Private_Type{7016E12} 24|205s21 408s10 909s20 925s13 1107s13 1244s13
+. 1380s18 1488s29
+7577V13*Is_Record_Type{7016E12} 24|770s13 954s13 1186s13 1280s13
+7579V13*Is_Signed_Integer_Type{7016E12} 24|152s22
+7580V13*Is_Subprogram{7016E12} 24|846s16 1335s20
+7584V13*Is_Type{7016E12} 24|790s14 1005s22 1037s10 1157s14
+7596V13*Base_Type{7018I12} 24|153s37 337s35 351s17 354s20 357s20 360s20 363s20
+. 868s42 919s37 1038s18 1096s53 1153s29 1233s53 1487s45 1488s46 1489s55
+7597V13*Declaration_Node{7021I12} 24|55s34 98s36 803s15 1345s46
+7599V13*First_Component{7018I12} 24|966s21 1207s21 1297s21 1448s18
+7606V13*Has_Non_Limited_View{7016E12} 24|83s10
+7612V13*Is_Base_Type{7016E12} 24|50s41
+7617V13*Is_Dynamic_Scope{7016E12} 24|204s20 207s31 1398s10
+7626V13*Is_Protected_Interface{7016E12} 24|1195s23
+7631V13*Is_Synchronized_Interface{7016E12} 24|1196s23
+7633V13*Is_Task_Interface{7016E12} 24|1197s23
+7645V13*Next_Component{7018I12} 24|981s24 1213s24 1312s24
+7646V13*Next_Component_Or_Discriminant{7018I12} 24|1453s18
+7647V13*Next_Discriminant{7018I12} 24|1470s19
+7659V13*Root_Type{7018I12} 24|405s18 1038s37 1047s34 1154s29 1290s37
+7667V13*Type_Low_Bound{7021I12} 24|497s17
+7668V13*Underlying_Type{7018I12} 24|409s18 766s35 910s40 911s51 927s42 1130s45
+. 1267s45
+8453V13*Present_In_Rep_Item{boolean} 24|543s29
+8474V13*Get_Full_View{47|400I12} 24|84s17
+8479V13*Is_Entity_Name{boolean} 24|1369s16
+X 19 namet.ads
+37K9*Namet 768e10 23|42w6 42r17
+188I9*Name_Id<integer> 23|179r23 191r23 192r23 205r23 218r23 219r23 232r23
+. 243r23 244r23 259r23 270r23 271r23 24|507r23 582r23 583r23 620r23 635r23
+. 636r23 698r23 707r23 708r23 744r23 753r23 754r23
+X 23 sem_aux.ads
+47K9*Sem_Aux 451l5 451e12 24|39b14 1733l5 1733t12
+56R9*OWT_Record 62e14 65r30
+57i7*Ent{47|400I12}
+60i7*Msg{47|501I9}
+64K12*Obsolescent_Warnings[44|59] 24|877r7 1653r7 1662r7
+72U14*Initialize 24|875b14 878l8 878t18
+77U14*Tree_Read 24|1651b14 1654l8 1654t17
+81U14*Tree_Write 24|1660b14 1663l8 1663t18
+89V13*Ancestor_Subtype{47|400I12} 89>31 24|45b13 73l8 73t24
+89i31 Typ{47|400I12} 24|45b31 50r28 50r55 55r52
+94V13*Available_View{47|400I12} 94>29 24|79b13 91l8 91t22 1096s37 1233s37
+94i29 Ent{47|400I12} 24|79b29 83r32 84r50 89r17
+99V13*Constant_Value{47|397I9} 99>29 24|97b13 145l8 145t22
+99i29 Ent{47|400I12} 24|97b29 98r54 112r33 127r20 128r38 130r39
+107V13*Corresponding_Unsigned_Type{47|400I12} 107>42 24|151b13 168l8 168t35
+107i42 Typ{47|400I12} 24|151b42 152r46 153r48
+112V13*Enclosing_Dynamic_Scope{47|400I12} 112>38 24|174b13 217l8 217t31 1401s17
+112i38 Ent{47|400I12} 24|174b38 181r10 182r17 190r19
+116V13*First_Discriminant{47|400I12} 116>33 24|223b13 257l8 257t26 1022s54
+. 1446s18 1465s28
+116i33 Typ{47|400I12} 24|223b33 228r29 228r69 230r28
+126V13*First_Stored_Discriminant{47|400I12} 126>40 24|263b13 330l8 330t33
+126i40 Typ{47|400I12} 24|263b40 310r29 311r46 313r28
+149V13*First_Subtype{47|400I12} 149>28 24|336b13 390l8 390t21 794s16 1051s28
+149i28 Typ{47|400I12} 24|336b28 337r46 366r33
+154V13*First_Tag_Component{47|400I12} 154>34 24|396b13 432l8 432t27
+154i34 Typ{47|400I12} 24|396b34 401r15
+158V13*Get_Binary_Nkind{25|8645E9} 158>31 24|438b13 460l8 460t24
+158i31 Op{47|400I12} 24|438b31 440r19
+164V13*Get_Called_Entity{47|400I12} 164>32 24|466b13 486l8 486t25
+164i32 Call{47|397I9} 24|466b32 467r39
+168V13*Get_Low_Bound{47|397I9} 168>28 24|492b13 499l8 499t21
+168i28 E{47|400I12} 24|492b28 494r17 495r43 497r33
+171V13*Get_Unary_Nkind{25|8645E9} 171>30 24|671b13 680l8 680t23
+171i30 Op{47|400I12} 24|671b30 673r19
+177V13*Get_Rep_Item{47|397I9} 178>7 179>7 180>7 24|505b13 578l8 578t20 586s39
+. 587s39 623s31 702s23
+178i7 E{47|400I12} 24|506b7 513r28 536r65 555r51 569r32
+179i7 Nam{19|188I9} 24|507b7 521r42 522r25 525r25 551r27 552r25 561r40 563r19
+180b7 Check_Parents{boolean} 24|508b7 528r16 555r16 566r16
+189V13*Get_Rep_Item{47|397I9} 190>7 191>7 192>7 193>7 24|580b13 612l8 612t20
+. 712s23
+190i7 E{47|400I12} 24|581b7 586r53 587r53 602r28
+191i7 Nam1{19|188I9} 24|582b7 586r56
+192i7 Nam2{19|188I9} 24|583b7 587r56
+193b7 Check_Parents{boolean} 24|584b7 586r62 587r62
+203V13*Get_Rep_Pragma{47|397I9} 204>7 205>7 206>7 24|618b13 631l8 631t22
+. 639s39 640s39 748s23
+204i7 E{47|400I12} 24|619b7 623r45
+205i7 Nam{19|188I9} 24|620b7 623r48
+206b7 Check_Parents{boolean} 24|621b7 623r53
+216V13*Get_Rep_Pragma{47|397I9} 217>7 218>7 219>7 220>7 24|633b13 665l8 665t22
+. 758s23
+217i7 E{47|400I12} 24|634b7 639r55 640r55 655r28
+218i7 Nam1{19|188I9} 24|635b7 639r58
+219i7 Nam2{19|188I9} 24|636b7 640r58
+220b7 Check_Parents{boolean} 24|637b7 639r64 640r64
+230V13*Has_Rep_Item{boolean} 231>7 232>7 233>7 24|689s14 696b13 703l8 703t20
+231i7 E{47|400I12} 24|697b7 702r37
+232i7 Nam{19|188I9} 24|698b7 702r40
+233b7 Check_Parents{boolean} 24|689r50 699b7 702r45
+241V13*Has_Rep_Item{boolean} 242>7 243>7 244>7 245>7 24|705b13 713l8 713t20
+242i7 E{47|400I12} 24|706b7 712r37
+243i7 Nam1{19|188I9} 24|707b7 712r40
+244i7 Nam2{19|188I9} 24|708b7 712r46
+245b7 Check_Parents{boolean} 24|709b7 712r52
+253V13*Has_Rep_Item{boolean} 253>27 253>42 24|715b13 736l8 736t20
+253i27 E{47|400I12} 24|715b27 726r31
+253i42 N{47|397I9} 24|715b42 720r20 728r20
+257V13*Has_Rep_Pragma{boolean} 258>7 259>7 260>7 24|742b13 749l8 749t22
+258i7 E{47|400I12} 24|743b7 748r39
+259i7 Nam{19|188I9} 24|744b7 748r42
+260b7 Check_Parents{boolean} 24|745b7 748r47
+268V13*Has_Rep_Pragma{boolean} 269>7 270>7 271>7 272>7 24|751b13 759l8 759t22
+269i7 E{47|400I12} 24|752b7 758r39
+270i7 Nam1{19|188I9} 24|753b7 758r42
+271i7 Nam2{19|188I9} 24|754b7 758r48
+272b7 Check_Parents{boolean} 24|755b7 758r54
+281V13*Has_External_Tag_Rep_Clause{boolean} 281>42 24|686b13 690l8 690t35
+281i42 T{47|400I12} 24|686b42 688r38 689r28
+292V13*Has_Unconstrained_Elements{boolean} 292>41 24|765b13 773s17 777l8
+. 777t34
+292i41 T{47|400I12} 24|765b41 766r52
+296V13*Has_Variant_Part{boolean} 296>31 24|783b13 822l8 822t24
+296i31 Typ{47|400I12} 24|783b31 790r23 794r31
+300V13*In_Generic_Body{boolean} 300>30 24|828b13 859l8 859t23 1486s18
+300i30 Id{47|400I12} 24|828b30 834r12
+303V13*Initialization_Suppressed{boolean} 303>40 304r19 24|865b13 869l8 869t33
+303i40 Typ{47|400I12} 24|865b40 867r39 868r53
+309V13*Is_Body{boolean} 309>22 24|884b13 893l8 893t15
+309i22 N{47|397I9} 24|884b22 887r16 888r29
+312V13*Is_By_Copy_Type{boolean} 312>30 24|899b13 912l8 912t23
+312i30 Ent{47|400I12} 24|899b30 908r29 909r37 910r57 911r68
+316V13*Is_By_Reference_Type{boolean} 316>35 24|918b13 932s23 947s23 974s22
+. 991s22 998l8 998t28
+316i35 Ent{47|400I12} 24|918b35 919r48 922r24
+320V13*Is_Definite_Subtype{boolean} 320>34 24|1004b13 1027l8 1027t27
+320i34 T{47|400I12} 24|1004b34 1005r31 1006r42 1009r26 1014r44 1021r32 1022r74
+328V13*Is_Derived_Type{boolean} 328>30 24|1033b13 1062l8 1062t23 1112s13
+. 1249s13 1379s13 1489s38
+328i30 Ent{47|400I12} 24|1033b30 1037r19 1038r29 1038r48 1039r42 1045r25
+. 1047r45 1051r43
+332V13*Is_Generic_Formal{boolean} 332>32 24|1068b13 1089l8 1089t25
+332i32 E{47|400I12} 24|1068b32 1072r14 1078r48 1083r44 1085r24 1086r72
+337V13*Is_Immutably_Limited_Type{boolean} 337>40 24|1095b13 1135s26 1146l8
+. 1146t33
+337i40 Ent{47|400I12} 24|1095b40 1096r64
+343V13*Is_Limited_View{boolean} 343>30 24|1232b13 1272s26 1290s20 1307s30
+. 1320s17 1325l8 1325t23
+343i30 Ent{47|400I12} 24|1232b30 1233r64
+353V13*Is_Limited_Type{boolean} 353>30 24|1115s20 1152b13 1200s20 1209s22
+. 1221s17 1226l8 1226t23 1252s20
+353i30 Ent{47|400I12} 24|1152b30 1153r40 1157r23 1173r32 1174r36 1183r27
+. 1188r35
+360V13*Is_Protected_Operation{boolean} 360>37 24|1331b13 1338l8 1338t30
+360i37 E{47|400I12} 24|1331b37 1334r19 1335r35 1336r68
+364V13*Nearest_Ancestor{47|400I12} 364>31 24|536s47 1344b13 1383s17 1390l8
+. 1390t24
+364i31 Typ{47|400I12} 24|1344b31 1345r64 1379r30 1380r35 1381r38 1383r46
+382V13*Nearest_Dynamic_Scope{47|400I12} 382>36 24|1396b13 1403l8 1403t29
+382i36 Ent{47|400I12} 24|1396b36 1398r28 1399r17 1401r42
+387V13*Next_Tag_Component{47|400I12} 387>33 24|1409b13 1430l8 1430t26
+387i33 Tag{47|400I12} 24|1409b33 1413r30 1417r28
+392V13*Number_Components{47|62I12} 392>32 24|1436b13 1457l8 1457t25
+392i32 Typ{47|400I12} 24|1436b32 1445r29 1446r38 1448r35
+396V13*Number_Discriminants{47|65I12} 396>35 24|1463b13 1474l8 1474t28
+396i35 Typ{47|400I12} 24|1463b35 1465r48
+399V13*Object_Type_Has_Constrained_Partial_View{boolean} 400>7 401>7 24|1480b13
+. 1494l8 1494t48
+400i7 Typ{47|400I12} 24|1481b7 1485r44 1487r56 1488r57 1489r66 1490r48 1491r48
+. 1492r63 1493r47
+401i7 Scop{47|400I12} 24|1482b7 1486r35
+408V13*Package_Body{47|397I9} 408>27 24|1500b13 1526l8 1526t20
+408i27 E{47|400I12} 24|1500b27 1504r17 1505r23 1512r29
+412V13*Package_Spec{47|397I9} 412>27 24|1512s15 1532b13 1535l8 1535t20
+412i27 E{47|400I12} 24|1532b27 1534r45
+416V13*Package_Specification{47|397I9} 416>36 24|1534s22 1541b13 1552l8 1552t29
+416i36 E{47|400I12} 24|1541b36 1545r20
+420V13*Subprogram_Body{47|397I9} 420>30 24|1558b13 1567l8 1567t23
+420i30 E{47|400I12} 24|1558b30 1559r62
+424V13*Subprogram_Body_Entity{47|400I12} 424>37 24|1559s38 1573b13 1595l8
+. 1595t30
+424i37 E{47|400I12} 24|1573b37 1574r65 1585r20
+429V13*Subprogram_Spec{47|397I9} 429>30 24|1601b13 1614l8 1614t23
+429i30 E{47|400I12} 24|1601b30 1602r65
+433V13*Subprogram_Specification{47|397I9} 433>39 24|1565s25 1574s39 1602s39
+. 1620b13 1641s15 1645l8 1645t32
+433i39 E{47|400I12} 24|1620b39 1624r20 1640r41 1641r48
+439V13*Ultimate_Alias{47|400I12} 439>29 440r19 24|1669b13 1679l8 1679t22
+439i29 Prim{47|400I12} 24|1669b29 1670r24
+444V13*Unit_Declaration_Node{47|397I9} 444>36 24|847s28 1086s49 1336s45 1685b13
+. 1731l8 1731t29
+444i36 Unit_Id{47|400I12} 24|1685b36 1686r30 1691r17
+X 24 sem_aux.adb
+55i10 D{47|397I9} 60r20 61r43 62r65 64r51
+98i7 D{47|397I9} 106r14 111r20 117r20 122r34 123r29
+99i7 Full_D{47|397I9} 130m10 134r20 135r26 137r32
+153i7 Siz{48|48I9} 155r10 157r13 159r13 161r13 163r13
+175i7 S{47|400I12} 190m7 195r17 203r16 204r38 205r38 206r51 207r60 209r20
+. 214m13 214r25
+224i7 Ent{47|400I12} 230m7 236r17 237m10 237r30 242r22 243r27 244r47 246m10
+. 246r30 256r14
+264i7 Ent{47|400I12} 313m7 315r17 316m10 316r30 319r46 320r25 321r30 322r46
+. 323m13 323r33 327r29 329r14
+266V16 Has_Completely_Hidden_Discriminant{boolean} 267>10 277b16 304l11 304t45
+. 319s10
+267i10 Typ{47|400I12} 278b10 283r32 285r17
+280i10 Ent{47|400I12} 285m10 286r25 291r26 294r26 295r46 300m13 300r33
+337i7 B{47|400I12} 338r48 351r13 354r16 357r16 360r16 363r16 367r33 368r52
+. 370r71 374r20 387r20
+338i7 F{47|397I9} 350r14 382r37
+339i7 Ent{47|400I12} 382m10 384r22 385r20
+397i7 Comp{47|400I12} 420m7 421r22 422r21 423r20 426m10 426r31
+398i7 Ctyp{47|400I12} 401m7 402r38 404r30 405m10 405r29 408r27 409m10 409r35
+. 415r17 420r29
+467i7 Nam{47|397I9} 471r17 472r23 475r20 476r39 478r20 479r47 482r24
+468i7 Id{47|400I12} 472m10 473r32 476m10 479m10 482m10 485r14
+510i7 N{47|397I9} 513m7 514r22 519r20 521r37 523r48 526r48 529r23 541r29
+. 543r55 544r29 549r23 551r22 553r42 555r46 556r23 559r23 561r34 564r48 567r23
+. 569r27 570r23 574m25 574r25
+536i19 Par{47|400I12} 540r26 543r50
+586i7 Nam1_Item{47|397I9} 594r14 597r17 604r17
+587i7 Nam2_Item{47|397I9} 595r17 596r17 604r39
+589i7 N{47|397I9} 602m7 603r22 604r13 604r35 605r20 608m25 608r25
+623i7 N{47|397I9} 626r19 626r38 627r17
+639i7 Nam1_Item{47|397I9} 647r14 650r17 657r17
+640i7 Nam2_Item{47|397I9} 648r17 649r17 657r39
+642i7 N{47|397I9} 655m7 656r22 657r13 657r35 658r20 661m25 661r25
+716i7 Item{47|397I9} 726m7 727r22 728r13 732m10 732r33
+766i7 U_T{47|400I12} 768r14 770r29 771r36 771r70 772r28 773r61
+784i7 FSTyp{47|400I12} 794m7 796r33 803r33
+785i7 Decl{47|397I9} 803m7 805r17 809r32
+786i7 TDef{47|397I9} 809m7 811r17 815r32
+787i7 CList{47|397I9} 815m7 817r17 820r40
+829i7 S{47|400I12} 834m7 835r22 835r34 839r20 840r38 846r31 847r51 853m10
+. 853r22
+919i7 Btype{47|400I12} 922r51 925r30 927r59 936r33 938r53 945r39 951r33 954r29
+. 955r32 956r36 957r33 966r38 988r28 990r25 991r60 992r51 993r47
+927i13 Utyp{47|400I12} 929r20 932r45
+938i13 Ftyp{47|400I12} 944r20 947r45
+963i16 C{47|400I12} 966m16 967r31 974r51 975r49 976r42 981m19 981r40
+1006e7 K{11|4791E9} 1012r13 1013r17
+1034i7 Par{47|397I9} 1051m13 1053r29 1054r31 1055r48
+1069e7 Kind{25|8645E9} 1078m10 1081r22
+1096i7 Btype{47|400I12} 1099r29 1102r20 1103r33 1105r46 1107r30 1112r30 1113r45
+. 1115r44 1121r40 1122r51 1130r62 1140r33
+1130i16 Utyp{47|400I12} 1132r23 1135r53
+1153i7 Btype{11|7018I12} 1154r40 1160r20 1161r39 1165r33 1186r29 1199r36
+. 1207r38 1220r28 1221r50
+1154i7 Rtype{11|7018I12} 1193r35 1194r38 1195r47 1196r50 1197r42 1200r37
+1204i16 C{11|7018I12} 1207m16 1208r31 1209r46 1213m19 1213r40
+1233i7 Btype{47|400I12} 1236r29 1239r20 1240r33 1242r46 1244r30 1249r30 1250r45
+. 1252r44 1258r40 1259r51 1267r62 1277r33 1280r29 1289r33 1290r48 1297r38
+. 1319r28 1320r50
+1267i16 Utyp{47|400I12} 1269r23 1272r43
+1294i16 C{47|400I12} 1297m16 1298r31 1306r47 1307r54 1312m19 1312r40
+1345i7 D{47|397I9} 1353r17 1354r40 1355r62 1357r48 1362r20 1363r42 1366r58
+1366i13 DTD{47|400I12} 1367r61
+1367i13 SI{47|400I12} 1369r32 1370r31 1372r45
+1410i7 Comp{47|400I12} 1417m7 1418r22 1419r21 1420r35 1421r20 1424m10 1424r31
+1437i7 N{47|62I12} 1452m10 1452r15 1456r14
+1438i7 Comp{47|400I12} 1446m10 1448m10 1451r22 1453m10 1453r50
+1464i7 N{47|62I12} 1469m10 1469r15 1473r14
+1465i7 Discr{47|400I12} 1468r22 1470m10 1470r38
+1501i7 N{47|397I9} 1505m10 1507r20 1508m13 1508r26 1512m10 1514r42 1515m13
+. 1515r46 1517r23 1518m16 1518r29 1521m13 1525r14
+1542i7 N{47|397I9} 1545m7 1547r17 1548m10 1548r23 1551r14
+1559i7 Body_E{47|400I12} 1562r14 1565r51
+1574i7 N{47|397I9} 1583r19 1590r40
+1602i7 N{47|397I9} 1609r17 1610r17
+1621i7 N{47|397I9} 1624m7 1626r17 1627m10 1627r23 1639r17 1641m10 1644r14
+1670i7 E{47|400I12} 1673r29 1674r32 1674r38 1675m10 1675r22 1678r14
+1686i7 N{47|397I9} 1692r17 1697r20 1698r25 1699r25 1700r25 1701r25 1702r25
+. 1703r25 1704r25 1705r25 1706r25 1707r25 1708r25 1709r25 1710r25 1711r25
+. 1712r25 1713r25 1714r25 1715r25 1716r25 1717r25 1718r25 1720m10 1720r23
+. 1725r17 1730r14
+X 25 sinfo.ads
+54K9*Sinfo 23|45w6 45r17 25|14019e10
+8645E9*Node_Kind 23|158r54 171r53 24|438r54 671r53 1069r14 25|9039e23
+8652n7*N_Enumeration_Representation_Clause{8645E9} 24|722r23
+8654n7*N_Record_Representation_Clause{8645E9} 24|724r23
+8658n7*N_Attribute_Definition_Clause{8645E9} 24|549r28 721r23
+8700n7*N_Op_Add{8645E9} 24|441r42
+8701n7*N_Op_Concat{8645E9} 24|442r42
+8702n7*N_Op_Expon{8645E9} 24|443r42
+8703n7*N_Op_Subtract{8645E9} 24|444r42
+8708n7*N_Op_Divide{8645E9} 24|447r42
+8709n7*N_Op_Mod{8645E9} 24|445r42
+8710n7*N_Op_Multiply{8645E9} 24|446r42
+8711n7*N_Op_Rem{8645E9} 24|448r42
+8716n7*N_Op_And{8645E9} 24|449r42
+8721n7*N_Op_Eq{8645E9} 24|450r42
+8722n7*N_Op_Ge{8645E9} 24|451r42
+8723n7*N_Op_Gt{8645E9} 24|452r42
+8724n7*N_Op_Le{8645E9} 24|453r42
+8725n7*N_Op_Lt{8645E9} 24|454r42
+8726n7*N_Op_Ne{8645E9} 24|455r42
+8731n7*N_Op_Or{8645E9} 24|456r42
+8732n7*N_Op_Xor{8645E9} 24|457r42
+8746n7*N_Op_Abs{8645E9} 24|674r42
+8747n7*N_Op_Minus{8645E9} 24|675r42
+8748n7*N_Op_Not{8645E9} 24|676r42
+8749n7*N_Op_Plus{8645E9} 24|677r42
+8784n7*N_Explicit_Dereference{8645E9} 24|471r24
+8787n7*N_Indexed_Component{8645E9} 24|478r27
+8799n7*N_Selected_Component{8645E9} 24|475r27
+8808n7*N_Subtype_Indication{8645E9} 24|61r49 1354r46
+8812n7*N_Component_Declaration{8645E9} 24|117r25
+8813n7*N_Entry_Declaration{8645E9} 24|1699r31
+8815n7*N_Formal_Object_Declaration{8645E9} 24|1081r28
+8816n7*N_Formal_Type_Declaration{8645E9} 24|1082r28 1103r43 1240r43
+8817n7*N_Full_Type_Declaration{8645E9} 24|805r26 1054r38 1362r25
+8822n7*N_Protected_Type_Declaration{8645E9} 24|1710r31
+8825n7*N_Subtype_Declaration{8645E9} 24|60r25 1353r22
+8839n7*N_Task_Type_Declaration{8645E9} 24|1716r31
+8845n7*N_Subprogram_Body_Stub{8645E9} 24|1587r15 1713r31
+8851n7*N_Function_Instantiation{8645E9} 24|1701r31
+8852n7*N_Procedure_Instantiation{8645E9} 24|1708r31
+8856n7*N_Package_Instantiation{8645E9} 24|1706r31
+8860n7*N_Package_Body{8645E9} 24|889r32 1705r31
+8861n7*N_Subprogram_Body{8645E9} 24|891r32 1584r15 1712r31
+8865n7*N_Protected_Body{8645E9} 24|890r32 1709r31
+8866n7*N_Task_Body{8645E9} 24|892r32 1715r31
+8871n7*N_Package_Declaration{8645E9} 24|1704r31
+8873n7*N_Subprogram_Declaration{8645E9} 24|1588r15 1609r22 1711r31
+8878n7*N_Generic_Package_Declaration{8645E9} 24|1702r31
+8879n7*N_Generic_Subprogram_Declaration{8645E9} 24|848r23 1703r31
+8889n7*N_Object_Renaming_Declaration{8645E9} 24|111r25 134r30
+8890n7*N_Package_Renaming_Declaration{8645E9} 24|1707r31
+8891n7*N_Subprogram_Renaming_Declaration{8645E9} 24|1714r31
+8970n7*N_Abstract_Subprogram_Declaration{8645E9} 24|1697r26
+8973n7*N_Aspect_Specification{8645E9} 24|559r28 720r23
+8981n7*N_Component_List{8645E9} 24|817r27
+8983n7*N_Derived_Type_Definition{8645E9} 24|1056r26 1363r48
+8985n7*N_Defining_Program_Unit_Name{8645E9} 24|1507r25 1517r28 1547r22 1626r22
+8992n7*N_Entry_Body{8645E9} 24|888r32 1698r31
+9004n7*N_Formal_Package_Declaration{8645E9} 24|1087r29 1700r31
+9023n7*N_Pragma{8645E9} 24|519r25 626r43 723r23
+9024n7*N_Protected_Definition{8645E9} 24|1337r32
+9027n7*N_Record_Definition{8645E9} 24|811r26
+9060E12*N_Body_Stub{8645E9} 24|887r22
+9082E12*N_Formal_Subprogram_Declaration{8645E9} 24|1717r35
+9094E12*N_Generic_Renaming_Declaration{8645E9} 24|1718r35
+9220E12*N_Subprogram_Specification{8645E9} 24|1639r27
+9349V13*Chars{19|188I9} 24|236s10 315s10 440s12 551s15 553s35 561s15 564s29
+. 673s12 1420s28
+9388V13*Component_List{47|397I9} 24|815s16
+9439V13*Corresponding_Body{47|397I9} 24|1514s22 1515s26 1590s20
+9475V13*Defining_Identifier{47|400I12} 24|368s23 370s23
+9568V13*Entity{47|397I9} 24|62s23 64s23 476s16 479s16 482s16 555s38 569s19
+. 1355s20 1357s20 1370s23 1372s23
+9592V13*Etype{47|397I9} 24|472s16 974s44 975s42 1113s38 1115s37 1121s33 1209s39
+. 1250s38 1252s37 1258s33 1306s40 1307s47
+9616V13*Expression{47|397I9} 24|122s22 123s17 137s20
+9640V13*First_Subtype_Link{47|400I12} 24|382s17
+9745V13*Identifier{47|397I9} 24|561s22 564s36
+10000V13*Name{47|397I9} 24|135s20 467s33
+10006V13*Next_Entity{47|397I9} 24|237s17 246s17 300s20 316s17 323s20 426s18
+. 1417s15 1424s18
+10021V13*Next_Rep_Item{47|397I9} 24|732s18
+10117V13*Prefix{47|397I9} 24|479s39
+10213V13*Scope{47|397I9} 24|190s12 214s18 853s15 1105s38 1121s26 1122s44
+. 1242s38 1258s26 1259s44
+10219V13*Selector_Name{47|397I9} 24|476s24 479s24
+10249V13*Subtype_Indication{47|397I9} 24|61s23 62s45 64s31 1354s20 1355s42
+. 1357s28 1367s41
+10252V13*Subtype_Mark{47|397I9} 24|62s31 1355s28 1372s31
+10300V13*Type_Definition{47|397I9} 24|809s15 1055s31 1363s25 1366s41
+10318V13*Variant_Part{47|397I9} 24|820s26
+11457U14*Next_Rep_Item 24|574s10 608s10 661s10
+11490V13*Nkind_In{boolean} 24|1081s12
+11601V13*Pragma_Name{19|188I9} 24|523s35 526s35
+11606V13*Pragma_Name_Unmapped{19|188I9} 24|521s15
+X 28 snames.ads
+34K9*Snames 24|35w6 35r18 28|2255e11
+132i4*Name_uTag{19|188I9} 24|236r24 315r24 1420r44
+334i4*Name_Op_Abs{19|188I9} 24|674r15
+335i4*Name_Op_And{19|188I9} 24|449r15
+336i4*Name_Op_Mod{19|188I9} 24|445r15
+337i4*Name_Op_Not{19|188I9} 24|676r15
+338i4*Name_Op_Or{19|188I9} 24|456r15
+339i4*Name_Op_Rem{19|188I9} 24|448r15
+340i4*Name_Op_Xor{19|188I9} 24|457r15
+341i4*Name_Op_Eq{19|188I9} 24|450r15
+342i4*Name_Op_Ne{19|188I9} 24|455r15
+343i4*Name_Op_Lt{19|188I9} 24|454r15
+344i4*Name_Op_Le{19|188I9} 24|453r15
+345i4*Name_Op_Gt{19|188I9} 24|452r15
+346i4*Name_Op_Ge{19|188I9} 24|451r15
+347i4*Name_Op_Add{19|188I9} 24|441r15 677r15
+348i4*Name_Op_Subtract{19|188I9} 24|444r15 675r15
+349i4*Name_Op_Concat{19|188I9} 24|442r15
+350i4*Name_Op_Multiply{19|188I9} 24|446r15
+351i4*Name_Op_Divide{19|188I9} 24|447r15
+352i4*Name_Op_Expon{19|188I9} 24|443r15
+944i4*Name_External_Tag{19|188I9} 24|689r31
+1000i4*Name_Priority{19|188I9} 24|522r31 526r53 552r31 563r25
+1127i4*Name_Interrupt_Priority{19|188I9} 24|524r28 525r31 553r47 564r54
+X 29 stand.ads
+38K9*Stand 24|36w6 36r18 29|496e10
+250i4*Standard_Standard=250:53{47|397I9} 24|181r16 196r20 203r20 835r39
+280i4*Standard_Short_Short_Integer=280:53{47|397I9} 24|155r23 357r31 358r20
+281i4*Standard_Short_Integer=281:53{47|397I9} 24|157r26 360r31 361r20
+282i4*Standard_Integer=282:53{47|397I9} 24|351r28 352r20
+283i4*Standard_Long_Integer=283:53{47|397I9} 24|161r26 354r31 355r20
+284i4*Standard_Long_Long_Integer=284:53{47|397I9} 24|163r26 363r31 364r20
+463i4*Standard_Short_Short_Unsigned{47|400I12} 24|156r17
+464i4*Standard_Short_Unsigned{47|400I12} 24|158r17
+465i4*Standard_Unsigned{47|400I12} 24|159r26 160r17
+466i4*Standard_Long_Unsigned{47|400I12} 24|162r17
+467i4*Standard_Long_Long_Unsigned{47|400I12} 24|164r17
+X 30 system.ads
+67M9*Address
+X 34 s-memory.ads
+53V13*Alloc{30|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{30|67M9} 105i<c,__gnat_realloc>22
+X 44 table.ads
+46K9*Table 23|43w6 64r40 44|248e10
+50+12 Table_Component_Type 23|65r6
+51I12 Table_Index_Type 23|66r6
+53*7 Table_Low_Bound{51I12} 23|67r6
+54i7 Table_Initial{47|65I12} 23|68r6
+55i7 Table_Increment{47|62I12} 23|69r6
+56a7 Table_Name{string} 23|70r6
+59k12*Table 23|64r46 44|247e13
+142U17*Init 24|877s28[23|64]
+223U17*Tree_Write 24|1662s28[23|64]
+226U17*Tree_Read 24|1653s28[23|64]
+X 47 types.ads
+52K9*Types 23|44w6 44r17 47|948e10
+59I9*Int<integer> 23|66r30
+62I12*Nat{59I9} 23|392r56 24|1436r56 1437r14 1464r15
+65I12*Pos{59I9} 23|396r59 24|1463r59
+397I9*Node_Id<integer> 23|99r53 164r39 168r50 180r47 193r47 206r47 220r47
+. 253r46 309r26 408r49 412r49 416r58 420r52 429r52 433r61 444r64 24|55r23
+. 97r53 98r25 99r16 338r22 466r39 467r22 492r50 508r47 510r11 584r47 586r28
+. 587r28 589r11 621r47 623r20 637r47 639r28 640r28 642r11 715r46 716r14 785r15
+. 786r15 787r15 884r26 1034r13 1345r20 1500r49 1501r11 1532r49 1541r58 1542r11
+. 1558r52 1574r20 1601r52 1602r20 1620r61 1621r11 1685r64 1686r11
+400I12*Entity_Id{397I9} 23|57r13 89r37 89r55 94r35 94r53 99r35 107r48 107r66
+. 112r44 112r62 116r39 116r57 126r46 126r64 149r34 149r52 154r40 154r58 158r36
+. 164r55 168r32 171r35 178r23 190r23 204r23 217r23 231r23 242r23 253r31 258r23
+. 269r23 281r46 292r45 296r37 300r35 303r46 312r36 316r41 320r38 328r36 332r36
+. 337r46 343r36 353r36 360r41 364r37 364r55 382r42 382r60 387r39 387r57 392r38
+. 396r41 400r14 401r14 408r31 412r31 416r40 420r34 424r41 424r59 429r34 433r43
+. 439r36 439r54 444r46 24|45r37 45r55 79r35 79r53 97r35 151r48 151r66 174r44
+. 174r62 175r11 223r39 223r57 224r13 263r46 263r64 264r13 267r16 278r16 280r16
+. 336r34 336r52 337r22 339r13 396r40 396r58 397r14 398r14 438r36 466r55 468r13
+. 492r32 506r23 536r34 581r23 619r23 634r23 671r35 686r46 697r23 706r23 715r31
+. 743r23 752r23 765r45 766r22 783r37 784r15 828r35 829r11 865r46 899r36 918r41
+. 919r24 927r29 938r29 963r20 1004r38 1068r36 1095r46 1096r24 1130r32 1152r36
+. 1232r36 1233r24 1267r32 1294r20 1331r41 1344r37 1344r55 1366r28 1367r28
+. 1396r42 1396r60 1409r39 1409r57 1410r14 1436r38 1438r14 1463r41 1465r15
+. 1481r14 1482r14 1500r31 1532r31 1541r40 1558r34 1559r25 1573r41 1573r59
+. 1601r34 1620r43 1669r36 1669r54 1670r11 1685r46
+412i4*Empty{397I9} 24|51r17 70r20 107r17 118r17 143r17 416r20 431r14 577r14
+. 611r14 630r14 664r14 1388r17 1429r14 1521r18 1563r17 1593r20 1612r17
+501I9*String_Id<integer> 23|60r13
+X 48 uintp.ads
+42K9*Uintp 24|37w6 37r18 48|565e10
+48I9*Uint<47|59I9> 24|153r22
+374V14*"="=374:70{boolean} 24|155s14 157s17 159s17 161s17 163s17
+

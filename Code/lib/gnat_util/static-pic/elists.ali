@@ -1,0 +1,504 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U elists%b		elists.adb		4ddf0b23 OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W alloc%s		alloc.ads		alloc.ali
+W debug%s		debug.adb		debug.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W output%s		output.adb		output.ali  AD
+Z system%s		system.ads		system.ali
+W table%s		table.adb		table.ali
+
+U elists%s		elists.ads		fe71ccbf BN EE NE OO PK
+W system%s		system.ads		system.ali
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D elists.ads		20190518044709 299e4c60 elists%s
+D elists.adb		20190518044709 eecc0268 elists%b
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D opt.ads		20190518044710 3d2ce478 opt%s
+D output.ads		20190518044709 a916e413 output%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+G a e
+G c b b b [b elists 40 1 none]
+G c Z s b [initialize elists 55 14 none]
+G c Z s b [lock elists 60 14 none]
+G c Z s b [unlock elists 63 14 none]
+G c Z s b [tree_read elists 66 14 none]
+G c Z s b [tree_write elists 71 14 none]
+G c Z s b [last_elist_id elists 75 13 none]
+G c Z s b [elists_address elists 78 13 none]
+G c Z s b [num_elists elists 81 13 none]
+G c Z s b [last_elmt_id elists 84 13 none]
+G c Z s b [elmts_address elists 87 13 none]
+G c Z s b [node elists 90 13 none]
+G c Z s b [new_elmt_list elists 95 13 none]
+G c Z s b [first_elmt elists 100 13 none]
+G c Z s b [last_elmt elists 105 13 none]
+G c Z s b [list_length elists 110 13 none]
+G c Z s b [next_elmt elists 113 13 none]
+G c Z s b [next_elmt elists 119 14 none]
+G c Z s b [is_empty_elmt_list elists 123 13 none]
+G c Z s b [append_elmt elists 128 14 none]
+G c Z s b [append_new_elmt elists 132 14 none]
+G c Z s b [append_unique_elmt elists 137 14 none]
+G c Z s b [prepend_elmt elists 141 14 none]
+G c Z s b [prepend_unique_elmt elists 144 14 none]
+G c Z s b [insert_elmt_after elists 148 14 none]
+G c Z s b [new_copy_elist elists 152 13 none]
+G c Z s b [replace_elmt elists 156 14 none]
+G c Z s b [remove elists 162 14 none]
+G c Z s b [remove_elmt elists 166 14 none]
+G c Z s b [remove_last_elmt elists 171 14 none]
+G c Z s b [contains elists 176 13 none]
+G c Z s b [no elists 180 13 none]
+G c Z s b [present elists 185 13 none]
+G c Z s b [no elists 190 13 none]
+G c Z s b [present elists 195 13 none]
+G c Z b b [elist_headerIP elists 84 9 none]
+G c Z b b [init elists__elists 142 17 89_4]
+G c Z b b [last elists__elists 149 16 89_4]
+G c Z b b [release elists__elists 156 17 89_4]
+G c Z b b [free elists__elists 168 17 89_4]
+G c Z b b [set_last elists__elists 175 17 89_4]
+G c Z b b [increment_last elists__elists 184 17 89_4]
+G c Z b b [decrement_last elists__elists 188 17 89_4]
+G c Z b b [append elists__elists 192 17 89_4]
+G c Z b b [append_all elists__elists 200 17 89_4]
+G c Z b b [set_item elists__elists 203 17 89_4]
+G c Z b b [save elists__elists 215 16 89_4]
+G c Z b b [restore elists__elists 219 17 89_4]
+G c Z b b [tree_write elists__elists 223 17 89_4]
+G c Z b b [tree_read elists__elists 226 17 89_4]
+G c Z b b [table_typeIP elists__elists 110 12 89_4]
+G c Z b b [saved_tableIP elists__elists 241 12 89_4]
+G c Z b b [reallocate elists__elists 58 17 89_4]
+G c Z b b [tree_get_table_address elists__elists 63 16 89_4]
+G c Z b b [to_address elists__elists 72 16 89_4]
+G c Z b b [to_pointer elists__elists 73 16 89_4]
+G c Z b b [elmt_itemIP elists 97 9 none]
+G c Z b b [init elists__elmts 142 17 102_4]
+G c Z b b [last elists__elmts 149 16 102_4]
+G c Z b b [release elists__elmts 156 17 102_4]
+G c Z b b [free elists__elmts 168 17 102_4]
+G c Z b b [set_last elists__elmts 175 17 102_4]
+G c Z b b [increment_last elists__elmts 184 17 102_4]
+G c Z b b [decrement_last elists__elmts 188 17 102_4]
+G c Z b b [append elists__elmts 192 17 102_4]
+G c Z b b [append_all elists__elmts 200 17 102_4]
+G c Z b b [set_item elists__elmts 203 17 102_4]
+G c Z b b [save elists__elmts 215 16 102_4]
+G c Z b b [restore elists__elmts 219 17 102_4]
+G c Z b b [tree_write elists__elmts 223 17 102_4]
+G c Z b b [tree_read elists__elmts 226 17 102_4]
+G c Z b b [table_typeIP elists__elmts 110 12 102_4]
+G c Z b b [saved_tableIP elists__elmts 241 12 102_4]
+G c Z b b [reallocate elists__elmts 58 17 102_4]
+G c Z b b [tree_get_table_address elists__elmts 63 16 102_4]
+G c Z b b [to_address elists__elmts 72 16 102_4]
+G c Z b b [to_pointer elists__elmts 73 16 102_4]
+G r i none [b elists 40 1 none] [table table 59 12 none]
+G r c none [b elists 40 1 none] [write_str output 130 14 none]
+G r c none [b elists 40 1 none] [write_int output 123 14 none]
+G r c none [b elists 40 1 none] [write_eol output 113 14 none]
+G r c none [b elists 40 1 none] [set_standard_error output 77 14 none]
+G r c none [b elists 40 1 none] [set_standard_output output 84 14 none]
+G r c none [initialize elists 55 14 none] [write_str output 130 14 none]
+G r c none [initialize elists 55 14 none] [write_int output 123 14 none]
+G r c none [initialize elists 55 14 none] [write_eol output 113 14 none]
+G r c none [initialize elists 55 14 none] [set_standard_error output 77 14 none]
+G r c none [initialize elists 55 14 none] [set_standard_output output 84 14 none]
+G r c none [lock elists 60 14 none] [write_str output 130 14 none]
+G r c none [lock elists 60 14 none] [write_int output 123 14 none]
+G r c none [lock elists 60 14 none] [write_eol output 113 14 none]
+G r c none [lock elists 60 14 none] [set_standard_error output 77 14 none]
+G r c none [lock elists 60 14 none] [set_standard_output output 84 14 none]
+G r c none [tree_read elists 66 14 none] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read elists 66 14 none] [write_str output 130 14 none]
+G r c none [tree_read elists 66 14 none] [write_int output 123 14 none]
+G r c none [tree_read elists 66 14 none] [write_eol output 113 14 none]
+G r c none [tree_read elists 66 14 none] [set_standard_error output 77 14 none]
+G r c none [tree_read elists 66 14 none] [set_standard_output output 84 14 none]
+G r c none [tree_read elists 66 14 none] [tree_read_data tree_io 76 14 none]
+G r c none [tree_write elists 71 14 none] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write elists 71 14 none] [tree_write_data tree_io 108 14 none]
+G r c none [new_elmt_list elists 95 13 none] [write_str output 130 14 none]
+G r c none [new_elmt_list elists 95 13 none] [write_int output 123 14 none]
+G r c none [new_elmt_list elists 95 13 none] [write_eol output 113 14 none]
+G r c none [new_elmt_list elists 95 13 none] [set_standard_error output 77 14 none]
+G r c none [new_elmt_list elists 95 13 none] [set_standard_output output 84 14 none]
+G r c none [append_elmt elists 128 14 none] [write_str output 130 14 none]
+G r c none [append_elmt elists 128 14 none] [write_int output 123 14 none]
+G r c none [append_elmt elists 128 14 none] [write_eol output 113 14 none]
+G r c none [append_elmt elists 128 14 none] [set_standard_error output 77 14 none]
+G r c none [append_elmt elists 128 14 none] [set_standard_output output 84 14 none]
+G r c none [append_new_elmt elists 132 14 none] [write_str output 130 14 none]
+G r c none [append_new_elmt elists 132 14 none] [write_int output 123 14 none]
+G r c none [append_new_elmt elists 132 14 none] [write_eol output 113 14 none]
+G r c none [append_new_elmt elists 132 14 none] [set_standard_error output 77 14 none]
+G r c none [append_new_elmt elists 132 14 none] [set_standard_output output 84 14 none]
+G r c none [append_unique_elmt elists 137 14 none] [write_str output 130 14 none]
+G r c none [append_unique_elmt elists 137 14 none] [write_int output 123 14 none]
+G r c none [append_unique_elmt elists 137 14 none] [write_eol output 113 14 none]
+G r c none [append_unique_elmt elists 137 14 none] [set_standard_error output 77 14 none]
+G r c none [append_unique_elmt elists 137 14 none] [set_standard_output output 84 14 none]
+G r c none [prepend_elmt elists 141 14 none] [write_str output 130 14 none]
+G r c none [prepend_elmt elists 141 14 none] [write_int output 123 14 none]
+G r c none [prepend_elmt elists 141 14 none] [write_eol output 113 14 none]
+G r c none [prepend_elmt elists 141 14 none] [set_standard_error output 77 14 none]
+G r c none [prepend_elmt elists 141 14 none] [set_standard_output output 84 14 none]
+G r c none [prepend_unique_elmt elists 144 14 none] [write_str output 130 14 none]
+G r c none [prepend_unique_elmt elists 144 14 none] [write_int output 123 14 none]
+G r c none [prepend_unique_elmt elists 144 14 none] [write_eol output 113 14 none]
+G r c none [prepend_unique_elmt elists 144 14 none] [set_standard_error output 77 14 none]
+G r c none [prepend_unique_elmt elists 144 14 none] [set_standard_output output 84 14 none]
+G r c none [insert_elmt_after elists 148 14 none] [write_str output 130 14 none]
+G r c none [insert_elmt_after elists 148 14 none] [write_int output 123 14 none]
+G r c none [insert_elmt_after elists 148 14 none] [write_eol output 113 14 none]
+G r c none [insert_elmt_after elists 148 14 none] [set_standard_error output 77 14 none]
+G r c none [insert_elmt_after elists 148 14 none] [set_standard_output output 84 14 none]
+G r c none [new_copy_elist elists 152 13 none] [write_str output 130 14 none]
+G r c none [new_copy_elist elists 152 13 none] [write_int output 123 14 none]
+G r c none [new_copy_elist elists 152 13 none] [write_eol output 113 14 none]
+G r c none [new_copy_elist elists 152 13 none] [set_standard_error output 77 14 none]
+G r c none [new_copy_elist elists 152 13 none] [set_standard_output output 84 14 none]
+G r c none [init elists__elists 142 17 89_4] [write_str output 130 14 none]
+G r c none [init elists__elists 142 17 89_4] [write_int output 123 14 none]
+G r c none [init elists__elists 142 17 89_4] [write_eol output 113 14 none]
+G r c none [init elists__elists 142 17 89_4] [set_standard_error output 77 14 none]
+G r c none [init elists__elists 142 17 89_4] [set_standard_output output 84 14 none]
+G r c none [release elists__elists 156 17 89_4] [write_str output 130 14 none]
+G r c none [release elists__elists 156 17 89_4] [write_int output 123 14 none]
+G r c none [release elists__elists 156 17 89_4] [write_eol output 113 14 none]
+G r c none [release elists__elists 156 17 89_4] [set_standard_error output 77 14 none]
+G r c none [release elists__elists 156 17 89_4] [set_standard_output output 84 14 none]
+G r c none [set_last elists__elists 175 17 89_4] [write_str output 130 14 none]
+G r c none [set_last elists__elists 175 17 89_4] [write_int output 123 14 none]
+G r c none [set_last elists__elists 175 17 89_4] [write_eol output 113 14 none]
+G r c none [set_last elists__elists 175 17 89_4] [set_standard_error output 77 14 none]
+G r c none [set_last elists__elists 175 17 89_4] [set_standard_output output 84 14 none]
+G r c none [increment_last elists__elists 184 17 89_4] [write_str output 130 14 none]
+G r c none [increment_last elists__elists 184 17 89_4] [write_int output 123 14 none]
+G r c none [increment_last elists__elists 184 17 89_4] [write_eol output 113 14 none]
+G r c none [increment_last elists__elists 184 17 89_4] [set_standard_error output 77 14 none]
+G r c none [increment_last elists__elists 184 17 89_4] [set_standard_output output 84 14 none]
+G r c none [append elists__elists 192 17 89_4] [write_str output 130 14 none]
+G r c none [append elists__elists 192 17 89_4] [write_int output 123 14 none]
+G r c none [append elists__elists 192 17 89_4] [write_eol output 113 14 none]
+G r c none [append elists__elists 192 17 89_4] [set_standard_error output 77 14 none]
+G r c none [append elists__elists 192 17 89_4] [set_standard_output output 84 14 none]
+G r c none [append_all elists__elists 200 17 89_4] [write_str output 130 14 none]
+G r c none [append_all elists__elists 200 17 89_4] [write_int output 123 14 none]
+G r c none [append_all elists__elists 200 17 89_4] [write_eol output 113 14 none]
+G r c none [append_all elists__elists 200 17 89_4] [set_standard_error output 77 14 none]
+G r c none [append_all elists__elists 200 17 89_4] [set_standard_output output 84 14 none]
+G r c none [set_item elists__elists 203 17 89_4] [write_str output 130 14 none]
+G r c none [set_item elists__elists 203 17 89_4] [write_int output 123 14 none]
+G r c none [set_item elists__elists 203 17 89_4] [write_eol output 113 14 none]
+G r c none [set_item elists__elists 203 17 89_4] [set_standard_error output 77 14 none]
+G r c none [set_item elists__elists 203 17 89_4] [set_standard_output output 84 14 none]
+G r c none [save elists__elists 215 16 89_4] [write_str output 130 14 none]
+G r c none [save elists__elists 215 16 89_4] [write_int output 123 14 none]
+G r c none [save elists__elists 215 16 89_4] [write_eol output 113 14 none]
+G r c none [save elists__elists 215 16 89_4] [set_standard_error output 77 14 none]
+G r c none [save elists__elists 215 16 89_4] [set_standard_output output 84 14 none]
+G r c none [tree_write elists__elists 223 17 89_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write elists__elists 223 17 89_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read elists__elists 226 17 89_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read elists__elists 226 17 89_4] [write_str output 130 14 none]
+G r c none [tree_read elists__elists 226 17 89_4] [write_int output 123 14 none]
+G r c none [tree_read elists__elists 226 17 89_4] [write_eol output 113 14 none]
+G r c none [tree_read elists__elists 226 17 89_4] [set_standard_error output 77 14 none]
+G r c none [tree_read elists__elists 226 17 89_4] [set_standard_output output 84 14 none]
+G r c none [tree_read elists__elists 226 17 89_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate elists__elists 58 17 89_4] [write_str output 130 14 none]
+G r c none [reallocate elists__elists 58 17 89_4] [write_int output 123 14 none]
+G r c none [reallocate elists__elists 58 17 89_4] [write_eol output 113 14 none]
+G r c none [reallocate elists__elists 58 17 89_4] [set_standard_error output 77 14 none]
+G r c none [reallocate elists__elists 58 17 89_4] [set_standard_output output 84 14 none]
+G r c none [init elists__elmts 142 17 102_4] [write_str output 130 14 none]
+G r c none [init elists__elmts 142 17 102_4] [write_int output 123 14 none]
+G r c none [init elists__elmts 142 17 102_4] [write_eol output 113 14 none]
+G r c none [init elists__elmts 142 17 102_4] [set_standard_error output 77 14 none]
+G r c none [init elists__elmts 142 17 102_4] [set_standard_output output 84 14 none]
+G r c none [release elists__elmts 156 17 102_4] [write_str output 130 14 none]
+G r c none [release elists__elmts 156 17 102_4] [write_int output 123 14 none]
+G r c none [release elists__elmts 156 17 102_4] [write_eol output 113 14 none]
+G r c none [release elists__elmts 156 17 102_4] [set_standard_error output 77 14 none]
+G r c none [release elists__elmts 156 17 102_4] [set_standard_output output 84 14 none]
+G r c none [set_last elists__elmts 175 17 102_4] [write_str output 130 14 none]
+G r c none [set_last elists__elmts 175 17 102_4] [write_int output 123 14 none]
+G r c none [set_last elists__elmts 175 17 102_4] [write_eol output 113 14 none]
+G r c none [set_last elists__elmts 175 17 102_4] [set_standard_error output 77 14 none]
+G r c none [set_last elists__elmts 175 17 102_4] [set_standard_output output 84 14 none]
+G r c none [increment_last elists__elmts 184 17 102_4] [write_str output 130 14 none]
+G r c none [increment_last elists__elmts 184 17 102_4] [write_int output 123 14 none]
+G r c none [increment_last elists__elmts 184 17 102_4] [write_eol output 113 14 none]
+G r c none [increment_last elists__elmts 184 17 102_4] [set_standard_error output 77 14 none]
+G r c none [increment_last elists__elmts 184 17 102_4] [set_standard_output output 84 14 none]
+G r c none [append elists__elmts 192 17 102_4] [write_str output 130 14 none]
+G r c none [append elists__elmts 192 17 102_4] [write_int output 123 14 none]
+G r c none [append elists__elmts 192 17 102_4] [write_eol output 113 14 none]
+G r c none [append elists__elmts 192 17 102_4] [set_standard_error output 77 14 none]
+G r c none [append elists__elmts 192 17 102_4] [set_standard_output output 84 14 none]
+G r c none [append_all elists__elmts 200 17 102_4] [write_str output 130 14 none]
+G r c none [append_all elists__elmts 200 17 102_4] [write_int output 123 14 none]
+G r c none [append_all elists__elmts 200 17 102_4] [write_eol output 113 14 none]
+G r c none [append_all elists__elmts 200 17 102_4] [set_standard_error output 77 14 none]
+G r c none [append_all elists__elmts 200 17 102_4] [set_standard_output output 84 14 none]
+G r c none [set_item elists__elmts 203 17 102_4] [write_str output 130 14 none]
+G r c none [set_item elists__elmts 203 17 102_4] [write_int output 123 14 none]
+G r c none [set_item elists__elmts 203 17 102_4] [write_eol output 113 14 none]
+G r c none [set_item elists__elmts 203 17 102_4] [set_standard_error output 77 14 none]
+G r c none [set_item elists__elmts 203 17 102_4] [set_standard_output output 84 14 none]
+G r c none [save elists__elmts 215 16 102_4] [write_str output 130 14 none]
+G r c none [save elists__elmts 215 16 102_4] [write_int output 123 14 none]
+G r c none [save elists__elmts 215 16 102_4] [write_eol output 113 14 none]
+G r c none [save elists__elmts 215 16 102_4] [set_standard_error output 77 14 none]
+G r c none [save elists__elmts 215 16 102_4] [set_standard_output output 84 14 none]
+G r c none [tree_write elists__elmts 223 17 102_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write elists__elmts 223 17 102_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read elists__elmts 226 17 102_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read elists__elmts 226 17 102_4] [write_str output 130 14 none]
+G r c none [tree_read elists__elmts 226 17 102_4] [write_int output 123 14 none]
+G r c none [tree_read elists__elmts 226 17 102_4] [write_eol output 113 14 none]
+G r c none [tree_read elists__elmts 226 17 102_4] [set_standard_error output 77 14 none]
+G r c none [tree_read elists__elmts 226 17 102_4] [set_standard_output output 84 14 none]
+G r c none [tree_read elists__elmts 226 17 102_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate elists__elmts 58 17 102_4] [write_str output 130 14 none]
+G r c none [reallocate elists__elmts 58 17 102_4] [write_int output 123 14 none]
+G r c none [reallocate elists__elmts 58 17 102_4] [write_eol output 113 14 none]
+G r c none [reallocate elists__elmts 58 17 102_4] [set_standard_error output 77 14 none]
+G r c none [reallocate elists__elmts 58 17 102_4] [set_standard_output output 84 14 none]
+X 5 alloc.ads
+42K9*Alloc 167e10 8|35w6 93r30 94r30 106r30 107r30
+58N4*Elists_Initial 8|93r36
+59N4*Elists_Increment 8|94r36
+61N4*Elmts_Initial 8|106r36
+62N4*Elmts_Increment 8|107r36
+X 6 debug.ads
+36K9*Debug 256e10 8|36w6 36r18
+64b4*Debug_Flag_N{boolean} 8|130r10 367r10
+X 7 elists.ads
+43K9*Elists 200l5 200e11 8|40b14 613l5 613t11
+55U14*Initialize 8|228b14 232l8 232t18
+60U14*Lock 8|321b14 327l8 327t12
+63U14*Unlock 8|607b14 611l8 611t14
+66U14*Tree_Read 8|587b14 591l8 591t17
+71U14*Tree_Write 8|597b14 601l8 601t18
+75V13*Last_Elist_Id{27|471I9} 8|268b13 271l8 271t21
+78V13*Elists_Address{13|67M9} 8|200b13 203l8 203t22
+81V13*Num_Elists{27|62I12} 8|427b13 430l8 430t18
+84V13*Last_Elmt_Id{27|485I9} 8|286b13 289l8 289t20
+87V13*Elmts_Address{13|67M9} 8|209b13 212l8 212t21
+90V13*Node{27|406I12} 90>19 91r19 8|166s16 185s16 349s26 414b13 421l8 421t12
+. 489s16
+90i19 Elmt{27|485I9} 8|414b19 416r10 419r30
+95V13*New_Elmt_List{27|471I9} 8|148s16 345s20 361b13 374l8 374t21
+100V13*First_Elmt{27|485I9} 100>25 101r19 8|161s15 183s18 218b13 222l8 222t18
+. 305s18 347s18 487s18
+100i25 List{27|471I9} 8|218b25 220r22 221r28
+105V13*Last_Elmt{27|485I9} 105>24 106r19 8|277b13 280l8 280t17
+105i24 List{27|471I9} 8|277b24 279r28
+110V13*List_Length{27|62I12} 110>26 8|295b13 315l8 315t19
+110i26 List{27|471I9} 8|295b26 300r10 305r30
+113V13*Next_Elmt{27|485I9} 113>24 114r19 8|380b13 389l8 389t17 393s15
+113i24 Elmt{27|485I9} 8|380b24 381r45
+119U14*Next_Elmt 119=25 8|169s13 189s13 311s16 350s13 391b14 394l8 394t17
+. 494s13
+119i25 Elmt{27|485I9} 8|391b25 393m7 393r26
+123V13*Is_Empty_Elmt_List{boolean} 123>33 124r19 8|259b13 262l8 262t26
+123i33 List{27|471I9} 8|259b33 261r28
+128U14*Append_Elmt 128>27 128>50 8|114b14 139l8 139t19 151s7 164s13 349s13
+128i27 N{27|406I12} 8|114b27 119r40 136r26
+128i50 To{27|471I9} 8|114b50 115r45 120r50 123r24 128r21 134r26
+132U14*Append_New_Elmt 132>31 132=54 133r19 8|145b14 152l8 152t23
+132i31 N{27|406I12} 8|145b31 151r20
+132i54 To{27|471I9} 8|145b54 147r10 148m10 151r23
+137U14*Append_Unique_Elmt 137>34 137>57 8|158b14 172l8 172t26
+137i34 N{27|406I12} 8|158b34 164r26 166r30
+137i57 To{27|471I9} 8|158b57 161r27 164r29
+141U14*Prepend_Elmt 141>28 141>51 8|436b14 451l8 451t20 460s10
+141i28 N{27|406I12} 8|436b28 441r40
+141i51 To{27|471I9} 8|436b51 437r45 444r24 445r53 450r21
+144U14*Prepend_Unique_Elmt 144>35 144>58 8|457b14 462l8 462t27
+144i35 N{27|406I12} 8|457b35 459r28 460r24
+144i58 To{27|471I9} 8|457b58 459r24 460r27
+148U14*Insert_Elmt_After 148>33 148>56 8|238b14 253l8 253t25
+148i33 N{27|406I12} 8|238b33 245r40
+148i56 Elmt{27|485I9} 8|238b56 239r47 242r22 248r20
+152V13*New_Copy_Elist{27|471I9} 152>29 8|333b13 355l8 355t22
+152i29 List{27|471I9} 8|333b29 338r10 347r30
+156U14*Replace_Elmt 156>28 156>44 157r19 8|578b14 581l8 581t20
+156i28 Elmt{27|485I9} 8|578b28 580r20
+156i44 New_Node{27|406I12} 8|578b44 580r34
+162U14*Remove 162>22 162>39 8|482b14 497l8 497t14
+162i22 List{27|471I9} 8|482b22 486r19 487r30 490r29
+162i39 N{27|406I12} 8|482b39 489r30
+166U14*Remove_Elmt 166>27 166>44 8|490s16 503b14 541l8 541t19
+166i27 List{27|471I9} 8|503b27 508r28 515r24 516r24 521r24 538r27
+166i44 Elmt{27|485I9} 8|503b44 513r31 520r19 529r29 533r31
+171U14*Remove_Last_Elmt 171>32 8|547b14 572l8 572t24
+171i32 List{27|471I9} 8|547b32 552r28 557r24 558r24 570r24
+176V13*Contains{boolean} 176>23 176>40 8|178b13 194l8 194t16 459s14
+176i23 List{27|471I9} 8|178b23 182r19 183r30
+176i40 N{27|406I12} 8|178b40 185r30
+180V13*No{boolean} 180>17 181r19 8|400b13 403l8 403t10
+180i17 List{27|471I9} 8|400b17 402r14
+185V13*Present{boolean} 185>22 186r19 8|182s10 468b13 471l8 471t15 486s10
+185i22 List{27|471I9} 8|468b22 470r14
+190V13*No{boolean} 190>17 8|163s13 307s16 405b13 408l8 408t10
+190i17 Elmt{27|485I9} 8|405b17 407r14
+195V13*Present{boolean} 195>22 8|184s16 348s16 473b13 476l8 476t15 488s16
+195i22 Elmt{27|485I9} 8|473b22 475r14
+X 8 elists.adb
+84R9 Elist_Header 87e14 90r30
+85i7*First{27|485I9} 123m28 221r34 261r34 364m34 437r49 450m25 508r34 515m30
+. 521m30 552r34 557m30
+86i7*Last{27|485I9} 115r49 128m25 251m40 279r34 365m34 444m28 516m30 538m33
+. 558m30 570m30
+89K12 Elists[24|59] 115r31 123r10 128r7 202r14 221r14 230r7 251r10 261r14
+. 270r14 279r14 323r7 324r7 363r7 364r7 364r21 365r7 365r21 369r26 373r14
+. 437r31 444r10 450r7 508r14 515r10 516r10 521r10 538r13 552r14 557r10 558r10
+. 570r10 589r7 599r7 609r7
+97R9 Elmt_Item 100e14 103r30
+98i7*Node{27|406I12} 119m32 245m32 419r36 441m32 580m26
+99i7*Next{27|283I9} 120m32 125m26 239r53 246m32 248m26 381r51 445m35 447m35
+. 512r28 521r66 528r47 530r41 535m28 535r54 537r31 556r28 565r47 566r41 569m28
+. 569r56
+102K12 Elmts[24|59] 118r7 119r7 119r20 120r7 120r20 123r37 125r10 125r44
+. 128r34 132r26 211r14 231r7 239r34 244r7 245r7 245r20 246r7 246r20 248r7
+. 248r44 251r48 288r14 325r7 326r7 381r32 419r17 429r19 429r38 440r7 441r7
+. 441r20 444r36 445r10 445r23 447r10 447r23 450r35 512r10 521r48 528r29 530r23
+. 535r10 535r36 537r13 556r10 565r29 566r23 569r10 569r38 580r7 590r7 600r7
+. 610r7
+115i7 L{27|485I9} 122r10 125r23
+159i7 Elmt{27|485I9} 161m7 163r17 166r22 169m24 169r24
+179i7 Elmt{27|485I9} 183m10 184r25 185r22 189m24 189r24
+239i7 Nxt{27|283I9} 246r40 250r10 251r34
+296i7 Elmt{27|485I9} 305m10 307r20 311m27 311r27
+297i7 N{27|62I12} 304m10 308r23 310m16 310r21
+334i7 Result{27|471I9} 345m10 349r39 353r17
+335i7 Elmt{27|485I9} 347m10 348r25 349r32 350m24 350r24
+381i7 N{27|283I9} 384r10 387r26
+437i7 F{27|485I9} 443r10 447r53
+483i7 Elmt{27|485I9} 487m10 488r25 489r22 490r35 494m24 494r24
+504i7 Nxt{27|485I9} 508m7 512r23 513r25 520r13 521r61 527r20 528m13 529r23
+. 530r36 533r25 535r49
+505i7 Prv{27|485I9} 527m13 528r42 535r23 537r26 538r41
+548i7 Nxt{27|485I9} 552m7 556r23 564r20 565m13 566r36 569r51
+549i7 Prv{27|485I9} 564m13 565r42 569r23 570r38
+X 12 output.ads
+44K9*Output 8|37w6 37r18 12|213e11
+113U14*Write_Eol 8|137s10 370s10
+123U14*Write_Int 8|132s10 134s10 136s10 369s10
+130U14*Write_Str 8|131s10 133s10 135s10 368s10
+X 13 system.ads
+37K9*System 7|41w6 78r35 87r34 8|200r35 209r34 13|174e11
+67M9*Address 7|78r42 87r41 8|200r42 209r41
+X 16 s-memory.ads
+53V13*Alloc{13|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{13|67M9} 105i<c,__gnat_realloc>22
+X 24 table.ads
+46K9*Table 8|38w6 89r26 102r25 24|248e10
+50+12 Table_Component_Type 8|90r6 103r6
+51I12 Table_Index_Type 8|91r6 104r6
+53*7 Table_Low_Bound{51I12} 8|92r6 105r6
+54i7 Table_Initial{27|65I12} 8|93r6 106r6
+55i7 Table_Increment{27|62I12} 8|94r6 107r6
+56a7 Table_Name{string} 8|95r6 108r6
+59k12*Table 8|89r32 102r31 24|247e13
+110A12*Table_Type(8|84R9)<27|471I9>
+113A15*Big_Table_Type{110A12[8|102]}<27|485I9>
+121P12*Table_Ptr(113A15[8|102])
+125p7*Table{121P12[8|89]} 8|115r38[89] 119r13[102] 120r13[102] 123r17[89]
+. 125r16[102] 128r14[89] 202r21[89] 211r20[102] 221r21[89] 239r40[102] 245r13[102]
+. 246r13[102] 248r13[102] 251r17[89] 261r21[89] 279r21[89] 364r14[89] 365r14[89]
+. 381r38[102] 419r23[102] 437r38[89] 441r13[102] 444r17[89] 445r16[102] 447r16[102]
+. 450r14[89] 508r21[89] 512r16[102] 515r17[89] 516r17[89] 521r17[89] 521r54[102]
+. 528r35[102] 530r29[102] 535r16[102] 535r42[102] 537r19[102] 538r20[89]
+. 552r21[89] 556r16[102] 557r17[89] 558r17[89] 565r35[102] 566r29[102] 569r16[102]
+. 569r44[102] 570r17[89] 580r13[102]
+132b7*Locked{boolean} 8|324m14[89] 326m13[102] 609m14[89] 610m13[102]
+142U17*Init 8|230s14[89] 231s13[102]
+149V16*Last{27|485I9} 8|119s26[102] 120s26[102] 123s43[102] 125s50[102] 128s40[102]
+. 132s32[102] 245s26[102] 246s26[102] 248s50[102] 251s54[102] 270s21[89]
+. 288s20[102] 364s28[89] 365s28[89] 369s33[89] 373s21[89] 429s25[102] 441s26[102]
+. 444s42[102] 445s29[102] 447s29[102] 450s41[102]
+156U17*Release 8|323s14[89] 325s13[102]
+172i7*First{27|485I9} 8|429r44[102]
+184U17*Increment_Last 8|118s13[102] 244s13[102] 363s14[89] 440s13[102]
+223U17*Tree_Write 8|599s14[89] 600s13[102]
+226U17*Tree_Read 8|589s14[89] 590s13[102]
+X 27 types.ads
+52K9*Types 7|40w6 40r18 27|948e10
+59I9*Int<integer> 8|132r21 134r21 136r21 369r21 429r14 429r33
+62I12*Nat{59I9} 7|81r31 110r50 8|295r50 297r14 427r31
+65I12*Pos{59I9}
+283I9*Union_Id<59I9> 8|99r14 120r40 125r34 239r22 248r34 381r20 445r43 447r43
+310N4*Elist_Low_Bound 8|220r29
+370I12*Elist_Range{283I9} 8|250r17 384r15 512r36 530r49 537r39 556r36 566r49
+397I9*Node_Id<integer>
+406I12*Node_Or_Entity_Id{397I9} 7|90r42 128r31 132r35 137r38 141r32 144r39
+. 148r37 156r55 162r43 176r44 8|98r14 114r31 145r35 158r38 178r44 238r37
+. 414r42 436r32 457r39 482r43 578r55
+412i4*Empty{397I9} 8|417r17
+471I9*Elist_Id<integer> 7|75r34 95r34 100r32 105r31 110r33 123r40 128r55
+. 132r66 137r62 141r56 144r63 152r36 152r53 162r29 166r34 171r39 176r30 180r24
+. 185r29 8|91r30 114r55 145r66 158r62 178r30 218r32 251r24 259r40 268r34
+. 277r31 295r33 333r36 333r53 334r16 361r34 400r24 436r56 457r63 468r29 482r29
+. 503r34 547r39
+474i4*No_Elist{471I9} 8|147r15 300r17 338r17 339r17 402r21 470r22
+479i4*First_Elist_Id{471I9} 8|92r30 202r28
+485I9*Elmt_Id<integer> 7|84r33 90r26 100r49 105r48 113r31 113r47 119r39 148r63
+. 156r35 166r51 190r24 195r29 8|85r15 86r15 104r30 115r20 159r14 179r14 218r49
+. 238r63 277r48 286r33 296r14 335r16 380r31 380r47 387r17 391r39 405r24 414r26
+. 437r20 473r29 483r14 503r51 504r13 505r13 521r39 528r20 548r13 549r13 565r20
+. 578r35
+488i4*No_Elmt{485I9} 8|122r14 242r30 261r42 364r43 365r43 385r17 407r21 416r17
+. 443r14 475r22 515r39 516r39 557r39 558r39
+491i4*First_Elmt_Id{485I9} 8|105r30 211r27
+

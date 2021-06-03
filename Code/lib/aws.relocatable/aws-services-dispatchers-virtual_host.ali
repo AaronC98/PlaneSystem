@@ -1,0 +1,594 @@
+V "GNAT Lib v2019"
+A -gnatwa
+A -Wall
+A -gnatA
+A -gnat2012
+A -gnatwc
+A -gnatwf
+A -gnatwi
+A -gnatwj
+A -gnatwk
+A -gnatwm
+A -gnatwr
+A -gnatwu
+A -gnatwv
+A -gnaty3
+A -gnatya
+A -gnatyb
+A -gnatyB
+A -gnatyc
+A -gnatyd
+A -gnatye
+A -gnatyf
+A -gnatyh
+A -gnatyi
+A -gnatyI
+A -gnatyk
+A -gnatyl
+A -gnatym
+A -gnatyn
+A -gnatyo
+A -gnatyO
+A -gnatyp
+A -gnatyr
+A -gnatys
+A -gnatyt
+A -gnatyx
+A -g
+A -gnata
+A -gnatVa
+A -gnatQ
+A -gnato
+A -gnatwe
+A -fno-common
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+A -feliminate-unused-debug-symbols
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U aws.services.dispatchers.virtual_host%b  aws-services-dispatchers-virtual_host.adb  76b04782 OO PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W aws%s			aws.ads			aws.ali
+W aws.dispatchers%s	aws-dispatchers.adb	aws-dispatchers.ali
+W aws.dispatchers.callback%s  aws-dispatchers-callback.adb  aws-dispatchers-callback.ali
+W aws.messages%s	aws-messages.adb	aws-messages.ali
+W aws.parameters%s	aws-parameters.adb	aws-parameters.ali
+W aws.services.dispatchers%s  aws-services-dispatchers.ads  aws-services-dispatchers.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+Z system.concat_3%s	s-conca3.adb		s-conca3.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+
+U aws.services.dispatchers.virtual_host%s  aws-services-dispatchers-virtual_host.ads  f785908c EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.hash_tables%s  a-cohata.ads	a-cohata.ali
+Z ada.containers.hash_tables.generic_keys%s
+Z ada.containers.hash_tables.generic_operations%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.containers.indefinite_hashed_maps%s
+Z ada.containers.prime_numbers%s  a-coprnu.adb	a-coprnu.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.hash%s	a-strhas.adb		a-strhas.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z ada.unchecked_deallocation%s
+W aws%s			aws.ads			aws.ali
+W aws.dispatchers%s	aws-dispatchers.adb	aws-dispatchers.ali
+W aws.response%s	aws-response.adb	aws-response.ali
+W aws.services.dispatchers%s  aws-services-dispatchers.ads  aws-services-dispatchers.ali
+W aws.status%s		aws-status.adb		aws-status.ali
+Z system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-calend.ads		20190518041256 474d9720 ada.calendar%s
+D a-charac.ads		20190518041256 2d3ec45b ada.characters%s
+D a-chlat1.ads		20190518041256 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20190518041255 61e5e089 ada.containers%s
+D a-cohata.ads		20190518041257 80a8c839 ada.containers.hash_tables%s
+D a-chtgke.ads		20190518041257 20177f7b ada.containers.hash_tables.generic_keys%s
+D a-chtgke.adb		20190518041255 7d66b1e3 ada.containers.hash_tables.generic_keys%b
+D a-chtgop.ads		20190518041256 11c5978a ada.containers.hash_tables.generic_operations%s
+D a-chtgop.adb		20190518041255 c3ccdc4f ada.containers.hash_tables.generic_operations%b
+D a-conhel.ads		20190518041255 20298884 ada.containers.helpers%s
+D a-conhel.adb		20190518041257 9cc5095b ada.containers.helpers%b
+D a-cihama.ads		20190518041256 bece8dbf ada.containers.indefinite_hashed_maps%s
+D a-cihama.adb		20190518041255 94909b4a ada.containers.indefinite_hashed_maps%b
+D a-cihase.ads		20190518041255 4f8a62e0 ada.containers.indefinite_hashed_sets%s
+D a-ciorma.ads		20190518041256 e1f95638 ada.containers.indefinite_ordered_maps%s
+D a-coinve.ads		20190518041257 b7300cfa ada.containers.indefinite_vectors%s
+D a-coprnu.ads		20190518041255 0cdf1864 ada.containers.prime_numbers%s
+D a-crbltr.ads		20190518041256 c3e90a86 ada.containers.red_black_trees%s
+D a-convec.ads		20190518041257 7e2b0fdf ada.containers.vectors%s
+D a-direct.ads		20190518041256 078228da ada.directories%s
+D a-envvar.ads		20190518041256 00080416 ada.environment_variables%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-ioexce.ads		20190518041255 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20190518041256 7c7305e9 ada.iterator_interfaces%s
+D a-reatim.ads		20190518041257 0240fc73 ada.real_time%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-string.ads		20190518041256 90ac6797 ada.strings%s
+D a-strfix.ads		20190518041257 86d6bc21 ada.strings.fixed%s
+D a-strhas.ads		20190518041257 c71c2a52 ada.strings.hash%s
+D a-strmap.ads		20190518041256 e8bb714a ada.strings.maps%s
+D a-strunb.ads		20190518041256 1656705b ada.strings.unbounded%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-taside.ads		20190518041258 00e3a3f6 ada.task_identification%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D aws.ads		20190518133103 bb4f9bdb aws%s
+D aws-attachments.ads	20190513040548 2270236e aws.attachments%s
+D aws-config.ads	20190513040548 abec052a aws.config%s
+D aws-containers.ads	20190513040547 c7ab8288 aws.containers%s
+D aws-containers-memory_streams.ads  20190513040548 ea28c859 aws.containers.memory_streams%s
+D aws-containers-string_vectors.ads  20190513040547 b5692847 aws.containers.string_vectors%s
+D aws-containers-tables.ads  20190513040548 dda133b5 aws.containers.tables%s
+D aws-default.ads	20190513040547 4983fa2f aws.default%s
+D aws-dispatchers.ads	20190513040548 c78b16eb aws.dispatchers%s
+D aws-dispatchers-callback.ads  20190513040548 e42e53cb aws.dispatchers.callback%s
+D aws-headers.ads	20190513040548 25633780 aws.headers%s
+D aws-messages.ads	20190513040548 0ce1462a aws.messages%s
+D aws-mime.ads		20190513040548 796c9a32 aws.mime%s
+D aws-net.ads		20190513040548 4345e169 aws.net%s
+D aws-parameters.ads	20190513040548 ff4aa491 aws.parameters%s
+D aws-resources.ads	20190513040547 407ba395 aws.resources%s
+D aws-resources-streams.ads  20190513040548 95c86167 aws.resources.streams%s
+D aws-resources-streams-memory.ads  20190513040548 eb23d323 aws.resources.streams.memory%s
+D aws-response.ads	20190513040548 907d00d3 aws.response%s
+D aws-services.ads	20190513040548 e275bf31 aws.services%s
+D aws-services-dispatchers.ads  20190513040547 ae46fd63 aws.services.dispatchers%s
+D aws-services-dispatchers-virtual_host.ads  20190513040547 10ec5dcf aws.services.dispatchers.virtual_host%s
+D aws-services-dispatchers-virtual_host.adb  20190513040547 f70f171c aws.services.dispatchers.virtual_host%b
+D aws-session.ads	20190513040547 41acdbbb aws.session%s
+D aws-status.ads	20190513040547 715df1ae aws.status%s
+D aws-url.ads		20190513040548 44a3858c aws.url%s
+D aws-utils.ads		20190513040548 8f9a062b aws.utils%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-bytswa.ads		20190518041256 a4d21639 gnat.byte_swapping%s
+D g-regexp.ads		20190518041256 691be386 gnat.regexp%s
+D g-sechas.ads		20190518041257 3b5ca98e gnat.secure_hashes%s
+D g-shsh32.ads		20190518041257 671c9849 gnat.secure_hashes.sha2_32%s
+D g-shshco.ads		20190518041257 1144502c gnat.secure_hashes.sha2_common%s
+D g-sha256.ads		20190518041257 c083f050 gnat.sha256%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D i-c.ads		20190518041255 5421119b interfaces.c%s
+D memory_streams.ads	20190513040549 bf3b9ce5 memory_streams%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-atacco.ads		20190518041257 4c36d12f system.address_to_access_conversions%s
+D s-assert.ads		20190518041256 cd8d2c94 system.assertions%s
+D s-atocou.ads		20190518041257 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20190518041256 b65612c0 system.atomic_counters%b
+D s-conca3.ads		20190518041257 0b705ca5 system.concat_3%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-finmas.ads		20190518041256 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-multip.ads		20190518041255 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20190518124529 e40aaf2d system.os_constants%s
+D s-osinte.ads		20190518041258 01b3ad47 system.os_interface%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041255 ede33ef8 system.pool_global%s
+D s-regexp.ads		20190518041257 9c7d27a7 system.regexp%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stausa.ads		20190518041256 017a0a05 system.stack_usage%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stalib.adb		20190518041255 f2fe2716 system.standard_library%b
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20190518041256 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-stposu.ads		20190518041255 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20190518041255 aedef97e system.stream_attributes%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-ststop.ads		20190518041255 5fbf1b38 system.strings.stream_ops%s
+D s-tasinf.ads		20190518041257 801abd01 system.task_info%s
+D s-taspri.ads		20190518041257 f40ac08d system.task_primitives%s
+D s-taprop.ads		20190518041257 1dd2e1b6 system.task_primitives.operations%s
+D s-taskin.ads		20190518041258 b9d612e2 system.tasking%s
+D s-taprob.ads		20190518041257 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20190518041258 60ad3dae system.tasking.protected_objects.entries%s
+D s-tassta.ads		20190518041257 cca55c94 system.tasking.stages%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D templates_parser.ads	20190513040549 619e699c templates_parser%s
+D templates_parser-utils.ads  20190513040549 8849593d templates_parser.utils%s
+D templates_parser_tasking.ads  20190513040549 4c0209f0 templates_parser_tasking%s
+D zlib.ads		20190513040549 0714e1ed zlib%s
+G a e
+G c Z s b [register aws__services__dispatchers__virtual_host 42 14 none]
+G c Z s b [register aws__services__dispatchers__virtual_host 49 14 none]
+G c Z s b [register aws__services__dispatchers__virtual_host 55 14 none]
+G c Z s b [unregister aws__services__dispatchers__virtual_host 61 14 none]
+G c Z s b [register_default_callback aws__services__dispatchers__virtual_host 66 14 none]
+G c Z s b [initialize aws__services__dispatchers__virtual_host 76 25 none]
+G c Z s b [finalize aws__services__dispatchers__virtual_host 77 25 none]
+G c Z s b [dispatch aws__services__dispatchers__virtual_host 79 24 none]
+G c Z s b [clone aws__services__dispatchers__virtual_host 84 24 none]
+G c Z s s [vh_nodeDI aws__services__dispatchers__virtual_host 89 9 none]
+G c Z s s [vh_nodeDA aws__services__dispatchers__virtual_host 89 9 none]
+G c Z s s [vh_nodeDF aws__services__dispatchers__virtual_host 89 9 none]
+G c Z s s [vh_nodeIP aws__services__dispatchers__virtual_host 89 9 none]
+G c Z s s [has_element aws__services__dispatchers__virtual_host__virtual_host_table 72 13 98_4]
+G c Z s s [Oeq aws__services__dispatchers__virtual_host__virtual_host_table 78 24 98_4]
+G c Z s s [capacity aws__services__dispatchers__virtual_host__virtual_host_table 89 13 98_4]
+G c Z s s [reserve_capacity aws__services__dispatchers__virtual_host__virtual_host_table 93 14 98_4]
+G c Z s s [length aws__services__dispatchers__virtual_host__virtual_host_table 103 13 98_4]
+G c Z s s [is_empty aws__services__dispatchers__virtual_host__virtual_host_table 106 13 98_4]
+G c Z s s [clear aws__services__dispatchers__virtual_host__virtual_host_table 109 14 98_4]
+G c Z s s [key aws__services__dispatchers__virtual_host__virtual_host_table 112 13 98_4]
+G c Z s s [element aws__services__dispatchers__virtual_host__virtual_host_table 115 13 98_4]
+G c Z s s [replace_element aws__services__dispatchers__virtual_host__virtual_host_table 118 14 98_4]
+G c Z s s [query_element aws__services__dispatchers__virtual_host__virtual_host_table 124 14 98_4]
+G c Z s s [update_element aws__services__dispatchers__virtual_host__virtual_host_table 131 14 98_4]
+G c Z s s [constant_reference aws__services__dispatchers__virtual_host__virtual_host_table 148 13 98_4]
+G c Z s s [reference aws__services__dispatchers__virtual_host__virtual_host_table 153 13 98_4]
+G c Z s s [constant_reference aws__services__dispatchers__virtual_host__virtual_host_table 158 13 98_4]
+G c Z s s [reference aws__services__dispatchers__virtual_host__virtual_host_table 163 13 98_4]
+G c Z s s [assign aws__services__dispatchers__virtual_host__virtual_host_table 168 14 98_4]
+G c Z s s [copy aws__services__dispatchers__virtual_host__virtual_host_table 170 13 98_4]
+G c Z s s [move aws__services__dispatchers__virtual_host__virtual_host_table 172 14 98_4]
+G c Z s s [insert aws__services__dispatchers__virtual_host__virtual_host_table 176 14 98_4]
+G c Z s s [insert aws__services__dispatchers__virtual_host__virtual_host_table 194 14 98_4]
+G c Z s s [include aws__services__dispatchers__virtual_host__virtual_host_table 205 14 98_4]
+G c Z s s [replace aws__services__dispatchers__virtual_host__virtual_host_table 216 14 98_4]
+G c Z s s [exclude aws__services__dispatchers__virtual_host__virtual_host_table 227 14 98_4]
+G c Z s s [delete aws__services__dispatchers__virtual_host__virtual_host_table 236 14 98_4]
+G c Z s s [delete aws__services__dispatchers__virtual_host__virtual_host_table 244 14 98_4]
+G c Z s s [first aws__services__dispatchers__virtual_host__virtual_host_table 250 13 98_4]
+G c Z s s [next aws__services__dispatchers__virtual_host__virtual_host_table 254 13 98_4]
+G c Z s s [next aws__services__dispatchers__virtual_host__virtual_host_table 262 14 98_4]
+G c Z s s [find aws__services__dispatchers__virtual_host__virtual_host_table 265 13 98_4]
+G c Z s s [contains aws__services__dispatchers__virtual_host__virtual_host_table 271 13 98_4]
+G c Z s s [element aws__services__dispatchers__virtual_host__virtual_host_table 274 13 98_4]
+G c Z s s [equivalent_keys aws__services__dispatchers__virtual_host__virtual_host_table 277 13 98_4]
+G c Z s s [equivalent_keys aws__services__dispatchers__virtual_host__virtual_host_table 281 13 98_4]
+G c Z s s [equivalent_keys aws__services__dispatchers__virtual_host__virtual_host_table 285 13 98_4]
+G c Z s s [iterate aws__services__dispatchers__virtual_host__virtual_host_table 289 14 98_4]
+G c Z s s [iterate aws__services__dispatchers__virtual_host__virtual_host_table 294 13 98_4]
+G c Z s s [node_typeIP aws__services__dispatchers__virtual_host__virtual_host_table 318 9 98_4]
+G c Z s s [adjust aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 90 28 58_7_324_4_98_4]
+G c Z s s [finalize aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 93 28 58_7_324_4_98_4]
+G c Z s s [zero_counts aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 96 17 58_7_324_4_98_4]
+G c Z s s [busy aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 100 17 58_7_324_4_98_4]
+G c Z s s [unbusy aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 104 17 58_7_324_4_98_4]
+G c Z s s [lock aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 108 17 58_7_324_4_98_4]
+G c Z s s [unlock aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 112 17 58_7_324_4_98_4]
+G c Z s s [tc_check aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 116 17 58_7_324_4_98_4]
+G c Z s s [te_check aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 120 17 58_7_324_4_98_4]
+G c Z s s [initialize aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 139 28 58_7_324_4_98_4]
+G c Z s s [finalize aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 140 28 58_7_324_4_98_4]
+G c Z s s [initialize aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 145 28 58_7_324_4_98_4]
+G c Z s s [finalize aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 146 28 58_7_324_4_98_4]
+G c Z s s [reference_control_typeDA aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 84 12 58_7_324_4_98_4]
+G c Z s s [reference_control_typeDF aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 84 12 58_7_324_4_98_4]
+G c Z s s [reference_control_typeIP aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 84 12 58_7_324_4_98_4]
+G c Z s s [with_busyDF aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 136 12 58_7_324_4_98_4]
+G c Z s s [with_busyIP aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 136 12 58_7_324_4_98_4]
+G c Z s s [with_lockDF aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 142 12 58_7_324_4_98_4]
+G c Z s s [with_lockIP aws__services__dispatchers__virtual_host__virtual_host_table__ht_types__implementation 142 12 58_7_324_4_98_4]
+G c Z s s [buckets_typeIP aws__services__dispatchers__virtual_host__virtual_host_table__ht_types 46 12 324_4_98_4]
+G c Z s s [hash_table_typeDA aws__services__dispatchers__virtual_host__virtual_host_table__ht_types 52 12 324_4_98_4]
+G c Z s s [hash_table_typeDF aws__services__dispatchers__virtual_host__virtual_host_table__ht_types 52 12 324_4_98_4]
+G c Z s s [hash_table_typeIP aws__services__dispatchers__virtual_host__virtual_host_table__ht_types 52 12 324_4_98_4]
+G c Z s s [adjust aws__services__dispatchers__virtual_host__virtual_host_table 331 25 98_4]
+G c Z s s [finalize aws__services__dispatchers__virtual_host__virtual_host_table 333 25 98_4]
+G c Z s s [write aws__services__dispatchers__virtual_host__virtual_host_table 339 14 98_4]
+G c Z s s [read aws__services__dispatchers__virtual_host__virtual_host_table 345 14 98_4]
+G c Z s s [write aws__services__dispatchers__virtual_host__virtual_host_table 360 14 98_4]
+G c Z s s [read aws__services__dispatchers__virtual_host__virtual_host_table 366 14 98_4]
+G c Z s s [write aws__services__dispatchers__virtual_host__virtual_host_table 385 14 98_4]
+G c Z s s [read aws__services__dispatchers__virtual_host__virtual_host_table 391 14 98_4]
+G c Z s s [write aws__services__dispatchers__virtual_host__virtual_host_table 407 14 98_4]
+G c Z s s [read aws__services__dispatchers__virtual_host__virtual_host_table 413 14 98_4]
+G c Z s s [pseudo_reference aws__services__dispatchers__virtual_host__virtual_host_table 424 13 98_4]
+G c Z s s [get_element_access aws__services__dispatchers__virtual_host__virtual_host_table 431 13 98_4]
+G c Z s s [mapDA aws__services__dispatchers__virtual_host__virtual_host_table 327 9 98_4]
+G c Z s s [mapDF aws__services__dispatchers__virtual_host__virtual_host_table 327 9 98_4]
+G c Z s s [mapIP aws__services__dispatchers__virtual_host__virtual_host_table 327 9 98_4]
+G c Z s s [cursorIP aws__services__dispatchers__virtual_host__virtual_host_table 354 9 98_4]
+G c Z s s [constant_reference_typeDI aws__services__dispatchers__virtual_host__virtual_host_table 375 9 98_4]
+G c Z s s [constant_reference_typeDA aws__services__dispatchers__virtual_host__virtual_host_table 375 9 98_4]
+G c Z s s [constant_reference_typeDF aws__services__dispatchers__virtual_host__virtual_host_table 375 9 98_4]
+G c Z s s [constant_reference_typeIP aws__services__dispatchers__virtual_host__virtual_host_table 375 9 98_4]
+G c Z s s [reference_typeDI aws__services__dispatchers__virtual_host__virtual_host_table 397 9 98_4]
+G c Z s s [reference_typeDA aws__services__dispatchers__virtual_host__virtual_host_table 397 9 98_4]
+G c Z s s [reference_typeDF aws__services__dispatchers__virtual_host__virtual_host_table 397 9 98_4]
+G c Z s s [reference_typeIP aws__services__dispatchers__virtual_host__virtual_host_table 397 9 98_4]
+G c Z s s [finalize aws__services__dispatchers__virtual_host__virtual_host_table 447 25 98_4]
+G c Z s s [first aws__services__dispatchers__virtual_host__virtual_host_table 449 24 98_4]
+G c Z s s [next aws__services__dispatchers__virtual_host__virtual_host_table 451 24 98_4]
+G c Z s s [iteratorDF aws__services__dispatchers__virtual_host__virtual_host_table 440 9 98_4]
+G c Z s s [iteratorIP aws__services__dispatchers__virtual_host__virtual_host_table 440 9 98_4]
+G c Z s s [free_key aws__services__dispatchers__virtual_host__virtual_host_table 48 14 98_4]
+G c Z s s [free_element aws__services__dispatchers__virtual_host__virtual_host_table 51 14 98_4]
+G c Z s s [copy_node aws__services__dispatchers__virtual_host__virtual_host_table 58 13 98_4]
+G c Z s s [equivalent_key_node aws__services__dispatchers__virtual_host__virtual_host_table 61 13 98_4]
+G c Z s s [find_equal_key aws__services__dispatchers__virtual_host__virtual_host_table 66 13 98_4]
+G c Z s s [free aws__services__dispatchers__virtual_host__virtual_host_table 70 14 98_4]
+G c Z s s [hash_node aws__services__dispatchers__virtual_host__virtual_host_table 73 13 98_4]
+G c Z s s [next aws__services__dispatchers__virtual_host__virtual_host_table 76 13 98_4]
+G c Z s s [read_node aws__services__dispatchers__virtual_host__virtual_host_table 79 13 98_4]
+G c Z s s [set_next aws__services__dispatchers__virtual_host__virtual_host_table 82 14 98_4]
+G c Z s s [vet aws__services__dispatchers__virtual_host__virtual_host_table 85 13 98_4]
+G c Z s s [write_node aws__services__dispatchers__virtual_host__virtual_host_table 87 14 98_4]
+G c Z s s [free_hash_table aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 57 14 95_4_98_4]
+G c Z s s [index aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 61 13 95_4_98_4]
+G c Z s s [index aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 67 13 95_4_98_4]
+G c Z s s [checked_index aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 74 13 95_4_98_4]
+G c Z s s [checked_index aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 81 13 95_4_98_4]
+G c Z s s [adjust aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 86 14 95_4_98_4]
+G c Z s s [finalize aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 92 14 95_4_98_4]
+G c Z s s [clear aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 108 14 95_4_98_4]
+G c Z s s [move aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 113 14 95_4_98_4]
+G c Z s s [capacity aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 119 13 95_4_98_4]
+G c Z s s [reserve_capacity aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 122 14 95_4_98_4]
+G c Z s s [delete_node_at_index aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 131 14 95_4_98_4]
+G c Z s s [delete_node_sans_free aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 140 14 95_4_98_4]
+G c Z s s [first aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 145 13 95_4_98_4]
+G c Z s s [first aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 147 13 95_4_98_4]
+G c Z s s [next aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 154 13 95_4_98_4]
+G c Z s s [next aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 157 13 95_4_98_4]
+G c Z s s [new_buckets aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 204 13 95_4_98_4]
+G c Z s s [free_buckets aws__services__dispatchers__virtual_host__virtual_host_table__ht_ops 208 14 95_4_98_4]
+G c Z s s [index aws__services__dispatchers__virtual_host__virtual_host_table__key_ops 56 13 103_4_98_4]
+G c Z s s [checked_index aws__services__dispatchers__virtual_host__virtual_host_table__key_ops 62 13 103_4_98_4]
+G c Z s s [checked_equivalent_keys aws__services__dispatchers__virtual_host__virtual_host_table__key_ops 69 13 103_4_98_4]
+G c Z s s [delete_key_sans_free aws__services__dispatchers__virtual_host__virtual_host_table__key_ops 76 14 103_4_98_4]
+G c Z s s [find aws__services__dispatchers__virtual_host__virtual_host_table__key_ops 84 13 103_4_98_4]
+G c Z s s [is_equalR aws__services__dispatchers__virtual_host__virtual_host_table__is_equalGP4669 115 13 98_4]
+G c Z s s [is_equal aws__services__dispatchers__virtual_host__virtual_host_table 115 13 98_4]
+G c Z s s [read_nodesR aws__services__dispatchers__virtual_host__virtual_host_table__read_nodesGP25869 957 14 98_4]
+G c Z s s [read_nodes aws__services__dispatchers__virtual_host__virtual_host_table 957 14 98_4]
+G c Z s s [write_nodesR aws__services__dispatchers__virtual_host__virtual_host_table__write_nodesGP34912 1317 14 98_4]
+G c Z s s [write_nodes aws__services__dispatchers__virtual_host__virtual_host_table 1317 14 98_4]
+G c Z s s [handlerDA aws__services__dispatchers__virtual_host 101 9 none]
+G c Z s s [handlerDF aws__services__dispatchers__virtual_host 101 9 none]
+G c Z s s [handlerDI aws__services__dispatchers__virtual_host 101 9 none]
+G c Z s s [handlerIP aws__services__dispatchers__virtual_host 101 9 none]
+G c Z b b [register aws__services__dispatchers__virtual_host 43 14 none]
+G r j handler [register aws__services__dispatchers__virtual_host 49 14 none] [handlerDA aws__dispatchers 63 9 none]
+G r k handler [register aws__services__dispatchers__virtual_host 49 14 none] [handlerDF aws__dispatchers 63 9 none]
+G r c none [register aws__services__dispatchers__virtual_host 55 14 none] [create aws__dispatchers__callback 45 13 none]
+G r j handler [register aws__services__dispatchers__virtual_host 55 14 none] [handlerDA aws__dispatchers 63 9 none]
+G r k handler [register aws__services__dispatchers__virtual_host 55 14 none] [handlerDF aws__dispatchers 63 9 none]
+G r e handler [register aws__services__dispatchers__virtual_host 55 14 none] [finalize aws__dispatchers 71 25 none]
+G r c none [register_default_callback aws__services__dispatchers__virtual_host 66 14 none] [free aws__dispatchers 58 14 none]
+G r j handler [register_default_callback aws__services__dispatchers__virtual_host 66 14 none] [handlerDA aws__dispatchers 63 9 none]
+G r k handler [register_default_callback aws__services__dispatchers__virtual_host 66 14 none] [handlerDF aws__dispatchers 63 9 none]
+G r f handler [initialize aws__services__dispatchers__virtual_host 76 25 none] [initialize aws__dispatchers 69 25 none]
+G r c none [finalize aws__services__dispatchers__virtual_host 77 25 none] [ref_counter aws__dispatchers 52 13 none]
+G r e handler [finalize aws__services__dispatchers__virtual_host 77 25 none] [finalize aws__dispatchers 71 25 none]
+G r c none [finalize aws__services__dispatchers__virtual_host 77 25 none] [free aws__dispatchers 58 14 none]
+G r c none [dispatch aws__services__dispatchers__virtual_host 79 24 none] [host aws__status 129 13 none]
+G r c none [dispatch aws__services__dispatchers__virtual_host 79 24 none] [parameters aws__status 88 13 none]
+G r j list [dispatch aws__services__dispatchers__virtual_host 79 24 none] [listDA aws__parameters 94 9 none]
+G r k list [dispatch aws__services__dispatchers__virtual_host 79 24 none] [listDF aws__parameters 94 9 none]
+G r c none [dispatch aws__services__dispatchers__virtual_host 79 24 none] [uri aws__status 79 13 none]
+G r c none [dispatch aws__services__dispatchers__virtual_host 79 24 none] [uri_format aws__parameters 42 13 none]
+G r c none [dispatch aws__services__dispatchers__virtual_host 79 24 none] [url aws__response 205 13 none]
+G r c none [dispatch aws__services__dispatchers__virtual_host 79 24 none] [acknowledge aws__response 234 13 none]
+G r s handler [clone aws__services__dispatchers__virtual_host 84 24 none] [handlerIP aws__dispatchers 63 9 none]
+G r f handler [clone aws__services__dispatchers__virtual_host 84 24 none] [initialize aws__dispatchers 69 25 none]
+G r c none [clone aws__services__dispatchers__virtual_host 84 24 none] [ref_counter aws__dispatchers 52 13 none]
+G r e handler [clone aws__services__dispatchers__virtual_host 84 24 none] [finalize aws__dispatchers 71 25 none]
+G r c none [clone aws__services__dispatchers__virtual_host 84 24 none] [free aws__dispatchers 58 14 none]
+G r j handler [clone aws__services__dispatchers__virtual_host 84 24 none] [handlerDA aws__dispatchers 63 9 none]
+G r k handler [clone aws__services__dispatchers__virtual_host 84 24 none] [handlerDF aws__dispatchers 63 9 none]
+G r d handler [clone aws__services__dispatchers__virtual_host 84 24 none] [adjust aws__dispatchers 70 25 none]
+G r d handler [handlerDA aws__services__dispatchers__virtual_host 101 9 none] [adjust aws__dispatchers 70 25 none]
+G r c none [handlerDF aws__services__dispatchers__virtual_host 101 9 none] [ref_counter aws__dispatchers 52 13 none]
+G r e handler [handlerDF aws__services__dispatchers__virtual_host 101 9 none] [finalize aws__dispatchers 71 25 none]
+G r c none [handlerDF aws__services__dispatchers__virtual_host 101 9 none] [free aws__dispatchers 58 14 none]
+G r f handler [handlerDI aws__services__dispatchers__virtual_host 101 9 none] [initialize aws__dispatchers 69 25 none]
+G r s handler [handlerIP aws__services__dispatchers__virtual_host 101 9 none] [handlerIP aws__dispatchers 63 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 59|34r14 35r14 36r14 74r8 98r38 99r26 60|32r6 40r8
+X 5 a-contai.ads
+16K13*Containers 24e19 59|34r18 98r42
+19M9*Hash_Type
+X 11 a-conhel.ads
+84R12 Reference_Control_Type<24|43R9>
+X 13 a-cihama.ads
+48k24*Indefinite_Hashed_Maps 455e42 59|34w29 98r53
+53R9*Map<24|43R9> 59|103r35[98]
+61R9*Cursor 60|101r37[59|98]
+72V13*Has_Element{boolean} 60|113s29[59|98]
+109U14*Clear 60|161s27[59|98]
+112V13*Key{string} 60|68s51[59|98] 77s51[59|98]
+115V13*Element{59|89R9} 60|64s59[59|98] 114s37[59|98]
+194U14*Insert 60|67s37[59|98] 76s37[59|98]
+196a7 Key{string} 60|68r19[59|98] 77r19[59|98]
+197r7 New_Item{59|89R9} 60|69r19[59|98] 78r19[59|98]
+205U14*Include 60|184s24[59|98]
+236U14*Delete 60|241s24[59|98]
+265V13*Find{61R9[59|98]} 60|111s34[59|98]
+294V13*Iterate{26|24C9[75[59|98]]} 60|62s38[59|98]
+X 26 a-iteint.ads
+24h9 Forward_Iterator
+24C9*Forward_Iterator<24R9[13|75[59|98]]>
+32h9 Reversible_Iterator<24R9[17|75]>
+X 29 a-string.ads
+16K13*Strings 35e16 59|35r18 36r18 74r12 99r30 60|32r10 103r12 103r48
+32n33*Backward{32E9} 60|103r56
+X 30 a-strfix.ads
+43K21*Fixed 596e22 60|32w18 103r20
+143V13*Index{natural} 60|103s26
+X 31 a-strhas.ads
+20V22*Hash{5|19M9} 59|35w26 99r38
+X 33 a-strunb.ads
+82K21*Unbounded 756e26 59|36w26 74r20
+87R9*Unbounded_String<24|43R9> 739e14 59|92r24 60|98r18
+103V13*To_Unbounded_String{87R9} 60|121s31 192s41
+116V13*To_String{string} 60|122s37 127s41
+135U14*Append 60|122s19 123s19 124s19
+X 38 aws.ads
+32K9*AWS 41e8 59|30r6 31r6 32r6 38r9 40r24 52r26 68r20 94r24 101r24 102r16
+. 106r5 60|34r6 35r6 36r6 38r14 41r8 58r16 59r15 72r38 73r27 95r20 95r44
+. 127r23 152r17 172r19 200r26 204r21 216r28 225r20 230r32 244r5
+X 46 aws-dispatchers.ads
+42K13*Dispatchers 76e20 59|30w10 40r28 52r30 68r24 94r28 101r28 102r20 60|34r10
+. 41r12 58r20 59r19 72r42 73r31 152r21 172r23 200r30 204r25 216r32 225r24
+. 230r36
+44H9*Handler<24|43R9><64|452R9> 67e14 59|40r40 52r42 68r36 101r40 60|58r32
+. 59r31 72r54 73r43 152r33 172r35 200r42 204r37 225r36 230r48
+47y13*Dispatch{56|59R9} 60|130R23 141R17
+52V13*Ref_Counter{natural} 60|150s52
+56P9*Handler_Class_Access(44R9) 59|94r40 102r32
+58U14*Free 60|157s16 162s10 228s10
+69U25 Initialize<24|46p14> 60|172s7
+70U25 Adjust<24|47p14>
+71U25 Finalize<24|48p14> 60|152s7
+X 47 aws-dispatchers-callback.ads
+38K25*Callback 62e29 60|34w22 216r44
+45V13*Create{40R9} 60|216s53
+X 49 aws-messages.ads
+36K13*Messages 401e17 60|35w10 136r13
+186n31*S404{174E9} 60|136r22
+X 52 aws-parameters.ads
+36K13*Parameters 96e19 60|36w10 119r32 124r37
+38R9*List<44|42R9> 94e70 60|119r43
+42V13*URI_Format{string} 60|124s48
+X 56 aws-response.ads
+51K13*Response 455e17 59|31w10 58r26 81r40 60|95r48 127r27 135r17 212r26
+59R9*Data<24|43R9> 446e14 59|81r49 60|95r57
+62P9*Callback(59R9) 59|58r35 60|212r35
+205V13*URL{59R9} 60|127s36
+234V13*Acknowledge{59R9} 60|135s26
+X 57 aws-services.ads
+32K13*Services 38|32k9 57|37e17 59|38r13 106r9 60|38r18 244r9
+X 58 aws-services-dispatchers.ads
+32K22*Dispatchers 57|32k13 58|64e29 59|38r22 106r18 60|38r27 244r18
+X 59 aws-services-dispatchers-virtual_host.ads
+38K34*Virtual_Host 58|32k22 59|76E25 106l30 106e42 60|38b39 203r17 244l30
+. 244t42
+40R9*Handler<46|44R9> 46|52p13 70P25 59|42p14 43r33 49p14 50r33 55p14 56r33
+. 61p14 62r33 66p14 67r27 76P25 76r57 77P25 77r57 79P24 80r20 84P24 84r44
+. 84r60 101c9 104e14 60|44r33 53r44 53r60 54r24 94r20 149r55 170r57 180r33
+. 188r33 198r33 210r33 224r27 238r33
+42U14*Register 43=7 44>7 45>7 60|187b14 195l8 195t16
+43r7 Dispatcher{40R9} 60|188b7 194m17
+44a7 Virtual_Hostname{string} 60|189b7 194r29
+45a7 Hostname{string} 60|190b7 192r62
+49U14*Register 50=7 51>7 52>7 60|197b14 207l8 207t16 214s7
+50r7 Dispatcher{40R9} 60|198b7 206m17
+51a7 Virtual_Hostname{string} 60|199b7 206r29
+52c7 Action<46|44R9> 60|200b7 204r52
+55U14*Register 56=7 57>7 58>7 60|209b14 217l8 217t16
+56r7 Dispatcher{40R9} 60|210b7 215m10
+57a7 Virtual_Hostname{string} 60|211b7 216r10
+58p7 Action{56|62P9} 60|212b7 216r61
+61U14*Unregister 62=7 63>7 60|237b14 242l8 242t18
+62r7 Dispatcher{40R9} 60|238b7 241m7 241r7
+63a7 Virtual_Hostname{string} 60|239b7 241r32
+66U14*Register_Default_Callback 67=7 68>7 60|223b14 231l8 231t33
+67r7 Dispatcher{40R9} 60|224b7 227r10 228m16 228r16 230m7
+68c7 Action<46|44R9> 60|225b7 230r63
+76U25 Initialize<46|69p25> 76=37 60|170b25 173l8 173t18
+76r37 Dispatcher{40R9} 60|170b37 172m44 172r44
+77U25 Finalize<46|71p25> 77=37 60|149b25 164l8 164t16
+77r37 Dispatcher{40R9} 60|149b35 150r41 152m42 152r42 155m22 155r22 161m10
+. 161r10 162m16 162r16
+79V24 Dispatch{56|59R9}<46|47p13> 80>7 81>7 60|93b24 143l8 143t16
+80r7 Dispatcher{40R9} 60|94b7 111r17 134r10 141r27
+81r7 Request{62|58R9} 60|95b7 97r50 119r70 123r49 130r50 138r28 141r50
+84V24 Clone{40R9}<64|454p13> 84>31 60|53b24 87l8 87t13
+84r31 Dispatcher{40R9} 60|53b31 56r10 59r46 62r21
+87E9 VH_Mode 87e36 89r25
+87n21 Host{87E9} 89r36 91r15 60|80r36 117r18 192r35
+87n27 Callback{87E9} 93r15 60|66r28 71r34 129r18 156r28 203r30
+89R9 VH_Node 89d18 96e14 99r17 60|46r26 64r29 70r21 79r21 100r18 182r26 192r23
+. 202r23
+89e18*Mode{87E9} 90r12 60|66r21 71m24 80m24 116r20
+92r13*Hostname{33|87R9} 60|81m24 81r41 122r53
+94p13*Action{46|56P9} 60|72m24 73r63 130r38 157m27
+98K12 Virtual_Host_Table[13|48] 103r16 60|64r40 68r32 77r32 101r18 113r10
+. 114r18
+102p7 Action{46|56P9} 60|56r21 57m25 59r57 134r21 141r38 162m27 227r21 228m27
+. 230m18
+103r7 Table{13|53R9[98]} 60|62r32 67m31 76m31 111r28 155r33 161m21 184m18
+. 241m18
+X 60 aws-services-dispatchers-virtual_host.adb
+43U14 Register 44=7 45>7 46>7 179b14 185l8 185t16 194s7 206s7
+44r7 Dispatcher{59|40R9} 180b7 184m7 184r7
+45a7 Virtual_Hostname{string} 181b7 184r33
+46r7 Node{59|89R9} 182b7 184r51
+54r7 New_Dispatcher{59|40R9} 57m10 67m16 67r16 76m16 76r16 86r14
+62i11 Cursor{any type} 64r68 68r56 77r56
+64r13 Node{59|89R9} 66r16 73r58 81r36
+97a7 Hostname{string} 103r33 106r15 111r40 111r50
+98r7 Location{33|87R9} 121m19 122m27 122r27 123m27 123r27 124m27 124r27 127r52
+99i7 K{natural} 103m7 105r10 106m10 108m10 108r15 111r68
+100r7 Node{59|89R9} 114m10 114r10 116r15 122r48 130r33
+101r7 Cursor{13|61R9[59|98]} 111m7 113r42 114r46
+119r19 P{52|38R9} 124r60
+150i7 Ref_Counter{natural} 154r10
+155r14 Node{59|89R9} 156r16 157r22
+192r7 Node{59|89R9} 194r47
+202r7 Node{59|89R9} 206r47
+X 62 aws-status.ads
+52K13*Status 59|32w10 81r20 60|95r24 97r37 119r51 123r37 138r15 62|405e15
+58R9*Data 59|81r27 60|95r31 62|403e14
+79V13*URI{string} 60|123s44
+88V13*Parameters{52|38R9} 60|119s58
+129V13*Host{string} 60|97s44 138s22
+X 64 aws-utils.ads
+452h9*Clonable
+454y13*Clone{452R9} 60|59R64 73R70
+X 75 system.ads
+67M9*Address
+X 84 s-memory.ads
+53V13*Alloc{75|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{75|67M9} 105i<c,__gnat_realloc>22
+X 94 s-stausa.ads
+203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
+268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
+X 96 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+

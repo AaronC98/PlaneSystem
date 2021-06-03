@@ -1,0 +1,578 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>12. Tools &#8212; GPS 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/adacore.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="13. Working in a Cross Environment" href="cross_env.html" />
+    <link rel="prev" title="11. Version Control System" href="vcs.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cross_env.html" title="13. Working in a Cross Environment"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="vcs.html" title="11. Version Control System"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">12. Tools</a><ul>
+<li><a class="reference internal" href="#coding-standard">12.1. Coding Standard</a></li>
+<li><a class="reference internal" href="#visual-comparison">12.2. Visual Comparison</a></li>
+<li><a class="reference internal" href="#code-fixing">12.3. Code Fixing</a></li>
+<li><a class="reference internal" href="#documentation-generation">12.4. Documentation Generation</a></li>
+<li><a class="reference internal" href="#working-with-unit-tests">12.5. Working With Unit Tests</a><ul>
+<li><a class="reference internal" href="#the-gnattest-menu">12.5.1. The GNATtest Menu</a></li>
+<li><a class="reference internal" href="#the-contextual-menu">12.5.2. The Contextual Menu</a></li>
+<li><a class="reference internal" href="#project-properties">12.5.3. Project Properties</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#metrics">12.6. Metrics</a><ul>
+<li><a class="reference internal" href="#the-metrics-menu">12.6.1. The Metrics Menu</a></li>
+<li><a class="reference internal" href="#id8">12.6.2. The Contextual Menu</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#code-coverage">12.7. Code Coverage</a><ul>
+<li><a class="reference internal" href="#coverage-menu">12.7.1. Coverage Menu</a></li>
+<li><a class="reference internal" href="#id10">12.7.2. The Contextual Menu</a></li>
+<li><a class="reference internal" href="#the-coverage-report">12.7.3. The Coverage Report</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stack-analysis">12.8. Stack Analysis</a><ul>
+<li><a class="reference internal" href="#the-stack-analysis-menu">12.8.1. The Stack Analysis Menu</a></li>
+<li><a class="reference internal" href="#id12">12.8.2. The Contextual Menu</a></li>
+<li><a class="reference internal" href="#the-stack-usage-report">12.8.3. The Stack Usage Report</a></li>
+<li><a class="reference internal" href="#the-stack-usage-editor">12.8.4. The Stack Usage Editor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="vcs.html"
+                        title="previous chapter">11. Version Control System</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cross_env.html"
+                        title="next chapter">13. Working in a Cross Environment</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/tools.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tools">
+<span id="id1"></span><h1>12. Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="coding-standard">
+<span id="id2"></span><h2>12.1. Coding Standard<a class="headerlink" href="#coding-standard" title="Permalink to this headline">¶</a></h2>
+<p id="index-0">Use the <span class="guilabel">Coding Standard</span> menu to edit your coding standard file
+and run it against your code to verify its compliance with the coding
+standard.  This file is the input to the <strong class="program">gnatcheck</strong> tool.  You
+can also use the contextual menu to check the conformance of a particular
+project or source file against a coding standard.</p>
+<p>Access the Coding standard editor using the <span class="menuselection">Analyze ‣
+Coding Standard ‣ Edit Rules File</span> menu.  Select either an existing
+coding standard file or create a new one. The editor adapts itself to the
+version of <strong class="program">gnatcheck</strong> on your local machine.</p>
+<p>GPS summarizes the rules currently in use at the bottom of the editor. Once
+all rules are defined, check the box <span class="guilabel">Open rules file after exit</span>
+to manually verify the created file.  Once you have created the coding
+standard file, set it as the default coding standard file for a project by
+going to the project editor, selecting the <span class="guilabel">Switches</span> tab, and
+specifying this file in the <span class="guilabel">Gnatcheck</span> section.</p>
+</div>
+<div class="section" id="visual-comparison">
+<span id="id3"></span><h2>12.2. Visual Comparison<a class="headerlink" href="#visual-comparison" title="Permalink to this headline">¶</a></h2>
+<p id="index-1">The visual comparison, available either from the VCS menus or the
+<span class="guilabel">Tools</span> menu, provides a way to graphically display differences
+between two or three files or two different versions of the same file.</p>
+<p>The 2-file comparison tool uses the standard tool <strong class="program">diff</strong>,
+available on all Unix systems. Under Windows, a default implementation is
+provided with GPS, called <code class="file docutils literal"><span class="pre">gnudiff.exe</span></code>, but you may want to provide
+an alternate implementation, for example by installing a set of Unix tools
+such as Cygwin (<a class="reference external" href="http://www.cygwin.com">http://www.cygwin.com</a>).  The
+3-file comparison tool is based on the text tool <strong class="program">diff3</strong>,
+available on all Unix systems. Under Windows, this tool is not provided
+with GPS, but is available as part of Cygwin.</p>
+<p>GPS displays visual comparisons in either Side-by-Side or Unified mode.  In
+Side-by-Side mode, GPS displays editors for the files involved in the
+comparison side by side.  By default, GPS places the reference file on the
+left. In Unified mode, GPS does not open a new editor, but shows all the
+changes in the original editor.  Unified mode is used only when comparing
+two files; when comparing three files, only Side-by-Side mode is available.</p>
+<p>Lines in the file editors are highlighted with various colors.  In
+side-by-side mode, only the right editor (for the modified file) has
+different colors.  Each highlight color indicates a different type of line:</p>
+<p><em>gray</em></p>
+<blockquote>
+<div>All the lines in the reference (left) file.</div></blockquote>
+<p><em>yellow</em></p>
+<blockquote>
+<div>Lines modified from the reference file. Small differences within one line
+are shown in a brighter yellow.</div></blockquote>
+<p><em>green</em></p>
+<blockquote>
+<div>Lines not originally in the reference file but added to the modified
+file.</div></blockquote>
+<p><em>red</em></p>
+<blockquote>
+<div>Lines present in the reference file but deleted from the modified file.</div></blockquote>
+<p>You can configure these colors in the preferences dialog.</p>
+<p>Like all highlighted lines in GPS, the visual differences highlights are
+visible in the <span class="guilabel">Speed Column</span> at the left of the editors.</p>
+<p>GPS adds blank lines in one editor in places corresponding to existing
+lines in the other editors and synchronizes vertical and horizontal
+scrolling between the editors involved in a visual comparison.  If you
+close one of those editors, GPS removes the highlighting, blank lines, and
+scrolling in the other editors.</p>
+<p>When you create a visual comparison, GPS populates the
+<span class="guilabel">Locations</span> view with the entries for each chunk of differences;
+use them to navigate between differences.</p>
+<p>Editors involved in a visual comparison have a contextual menu
+<span class="guilabel">Visual diff</span> containing the following entries:</p>
+<ul>
+<li><p class="first"><span class="guilabel">Recompute</span></p>
+<p>Regenerate the visual comparison.  Use this when you have modified one of
+the files in an editor by hand while it is involved in a visual
+comparison.</p>
+</li>
+<li><p class="first"><span class="guilabel">Hide</span></p>
+<p>Remove the highlighting corresponding to the visual comparison from all
+involved editors.</p>
+</li>
+<li><p class="first"><span class="guilabel">Close editors</span></p>
+<p>Closes all editors involved in this visual comparison</p>
+</li>
+<li><p class="first"><span class="guilabel">Use this editor as reference</span></p>
+<p>Make this editor the reference (this is only present when displaying a
+visual comparison involving 3 files).</p>
+</li>
+</ul>
+<img alt="_images/visual-diff.jpg" id="index-2" src="_images/visual-diff.jpg" />
+</div>
+<div class="section" id="code-fixing">
+<span id="id4"></span><h2>12.3. Code Fixing<a class="headerlink" href="#code-fixing" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-3"></span><p id="index-4">GPS provides an interactive mechanism to correct or improve your source
+code based on error and warning messages generated by the GNAT compiler.
+This capability is integrated with the <span class="guilabel">Locations</span> view (see
+<a class="reference internal" href="main_window.html#the-locations-view"><span class="std std-ref">The Locations View</span></a>): when GPS can make use of a compiler message, it
+adds an icon on the left of the line.</p>
+<p>If a wrench icon is displayed and you left-click on it, the code is fixed
+automatically, and you will see the change in the corresponding source editor.
+This occurs when a simple fix, such as the addition of a missing semicolon,
+is sufficient to resolve the error.</p>
+<p>Right-click on the icon to display a contextual menu with text explaining
+the action that would be performed on a left-click.  Displaying a
+contextual menu anywhere else on the message line provides an option called
+<span class="guilabel">Auto Fix</span>, giving you access to the same information. For the
+previous example of a missing semicolon, the menu contains an entry
+labeled <span class="guilabel">Add expected string &#8221;;&#8221;</span>.  You can choose to
+<span class="guilabel">Apply to this occurrence</span> or <span class="guilabel">Apply to all similar
+errors</span>.  The latter option applies the same simple fix to all errors that
+are the same, based on parsing the error message.  The wrench icon is
+removed once the code change has been made.</p>
+<p>For more complex errors where more than one change is possible, GPS
+displays a wrench icon with a blue plus sign.  Clicking the icon displays a
+contextual menu listing the possible fixes. For example, this is displayed
+when an ambiguity in resolving an entity is reported by the compiler.</p>
+<p>Right-clicking on a message with a fix opens a contextual menu with an
+entry <span class="guilabel">Auto Fix</span>. Fixes that can be applied by clicking on the
+wrench are also available through that menu. In addition, if GPS considers
+one of the fixes to be safe, it provides additional menu entries to apply
+fixes at multiple locations:</p>
+<p><em>Fix all simple style errors and warnings</em></p>
+<blockquote>
+<div>Offered only when the selected message is a style warning or error.
+Fixes all other style warnings and errors for which a unique simple fix
+is available.</div></blockquote>
+<p><em>Fix all simple errors</em></p>
+<blockquote>
+<div>Fixes all errors messages for which a unique simple fix is available</div></blockquote>
+</div>
+<div class="section" id="documentation-generation">
+<span id="id5"></span><h2>12.4. Documentation Generation<a class="headerlink" href="#documentation-generation" title="Permalink to this headline">¶</a></h2>
+<p id="index-5">GPS uses the GNATdoc tool to generate documentation from source files.
+See GNATdoc User&#8217;s Guide for more information about this tool,
+including comment formatting and possibilities for customization.</p>
+<p>Invoke the documentation generator from the <span class="menuselection">Analyze -&gt;
+Documentation</span> menu:</p>
+<p><em>Generate Project</em></p>
+<blockquote>
+<div>Generate documentation for all files in the loaded project.</div></blockquote>
+<p><em>Generate Projects &amp; Subprojects</em></p>
+<blockquote>
+<div>Generate documentation for all files in the loaded project and its
+subprojects.</div></blockquote>
+<p><em>Generate current file</em></p>
+<blockquote>
+<div>Generate documentation for the current file.</div></blockquote>
+</div>
+<div class="section" id="working-with-unit-tests">
+<span id="id6"></span><h2>12.5. Working With Unit Tests<a class="headerlink" href="#working-with-unit-tests" title="Permalink to this headline">¶</a></h2>
+<p>GPS uses <strong class="program">gnattest</strong>, a tool that creates unit-test stubs as well
+as a test driver infrastructure (harness).  It can generate harnesses for a
+project hierarchy, a single project or a package.  Launch harness
+generation process from the <span class="menuselection">Analyze ‣ GNATtest</span> menu or a
+contextual menu.</p>
+<p>After a harness project has been generated, GPS switches to it, allowing
+you to implement tests, compile and run the harness.  You can exit the
+harness project and return to original project at any point.</p>
+<div class="section" id="the-gnattest-menu">
+<h3>12.5.1. The GNATtest Menu<a class="headerlink" href="#the-gnattest-menu" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">GNATtest</span> submenu is found in the <span class="guilabel">Tools</span> global
+menu and contains the following entries:</p>
+<p><em>Generate unit test setup</em></p>
+<blockquote>
+<div>Generate harness for the root project.</div></blockquote>
+<p><em>Generate unit test setup recursive</em></p>
+<blockquote>
+<div>Generate harness for the root project and subprojects.</div></blockquote>
+<p><em>Show not implemented tests</em></p>
+<blockquote>
+<div>Find tests that have have never been modified and list them in the
+<span class="guilabel">Locations</span> view. This menu is only active in the harness
+project.</div></blockquote>
+<p><em>Exit from harness project</em></p>
+<blockquote>
+<div>Return from harness to original project.</div></blockquote>
+</div>
+<div class="section" id="the-contextual-menu">
+<h3>12.5.2. The Contextual Menu<a class="headerlink" href="#the-contextual-menu" title="Permalink to this headline">¶</a></h3>
+<p>When relevant to the context, right-clicking displays GNATtest-related
+contextual menu entries.  The contextual menu for a source file containing
+a library package declaration has a <span class="menuselection">GNATtest ‣ Generate
+unit test setup for &lt;file&gt;</span> menu that generates the harness for that
+package.  The contextual menu for a project, (see <a class="reference internal" href="main_window.html#the-project-view"><span class="std std-ref">The Project view</span></a>),
+has a <span class="menuselection">GNATtest ‣ Generate unit test setup for &lt;project&gt;</span>
+menu that generates the harness for the entire project.  The
+<span class="menuselection">GNATtest ‣ Generate unit test setup for &lt;project&gt;
+recursive</span> menu generates a harness for whole hierarchy of projects. If a
+harness project already exists, the <span class="menuselection">GNATtest ‣ Open
+harness project</span> menu opens the harness project.</p>
+<p>While a harness project is open, you can simply navigate between the tested
+routine and its test code.  Clicking on the name of a tested routine
+produces the <span class="menuselection">GNATtest ‣ Go to test case</span>,
+<span class="menuselection">GNATtest ‣ Go to test setup</span>, and
+<span class="menuselection">GNATtest ‣ Go to test teardown</span> menus .  The contextual
+menu for source files of test cases or setup and teardown code has a
+<span class="menuselection">GNATtest ‣ Go to &lt;routine&gt;</span> menu to go to the code being
+tested.</p>
+</div>
+<div class="section" id="project-properties">
+<h3>12.5.3. Project Properties<a class="headerlink" href="#project-properties" title="Permalink to this headline">¶</a></h3>
+<p>You configure GNATtest&#8217;s behavior through the GNATtest page in
+<a class="reference internal" href="projects.html#the-project-properties-editor"><span class="std std-ref">The Project Properties Editor</span></a>.</p>
+</div>
+</div>
+<div class="section" id="metrics">
+<span id="id7"></span><h2>12.6. Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h2>
+<p id="index-6">GPS provides an interface to the GNAT software metrics generation tool
+<strong class="program">gnatmetric</strong>.  Metrics can be computed for one source file, the
+current project, or the current project and all its imported subprojects</p>
+<p>Invoke the metrics generator from the <span class="menuselection">Analyze ‣ Metrics</span>
+menu or the contextual menu.</p>
+<div class="section" id="the-metrics-menu">
+<h3>12.6.1. The Metrics Menu<a class="headerlink" href="#the-metrics-menu" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">Metrics</span> submenu is available from the <span class="guilabel">Tools</span>
+global menu and contains:</p>
+<p><em>Compute metrics for current file</em></p>
+<blockquote>
+<div>Generate metrics for the current source file.</div></blockquote>
+<p><em>Compute metrics for current project</em></p>
+<blockquote>
+<div>Generate metrics for all files in the current project.</div></blockquote>
+<p><em>Compute metrics for current project and subprojects</em></p>
+<blockquote>
+<div>Generate metrics for all files in the current project and subprojects.</div></blockquote>
+</div>
+<div class="section" id="id8">
+<h3>12.6.2. The Contextual Menu<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>When relevant to the context, right-clicking displays metrics-related
+contextual menu entries.  The contextual menu for a source file has an
+entry <span class="guilabel">Metrics for file</span> that generates the metrics for the
+current file.  The contextual menu for a project (see
+<a class="reference internal" href="main_window.html#the-project-view"><span class="std std-ref">The Project view</span></a>) has an entry <span class="guilabel">Metrics for project</span> that
+generates the metrics for all files in the project.</p>
+<p>After computing the requested metrics, GPS displays a new window in the
+left area showing the computed metrics in a hierarchical tree form,
+arranged first by files and then by scopes inside the files.
+Double-clicking any of the files or scopes opens the corresponding source
+location in the editor. GPS displays any errors encountered during metrics
+computation in the <span class="guilabel">Locations</span> view.</p>
+</div>
+</div>
+<div class="section" id="code-coverage">
+<span id="id9"></span><h2>12.7. Code Coverage<a class="headerlink" href="#code-coverage" title="Permalink to this headline">¶</a></h2>
+<p id="index-7">GPS is integrated with <strong class="program">gcov</strong>, the GNU code coverage utility.
+Within GPS, you can compute, load, and visualize code coverage information.
+You can do this for individual files, for each file of the current project,
+for individual projects in a hierarchy, or for the entire project hierarchy
+currently loaded by GPS.</p>
+<p>Once computed and loaded, GPS summarizes the coverage information in a
+graphical report, formatted as a tree-view with percentage bars for each
+item, and uses it to decorate source code through line highlighting and
+coverage annotations.</p>
+<p>You will find all coverage related operations in the <span class="menuselection">Analyze
+‣ Coverage</span> menu.  Before GPS can load coverage information, it must be
+computed, for example by using the <span class="menuselection">Analyze ‣ Coverage ‣
+Gcov ‣ Compute coverage files</span> menu.  After each coverage computation,
+GPS tries to load the needed information and reports errors for missing or
+corrupted <code class="file docutils literal"><span class="pre">.gcov</span></code> files.</p>
+<p>To produce coverage information from <strong class="program">gcov</strong>, your project must be
+compiled in <cite>gcov</cite> build mode.</p>
+<div class="section" id="coverage-menu">
+<h3>12.7.1. Coverage Menu<a class="headerlink" href="#coverage-menu" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="menuselection">Analyze ‣ Coverage</span> menu has a number of entries,
+depending on the context:</p>
+<ul>
+<li><p class="first"><span class="menuselection">Gcov ‣ Compute coverage files</span></p>
+<p>Generate the <code class="file docutils literal"><span class="pre">.gcov</span></code> files for loaded projects that have been
+compiled and executed.</p>
+</li>
+<li><p class="first"><span class="menuselection">Gcov ‣ Remove coverage files</span></p>
+<p>Delete all the <code class="file docutils literal"><span class="pre">.gcov</span></code> file for loaded projects.</p>
+</li>
+<li><p class="first"><span class="menuselection">Show report</span></p>
+<p>Open a new window summarizing the coverage information currently loaded
+in GPS.</p>
+</li>
+<li><p class="first"><span class="menuselection">Load data for all projects</span></p>
+<p>Load (or reload) coverage information for every project and subproject.</p>
+</li>
+<li><p class="first"><span class="menuselection">Load data for project `XXX`</span></p>
+<p>Load or re-load coverage information for the project <cite>XXX</cite>.</p>
+</li>
+<li><p class="first"><span class="menuselection">Load data for xxxxxxxx.xxx</span></p>
+<p>Load (or reload) coverage information for the specified source file.</p>
+</li>
+<li><p class="first"><span class="menuselection">Clear coverage from memory</span></p>
+<p>Remove all coverage information loaded in GPS.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>12.7.2. The Contextual Menu<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>When clicking on a project, file or subprogram entity (including the
+entities listed in the coverage report), you will see a <span class="guilabel">Coverage</span>
+submenu containing the following options, depending on the type of entity
+selected.  For example, if you click on a file, the options are:</p>
+<ul>
+<li><p class="first"><span class="guilabel">Show coverage information</span></p>
+<p>Display an annotation column on the left side of the current source
+editor to indicate which lines are covered and which are not.  Lines that
+are not covered are also listed in the <span class="guilabel">Locations</span> view.  See
+<a class="reference internal" href="main_window.html#the-locations-view"><span class="std std-ref">The Locations View</span></a>.</p>
+</li>
+<li><p class="first"><span class="guilabel">Hide coverage information</span></p>
+<p>Remove the annotation column from the current source editor and clear
+coverage information from the <span class="guilabel">Locations</span> view.</p>
+</li>
+<li><p class="first"><span class="guilabel">Load data for xxxxxxxx.xxx</span></p>
+<p>Load (or reload) coverage information for the specified source file.</p>
+</li>
+<li><p class="first"><span class="guilabel">Remove data of `xxxxxxxx.xxx</span></p>
+<p>Delete coverage information from the specified source file.</p>
+</li>
+<li><p class="first"><span class="guilabel">Show Coverage report</span></p>
+<p>Open a new window summarizing the coverage information. (This entry
+appears only if the contextual menu has been created from outside the
+Coverage Report.)</p>
+</li>
+</ul>
+</div>
+<div class="section" id="the-coverage-report">
+<h3>12.7.3. The Coverage Report<a class="headerlink" href="#the-coverage-report" title="Permalink to this headline">¶</a></h3>
+<p id="coverage-report">Once GPS loads coverage information, it displays a graphical coverage
+report containing a tree of Projects, Files and Subprograms with
+corresponding coverage information for each shown in a column on the side.</p>
+<img alt="_images/report-of-analysis_tree.jpg" id="index-8" src="_images/report-of-analysis_tree.jpg" />
+<p>The contextual menus generated for this report contain, in addition to
+the regular entries, some specific Coverage Report options allowing you to
+expand or fold the tree, or to display flat lists of files or subprograms
+instead of a tree. A flat list of files looks like:</p>
+<img alt="_images/report-of-analysis_flat.jpg" id="index-9" src="_images/report-of-analysis_flat.jpg" />
+<p>GPS and <strong class="program">gcov</strong> both support many different programming languages,
+so code coverage features are available in GPS for many languages. But
+subprogram coverage details are not available for every supported language.
+If you change the current main project in GPS, using the
+<span class="menuselection">File ‣ Open Project</span> menu, for example, GPS deletes all
+loaded coverage information for the loaded project.</p>
+</div>
+</div>
+<div class="section" id="stack-analysis">
+<span id="id11"></span><h2>12.8. Stack Analysis<a class="headerlink" href="#stack-analysis" title="Permalink to this headline">¶</a></h2>
+<p id="index-10">GPS provides an interface to <strong class="program">GNATstack</strong>, the static stack
+analysis tool.  This interface is only available if you have the
+<code class="file docutils literal"><span class="pre">gnatstack</span></code> executable installed and available on your path.  GPS
+computes, loads, and visually displays stack usage information for the
+entire project hierarchy.  You can enter stack usage information for
+unknown and unbounded calls within GPS.</p>
+<p>Once computed and loaded, GPS summarizes the stack usage information in a
+report and uses it to annotate source code with stack usage
+annotations. The largest stack usage path is loaded into the
+<span class="guilabel">Locations</span> view.  See <a class="reference internal" href="main_window.html#the-locations-view"><span class="std std-ref">The Locations View</span></a>.</p>
+<p>Specify stack usage information for undefined subprograms by adding one or
+more <code class="file docutils literal"><span class="pre">.ci</span></code> files to the set of GNATStack switches in the <cite>Switches</cite>
+attribute of the <code class="samp docutils literal"><span class="pre">Stack</span></code> package of your root project.  For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="n">P</span> <span class="ow">is</span>
+   <span class="n">package</span> <span class="n">Stack</span> <span class="ow">is</span>
+      <span class="k">for</span> <span class="n">Switches</span> <span class="n">use</span> <span class="p">(</span><span class="s2">&quot;my.ci&quot;</span><span class="p">);</span>
+   <span class="n">end</span> <span class="n">Stack</span><span class="p">;</span>
+<span class="n">end</span> <span class="n">P</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>You can also specify this information by using the <span class="guilabel">GNATStack</span>
+page of the <span class="guilabel">Switches</span> section in the
+<a class="reference internal" href="projects.html#the-project-properties-editor"><span class="std std-ref">The Project Properties Editor</span></a>.  Use <a class="reference internal" href="#id14"><span class="std std-ref">The Stack Usage Editor</span></a> to edit stack usage information for undefined
+subprograms.</p>
+<div class="section" id="the-stack-analysis-menu">
+<h3>12.8.1. The Stack Analysis Menu<a class="headerlink" href="#the-stack-analysis-menu" title="Permalink to this headline">¶</a></h3>
+<p>Access all the stack analysis operations via the
+<span class="menuselection">Analyze ‣ Stack Analysis</span> menu:</p>
+<p><em>Analyze stack usage</em></p>
+<blockquote>
+<div>Generate stack usage information for the root project.</div></blockquote>
+<p><em>Open undefined subprograms editor</em></p>
+<blockquote>
+<div>Open the undefined subprograms editor.</div></blockquote>
+<p><em>Load last stack usage</em></p>
+<blockquote>
+<div>Load (or reload) the latest stack usage information for the root project.</div></blockquote>
+<p><em>Clear stack usage data</em></p>
+<blockquote>
+<div>Remove stack analysis data loaded in GPS and any associated information such
+as annotations in source editors.</div></blockquote>
+</div>
+<div class="section" id="id12">
+<h3>12.8.2. The Contextual Menu<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>The contextual menu for a project, file, or subprogram entity (including the
+entities listed in the coverage report) has a <span class="guilabel">Stack Analysis</span>
+submenu containing the following options, depending on the type of entity
+selected:</p>
+<p><em>Show stack usage</em></p>
+<blockquote>
+<div>Show stack usage information for every subprogram in the currently
+selected file.</div></blockquote>
+<p><em>Hide stack usage</em></p>
+<blockquote>
+<div>Hide stack usage information for every subprogram in the currently
+selected file.</div></blockquote>
+<p><em>Call tree for xxx</em></p>
+<blockquote>
+<div>Open the <span class="guilabel">Call Tree</span> view for the currently selected subprogram.</div></blockquote>
+</div>
+<div class="section" id="the-stack-usage-report">
+<h3>12.8.3. The Stack Usage Report<a class="headerlink" href="#the-stack-usage-report" title="Permalink to this headline">¶</a></h3>
+<p id="id13">Once GPS has loaded the stack usage information, it displays a report
+containing a summary of the stack analysis.</p>
+</div>
+<div class="section" id="the-stack-usage-editor">
+<h3>12.8.4. The Stack Usage Editor<a class="headerlink" href="#the-stack-usage-editor" title="Permalink to this headline">¶</a></h3>
+<p id="id14">The <span class="guilabel">Stack Usage Editor</span> allows you to specify the stack usage of
+undefined subprograms so these values can be used to refine results of
+future analysis.</p>
+<img alt="_images/stack-usage-editor.jpg" id="index-11" src="_images/stack-usage-editor.jpg" />
+<p>The <span class="guilabel">Stack Usage Editor</span> contains two main areas. The notebook on
+the top allows you to select the file to edit. It displays the contents of the
+file and allows you to enter or change the stack usage of subprograms in
+it. The table in the bottom area displays all subprograms whose stack usage
+information is not specified and allows you to set them.</p>
+<p>Specify the stack usage information for subprograms by clicking in the
+stack usage column to the right of the subprogram&#8217;s name.  When you specify
+a value in the bottom table, the subprogram is moved to the top table of
+the currently selected file. When a negative value is specified, the
+subprogram is moved to the bottom table.</p>
+<p>GPS saves all changes when the stack usage editor window is closed.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cross_env.html" title="13. Working in a Cross Environment"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="vcs.html" title="11. Version Control System"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

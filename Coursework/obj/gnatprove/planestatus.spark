@@ -1,0 +1,420 @@
+{
+  "spark": [
+    {
+      "name": "planestatus",
+      "sloc": [
+        {
+          "file": "planestatus.ads",
+          "line": 5
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "planestatus.TakeOff",
+      "sloc": [
+        {
+          "file": "planestatus.ads",
+          "line": 14
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "planestatus.Flying",
+      "sloc": [
+        {
+          "file": "planestatus.ads",
+          "line": 20
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "planestatus.Landing",
+      "sloc": [
+        {
+          "file": "planestatus.ads",
+          "line": 25
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+    {
+      "file": "planestatus.ads",
+      "line": 15,
+      "col": 9,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "planestatus.TakeOff",
+        "sloc": [
+          {
+            "file": "planestatus.ads",
+            "line": 14
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "planestatus.ads",
+      "line": 26,
+      "col": 9,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "planestatus.Landing",
+        "sloc": [
+          {
+            "file": "planestatus.ads",
+            "line": 25
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "planestatus.ads",
+      "line": 21,
+      "col": 9,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "planestatus.Flying",
+        "sloc": [
+          {
+            "file": "planestatus.ads",
+            "line": 20
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    }
+  ],
+  "proof": [
+    {
+      "file": "planestatus.ads",
+      "line": 18,
+      "col": 17,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "planestatus.TakeOff",
+        "sloc": [
+          {
+            "file": "planestatus.ads",
+            "line": 14
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 26,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "planestatus.ads",
+      "check_line": 18,
+      "check_col": 17,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "planestatus.ads",
+      "line": 23,
+      "col": 17,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "planestatus.Flying",
+        "sloc": [
+          {
+            "file": "planestatus.ads",
+            "line": 20
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 26,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "planestatus.ads",
+      "check_line": 23,
+      "check_col": 17,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "planestatus.ads",
+      "line": 28,
+      "col": 17,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "planestatus.Landing",
+        "sloc": [
+          {
+            "file": "planestatus.ads",
+            "line": 25
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 33,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 33,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 27,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "planestatus.ads",
+      "check_line": 28,
+      "check_col": 17,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 3,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "planestatus.Flying",
+          "sloc": [
+            {
+              "file": "planestatus.ads",
+              "line": 20
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "planestatus.Flying",
+          "sloc": [
+            {
+              "file": "planestatus.ads",
+              "line": 20
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "planestatus.Flying",
+          "sloc": [
+            {
+              "file": "planestatus.ads",
+              "line": 20
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "planestatus.TakeOff",
+          "sloc": [
+            {
+              "file": "planestatus.ads",
+              "line": 14
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "planestatus.TakeOff",
+          "sloc": [
+            {
+              "file": "planestatus.ads",
+              "line": 14
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "planestatus.TakeOff",
+          "sloc": [
+            {
+              "file": "planestatus.ads",
+              "line": 14
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "planestatus.Landing",
+          "sloc": [
+            {
+              "file": "planestatus.ads",
+              "line": 25
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "planestatus.Landing",
+          "sloc": [
+            {
+              "file": "planestatus.ads",
+              "line": 25
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "planestatus.Landing",
+          "sloc": [
+            {
+              "file": "planestatus.ads",
+              "line": 25
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "planestatus",
+          "sloc": [
+            {
+              "file": "planestatus.ads",
+              "line": 5
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "timings": {
+    "marking": 2.00000009499490E-03,
+    "globals (basic)": 6.56299991533160E-03,
+    "globals/properties (advanced)": 1.35120004415512E-02,
+    "flow analysis": 5.86690008640289E-02,
+    "codepeer results": 1.49999996210681E-05,
+    "init_why_sections": 9.15999989956617E-04,
+    "translation of standard": 6.36200001463294E-03,
+    "translation of compilation unit": 3.58319990336895E-02,
+    "proof": 1.30952095985413E+00
+  }
+}

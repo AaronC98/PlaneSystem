@@ -1,0 +1,40 @@
+             G N A T T E S T   E X A M P L E S
+             
+In order to generate and compile test driver, make sure that 'gnattest' and
+'gprbuild' commands are in your path and AUnit is in your default project path.
+
+To generate a test driver for a number of sources you need to use gnattest
+utility. Note that in order to process given files, gnattest has to
+semantically analyze the Ada sources. Therefore, test packages can only be
+generated legal Ada units. Moreover, when a unit depends semantically upon
+units located outside the current directory, the source search path has to be
+provided when calling gnattest through a specified project file.
+
+Invocation
+----------
+
+This example illustrates the way to test a complex project that consists of
+multiple project files.
+
+In order to build the executables provided in this example you need to
+generate a test driver for the project with a special options:
+  $ gnattest -Pcomplex.gpr --tests-root=tests -r 
+
+Testing project hierarchy
+-------------------------
+
+When -r option is given to gnattest, all sources from all projects included
+in the given one are treated as sources for gnattest.
+
+Option --tests-root can also be usefull in such cases. It recreates the
+structure of all source directories for each of subprojects into given
+subdirectory of subproject's object directory. All test skeletons are put
+in corresponding directories.
+
+The generated test driver can be built and run in common manner:
+  gprbuild -Pobj/gnattest/harness/test_driver.gpr
+  obj/gnattest/harness/test_runner
+
+As you can see, test routines were generated not only for test routines
+declared in sources of the root project, but also for subprograms from
+projects included in it.

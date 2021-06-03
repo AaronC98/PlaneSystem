@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>11. Call Graph &#8212; Tutorial 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="12. Locations View" href="locations.html" />
+    <link rel="prev" title="10. Debug" href="debug.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="locations.html" title="12. Locations View"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="debug.html" title="10. Debug"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Tutorial 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="debug.html"
+                        title="previous chapter">10. Debug</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="locations.html"
+                        title="next chapter">12. Locations View</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/callgraph.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="call-graph">
+<h1>11. Call Graph<a class="headerlink" href="#call-graph" title="Permalink to this headline">¶</a></h1>
+<p>Now go back to the file <code class="file docutils literal"><span class="pre">sdc.adb</span></code>, move the mouse over the procedure
+<em>sdc</em> at line 8, select the contextual menu <cite>Browsers-&gt;Sdc calls</cite>: this will
+open a new window titled <em>Call graph browser</em>.</p>
+<p>Note that there is also a top level contextual menu (<cite>Sdc calls</cite>)
+which provides a tree view of the callers/callees.</p>
+<p>In the call graph, click on the right arrow of <cite>Process</cite> (one of the
+first items on the top). Also click on the right arrow of <cite>Error_Msg</cite>.</p>
+<p>The call graph contains a tool bar; the button on the right of this
+tool bar brings up the options menu.</p>
+<p>You may want to play with the zoom (<code class="kbd docutils literal"><span class="pre">=</span></code> and <code class="kbd docutils literal"><span class="pre">-</span></code> keys).</p>
+<p>Click on right arrow of <cite>Process</cite> (<cite>(Decl) instructions.ads:12</cite>).</p>
+<p>The items can also be moved: move e.g <cite>Msg</cite> item around.</p>
+<p>You can also recompute the layout of all the current items by using
+the <cite>Refresh layout</cite> button (the sixth button from the left on the local
+tool bar).</p>
+<p>Click on left arrow of <cite>Msg</cite>
+to display who is calling <cite>Msg</cite>. Notice that <cite>View</cite> calls <cite>Msg</cite>.</p>
+<p>Click on left arrow of <cite>View</cite>: the arrow disappears, and no
+new items are created, which means that <cite>View</cite> isn&#8217;t called by anyone,
+so we&#8217;re now going to remove this procedure.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="locations.html" title="12. Locations View"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="debug.html" title="10. Debug"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Tutorial 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

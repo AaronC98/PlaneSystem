@@ -1,0 +1,842 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>5. Statements &#8212; SPARK 2014 Reference Manual 2019</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Subprograms" href="subprograms.html" />
+    <link rel="prev" title="4. Names and Expressions" href="names-and-expressions.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="subprograms.html" title="6. Subprograms"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="names-and-expressions.html" title="4. Names and Expressions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5. Statements</a><ul>
+<li><a class="reference internal" href="#simple-and-compound-statements-sequences-of-statements">5.1. Simple and Compound Statements - Sequences of Statements</a></li>
+<li><a class="reference internal" href="#assignment-statements">5.2. Assignment Statements</a></li>
+<li><a class="reference internal" href="#if-statements">5.3. If Statements</a></li>
+<li><a class="reference internal" href="#case-statements">5.4. Case Statements</a></li>
+<li><a class="reference internal" href="#loop-statements">5.5. Loop Statements</a><ul>
+<li><a class="reference internal" href="#user-defined-iterator-types">5.5.1. User-Defined Iterator Types</a></li>
+<li><a class="reference internal" href="#generalized-loop-iteration">5.5.2. Generalized Loop Iteration</a></li>
+<li><a class="reference internal" href="#loop-invariants-variants-and-entry-values">5.5.3. Loop Invariants, Variants and Entry Values</a><ul>
+<li><a class="reference internal" href="#attribute-loop-entry">5.5.3.1. Attribute Loop_Entry</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#block-statements">5.6. Block Statements</a></li>
+<li><a class="reference internal" href="#exit-statements">5.7. Exit Statements</a></li>
+<li><a class="reference internal" href="#goto-statements">5.8. Goto Statements</a></li>
+<li><a class="reference internal" href="#proof-pragmas">5.9. Proof Pragmas</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="names-and-expressions.html"
+                        title="previous chapter">4. Names and Expressions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="subprograms.html"
+                        title="next chapter">6. Subprograms</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/statements.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="statements">
+<h1>5. Statements<a class="headerlink" href="#statements" title="Permalink to this headline">¶</a></h1>
+<p>SPARK 2014 restricts the use of some statements, and adds a number of pragmas which
+are used for verification, particularly involving loop statements.</p>
+<div class="section" id="simple-and-compound-statements-sequences-of-statements">
+<h2>5.1. Simple and Compound Statements - Sequences of Statements<a class="headerlink" href="#simple-and-compound-statements-sequences-of-statements" title="Permalink to this headline">¶</a></h2>
+<p>SPARK 2014 excludes certain kinds of statements that complicate verification.</p>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-nt-simple-and-compound-statements-01">
+<li>A <code class="docutils literal"><span class="pre">simple_statement</span></code> shall not be a <code class="docutils literal"><span class="pre">goto_statement</span></code>,
+a <code class="docutils literal"><span class="pre">requeue_statement</span></code>, an <code class="docutils literal"><span class="pre">abort_statement</span></code>, or a <code class="docutils literal"><span class="pre">code_statement</span></code>.</li>
+</ol>
+<ol class="arabic simple" id="tu-nt-simple-and-compound-statements-02" start="2">
+<li>A <code class="docutils literal"><span class="pre">compound_statement</span></code> shall not be an <code class="docutils literal"><span class="pre">accept_statement</span></code>
+or a <code class="docutils literal"><span class="pre">select_statement</span></code>.</li>
+</ol>
+<ol class="arabic simple" id="tu-nt-simple-and-compound-statements-03" start="3">
+<li>A statement is only in SPARK 2014 if all the constructs used in the
+statement are in SPARK 2014.</li>
+</ol>
+</div>
+<div class="section" id="assignment-statements">
+<span id="etu-simple-and-compound-statements"></span><h2>5.2. Assignment Statements<a class="headerlink" href="#assignment-statements" title="Permalink to this headline">¶</a></h2>
+<p>No extensions or restrictions.</p>
+</div>
+<div class="section" id="if-statements">
+<h2>5.3. If Statements<a class="headerlink" href="#if-statements" title="Permalink to this headline">¶</a></h2>
+<p>No extensions or restrictions.</p>
+</div>
+<div class="section" id="case-statements">
+<h2>5.4. Case Statements<a class="headerlink" href="#case-statements" title="Permalink to this headline">¶</a></h2>
+<p>No extensions or restrictions.</p>
+</div>
+<div class="section" id="loop-statements">
+<h2>5.5. Loop Statements<a class="headerlink" href="#loop-statements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="user-defined-iterator-types">
+<h3>5.5.1. User-Defined Iterator Types<a class="headerlink" href="#user-defined-iterator-types" title="Permalink to this headline">¶</a></h3>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-user-defined-iterator-types-01">
+<li>The generic package Ada.Iterator_Interfaces shall not be referenced.
+[In particular, Ada.Iterator_Interfaces shall not be instantiated.
+An alternative mechanism for defining iterator types is
+described in the next section.]</li>
+</ol>
+</div>
+<div class="section" id="generalized-loop-iteration">
+<h3>5.5.2. Generalized Loop Iteration<a class="headerlink" href="#generalized-loop-iteration" title="Permalink to this headline">¶</a></h3>
+<p class="centered">
+<strong><strong>Static Semantics</strong></strong></p><ol class="arabic" id="tu-generalized-loop-iteration-01">
+<li><p class="first">Ada&#8217;s generalized loop iteration is supported in SPARK 2014,
+but only in a modified form. Ada&#8217;s existing generalized
+loop iteration is defined in terms of other constructs
+which are not in SPARK 2014 (e.g., access discriminants).</p>
+</li>
+<li><p class="first">Instead, SPARK 2014 provides a new mechanism for defining
+an iterable container type (see Ada RM 5.5.1). Iteration
+over the elements of an object of such a type is then
+allowed as for any iterable container type (see Ada RM 5.5.2),
+although with dynamic semantics as described below.
+Similarly, SPARK 2014 provides a new mechanism for defining
+an iterator type (see Ada RM 5.5.1), which then allows
+generalized iterators as for any iterator type (see Ada RM 5.5.2).
+Other forms of generalized loop iteration are not in SPARK 2014.</p>
+</li>
+<li><p class="first">The type-related operational representation aspect Iterable
+may be specified for any non-array type.
+The <code class="docutils literal"><span class="pre">aspect_definition</span></code> for an Iterable aspect specification for
+a subtype of a type T shall follow the following grammar for
+<code class="docutils literal"><span class="pre">iterable_specification</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">iterable_specification</span> <span class="p">::</span><span class="o">=</span>
+  <span class="p">(</span><span class="n">First</span>       <span class="o">=&gt;</span> <span class="n">name</span><span class="p">,</span>
+   <span class="n">Next</span>        <span class="o">=&gt;</span> <span class="n">name</span><span class="p">,</span>
+   <span class="n">Has_Element</span> <span class="o">=&gt;</span> <span class="n">name</span><span class="p">[,</span>
+   <span class="n">Element</span>     <span class="o">=&gt;</span> <span class="n">name</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If the aspect Iterable is visibly specified for a type,
+the (view of the) type is defined to be an iterator type (view).
+If the aspect Iterable is visibly specified for a type and the
+specification includes an Element argument then
+the (view of the) type is defined to be an iterable container type (view).
+[The visibility of an aspect specification is defined in Ada RM 8.8].
+[Because other iterator types and iterable container types as defined in
+Ada RM 5.5.1 are necessarily not in SPARK 2014, this effectively replaces,
+rather than extends, those definitions].</p>
+</li>
+</ol>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" start="5">
+<li>Each of the four (or three, if the optional argument is omitted)
+names shall denote an explicitly declared primitive function of the
+type, referred to respectively as the First, Next, Has_Element,
+and Element functions of the type. All parameters of all
+four subprograms shall be of mode In.</li>
+<li>The First function of the type shall take a single parameter,
+which shall be of type T. The &#8220;iteration cursor subtype&#8221; of T
+is defined to be result subtype of the First function. The
+First function&#8217;s name shall be resolvable from these rules alone.
+[This means the iteration cursor subtype of T can be determined
+without examining the other subprogram names].
+The iteration cursor subtype of T shall be definite and shall not be
+limited.</li>
+<li>The Next function of the type shall have two parameters, the first
+of type T and the second of the cursor subtype of T; the result subtype
+of the function shall be the cursor subtype of T.</li>
+<li>The Has_Element function of the type shall have two parameters, the first
+of type T and the second of the cursor subtype of T; the result subtype
+of the function shall be Boolean.</li>
+<li>The Element function of the type, if one is specified, shall have two
+parameters, the first of type T and the second of the cursor subtype of T;
+the default element subtype of T is then defined to be the result subtype
+of the Element function.</li>
+<li>Reverse container element iterators are not in SPARK 2014.
+The loop parameter of a container element iterator is a constant object.</li>
+<li>A container element iterator shall only occur as the
+loop_parameter_specification of a quantified_expression[, and not as
+the iteration_scheme of a loop statement].</li>
+</ol>
+<p class="centered">
+<strong><strong>Dynamic Semantics</strong></strong></p><ol class="arabic simple" start="12">
+<li>Iteration associated with a generalized iterator or a container element
+iterator procedes as follows. An object of the iteration cursor subtype
+of T (hereafter called &#8220;the cursor&#8221;) is created
+and is initialized to the result of calling First, passing in the given
+container object. Each iteration begins by calling Has_Element, passing
+in the container and the cursor. If False is returned, execution of the
+associated loop is completed. If True is returned then iteration
+continues and the loop parameter for the next iteration of the loop
+is either (in the case of a generalized iterator) the cursor or
+(in the case of a container element iterator) the result of calling the
+Element function, passing in the container and the cursor. At the end of
+the iteration, Next is called (passing in the container and the cursor)
+and the result is assigned to the cursor.</li>
+</ol>
+</div>
+<div class="section" id="loop-invariants-variants-and-entry-values">
+<span id="loop-invariants"></span><span id="etu-generalized-loop-iteration"></span><h3>5.5.3. Loop Invariants, Variants and Entry Values<a class="headerlink" href="#loop-invariants-variants-and-entry-values" title="Permalink to this headline">¶</a></h3>
+<p>Two loop-related pragmas, Loop_Invariant and Loop_Variant, and a loop-related
+attribute, Loop_Entry are defined. The pragma Loop_Invariant is used to specify
+the essential non-varying properties of a loop. Pragma Loop_Variant is intended
+for use in ensuring termination. The Loop_Entry attribute is used to refer to
+the value that an expression had upon entry to a given loop in much the same way
+that the <code class="docutils literal"><span class="pre">Old</span></code> attribute in a subprogram postcondition can be used to refer to
+the value an expression had upon entry to the subprogram.</p>
+<p class="centered">
+<strong><strong>Syntax</strong></strong></p><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">loop_variant_parameters</span> <span class="p">::</span><span class="o">=</span> <span class="n">loop_variant_item</span> <span class="p">{,</span> <span class="n">loop_variant_item</span><span class="p">}</span>
+<span class="n">loop_variant_item</span>       <span class="p">::</span><span class="o">=</span> <span class="n">change_direction</span> <span class="o">=&gt;</span> <span class="n">discrete_expression</span>
+<span class="n">change_direction</span>        <span class="p">::</span><span class="o">=</span> <span class="n">Increases</span> <span class="o">|</span> <span class="n">Decreases</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal"><span class="pre">discrete_expression</span></code> is an <code class="docutils literal"><span class="pre">expression</span></code> of a discrete type.</p>
+<p class="centered">
+<strong><strong>Static Semantics</strong></strong></p><ol class="arabic simple" id="tu-pr-loop-invariants-variants-and-entry-values-01">
+<li>Pragma Loop_Invariant is like a pragma Assert except it also acts
+as a <em>cut point</em> in formal verification. A cut point means that a prover is
+free to forget all information about modified variables that has been
+established within the loop. Only the given Boolean expression is carried
+forward.</li>
+</ol>
+<ol class="arabic simple" id="tu-pr-loop-invariants-variants-and-entry-values-02" start="2">
+<li>Pragma Loop_Variant is used to demonstrate that a loop will terminate by
+specifying expressions that will increase or decrease as the loop is
+executed.</li>
+</ol>
+<p class="centered" id="etu-loop-invariants-variants-and-entry-values-ss">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-cbatu-loop-invariants-variants-and-entry-values-03" start="3">
+<li>Loop_Invariant is an assertion just like pragma Assert with respect
+to syntax of its Boolean actual parameter, name resolution,
+legality rules and dynamic semantics, except for extra legality
+rules given below.</li>
+</ol>
+<ol class="arabic simple" id="tu-cbatu-loop-invariants-variants-and-entry-values-04" start="4">
+<li>Loop_Variant is an assertion and has an expected actual parameter
+which is a specialization of an Ada expression. Otherwise, it has
+the same name resolution and legality rules as pragma Assert,
+except for extra legality rules given below.</li>
+</ol>
+<ol class="arabic simple" id="tu-cbatu-loop-invariants-variants-and-entry-values-05" start="5">
+<li>The following constructs are said to be <em>restricted to loops</em>:<ul>
+<li>A Loop_Invariant pragma;</li>
+<li>A Loop_Variant pragma;</li>
+<li>A <code class="docutils literal"><span class="pre">block_statement</span></code> whose <code class="docutils literal"><span class="pre">sequence_of_statements</span></code> or
+<code class="docutils literal"><span class="pre">declarative_part</span></code> immediately includes a construct which is restricted
+to loops.</li>
+</ul>
+</li>
+</ol>
+<ol class="arabic" id="tu-fe-loop-invariants-variants-and-entry-values-06" start="6">
+<li><p class="first">A construct which is restricted to loops shall occur immediately within
+either:</p>
+<ul class="simple">
+<li>the <code class="docutils literal"><span class="pre">sequence_of_statements</span></code> of a <code class="docutils literal"><span class="pre">loop_statement</span></code>; or</li>
+<li>the <code class="docutils literal"><span class="pre">sequence_of_statements</span></code> or <code class="docutils literal"><span class="pre">declarative_part</span></code> of a
+<code class="docutils literal"><span class="pre">block_statement</span></code>.</li>
+</ul>
+<p>The construct is said to apply to the innermost enclosing loop.</p>
+<p>[Roughly speaking, a Loop_Invariant or Loop_Variant pragma
+shall only occur immediately within a loop statement except that intervening
+block statements are ignored for purposes of this rule.]</p>
+</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-loop-invariants-variants-and-entry-values-07" start="7">
+<li>The expression of a <code class="docutils literal"><span class="pre">loop_variant_item</span></code> shall be of any
+discrete type.</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-loop-invariants-variants-and-entry-values-08" start="8">
+<li>Two Loop_Invariant or Loop_Variant pragmas which apply to
+the same loop shall occur in the same <code class="docutils literal"><span class="pre">sequence_of_statements</span></code>,
+separated only by [zero or more] other Loop_Invariant or
+Loop_Variant pragmas.</li>
+</ol>
+<p class="centered" id="etu-loop-invariants-variants-and-entry-values-lr">
+<strong><strong>Dynamic Semantics</strong></strong></p><ol class="arabic simple" id="tu-cbatu-loop-invariants-variants-and-entry-values-09" start="9">
+<li>Other than the above legality rules, pragma Loop_Invariant is equivalent to
+pragma <code class="docutils literal"><span class="pre">Assert</span></code>. Pragma Loop_Invariant is an assertion (as defined in Ada
+RM 11.4.2(1.1/3)) and is governed by the Loop_Invariant assertion aspect
+[and may be used in an Assertion_Policy pragma].</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-loop-invariants-variants-and-entry-values-10" start="10">
+<li>The elaboration of a Checked Loop_Variant pragma begins by evaluating the
+<code class="docutils literal"><span class="pre">discrete_expressions</span></code> in textual order. For the first elaboration of the
+pragma within a given execution of the enclosing loop statement, no further
+action is taken. For subsequent elaborations of the pragma, one or more of
+these expression results are each compared to their corresponding result from
+the previous iteration as follows: comparisons are performed in textual order
+either until unequal values are found or until values for all expressions
+have been compared. In either case, the last pair of values to be compared is
+then checked as follows: if the <code class="docutils literal"><span class="pre">change_direction</span></code> for the associated
+<code class="docutils literal"><span class="pre">loop_variant_item</span></code> is Increases (respectively, Decreases) then a check is
+performed that the expression value obtained during the current iteration is
+greater (respectively, less) than the value obtained during the preceding
+iteration. The exception Assertions.Assertion_Error is raised if this check
+fails. All comparisons and checks are performed using predefined operations.
+Pragma Loop_Variant is an assertion (as defined in Ada RM 11.4.2(1.1/3)) and
+is governed by the Loop_Variant assertion aspect [and may be used in an
+Assertion_Policy pragma].</li>
+</ol>
+<p class="centered" id="etu-loop-invariants-variants-and-entry-values-ds">
+<strong><strong>Examples</strong></strong></p><p>The following example illustrates some pragmas of this section</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Loop_Var_Loop_Invar</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Total</span> <span class="kr">is</span><span class="p"> </span><span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span><span class="p">;</span>
+   <span class="kr">subtype</span><span class="p"> </span><span class="n">T</span> <span class="kr">is</span><span class="p"> </span><span class="n">Total</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="p">;</span>
+   <span class="n">I</span> <span class="o">:</span> <span class="n">T</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="n">R</span> <span class="o">:</span> <span class="n">Total</span> <span class="o">:=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="kr">while</span><span class="p"> </span><span class="n">I</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="kr">loop</span><span class="p"></span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span> <span class="o">(</span><span class="n">R</span> <span class="o">&gt;=</span> <span class="mi">100</span> <span class="o">-</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">I</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Variant</span> <span class="o">(</span><span class="n">Increases</span> <span class="o">=&gt;</span> <span class="n">I</span><span class="p">,</span>
+                           <span class="n">Decreases</span> <span class="o">=&gt;</span> <span class="n">R</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">R</span> <span class="o">:=</span> <span class="n">R</span> <span class="o">-</span> <span class="n">I</span><span class="p">;</span>
+      <span class="n">I</span> <span class="o">:=</span> <span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="k">end loop</span><span class="p">;</span>
+<span class="k">end Loop</span><span class="n">_Var_Loop_Invar</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that in this example, the loop variant is unnecessarily complex,
+stating that <code class="docutils literal"><span class="pre">I</span></code> increases is enough to prove termination of this
+simple loop.</p>
+<div class="section" id="attribute-loop-entry">
+<span id="loop-entry"></span><h4>5.5.3.1. Attribute Loop_Entry<a class="headerlink" href="#attribute-loop-entry" title="Permalink to this headline">¶</a></h4>
+<p class="centered">
+<strong><strong>Static Semantics</strong></strong></p><ol class="arabic" id="tu-cbatu-attribute-loop-entry-01">
+<li><p class="first">For a prefix <em>X</em> that denotes an object of a nonlimited type, the
+following attribute is defined:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">X</span><span class="s1">&#39;Loop_Entry [(loop_name)]</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-attribute-loop-entry-02" start="2">
+<li>X&#8217;Loop_Entry [(loop_name)] denotes a constant object of the type of X.
+[The value of this constant is the value of X on entry to the loop that
+is denoted by <code class="docutils literal"><span class="pre">loop_name</span></code> or, if no <code class="docutils literal"><span class="pre">loop_name</span></code> is provided,
+on entry to the closest enclosing loop.]</li>
+</ol>
+<p class="centered" id="etu-attribute-loop-entry">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-cbatu-attribute-loop-entry-03" start="3">
+<li>A Loop_Entry <code class="docutils literal"><span class="pre">attribute_reference</span></code> <em>applies to</em> a <code class="docutils literal"><span class="pre">loop_statement</span></code> in the
+same way that an <code class="docutils literal"><span class="pre">exit_statement</span></code> does (see Ada RM 5.7). For every rule
+about <code class="docutils literal"><span class="pre">exit_statements</span></code> in the Name Resolution Rules and Legality Rules
+sections of Ada RM 5.7, a corresponding rule applies to Loop_Entry
+<code class="docutils literal"><span class="pre">attribute_references</span></code>.</li>
+</ol>
+<ol class="arabic" id="tu-cbatu-attribute-loop-entry-04" start="4">
+<li><p class="first">In many cases, the language rules pertaining to the Loop_Entry
+attribute match those pertaining to the Old attribute (see Ada LRM 6.1.1),
+except with &#8220;Loop_Entry&#8221; substituted for &#8220;Old&#8221;. These include:</p>
+<ul class="simple">
+<li>prefix name resolution rules (including expected type definition)</li>
+<li>nominal subtype definition</li>
+<li>accessibility level definition</li>
+<li>run-time tag-value determination (in the case where <em>X</em> is tagged)</li>
+<li>interactions with abstract types</li>
+<li>interactions with anonymous access types</li>
+<li>forbidden attribute uses in the prefix of the <code class="docutils literal"><span class="pre">attribute_reference</span></code>.</li>
+</ul>
+<p>The following rules are not included in the above list;
+corresponding rules are instead stated explicitly below:</p>
+<ul class="simple">
+<li>the requirement that an Old <code class="docutils literal"><span class="pre">attribute_reference</span></code> shall only occur in a
+postcondition expression;</li>
+<li>the rule disallowing a use of an entity declared within the
+postcondition expression;</li>
+<li>the rule that a potentially unevaluated Old <code class="docutils literal"><span class="pre">attribute_reference</span></code>
+shall statically denote an entity;</li>
+<li>the prefix of the <code class="docutils literal"><span class="pre">attribute_reference</span></code> shall not contain a Loop_Entry
+<code class="docutils literal"><span class="pre">attribute_reference.</span></code></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic" id="tu-fe-attribute-loop-entry-05" start="5">
+<li><p class="first">A <code class="docutils literal"><span class="pre">Loop_Entry</span></code> <code class="docutils literal"><span class="pre">attribute_reference</span></code> shall occur within a <code class="docutils literal"><span class="pre">Loop_Variant</span></code>
+or <code class="docutils literal"><span class="pre">Loop_Invariant</span></code> pragma, or an <code class="docutils literal"><span class="pre">Assert</span></code>, <code class="docutils literal"><span class="pre">Assume</span></code> or
+<code class="docutils literal"><span class="pre">Assert_And_Cut</span></code> pragma appearing in a position where a <code class="docutils literal"><span class="pre">Loop_Invariant</span></code>
+pragma would be allowed.</p>
+<p>[Roughly speaking, a <code class="docutils literal"><span class="pre">Loop_Entry</span></code> <code class="docutils literal"><span class="pre">attribute_reference</span></code> can occur in an
+<code class="docutils literal"><span class="pre">Assert</span></code>, <code class="docutils literal"><span class="pre">Assume</span></code> or <code class="docutils literal"><span class="pre">Assert_And_Cut</span></code> pragma immediately within a loop
+statement except that intervening block statements are ignored for purposes of
+this rule.]</p>
+</li>
+</ol>
+<ol class="arabic" id="tu-fe-attribute-loop-entry-06" start="6">
+<li><p class="first">The prefix of a Loop_Entry <code class="docutils literal"><span class="pre">attribute_reference</span></code> shall not contain a use
+of an entity declared within the <code class="docutils literal"><span class="pre">loop_statement</span></code> but not within the prefix
+itself.</p>
+<p>[This rule is to allow the use of I in the following example:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">loop</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span>
+     <span class="o">((</span><span class="n">Var</span> <span class="o">&gt;</span> <span class="n">Some_Function</span> <span class="o">(</span><span class="n">Param</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="n">T</span> <span class="o">=&gt;</span> <span class="n">F</span> <span class="o">(</span><span class="n">I</span><span class="o">))))</span><span class="na">&#39;Loop_Entry</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In this example the value of the inequality &#8220;&gt;&#8221; that would have been
+evaluated on entry to the loop is obtained even if the value of Var has since
+changed].</p>
+</li>
+</ol>
+<ol class="arabic simple" id="tu-fe-attribute-loop-entry-07" start="7">
+<li>The prefix of a Loop_Entry <code class="docutils literal"><span class="pre">attribute_reference</span></code> shall statically denote
+an entity, or shall denote an <code class="docutils literal"><span class="pre">object_renaming_declaration</span></code>, if<ul>
+<li>the <code class="docutils literal"><span class="pre">attribute_reference</span></code> is potentially unevaluated; or</li>
+<li>the <code class="docutils literal"><span class="pre">attribute_reference</span></code> does not apply to the innermost
+enclosing <code class="docutils literal"><span class="pre">loop_statement</span></code>.</li>
+</ul>
+</li>
+</ol>
+<blockquote id="etu-attribute-loop-entry-lr">
+<div><p>[This rule follows the corresponding Ada RM rule for &#8216;Old.
+The prefix of an Old attribute_reference that is potentially unevaluated
+shall statically denote an entity and have the same rationale. If the
+following was allowed:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">P</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">String</span><span class="p">;</span> <span class="n">Idx</span> <span class="o">:</span> <span class="n">Positive</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Outer</span> <span class="o">:</span>
+      <span class="kr">loop</span><span class="p"></span>
+         <span class="kr">if</span><span class="p"> </span><span class="n">Idx</span> <span class="kr">in</span><span class="p"> </span><span class="n">X</span><span class="na">&#39;Range</span> <span class="kr">then</span><span class="p"></span>
+            <span class="kr">loop</span><span class="p"></span>
+               <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span> <span class="o">(</span><span class="n">X</span><span class="o">(</span><span class="n">Idx</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">X</span><span class="o">(</span><span class="n">Idx</span><span class="o">)</span><span class="na">&#39;Loop_Entry</span><span class="o">(</span><span class="n">Outer</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>this would introduce an exception in the case where Idx is not in X&#8217;Range.]</p>
+</div></blockquote>
+<p class="centered">
+<strong><strong>Dynamic Semantics</strong></strong></p><ol class="arabic simple" id="tu-cbatu-attribute-loop-entry-08" start="8">
+<li>For each X&#8217;Loop_Entry other than one occurring within an Ignored
+assertion expression, a constant is implicitly declared at the beginning of
+the associated loop statement. The constant is of the type of X and is
+initialized to the result of evaluating X (as an expression) at the point
+of the constant declaration. The value of X&#8217;Loop_Entry is the value of this
+constant; the type of X&#8217;Loop_Entry is the type of X. These implicit
+constant declarations occur in an arbitrary order.</li>
+</ol>
+<ol class="arabic" id="tu-cbatu-attribute-loop-entry-09" start="9">
+<li><p class="first">The previous paragraph notwithstanding, the implicit constant declaration
+is not elaborated if the <code class="docutils literal"><span class="pre">loop_statement</span></code> has an <code class="docutils literal"><span class="pre">iteration_scheme</span></code> whose
+evaluation yields the result that the <code class="docutils literal"><span class="pre">sequence_of_statements</span></code> of the
+<code class="docutils literal"><span class="pre">loop_statement</span></code> will not be executed (loosely speaking, if the loop
+completes after zero iterations).</p>
+<p>[Note: This means that the constant is not elaborated unless the
+loop body will execute (or at least begin execution) at least once.
+For example, a while loop</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">while</span><span class="p"> </span><span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span> <span class="kr">do</span><span class="p"></span>
+   <span class="n">sequence_of_statements</span><span class="p">;</span> <span class="c">-- contains Loop_Entry uses</span>
+<span class="k">end loop</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>may be thought of as being transformed into</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">if</span><span class="p"> </span><span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span> <span class="kr">then</span><span class="p"></span>
+   <span class="kr">declare</span><span class="p"></span>
+   <span class="o">...</span> <span class="n">implicitly</span> <span class="n">declared</span> <span class="n">Loop_Entry</span> <span class="n">constants</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">loop</span><span class="p"></span>
+         <span class="n">sequence_of_statements</span><span class="p">;</span>
+         <span class="kr">exit</span><span class="p"> </span><span class="kr">when</span><span class="p"> </span><span class="kr">not</span><span class="p"> </span><span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+   <span class="kr">end</span><span class="p">;</span>
+<span class="k">end if</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The rule also prevents the following example from raising Constraint_Error:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span> <span class="kr">declare</span><span class="p"></span>
+    <span class="k">procedure </span><span class="nf">P</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">String</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+    <span class="kr">begin</span><span class="p"></span>
+       <span class="kr">for</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="n">X</span><span class="na">&#39;Range</span> <span class="kr">loop</span><span class="p"></span>
+          <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span> <span class="o">(</span><span class="n">X</span><span class="o">(</span><span class="n">X</span><span class="na">&#39;First</span><span class="o">)</span><span class="na">&#39;Loop_Entry</span> <span class="o">&gt;=</span> <span class="n">X</span><span class="o">(</span><span class="n">I</span><span class="o">))</span><span class="p">;</span>
+          <span class="n">X</span> <span class="o">:=</span> <span class="n">F</span><span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span> <span class="c">-- modify X</span>
+       <span class="k">end loop</span><span class="p">;</span>
+    <span class="k">end </span><span class="nf">P</span><span class="p">;</span>
+    <span class="n">Length_Is_Zero</span> <span class="o">:</span> <span class="n">String</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+ <span class="kr">begin</span><span class="p"></span>
+    <span class="n">P</span> <span class="o">(</span><span class="n">Length_Is_Zero</span><span class="o">)</span><span class="p">;</span>
+<span class="kr">end</span><span class="p">;</span> <span class="c">-- ...]</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p class="centered" id="etu-attribute-loop-entry-ds">
+<strong><strong>Examples</strong></strong></p><div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="kr">type</span><span class="p"> </span><span class="n">Array_Of_Int</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Reverse_Order</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Array_Of_Int</span><span class="o">)</span>
+     <span class="kr">with</span><span class="p"> </span><span class="n">Post</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span> <span class="n">A</span> <span class="o">(</span><span class="n">J</span><span class="o">)</span> <span class="o">=</span> <span class="n">A</span><span class="na">&#39;Old</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="n">J</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="kr">and</span><span class="p"></span>
+                     <span class="n">A</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="n">J</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">=</span> <span class="n">A</span><span class="na">&#39;Old</span> <span class="o">(</span><span class="n">J</span><span class="o">))</span>
+   <span class="kr">is</span><span class="p"></span>
+      <span class="n">Temp</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">for</span><span class="p"> </span><span class="n">Index</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;First</span> <span class="o">..</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;Last</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="n">Temp</span> <span class="o">:=</span> <span class="n">A</span> <span class="o">(</span><span class="n">Index</span><span class="o">)</span><span class="p">;</span>
+         <span class="n">A</span> <span class="o">(</span><span class="n">Index</span><span class="o">)</span> <span class="o">:=</span> <span class="n">A</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="n">Index</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span><span class="p">;</span>
+         <span class="n">A</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="n">Index</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">:=</span> <span class="n">Temp</span><span class="p">;</span>
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span>
+           <span class="o">(</span><span class="c">-- Elements that have been visited so far are swapped</span>
+            <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;First</span> <span class="o">..</span> <span class="n">Index</span> <span class="o">=&gt;</span>
+               <span class="n">A</span> <span class="o">(</span><span class="n">J</span><span class="o">)</span> <span class="o">=</span> <span class="n">A</span><span class="na">&#39;Loop_Entry</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="n">J</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="kr">and</span><span class="p"></span>
+               <span class="n">A</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="n">J</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">=</span> <span class="n">A</span><span class="na">&#39;Loop_Entry</span> <span class="o">(</span><span class="n">J</span><span class="o">))</span>
+              <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"></span>
+              <span class="c">-- Elements not yet visited are unchanged</span>
+              <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">Index</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">..</span> <span class="n">A</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="n">Index</span> <span class="o">=&gt;</span>
+                 <span class="n">A</span> <span class="o">(</span><span class="n">J</span><span class="o">)</span> <span class="o">=</span> <span class="n">A</span><span class="na">&#39;Loop_Entry</span> <span class="o">(</span><span class="n">J</span><span class="o">)))</span><span class="p">;</span>
+
+      <span class="k">end loop</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Reverse_Order</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+<div class="section" id="block-statements">
+<h2>5.6. Block Statements<a class="headerlink" href="#block-statements" title="Permalink to this headline">¶</a></h2>
+<p>No extensions or restrictions.</p>
+</div>
+<div class="section" id="exit-statements">
+<h2>5.7. Exit Statements<a class="headerlink" href="#exit-statements" title="Permalink to this headline">¶</a></h2>
+<p>No extensions or restrictions.</p>
+</div>
+<div class="section" id="goto-statements">
+<h2>5.8. Goto Statements<a class="headerlink" href="#goto-statements" title="Permalink to this headline">¶</a></h2>
+<p class="centered">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-goto-statements-01">
+<li>The goto statement is not permitted.</li>
+</ol>
+</div>
+<div class="section" id="proof-pragmas">
+<span id="pragma-assume"></span><span id="etu-goto-statements"></span><h2>5.9. Proof Pragmas<a class="headerlink" href="#proof-pragmas" title="Permalink to this headline">¶</a></h2>
+<p>This section discusses the pragmas Assert_And_Cut and Assume.</p>
+<p>Two SPARK 2014 pragmas are defined, Assert_And_Cut and Assume. Each is an
+assertion and has a single Boolean parameter (an assertion expression)
+and may be used wherever pragma Assert is allowed.</p>
+<p>Assert_And_Cut may be used within a subprogram when the given
+expression sums up all the work done so far in the subprogram, so that
+the rest of the subprogram can be verified (informally or formally)
+using only the entry preconditions, and the expression in this
+pragma. This allows dividing up a subprogram into sections for the
+purposes of testing or formal verification. The pragma also serves as
+useful documentation.</p>
+<p>A Boolean expression which is an actual parameter of pragma Assume can
+be assumed to be True for the remainder of the subprogram. If the
+Assertion_Policy is Check for pragma Assume and the Boolean expression
+does not evaluate to True, the exception Assertions.Assertion_Error
+will be raised.  However, in proof, no verification of the expression
+is performed and in general it cannot. It has to be used with caution
+and is used to state axioms.</p>
+<p class="centered">
+<strong><strong>Static Semantics</strong></strong></p><ol class="arabic simple" id="tu-pr-proof-pragmas-01">
+<li>Pragma Assert_And_Cut is an assertion the same as a pragma Assert
+except it also acts as a cut point in formal verification. The cut
+point means that a prover is free to forget all information about
+modified variables that has been established from the statement
+list before the cut point. Only the given Boolean expression is
+carried forward.</li>
+</ol>
+<ol class="arabic simple" id="tu-pr-proof-pragmas-02" start="2">
+<li>Pragma Assume is an assertion the same as a pragma Assert except
+that there is no verification condition to prove the truth of the Boolean
+expression that is its actual parameter. [Pragma Assume indicates
+to proof tools that the expression can be assumed to be True.]</li>
+</ol>
+<p class="centered" id="etu-proof-pragmas-ss">
+<strong><strong>Legality Rules</strong></strong></p><ol class="arabic simple" id="tu-cbatu-proof-pragmas-03" start="3">
+<li>Pragmas Assert_And_Cut and Assume have the same syntax for their Boolean
+actual parameter, name resolution rules and dynamic semantics as pragma
+Assert.</li>
+</ol>
+<p class="centered" id="assertcutinv-proof-semantics">
+<span id="etu-proof-pragmas-lr"></span><strong><strong>Verification Rules</strong></strong></p><ol class="arabic simple" id="tu-cbatu-proof-pragmas-04" start="4">
+<li>The verification rules for pragma Assume are significantly different to those
+of pragma Assert. [It would be difficult to overstate the importance of the
+difference.] Even though the dynamic semantics of pragma Assume and pragma
+Assert are identical, pragma Assume does not introduce a corresponding verification
+condition. Instead the prover is given permission to assume the truth of the
+assertion, even though this has not been proven. [A single incorrect Assume
+pragma can invalidate an arbitrarily large number of proofs - the
+responsibility for ensuring correctness rests entirely upon the user.]</li>
+</ol>
+<p class="centered" id="etu-proof-pragmas">
+<strong><strong>Examples</strong></strong></p><div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">F</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="n">String</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span><span class="p">,</span>
+       <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">F</span><span class="na">&#39;Result</span> <span class="kr">in</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">999</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">subtype</span><span class="p"> </span><span class="n">Control_Chars</span> <span class="kr">is</span><span class="p"> </span><span class="n">Character</span> <span class="kr">range</span><span class="p"> </span><span class="sc">&#39;0&#39;</span> <span class="o">..</span> <span class="sc">&#39;3&#39;</span><span class="p">;</span>
+   <span class="n">Control_Char</span> <span class="o">:</span> <span class="n">Control_Chars</span> <span class="p">;</span>
+   <span class="n">Valid</span> <span class="o">:</span> <span class="n">Boolean</span><span class="p">;</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="kr">if</span><span class="p"> </span><span class="n">S</span><span class="na">&#39;Length</span> <span class="o">&gt;=</span> <span class="mi">6</span> <span class="kr">then</span><span class="p"></span>
+      <span class="n">Valid</span> <span class="o">:=</span> <span class="n">S</span> <span class="o">(</span><span class="n">S</span><span class="na">&#39;First</span> <span class="o">..</span> <span class="n">S</span><span class="na">&#39;First</span> <span class="o">+</span> <span class="mi">3</span><span class="o">)</span> <span class="o">=</span> <span class="s">&quot;ABCD&quot;</span><span class="p">;</span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">Valid</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">S</span> <span class="o">(</span><span class="n">S</span><span class="na">&#39;First</span> <span class="o">+</span> <span class="mi">4</span><span class="o">)</span> <span class="kr">in</span><span class="p"> </span><span class="n">Control_Chars</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">Valid</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+         <span class="n">Control_Char</span> <span class="o">:=</span> <span class="n">S</span> <span class="o">(</span><span class="n">S</span><span class="na">&#39;First</span> <span class="o">+</span> <span class="mi">4</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+          <span class="n">Valid</span> <span class="o">:=</span> <span class="kc">False</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="kr">else</span><span class="p"></span>
+      <span class="n">Valid</span> <span class="o">:=</span> <span class="kc">False</span><span class="p">;</span>
+   <span class="k">end if</span><span class="p">;</span>
+
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert_And_Cut</span> <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Valid</span> <span class="kr">then</span><span class="p"> </span><span class="n">Control_Char</span> <span class="kr">in</span><span class="p"> </span><span class="n">Control_Chars</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="c">-- A conditional flow error will be reported when it used in the following</span>
+   <span class="c">-- case as statement flow analysis techniques cannot determine that</span>
+   <span class="c">-- Control_Char is initialized when Valid is True.</span>
+   <span class="c">-- The Assert_And_Cut verifies that Control_Char is initialized if Valid</span>
+   <span class="c">-- is True and the conditional flow which raised the error cannot occur.</span>
+   <span class="c">-- The complicated decision process and the details of the string S are</span>
+   <span class="c">-- not required to prove the postcondition and so the Assert_And_Cut</span>
+   <span class="c">-- cuts out all of the unnecessary complex information gathered from this</span>
+   <span class="c">-- process from the proof tool and the eye of the human viewer.</span>
+
+   <span class="kr">if</span><span class="p"> </span><span class="n">Valid</span> <span class="kr">then</span><span class="p"></span>
+      <span class="kr">case</span><span class="p"> </span><span class="n">Control_Char</span> <span class="kr">is</span><span class="p"></span>
+         <span class="kr">when</span><span class="p"> </span><span class="sc">&#39;0&#39;</span> <span class="o">=&gt;</span> <span class="kr">return</span><span class="p"> </span><span class="mi">0</span><span class="p">;</span>
+         <span class="kr">when</span><span class="p"> </span><span class="sc">&#39;1&#39;</span> <span class="o">=&gt;</span> <span class="kr">return</span><span class="p"> </span><span class="mi">7</span><span class="p">;</span>
+         <span class="kr">when</span><span class="p"> </span><span class="sc">&#39;2&#39;</span> <span class="o">=&gt;</span> <span class="kr">return</span><span class="p"> </span><span class="mi">42</span><span class="p">;</span>
+         <span class="kr">when</span><span class="p"> </span><span class="sc">&#39;3&#39;</span> <span class="o">=&gt;</span> <span class="kr">return</span><span class="p"> </span><span class="mi">99</span><span class="p">;</span>
+      <span class="k">end </span><span class="nf">case</span><span class="p">;</span>
+   <span class="kr">else</span><span class="p"></span>
+      <span class="kr">return</span><span class="p"> </span><span class="mi">999</span><span class="p">;</span>
+   <span class="k">end if</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">F</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">-- The up-time timer is updated once a second</span>
+<span class="k">package </span><span class="nf">Up_Timer</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Time_Register</span> <span class="kr">is</span><span class="p"> </span><span class="kr">limited</span><span class="p"> </span><span class="kr">private</span><span class="p">;</span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Times</span> <span class="kr">is</span><span class="p"> </span><span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="mi">2</span><span class="o">**</span><span class="mi">63</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Inc</span> <span class="o">(</span><span class="n">Up_Time</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Time_Register</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Get</span> <span class="o">(</span><span class="n">Up_Time</span> <span class="o">:</span> <span class="n">Time_Register</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Times</span><span class="p">;</span>
+
+<span class="kr">private</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Time_Register</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">Time</span> <span class="o">:</span> <span class="n">Times</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Up_Timer</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Up_Timer</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Inc</span> <span class="o">(</span><span class="n">Up_Time</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Time_Register</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="c">-- The up timer is incremented every second.</span>
+      <span class="c">-- The system procedures require that the system is rebooted</span>
+      <span class="c">-- at least once every three years - as the Timer_Reg is a 64 bit</span>
+      <span class="c">-- integer it cannot reach Times&#39;Last before a system reboot.</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Assume</span> <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Times</span><span class="na">&#39;Last</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">63</span> <span class="o">-</span> <span class="mi">1</span> <span class="kr">then</span><span class="p"> </span><span class="n">Up_Time.Time</span> <span class="o">&lt;</span> <span class="n">Times</span><span class="na">&#39;Last</span><span class="o">)</span><span class="p">;</span>
+
+      <span class="c">-- Without the previous assume statement it would not be possible</span>
+      <span class="c">-- to prove that the following addition would not overflow.</span>
+      <span class="n">Up_Time.Time</span> <span class="o">:=</span> <span class="n">Up_Time.Time</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Inc</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Get</span> <span class="o">(</span><span class="n">Up_Time</span> <span class="o">:</span> <span class="n">Time_Register</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Times</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Up_Time.Time</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Up_Timer</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="subprograms.html" title="6. Subprograms"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="names-and-expressions.html" title="4. Names and Expressions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

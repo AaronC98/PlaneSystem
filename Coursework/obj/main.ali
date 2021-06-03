@@ -1,0 +1,194 @@
+V "GNAT Lib v2019"
+M P W=b
+A -gnatA
+A -mtune=core2
+A -mmacosx-version-min=10.16.0
+A -fPIC
+P ZX
+
+RN
+RV NO_ABORT_STATEMENTS
+RV NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_FIXED_POINT
+RV NO_IO
+RV NO_RELATIVE_DELAY
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_TASK_HIERARCHY
+RV NO_TASKING
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+RV MAX_TASKS=1+
+
+U main%b		main.adb		a4ea4771 NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
+Z ada.real_time%s	a-reatim.adb		a-reatim.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W commercialplanesystem%s  commercialplanesystem.adb  commercialplanesystem.ali
+W dashboard%s		dashboard.ads		dashboard.ali
+W door%s		door.adb		door.ali
+W engine%s		engine.adb		engine.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W planestatus%s		planestatus.adb		planestatus.ali
+Z system%s		system.ads		system.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.img_enum_new%s	s-imenne.adb		s-imenne.ali
+Z system.img_int%s	s-imgint.adb		s-imgint.ali
+Z system.parameters%s	s-parame.adb		s-parame.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.task_info%s	s-tasinf.adb		s-tasinf.ali
+Z system.tasking%s	s-taskin.adb		s-taskin.ali
+Z system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+W warningsystem%s	warningsystem.adb	warningsystem.ali
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-calend.ads		20190518041255 474d9720 ada.calendar%s
+D a-caldel.ads		20190518041254 9f20b83d ada.calendar.delays%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-reatim.ads		20190518041256 0240fc73 ada.real_time%s
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D commercialplanesystem.ads  20210507092116 f1ee9364 commercialplanesystem%s
+D dashboard.ads		20210506215837 e00f5082 dashboard%s
+D door.ads		20210506210426 5e466e85 door%s
+D engine.ads		20210506202945 0d8ec7e6 engine%s
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-c.ads		20190518041254 5421119b interfaces.c%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D main.adb		20210507094800 1d33e898 main%b
+D planestatus.ads	20210507081904 858f645a planestatus%s
+D system.ads		20190518041255 085b6ffb system%s
+D s-atacco.ads		20190518041256 4c36d12f system.address_to_access_conversions%s
+D s-conca2.ads		20190518041255 02a0d7d0 system.concat_2%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-imenne.ads		20190518041255 614c06c0 system.img_enum_new%s
+D s-imgint.ads		20190518041254 02dbe0c2 system.img_int%s
+D s-multip.ads		20190518041254 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20190518124528 e40aaf2d system.os_constants%s
+D s-osinte.ads		20190518041257 01b3ad47 system.os_interface%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stausa.ads		20190518041255 017a0a05 system.stack_usage%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-tasinf.ads		20190518041256 801abd01 system.task_info%s
+D s-taspri.ads		20190518041256 f40ac08d system.task_primitives%s
+D s-taprop.ads		20190518041256 1dd2e1b6 system.task_primitives.operations%s
+D s-taskin.ads		20190518041257 b9d612e2 system.tasking%s
+D s-tassta.ads		20190518041256 cca55c94 system.tasking.stages%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+D warningsystem.ads	20210507090515 d08b745b warningsystem%s
+G a e
+G c Z b b [main standard 8 11 none]
+G r c none [main standard 8 11 none] [addpassenger commercialplanesystem 69 16 none]
+G r c none [main standard 8 11 none] [closelockdoor door 17 14 none]
+G r c none [main standard 8 11 none] [turnon engine 9 14 none]
+G r c none [main standard 8 11 none] [opendoor door 9 14 none]
+G r c none [main standard 8 11 none] [closedoor door 13 14 none]
+G r c none [main standard 8 11 none] [takeoff planestatus 14 14 none]
+G r c none [main standard 8 11 none] [adjustfuelusage commercialplanesystem 74 16 none]
+G r c none [main standard 8 11 none] [fuelusage commercialplanesystem 39 17 none]
+G r c none [main standard 8 11 none] [fuelwarning warningsystem 13 15 none]
+G r c none [main standard 8 11 none] [decreasealtitude commercialplanesystem 64 17 none]
+G r c none [main standard 8 11 none] [decreaseairspeed commercialplanesystem 54 18 none]
+G r c none [main standard 8 11 none] [increaseairspeed commercialplanesystem 49 17 none]
+G r c none [main standard 8 11 none] [increasealtitude commercialplanesystem 59 18 none]
+G r c none [main standard 8 11 none] [flying planestatus 20 14 none]
+G r c none [main standard 8 11 none] [speedwarning warningsystem 18 15 none]
+G r c none [main standard 8 11 none] [altitudewarning warningsystem 23 17 none]
+G r c none [main standard 8 11 none] [landing planestatus 25 15 none]
+G r c none [main standard 8 11 none] [intow commercialplanesystem 44 17 none]
+X 1 ada.ads
+16K9*Ada 20e8 18|5r6 5r23
+X 9 a-textio.ads
+57K13*Text_IO 727e16 18|5w10 5r27
+481U14*Get_Line 18|24s13 74s10
+508U14*Put_Line 18|23s13 27s19 29s19 31s19 33s19 35s19 37s16 41s16 57s13
+. 58s13 61s16 73s10 98s10 108s13 113s10 118s13
+X 11 commercialplanesystem.ads
+6K9*CommercialPlaneSystem 81e26 18|1w6 1r33
+8n25*Lowered{8E9} 18|132r44
+9n29*TakeOff{9E9} 18|53r37
+9n38*Landing{9E9} 18|80r52 128r34
+9n47*Flying{9E9} 18|72r37 92r37 102r34 112r37 117r37
+9n55*Idle{9E9} 18|22r37
+10I9*Passengers<short_short_integer>
+19r7*dashboard_system{12|7R9} 18|57r52 58r50 60r33 60r84 72r64 83m71 84m74
+. 92r64 98r54 99m70 102r61 108r72 109m70 112r64 117r64 117r115 132r72 132r120
+20e7*landGear{8E9} 18|132r33
+21r7*cockpit{13|5R9} 18|28m58 40r84
+22r7*extDoor{13|5R9} 18|29r71 30m58 31r63 34m53 36m54 40r33
+23r7*ignition{14|5R9} 18|32m51 33r62 40r135
+24e7*mode{9E9} 18|22r30 53r30 72r30 80m44 92r30 102r27 112r30 117r30 128r27
+25i7*num_passengers{10I9} 18|27r76 93r32 103r32
+26r7*warning_lights{46|7R9} 18|83m39 84m42 99m38 109m38
+29r4*commercialPlane{18R9} 18|22r14 27r60 28m42 28r42 29r55 30m42 30r42 31r47
+. 32m35 32r35 33r46 34m37 34r37 36m38 36r38 40r17 40r68 40r119 53r14 57r36
+. 58r34 60r17 60r68 72r14 72r48 80m28 83m23 83r23 83m55 83r55 84m26 84r26
+. 84m58 84r58 92r14 92r48 93r16 98r38 99m22 99r22 99m54 99r54 102r11 102r45
+. 103r16 108r56 109m22 109r22 109m54 109r54 112r14 112r48 117r14 117r48 117r99
+. 128r11 132r17 132r56 132r104
+39U17*fuelUsage 18|94s16 104s16
+44U17*InTow 18|134s13
+49U17*increaseAirspeed 18|54s13 55s13 76s28
+54U18*decreaseAirspeed 18|77s28 115s10 129s10
+59U18*increaseAltitude 18|56s13 78s28
+64U17*decreaseAltitude 18|79s28 114s10 130s10
+69U16*addPassenger 18|26s28
+74U16*adjustFuelUsage 18|96s16 106s16
+X 12 dashboard.ads
+1K9*Dashboard 13e14 18|6w6 6r21
+3I9*Fuel<short_short_integer>
+4I9*Airspeed<short_integer>
+5I9*Altitude<short_integer>
+8i7*fuel_tank{3I9} 18|72r81 92r81 98r71 102r78 108r89 112r81 117r81
+9i7*velocity{4I9} 18|58r67 60r101 132r137
+10i7*height{5I9} 18|57r69 60r50 117r132 132r89
+X 13 door.ads
+1K9*door 21e9 18|3w6 3r16
+3n38*ClosedAndLocked{3E9} 18|40r48 40r99
+6e7*door{3E9} 18|29r79 31r71 40r41 40r92
+9U14*OpenDoor 18|34s28
+13U14*CloseDoor 18|36s28
+17U14*CloseLockDoor 18|28s28 30s28
+X 14 engine.ads
+1K9*engine 17e11 18|2w6 2r18
+3n27*On{3E9} 18|40r153
+6e7*status{3E9} 18|33r71 40r144
+9U14*TurnOn 18|32s28
+X 18 main.adb
+8U11*Main 8b11 144l5 144t9
+10a4 Str{string} 24m22 25r18 74m19 75r18
+11i4 Last{natural} 24m27 74m24
+13t9 setUp 19b14 48l8 48t13 81r54 119r36
+14t9 fuelWarningSystem 89b11 119r93 123l5 123t22
+15t9 takingOff 38r37 50b14 67l8 67t17 81r37 119r19
+16t9 getFlightCommand 38r54 69b14 87l5 87t21 119r69
+17t9 landingPlane 38r78 81r67 119r49 125b11 139l5 139t17
+X 19 planestatus.ads
+5K9*planestatus 18|4w6 4r23 19|31e16
+14U14*TakeOff 18|42s16
+20U14*Flying 18|62s16
+25U15*Landing 18|131s10
+X 35 s-stausa.ads
+203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
+268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
+X 46 warningsystem.ads
+4K9*WarningSystem 18|7w6 7r25 46|28e18
+13U15*fuelWarning 18|99s10 109s10
+18U15*speedWarning 18|83s10
+23U17*altitudeWarning 18|84s10
+

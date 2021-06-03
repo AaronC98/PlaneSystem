@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>17. Glossary &#8212; SPARK 2014 Reference Manual 2019</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SPARK 2005 to SPARK 2014 Mapping Specification" href="mapping-spec.html" />
+    <link rel="prev" title="16. Language-Defined Pragmas (Annex L)" href="language-defined-pragmas.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="mapping-spec.html" title="SPARK 2005 to SPARK 2014 Mapping Specification"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="language-defined-pragmas.html" title="16. Language-Defined Pragmas (Annex L)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="language-defined-pragmas.html"
+                        title="previous chapter">16. Language-Defined Pragmas (Annex L)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mapping-spec.html"
+                        title="next chapter">SPARK 2005 to SPARK 2014 Mapping Specification</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/glossary.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="glossary">
+<span id="id1"></span><h1>17. Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
+<p>The SPARK 2014 Reference Manual uses a number of technical terms to
+describe its features and rules.  Some of these terms are well known
+others are less well known or have been defined within this document.
+In the glossary given here the less well known terms and those defined
+by SPARK 2014 are listed with a brief explanation to their meaning.</p>
+<ul class="simple">
+<li>Data-Flow analysis is the process of collecting information about
+the way the variables are used and defined in the program. In
+particular, in SPARK 2014 it is used to detect the use of uninitialized
+variables and state abstractions.</li>
+<li>Executable semantics</li>
+<li>Flow analysis is a term used to cover both data-flow and
+information-flow analysis.</li>
+<li>Formal Analysis is a term used to cover flow analysis and formal
+verification.</li>
+<li>Formal Verification, in the context of hardware and software
+systems, is the act of proving or disproving the correctness of
+intended algorithms underlying a system with respect to a certain
+formal specification or property, using formal methods of
+mathematics.  In SPARK 2014 this entails proving the implementation of
+a subprogram against its specification given its precondition using
+an automatic theorem prover (which may be part of the SPARK 2014
+toolset.  The specification may be given by a postcondition or
+assertions or may be implicit from the definition of Ada when
+proving absence of run-time exceptions (robustness property).</li>
+<li>Formal verification of functional properties is the proof that an
+implementation meets its specification given as an assertion
+expression such as a postcondition.</li>
+<li>Formal verification of robustness properties, in Ada terminology, is
+the proof that certain predefined checks such as the ones that raise
+Constraint_Error will never fail at run-time.</li>
+<li>Information-Flow analysis in an information theoretical context is
+the transfer of information from a variable x to a variable y in a
+given process, that is x depends on y. Not all flows may be
+desirable. For example, a system shouldn&#8217;t leak any secret
+(partially or not) to public observers.  In SPARK 2014 information-flow
+analysi is used to detect ineffective statements and check that the
+implementation of a subprogram satisfies its Global aspect and
+Depends aspect (if it is present).  It may also be used for security
+analysis in SPARK 2014.</li>
+<li>Refinement</li>
+<li>State abstraction</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="mapping-spec.html" title="SPARK 2005 to SPARK 2014 Mapping Specification"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="language-defined-pragmas.html" title="16. Language-Defined Pragmas (Annex L)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SPARK 2014 Reference Manual 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>5.7. Overflow Modes &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5.8. Object Oriented Programming and Liskov Substitution Principle" href="object_oriented_programming.html" />
+    <link rel="prev" title="5.6. Assertion Pragmas" href="assertion_pragmas.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="object_oriented_programming.html" title="5.8. Object Oriented Programming and Liskov Substitution Principle"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="assertion_pragmas.html" title="5.6. Assertion Pragmas"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../spark_2014.html" accesskey="U">5. Overview of SPARK Language</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="assertion_pragmas.html"
+                        title="previous chapter">5.6. Assertion Pragmas</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="object_oriented_programming.html"
+                        title="next chapter">5.8. Object Oriented Programming and Liskov Substitution Principle</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/overflow_modes.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="overflow-modes">
+<span id="id1"></span><h1>5.7. Overflow Modes<a class="headerlink" href="#overflow-modes" title="Permalink to this headline">¶</a></h1>
+<p>Annotations such as preconditions, postconditions, assertions, loop invariants,
+are analyzed by GNATprove with the exact same meaning that they have during
+execution. In particular, evaluating the expressions in an annotation may raise
+a run-time error, in which case GNATprove will attempt to prove that this
+error cannot occur, and report a warning otherwise.</p>
+<p>Integer overflows are a kind of run-time error that occurs when the result of
+an arithmetic computation does not fit in the bounds of the machine type used
+to hold the result. In some cases, it is convenient to express properties in
+annotations as they would be expressed in mathematics, where quantities are
+unbounded, for example:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="k">function </span><span class="nf">Add</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">with</span><span class="p"></span>
+   <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="p">,</span>
+   <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Add</span><span class="na">&#39;Result</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The precondition of <code class="docutils literal"><span class="pre">Add</span></code> states that the result of adding its two parameters
+should fit in type <code class="docutils literal"><span class="pre">Integer</span></code>. In the default mode, evaluating this expression
+will fail an overflow check, because the result of <code class="docutils literal"><span class="pre">X</span> <span class="pre">+</span> <span class="pre">Y</span></code> is stored in a
+temporary of type <code class="docutils literal"><span class="pre">Integer</span></code>. If the compilation switch <code class="docutils literal"><span class="pre">-gnato13</span></code> is used,
+then annotations are compiled specially, so that arithmetic operations use
+unbounded intermediate results. In this mode, GNATprove does not generate a
+check for the addition of <code class="docutils literal"><span class="pre">X</span></code> and <code class="docutils literal"><span class="pre">Y</span></code> in the precondition of <code class="docutils literal"><span class="pre">Add</span></code>, as
+there is no possible overflow here.</p>
+<p>There are three overflow modes:</p>
+<ul class="simple">
+<li>Use base type for intermediate operations (STRICT): in this mode, all
+intermediate results for predefined arithmetic operators are computed using
+the base type, and the result must be in range of the base type.</li>
+<li>Most intermediate overflows avoided (MINIMIZED): in this mode, the compiler
+attempts to avoid intermediate overflows by using a larger integer type,
+typically Long_Long_Integer, as the type in which arithmetic is performed
+for predefined arithmetic operators.</li>
+<li>All intermediate overflows avoided (ELIMINATED): in this mode, the compiler
+avoids all intermediate overflows by using arbitrary precision arithmetic as
+required.</li>
+</ul>
+<p>The desired mode for handling intermediate overflow can be specified using
+either the Overflow_Mode pragma or an equivalent compiler switch. The pragma
+has the form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pragma</span> <span class="n">Overflow_Mode</span> <span class="p">([</span><span class="n">General</span> <span class="o">=&gt;</span><span class="p">]</span> <span class="n">MODE</span> <span class="p">[,</span> <span class="p">[</span><span class="n">Assertions</span> <span class="o">=&gt;</span><span class="p">]</span> <span class="n">MODE</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>where MODE is one of</p>
+<ul class="simple">
+<li>STRICT: intermediate overflows checked (using base type)</li>
+<li>MINIMIZED: minimize intermediate overflows</li>
+<li>ELIMINATED: eliminate intermediate overflows</li>
+</ul>
+<p>For example:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Overflow_Mode</span> <span class="o">(</span><span class="n">General</span> <span class="o">=&gt;</span> <span class="n">Strict</span><span class="p">,</span> <span class="n">Assertions</span> <span class="o">=&gt;</span> <span class="n">Eliminated</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>specifies that general expressions outside assertions be evaluated in the usual
+strict mode, and expressions within assertions be evaluated in &#8220;eliminate
+intermediate overflows&#8221; mode. Currently, GNATprove only supports pragma
+<code class="docutils literal"><span class="pre">Overflow_Mode</span></code> being specified in a configuration pragma file.</p>
+<p>Additionally, a compiler switch <code class="docutils literal"><span class="pre">-gnato??</span></code> can be used to control the
+checking mode default. Here <cite>?</cite> is one of the digits <cite>1</cite> through <cite>3</cite>:</p>
+<ol class="arabic simple">
+<li>use base type for intermediate operations (STRICT)</li>
+<li>minimize intermediate overflows (MINIMIZED)</li>
+<li>eliminate intermediate overflows (ELIMINATED)</li>
+</ol>
+<p>The switch <code class="docutils literal"><span class="pre">-gnato13</span></code>, like the <code class="docutils literal"><span class="pre">Overflow_Mode</span></code> pragma above, specifies that
+general expressions outside assertions be evaluated in the usual strict mode,
+and expressions within assertions be evaluated in &#8220;eliminate intermediate
+overflows&#8221; mode.</p>
+<p>Note that these modes apply only to the evaluation of predefined arithmetic,
+membership, and comparison operators for signed integer arithmetic.</p>
+<p>For further details of the meaning of these modes, and for further information
+about the treatment of overflows for fixed-point and floating-point arithmetic
+please refer to the &#8220;Overflow Check Handling in GNAT&#8221; appendix in the GNAT
+User&#8217;s Guide.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="object_oriented_programming.html" title="5.8. Object Oriented Programming and Liskov Substitution Principle"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="assertion_pragmas.html" title="5.6. Assertion Pragmas"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../spark_2014.html" >5. Overview of SPARK Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

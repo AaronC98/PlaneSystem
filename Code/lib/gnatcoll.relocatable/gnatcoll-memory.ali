@@ -1,0 +1,226 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_LONG_LONG_INTEGERS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U gnatcoll.memory%b	gnatcoll-memory.adb	c7677408 OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W system%s		system.ads		system.ali
+W system.crtl%s		s-crtl.ads		s-crtl.ali
+W system.memory%s	s-memory.adb		s-memory.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+U gnatcoll.memory%s	gnatcoll-memory.ads	6ee3473a BN EE NE OO PK IU
+W gnat%s		gnat.ads		gnat.ali
+W gnat.debug_pools%s	g-debpoo.adb		g-debpoo.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W system%s		system.ads		system.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-debpoo.ads		20190518041256 9fb7f271 gnat.debug_pools%s
+D gnatcoll.ads		20190516174408 6a5da479 gnatcoll%s
+D gnatcoll-memory.ads	20190516174408 93527ec9 gnatcoll.memory%s
+D gnatcoll-memory.adb	20190516174408 0729ef55 gnatcoll.memory%b
+D system.ads		20190518041256 085b6ffb system%s
+D s-chepoo.ads		20190518041256 7b01371d system.checked_pools%s
+D s-crtl.ads		20190518041255 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stalib.adb		20190518041255 f2fe2716 system.standard_library%b
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+G a e
+G c Z s b [alloc gnatcoll__memory 69 13 none]
+G c Z s b [free gnatcoll__memory 84 14 none]
+G c Z s b [realloc gnatcoll__memory 92 13 none]
+G c Z s b [configure gnatcoll__memory 119 14 none]
+G c Z s b [dump gnatcoll__memory 200 14 none]
+G c Z s b [reset gnatcoll__memory 205 14 none]
+G c Z s b [mark_traceback gnatcoll__memory 209 14 none]
+G c Z s b [get_ada_allocations gnatcoll__memory 222 13 none]
+G c Z s b [get_allocations gnatcoll__memory 226 13 none]
+G c Z s s [watermark_infoIP gnatcoll__memory 217 9 none]
+G c Z b b [initialize_system_memory_debug_pool gnatcoll__memory 46 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 11|24r6 40r8
+X 2 a-except.ads
+54K13*Exceptions 349e19 11|24w10 40r12
+90U14*Raise_Exception 11|74s10 100s10 143s10 203s10
+X 7 gnat.ads
+34K9*GNAT 57e9 10|62r6 62r28 188r28 215r27 11|38r18 60r10 216r40 223r20 231r20
+. 268r7
+X 8 g-debpoo.ads
+90K14*Debug_Pools 409e21 10|62w11 62r33 188r33 215r32 11|38r23 60r15 216r45
+. 223r25 231r25 268r12
+92R9*Debug_Pool<13|37R9> 408e14 11|38r35
+95I12*SSC{24|62I12} 11|301r15 302r47
+110U14*Configure 11|298s22
+112i7 Stack_Trace_Depth{natural} 11|299r13
+113i7 Maximum_Logically_Freed_Memory{95I12} 11|300r13
+114i7 Minimum_To_Free{95I12} 11|302r13
+115b7 Reset_Content_On_Free{boolean} 11|303r13
+116b7 Raise_Exceptions{boolean} 11|304r13
+117b7 Advanced_Scanning{boolean} 11|305r13
+118b7 Errors_To_Stdout{boolean} 11|306r13
+119b7 Low_Level_Traces{boolean} 11|307r13
+246U14*Print_Pool 247i<c,print_pool>22
+257E9*Report_Type 262e21 10|188r45 11|223r37 231r37
+258n7*All_Reports{257E9} 10|195r31 200r61 11|215r31 226r61
+271U22 Put_Line 11|217r10
+272U22 Put 11|218r10
+273u14*Dump 11|216r57
+275i7 Size{positive} 11|222r10[216]
+276e7 Report{257E9} 11|223r10[216]
+281U14*Dump_Stdout 11|229s19
+283i7 Size{positive} 11|230r10
+284e7 Report{257E9} 11|231r10
+289U14*Reset 11|268s24
+293U14*Get_Size 11|163s13
+294m7 Storage_Address{12|67M9} 11|164r16
+295i7 Size_In_Storage_Elements{24|62I12} 11|165r16
+296b7 Valid{boolean} 11|166r16
+302M9*Byte_Count 10|215r44
+306V13*High_Water_Mark{302M9} 11|241s61
+311V13*Current_Water_Mark{302M9} 11|242s61
+316U14*System_Memory_Debug_Pool 11|60s27
+325U14 Allocate<25|46p14> 11|90s22 173s31 184s28
+327m7 Storage_Address{12|67M9} 11|91r13 174r22 185r19
+328i7 Size_In_Storage_Elements{24|62I12} 11|92r13 175r22 186r19
+329i7 Alignment{24|62I12} 11|93r13 176r22 187r19
+334U14 Deallocate<25|53p14> 11|118s25
+336m7 Storage_Address{12|67M9} 11|119r16
+337i7 Size_In_Storage_Elements{24|62I12} 11|120r16
+338i7 Alignment{24|62I12} 11|121r16
+X 9 gnatcoll.ads
+24K9*GNATCOLL 27e13 10|64r9 237r5 11|36r14 241r21 242r21 323r5
+X 10 gnatcoll-memory.ads
+64K18*Memory 9|24k9 10|217E9 237l14 237e20 11|36b23 241r30 242r30 323l14
+. 323t20
+65M9*size_t 69r27 94r14 11|68r27 70r21 73r17 135r14 139r21 142r17 156r23
+. 188r19 189r34 251r36 254r39
+69V13*Alloc{12|67M9} 69>20 233r26 11|68b13 104l8 104t13
+69m20 Size{65M9} 11|68b20 70r31 73r10 82r10
+84U14*Free 84>20 234r26 11|110b14 127l8 127t12 195s16
+84m20 Ptr{12|67M9} 11|110b20 113r10 119r44 123r31
+92V13*Realloc{12|67M9} 93>7 94>7 235r26 11|133b13 207l8 207t15
+93m7 Ptr{12|67M9} 11|134b7 147r41 164r44 172r22 193r27 195r22
+94m7 Size{65M9} 11|135b7 139r31 142r10 186r62
+119U14*Configure 120>7 121>7 122>7 123>7 124>7 125>7 126>7 127>7 128>7 129>7
+. 11|275b14 310l8 310t17
+120b7 Activate_Monitor{boolean} 11|276b7 290r10
+121b7 Disable_Free{boolean} 11|277b7 288r23
+122i7 Stack_Trace_Depth{natural} 11|278b7 299r47
+123i7 Maximum_Logically_Freed_Memory{long_long_integer} 11|279b7 301r20
+124i7 Minimum_To_Free{long_long_integer} 11|280b7 302r52
+125b7 Reset_Content_On_Free{boolean} 11|281b7 303r47
+126b7 Raise_Exceptions{boolean} 11|282b7 304r47
+127b7 Advanced_Scanning{boolean} 11|283b7 305r47
+128b7 Errors_To_Stdout{boolean} 11|284b7 306r47
+129b7 Low_Level_Traces{boolean} 11|285b7 307r47
+188E9*Report_Type<8|257E9> 195r16 200r46 11|215r16 226r46
+191U22 Put_Line 191>32 11|217r22
+191a32 S{string}
+192U22 Put 192>32 11|218r22
+192a32 S{string}
+193u14*Redirectable_Dump 194>7 195>7 11|213b14 224l8 224t25
+194i7 Size{positive} 11|214b7 222r20
+195e7 Report{188E9} 11|215b7 223r50
+200U14*Dump 200>20 200>37 11|226b14 232l8 232t12
+200i20 Size{positive} 11|226b20 230r20
+200e37 Report{188E9} 11|226b37 231r50
+205U14*Reset 11|266b14 269l8 269t13
+209U14*Mark_Traceback 11|316b14 321l8 321t22
+215M9*Byte_Count<8|302M9> 218r17 219r17 11|241r37 242r37 258r26 259r26 317r18
+217R9*Watermark_Info 220e14 222r40 226r36 11|238r40 250r36
+218m7*High{215M9} 11|241m10 258m15
+219m7*Current{215M9} 11|242m10 259m15
+222V13*Get_Ada_Allocations{217R9} 11|238b13 244l8 244t27
+226V13*Get_Allocations{217R9} 11|250b13 260l8 260t23
+X 11 gnatcoll-memory.adb
+38r4 Memory_Pool{8|92R9} 90m10 90r10 118m13 118r13 173m19 173r19 184m16 184r16
+. 221r10 229r7 241r49 242r49 298m10 298r10
+42b4 Memory_Monitor{boolean} 86r10 114r13 146r14 290r35 293m10 296r10
+43b4 Memory_Check{boolean} 113r45 288m7
+44b4 Debug_Pool_Initialization_Needed{boolean} 58r10 59m10
+46U14 Initialize_System_Memory_Debug_Pool 47>7 55b14 62l8 62t43 88s10 116s13
+. 161s13 291s10
+47b7 Has_Unhandled_Memory{boolean} 56b7 60r53 292r13
+69m7 Result{12|67M9} 91m41 96m10 99r10 103r14
+70m7 Actual_Size{10|65M9} 83m10 92r56 96r60
+138m7 Result{12|67M9} 147m10 174m50 178r29 185m47 192r27 202r10 206r14
+139m7 Actual_Size{10|65M9} 147r66 172r47 175r65 180r29 188r39 189m19 194r27
+150i13 Size_Was{24|62I12} 165m44 188r27 189r42
+151b13 Valid{boolean} 166m44 167r20
+153U23*Memmove 154>16 155>16 156>16 157b<c,memmove>31 177s19 191s16
+154m16 Dest{12|67M9} 178r21 192r19
+155m16 Src{12|67M9} 179r21 193r19
+156m16 N{10|65M9} 180r21 194r19
+169m19 Reallocated{12|67M9} 171m19 179r29 181r37
+216U17 Redirected_Dump[8|273] 220s7
+251V16*Get_Peak_RSS{10|65M9} 252b<c,gnatcoll_getPeakRSS>25 258s38
+254V16*Get_Current_RSS{10|65M9} 255b<c,gnatcoll_getCurrentRSS>25 259s38
+317m7 Size_Was{10|215M9} 318r28
+X 12 system.ads
+37K9*System 10|61w6 61r18 69r42 84r26 93r14 94r29 11|25r6 25r36 28r6 32r6
+. 68r42 69r21 96r20 96r40 99r19 110r26 113r17 123r13 134r14 136r14 138r21
+. 147r20 147r46 154r23 155r23 169r33 171r34 172r27 181r19 202r19 12|174e11
+67M9*Address 10|69r49 84r33 93r21 94r36 11|68r49 69r28 110r33 134r21 136r21
+. 138r28 154r30 155r30 169r40
+69m4*Null_Address{67M9} 11|99r26 113r24 202r26
+81V14*"="{boolean} 11|99r17 113r14 202r17
+X 14 s-crtl.ads
+38K16*CRTL 11|28w13 96r27 96r47 123r20 147r27 147r53 171r41 172r34 181r26
+. 14|241e16
+60M9*size_t 11|96r52 147r58 172r39
+137U14*free 11|123s25 181s31
+174V13*malloc{12|67M9} 11|96s32
+192V13*realloc{12|67M9} 11|147s32 171s46
+X 17 s-memory.ads
+45K16*Memory 11|32w13 17|107e18
+53V13*Alloc{12|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{12|67M9} 105i<c,__gnat_realloc>22
+X 23 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+X 24 s-stoele.ads
+42K16*Storage_Elements 11|25w13 25r43 24|117e28
+54I9*Storage_Offset<long_integer>
+62I12*Storage_Count{54I9} 11|92r41 120r44 150r27 175r50 186r47
+

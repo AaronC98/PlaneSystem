@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>14. Using GPS for Remote Development &#8212; GPS 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/adacore.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="15. Customizing and Extending GPS" href="extending.html" />
+    <link rel="prev" title="13. Working in a Cross Environment" href="cross_env.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="extending.html" title="15. Customizing and Extending GPS"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cross_env.html" title="13. Working in a Cross Environment"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">14. Using GPS for Remote Development</a><ul>
+<li><a class="reference internal" href="#requirements">14.1. Requirements</a></li>
+<li><a class="reference internal" href="#setup-the-remote-servers">14.2. Setup the remote servers</a><ul>
+<li><a class="reference internal" href="#the-remote-configuration-dialog">14.2.1. The remote configuration dialog</a></li>
+<li><a class="reference internal" href="#connection-settings">14.2.2. Connection settings</a></li>
+<li><a class="reference internal" href="#path-settings">14.2.3. Path settings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#setup-a-remote-project">14.3. Setup a remote project</a><ul>
+<li><a class="reference internal" href="#remote-operations">14.3.1. Remote operations</a></li>
+<li><a class="reference internal" href="#the-remote-view">14.3.2. The remote view</a></li>
+<li><a class="reference internal" href="#loading-a-remote-project">14.3.3. Loading a remote project</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#limitations">14.4. Limitations</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cross_env.html"
+                        title="previous chapter">13. Working in a Cross Environment</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="extending.html"
+                        title="next chapter">15. Customizing and Extending GPS</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/remote.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-gps-for-remote-development">
+<span id="id1"></span><h1>14. Using GPS for Remote Development<a class="headerlink" href="#using-gps-for-remote-development" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="index-0"></span><span class="target" id="index-1"></span><p id="index-2">It is common for programmers in a networked environment to use a desktop
+computer that is not itself suitable for their development tasks. For
+example, each developer may have a desktop PC running Windows or GNU/Linux
+as their access to a company network and do all their development work on
+shared networked servers. These remote servers may be running an operating
+system different from the one on their desktop machine.</p>
+<p>One common way of operating in such an environment is to access the server
+through a remote windowing system such as X Window System. GPS can be used in
+such way, but it is not necessarily the most efficient configuration because
+running GPS remotely on a shared server increases the workload of the
+server as well as traffic on the network. When the network is slow, user
+interactions can become uncomfortably sluggish. This is unfortunate because
+the desktop used to access the network is often a powerful PC that remains
+idle most of the time. To address this situation, GPS offers the option of
+running natively on the desktop, with compilation, execution, and/or
+debugging activities performed transparently on one or more remote servers.</p>
+<div class="section" id="requirements">
+<span id="id2"></span><h2>14.1. Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>In order to compile, run, or debug on a host remote from GPS, your
+configuration must meet the following conditions:</p>
+<blockquote>
+<div></div></blockquote>
+<ul class="simple" id="index-3">
+<li>Have a remote connection to the host using <strong class="program">rsh</strong>, <strong class="program">ssh</strong>,
+or <strong class="program">telnet</strong>.  GPS can handle passwords for such connections.</li>
+<li>Have either a Network Filesystem (i.e. NFS, SMB, or equivalent) sharing
+the project files between the host and the target or have
+<strong class="program">rsync</strong> installed on both client and server.  (<strong class="program">rsync</strong>
+can be found at <a class="reference external" href="http://www.samba.org/rsync/">http://www.samba.org/rsync/</a> for Unix, and is part of Cygwin under
+Windows: <a class="reference external" href="http://www.cygwin.com">http://www.cygwin.com</a>.</li>
+<li>Either subprojects must be &#8216;withed&#8217; by the main project using relative
+paths or the absolute paths must be the same on both the desktop and the
+server.</li>
+</ul>
+<p>You perform the full remote development setup in two steps:</p>
+<ul class="simple">
+<li>Setup the remote servers configuration.</li>
+<li>Setup a remote project.</li>
+</ul>
+</div>
+<div class="section" id="setup-the-remote-servers">
+<span id="id3"></span><h2>14.2. Setup the remote servers<a class="headerlink" href="#setup-the-remote-servers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-remote-configuration-dialog">
+<span id="id4"></span><h3>14.2.1. The remote configuration dialog<a class="headerlink" href="#the-remote-configuration-dialog" title="Permalink to this headline">¶</a></h3>
+<p>Open the remote configuration dialog using the <cite>View-&gt;Remote</cite> menu
+to configure remote servers. You can also set a predefined configuration
+when installing GPS by using XML files. (See <a class="reference internal" href="extending.html#defining-a-remote-server"><span class="std std-ref">Defining a remote server</span></a>,
+and <a class="reference internal" href="extending.html#defining-a-remote-path-translation"><span class="std std-ref">Defining a remote path translation</span></a>, for more information.)</p>
+<img alt="_images/remote-view.jpg" id="index-4" src="_images/remote-view.jpg" />
+<p>Once you have opened the <span class="guilabel">Remote</span> view, click on
+<span class="guilabel">Settings</span> to open the servers configuration dialog.</p>
+<img alt="_images/servers-configuration.jpg" id="index-5" src="_images/servers-configuration.jpg" />
+<p>This dialog consists of two parts:</p>
+<ul class="simple">
+<li>The left part dialog contains the list of configured servers, each
+identified by a nickname. Three buttons allow you to create, reinitialize,
+or delete a server.</li>
+<li>The right part contains the selected server&#8217;s configuration.</li>
+</ul>
+<p>To set up a remote server, first create a new server by clicking on the
+<span class="guilabel">Add Server</span> button on the bottom left of the dialog. Enter a
+unique nickname identifying the server (not necessarily the network name of
+the server).  This server is automatically selected and the right part of
+the dialog shows its configuration, which is initially mostly empty.</p>
+</div>
+<div class="section" id="connection-settings">
+<span id="id5"></span><h3>14.2.2. Connection settings<a class="headerlink" href="#connection-settings" title="Permalink to this headline">¶</a></h3>
+<p>For each server, you first need to complete the section describing how GPS
+should connect to that server.  All mandatory fields are identified by an
+asterisk:</p>
+<ul>
+<li><p class="first">Network Name</p>
+<p>The name used to connect to the server via your network.  It can be
+either an IP address, a host name on your local network, or a fully
+qualified name with domain.</p>
+</li>
+<li><p class="first">Remote Access Tool</p>
+<p>A drop-down list specifying the tool used to connect to the server.  GPS
+contains built in support for the following tools</p>
+<ul class="simple">
+<li><strong class="program">ssh</strong></li>
+<li><strong class="program">rsh</strong></li>
+<li><strong class="program">telnet</strong></li>
+<li><strong class="program">plink</strong> (Windows tool) in <strong class="program">ssh</strong>, <strong class="program">rsh</strong>,
+or <strong class="program">telnet</strong> mode</li>
+</ul>
+<p>See <a class="reference internal" href="extending.html#defining-a-remote-connection-tool"><span class="std std-ref">Defining a remote connection tool</span></a> if you need to add a
+different tool.  If a tool is not in your path (for example, because it
+is not installed), it won&#8217;t appear in the tools list. Some tools
+incompatible with GPS are not displayed either, such as the Microsoft
+telnet client.</p>
+</li>
+<li><p class="first">Shell</p>
+<p>Which shell runs on the remote server.  GPS supports the following Unix
+shells:</p>
+<ul class="simple">
+<li>sh</li>
+<li>bash</li>
+<li>csh</li>
+<li>tcsh</li>
+</ul>
+<p>GPS also support the Windows shell (<code class="file docutils literal"><span class="pre">cmd.exe</span></code>). See
+<a class="reference internal" href="#limitations"><span class="std std-ref">Limitations</span></a>, for Cygwin&#8217;s shell usage on Windows: it is preferable
+to use <code class="file docutils literal"><span class="pre">cmd.exe</span></code> as a remote shell on Windows servers.</p>
+</li>
+</ul>
+<p>You may need to specify other fields, but they are not mandatory. Most are
+accessible through the advanced configuration pane.</p>
+<ul class="simple">
+<li>The <span class="guilabel">Remote Sync Tool</span> is used to synchronize remote and local
+filesystems, if these are not shared filesystems. Only <strong class="program">rsync</strong> is
+supported by GPS.</li>
+<li>The <span class="guilabel">Extra Init Commands</span> lists initialization commands that
+GPS sends to the server when it connects to the remote machine, the
+chosen shell is launched, and your default initialization files are read
+(i.e.  .bashrc file for the bash shell).  GPS sends these extra commands,
+allowing you to, for example, specify a compilation toolchain.</li>
+<li>The <span class="guilabel">User Name</span> specifies the name used to connect to the
+server.  The default is your current login name on your local machine.</li>
+<li>The <span class="guilabel">Timeout</span> value determines when a connection to a remote
+host is considered dead. All elementary operations performed on the
+remote host (i.e., those operations that normally complete almost
+immediately) use this timeout value.  The default is 10 seconds. If you
+have a very slow network connection or a very overloaded server, set this
+to a higher value.</li>
+<li>The <span class="guilabel">Maximum Number of Connections</span> is the maximum number of
+simultaneous connections GPS is allowed to make to this server. If you
+want to compile, debug, and execute at the same time on the machine, GPS
+needs more than one connection to do this. The default is 3.</li>
+<li>Depending on the kind of server and the remote access tool used, commands
+sent to the server may require a specific line terminator, typically
+either the LF character or CR/LF characters. Usually GPS can
+automatically detect which is needed (the &#8216;auto&#8217; mode), but you can force the
+choice to CR/LF (cr/lf handling set to &#8216;on&#8217;) or LF (cr/lf handling set to
+&#8216;off&#8217;).</li>
+<li>The <span class="guilabel">Debug Console</span> allows you to easily debug a remote
+connection. If checked, it opens a console displaying all exchanges
+between GPS and the selected server.</li>
+</ul>
+</div>
+<div class="section" id="path-settings">
+<span id="id6"></span><h3>14.2.3. Path settings<a class="headerlink" href="#path-settings" title="Permalink to this headline">¶</a></h3>
+<p>The final section of the configuration defines the path translations
+between your local host and the remote server.</p>
+<p>The remote path definitions allow GPS to translate your locally loaded
+project (that resides in your local filesystem) to paths used on the remote
+server. This section also tells GPS how to keep those paths synchronized
+between the local machine and the remote server.</p>
+<p>All your project&#8217;s dependencies must reside in a path defined here.  You
+retrieve those paths by using <strong class="command">gnat list -v -Pyour_project</strong>.
+To add a new path, click on the <span class="guilabel">+</span> button and enter the
+corresponding local and remote paths.</p>
+<p>You can easily select the desired paths by clicking on the icon next to the
+path&#8217;s entry. Remote browsing is allowed only when the connection
+configuration is set (see <a class="reference internal" href="#connection-settings"><span class="std std-ref">Connection settings</span></a>.) Clicking on
+<span class="guilabel">Apply</span> applies your connection configuration and allows you to
+browse the remote host to select the remote paths.</p>
+<p>You can set one of five types of path synchronization for each path:</p>
+<ul class="simple">
+<li><span class="guilabel">Never</span>: no synchronization is required from GPS because the paths
+are shared using an OS mechanism like NFS.</li>
+<li><span class="guilabel">Manually</span>: synchronization is needed, but is only performed
+manually using the remote view buttons.</li>
+<li><span class="guilabel">Always</span>: Relevant to source and object paths of your project.
+They are kept synchronized by GPS before and after every remote action (such
+as performing a build or run).</li>
+<li><span class="guilabel">Once to local</span>/<cite>Once to remote</cite>: Relevant to project&#8217;s
+dependencies. They are synchronized once when a remote project is
+loaded or when a local project is set remote. They can still be
+manually synchronized using the Remote View (<a class="reference internal" href="#the-remote-view"><span class="std std-ref">The remote view</span></a>.)</li>
+</ul>
+<p>The way those paths need to be configured depends on your network architecture:</p>
+<ul class="simple">
+<li>If your project is on a filesystem shared between your host and the
+remote host (using NFS or SMB filesystems, for example), only the roots of
+those filesystems need to be specified, using each server&#8217;s native paths
+(on Windows, the paths are specified using the
+&#8220;X:\my\mounted\directory\&#8221; syntax and on Unix, using the &#8220;/mnt/path/&#8221;
+syntax).</li>
+<li>If the project&#8217;s files are synchronized using <strong class="program">rsync</strong>, defining
+a too generic path translation leads to very slow synchronization. In
+that is the case, define the paths as specifically as possible in order to speed
+up the synchronization process.</li>
+</ul>
+<p>Note that navigation to entities of the run-time is not supported in
+remote mode.</p>
+</div>
+</div>
+<div class="section" id="setup-a-remote-project">
+<span id="id7"></span><h2>14.3. Setup a remote project<a class="headerlink" href="#setup-a-remote-project" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="remote-operations">
+<span id="index-6"></span><span id="id8"></span><h3>14.3.1. Remote operations<a class="headerlink" href="#remote-operations" title="Permalink to this headline">¶</a></h3>
+<p>GPS defines four different categories of remote operation and corresponding
+servers: Build operations, Debug operations, Execution operations and Tools
+operations. All compiler-related operations are performed on the
+Build_Server. The Tools_Server is explained below. The debugger runs on the
+Debug_Server and the project&#8217;s resulting programs run on the
+Execution_Server. The GPS_Server (the local machine) is used for all other
+operations.  These &#8220;servers&#8221; may not (and are often not) different
+machines.</p>
+<p>The Tools_Server handles all compiler related operations that do not depend
+on a specific compiler version. It is used in dual compilation mode, for
+example, to determine whether the action can be safely run using a very
+recent compiler toolchain (which the Tools_Server runs), or whether a
+specific, older baseline compiler version must be used.</p>
+<p>If the remote mode is activated and the dual compilation mode is not, all
+Tools_Server operations are executed on the Build_Server. Otherwise, if the
+dual compilation mode is activated, all Tools_Server operations are always
+executed on the local machine.</p>
+</div>
+<div class="section" id="the-remote-view">
+<span id="id9"></span><h3>14.3.2. The remote view<a class="headerlink" href="#the-remote-view" title="Permalink to this headline">¶</a></h3>
+<p>Use the <span class="guilabel">Remote</span> view (<cite>View-&gt;Remote</cite>) to assign servers
+to categories of operations for the currently loaded project.  You can
+assign a different server to each operation category if you fully expand
+the <span class="guilabel">Servers Assignment</span> tab. Alternatively, assign all
+categories to a single server in one step if the you have left the
+<span class="guilabel">Servers Assignment</span> tab collapsed.</p>
+<img alt="_images/remote-view-full.jpg" id="index-7" src="_images/remote-view-full.jpg" />
+<p>When you select a server for a particular category, the change is not
+immediately effective, as indicated by the server&#8217;s name appearing in
+red. This allows you to check the configuration before applying it, by
+pressing the <span class="guilabel">Check</span> button. This button tests for a correct
+remote connection and verifies that the project path exists on the build
+server and has an equivalent on the local machine.</p>
+<p>Clicking the <span class="guilabel">Apply</span> button performs the following actions:</p>
+<ul class="simple">
+<li>Reads the default project paths on the Build_Server and translates them
+into local paths.</li>
+<li>Synchronizes those paths marked as Sync <span class="guilabel">Always</span> or
+<span class="guilabel">Once to local</span> from the build server.</li>
+<li>Loads the translated local project.</li>
+<li>Assigns the Build, Execution and Debug servers.</li>
+</ul>
+<p>If one of those operations fails, GPS reports the errors in the
+<span class="guilabel">Messages</span> view and retains the previous project settings.  Once
+a remote server is assigned, the remote configuration is automatically
+loaded each time the project is loaded.</p>
+<p>Use the two buttons on the right of each server to manually perform a
+synchronization from the server to your local machine (left button) or from
+your local machine to the server (right button).</p>
+</div>
+<div class="section" id="loading-a-remote-project">
+<span id="id10"></span><h3>14.3.3. Loading a remote project<a class="headerlink" href="#loading-a-remote-project" title="Permalink to this headline">¶</a></h3>
+<p>If the project you want to use is already on a remote server, you can
+directly load it on your local GPS by using the <span class="menuselection">File ‣
+Open Project From Host</span> menu and selecting the server&#8217;s nickname. This shows
+you its file tree. Navigate to your project and select it. The project is
+loaded as described above with all remote operations categories assigned to
+the selected server by default.</p>
+<p>You can reload your project from local files on your machine. The remote
+configuration is automatically reapplied.</p>
+</div>
+</div>
+<div class="section" id="limitations">
+<span id="id11"></span><h2>14.4. Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<p>The GPS remote mode imposes some limitations:</p>
+<ul>
+<li><p class="first">Execution: you cannot use an external terminal to remotely execute your
+application. The <span class="guilabel">Use external terminal</span> checkbox of the run
+dialog has no effect if the program is run remotely.</p>
+</li>
+<li><p class="first">Debugging: you cannot use a separate execution window. The <span class="guilabel">Use
+separate execution window</span> option is ignored for remote debugging
+sessions.</p>
+</li>
+<li><p class="first">Cygwin on remote host: the GNAT compilation toolchain does not understand
+Cygwin&#8217;s mounted directories.  To use GPS with a remote Windows server
+using Cygwin&#8217;s <strong class="program">bash</strong>, you must use directories that are the
+same on Windows and Cygwin (absolute paths). For example, a project using
+&#8220;C:\my_project&#8221; is accepted if Cygwin&#8217;s path is <code class="file docutils literal"><span class="pre">/my_project</span></code>, but
+not if <code class="file docutils literal"><span class="pre">/cygdrive/c/my_project</span></code> is specified.</p>
+<p>Even if you use Cygwin&#8217;s <strong class="program">sshd</strong> on such a server, you can still
+access it using <code class="file docutils literal"><span class="pre">cmd.exe</span></code> (<a class="reference internal" href="#connection-settings"><span class="std std-ref">Connection settings</span></a>.)</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="extending.html" title="15. Customizing and Extending GPS"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cross_env.html" title="13. Working in a Cross Environment"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

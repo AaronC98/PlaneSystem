@@ -1,0 +1,713 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U gnatcoll.scripts.projects%b  gnatcoll-scripts-projects.adb  27cd0fc4 OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.os_lib%s		g-os_lib.ads		g-os_lib.ali
+W gnat.strings%s	g-string.ads		g-string.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.projects%s	gnatcoll-projects.adb	gnatcoll-projects.ali
+W gnatcoll.scripts%s	gnatcoll-scripts.adb	gnatcoll-scripts.ali
+W gnatcoll.scripts.files%s  gnatcoll-scripts-files.adb  gnatcoll-scripts-files.ali
+W gnatcoll.utils%s	gnatcoll-utils.adb	gnatcoll-utils.ali
+W gnatcoll.vfs%s	gnatcoll-vfs.adb	gnatcoll-vfs.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+
+U gnatcoll.scripts.projects%s  gnatcoll-scripts-projects.ads  1c07910c EE OO PK IU
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.projects%s	gnatcoll-projects.adb	gnatcoll-projects.ali
+W gnatcoll.scripts%s	gnatcoll-scripts.adb	gnatcoll-scripts.ali
+Z system%s		system.ads		system.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-calend.ads		20190518041256 474d9720 ada.calendar%s
+D a-calfor.ads		20190518041255 0a6f9afc ada.calendar.formatting%s
+D a-catizo.ads		20190518041257 409d7e5b ada.calendar.time_zones%s
+D a-charac.ads		20190518041256 2d3ec45b ada.characters%s
+D a-chahan.ads		20190518041256 1601a50f ada.characters.handling%s
+D a-chahan.adb		20190518041255 0b9287e4 ada.characters.handling%b
+D a-chlat1.ads		20190518041256 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20190518041255 61e5e089 ada.containers%s
+D a-cdlili.ads		20190518041255 8e06b4f2 ada.containers.doubly_linked_lists%s
+D a-cdlili.adb		20190518041256 8ed211ef ada.containers.doubly_linked_lists%b
+D a-cgarso.ads		20190518041255 9129bfa8 ada.containers.generic_array_sort%s
+D a-cohata.ads		20190518041257 80a8c839 ada.containers.hash_tables%s
+D a-chtgke.ads		20190518041257 20177f7b ada.containers.hash_tables.generic_keys%s
+D a-chtgke.adb		20190518041255 7d66b1e3 ada.containers.hash_tables.generic_keys%b
+D a-chtgop.ads		20190518041256 11c5978a ada.containers.hash_tables.generic_operations%s
+D a-chtgop.adb		20190518041255 c3ccdc4f ada.containers.hash_tables.generic_operations%b
+D a-cohama.ads		20190518041256 8205bf40 ada.containers.hashed_maps%s
+D a-cohama.adb		20190518041256 f5accd12 ada.containers.hashed_maps%b
+D a-cohase.ads		20190518041255 5cc78687 ada.containers.hashed_sets%s
+D a-cohase.adb		20190518041257 00d6265f ada.containers.hashed_sets%b
+D a-conhel.ads		20190518041255 20298884 ada.containers.helpers%s
+D a-conhel.adb		20190518041257 9cc5095b ada.containers.helpers%b
+D a-cidlli.ads		20190518041256 531a24f1 ada.containers.indefinite_doubly_linked_lists%s
+D a-cidlli.adb		20190518041255 4a04153e ada.containers.indefinite_doubly_linked_lists%b
+D a-cihama.ads		20190518041256 bece8dbf ada.containers.indefinite_hashed_maps%s
+D a-cihama.adb		20190518041255 94909b4a ada.containers.indefinite_hashed_maps%b
+D a-ciorse.ads		20190518041257 66478ffc ada.containers.indefinite_ordered_sets%s
+D a-ciorse.adb		20190518041255 15aaee25 ada.containers.indefinite_ordered_sets%b
+D a-coinve.ads		20190518041257 b7300cfa ada.containers.indefinite_vectors%s
+D a-coinve.adb		20190518041257 c3b709cc ada.containers.indefinite_vectors%b
+D a-coorse.ads		20190518041257 6a149526 ada.containers.ordered_sets%s
+D a-coorse.adb		20190518041256 d1973bbb ada.containers.ordered_sets%b
+D a-coprnu.ads		20190518041255 0cdf1864 ada.containers.prime_numbers%s
+D a-crbltr.ads		20190518041256 c3e90a86 ada.containers.red_black_trees%s
+D a-crbtgk.ads		20190518041257 ab25d217 ada.containers.red_black_trees.generic_keys%s
+D a-crbtgo.ads		20190518041257 e494c304 ada.containers.red_black_trees.generic_operations%s
+D a-rbtgso.ads		20190518041255 2f314542 ada.containers.red_black_trees.generic_set_operations%s
+D a-convec.ads		20190518041257 7e2b0fdf ada.containers.vectors%s
+D a-convec.adb		20190518041255 32f4e1a7 ada.containers.vectors%b
+D a-direct.ads		20190518041256 078228da ada.directories%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-ioexce.ads		20190518041255 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20190518041256 7c7305e9 ada.iterator_interfaces%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-string.ads		20190518041256 90ac6797 ada.strings%s
+D a-strfix.ads		20190518041257 86d6bc21 ada.strings.fixed%s
+D a-strhas.ads		20190518041257 c71c2a52 ada.strings.hash%s
+D a-shcain.ads		20190518041256 08af52df ada.strings.hash_case_insensitive%s
+D a-strmap.ads		20190518041256 e8bb714a ada.strings.maps%s
+D a-stmaco.ads		20190518041255 1c0e5368 ada.strings.maps.constants%s
+D a-strsea.ads		20190518041255 b9bc90ba ada.strings.search%s
+D a-strunb.ads		20190518041256 1656705b ada.strings.unbounded%s
+D a-strunb.adb		20190518041257 750cba06 ada.strings.unbounded%b
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-textio.ads		20190518041257 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-bytswa.ads		20190518041256 a4d21639 gnat.byte_swapping%s
+D g-calend.ads		20190518041256 cad86fa7 gnat.calendar%s
+D g-casuti.ads		20190518041255 0f32eb76 gnat.case_util%s
+D g-dirope.ads		20190518041255 940c4438 gnat.directory_operations%s
+D g-dynhta.ads		20190518041255 b061de91 gnat.dynamic_htables%s
+D g-dyntab.ads		20190518041256 21cef781 gnat.dynamic_tables%s
+D g-dyntab.adb		20190518041257 8cc056dd gnat.dynamic_tables%b
+D g-expect.ads		20190518041256 8c6f1a8c gnat.expect%s
+D g-exptty.ads		20190518041256 fb1b0f24 gnat.expect.tty%s
+D g-hesorg.ads		20190518041255 106922da gnat.heap_sort_g%s
+D g-htable.ads		20190518041255 4b643b8d gnat.htable%s
+D g-md5.ads		20190518041257 bb55398e gnat.md5%s
+D g-os_lib.ads		20190518041255 0db74523 gnat.os_lib%s
+D g-regpat.ads		20190518041257 b85d88ef gnat.regpat%s
+D g-sechas.ads		20190518041257 3b5ca98e gnat.secure_hashes%s
+D g-sehamd.ads		20190518041255 75201584 gnat.secure_hashes.md5%s
+D g-souinf.ads		20190518041257 291df751 gnat.source_info%s
+D g-string.ads		20190518041257 c6abc540 gnat.strings%s
+D g-table.ads		20190518041256 b4b07c4d gnat.table%s
+D g-table.adb		20190518041256 04d15fc2 gnat.table%b
+D g-tty.ads		20190518041256 e6a3d7fb gnat.tty%s
+D gnatcoll.ads		20190516174408 6a5da479 gnatcoll%s
+D gnatcoll-any_types.ads  20190516174408 b8e2b29e gnatcoll.any_types%s
+D gnatcoll-arg_lists.ads  20190516174408 47c33f83 gnatcoll.arg_lists%s
+D gnatcoll-atomic.ads	20190516174408 a760a918 gnatcoll.atomic%s
+D gnatcoll-atomic.adb	20190516174408 d76879ba gnatcoll.atomic%b
+D gnatcoll-io.ads	20190516174408 40b00e79 gnatcoll.io%s
+D gnatcoll-io-native.ads  20190516174409 1da3ee19 gnatcoll.io.native%s
+D gnatcoll-path.ads	20190516174408 44783065 gnatcoll.path%s
+D gnatcoll-projects.ads	20190516174408 37d7a77e gnatcoll.projects%s
+D gnatcoll-projects.adb	20190516174408 02359975 gnatcoll.projects%b
+D gnatcoll-projects-krunch.ads  20190516174408 5aa68b8c gnatcoll.projects.krunch%s
+D gnatcoll-projects-normalize.ads  20190516174408 fd6befed gnatcoll.projects.normalize%s
+D gnatcoll-refcount.ads	20190516174408 b4dda25c gnatcoll.refcount%s
+D gnatcoll-refcount.adb	20190516174408 a6de40a2 gnatcoll.refcount%b
+D gnatcoll-scripts.ads	20190516174408 4b4c0eb1 gnatcoll.scripts%s
+D gnatcoll-scripts-files.ads  20190516174408 53656184 gnatcoll.scripts.files%s
+D gnatcoll-scripts-projects.ads  20190516174408 609c38c3 gnatcoll.scripts.projects%s
+D gnatcoll-scripts-projects.adb  20190516174408 59b6116c gnatcoll.scripts.projects%b
+D gnatcoll-storage_pools.ads  20190516174408 f82e283b gnatcoll.storage_pools%s
+D gnatcoll-storage_pools-headers.ads  20190516174409 968b2c2e gnatcoll.storage_pools.headers%s
+D gnatcoll-storage_pools-headers.adb  20190516174408 156a496e gnatcoll.storage_pools.headers%b
+D gnatcoll-strings.ads	20190516174408 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings.ads	20190516174408 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings_impl.ads  20190516174409 660cba3c gnatcoll.strings_impl%s
+D gnatcoll-strings_impl.adb  20190516174408 4bac4314 gnatcoll.strings_impl%b
+D gnatcoll-terminal.ads	20190516174408 d1bdf60c gnatcoll.terminal%s
+D gnatcoll-traces.ads	20190516174409 070c3069 gnatcoll.traces%s
+D gnatcoll-utils.ads	20190516174409 5fbcf72a gnatcoll.utils%s
+D gnatcoll-vfs.ads	20190516174408 f8f432d7 gnatcoll.vfs%s
+D gnatcoll-vfs_types.ads  20190516174409 14be4a8d gnatcoll.vfs_types%s
+D gnatcoll-vfs_utils.ads  20190516174408 94352d11 gnatcoll.vfs_utils%s
+D gpr.ads		20190518044756 e8837047 gpr%s
+D gpr-ali.ads		20190518044756 3013f655 gpr.ali%s
+D gpr-attr.ads		20190518044756 05fe59c6 gpr.attr%s
+D gpr-com.ads		20190518044756 c933019e gpr.com%s
+D gpr-conf.ads		20190518044757 00b9ee95 gpr.conf%s
+D gpr-env.ads		20190518044757 2649a405 gpr.env%s
+D gpr-err.ads		20190518044756 e0720bef gpr.err%s
+D gpr-ext.ads		20190518044756 d937eee5 gpr.ext%s
+D gpr-knowledge.ads	20190518044756 a4c027bb gpr.knowledge%s
+D gpr-names.ads		20190518044756 97f8a5e7 gpr.names%s
+D gpr-opt.ads		20190518044757 5a675452 gpr.opt%s
+D gpr-osint.ads		20190518044757 f418aaff gpr.osint%s
+D gpr-output.ads	20190518044756 be97932e gpr.output%s
+D gpr-part.ads		20190518044756 8138f9d3 gpr.part%s
+D gpr-pp.ads		20190518044756 5439a6e1 gpr.pp%s
+D gpr-proc.ads		20190518044756 6777f653 gpr.proc%s
+D gpr-scans.ads		20190518044756 a9e8e657 gpr.scans%s
+D gpr-sdefault.ads	20190518044757 e3409947 gpr.sdefault%s
+D gpr-sinput.ads	20190518044756 24c6823b gpr.sinput%s
+D gpr-snames.ads	20190518044756 d73bb0a7 gpr.snames%s
+D gpr-tree.ads		20190518044756 dd4e11ae gpr.tree%s
+D gpr-util.ads		20190518044756 1775eacd gpr.util%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D i-c.ads		20190518041255 5421119b interfaces.c%s
+D i-cstrin.ads		20190518041256 341d0ddf interfaces.c.strings%s
+D i-cstrea.ads		20190518041255 e53d8b8e interfaces.c_streams%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-addima.ads		20190518041256 a1ec9d3a system.address_image%s
+D s-atocou.ads		20190518041257 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20190518041256 b65612c0 system.atomic_counters%b
+D s-casuti.ads		20190518041255 3fd5b654 system.case_util%s
+D s-carun8.ads		20190518041257 a903718d system.compare_array_unsigned_8%s
+D s-conca6.ads		20190518041255 d2c72db2 system.concat_6%s
+D s-crtl.ads		20190518041255 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041257 078245e4 system.file_control_block%s
+D s-finmas.ads		20190518041256 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-htable.ads		20190518041257 84c2b3ea system.htable%s
+D s-imgboo.ads		20190518041255 f5d971eb system.img_bool%s
+D s-imgint.ads		20190518041255 02dbe0c2 system.img_int%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-oscons.ads		20190518124529 e40aaf2d system.os_constants%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041255 ede33ef8 system.pool_global%s
+D s-poosiz.ads		20190518041257 9d8c569f system.pool_size%s
+D s-regpat.ads		20190518041256 825a9b7f system.regpat%s
+D s-rident.ads		20190518041257 50efdf23 system.rident%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stalib.adb		20190518041255 f2fe2716 system.standard_library%b
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20190518041256 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-stposu.ads		20190518041255 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20190518041255 aedef97e system.stream_attributes%s
+D s-strhas.ads		20190518041255 269cd894 system.string_hash%s
+D s-strhas.adb		20190518041256 2e038444 system.string_hash%b
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-ststop.ads		20190518041255 5fbf1b38 system.strings.stream_ops%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+G a e
+G c Z s b [project_tree gnatcoll__scripts__projects 36 13 none]
+G c Z s b [register_commands gnatcoll__scripts__projects 39 14 none]
+G c Z s b [get_project_class gnatcoll__scripts__projects 47 13 none]
+G c Z s b [get_data gnatcoll__scripts__projects 52 13 none]
+G c Z s b [create_project gnatcoll__scripts__projects 56 13 none]
+G c Z s s [project_tree_retrieverDA gnatcoll__scripts__projects 28 9 none]
+G c Z s s [project_tree_retrieverDF gnatcoll__scripts__projects 28 9 none]
+G c Z s s [project_tree_retrieverIP gnatcoll__scripts__projects 28 9 none]
+G c Z b b [project_command_handler gnatcoll__scripts__projects 71 14 none]
+G c Z b b [project_queries gnatcoll__scripts__projects 74 14 none]
+G c Z b b [set_data gnatcoll__scripts__projects 77 14 none]
+G c Z b b [scenario_variables_cmd_line gnatcoll__scripts__projects 80 13 none]
+G c Z b b [project_properties_recordDA gnatcoll__scripts__projects 36 9 none]
+G c Z b b [project_properties_recordDF gnatcoll__scripts__projects 36 9 none]
+G c Z b b [project_properties_recordDI gnatcoll__scripts__projects 36 9 none]
+G c Z b b [project_properties_recordIP gnatcoll__scripts__projects 36 9 none]
+G r c none [register_commands gnatcoll__scripts__projects 39 14 none] [new_class gnatcoll__scripts 202 13 none]
+G r c none [register_commands gnatcoll__scripts__projects 39 14 none] [register_command gnatcoll__scripts 1379 14 none]
+G r c none [register_commands gnatcoll__scripts__projects 39 14 none] [param gnatcoll__scripts 1056 13 none]
+G r c none [register_commands gnatcoll__scripts__projects 39 14 none] [register_command gnatcoll__scripts 1371 14 none]
+G r c none [register_commands gnatcoll__scripts__projects 39 14 none] [register_property gnatcoll__scripts 1446 14 none]
+G r c none [get_project_class gnatcoll__scripts__projects 47 13 none] [new_class gnatcoll__scripts 202 13 none]
+G r c none [get_data gnatcoll__scripts__projects 52 13 none] [get_repository gnatcoll__scripts 308 13 none]
+G r c none [get_data gnatcoll__scripts__projects 52 13 none] [new_class gnatcoll__scripts 202 13 none]
+G r j class_instance [get_data gnatcoll__scripts__projects 52 13 none] [class_instanceDA gnatcoll__scripts 1561 9 none]
+G r k class_instance [get_data gnatcoll__scripts__projects 52 13 none] [class_instanceDF gnatcoll__scripts 1561 9 none]
+G r d project_type [get_data gnatcoll__scripts__projects 52 13 none] [adjust gnatcoll__projects 2128 25 none]
+G r c none [get_data gnatcoll__scripts__projects 52 13 none] [get_data gnatcoll__scripts 830 13 none]
+G r j class_instance [create_project gnatcoll__scripts__projects 56 13 none] [class_instanceDA gnatcoll__scripts 1561 9 none]
+G r c none [create_project gnatcoll__scripts__projects 56 13 none] [new_class gnatcoll__scripts 202 13 none]
+G r k class_instance [create_project gnatcoll__scripts__projects 56 13 none] [class_instanceDF gnatcoll__scripts 1561 9 none]
+G r c none [create_project gnatcoll__scripts__projects 56 13 none] [is_subclass gnatcoll__scripts 676 13 none]
+G r d project_type [create_project gnatcoll__scripts__projects 56 13 none] [adjust gnatcoll__projects 2128 25 none]
+G r c none [create_project gnatcoll__scripts__projects 56 13 none] [set_data gnatcoll__scripts 815 14 none]
+G r e project_type [create_project gnatcoll__scripts__projects 56 13 none] [finalize gnatcoll__projects 2129 25 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [get_repository gnatcoll__scripts 308 13 none]
+G r s class_instance [project_command_handler gnatcoll__scripts__projects 71 14 none] [class_instanceIP gnatcoll__scripts 1561 9 none]
+G r l class_instance [project_command_handler gnatcoll__scripts__projects 71 14 none] [class_instanceDI gnatcoll__scripts 1561 9 none]
+G r k class_instance [project_command_handler gnatcoll__scripts__projects 71 14 none] [class_instanceDF gnatcoll__scripts 1561 9 none]
+G r s project_type [project_command_handler gnatcoll__scripts__projects 71 14 none] [project_typeIP gnatcoll__projects 2116 9 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [root_project gnatcoll__projects 1091 13 none]
+G r j class_instance [project_command_handler gnatcoll__scripts__projects 71 14 none] [class_instanceDA gnatcoll__scripts 1561 9 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [new_class gnatcoll__scripts 202 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [is_subclass gnatcoll__scripts 676 13 none]
+G r d project_type [project_command_handler gnatcoll__scripts__projects 71 14 none] [adjust gnatcoll__projects 2128 25 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [set_data gnatcoll__scripts 815 14 none]
+G r e project_type [project_command_handler gnatcoll__scripts__projects 71 14 none] [finalize gnatcoll__projects 2129 25 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [get_data gnatcoll__scripts 830 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [name gnatcoll__projects 467 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [project_path gnatcoll__projects 470 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [create_file gnatcoll__scripts__files 54 13 none]
+G r e virtual_file [project_command_handler gnatcoll__scripts__projects 71 14 none] [finalize gnatcoll__vfs 630 25 none]
+G r s project_iterator [project_command_handler gnatcoll__scripts__projects 71 14 none] [project_iteratorIP gnatcoll__projects 2195 9 none]
+G r l project_iterator [project_command_handler gnatcoll__scripts__projects 71 14 none] [project_iteratorDI gnatcoll__projects 2195 9 none]
+G r k project_iterator [project_command_handler gnatcoll__scripts__projects 71 14 none] [project_iteratorDF gnatcoll__projects 2195 9 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [find_all_projects_importing gnatcoll__projects 1171 13 none]
+G r j project_iterator [project_command_handler gnatcoll__scripts__projects 71 14 none] [project_iteratorDA gnatcoll__projects 2195 9 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [current gnatcoll__projects 1160 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [Oeq gnatcoll__projects 464 24 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [next gnatcoll__projects 1164 14 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [nth_arg gnatcoll__scripts 357 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [start gnatcoll__projects 1122 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [nth_arg gnatcoll__scripts 346 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [build gnatcoll__projects 1534 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [attribute_value gnatcoll__projects 1483 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [build gnatcoll__projects 1532 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [attribute_value gnatcoll__projects 1465 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [scenario_variables gnatcoll__projects 1257 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [value gnatcoll__projects 1356 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [external_name gnatcoll__projects 1306 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [untyped_variables gnatcoll__projects 1271 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [external_name gnatcoll__projects 1307 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [value gnatcoll__projects 1357 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [possible_values_of gnatcoll__projects 1311 13 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [free gnatcoll__utils 48 14 none]
+G r c none [project_command_handler gnatcoll__scripts__projects 71 14 none] [project_from_name gnatcoll__projects 1096 13 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [get_repository gnatcoll__scripts 308 13 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [new_class gnatcoll__scripts 202 13 none]
+G r j class_instance [project_queries gnatcoll__scripts__projects 74 14 none] [class_instanceDA gnatcoll__scripts 1561 9 none]
+G r k class_instance [project_queries gnatcoll__scripts__projects 74 14 none] [class_instanceDF gnatcoll__scripts 1561 9 none]
+G r d project_type [project_queries gnatcoll__scripts__projects 74 14 none] [adjust gnatcoll__projects 2128 25 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [get_data gnatcoll__scripts 830 13 none]
+G r e project_type [project_queries gnatcoll__scripts__projects 74 14 none] [finalize gnatcoll__projects 2129 25 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [create_file gnatcoll__scripts__files 54 13 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [unchecked_free gnatcoll__vfs 390 14 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [nth_arg gnatcoll__scripts 357 13 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [source_files gnatcoll__projects 689 13 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [get_environment gnatcoll__projects 305 13 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [predefined_source_files gnatcoll__projects 813 13 none]
+G r j file_array [project_queries gnatcoll__scripts__projects 74 14 none] [file_arrayDA gnatcoll__vfs 387 9 none]
+G r k file_array [project_queries gnatcoll__scripts__projects 74 14 none] [file_arrayDF gnatcoll__vfs 387 9 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [languages gnatcoll__projects 1372 13 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [free gnatcoll__utils 48 14 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [source_dirs gnatcoll__projects 502 13 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [full_name gnatcoll__vfs 238 13 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [set_return_value gnatcoll__scripts 405 14 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [object_path gnatcoll__projects 576 13 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [executables_directory gnatcoll__projects 598 13 none]
+G r d virtual_file [project_queries gnatcoll__scripts__projects 74 14 none] [adjust gnatcoll__vfs 631 25 none]
+G r e virtual_file [project_queries gnatcoll__scripts__projects 74 14 none] [finalize gnatcoll__vfs 630 25 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [get_target gnatcoll__projects 1392 13 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [artifacts_dir gnatcoll__projects 560 13 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [save gnatcoll__projects 1715 13 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [nth_arg gnatcoll__scripts__files 41 13 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [full_name gnatcoll__vfs 226 13 none]
+G r c none [project_queries gnatcoll__scripts__projects 74 14 none] [executable_name gnatcoll__projects 824 13 none]
+G r c none [set_data gnatcoll__scripts__projects 77 14 none] [is_subclass gnatcoll__scripts 676 13 none]
+G r d project_type [set_data gnatcoll__scripts__projects 77 14 none] [adjust gnatcoll__projects 2128 25 none]
+G r c none [set_data gnatcoll__scripts__projects 77 14 none] [set_data gnatcoll__scripts 815 14 none]
+G r e project_type [set_data gnatcoll__scripts__projects 77 14 none] [finalize gnatcoll__projects 2129 25 none]
+G r c none [scenario_variables_cmd_line gnatcoll__scripts__projects 80 13 none] [scenario_variables gnatcoll__projects 1257 13 none]
+G r c none [scenario_variables_cmd_line gnatcoll__scripts__projects 80 13 none] [untyped_variables gnatcoll__projects 1271 13 none]
+G r c none [scenario_variables_cmd_line gnatcoll__scripts__projects 80 13 none] [external_name gnatcoll__projects 1306 13 none]
+G r c none [scenario_variables_cmd_line gnatcoll__scripts__projects 80 13 none] [value gnatcoll__projects 1356 13 none]
+G r c none [scenario_variables_cmd_line gnatcoll__scripts__projects 80 13 none] [external_name gnatcoll__projects 1307 13 none]
+G r c none [scenario_variables_cmd_line gnatcoll__scripts__projects 80 13 none] [value gnatcoll__projects 1357 13 none]
+G r d project_type [project_properties_recordDA gnatcoll__scripts__projects 36 9 none] [adjust gnatcoll__projects 2128 25 none]
+G r e project_type [project_properties_recordDF gnatcoll__scripts__projects 36 9 none] [finalize gnatcoll__projects 2129 25 none]
+G r s instance_property_record [project_properties_recordIP gnatcoll__scripts__projects 36 9 none] [instance_property_recordIP gnatcoll__scripts 793 9 none]
+G r s project_type [project_properties_recordIP gnatcoll__scripts__projects 36 9 none] [project_typeIP gnatcoll__projects 2116 9 none]
+G r e project_type [project_properties_recordIP gnatcoll__scripts__projects 36 9 none] [finalize gnatcoll__projects 2129 25 none]
+X 1 ada.ads
+16K9*Ada 20e8 99|24r6 24r35
+X 5 a-charac.ads
+16K13*Characters 18e19 99|24r10 24r39
+X 6 a-chahan.ads
+36K24*Handling 159e28 99|24w21 24r50
+66V13*To_Lower{character} 105|283i21
+67V13*To_Upper{character} 105|285i21
+70V13*To_Lower{string} 99|388s40
+X 9 a-contai.ads
+19M9*Hash_Type
+X 10 a-cdlili.ads
+51R9*List<43|43R9>
+X 22 a-conhel.ads
+84R12 Reference_Control_Type<43|43R9>
+X 28 a-ciorse.ads
+54R9*Set<43|43R9>
+339R9 Node_Type
+340P9 Node_Access(339R9[91|96])
+X 29 a-ciorse.adb
+55V13 Color{35|37E9} 37|45i19
+88V13 Left{28|340P9[91|96]} 37|41i19[91|96]
+91V13 Parent{28|340P9} 37|39i19
+99V13 Right{28|340P9[90|667]} 37|43i19[90|667]
+102U14 Set_Color 37|46i19[91|96]
+105U14 Set_Left 37|42i19[91|96]
+108U14 Set_Parent 37|40i19[90|667]
+111U14 Set_Right 37|44i19[90|667]
+X 32 a-coorse.ads
+325R9 Node_Type
+326P9 Node_Access(325R9[91|4889])
+X 33 a-coorse.adb
+58V13 Color{35|37E9} 37|45i19
+61V13 Left{32|326P9} 37|41i19
+64V13 Parent{32|326P9[91|4889]} 37|39i19[91|4889]
+67V13 Right{32|326P9[91|4889]} 37|43i19[91|4889]
+70U14 Set_Color 37|46i19
+73U14 Set_Left 37|42i19[91|4889]
+76U14 Set_Right 37|44i19[91|4889]
+79U14 Set_Parent 37|40i19
+X 45 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[30|75]>
+X 54 a-strunb.ads
+87R9*Unbounded_String<43|43R9> 739e14 99|262r28 596r13
+116V13*To_String{string} 99|278s43 605s14
+135U14*Append 99|268s25 271s28 599s10 603s10
+X 60 gnat.ads
+34K9*GNAT 57e9 99|26r6 27r6 27r35 383r21
+X 73 g-os_lib.ads
+51K14*OS_Lib=51:36 99|27w11 27r40
+X 78 g-string.ads
+38K14*Strings=38:37 99|26w11 383r26
+X 82 gnatcoll.ads
+24K9*GNATCOLL 27e13 98|24r6 26r9 33r14 36r33 53r14 58r17 61r5 99|29r6 29r35
+. 30r6 30r35 31r6 31r35 32r6 34r14 49r38 51r42 53r40 92r17 113r14 180r13
+. 343r15 359r25 374r28 451r33 624r5
+X 90 gnatcoll-projects.ads
+100K18*Projects 2351e22 98|24w15 33r23 36r42 53r23 58r26 99|29w15 29r44 92r26
+. 113r23 451r42
+113P9*Project_Environment_Access(112R9) 99|337r17
+127P9*Project_Tree_Access(126R9) 98|33r32 36r51 99|307r29 451r51
+150R9*Project_Type<43|43R9> 2126e14 98|53r32 58r35 99|37r17 78r45 92r35 113r32
+. 153r18 186r20 207r20 226r32 252r32 336r26 613r45
+152r4*No_Project{150R9} 99|97r21 122r17 127r17 160r23 195r30 216r30
+305V13*Get_Environment{113P9} 99|366s25
+464V25*"="{boolean} 26|46i19 39|64i19 99|160s21 195s28 216s28
+467V13*Name{string} 99|174s42
+470V13*Project_Path{110|99R9} 99|181s35
+502V13*Source_Dirs{110|387A9} 99|397s56
+504b7 Recursive{boolean} 99|398r16
+560V13*Artifacts_Dir{110|99R9} 99|437s52
+576V13*Object_Path{110|387A9} 99|412s48
+578b7 Recursive{boolean} 99|414r16
+579b7 Including_Libraries{boolean} 99|415r16
+598V13*Executables_Directory{110|99R9} 99|427s57
+689V13*Source_Files{110|388P9} 99|353s54
+691b7 Recursive{boolean} 99|354r16
+813V13*Predefined_Source_Files{110|387A9} 99|369R53
+824V13*Executable_Name{110|70A9} 99|346s30
+1091V13*Root_Project{150R9} 99|170s48
+1096V13*Project_From_Name{150R9} 99|157s35
+1108R9*Project_Iterator 2204e14 99|185r20 206r20
+1122V13*Start{1108R9} 99|211s21
+1124b7 Recursive{boolean} 99|212r25
+1125b7 Direct_Only{boolean} 99|212r44
+1160V13*Current{150R9} 99|194s21 215s21
+1164U14*Next 99|198s16 219s16
+1171V13*Find_All_Projects_Importing{1108R9} 99|190s21
+1173b7 Include_Self{boolean} 99|191r25
+1242A9*Scenario_Variable_Array(1241R9)<integer> 99|287r29 308r29 592r32
+1250A9*Untyped_Variable_Array(1249R9)<integer> 99|594r31
+1257V13*Scenario_Variables{1242A9} 99|288R28 308R61 593R22
+1271V13*Untyped_Variables{1250A9} 99|595R22
+1306V13*External_Name{string} 99|293s25 312s47 599s32
+1307V13*External_Name{string} 99|603s32
+1311V13*Possible_Values_Of{174|54A9} 99|313R48
+1356V13*Value{string} 99|291s40 599s60
+1357V13*Value{string} 99|603s60
+1372V13*Languages{174|54A9} 99|383s57
+1374b7 Recursive{boolean} 99|384r16
+1392V13*Get_Target{string} 99|433s41
+1394b7 Default_To_Host{boolean} 99|433r53
+1448A9*Attribute_Pkg_String<string> 99|233r21 257r21
+1449A9*Attribute_Pkg_List<string> 99|231r22 264r22
+1465V13*Attribute_Value{string} 99|232s50 256s50
+1468a7 Index{string} 99|234r35 258r35
+1469a7 Default{string} 99|234r20 258r20
+1470b7 Use_Extended{boolean} 99|234r51 258r51
+1483V13*Attribute_Value{174|55P9} 99|230s53 263s58
+1532V13*Build{1448A9} 99|233s43 257s43
+1534V13*Build{1449A9} 99|231s42 264s42
+1715V13*Save{boolean} 99|443s41
+X 91 gnatcoll-projects.adb
+5284V20 "<"{boolean} 12|21i19
+X 96 gnatcoll-scripts.ads
+49K18*Scripts 82|24k9 96|1619e21 98|26r18 61r14 99|32r15 34r23 49r47 51r51
+. 53r49 180r22 343r24 359r34 374r37 624r14
+51R9*Scripts_Repository_Record 1617e14 98|40r31 48r21 99|138r21 465r31
+52P9*Scripts_Repository(51R9) 99|151r25
+54H9*Scripting_Language_Record 1581e14 98|57r24 99|91r24
+55P9*Scripting_Language(54R9)
+57A9*Cst_Argument_List(109|46P9)<integer> 99|49r55 51r59 53r57 56r40 58r41
+. 63r40
+59H9*Callback_Data 1577e53 98|52r30 99|72r21 75r21 111r14 149r21 333r21
+64R9*Class_Instance 1563e14 98|58r56 99|78r18 93r14 95r18 116r24 152r18 613r18
+171R9*Class_Type 1520e14 98|49r14 99|115r24 139r14
+183r4*No_Class_Instance{64R9} 99|95r36 121r17
+202V13*New_Class{171R9} 99|99s21 141s14
+278x14*Name_Parameters 99|156R10 203R10 224R10 250R10 298R10 350R10 381R10
+. 394R10 409R10
+304y13*Get_Script{55P9} 99|169R35 181R16 197R41 218R41 360R22 375R25
+308V13*Get_Repository{52P9} 99|115R57 151R47
+311y13*Nth_Arg{string} 99|158R13 161R56 227R42 253R42
+332y13*Nth_Arg{64R9} 99|117R9 163R25
+336b7 Allow_Null{boolean} 99|117r34
+346V13*Nth_Arg{string} 99|228R42 229R42 254R42 255R42 300R41
+357V13*Nth_Arg{boolean} 99|205R45 352R45 384R29 396R45 411R45
+372x14*Set_Error_Msg 99|161R13
+379x14*Set_Return_Value_As_List 99|189R13 210R13 236R13 356R13 371R16 386R13
+. 400R13 417R13
+399x14*Set_Return_Value 99|174R10 239R16 242R19 278R19 281R16 291R16 302R13
+. 316R22 388R16 433R15
+401x14*Set_Return_Value 99|443R15
+403x14*Set_Return_Value 99|168R10 178R10 196R16 217R16 358R16 373R19
+405U14*Set_Return_Value 99|345s13 404s16 421s16 429s13 439s13
+441x14*Set_Return_Value_Key 99|292R16 317R22
+654X4*Invalid_Data 99|616r16
+656y13*New_Instance{64R9} 99|98R22
+676V13*Is_Subclass{boolean} 99|615s14
+793H9*Instance_Property_Record 793e64 99|36r42
+794P9*Instance_Property(793R9) 99|118r15
+796U14*Destroy
+815U14*Set_Data 99|619s7
+830V13*Get_Data{794P9} 99|125s16
+1038P9*Module_Command_Function
+1051A9*Param_Array(1050R9)<integer>
+1056V13*Param{1050R9} 99|554s27
+1327y13*Get_Repository{52P9} 99|99R32
+1340a4*Constructor_Method{string} 99|155r20 472r16
+1371U14*Register_Command 99|552s7
+1374a7 Params{1051A9} 99|554r10
+1375p7 Handler{1038P9} 99|556r10
+1376r7 Class{171R9} 99|555r10
+1379U14*Register_Command 99|471s7 477s7 482s7 486s7 490s7 494s7 500s7 506s7
+. 512s7 517s7 524s7 532s7 537s7 546s7 557s7 563s7 569s7 577s7 581s7
+1382i7 Minimum_Args{natural} 99|473r10 497r10 502r10 508r10 519r10 526r10
+. 548r10 559r10 565r10
+1383i7 Maximum_Args{natural} 99|474r10 498r10 503r10 509r10 520r10 527r10
+. 534r10 539r10 549r10 560r10 566r10
+1384p7 Handler{1038P9} 99|476r10 481r10 485r10 489r10 493r10 499r10 505r10
+. 511r10 516r10 523r10 530r10 536r10 541r10 551r10 562r10 568r10 572r10 580r10
+. 584r10
+1385r7 Class{171R9} 99|475r10 479r10 484r10 488r10 492r10 496r10 504r10 510r10
+. 514r10 521r10 528r10 535r10 540r10 550r10 561r10 567r10 571r10 579r10 583r10
+1386b7 Static_Method{boolean} 99|480r10 515r10 522r10 529r10
+1446U14*Register_Property 99|573s7
+1449r7 Class{171R9} 99|575r10
+1451p7 Getter{1038P9} 99|576r10
+X 97 gnatcoll-scripts-files.ads
+28K26*Files 62e27 99|32w23 180r30 343r32 359r42 374r45
+41V13*Nth_Arg{110|99R9} 99|343s38
+54V13*Create_File{96|64R9} 99|180s36 359s48 374s51
+X 98 gnatcoll-scripts-projects.ads
+26K26*Projects 96|49k18 98|61l22 61e30 99|34b31 624l22 624t30
+28H9*Project_Tree_Retriever 28e62 31p28 32r14 41r31 99|67r17 466r31
+31y28*Get_Project_Tree{90|127P9} 32>7 99|456R27
+32r7 Self{28R9}
+36V13*Project_Tree{90|127P9} 99|157s22 170s35 288s15 307s52 451b13 458l8
+. 458t20 593s9 595s9
+39U14*Register_Commands 40^7 41^7 99|464b14 585l8 585t25
+40p7 Repo(96|51R9) 99|465b7 472r10 475r45 478r10 479r46 483r10 484r45 487r10
+. 488r45 491r10 492r45 495r10 496r45 501r10 504r45 507r10 510r45 513r10 514r46
+. 518r10 521r46 525r10 528r46 533r10 535r45 538r10 540r46 547r10 550r45 553r10
+. 555r40 558r10 561r45 564r10 567r45 570r10 571r45 574r10 575r39 578r10 579r40
+. 582r10 583r40
+41p7 Value(28R9) 99|466b7 469r51
+47V13*Get_Project_Class{96|171R9} 48^7 99|115s38 137b13 142l8 142t25 163s43
+. 475s26 479s27 484s26 488s26 492s26 496s26 504s26 510s26 514s27 521s27 528s27
+. 535s26 540s27 550s26 555s21 561s26 567s26 571s26 575s20 579s21 583s21
+48p7 Repo(96|51R9) 99|138b7 141r25
+52V13*Get_Data{90|150R9} 52>23 52>51 99|110b13 131l8 131t16 173s21 177s21
+. 188s24 209s24 226s48 252s48 336s42
+52c23 Data<96|59R9> 99|111b7 115r73 117r18
+52i51 N{positive} 99|112b7 117r24
+56V13*Create_Project{96|64R9} 57^7 58>7 99|90b13 104l8 104t22 169s19 197s25
+. 218s25
+57p7 Script(96|54R9) 99|91b7 99r13 99r48
+58r7 Project{90|150R9} 99|92b7 97r10 100r30
+X 99 gnatcoll-scripts-projects.adb
+36R9 Project_Properties_Record<96|793R9> 96|796p14 99|38e14 129r17 621r10
+37r7*Project{90|150R9} 129r55 621m37
+40a4 Project_Class_Name{string} 99r57 125r32 141r31 615r37 620r20
+42a4 Name_Cst{string} 57r39
+43a4 Recursive_Cst{string} 50r12 52r12 54r12 203r39
+44a4 Attribute_Cst{string} 59r12
+45a4 Package_Cst{string} 60r12
+46a4 Prefix_Cst{string} 64r39
+47a4 Index_Cst{string} 61r12
+49a4 Sources_Cmd_Parameters{96|57A9} 350r33 534r26
+51a4 Source_Dirs_Cmd_Parameters{96|57A9} 394r33 409r33 548r26 549r26 565r26
+. 566r26
+53a4 Languages_Cmd_Parameters{96|57A9} 381r33
+56a4 Project_Cmd_Parameters{96|57A9} 156r33
+58a4 Get_Attributes_Parameters{96|57A9} 224r33 250r33
+63a4 Scenar_Var_Parameters{96|57A9} 298r33
+66P9 Project_Tree_Retriever_Access(98|28R9) 69r16 469r20
+69p4 Retriever{66P9} 453r10 456r17 469m7
+71U14 Project_Command_Handler 72=7 72>42 148b14 326l8 326t31 476r26 481r27
+. 485r26 489r26 493r26 499r26 505r26 511r26 516r27 523r27 530r27
+72c7 Data<96|59R9> 149b7 151r63 156m27 158r22 161m28 161r65 163r34 169m13
+. 169r47 173r31 174m28 177r31 179m13 181r28 188r34 189m39 197m19 197r53 203m27
+. 205r54 209r34 210m39 218m19 218r53 224m27 226r58 227r51 228r51 229r51 236m39
+. 239m34 242m37 250m27 252r58 253r51 254r51 255r51 278m37 281m34 291m34 293m19
+. 298m27 300r50 302m31 316m40 317m44
+72a42 Command{string} 149b42 155r10 167r13 172r13 176r13 183r13 202r13 223r13
+. 249r13 285r13 297r13 305r13
+74U14 Project_Queries 75=7 75>42 332b14 445l8 445t23 536r26 541r27 551r26
+. 556r21 562r26 568r26 572r26 576r20 580r21 584r21
+75c7 Data<96|59R9> 333b7 336r52 343r47 346m16 350m27 352r54 356m39 359m19
+. 360r34 371m42 374m22 375r37 381m27 384r38 386m39 388m34 394m27 396r54 400m39
+. 404m34 409m27 411r54 417m39 421m34 429m31 433m10 433r10 439m31 443m10 443r10
+75a42 Command{string} 333b42 340r10 349r13 365r13 380r13 393r13 408r13 425r13
+. 432r13 435r13 442r13
+77U14 Set_Data 78>7 78>34 100s10 164s13 612b14 622l8 622t16
+78r7 Instance{96|64R9} 613b7 615r27 620r10
+78r34 Project{90|150R9} 613b34 621r48
+80V13 Scenario_Variables_Cmd_Line{string} 80>42 302s37 591b13 606l8 606t35
+80a42 Prefix{string} 591b42 599r23 603r23
+95r7 Instance{96|64R9} 98m10 98r10 100r20 103r14
+115r7 Class{96|171R9} 117r27
+116r7 Inst{96|64R9} 121r10 125r26
+118p7 Value{96|794P9} 125m7 126r10 129r44
+151p7 Repo{96|52P9} 163r62
+152r7 Instance{96|64R9} 163m13 163r13 164r23
+153r7 Project{90|150R9} 157m10 160r13 164r33 173m10 174r34 177m10 181r49
+. 188m13 191r16 209m13 212r16
+185r13 Iter{90|1108R9} 190m13 190r13 194r30 198m22 198r22
+186r13 P{90|150R9} 194m16 195r26 197r60
+205b13 Recursive{boolean} 212r63
+206r13 Iter{90|1108R9} 211m13 211r13 215r30 219m22 219r22
+207r13 P{90|150R9} 215m16 216r26 218r60
+226r13 Project{90|150R9} 230r45 232r42
+227a13 Attr{string} 231r54 233r55
+228a13 Pkg{string} 231r49 233r50
+229a13 Index{string} 231r62 234r44
+230p13 List{156|88P12} 238r16 240r19 241r25 242r43 246m19 246r19
+232a13 Value{string} 238r37 239r40
+241i20 L{integer} 242r49
+252r13 Project{90|150R9} 256r42 263r50
+253a13 Attr{string} 257r55 264r54
+254a13 Pkg{string} 257r50 264r49
+255a13 Index{string} 258r44 264r62
+256a13 Value{string} 260r16 281r40
+262r19 Result{54|87R9} 268m33 268r33 271m36 271r36 278r54
+263p19 List{156|88P12} 266r22 267r31 268r41 270r33 275m28 275r28
+267i26 L{integer} 268r47 270r28
+287a13 Vars{90|1242A9} 290r22 291r47 293r40
+290i17 V{integer} 291r53 293r46
+300a13 Prefix{string} 302r66
+307p13 Tree{90|127P9} 308r56 313r43
+308a13 Vars{90|1242A9} 310r22 312r62 313r68
+310i17 V{integer} 312r68 313r74
+312a19 Name{string} 317r50
+313a19 Values{156|74A12} 315r31 316r46 320m25 320r25
+315i23 Iter{integer} 316r54
+336r7 Project{90|150R9} 346r22 353r46 366r17 383r49 397r48 413r16 427r49
+. 433r33 437r44 443r33
+337p7 Env{90|113P9} 366m10 367r13 369r49
+342r13 Main{110|99R9} 346r47
+352b13 Recursive{boolean} 354r30
+353p13 Sources{110|388P9} 357r22 360r41 362m29 362r29
+357i17 S{integer} 360r50
+369a16 Sources{110|387A9} 372r25 375r44
+372i20 S{integer} 375r53
+383a13 Langs{174|54A9} 387r22 388r50 390r19
+387i17 L{integer} 388r57
+396b13 Recursive{boolean} 398r29
+397a13 Dirs{110|387A9} 402r22 404r40
+402i17 D{integer} 404r46
+411b13 Recursive{boolean} 414r39
+412a13 Object{110|387A9} 419r22 421r40
+419i17 J{integer} 421r48
+427r13 Exec_Dir{110|99R9} 429r37
+437r13 Dir{110|99R9} 439r37
+592a7 Scenario_Vars{90|1242A9} 598r18
+594a7 Untyped_Vars{90|1250A9} 602r18
+596r7 Res{54|87R9} 599m18 599r18 603m18 603r18 605r25
+598r11 Var=598:18{90|1241R9} 599r47 599r67
+602r11 Var=602:18{90|1249R9} 603r47 603r67
+X 106 gnatcoll-strings_impl.adb
+1495V19 H[172|60]{9|19M9} 173|44b13[108|719]
+1511V19 H[172|60]{9|19M9} 173|44b13[108|719]
+X 109 gnatcoll-utils.ads
+36K18*Utils 99|31w15 31r44 109|317e19
+46P9*Cst_String_Access(string)
+48U14*Free 99|320s19 390s13
+X 110 gnatcoll-vfs.ads
+64K18*VFS 99|30w15 30r44 110|673e17
+70A9*Filesystem_String<string>(character)<integer>
+85P9*Cst_Filesystem_String_Access(70A9)
+99R9*Virtual_File<43|43R9> 99|342r29 427r33 437r28 110|627e14
+226V13*Full_Name{85P9} 99|346s52
+238V13*Full_Name{70A9} 99|404s49 421s51 429s46 439s41
+336V25*"="{boolean} 10|43i19
+387A9*File_Array(99R9)<integer> 99|369r35 397r34 412r34
+388P9*File_Array_Access(387A9) 99|353r25
+390U14*Unchecked_Free 99|362s13
+X 139 system.ads
+67M9*Address
+X 154 s-memory.ads
+53V13*Alloc{139|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{139|67M9} 105i<c,__gnat_realloc>22
+X 156 s-os_lib.ads
+74A12*String_List{174|54A9}<integer> 99|313r28
+88P12*String_List_Access{174|55P9} 99|230r23 263r28
+90V14*"="=92:66{boolean} 99|238r21 240r24 266r27
+94U14*Free=94:69 99|246s13 275s22
+X 166 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+X 174 s-string.ads
+45P9*String_Access(string)
+54A9*String_List(45P9)<integer> 99|383r34
+55P9*String_List_Access(54A9)
+

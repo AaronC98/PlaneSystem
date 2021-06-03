@@ -1,0 +1,958 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7.7. How to Write Loop Invariants &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7.8. How to Investigate Unproved Checks" href="how_to_investigate_unproved_checks.html" />
+    <link rel="prev" title="7.6. How to Write Package Contracts" href="how_to_write_package_contracts.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="how_to_investigate_unproved_checks.html" title="7.8. How to Investigate Unproved Checks"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="how_to_write_package_contracts.html" title="7.6. How to Write Package Contracts"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" accesskey="U">7. Formal Verification with GNATprove</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">7.7. How to Write Loop Invariants</a><ul>
+<li><a class="reference internal" href="#automatic-unrolling-of-simple-for-loops">7.7.1. Automatic Unrolling of Simple For-Loops</a></li>
+<li><a class="reference internal" href="#automatically-generated-loop-invariants">7.7.2. Automatically Generated Loop Invariants</a></li>
+<li><a class="reference internal" href="#the-four-properties-of-a-good-loop-invariant">7.7.3. The Four Properties of a Good Loop Invariant</a></li>
+<li><a class="reference internal" href="#proving-a-loop-invariant-in-the-first-iteration">7.7.4. Proving a Loop Invariant in the First Iteration</a></li>
+<li><a class="reference internal" href="#completing-a-loop-invariant-to-prove-checks-inside-the-loop">7.7.5. Completing a Loop Invariant to Prove Checks Inside the Loop</a></li>
+<li><a class="reference internal" href="#completing-a-loop-invariant-to-prove-checks-after-the-loop">7.7.6. Completing a Loop Invariant to Prove Checks After the Loop</a></li>
+<li><a class="reference internal" href="#proving-a-loop-invariant-after-the-first-iteration">7.7.7. Proving a Loop Invariant After the First Iteration</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="how_to_write_package_contracts.html"
+                        title="previous chapter">7.6. How to Write Package Contracts</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="how_to_investigate_unproved_checks.html"
+                        title="next chapter">7.8. How to Investigate Unproved Checks</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/how_to_write_loop_invariants.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-write-loop-invariants">
+<span id="id1"></span><h1>7.7. How to Write Loop Invariants<a class="headerlink" href="#how-to-write-loop-invariants" title="Permalink to this headline">¶</a></h1>
+<p>As described in <a class="reference internal" href="assertion_pragmas.html#loop-invariants"><span class="std std-ref">Loop Invariants</span></a>, proving properties of subprograms
+that contain loops may require the addition of explicit loop
+invariant contracts. This section describes a systematic approach
+for writing loop invariants.</p>
+<div class="section" id="automatic-unrolling-of-simple-for-loops">
+<span id="id2"></span><h2>7.7.1. Automatic Unrolling of Simple For-Loops<a class="headerlink" href="#automatic-unrolling-of-simple-for-loops" title="Permalink to this headline">¶</a></h2>
+<p>GNATprove automatically unrolls simple for-loops, defined as:</p>
+<ul class="simple">
+<li>for-loops over a range,</li>
+<li>with a number of iterations smaller than 20,</li>
+<li>without <a class="reference internal" href="assertion_pragmas.html#loop-invariants"><span class="std std-ref">Loop Invariants</span></a> or <a class="reference internal" href="assertion_pragmas.html#loop-variants"><span class="std std-ref">Loop Variants</span></a>,</li>
+<li>that declare no local variables, or only variables of scalar type.</li>
+</ul>
+<p>In addition, GNATprove always unrolls loops of the form <code class="docutils literal"><span class="pre">for</span> <span class="pre">J</span> <span class="pre">in</span> <span class="pre">1</span> <span class="pre">..</span> <span class="pre">1</span>
+<span class="pre">loop</span></code> that don&#8217;t have a <a class="reference internal" href="assertion_pragmas.html#loop-invariants"><span class="std std-ref">Loop Invariants</span></a> or <a class="reference internal" href="assertion_pragmas.html#loop-variants"><span class="std std-ref">Loop Variants</span></a>, even
+when they declare local variables of non-scalar type. This special form of loop
+is used to simulate forward gotos by using exit statements instead.</p>
+<p>As a result of unrolling, GNATprove conveys the exact meaning of the loop to
+provers, without requiring a loop invariant. While this is quite powerful, it
+is best applied to loops where the body of the loop is small, otherwise the
+unrolling may lead to complex formulas that provers cannot prove.</p>
+<p>For example, consider the subprograms <code class="docutils literal"><span class="pre">Init</span></code> and <code class="docutils literal"><span class="pre">Sum</span></code> below:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Loop_Unrolling</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">subtype</span><span class="p"> </span><span class="n">Index</span> <span class="kr">is</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span><span class="p">;</span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Arr</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Index</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Init</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Arr</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">Index</span> <span class="o">=&gt;</span> <span class="n">A</span><span class="o">(</span><span class="n">J</span><span class="o">)</span> <span class="o">=</span> <span class="n">J</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Sum</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Arr</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">Index</span> <span class="o">=&gt;</span> <span class="n">A</span><span class="o">(</span><span class="n">J</span><span class="o">)</span> <span class="o">=</span> <span class="n">J</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Sum</span><span class="na">&#39;Result</span> <span class="o">=</span> <span class="o">(</span><span class="n">A</span><span class="na">&#39;First</span> <span class="o">+</span> <span class="n">A</span><span class="na">&#39;Last</span><span class="o">)</span> <span class="o">*</span> <span class="n">A</span><span class="na">&#39;Length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="k">end Loop</span><span class="n">_Unrolling</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Loop_Unrolling</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Init</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Arr</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">for</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">Index</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="n">A</span> <span class="o">(</span><span class="n">J</span><span class="o">)</span> <span class="o">:=</span> <span class="n">J</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Init</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Sum</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Arr</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">is</span><span class="p"></span>
+      <span class="n">Result</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">for</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">Index</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="n">Result</span> <span class="o">:=</span> <span class="n">Result</span> <span class="o">+</span> <span class="n">A</span> <span class="o">(</span><span class="n">J</span><span class="o">)</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+      <span class="kr">return</span><span class="p"> </span><span class="n">Result</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Sum</span><span class="p">;</span>
+
+<span class="k">end Loop</span><span class="n">_Unrolling</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>As the loops in both subprograms are simple for-loops, GNATprove unrolls them
+and manages to prove the postconditions of <code class="docutils literal"><span class="pre">Init</span></code> and <code class="docutils literal"><span class="pre">Sum</span></code> without
+requiring a loop invariant:</p>
+<div class="highlight-none"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>loop_unrolling.adb:15:27: info: overflow check proved
+loop_unrolling.ads:7:20: info: initialization of &quot;A&quot; proved
+loop_unrolling.ads:8:14: info: postcondition proved
+loop_unrolling.ads:12:14: info: postcondition proved
+</pre></div>
+</td></tr></table></div>
+<p>Automatic loop unrolling can be disabled locally by explicitly adding a default
+loop invariant at the start of the loop:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">X</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span> <span class="o">..</span> <span class="n">B</span> <span class="kr">loop</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span> <span class="o">(</span><span class="kc">True</span><span class="o">)</span><span class="p">;</span>
+   <span class="o">...</span>
+<span class="k">end loop</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>It can also be disabled globally by using the switch <code class="docutils literal"><span class="pre">--no-loop-unrolling</span></code>.</p>
+</div>
+<div class="section" id="automatically-generated-loop-invariants">
+<span id="id3"></span><h2>7.7.2. Automatically Generated Loop Invariants<a class="headerlink" href="#automatically-generated-loop-invariants" title="Permalink to this headline">¶</a></h2>
+<p>In general, GNATprove relies on the user to manually supply the necessary
+information about variables modified by loop statements in the loop invariant.
+Though variables which are not modified in the loop need not be mentioned in
+the invariant, it is usually necessary to state explicitly the preservation
+of unmodified object parts, such as record or array components. In
+particular, when a loop modifies a collection, which can be either an array or
+a container (see <a class="reference internal" href="spark_libraries.html#formal-containers-library"><span class="std std-ref">Formal Containers Library</span></a>), it may be necessary to
+state in the loop invariant those parts of the collection that have not been
+modified up to the current iteration. This property called <cite>frame condition</cite> in
+the scientific literature is essential for GNATprove, which otherwise must
+assume that all elements in the collection may have been modified. Special care
+should be taken to write adequate frame conditions, as they usually look
+obvious to programmers, and so it is very common to forget to write them and
+not being able to realize what&#8217;s the problem afterwards.</p>
+<p>To alleviate this problem, the GNATprove tool generates automatically frame
+conditions in some cases. As examples of use of such generated frame
+conditions, consider the code of procedures <code class="docutils literal"><span class="pre">Update_Arr</span></code> and <code class="docutils literal"><span class="pre">Update_Rec</span></code>
+below:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Frame_Condition</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Index</span> <span class="kr">is</span><span class="p"> </span><span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span><span class="p">;</span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Arr</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Index</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Update_Arr</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Arr</span><span class="p">;</span> <span class="n">Idx</span> <span class="o">:</span> <span class="n">Index</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">A</span><span class="o">(</span><span class="n">Idx</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">..</span> <span class="n">A</span><span class="na">&#39;Last</span><span class="o">)</span> <span class="o">=</span> <span class="n">A</span><span class="o">(</span><span class="n">Idx</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">..</span> <span class="n">A</span><span class="na">&#39;Last</span><span class="o">)</span><span class="na">&#39;Old</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Rec</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">A</span> <span class="o">:</span> <span class="n">Arr</span><span class="p">;</span>
+      <span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Update_Rec</span> <span class="o">(</span><span class="n">R</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Rec</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">R.X</span> <span class="o">=</span> <span class="n">R.X</span><span class="na">&#39;Old</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Frame_Condition</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Frame_Condition</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Update_Arr</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Arr</span><span class="p">;</span> <span class="n">Idx</span> <span class="o">:</span> <span class="n">Index</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">for</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;First</span> <span class="o">..</span> <span class="n">Idx</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="n">A</span><span class="o">(</span><span class="n">J</span><span class="o">)</span> <span class="o">:=</span> <span class="n">Integer</span><span class="o">(</span><span class="n">J</span><span class="o">)</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Update_Arr</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Update_Rec</span> <span class="o">(</span><span class="n">R</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Rec</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">for</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="n">R.A</span><span class="na">&#39;Range</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="n">R.A</span><span class="o">(</span><span class="n">J</span><span class="o">)</span> <span class="o">:=</span> <span class="n">Integer</span><span class="o">(</span><span class="n">J</span><span class="o">)</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Update_Rec</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Frame_Condition</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Without this feature, GNATprove would not be able to prove the postconditions
+of either procedure because:</p>
+<ul class="simple">
+<li>To prove the postcondition of <code class="docutils literal"><span class="pre">Update_Arr</span></code>, one needs to know that only the
+indexes up to <code class="docutils literal"><span class="pre">Idx</span></code> have been updated in the loop.</li>
+<li>To prove the postcondition of <code class="docutils literal"><span class="pre">Update_Rec</span></code>, one needs to know that only the
+component <code class="docutils literal"><span class="pre">A</span></code> of record <code class="docutils literal"><span class="pre">R</span></code> has been updated in the loop.</li>
+</ul>
+<p>Thanks to this feature, GNATprove automatically proves the postconditions of
+both procedures, without the need for loop invariants:</p>
+<div class="highlight-none"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>frame_condition.ads:8:14: info: postcondition proved
+frame_condition.ads:8:14: info: range check proved
+frame_condition.ads:8:37: info: range check proved
+frame_condition.ads:16:14: info: postcondition proved
+</pre></div>
+</td></tr></table></div>
+<p>In particular, it is able to infer the preservation of
+unmodified components of record variables. It also handles unmodified components of
+array variables as long as they are preserved at every index in the array.
+As an example, consider the following loop which only updates some record
+component of a nested data structure:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Preserved_Fields</span> <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">R</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">F1</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="n">F2</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">R_Array</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">R</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">R_Array_Record</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">F3</span> <span class="o">:</span> <span class="n">R_Array</span><span class="p">;</span>
+      <span class="n">F4</span> <span class="o">:</span> <span class="n">R_Array</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="n">D</span> <span class="o">:</span> <span class="n">R_Array_Record</span><span class="p">;</span>
+
+<span class="kr">begin</span><span class="p"></span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span> <span class="kr">loop</span><span class="p"></span>
+      <span class="n">D.F3</span> <span class="o">(</span><span class="n">I</span><span class="o">).</span><span class="n">F1</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span> <span class="o">=&gt;</span>
+                       <span class="n">D.F3</span> <span class="o">(</span><span class="n">J</span><span class="o">).</span><span class="n">F2</span> <span class="o">=</span> <span class="n">D.F3</span><span class="na">&#39;Loop_Entry</span> <span class="o">(</span><span class="n">J</span><span class="o">).</span><span class="n">F2</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">D.F4</span> <span class="o">=</span> <span class="n">D.F4</span><span class="na">&#39;Loop_Entry</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end loop</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Preserved_Fields</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Despite the absence of a loop invariant in the above code,
+GNATprove is able to prove that the assertions on lines 19-21 about variable
+<code class="docutils literal"><span class="pre">D</span></code> which is modified in the loop are proved, thanks to the generated loop
+invariants:</p>
+<div class="highlight-none"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>preserved_fields.adb:14:04: info: initialization of &quot;D&quot; proved
+preserved_fields.adb:19:22: info: assertion proved
+preserved_fields.adb:21:22: info: assertion proved
+</pre></div>
+</td></tr></table></div>
+<p>Note that GNATprove will not generate a frame condition for a record component if
+the record variable is modified as a whole either through an assignment or
+through a procedure call, et cetera, even if the component happens to be preserved
+by the modification.</p>
+<p>GNATprove can also infer preservation of unmodified array components for arrays
+that are only updated at constant indexes or at indexes equal to the loop index.
+As an example, consider the following loops, only updating some cells of a
+matrix of arrays:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Preserved_Components</span> <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span> <span class="kr">is</span><span class="p"></span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">A</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">with</span><span class="p"> </span><span class="n">Default_Component_Value</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">A_Matrix</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">A</span><span class="p">;</span>
+
+   <span class="n">M</span> <span class="o">:</span> <span class="n">A_Matrix</span><span class="p">;</span>
+
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">L1</span><span class="o">:</span> <span class="kr">for</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span> <span class="kr">loop</span><span class="p"></span>
+      <span class="n">M</span> <span class="o">(</span><span class="n">I</span><span class="p">,</span> <span class="mi">1</span><span class="o">)</span> <span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="mi">50</span><span class="o">)</span> <span class="o">:=</span> <span class="o">(</span><span class="kr">others</span><span class="p"> </span><span class="o">=&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span>
+        <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">K1</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span> <span class="o">=&gt;</span>
+           <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">K2</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span> <span class="o">=&gt;</span>
+                <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">K3</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span> <span class="o">=&gt;</span>
+                     <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">K1</span> <span class="o">&gt;</span> <span class="n">I</span> <span class="kr">or</span><span class="p"> </span><span class="kr">else</span><span class="p"> </span><span class="n">K2</span> <span class="o">/=</span> <span class="mi">1</span> <span class="kr">or</span><span class="p"> </span><span class="kr">else</span><span class="p"> </span><span class="n">K3</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="kr">then</span><span class="p"></span>
+                             <span class="n">M</span> <span class="o">(</span><span class="n">K1</span><span class="p">,</span> <span class="n">K2</span><span class="o">)</span> <span class="o">(</span><span class="n">K3</span><span class="o">)</span> <span class="o">=</span> <span class="n">M</span><span class="na">&#39;Loop_Entry</span> <span class="o">(</span><span class="n">K1</span><span class="p">,</span> <span class="n">K2</span><span class="o">)</span> <span class="o">(</span><span class="n">K3</span><span class="o">)))))</span><span class="p">;</span>
+   <span class="k">end loop</span> <span class="n">L1</span><span class="p">;</span>
+
+   <span class="n">L2</span><span class="o">:</span> <span class="kr">for</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">99</span> <span class="kr">loop</span><span class="p"></span>
+      <span class="n">M</span> <span class="o">(</span><span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">I</span><span class="o">)</span> <span class="o">(</span><span class="n">I</span> <span class="o">..</span> <span class="mi">100</span><span class="o">)</span> <span class="o">:=</span> <span class="o">(</span><span class="kr">others</span><span class="p"> </span><span class="o">=&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span>
+        <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">K1</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span> <span class="o">=&gt;</span>
+           <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">K2</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span> <span class="o">=&gt;</span>
+                <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">K3</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span> <span class="o">=&gt;</span>
+                     <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">K1</span> <span class="o">&gt;</span> <span class="n">I</span> <span class="o">+</span> <span class="mi">1</span> <span class="kr">then</span><span class="p"></span>
+                             <span class="n">M</span> <span class="o">(</span><span class="n">K1</span><span class="p">,</span> <span class="n">K2</span><span class="o">)</span> <span class="o">(</span><span class="n">K3</span><span class="o">)</span> <span class="o">=</span> <span class="n">M</span><span class="na">&#39;Loop_Entry</span> <span class="o">(</span><span class="n">K1</span><span class="p">,</span> <span class="n">K2</span><span class="o">)</span> <span class="o">(</span><span class="n">K3</span><span class="o">)))))</span><span class="p">;</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span>
+        <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">K1</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span> <span class="o">=&gt;</span>
+           <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">K2</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span> <span class="o">=&gt;</span>
+                <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">K3</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">100</span> <span class="o">=&gt;</span>
+                     <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">K3</span> <span class="o">&lt;</span> <span class="n">K2</span> <span class="kr">then</span><span class="p"></span>
+                             <span class="n">M</span> <span class="o">(</span><span class="n">K1</span><span class="p">,</span> <span class="n">K2</span><span class="o">)</span> <span class="o">(</span><span class="n">K3</span><span class="o">)</span> <span class="o">=</span> <span class="n">M</span><span class="na">&#39;Loop_Entry</span> <span class="o">(</span><span class="n">K1</span><span class="p">,</span> <span class="n">K2</span><span class="o">)</span> <span class="o">(</span><span class="n">K3</span><span class="o">)))))</span><span class="p">;</span>
+   <span class="k">end loop</span> <span class="n">L2</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Preserved_Components</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Despite the absence of a loop invariant in the above code,
+GNATprove can succesfully verify the assertion on line 13 thanks to the
+generated loop invariant. Note that loop invariant generation for preserved
+array components is based on heuristics, and that it is therefore far from
+complete. In particular, it does not handle updates to variable indexes different
+from the loop index, as can be seen by the failed attempt to verify the
+assertion on line 22. GNATprove does not either handle dependences between
+indexes in an update, resulting in the failed attempt to verify the
+assertion on line 33:</p>
+<div class="highlight-none"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>preserved_components.adb:7:04: info: initialization of &quot;M&quot; proved
+preserved_components.adb:13:10: info: assertion proved
+preserved_components.adb:21:07: info: range check proved
+preserved_components.adb:21:31: info: length check proved
+preserved_components.adb:21:34: info: length check proved
+preserved_components.adb:27:30: medium: assertion might fail, cannot prove M (K1, K2) (K3) = M&#39;Loop_Entry (K1, K2) (K3) (e.g. when K1 = 4 and K2 = 1 and K3 = 1) [possible explanation: loop at line 20 should mention M in a loop invariant]
+preserved_components.adb:33:30: medium: assertion might fail, cannot prove M (K1, K2) (K3) = M&#39;Loop_Entry (K1, K2) (K3) (e.g. when K1 = 1 and K2 = 2 and K3 = 1) [possible explanation: loop at line 20 should mention M in a loop invariant]
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="the-four-properties-of-a-good-loop-invariant">
+<h2>7.7.3. The Four Properties of a Good Loop Invariant<a class="headerlink" href="#the-four-properties-of-a-good-loop-invariant" title="Permalink to this headline">¶</a></h2>
+<p>A loop invariant can describe more or less precisely the behavior of a
+loop. What matters is that the loop invariant allows proving absence of
+run-time errors in the subprogram, that the subprogram respects its contract,
+and that the loop invariant itself holds at each iteration of the loop. There
+are four properties that a good loop invariant should fulfill:</p>
+<ol class="arabic simple">
+<li>[INIT] It should be provable in the first iteration of the loop.</li>
+<li>[INSIDE] It should allow proving absence of run-time errors and local
+assertions inside the loop.</li>
+<li>[AFTER] It should allow proving absence of run-time errors, local assertions
+and the subprogram postcondition after the loop.</li>
+<li>[PRESERVE] It should be provable after the first iteration of the loop.</li>
+</ol>
+<p>As a first example, here is a variant of the search algorithm described in
+<a class="reference internal" href="../tutorial.html#spark-tutorial"><span class="std std-ref">SPARK Tutorial</span></a>, which returns whether a collection contains a desired
+value, and if so, at which index. The collection is implemented as an array.</p>
+<p>The specification of <code class="docutils literal"><span class="pre">Linear_Search</span></code> is given in file <code class="docutils literal"><span class="pre">linear_search.ads</span></code>.
+The postcondition of <code class="docutils literal"><span class="pre">Search</span></code> expresses that, either the search returns a
+result within the array bounds, in which case it is the desired index,
+otherwise the array does not contain the value searched.</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Linear_Search</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Opt_Index</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Natural</span><span class="p">;</span>
+
+   <span class="kr">subtype</span><span class="p"> </span><span class="n">Index</span> <span class="kr">is</span><span class="p"> </span><span class="n">Opt_Index</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="n">Opt_Index</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+   <span class="n">No_Index</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Opt_Index</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Ar</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Index</span> <span class="kr">range</span><span class="p"> </span><span class="o">&lt;&gt;)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Search</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Ar</span><span class="p">;</span> <span class="n">I</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Opt_Index</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Search</span><span class="na">&#39;Result</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="kr">then</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">Search</span><span class="na">&#39;Result</span><span class="o">)</span> <span class="o">=</span> <span class="n">I</span>
+              <span class="kr">else</span><span class="p"> </span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">K</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span> <span class="n">A</span> <span class="o">(</span><span class="n">K</span><span class="o">)</span> <span class="o">/=</span> <span class="n">I</span><span class="o">))</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Linear_Search</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The implementation of <code class="docutils literal"><span class="pre">Linear_Search</span></code> is given in file <code class="docutils literal"><span class="pre">linear_search.adb</span></code>.
+The loop invariant of <code class="docutils literal"><span class="pre">Search</span></code> expresses that, at the end of each iteration,
+if the loop has not been exited before, then the value searched is not in the
+range of indexes between the start of the array <code class="docutils literal"><span class="pre">A'First</span></code> and the current
+index <code class="docutils literal"><span class="pre">Pos</span></code>.</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Linear_Search</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="k">function </span><span class="nf">Search</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Ar</span><span class="p">;</span> <span class="n">I</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Opt_Index</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">for</span><span class="p"> </span><span class="n">Pos</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="kr">if</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">Pos</span><span class="o">)</span> <span class="o">=</span> <span class="n">I</span> <span class="kr">then</span><span class="p"></span>
+            <span class="kr">return</span><span class="p"> </span><span class="n">Pos</span><span class="p">;</span>
+         <span class="k">end if</span><span class="p">;</span>
+
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span> <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">K</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;First</span> <span class="o">..</span> <span class="n">Pos</span> <span class="o">=&gt;</span> <span class="n">A</span> <span class="o">(</span><span class="n">K</span><span class="o">)</span> <span class="o">/=</span> <span class="n">I</span><span class="o">)</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+
+      <span class="kr">return</span><span class="p"> </span><span class="n">No_Index</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Search</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Linear_Search</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>With this loop invariant, GNATprove is able to prove all checks in
+<code class="docutils literal"><span class="pre">Linear_Search</span></code>, both those related to absence of run-time errors and those
+related to verification of contracts:</p>
+<div class="highlight-none"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>linear_search.adb:9:20: info: range check proved
+linear_search.adb:12:33: info: loop invariant initialization proved
+linear_search.adb:12:33: info: loop invariant preservation proved
+linear_search.adb:12:67: info: index check proved
+linear_search.ads:13:14: info: postcondition proved
+linear_search.ads:13:57: info: index check proved
+linear_search.ads:14:48: info: index check proved
+</pre></div>
+</td></tr></table></div>
+<p>In particular, the loop invariant fulfills all four properties that we listed
+above:</p>
+<ol class="arabic simple">
+<li>[INIT] It is proved in the first iteration (message on line 2).</li>
+<li>[INSIDE] It allows proving absence of run-time errors inside the loop
+(messages on lines 1 and 4).</li>
+<li>[AFTER] It allows proving absence of run-time errors after the loop
+(messages on lines 6 and 7) and the subprogram postcondition (message on
+line 5).</li>
+<li>[PRESERVE] It is proved after the first iteration (message on line 3).</li>
+</ol>
+<p>Note that the loop invariant closely resembles the second line in the
+postcondition of the subprogram, except with a different range of values in the
+quantification: instead of stating a property for all indexes in the array
+<code class="docutils literal"><span class="pre">A</span></code>, the loop invariant states the same property for all indexes up to the
+current loop index <code class="docutils literal"><span class="pre">Pos</span></code>. In fact, if we equate <code class="docutils literal"><span class="pre">Pos</span></code> to <code class="docutils literal"><span class="pre">A'Last</span></code> for the
+last iteration of the loop, the two properties are equal. This explains here
+how the loop invariant allows proving the subprogram postcondition when the
+value searched is not found.</p>
+<p>Note also that we chose to put the loop invariant at the end of the loop. We
+could as easily put it at the start of the loop. In that case, the range of
+values in the quantification should be modified to state that, at the start of
+each iteration, if the loop has not been exited before, then the value searched
+is not in the range of indexes between the start of the array <code class="docutils literal"><span class="pre">A'First</span></code> and
+the current index <code class="docutils literal"><span class="pre">Pos</span></code> <em>excluded</em>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span> <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">K</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;First</span> <span class="o">..</span> <span class="n">Pos</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="n">A</span> <span class="o">(</span><span class="n">K</span><span class="o">)</span> <span class="o">/=</span> <span class="n">I</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Indeed, the test for the value at index <code class="docutils literal"><span class="pre">Pos</span></code> is done after the loop
+invariant in that case.</p>
+<p>We will now demonstrate techniques to complete a loop invariant so that it
+fulfills all four properties [INIT], [INSIDE], [AFTER] and [PRESERVE], on a
+more complex algorithm searching in an ordered collection of elements. Like the
+naive search algorithm just described, this algorithm returns whether the
+collection contains the desired value, and if so, at which index. The
+collection is also implemented as an array.</p>
+<p>The specification of this <code class="docutils literal"><span class="pre">Binary_Search</span></code> is given in file <code class="docutils literal"><span class="pre">binary_search.ads</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Binary_Search</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Opt_Index</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Natural</span><span class="p">;</span>
+
+   <span class="kr">subtype</span><span class="p"> </span><span class="n">Index</span> <span class="kr">is</span><span class="p"> </span><span class="n">Opt_Index</span> <span class="kr">range</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="n">Opt_Index</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+   <span class="n">No_Index</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Opt_Index</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Ar</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Index</span> <span class="kr">range</span><span class="p"> </span><span class="o">&lt;&gt;)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Empty</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Ar</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">A</span><span class="na">&#39;First</span> <span class="o">&gt;</span> <span class="n">A</span><span class="na">&#39;Last</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Sorted</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Ar</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">is</span><span class="p"></span>
+      <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">I1</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span>
+         <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">I2</span> <span class="kr">in</span><span class="p"> </span><span class="n">I1</span> <span class="o">..</span> <span class="n">A</span><span class="na">&#39;Last</span> <span class="o">=&gt;</span> <span class="n">A</span> <span class="o">(</span><span class="n">I1</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="n">A</span> <span class="o">(</span><span class="n">I2</span><span class="o">)))</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Search</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Ar</span><span class="p">;</span> <span class="n">I</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Opt_Index</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">Sorted</span> <span class="o">(</span><span class="n">A</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Post</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Search</span><span class="na">&#39;Result</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="kr">then</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">Search</span><span class="na">&#39;Result</span><span class="o">)</span> <span class="o">=</span> <span class="n">I</span>
+              <span class="kr">else</span><span class="p"> </span><span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">Index</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span> <span class="n">A</span> <span class="o">(</span><span class="n">Index</span><span class="o">)</span> <span class="o">/=</span> <span class="n">I</span><span class="o">))</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Binary_Search</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The implementation of <code class="docutils literal"><span class="pre">Binary_Search</span></code> is given in file <code class="docutils literal"><span class="pre">binary_search.adb</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Binary_Search</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="k">function </span><span class="nf">Search</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="n">Ar</span><span class="p">;</span> <span class="n">I</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Opt_Index</span> <span class="kr">is</span><span class="p"></span>
+      <span class="n">Left</span>  <span class="o">:</span> <span class="n">Index</span><span class="p">;</span>
+      <span class="n">Right</span> <span class="o">:</span> <span class="n">Index</span><span class="p">;</span>
+      <span class="n">Med</span>   <span class="o">:</span> <span class="n">Index</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">Empty</span> <span class="o">(</span><span class="n">A</span><span class="o">)</span> <span class="kr">then</span><span class="p"></span>
+         <span class="kr">return</span><span class="p"> </span><span class="n">No_Index</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+
+      <span class="n">Left</span>  <span class="o">:=</span> <span class="n">A</span><span class="na">&#39;First</span><span class="p">;</span>
+      <span class="n">Right</span> <span class="o">:=</span> <span class="n">A</span><span class="na">&#39;Last</span><span class="p">;</span>
+
+      <span class="kr">if</span><span class="p"> </span><span class="n">Left</span> <span class="o">=</span> <span class="n">Right</span> <span class="kr">and</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">Left</span><span class="o">)</span> <span class="o">=</span> <span class="n">I</span> <span class="kr">then</span><span class="p"></span>
+         <span class="kr">return</span><span class="p"> </span><span class="n">Left</span><span class="p">;</span>
+      <span class="kr">elsif</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">Left</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">I</span> <span class="kr">or</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">Right</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">I</span> <span class="kr">then</span><span class="p"></span>
+         <span class="kr">return</span><span class="p"> </span><span class="n">No_Index</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+
+      <span class="kr">while</span><span class="p"> </span><span class="n">Left</span> <span class="o">&lt;=</span> <span class="n">Right</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="n">Med</span> <span class="o">:=</span> <span class="n">Left</span> <span class="o">+</span> <span class="o">(</span><span class="n">Right</span> <span class="o">-</span> <span class="n">Left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+
+         <span class="kr">if</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">Med</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">I</span> <span class="kr">then</span><span class="p"></span>
+            <span class="n">Left</span> <span class="o">:=</span> <span class="n">Med</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+         <span class="kr">elsif</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">Med</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">I</span> <span class="kr">then</span><span class="p"></span>
+            <span class="n">Right</span> <span class="o">:=</span> <span class="n">Med</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+         <span class="kr">else</span><span class="p"></span>
+            <span class="kr">return</span><span class="p"> </span><span class="n">Med</span><span class="p">;</span>
+         <span class="k">end if</span><span class="p">;</span>
+      <span class="k">end loop</span><span class="p">;</span>
+
+      <span class="kr">return</span><span class="p"> </span><span class="n">No_Index</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Search</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Binary_Search</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that, although function <code class="docutils literal"><span class="pre">Search</span></code> has a loop, we have not given an
+explicit loop invariant yet, so the default loop invariant of <code class="docutils literal"><span class="pre">True</span></code> will be
+used by GNATprove. We are running GNATprove with a prover timeout of 60 seconds
+(switch <code class="docutils literal"><span class="pre">--timeout=60</span></code>) to get the results presented in the rest of this
+section.</p>
+</div>
+<div class="section" id="proving-a-loop-invariant-in-the-first-iteration">
+<h2>7.7.4. Proving a Loop Invariant in the First Iteration<a class="headerlink" href="#proving-a-loop-invariant-in-the-first-iteration" title="Permalink to this headline">¶</a></h2>
+<p>Property [INIT] is the easiest one to prove. This is equivalent to proving a
+pragma Assert in the sequence of statements obtained by unrolling the loop
+once. In particular, if the loop invariant is at the start of the loop, this is
+equivalent to proving a pragma Assert just before the loop. Therefore, the
+usual techniques for investigating unproved checks apply, see <a class="reference internal" href="how_to_investigate_unproved_checks.html#how-to-investigate-unproved-checks"><span class="std std-ref">How to Investigate Unproved Checks</span></a>.</p>
+</div>
+<div class="section" id="completing-a-loop-invariant-to-prove-checks-inside-the-loop">
+<h2>7.7.5. Completing a Loop Invariant to Prove Checks Inside the Loop<a class="headerlink" href="#completing-a-loop-invariant-to-prove-checks-inside-the-loop" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s start by running GNATprove on program <code class="docutils literal"><span class="pre">Binary_Search</span></code> without loop
+invariant. It generates two medium messages, one corresponding to a possible
+run-time check failure, and one corresponding to a possible failure of
+the postcondition:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>binary_search.adb:26:16: medium: array index check might fail [possible explanation: loop at line 23 should mention Med in a loop invariant]
+binary_search.ads:21:49: medium: postcondition might fail, cannot prove A (Index) /= I
+</pre></div>
+</div>
+<p>We will focus here on the message inside the loop, which corresponds to
+property [INSIDE]. The problem is that variable <code class="docutils literal"><span class="pre">Med</span></code> varies in the loop, so
+GNATprove only knows that its value is in the range of its type <code class="docutils literal"><span class="pre">Index</span></code> at
+the start of an iteration (line 23), and that it is then assigned the value of
+<code class="docutils literal"><span class="pre">Left</span> <span class="pre">+</span> <span class="pre">(Right</span> <span class="pre">-</span> <span class="pre">Left)</span> <span class="pre">/</span> <span class="pre">2</span></code> (line 24) before being used as an index into
+array <code class="docutils literal"><span class="pre">A</span></code> (lines 26 and 28) and inside expressions assigned to <code class="docutils literal"><span class="pre">Left</span></code> and
+<code class="docutils literal"><span class="pre">Right</span></code> (lines 27 and 29).</p>
+<p>As <code class="docutils literal"><span class="pre">Left</span></code> and <code class="docutils literal"><span class="pre">Right</span></code> also vary in the loop, GNATprove cannot use the
+assignment on line 24 to compute a more precise range for variable <code class="docutils literal"><span class="pre">Med</span></code>,
+hence the message on index check.</p>
+<p>What is needed here is a loop invariant that states that the values of <code class="docutils literal"><span class="pre">Left</span></code>
+and <code class="docutils literal"><span class="pre">Right</span></code> stay within the bounds of <code class="docutils literal"><span class="pre">A</span></code> inside the loop:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span>      <span class="kr">while</span><span class="p"> </span><span class="n">Left</span> <span class="o">&lt;=</span> <span class="n">Right</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span> <span class="o">(</span><span class="n">Left</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="kr">and</span><span class="p"> </span><span class="n">Right</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span><span class="o">)</span><span class="p">;</span>
+
+         <span class="n">Med</span> <span class="o">:=</span> <span class="n">Left</span> <span class="o">+</span> <span class="o">(</span><span class="n">Right</span> <span class="o">-</span> <span class="n">Left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>With this simple loop invariant, GNATprove now reports that the
+check on line 26 is proved.
+GNATprove computes that the value assigned to <code class="docutils literal"><span class="pre">Med</span></code> in the loop is also
+within the bounds of <code class="docutils literal"><span class="pre">A</span></code>.</p>
+</div>
+<div class="section" id="completing-a-loop-invariant-to-prove-checks-after-the-loop">
+<h2>7.7.6. Completing a Loop Invariant to Prove Checks After the Loop<a class="headerlink" href="#completing-a-loop-invariant-to-prove-checks-after-the-loop" title="Permalink to this headline">¶</a></h2>
+<p>With the simple loop invariant given before, GNATprove still reports that the
+postcondition of <code class="docutils literal"><span class="pre">Search</span></code> may fail, which corresponds to property [AFTER]. By
+instructing GNATprove to prove checks progressively, as seens in
+<a class="reference internal" href="../tutorial.html#proving-spark-programs"><span class="std std-ref">Proving SPARK Programs</span></a>, we even get a precise message pointing to the
+part of the postcondition that could not be proved:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>binary_search.ads:21:49: medium: postcondition might fail, cannot prove A (Index) /= I (e.g. when A = (1 =&gt; 0, 3 =&gt; 0, 4 =&gt; 0, others =&gt; -1) and A&#39;First = 2 and A&#39;Last = 4 and I = 0 and Index = 3)
+</pre></div>
+</div>
+<p>Here, the message shows that the second line of the postcondition could not be
+proved. This line expresses that, in the case where <code class="docutils literal"><span class="pre">Search</span></code> returns
+<code class="docutils literal"><span class="pre">No_Index</span></code> after the loop, the array <code class="docutils literal"><span class="pre">A</span></code> should not contain the value
+searched <code class="docutils literal"><span class="pre">I</span></code>.</p>
+<p>One can very easily check that, if GNATprove can prove this property, it can
+also prove the postcondition. Simply insert a pragma Assert after the loop
+stating this property:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span>      <span class="k">end loop</span><span class="p">;</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">Index</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span> <span class="n">A</span> <span class="o">(</span><span class="n">Index</span><span class="o">)</span> <span class="o">/=</span> <span class="n">I</span><span class="o">)</span><span class="p">;</span>
+
+      <span class="kr">return</span><span class="p"> </span><span class="n">No_Index</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>GNATprove now succeeds in proving the postcondition, but it fails to prove
+the assertion:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>binary_search.adb:36:50: medium: assertion might fail, cannot prove A (Index) /= I (e.g. when A = (1 =&gt; -1, others =&gt; 0) and A&#39;First = 1 and A&#39;Last = 2 and I = 0 and Index = 2) [possible explanation: precondition of subprogram at binary_search.ads:18 should mention I]
+</pre></div>
+</div>
+<p>The problem is that GNATprove only knows what the user specified about <code class="docutils literal"><span class="pre">A</span></code>
+in the precondition, namely that it is sorted in ascending order. Nowhere it is
+said that <code class="docutils literal"><span class="pre">A</span></code> does not contain the value <code class="docutils literal"><span class="pre">I</span></code>. Note that adding this
+assertion is not compulsory. It simply helps identifying what is needed to
+achieve property [AFTER], but it can be removed afterwards.</p>
+<p>What is needed here is a loop invariant stating that, if <code class="docutils literal"><span class="pre">A</span></code> contains the
+value <code class="docutils literal"><span class="pre">I</span></code>, it must be at an index in the range <code class="docutils literal"><span class="pre">Left..Right</span></code>, so when the
+loop exits because <code class="docutils literal"><span class="pre">Left</span> <span class="pre">&gt;</span> <span class="pre">Right</span></code> (so the loop test becomes false), <code class="docutils literal"><span class="pre">A</span></code>
+cannot contain the value <code class="docutils literal"><span class="pre">I</span></code>.</p>
+<p>One way to express this property is to state that the value of <code class="docutils literal"><span class="pre">A</span></code> at
+index <code class="docutils literal"><span class="pre">Left</span> <span class="pre">-</span> <span class="pre">1</span></code> is less than <code class="docutils literal"><span class="pre">I</span></code>, while the value of <code class="docutils literal"><span class="pre">A</span></code> at index
+<code class="docutils literal"><span class="pre">Right</span> <span class="pre">+</span> <span class="pre">1</span></code> is greater than <code class="docutils literal"><span class="pre">I</span></code>. Taking into account the possibility that
+there are no such indexes in <code class="docutils literal"><span class="pre">A</span></code> if either <code class="docutils literal"><span class="pre">Left</span></code> or <code class="docutils literal"><span class="pre">Right</span></code> are at the
+boundaries of the array, we can express it as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span>      <span class="kr">while</span><span class="p"> </span><span class="n">Left</span> <span class="o">&lt;=</span> <span class="n">Right</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span> <span class="o">(</span><span class="n">Left</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="kr">and</span><span class="p"> </span><span class="n">Right</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span><span class="o">)</span><span class="p">;</span>
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span> <span class="o">(</span><span class="n">Left</span> <span class="o">=</span> <span class="n">A</span><span class="na">&#39;First</span> <span class="kr">or</span><span class="p"> </span><span class="kr">else</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">Left</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">I</span><span class="o">)</span><span class="p">;</span>
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span> <span class="o">(</span><span class="n">Right</span> <span class="o">=</span> <span class="n">A</span><span class="na">&#39;Last</span> <span class="kr">or</span><span class="p"> </span><span class="kr">else</span><span class="p"> </span><span class="n">I</span> <span class="o">&lt;</span> <span class="n">A</span> <span class="o">(</span><span class="n">Right</span> <span class="o">+</span> <span class="mi">1</span><span class="o">))</span><span class="p">;</span>
+
+         <span class="n">Med</span> <span class="o">:=</span> <span class="n">Left</span> <span class="o">+</span> <span class="o">(</span><span class="n">Right</span> <span class="o">-</span> <span class="n">Left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>GNATprove manages to prove these additional loop invariants, but it still
+cannot prove the assertion after the loop. The reason is both simple and
+far-reaching. Although the above loop invariant together with the property that
+the array is sorted imply the property we want to express, it still requires
+additional work for the prover to reach the same conclusion, which may prevent
+automatic proof in the allocated time. In that case, it is better to express
+the equivalent but more explicit property directly, as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span>      <span class="kr">while</span><span class="p"> </span><span class="n">Left</span> <span class="o">&lt;=</span> <span class="n">Right</span> <span class="kr">loop</span><span class="p"></span>
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span> <span class="o">(</span><span class="n">Left</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="kr">and</span><span class="p"> </span><span class="n">Right</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span><span class="o">)</span><span class="p">;</span>
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span>
+           <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">Index</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;First</span> <span class="o">..</span> <span class="n">Left</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="n">A</span> <span class="o">(</span><span class="n">Index</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">I</span><span class="o">)</span><span class="p">;</span>
+         <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span>
+           <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">Index</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="o">=&gt;</span>
+              <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Index</span> <span class="o">&gt;</span> <span class="n">Right</span> <span class="kr">then</span><span class="p"> </span><span class="n">I</span> <span class="o">&lt;</span> <span class="n">A</span> <span class="o">(</span><span class="n">Index</span><span class="o">)))</span><span class="p">;</span>
+
+         <span class="n">Med</span> <span class="o">:=</span> <span class="n">Left</span> <span class="o">+</span> <span class="o">(</span><span class="n">Right</span> <span class="o">-</span> <span class="n">Left</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>GNATprove now proves the assertion after the loop. In general, it is simpler
+to understand the relationship between the loop invariant and the checks that
+follow the loop when the loop invariant is directly followed by the exit
+statement that controls loop termination. In a &#8220;for&#8221; or &#8220;while&#8221; loop, this can
+mean it is easier to place the Loop_Invariant pragmas at the <em>end</em> of the loop
+body, where they precede the (implicit) exit statement.  In such cases, the loop
+invariant is more likely to resemble the postcondition.</p>
+</div>
+<div class="section" id="proving-a-loop-invariant-after-the-first-iteration">
+<h2>7.7.7. Proving a Loop Invariant After the First Iteration<a class="headerlink" href="#proving-a-loop-invariant-after-the-first-iteration" title="Permalink to this headline">¶</a></h2>
+<p>With the loop invariant given before, GNATprove also proves that the loop
+invariant of <code class="docutils literal"><span class="pre">Search</span></code> holds after the first iteration, which corresponds to
+property [PRESERVE]. In fact, we have now arrived at a loop invariant which
+allows GNATprove to prove all checks for subprogram <code class="docutils literal"><span class="pre">Search</span></code>.</p>
+<p>This is not always the case. In general, when the loop invariant is not proved
+after the first iteration, the problem is that the loop invariant is not
+precise enough. The only information that GNATprove knows about the value of
+variables that are modified in the loop, at each loop iteration, is the
+information provided in the loop invariant. If the loop invariant is missing
+some crucial information about these variables, which is needed to prove the
+loop invariant after N iterations, GNATprove won&#8217;t be able to prove that the
+loop invariant holds at each iteration.</p>
+<p>In loops that modify variables of composite types (records and arrays), it is
+usually necessary at this stage to add in the loop invariant some information
+about those parts of the modified variables which are not modified by the loop,
+or which are not modified in the first N iterations of the loop. Otherwise,
+GNATprove assumes that these parts may also be modified, which can prevent it
+from proving the preservation of the loop invariant. See <a class="reference internal" href="assertion_pragmas.html#loop-invariants"><span class="std std-ref">Loop Invariants</span></a>
+for an example where this is needed.</p>
+<p>In other cases, it may be necessary to guide the prover with intermediate
+assertions. A rule of thumb for deciding which properties to assert, and where
+to assert them, is to try to locate at which program point the prover does not
+success in proving the property of interest, and to restate other properties
+that are useful for the proof.</p>
+<p>In yet other cases, where the difficulty is related to the size of the loop
+rather than the complexity of the properties, it may be useful to factor the
+loop into into local subprograms so that the subprograms&#8217; preconditions and
+postconditions provide the intermediate assertions that are needed to prove the
+loop invariant.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="how_to_investigate_unproved_checks.html" title="7.8. How to Investigate Unproved Checks"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="how_to_write_package_contracts.html" title="7.6. How to Write Package Contracts"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" >7. Formal Verification with GNATprove</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

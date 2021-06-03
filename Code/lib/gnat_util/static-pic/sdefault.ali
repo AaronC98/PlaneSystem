@@ -1,0 +1,51 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U sdefault%b		sdefault.adb		5e3490c7 OO PK
+
+U sdefault%s		sdefault.ads		a7d7201f EE NE OO PK
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D sdefault.ads		20190518044709 7863cf3b sdefault%s
+D sdefault.adb		20190518044708 26575ffc sdefault%b
+D system.ads		20190518041256 085b6ffb system%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+G a e
+G c Z s b [include_dir_default_name sdefault 40 13 none]
+G c Z s b [object_dir_default_name sdefault 41 13 none]
+G c Z s b [target_name sdefault 42 13 none]
+G c Z s b [search_dir_prefix sdefault 43 13 none]
+X 3 sdefault.ads
+39K9*Sdefault 44l5 44e13 4|35b14 59l5 59t13
+40V13*Include_Dir_Default_Name{9|113P9} 4|39b13 42l8 42t32
+41V13*Object_Dir_Default_Name{9|113P9} 4|44b13 47l8 47t31
+42V13*Target_Name{9|113P9} 4|49b13 52l8 52t19
+43V13*Search_Dir_Prefix{9|113P9} 4|54b13 57l8 57t25
+X 4 sdefault.adb
+37p4 Target{9|113P9} 51r14
+X 9 types.ads
+52K9*Types 3|37w6 37r17 9|948e10
+113P9*String_Ptr(string) 3|40r45 41r45 42r45 43r45 4|37r22 39r45 44r44 49r32
+. 54r38
+

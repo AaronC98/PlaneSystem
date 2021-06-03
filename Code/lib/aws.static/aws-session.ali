@@ -1,0 +1,997 @@
+V "GNAT Lib v2019"
+A -gnatwa
+A -Wall
+A -gnatA
+A -gnat2012
+A -gnatwc
+A -gnatwf
+A -gnatwi
+A -gnatwj
+A -gnatwk
+A -gnatwm
+A -gnatwr
+A -gnatwu
+A -gnatwv
+A -gnaty3
+A -gnatya
+A -gnatyb
+A -gnatyB
+A -gnatyc
+A -gnatyd
+A -gnatye
+A -gnatyf
+A -gnatyh
+A -gnatyi
+A -gnatyI
+A -gnatyk
+A -gnatyl
+A -gnatym
+A -gnatyn
+A -gnatyo
+A -gnatyO
+A -gnatyp
+A -gnatyr
+A -gnatys
+A -gnatyt
+A -gnatyx
+A -g
+A -gnata
+A -gnatVa
+A -gnatQ
+A -gnato
+A -gnatwe
+A -gnatVn
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+A -feliminate-unused-debug-symbols
+P ZX
+
+RN
+RV SIMPLE_BARRIERS
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
+RV NO_FLOATING_POINT
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLICIT_HEAP_ALLOCATIONS
+RV NO_IMPLICIT_PROTECTED_OBJECT_ALLOCATIONS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_PROTECTED_TYPES
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_SELECT_STATEMENTS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_STREAMS
+RV NO_TASK_ALLOCATORS
+RV NO_TASKING
+RV NO_UNCHECKED_ACCESS
+RV NO_UNCHECKED_DEALLOCATION
+RV STATIC_PRIORITIES
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_ALIASING
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+RV MAX_PROTECTED_ENTRIES=6
+RV MAX_SELECT_ALTERNATIVES=3
+RV MAX_TASK_ENTRIES=2
+RV MAX_TASKS=1+
+RV MAX_ENTRY_QUEUE_LENGTH=1+
+
+U aws.session%b		aws-session.adb		4db35462 OO PF PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.containers.ordered_maps%s
+Z ada.containers.red_black_trees%s  a-crbltr.ads  a-crbltr.ali
+Z ada.containers.red_black_trees.generic_keys%s
+Z ada.containers.red_black_trees.generic_operations%s
+W ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+W ada.real_time%s	a-reatim.adb		a-reatim.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
+W ada.streams.stream_io%s  a-ststio.adb		a-ststio.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.unchecked_deallocation%s
+W aws%s			aws.ads			aws.ali
+Z aws.config%s		aws-config.adb		aws-config.ali  AD
+W aws.containers%s	aws-containers.ads	aws-containers.ali
+W aws.containers.key_value%s  aws-containers-key_value.ads  aws-containers-key_value.ali
+W aws.default%s		aws-default.ads		aws-default.ali
+W aws.utils%s		aws-utils.adb		aws-utils.ali
+W aws.utils.streams%s	aws-utils-streams.adb	aws-utils-streams.ali
+Z system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.compare_array_unsigned_8%s  s-carun8.adb  s-carun8.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.img_int%s	s-imgint.adb		s-imgint.ali
+Z system.img_real%s	s-imgrea.adb		s-imgrea.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+Z system.tasking%s	s-taskin.adb		s-taskin.ali
+Z system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+Z system.tasking.protected_objects.entries%s  s-tpoben.adb  s-tpoben.ali
+Z system.tasking.protected_objects.operations%s  s-tpobop.adb  s-tpobop.ali
+Z system.tasking.rendezvous%s  s-tasren.adb	s-tasren.ali
+Z system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+Z system.val_int%s	s-valint.adb		s-valint.ali
+Z system.val_real%s	s-valrea.adb		s-valrea.ali
+
+U aws.session%s		aws-session.ads		1642d26a BN EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+Z ada.real_time%s	a-reatim.adb		a-reatim.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W aws%s			aws.ads			aws.ali
+W aws.config%s		aws-config.adb		aws-config.ali
+Z system%s		system.ads		system.ali
+Z system.parameters%s	s-parame.adb		s-parame.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.task_info%s	s-tasinf.adb		s-tasinf.ali
+Z system.tasking%s	s-taskin.adb		s-taskin.ali
+Z system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+Z system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-calend.ads		20190518041256 474d9720 ada.calendar%s
+D a-caldel.ads		20190518041255 9f20b83d ada.calendar.delays%s
+D a-charac.ads		20190518041256 2d3ec45b ada.characters%s
+D a-chlat1.ads		20190518041256 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20190518041255 61e5e089 ada.containers%s
+D a-cohata.ads		20190518041257 80a8c839 ada.containers.hash_tables%s
+D a-conhel.ads		20190518041255 20298884 ada.containers.helpers%s
+D a-conhel.adb		20190518041257 9cc5095b ada.containers.helpers%b
+D a-cihama.ads		20190518041256 bece8dbf ada.containers.indefinite_hashed_maps%s
+D a-cihase.ads		20190518041255 4f8a62e0 ada.containers.indefinite_hashed_sets%s
+D a-ciorma.ads		20190518041256 e1f95638 ada.containers.indefinite_ordered_maps%s
+D a-coinve.ads		20190518041257 b7300cfa ada.containers.indefinite_vectors%s
+D a-coorma.ads		20190518041257 f11dbb1a ada.containers.ordered_maps%s
+D a-coorma.adb		20190518041256 6a05ac9b ada.containers.ordered_maps%b
+D a-crbltr.ads		20190518041256 c3e90a86 ada.containers.red_black_trees%s
+D a-crbtgk.ads		20190518041257 ab25d217 ada.containers.red_black_trees.generic_keys%s
+D a-crbtgk.adb		20190518041256 cffbc19e ada.containers.red_black_trees.generic_keys%b
+D a-crbtgo.ads		20190518041257 e494c304 ada.containers.red_black_trees.generic_operations%s
+D a-crbtgo.adb		20190518041257 a4b4aead ada.containers.red_black_trees.generic_operations%b
+D a-direct.ads		20190518041256 078228da ada.directories%s
+D a-envvar.ads		20190518041256 00080416 ada.environment_variables%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-ioexce.ads		20190518041255 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20190518041256 7c7305e9 ada.iterator_interfaces%s
+D a-reatim.ads		20190518041257 0240fc73 ada.real_time%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-ststio.ads		20190518041256 a75f3183 ada.streams.stream_io%s
+D a-string.ads		20190518041256 90ac6797 ada.strings%s
+D a-strhas.ads		20190518041257 c71c2a52 ada.strings.hash%s
+D a-strmap.ads		20190518041256 e8bb714a ada.strings.maps%s
+D a-strunb.ads		20190518041256 1656705b ada.strings.unbounded%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-taside.ads		20190518041258 00e3a3f6 ada.task_identification%s
+D a-textio.ads		20190518041257 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D aws.ads		20190518133103 bb4f9bdb aws%s
+D aws-config.ads	20190513040548 abec052a aws.config%s
+D aws-containers.ads	20190513040547 c7ab8288 aws.containers%s
+D aws-containers-key_value.ads  20190513040548 f3f917f0 aws.containers.key_value%s
+D aws-containers-string_vectors.ads  20190513040547 b5692847 aws.containers.string_vectors%s
+D aws-default.ads	20190513040547 4983fa2f aws.default%s
+D aws-session.ads	20190513040547 41acdbbb aws.session%s
+D aws-session.adb	20190513040548 930c0e61 aws.session%b
+D aws-utils.ads		20190513040548 8f9a062b aws.utils%s
+D aws-utils-streams.ads	20190513040547 0f23ce4c aws.utils.streams%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-bytswa.ads		20190518041256 a4d21639 gnat.byte_swapping%s
+D g-regexp.ads		20190518041256 691be386 gnat.regexp%s
+D g-sechas.ads		20190518041257 3b5ca98e gnat.secure_hashes%s
+D g-sehash.ads		20190518041255 66b3b198 gnat.secure_hashes.sha1%s
+D g-sha1.ads		20190518041256 077f0b47 gnat.sha1%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D i-c.ads		20190518041255 5421119b interfaces.c%s
+D i-cstrea.ads		20190518041255 e53d8b8e interfaces.c_streams%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-atacco.ads		20190518041257 4c36d12f system.address_to_access_conversions%s
+D s-assert.ads		20190518041256 cd8d2c94 system.assertions%s
+D s-atocou.ads		20190518041257 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20190518041256 b65612c0 system.atomic_counters%b
+D s-carun8.ads		20190518041257 a903718d system.compare_array_unsigned_8%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-crtl.ads		20190518041255 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041257 078245e4 system.file_control_block%s
+D s-finmas.ads		20190518041256 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-imgint.ads		20190518041255 02dbe0c2 system.img_int%s
+D s-imgrea.ads		20190518041255 c7a851e2 system.img_real%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-multip.ads		20190518041255 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20190518124529 e40aaf2d system.os_constants%s
+D s-osinte.ads		20190518041258 01b3ad47 system.os_interface%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041255 ede33ef8 system.pool_global%s
+D s-regexp.ads		20190518041257 9c7d27a7 system.regexp%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stausa.ads		20190518041256 017a0a05 system.stack_usage%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stalib.adb		20190518041255 f2fe2716 system.standard_library%b
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20190518041256 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-stposu.ads		20190518041255 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20190518041255 aedef97e system.stream_attributes%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-ststop.ads		20190518041255 5fbf1b38 system.strings.stream_ops%s
+D s-tasinf.ads		20190518041257 801abd01 system.task_info%s
+D s-taspri.ads		20190518041257 f40ac08d system.task_primitives%s
+D s-taprop.ads		20190518041257 1dd2e1b6 system.task_primitives.operations%s
+D s-taskin.ads		20190518041258 b9d612e2 system.tasking%s
+D s-taprob.ads		20190518041257 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20190518041258 60ad3dae system.tasking.protected_objects.entries%s
+D s-tpobop.ads		20190518041258 5f548bb3 system.tasking.protected_objects.operations%s
+D s-tasren.ads		20190518041257 a67a9949 system.tasking.rendezvous%s
+D s-tassta.ads		20190518041257 cca55c94 system.tasking.stages%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-valint.ads		20190518041256 b5ff6963 system.val_int%s
+D s-valrea.ads		20190518041257 0e7fecd5 system.val_real%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D templates_parser.ads	20190513040549 619e699c templates_parser%s
+D templates_parser-utils.ads  20190513040549 8849593d templates_parser.utils%s
+D templates_parser_tasking.ads  20190513040549 4c0209f0 templates_parser_tasking%s
+D zlib.ads		20190513040549 0714e1ed zlib%s
+G a e
+G c s s s [s aws__session 38 1 none]
+G c Z s b [create aws__session 48 13 none]
+G c Z s b [creation_stamp aws__session 52 13 none]
+G c Z s b [private_key aws__session 55 13 none]
+G c Z s b [delete aws__session 58 14 none]
+G c Z s b [delete_if_empty aws__session 69 13 none]
+G c Z s b [image aws__session 75 13 none]
+G c Z s b [value aws__session 78 13 none]
+G c Z s b [exist aws__session 82 13 none]
+G c Z s b [touch aws__session 85 14 none]
+G c Z s b [set aws__session 89 14 none]
+G c Z s b [set aws__session 92 14 none]
+G c Z s b [set aws__session 95 14 none]
+G c Z s b [set aws__session 98 14 none]
+G c Z s b [get aws__session 101 13 none]
+G c Z s b [get aws__session 108 13 none]
+G c Z s b [get aws__session 115 13 none]
+G c Z s b [get aws__session 122 13 none]
+G c Z s b [remove aws__session 143 14 none]
+G c Z s b [exist aws__session 147 13 none]
+G c Z s b [server_count aws__session 150 13 none]
+G c Z s b [length aws__session 153 13 none]
+G c Z s b [length aws__session 156 13 none]
+G c Z s b [clear aws__session 159 14 none]
+G c Z s b [set_lifetime aws__session 199 14 none]
+G c Z s b [get_lifetime aws__session 203 13 none]
+G c Z s b [has_expired aws__session 206 13 none]
+G c Z s b [set_callback aws__session 219 14 none]
+G c Z s b [save aws__session 227 14 none]
+G c Z s b [load aws__session 230 14 none]
+G c Z s b [cleaner aws__session 239 14 none]
+G c Z s b [stop aws__session__cleaner 240 13 none]
+G c Z s b [force aws__session__cleaner 241 13 none]
+G c Z s b [start aws__session__cleaner_control 255 17 none]
+G c Z s b [stop aws__session__cleaner_control 258 17 none]
+G c Z s b [server_count aws__session__cleaner_control 262 16 none]
+G c Z s b [cleaner_control__startN aws__session 255 7 none]
+G c Z s b [cleaner_control__startP aws__session 255 7 none]
+G c Z s b [cleaner_control__stopN aws__session 258 7 none]
+G c Z s b [cleaner_control__stopP aws__session 258 7 none]
+G c Z s b [cleaner_control__server_countN aws__session 262 7 none]
+G c Z s b [cleaner_control__server_countP aws__session 262 7 none]
+G c Z s s [cleaner_controlTVIP aws__session 253 4 none]
+G c Z s s [cleanerVIP aws__session 239 4 none]
+G c Z b b [unchecked_free aws__session 73 14 none]
+G c Z b b [session_nodeIP aws__session 78 9 none]
+G c Z b b [equivalent_keys aws__session__session_set 52 13 85_4]
+G c Z b b [has_element aws__session__session_set 67 13 85_4]
+G c Z b b [Oeq aws__session__session_set 72 13 85_4]
+G c Z b b [length aws__session__session_set 74 13 85_4]
+G c Z b b [is_empty aws__session__session_set 76 13 85_4]
+G c Z b b [clear aws__session__session_set 78 14 85_4]
+G c Z b b [key aws__session__session_set 80 13 85_4]
+G c Z b b [element aws__session__session_set 82 13 85_4]
+G c Z b b [replace_element aws__session__session_set 84 14 85_4]
+G c Z b b [query_element aws__session__session_set 89 14 85_4]
+G c Z b b [update_element aws__session__session_set 94 14 85_4]
+G c Z b b [constant_reference aws__session__session_set 109 13 85_4]
+G c Z b b [reference aws__session__session_set 114 13 85_4]
+G c Z b b [constant_reference aws__session__session_set 119 13 85_4]
+G c Z b b [reference aws__session__session_set 124 13 85_4]
+G c Z b b [assign aws__session__session_set 129 14 85_4]
+G c Z b b [copy aws__session__session_set 131 13 85_4]
+G c Z b b [move aws__session__session_set 133 14 85_4]
+G c Z b b [insert aws__session__session_set 135 14 85_4]
+G c Z b b [insert aws__session__session_set 142 14 85_4]
+G c Z b b [insert aws__session__session_set 148 14 85_4]
+G c Z b b [include aws__session__session_set 153 14 85_4]
+G c Z b b [replace aws__session__session_set 158 14 85_4]
+G c Z b b [exclude aws__session__session_set 163 14 85_4]
+G c Z b b [delete aws__session__session_set 165 14 85_4]
+G c Z b b [delete aws__session__session_set 167 14 85_4]
+G c Z b b [delete_first aws__session__session_set 169 14 85_4]
+G c Z b b [delete_last aws__session__session_set 171 14 85_4]
+G c Z b b [first aws__session__session_set 173 13 85_4]
+G c Z b b [first_element aws__session__session_set 175 13 85_4]
+G c Z b b [first_key aws__session__session_set 177 13 85_4]
+G c Z b b [last aws__session__session_set 179 13 85_4]
+G c Z b b [last_element aws__session__session_set 181 13 85_4]
+G c Z b b [last_key aws__session__session_set 183 13 85_4]
+G c Z b b [next aws__session__session_set 185 13 85_4]
+G c Z b b [next aws__session__session_set 187 14 85_4]
+G c Z b b [previous aws__session__session_set 189 13 85_4]
+G c Z b b [previous aws__session__session_set 191 14 85_4]
+G c Z b b [find aws__session__session_set 193 13 85_4]
+G c Z b b [element aws__session__session_set 195 13 85_4]
+G c Z b b [floor aws__session__session_set 197 13 85_4]
+G c Z b b [ceiling aws__session__session_set 199 13 85_4]
+G c Z b b [contains aws__session__session_set 201 13 85_4]
+G c Z b b [Olt aws__session__session_set 203 13 85_4]
+G c Z b b [Ogt aws__session__session_set 205 13 85_4]
+G c Z b b [Olt aws__session__session_set 207 13 85_4]
+G c Z b b [Ogt aws__session__session_set 209 13 85_4]
+G c Z b b [Olt aws__session__session_set 211 13 85_4]
+G c Z b b [Ogt aws__session__session_set 213 13 85_4]
+G c Z b b [iterate aws__session__session_set 215 14 85_4]
+G c Z b b [reverse_iterate aws__session__session_set 219 14 85_4]
+G c Z b b [iterate aws__session__session_set 227 13 85_4]
+G c Z b b [iterate aws__session__session_set 231 13 85_4]
+G c Z b b [node_typeIP aws__session__session_set 244 9 85_4]
+G c Z b b [adjust aws__session__session_set__tree_types__implementation 90 28 52_7_253_4_85_4]
+G c Z b b [finalize aws__session__session_set__tree_types__implementation 93 28 52_7_253_4_85_4]
+G c Z b b [zero_counts aws__session__session_set__tree_types__implementation 96 17 52_7_253_4_85_4]
+G c Z b b [busy aws__session__session_set__tree_types__implementation 100 17 52_7_253_4_85_4]
+G c Z b b [unbusy aws__session__session_set__tree_types__implementation 104 17 52_7_253_4_85_4]
+G c Z b b [lock aws__session__session_set__tree_types__implementation 108 17 52_7_253_4_85_4]
+G c Z b b [unlock aws__session__session_set__tree_types__implementation 112 17 52_7_253_4_85_4]
+G c Z b b [tc_check aws__session__session_set__tree_types__implementation 116 17 52_7_253_4_85_4]
+G c Z b b [te_check aws__session__session_set__tree_types__implementation 120 17 52_7_253_4_85_4]
+G c Z b b [initialize aws__session__session_set__tree_types__implementation 139 28 52_7_253_4_85_4]
+G c Z b b [finalize aws__session__session_set__tree_types__implementation 140 28 52_7_253_4_85_4]
+G c Z b b [initialize aws__session__session_set__tree_types__implementation 145 28 52_7_253_4_85_4]
+G c Z b b [finalize aws__session__session_set__tree_types__implementation 146 28 52_7_253_4_85_4]
+G c Z b b [reference_control_typeDA aws__session__session_set__tree_types__implementation 84 12 52_7_253_4_85_4]
+G c Z b b [reference_control_typeDF aws__session__session_set__tree_types__implementation 84 12 52_7_253_4_85_4]
+G c Z b b [reference_control_typeIP aws__session__session_set__tree_types__implementation 84 12 52_7_253_4_85_4]
+G c Z b b [with_busyDF aws__session__session_set__tree_types__implementation 136 12 52_7_253_4_85_4]
+G c Z b b [with_busyIP aws__session__session_set__tree_types__implementation 136 12 52_7_253_4_85_4]
+G c Z b b [with_lockDF aws__session__session_set__tree_types__implementation 142 12 52_7_253_4_85_4]
+G c Z b b [with_lockIP aws__session__session_set__tree_types__implementation 142 12 52_7_253_4_85_4]
+G c Z b b [tree_typeDA aws__session__session_set__tree_types 44 12 253_4_85_4]
+G c Z b b [tree_typeDF aws__session__session_set__tree_types 44 12 253_4_85_4]
+G c Z b b [tree_typeIP aws__session__session_set__tree_types 44 12 253_4_85_4]
+G c Z b b [adjust aws__session__session_set 260 25 85_4]
+G c Z b b [write aws__session__session_set 269 14 85_4]
+G c Z b b [read aws__session__session_set 275 14 85_4]
+G c Z b b [write aws__session__session_set 289 14 85_4]
+G c Z b b [read aws__session__session_set 295 14 85_4]
+G c Z b b [read aws__session__session_set 314 14 85_4]
+G c Z b b [write aws__session__session_set 320 14 85_4]
+G c Z b b [read aws__session__session_set 336 14 85_4]
+G c Z b b [write aws__session__session_set 342 14 85_4]
+G c Z b b [pseudo_reference aws__session__session_set 353 13 85_4]
+G c Z b b [get_element_access aws__session__session_set 363 13 85_4]
+G c Z b b [mapDA aws__session__session_set 256 9 85_4]
+G c Z b b [mapDF aws__session__session_set 256 9 85_4]
+G c Z b b [mapIP aws__session__session_set 256 9 85_4]
+G c Z b b [cursorIP aws__session__session_set 284 9 85_4]
+G c Z b b [constant_reference_typeDI aws__session__session_set 304 9 85_4]
+G c Z b b [constant_reference_typeDA aws__session__session_set 304 9 85_4]
+G c Z b b [constant_reference_typeDF aws__session__session_set 304 9 85_4]
+G c Z b b [constant_reference_typeIP aws__session__session_set 304 9 85_4]
+G c Z b b [reference_typeDI aws__session__session_set 326 9 85_4]
+G c Z b b [reference_typeDA aws__session__session_set 326 9 85_4]
+G c Z b b [reference_typeDF aws__session__session_set 326 9 85_4]
+G c Z b b [reference_typeIP aws__session__session_set 326 9 85_4]
+G c Z b b [finalize aws__session__session_set 379 25 85_4]
+G c Z b b [first aws__session__session_set 381 24 85_4]
+G c Z b b [last aws__session__session_set 382 24 85_4]
+G c Z b b [next aws__session__session_set 384 24 85_4]
+G c Z b b [previous aws__session__session_set 388 24 85_4]
+G c Z b b [iteratorDF aws__session__session_set 371 9 85_4]
+G c Z b b [iteratorIP aws__session__session_set 371 9 85_4]
+G c Z b b [color aws__session__session_set 55 13 85_4]
+G c Z b b [left aws__session__session_set 58 13 85_4]
+G c Z b b [parent aws__session__session_set 61 13 85_4]
+G c Z b b [right aws__session__session_set 64 13 85_4]
+G c Z b b [set_parent aws__session__session_set 67 14 85_4]
+G c Z b b [set_left aws__session__session_set 70 14 85_4]
+G c Z b b [set_right aws__session__session_set 73 14 85_4]
+G c Z b b [set_color aws__session__session_set 76 14 85_4]
+G c Z b b [copy_node aws__session__session_set 83 13 85_4]
+G c Z b b [free aws__session__session_set 86 14 85_4]
+G c Z b b [is_equal_node_node aws__session__session_set 88 13 85_4]
+G c Z b b [is_greater_key_node aws__session__session_set 91 13 85_4]
+G c Z b b [is_less_key_node aws__session__session_set 96 13 85_4]
+G c Z b b [min aws__session__session_set__tree_operations 51 13 105_4_85_4]
+G c Z b b [max aws__session__session_set__tree_operations 54 13 105_4_85_4]
+G c Z b b [vet aws__session__session_set__tree_operations 64 13 105_4_85_4]
+G c Z b b [next aws__session__session_set__tree_operations 68 13 105_4_85_4]
+G c Z b b [previous aws__session__session_set__tree_operations 71 13 105_4_85_4]
+G c Z b b [delete_node_sans_free aws__session__session_set__tree_operations 81 14 105_4_85_4]
+G c Z b b [rebalance_for_insert aws__session__session_set__tree_operations 157 14 105_4_85_4]
+G c Z b b [delete_fixup aws__session__session_set__tree_operations 49 14 105_4_85_4]
+G c Z b b [delete_swap aws__session__session_set__tree_operations 51 14 105_4_85_4]
+G c Z b b [left_rotate aws__session__session_set__tree_operations 53 14 105_4_85_4]
+G c Z b b [right_rotate aws__session__session_set__tree_operations 54 14 105_4_85_4]
+G c Z b b [delete_treeR aws__session__session_set__delete_treeGP4593 108 14 85_4]
+G c Z b b [delete_tree aws__session__session_set 108 14 85_4]
+G c Z b b [copy_treeR aws__session__session_set__copy_treeGP4675 111 13 85_4]
+G c Z b b [copy_tree aws__session__session_set 111 13 85_4]
+G c Z b b [find aws__session__session_set__key_ops 156 13 116_4_85_4]
+G c Z b b [ceiling aws__session__session_set__key_ops 161 13 116_4_85_4]
+G c Z b b [floor aws__session__session_set__key_ops 166 13 116_4_85_4]
+G c Z b b [upper_bound aws__session__session_set__key_ops 171 13 116_4_85_4]
+G c Z b b [is_equalR aws__session__session_set__is_equalGP5048 123 13 85_4]
+G c Z b b [is_equal aws__session__session_set 123 13 85_4]
+G c Z b b [adjustR aws__session__session_set__adjustGP8231 233 14 85_4]
+G c Z b b [adjust aws__session__session_set 233 14 85_4]
+G c Z b b [clearR aws__session__session_set__clearGP9527 291 14 85_4]
+G c Z b b [clear aws__session__session_set 291 14 85_4]
+G c Z b b [moveR aws__session__session_set__moveGP30548 1060 14 85_4]
+G c Z b b [move aws__session__session_set 1060 14 85_4]
+G c Z b b [get_node aws__session 87 14 none]
+G c Z b b [v_kind aws__session 100 13 none]
+G c Z b b [add_session aws__session__database 115 13 none]
+G c Z b b [creation_stamp aws__session__database 118 16 none]
+G c Z b b [private_key aws__session__database 121 16 none]
+G c Z b b [new_session aws__session__database 124 13 none]
+G c Z b b [delete_session aws__session__database 127 13 none]
+G c Z b b [delete_if_empty aws__session__database 130 13 none]
+G c Z b b [session_exist aws__session__database 133 16 none]
+G c Z b b [session_has_expired aws__session__database 136 16 none]
+G c Z b b [length aws__session__database 139 16 none]
+G c Z b b [length aws__session__database 142 16 none]
+G c Z b b [touch_session aws__session__database 145 17 none]
+G c Z b b [key_exist aws__session__database 149 17 none]
+G c Z b b [get_value aws__session__database 152 17 none]
+G c Z b b [set_value aws__session__database 157 13 none]
+G c Z b b [remove_key aws__session__database 160 13 none]
+G c Z b b [destroy aws__session__database 167 17 none]
+G c Z b b [prepare_expired_sid aws__session__database 170 17 none]
+G c Z b b [lock_and_get_sessions aws__session__database 176 17 none]
+G c Z b b [lock_and_get_session aws__session__database 181 17 none]
+G c Z b b [unlock aws__session__database 187 17 none]
+G c Z b b [database__creation_stampN aws__session 118 7 none]
+G c Z b b [database__creation_stampP aws__session 118 7 none]
+G c Z b b [database__private_keyN aws__session 121 7 none]
+G c Z b b [database__private_keyP aws__session 121 7 none]
+G c Z b b [database__session_existN aws__session 133 7 none]
+G c Z b b [database__session_existP aws__session 133 7 none]
+G c Z b b [database__session_has_expiredN aws__session 136 7 none]
+G c Z b b [database__session_has_expiredP aws__session 136 7 none]
+G c Z b b [database__lengthN aws__session 139 7 none]
+G c Z b b [database__lengthP aws__session 139 7 none]
+G c Z b b [database__lengthN aws__session 142 7 none]
+G c Z b b [database__lengthP aws__session 142 7 none]
+G c Z b b [database__touch_sessionN aws__session 145 7 none]
+G c Z b b [database__touch_sessionP aws__session 145 7 none]
+G c Z b b [database__key_existN aws__session 149 7 none]
+G c Z b b [database__key_existP aws__session 149 7 none]
+G c Z b b [database__get_valueN aws__session 152 7 none]
+G c Z b b [database__get_valueP aws__session 152 7 none]
+G c Z b b [database__destroyN aws__session 167 7 none]
+G c Z b b [database__destroyP aws__session 167 7 none]
+G c Z b b [database__prepare_expired_sidN aws__session 170 7 none]
+G c Z b b [database__prepare_expired_sidP aws__session 170 7 none]
+G c Z b b [database__lock_and_get_sessionsN aws__session 176 7 none]
+G c Z b b [database__lock_and_get_sessionsP aws__session 176 7 none]
+G c Z b b [database__lock_and_get_sessionN aws__session 181 7 none]
+G c Z b b [database__lock_and_get_sessionP aws__session 181 7 none]
+G c Z b b [database__unlockN aws__session 187 7 none]
+G c Z b b [database__unlockP aws__session 187 7 none]
+G c Z b b [databaseTVDI aws__session 113 4 none]
+G c Z b b [databaseTVDF aws__session 113 4 none]
+G c Z b b [databaseTVIP aws__session 113 4 none]
+G c Z b b [P721bIP aws__session 115 7 none]
+G c Z b b [P724bIP aws__session 124 7 none]
+G c Z b b [P727bIP aws__session 127 7 none]
+G c Z b b [P731bIP aws__session 130 7 none]
+G c Z b b [P736bIP aws__session 157 7 none]
+G c Z b b [P740bIP aws__session 160 7 none]
+G c Z b b [Texpired_sid_arrayBIP aws__session 97 4 none]
+G r c none [s aws__session 38 1 none] [session_id_length aws__config 367 13 none]
+G r c none [create aws__session 48 13 none] [random_string aws__utils 90 13 none]
+G r c none [create aws__session 48 13 none] [random_string aws__utils 86 14 none]
+G r c none [load aws__session 230 14 none] [random_string aws__utils 90 13 none]
+G r c none [start aws__session__cleaner_control 255 17 none] [session_cleaner_priority aws__config 370 13 none]
+G r c none [cleanerVIP aws__session 239 4 none] [session_cleaner_priority aws__config 370 13 none]
+G r c none [add_session aws__session__database 115 13 none] [random_string aws__utils 90 13 none]
+G r c none [new_session aws__session__database 124 13 none] [random_string aws__utils 90 13 none]
+G r c none [new_session aws__session__database 124 13 none] [random_string aws__utils 86 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 45|34r6 40r8 170r23 46|32r6 33r6 34r6 35r6 36r6 37r6 38r6 46r8
+. 47r8 48r8 73r36 85r31 398r19 994r11 1050r11
+X 2 a-calend.ads
+36K13*Calendar 409e17 45|34w10 52r46 170r27 46|79r23 118r49 203r16 205r18
+. 205r35 297r46 365r30 381r49 387r20 540r41 752r16 756r31 756r49
+42I9*Time<222I9> 45|52r55 170r36 46|79r32 118r58 203r25 205r27 297r55 381r58
+. 752r25 756r40
+56V13*Clock{42I9} 46|205s44 365s39 387s29 540s50 756s58
+103V14*"+"{42I9} 46|205s50 257s34 259s34
+109V14*"-"{42I9} 46|770s13
+222I9 Time_Rep<long_long_integer>
+X 6 a-contai.ads
+16K13*Containers 24e19 46|32r10 85r35 398r23
+20I9*Count_Type<integer> 46|398r34
+X 8 a-conhel.ads
+84R12 Reference_Control_Type<24|43R9>
+X 12 a-ciorma.ads
+54R9*Map<24|43R9> 46|71r50[42|32] 74r17[42|32] 368r44[42|32] 544r55[42|32]
+62R9*Cursor 46|461r44[42|32]
+68V13*Has_Element{boolean} 46|464s29[42|32]
+75V13*Length{6|20I9} 46|405s34[42|32] 500s58[42|32] 1066s48[42|32]
+81V13*Key{string} 46|812s29[42|32] 1073s53[42|32]
+83V13*Element{string} 46|465s59[42|32] 808s53[42|32] 1074s53[42|32]
+148U14*Include 46|684s23[42|32]
+158U14*Exclude 46|640s23[42|32]
+188V13*Find{62R9[42|32]} 46|462s37[42|32]
+196V13*Contains{boolean} 46|483s33[42|32]
+222V13*Iterate{26|32C9[70[42|32]]} 46|806s34[42|32] 1072s37[42|32]
+X 14 a-coorma.ads
+47k24*Ordered_Maps 392e32 46|32w21 85r46
+54R9*Map<24|43R9> 46|88r37[85] 193r34[85] 929r37[85]
+60R9*Cursor 46|176r64[85] 361r33[85] 382r40[85] 399r31[85] 422r31[85] 497r35[85]
+. 513r35[85] 528r64[85] 546r33[85] 571r31[85] 619r40[85] 659r40[85] 758r28[85]
+. 934r37[85] 1054r32[85]
+67V13*Has_Element{boolean} 46|384s25[85] 402s25[85] 425s25[85] 499s25[85]
+. 517s31[85] 586s32[85] 591s28[85] 602s34[85] 621s25[85] 663s25[85] 765s25[85]
+. 950s28[85] 1087s28[85]
+74V13*Length{6|20I9} 46|493s35[85]
+78U14*Clear 46|442s22[85]
+80V13*Key{45|42A9} 46|596s50[85] 603s49[85] 768s25[85] 1069s48[85]
+82V13*Element{46|78R9} 46|385s32[85] 403s33[85] 426s33[85] 500s41[85] 520s33[85]
+. 592s33[85] 622s32[85] 664s32[85] 771s44[85] 1064s41[85]
+94U14*Update_Element 46|953s22[85]
+135U14*Insert 46|370s19[85] 553s22[85]
+167U14*Delete 46|409s25[85] 428s22[85]
+173V13*First{60R9[46|85]} 46|531s37[85] 578s32[85] 587s35[85]
+187U14*Next 46|600s31[85] 610s25[85] 776s22[85] 1089s25[85]
+193V13*Find{60R9[46|85]} 46|382s59[85] 399s50[85] 422s50[85] 497s54[85] 513s54[85]
+. 582s32[85] 619s59[85] 659s59[85] 934s56[85]
+201V13*Contains{boolean} 46|650s26[85]
+241R9 Node_Type
+242P9 Node_Access(241R9[46|85])
+X 15 a-coorma.adb
+55V13 Color{16|37E9} 19|45i19
+58V13 Left{14|242P9} 19|41i19
+61V13 Parent{14|242P9} 19|39i19
+64V13 Right{14|242P9[46|85]} 19|43i19[46|85]
+67U14 Set_Parent 19|40i19
+70U14 Set_Left 19|42i19[46|85]
+73U14 Set_Right 19|44i19
+76U14 Set_Color 19|46i19
+X 23 a-except.ads
+54K13*Exceptions 349e19 46|33w10 46r12
+104V13*Exception_Information{string} 46|245s29 270s15
+X 26 a-iteint.ads
+24h9 Forward_Iterator
+32C9*Reversible_Iterator<32R9[12|70[42|32]]>
+32h9*Reversible_Iterator<24R9[12|70[42|32]]>
+X 27 a-reatim.ads
+39K13*Real_Time 185e18 46|34w10 58r21 59r23 81r23 327r39 366r30 541r41 567r19
+. 569r25 569r43 658r19 665r22 753r16 755r31 755r49 770r15 921r14 945r29 1168r19
+49O9*Time<duration> 46|81r33 567r29 569r35 658r29 753r26 755r41
+54O9*Time_Span<duration> 46|58r31
+61V13*Clock{49O9} 46|366s40 541s51 569s53 665s32 755s59 945s39
+65V14*"+"{49O9} 46|594s32 664s60
+71V14*"-"{54O9} 46|771s30
+74V14*"<"{boolean} 46|594r43 665r20
+110V13*To_Duration{duration} 46|770s25 921s24
+112V13*To_Time_Span{54O9} 46|59s33 327s49 1168s29
+X 28 a-stream.ads
+36K13*Streams 87e16 46|35r10 47r12 994r15 1050r15
+X 29 a-ststio.ads
+39K21*Stream_IO 223e26 46|35w18 994r23 1050r23
+42P9*Stream_Access(28|39R9) 46|996r20 1053r20
+44P9*File_Type 46|995r20 1052r20
+46n23*In_File{46E9} 46|999r46
+67U14*Create 46|1080s7
+70a7 Name{string} 46|1080r21
+73U14*Open 46|999s7
+75e7 Mode{46E9} 46|999r38
+76a7 Name{string} 46|999r19
+79U14*Close 46|1024s7 1100s7
+89V13*End_Of_File{boolean} 46|1003s17
+91V13*Stream{42P9} 46|1001s21 1085s24
+X 30 a-string.ads
+16K13*Strings 35e16 46|36r10 48r12
+X 33 a-strunb.ads
+82K21*Unbounded 756e26 46|36w18 48r20
+87R9*Unbounded_String<24|43R9> 739e14 46|153r46 450r46 881r15
+90r4*Null_Unbounded_String{87R9} 46|455r19
+92V13*Length{natural} 46|885s10 886s34
+103V13*To_Unbounded_String{87R9} 46|465s28
+207V13*Slice{string} 46|886s17
+X 36 a-textio.ads
+57K13*Text_IO 727e16 46|37w10 242r22 243r25 267r10 268r13
+64P9*File_Type
+183V13*Current_Error{64P9} 46|243s33 268s21
+498U14*Put_Line 46|242s30 267s18
+X 38 a-uncdea.ads
+20u15*Unchecked_Deallocation 46|38w10 73r40
+X 39 aws.ads
+32K9*AWS 41e8 45|36r14 38r9 269r5 46|40r6 41r6 42r6 44r14 1216r5
+X 40 aws-config.ads
+45K13*Config 837e15 45|36w18 235r32 239r39
+367V13*Session_Id_Length{positive} 45|235s39
+370V13*Session_Cleaner_Priority{58|124I12} 45|239s46
+X 41 aws-containers.ads
+32K13*Containers 34e19 46|40r10 69r30
+X 42 aws-containers-key_value.ads
+32K24*Key_Value[12|47] 46|40w21 69r41
+X 44 aws-default.ads
+38K13*Default 179e16 46|41w10 55r33 59r47
+116o4*Session_Cleanup_Interval{duration} 46|55r41
+117o4*Session_Lifetime{duration} 46|59r55
+X 45 aws-session.ads
+38K13*Session 39|32k9 45|219r39 235E9 269l9 269e16 46|44b18 326r13 327r13
+. 1157r39 1216l9 1216t16
+42A9*Id<string> 46r26 48r27 52r35 55r32 58r28 69r36 75r26 78r41 82r26 85r27
+. 89r25 92r25 95r25 98r25 101r24 108r24 115r24 122r24 134r28 137r27 143r28
+. 147r26 156r27 169r23 187r44 206r32 216r45 235c9 237r26 46|85r60 89r18 97r58
+. 115r32 118r38 121r35 124r36 127r35 130r36 133r37 136r43 142r30 145r38 149r34
+. 153r16 157r30 160r31 182r16 194r22 286r27 287r16 297r35 359r32 381r38 396r16
+. 421r35 450r16 476r16 496r30 511r16 538r36 618r35 633r31 648r37 657r43 676r16
+. 692r38 714r28 723r36 734r26 739r26 790r44 847r27 866r28 880r24 892r24 901r24
+. 910r24 930r18 936r32 942r32 961r32 970r26 984r27 1005r28 1005r34 1031r32
+. 1040r28 1069r13 1116r25 1121r25 1131r25 1141r25 1175r27 1202r41 1204r24
+. 1212r17
+44E9*Value_Kind 44e51 185r23 46|62r37 100r43 1184r43
+44n24*Int{44E9} 46|63r24 1125r51 1127r51 1187r29
+44n29*Str{44E9} 46|66r24 1118r48 1188r29
+44n34*Real{44E9} 46|64r24 1135r51 1137r51 1189r29
+44n40*Bool{44E9} 46|65r24 1150r48 1190r29
+44n46*User{44E9} 46|67r24 871r34 1191r29
+46a4*No_Session{42A9} 49r31 237c4 46|194r28 577r27 584r28 1210r17
+48V13*Create{42A9} 49r14 46|286b13 291l8 291t14
+52V13*Creation_Stamp{2|42I9} 52>29 46|297b13 300l8 300t22
+52a29 SID{42A9} 46|297b29 299r39
+55V13*Private_Key{string} 55>26 46|1031b13 1034l8 1034t19
+55a26 SID{42A9} 46|1031b26 1033r36
+58U14*Delete 58>22 46|714b14 717l8 717t14
+58a22 SID{42A9} 59r25 46|714b22 716r32
+69V13*Delete_If_Empty{boolean} 69>30 46|723b13 728l8 728t23
+69a30 SID{42A9} 46|723b30 726r33
+75V13*Image{string} 75>20 46|970b13 973l8 973t13
+75a20 SID{42A9} 46|970b20 972r35
+78V13*Value{42A9} 78>20 46|1202b13 1214l8 1214t13
+78a20 SID{string} 46|1202b20 1204r10 1206r10 1208r10 1208r15 1208r28 1212r21
+. 1212r26 1212r59
+82V13*Exist{boolean} 59s18 82>20 46|734b13 737l8 737t13
+82a20 SID{42A9} 46|734b20 736r38
+85U14*Touch 85>21 46|1175b14 1178l8 1178t13
+85a21 SID{42A9} 46|1175b21 1177r31
+89U14*Set 89>19 89>29 89>43 46|1116b14 1119l8 1119t11
+89a19 SID{42A9} 46|1116b19 1118r27
+89a29 Key{string} 46|1116b29 1118r32
+89a43 Value{string} 46|1116b43 1118r55
+92U14*Set 92>19 92>29 92>43 46|1121b14 1129l8 1129t11
+92a19 SID{42A9} 46|1121b19 1125r30 1127r30
+92a29 Key{string} 46|1121b29 1125r35 1127r35
+92i43 Value{integer} 46|1121b43 1122r45
+95U14*Set 95>19 95>29 95>43 46|1131b14 1139l8 1139t11
+95a19 SID{42A9} 46|1131b19 1135r30 1137r30
+95a29 Key{string} 46|1131b29 1135r35 1137r35
+95f43 Value{float} 46|1131b43 1132r43
+98U14*Set 98>19 98>29 98>43 46|1141b14 1151l8 1151t11
+98a19 SID{42A9} 46|1141b19 1150r27
+98a29 Key{string} 46|1141b29 1150r32
+98b43 Value{boolean} 46|1141b43 1144r10
+101V13*Get{string} 101>18 101>28 46|848s38 880b13 890l8 890t11 893s34 902s34
+. 912s14
+101a18 SID{42A9} 103r28 104r31 46|880b18 883r27
+101a28 Key{string} 103r33 104r36 46|880b28 883r32
+108V13*Get{integer} 108>18 108>28 46|892b13 899l8 899t11
+108a18 SID{42A9} 110r28 111r31 46|892b18 893r39
+108a28 Key{string} 110r33 111r36 46|892b28 893r44
+115V13*Get{float} 115>18 115>28 46|901b13 908l8 908t11
+115a18 SID{42A9} 117r28 118r31 46|901b18 902r39
+115a28 Key{string} 117r33 118r36 46|901b28 902r44
+122V13*Get{boolean} 122>18 122>28 46|910b13 913l8 913t11
+122a18 SID{42A9} 124r28 125r31 46|910b18 912r19
+122a28 Key{string} 124r33 125r36 46|910b28 912r24
+130+12 Data 131r19 134r54 137r52 46|847r52 850r19 857r13 866r54 869r10
+131*7 Null_Data{130+12} 46|853r20
+132k12*Generic_Data 130z12 131z7 141l8 141e20 46|841b17 874l8 874t20
+134U17*Set 134>22 134>32 134>46 46|866b17 872l11 872t14
+134a22 SID{42A9} 46|866b22 871r13
+134a32 Key{string} 46|866b32 871r18
+134*46 Value{130+12} 46|866b46 869r34
+137V16*Get{130+12} 137>21 137>31 46|847b16 860l11 860t14
+137a21 SID{42A9} 46|847b21 848r43
+137a31 Key{string} 46|847b31 848r48
+143U14*Remove 143>22 143>32 46|1040b14 1043l8 1043t14
+143a22 SID{42A9} 144r25 46|1040b22 1042r28
+143a32 Key{string} 144r30 46|1040b32 1042r33
+147V13*Exist{boolean} 103s21 104s24 110s21 111s24 117s21 118s24 124s21 125s24
+. 144s18 147>20 147>30 46|739b13 744l8 744t13
+147a20 SID{42A9} 46|739b20 742r27
+147a30 Key{string} 46|739b30 742r32
+150V13*Server_Count{natural} 46|1107b13 1110l8 1110t20
+153V13*Length{natural} 159s33 46|979b13 982l8 982t14
+156V13*Length{natural} 156>21 46|984b13 987l8 987t14
+156a21 SID{42A9} 46|984b21 986r31
+159U14*Clear 46|277b14 280l8 280t13
+167U22 Action 168>10 169>10 170>10 171=10 46|766s10
+168i10 N{positive}
+169a10 SID{42A9}
+170i10 Time_Stamp{2|42I9}
+171b10 Quit{boolean}
+172u14*For_Every_Session 46|750b14 784l8 784t25
+182U22 Action 183>10 184>10 184>15 185>10 186=10 46|810s16
+183i10 N{positive}
+184a10 Key{string}
+184a15 Value{string}
+185e10 Kind{44E9}
+186b10 Quit{boolean}
+187u14*For_Every_Session_Data 187>38 46|790b14 835l8 835t30
+187a38 SID{42A9} 46|790b38 824r38
+199U14*Set_Lifetime 199>28 46|1166b14 1169l8 1169t20
+199o28 Seconds{duration} 46|1166b28 1168r43
+203V13*Get_Lifetime{duration} 46|919b13 922l8 922t20
+206V13*Has_Expired{boolean} 206>26 46|961b13 964l8 964t19
+206a26 SID{42A9} 46|961b26 963r44
+216P9*Callback 216>39 219r47 46|107r23 207r18 1157r47
+216a39 SID{42A9}
+219U14*Set_Callback 219>28 46|1157b14 1160l8 1160t20
+219p28 Callback{216P9} 46|1157b28 1159r27
+227U14*Save 227>20 46|1049b14 1101l8 1101t12
+227a20 File_Name{string} 46|1049b20 1080r29
+230U14*Load 230>20 46|993b14 1025l8 1025t12
+230a20 File_Name{string} 46|993b20 999r27
+239T14 Cleaner 242l8 242e15 245r34 46|202b14 271l8 271t15 328r33
+240Y13 Stop 46|218b20
+241Y13 Force 46|221b20
+245P9 Cleaner_Access(239T14) 247r19
+247p4 Cleaner_Task{245P9} 46|328m13
+253w14 Cleaner_Control 46|306b19 347l8 347t23 1109r14
+255U17 Start 255>24 255>51 46|321b17 326r39 327r63 330l11 330t16
+255o24 Check_Interval{duration} 46|321b24 326r45
+255o51 Lifetime{duration} 46|321b51 327r69
+258U17 Stop 258<23 46|336b17 345l11 345t15
+258b23 Need_Release{boolean} 46|336b23 341m13 343m13
+262V16 Server_Count{natural} 46|312b16 315l11 315t23 1109s30
+266i7 S_Count{natural} 46|314r17 323r10 323r21 325r13 338r10 338r21 340r13
+X 46 aws-session.adb
+50a4 SID_Prefix{string} 972r14 1204r36 1206r23 1208r40 1208r66 1212r38
+52N4 Private_Key_Length 80r36 367r51 543r47
+55o4 Check_Interval{duration} 205r52 254r44 259r36 326m21
+58o4 Lifetime{27|54O9} 327m21 594r34 664r62 921r37 1168m7
+62a4 Kind_Code(character) 871r23 1118r37 1125r40 1127r40 1135r40 1137r40
+. 1150r37
+69K12 Key_Value=69:41 71r40 74r7 368r34 461r34 462r27 464r19 465r49 483r23
+. 544r45 640r13 684r13 808r43 812r19 1066r38 1073r43 1074r43
+71P9 Key_Value_Set_Access(12|54R9[42|32]) 74r22 82r23
+73U14 Unchecked_Free[38|20] 373s13 408s16 427s13 439s13
+78R9 Session_Node 83e14 85r64 90r22 182r31 360r21 400r19 423r19 452r18 478r17
+. 511r31 539r30 572r19 634r18 678r18 693r18 792r40 795r15 804r40 931r22 936r50
+. 942r50 1063r36
+79i7*Created_Stamp{2|42I9} 365m13 385r49 540m24
+80a7*Private_Key{string} 367m13 542m24 622r49
+81o7*Time_Stamp{27|49O9} 366m13 541m24 594r21 664r49 771r61 945m15
+82p7*Root{71P9} 368m13 373m38 405r29 408m37 427m34 439m34 462r48 483r48 500r53
+. 544m24 640r37 684r37 806r28 806r29 1066r61 1072r31 1072r32
+85K12 Session_Set[14|47] 88r25 176r52 193r22 361r21 382r28 384r13 385r20
+. 399r19 402r13 403r21 422r19 425r13 426r21 442r10 497r23 499r13 500r29 513r23
+. 517r19 520r21 528r52 546r21 571r19 586r20 591r16 592r21 596r38 600r19 602r22
+. 603r37 610r13 619r28 621r13 622r20 659r28 663r13 664r20 758r16 765r13 768r13
+. 771r32 776r10 929r25 934r25 950r16 953r10 1054r20 1064r29 1069r36 1087r16
+. 1089r13
+87U14 Get_Node 88=7 89>7 90<7 91<7 457s10 480s10 637s10 681s10 696s10 928b14
+. 955l8 955t16
+88r7 Sessions{14|54R9[85]} 929b7 934r47 953m38
+89a7 SID{45|42A9} 930b7 934r62
+90r7 Node{78R9} 931b7 946m10
+91b7 Found{boolean} 932b7 950m7 952r10
+95N4 Max_Expired 97r42 254r23
+97A9 Expired_SID_Array(45|42A9)<integer> 171r28 212r21 564r28
+100V13 V_Kind{45|44E9} 100>21 814s19 1184b13 1196l8 1196t14
+100e21 K{character} 1184b21 1186r12
+107p4 Session_Callback{45|216P9} 228r18 1159m7
+113w14 Database 226r10 251r13 263r7 279r7 289r7 299r14 353b19 531r19 708l8
+. 708t16 716r7 726r7 736r14 742r7 763r7 779r7 782r10 824r7 830r7 833r10 870r10
+. 883r7 963r14 981r14 986r14 1008r13 1017r19 1033r14 1042r7 1082r7 1095r13
+. 1099r7 1118r7 1125r10 1127r10 1135r10 1137r10 1150r7 1177r7
+115Y13 Add_Session 115>26 359b13 375l11 375t22 1008s22
+115a26 SID{45|42A9} 370r27
+118V16 Creation_Stamp{2|42I9} 118>32 299s23 381b16 389l11 389t25
+118a32 SID{45|42A9} 381b32 382r65
+121V16 Private_Key{string} 121>29 618b16 627l11 627t22 1033s23
+121a29 SID{45|42A9} 618b29 619r65
+124Y13 New_Session 124<26 289s16 538b13 557l11 557t22
+124a26 SID{45|42A9} 551r42 553r30
+127Y13 Delete_Session 127>29 251s22 421b13 430l11 430t25 716s16
+127a29 SID{45|42A9} 422r56
+130Y13 Delete_If_Empty 130>30 130<40 395b13 415l11 415t26 726s16
+130a30 SID{45|42A9} 399r56
+130b40 Removed{boolean} 405m13 407r16 413m13
+133V16 Session_Exist{boolean} 133>31 648b16 651l11 651t24 736s23
+133a31 SID{45|42A9} 648b31 650r36
+136V16 Session_Has_Expired{boolean} 136>37 657b16 669l11 669t30 963s23
+136a37 SID{45|42A9} 657b37 659r65
+139V16 Length{natural} 491b16 494l11 494t17 981s23
+142V16 Length{natural} 142>24 496b16 504l11 504t17 986s23
+142a24 SID{45|42A9} 496b24 497r60
+145U17 Touch_Session 145>32 692b17 697l11 697t24 1177s16
+145a32 SID{45|42A9} 692b32 696r30
+149U17 Key_Exist 149>28 149>38 149<52 475b17 485l11 485t20 742s16
+149a28 SID{45|42A9} 476b10 480r30
+149a38 Key{string} 476b20 483r58
+149b52 Result{boolean} 476b34 480m41 482r13 483m13
+152U17 Get_Value 153>10 153>20 153<34 449b17 469l11 469t20 883s16
+153a10 SID{45|42A9} 450b10 457r30
+153a20 Key{string} 450b20 462r58
+153r34 Value{33|87R9} 450b34 455m10 465m19
+157Y13 Set_Value 157>24 157>34 157>39 675b13 686l11 686t20 870s19 1017s28
+. 1118s16 1125s19 1127s19 1135s19 1137s19 1150s16
+157a24 SID{45|42A9} 681r30
+157a34 Key{string} 684r47
+157a39 Value{string} 684r52
+160Y13 Remove_Key 160>25 160>36 633b13 642l11 642t21 1042s16
+160a25 SID{45|42A9} 637r30
+160a36 Key{string} 640r47
+167U17 Destroy 263s16 279s16 436b17 443l11 443t18
+170U17 Prepare_Expired_SID 171<10 171<47 226s19 563b17 612l11 612t30
+171a10 Expired_SID{97A9} 564b10 596m16 598r26
+171i47 Last{natural} 564b47 575m10 595m16 595r24 596r29 598r19
+176U17 Lock_And_Get_Sessions 176<40 528b17 532l11 532t32 763s16 1082s16
+176r40 First{14|60R9[85]} 528b40 531m10 1082r39
+181U17 Lock_And_Get_Session 182>10 182<20 182<45 510b17 522l11 522t31 824s16
+182a10 SID{45|42A9} 511b10 513r60
+182r20 Node{78R9} 511b20 520m13
+182b45 Found{boolean} 511b45 517m10 519r13
+187U17 Unlock 703b17 706l11 706t17 779s16 782s19 830s16 833s19 1095s22 1099s16
+192i7 Lock_Counter{natural} 359r41 396r48 421r44 515r10 515r26 530r10 530r26
+. 538r45 633r54 676r46 705r10 705r26
+193r7 Sessions{14|54R9[85]} 370r10 382r50 399r41 409r16 422r41 428r13 438r22
+. 442r29 457r20 480r20 493r26 497r45 513r45 531r28 553r13 578r23 582r23 587r26
+. 619r50 637r20 650r17 659r50 681r20 696r20
+194a7 Remove_Mark{45|42A9} 577r13 582r38 584r13 603r22
+205i7 Next_Run{2|42I9} 223r25 257m13 257r25 259m13 259r25
+207p7 L_SC{45|216P9} 228m10 234r16 239r19
+212a7 Expired_SID{97A9} 226m40 239r29 251r38
+213i7 E_Index{natural} 226m53 232r24 254r13
+216l7 Clean_Dead_Sessions 219r18 261l16 261e35
+232i14 K{integer} 239r42 251r51
+241r24 E{23|63R9} 245r52
+266r12 E{23|63R9} 270r38
+287a7 New_Id{45|42A9} 289m29 290r14
+359a26 SID{45|42A9}
+360r10 New_Node{78R9} 364m10 370r32 373m29 373r29
+361r10 Cursor{14|60R9[85]} 370m42
+362b10 Success{boolean} 370m50 372r17
+382r10 Cursor{14|60R9[85]} 384r38 385r41
+396a10 SID{45|42A9}
+396b20 Removed{boolean}
+399r10 Cursor{14|60R9[85]} 402r38 403r42 409m33 409r33
+400r10 Node{78R9} 403m13 405r24 408m32 408r32
+421a29 SID{45|42A9}
+422r10 Cursor{14|60R9[85]} 425r38 426r42 428m30 428r30
+423r10 Node{78R9} 426m13 427m29 427r29
+438r14 Item{78R9} 439r29
+452r10 Node{78R9} 457m35 462r43
+453b10 Found{boolean} 457m41 459r13
+461r16 Cursor{12|62R9[42|32]} 464r42 465r68
+478r10 Node{78R9} 480m35 483r43
+497r10 C{14|60R9[85]} 499r38 500r50
+513r10 C{14|60R9[85]} 517r44 520r42
+538a26 SID{45|42A9}
+539r10 New_Node{78R9} 553r35
+546r10 Cursor{14|60R9[85]} 553m45
+547b10 Success{boolean} 553m53 555r36
+550l10 Generate_UID 555r18 556l19 556e31
+569o10 Now{27|49O9} 594r45
+571r10 Cursor{14|60R9[85]} 578m13 582m13 586r45 587m16 591r41 592r42 596r55
+. 600m37 600r37 602r47 603r54 610m31 610r31
+572r10 Node{78R9} 592m13 594r16
+619r10 Cursor{14|60R9[85]} 621r38 622r41
+633a25 SID{45|42A9}
+633a35 Key{string}
+634r10 Node{78R9} 637m35 640r32
+635b10 Found{boolean} 637m41 639r13
+659r10 Cursor{14|60R9[85]} 663r38 664r41
+676a10 SID{45|42A9}
+676a20 Key{string}
+676a25 Value{string}
+678r10 Node{78R9} 681m35 684r32
+679b10 Found{boolean} 681m41 683r13
+693r10 Node{78R9} 696m35
+694b10 Found{boolean} 696m41
+724b7 Removed{boolean} 726m38 727r14
+740b7 Result{boolean} 742m37 743r14
+755o7 Now_Monoton{27|49O9} 771r18
+756i7 Now_Calendar{2|42I9} 769r13
+758r7 Cursor{14|60R9[85]} 763m39 765r38 768r30 771r53 776m28 776r28
+759i7 Order{positive} 767r13 775m10 775r19
+760b7 Quit{boolean} 772m13 772r13 773r20
+792U17 For_Every_Data 792>33 804b17 821l11 821t25 827s10
+792r33 Node{78R9} 804b33 806r24
+795r7 Node{78R9} 824m43 827r26
+796i7 Order{positive} 811r19 819m13 819r22
+797b7 Quit{boolean} 815m19 815r19 817r23
+798b7 Found{boolean} 824m49 826r10
+806i14 Cursor{any type} 808r62 812r34
+808a16 Value{string} 813r19 813r26 813r45 814r27 814r34
+848a10 Result{string} 852r13 856r38
+849r10 Str{48|40R9} 856m33 856r33 857m24 857r24
+850*10 Value{45|130+12} 857m36 857r36 858r20
+867r10 Str{48|40R9} 869m22 869r22 871m63 871r63
+881r7 Value{33|87R9} 883m37 885r18 886r24 886r42
+893a7 Value{string} 895r29
+902a7 Value{string} 904r27
+934r7 Cursor{14|60R9[85]} 950r41 953r48
+936U17 Process 936>26 936=36 942b17 947l11 947t18 953r56
+936a26 Key{45|42A9} 942b26 943r31
+936r36 Item{78R9} 942b36 945m10 946r18
+995p7 File{29|44P9} 999m13 999r13 1001r29 1003r30 1024m14 1024r14
+996p7 Stream_Ptr{29|42P9} 1001m7 1005r44 1010r46 1014r60 1015r60
+1005a13 SID{45|42A9} 1008r35 1017r39
+1006i13 Key_Value_Size{natural} 1010m13 1012r27
+1012i17 I{integer}
+1014a19 Key{string} 1017r44
+1015a19 Value{string} 1017r49
+1052p7 File{29|44P9} 1080m15 1080r15 1085r32 1100m14 1100r14
+1053p7 Stream_Ptr{29|42P9} 1069r24 1070r29 1073r31 1074r31 1085m10
+1054r7 Position{14|60R9[85]} 1064r50 1069r53 1082m48 1087r41 1089m31 1089r31
+1056U17 Process_Session 1062b17 1077l11 1077t26 1088s13
+1063r10 Node{78R9} 1066r56 1072r27
+1065i10 Key_Value_Size{natural} 1068r13 1070r41
+1072i17 Cursor{any type} 1073r58 1074r62
+1122a7 V{string} 1124r10 1125r58 1125r66 1127r58
+1132a7 V{string} 1134r10 1135r59 1135r67 1137r59
+1142e7 V{character} 1145m10 1147m10 1150r56
+X 47 aws-utils.ads
+44K13*Utils 46|42r10 367r30 543r26 551r13 849r27 856r13 867r24 871r42 47|461e14
+86U14*Random_String 46|551s19
+90V13*Random_String{string} 46|367s36 543s32
+X 48 aws-utils-streams.ads
+34K19*Streams 46|42w16 849r33 856r19 867r30 871r48 48|93e22
+40R9*Strings<28|39R9> 46|849r41 867r38 48|87e14
+53U14*Open 46|856s27
+57V13*Value{string} 46|871s56
+X 58 system.ads
+67M9*Address
+124I12*Any_Priority{integer}
+X 72 s-memory.ads
+53V13*Alloc{58|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{58|67M9} 105i<c,__gnat_realloc>22
+X 82 s-stausa.ads
+203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
+268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
+X 84 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+

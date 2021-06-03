@@ -1,0 +1,43 @@
+Messages reported by Flow Analysis
+----------------------------------
+
+The following table shows all flow analysis messages, (E)rrors, (W)arnings and (C)hecks.
+
+.. tabularcolumns:: |p{3in}|l|l|p{3in}|
+
+.. csv-table::
+   :header: "Message Kind", "Class", "CWE", "Explanation"
+   :widths: 1, 1, 1, 6
+
+    "aliasing between subprogram parameters", "C", "", "Aliasing between formal parameters or global objects."
+    "dead code", "W", "CWE `561 <http://cwe.mitre.org/data/definitions/561.html>`_", "A statement is never executed."
+    "wrong Default_Initial_Condition aspect", "C", "CWE `457 <http://cwe.mitre.org/data/definitions/457.html>`_", "A type is wrongly declared as initialized by default."
+    "input item missing from the null dependency clause", "C", "", "An input item is missing from the null dependency clause."
+    "input item missing from the dependency clause", "C", "", "An input is missing from the dependency clause."
+    "output item missing from the dependency clause", "C", "", "An output item is missing from the dependency clause."
+    "extra input item in the dependency clause", "C", "", "Extra input item in the dependency clause."
+    "incomplete Global or Initializes contract", "E", "", "A Global or Initializes contract fails to mention some objects."
+    "an extra item in the Global or Initializes contract", "C", "", "A Global or Initializes contract wrongly mentions some objects."
+    "subprogram output depends on a Proof_In global", "C", "", "Subprogram output depends on a Proof_In global."
+    "constants with variable inputs that is not a state constituent", "C", "", "Constants with variable inputs that are not state constituents."
+    "illegal write of a global input", "C", "", "Illegal write of a global input."
+    "a state abstraction that is impossible to initialize", "C", "", "A state abstraction that is impossible to initialize."
+    "a statement with no effect on subprogram's outputs", "W", "CWE `1164 <http://cwe.mitre.org/data/definitions/1164.html>`_", "A statement with no effect on subprogram's outputs."
+    "an extra item in the Initializes contract", "C", "", "An object that shall not appear in the Initializes contract"
+    "an IN OUT parameter or an In_Out global that is not written", "C", "", "An IN OUT parameter or an In_Out global that is not written."
+    "all execution paths raise exceptions or do not return", "C", "", "All execution paths raise exceptions or do not return."
+    "illegal write of an object declared as constant after elaboration", "C", "", "Illegal write of an object declared as constant after elaboration."
+    "use of an abstract state of a package that was not yet elaborated", "C", "", "Use of an abstract state of a package that was not yet elaborated."
+    "a missing pragma Elaborate_Body", "C", "", "A missing pragma Elaborate_Body."
+    "constant with no variable inputs as an abstract state's constituent", "C", "", "Constant with no variable inputs as an abstract state's constituent."
+    "function with side effects", "E", "", "A function with side effects."
+    "loop with stable statement", "W", "", "A loop with stable statement."
+    "use of an uninitialized variable", "C", "CWE `457 <http://cwe.mitre.org/data/definitions/457.html>`_", "Flow analysis has detected the use of an uninitialized variable."
+    "object is not used", "W", "CWE `563 <http://cwe.mitre.org/data/definitions/563.html>`_", "A global or locally declared object is never used."
+    "initial value of an object is not used", "W", "CWE `563 <http://cwe.mitre.org/data/definitions/563.html>`_", "The initial value of an object is not used."
+    "volatile function wrongly declared as non-volatile", "C", "", "A volatile function wrongly declared as non-volatile."
+    "non-volatile function wrongly declared as volatile", "C", "", "A non-volatile function wrongly declared as volatile."
+    "illegal reference to a global object in precondition of a protected operation", "C", "", "An illegal reference to global in precondition of a protected operation"
+
+.. note::
+    Certain messages emitted by flow analysis are classified as errors and consequently cannot be suppressed or justified.

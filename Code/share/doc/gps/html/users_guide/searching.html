@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>8. Searching and Replacing &#8212; GPS 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/adacore.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="9. Compilation/Build" href="compilation.html" />
+    <link rel="prev" title="7. Project Handling" href="projects.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="compilation.html" title="9. Compilation/Build"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="projects.html" title="7. Project Handling"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">8. Searching and Replacing</a><ul>
+<li><a class="reference internal" href="#searching">8.1. Searching</a></li>
+<li><a class="reference internal" href="#replacing">8.2. Replacing</a></li>
+<li><a class="reference internal" href="#searching-in-current-file">8.3. Searching in current file</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="projects.html"
+                        title="previous chapter">7. Project Handling</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="compilation.html"
+                        title="next chapter">9. Compilation/Build</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/searching.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="searching-and-replacing">
+<span id="id1"></span><h1>8. Searching and Replacing<a class="headerlink" href="#searching-and-replacing" title="Permalink to this headline">¶</a></h1>
+<p>GPS provides extensive search capabilities in different contexts. For
+example, you can search in the currently edited source file or in all
+source files belonging to the project, even those that are not currently
+open. You can also search in the project view (on the left side of the main
+GPS window).</p>
+<span class="target" id="index-0"></span><span class="target" id="index-1"></span><p id="index-2">All of these search contexts are merged into a single graphical window that
+you can open either through the <span class="menuselection">Find ‣ Find</span> menu or
+the shortcut <code class="kbd docutils literal"><span class="pre">Ctrl-F</span></code>.</p>
+<div class="section" id="searching">
+<h2>8.1. Searching<a class="headerlink" href="#searching" title="Permalink to this headline">¶</a></h2>
+<p>By default, the search window is floating and appears as a dialog on top of
+GPS. Put it inside the multiple document interface for easier access by
+selecting the <span class="menuselection">Window ‣ Floating</span> menu and dropping the
+search window into a new location (for example, above the
+<span class="guilabel">Project</span> view).  Selecting either option pops up a dialog on the
+screen similar to the following:</p>
+<img alt="_images/search_view.png" src="_images/search_view.png" />
+<p>This dialog&#8217;s toolbar contains several buttons that enable some specific
+options:</p>
+<ul>
+<li><p class="first"><span class="guilabel">Regexp</span></p>
+<p id="index-3">Toggles between strings and regular expressions.  Or you can select the
+arrow to the right of the <span class="guilabel">Search for:</span> field.  The grammar
+used by regular expressions is similar to the Perl and Python regular
+expressions grammar and is documented in the GNAT run time file
+<code class="file docutils literal"><span class="pre">g-regpat.ads</span></code>. To open it from GPS, use the <span class="xref std std-ref">open from
+project</span> menu (<span class="menuselection">Find ‣ Find File in
+Project</span>) and type <code class="file docutils literal"><span class="pre">g-regpat.ads</span></code>.</p>
+</li>
+<li><p class="first"><span class="guilabel">Whole Word</span></p>
+<p id="index-4">Force the search engine to ignore substrings. For example, &#8220;sensitive&#8221;
+no longer matches &#8220;insensitive&#8221;.</p>
+</li>
+<li><p class="first"><span class="guilabel">Case Sensitive Search</span></p>
+<p id="index-5">By default, patterns are case insensitive (upper-case letters and
+lower-case letters are considered equivalent).  Change this behavior by
+clicking this check box.</p>
+</li>
+</ul>
+<p>In addition, the dialog&#8217;s local menu contains more general options used
+to control the behavior of the Search view:</p>
+<ul>
+<li><p class="first"><span class="guilabel">Incremental search</span></p>
+<p id="index-6">Enable the incremental mode. In this mode, a search will be automatically
+performed whenever the search pattern is modified, starting from the
+current location to the next occurrence in the current file.</p>
+</li>
+<li><p class="first"><span class="guilabel">Close on Match</span></p>
+<p id="index-7">This button only appears if the search window is floating. If pressed,
+the search window is automatically closed when an occurrence of the
+search string is found.</p>
+</li>
+<li><p class="first"><span class="guilabel">Select on Match</span></p>
+<p id="index-8">Gives the focus to the editor containing the match. If not selected, the
+focus remains on the search window.  If so, press <code class="kbd docutils literal"><span class="pre">Enter</span></code> to search
+for the next occurrence.</p>
+</li>
+</ul>
+<p>By default, the search view contains three searching related widgets:</p>
+<dl class="docutils">
+<dt><em>Search</em></dt>
+<dd><p class="first" id="index-9">Type the string or pattern to search for.</p>
+<p class="last">The combo box provides a number of predefined patterns. The top two are
+empty patterns that automatically set the appropriate strings or regular
+expression mode. The other regular expressions are language-specific and
+match patterns such as Ada type definitions or C++ method declarations.</p>
+<span class="target" id="index-10"></span></dd>
+<dt id="index-11"><em>Where</em></dt>
+<dd><p class="first last" id="index-12">Used restrict the search to a set of language constructs.  For example, use
+this to to avoid matching comments when you are only interested in actual code
+or to only search strings and comments, but not code.</p>
+</dd>
+<dt><em>In</em></dt>
+<dd><p class="first" id="index-13">The context in which the search should occur.</p>
+<p class="last" id="index-14">GPS automatically selects the most appropriate context when you open the
+search dialog by looking at the component that currently has the
+focus. If several contexts are possible for one component (for example,
+the editor has <span class="guilabel">Current_File</span>, <span class="guilabel">Files from Project</span>,
+<span class="guilabel">Files...</span>, and <span class="guilabel">Open Files</span>), the last one you used
+is selected.</p>
+</dd>
+</dl>
+<p>Change the context to a different one by clicking on the arrow on the
+right, which displays the list of all possible contexts, including:</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong class="command">Open Files</strong></p>
+<p>Search all files currently open in the source editor.</p>
+</li>
+<li><p class="first"><strong class="command">Files...</strong></p>
+<p>Search a specified set of files. An extra <span class="guilabel">Files</span> box is
+displayed where you specify the files using standard shell (Unix or
+Windows) regular expressions (such as <code class="file docutils literal"><span class="pre">*.ad?</span></code> for all files
+ending with <code class="samp docutils literal"><span class="pre">.ad</span></code> and any trailing character). The directory
+specifies where the search starts and the <span class="guilabel">Recursive search</span>
+button whether subdirectories are also searched.</p>
+</li>
+<li><p class="first"><strong class="command">Files From Projects</strong></p>
+<p>Search all files from the current project, including files from project
+dependencies.</p>
+</li>
+<li><p class="first"><strong class="command">Files From Current Project</strong></p>
+<p>Search all files from the current project, defaulting to the root
+project if none. The currently selected project might be the one to
+which the source file belongs (if you are in an editor) or the selected
+project (if you are in the <span class="guilabel">Project</span> view).</p>
+</li>
+<li><p class="first"><strong class="command">Files From Runtime</strong></p>
+<p>Search all specification files from GNAT runtime library</p>
+</li>
+<li><p class="first"><strong class="command">Current File</strong></p>
+<p>Search the current source editor.</p>
+</li>
+</ul>
+<p id="index-15">Normally, GPS sets the default value for <span class="guilabel">In</span> that matches the
+currently selected window. For example, if you are in an editor and open the
+search dialog, the context is set to <span class="guilabel">Current File</span>. Optionally, GPS
+can remember the last context that was set (see the preference
+<span class="menuselection">Search ‣ Preserve Search Context</span>). In that case, if an
+editor is selected, GPS remembers whether the last time you started a search
+from an editor you decided to search in (for example) <span class="guilabel">Current File</span>
+or <span class="guilabel">Files From Project</span>.</p>
+<p>Finally, you can create key shortcuts (through the <span class="menuselection">Edit ‣
+Preferences...</span> menu, in the <span class="guilabel">Search</span> category) to open the search
+dialog and set the context to a specific value.</p>
+</div></blockquote>
+<p>The right part of the dialog is a row of three buttons, used to navigate
+among the search results.</p>
+<p>Press the <span class="guilabel">Find</span> or <span class="guilabel">Previous</span> button to perform an
+interactive search, which stops as soon as one occurrence of the pattern is
+found.  At that point, the <span class="guilabel">Find</span> button is renamed to
+<span class="guilabel">Next</span>, which you press (or type the equivalent shortcut
+<code class="kbd docutils literal"><span class="pre">Ctrl-N</span></code>) to go to the next occurrence.</p>
+<p>The <span class="guilabel">Find all</span> button starts a search for all occurrences and
+puts the results in a view called <span class="guilabel">Locations</span> view,
+see <a class="reference internal" href="main_window.html#the-locations-view"><span class="std std-ref">The Locations View</span></a>.</p>
+</div>
+<div class="section" id="replacing">
+<h2>8.2. Replacing<a class="headerlink" href="#replacing" title="Permalink to this headline">¶</a></h2>
+<p>The combo box present in the toolbar is used to switch the search view&#8217;s
+mode: switch to <span class="guilabel">Find &amp; Replace</span> to enable replacing
+capabilities. You can also use the <span class="menuselection">Navigate ‣ Replace</span> menu
+or the <code class="kbd docutils literal"><span class="pre">Ctrl-Shift-F</span></code> shortcut to switch to this mode.</p>
+<img alt="_images/search_replace.png" src="_images/search_replace.png" />
+<p>In this mode, an additional field is displayed:</p>
+<dl class="docutils">
+<dt><em>Replace</em></dt>
+<dd><p class="first" id="index-16">Contains the string to replace the occurrences of the pattern. The combo box
+provides a history of previously used replacement strings. If a regular
+expression is used for search, special escapes in this field are used as:</p>
+<ul class="last simple">
+<li><code class="samp docutils literal"><span class="pre">\1</span></code>, <code class="samp docutils literal"><span class="pre">\2</span></code> .. <code class="samp docutils literal"><span class="pre">\9</span></code> refer to the corresponding matching
+subexpressions.</li>
+<li><code class="samp docutils literal"><span class="pre">\0</span></code> refers to the complete matched string.</li>
+<li><code class="samp docutils literal"><span class="pre">\i</span></code>, <code class="samp docutils literal"><span class="pre">\i(start,step)</span></code> refers to the sequentially increasing
+number (starting from start and increased by step on each replace).</li>
+</ul>
+</dd>
+</dl>
+<p>The <span class="guilabel">Replace</span> and <span class="guilabel">Replace &amp; Find</span> buttons are grayed
+out if no occurrence of the pattern is found. To enable them, start a
+search, for example by pressing the <span class="guilabel">Find</span> button. Pressing
+<span class="guilabel">Replace</span> replaces the current occurrence (grays out the two
+buttons) and <span class="guilabel">Replace &amp; Find</span> replaces the occurrence and jumps
+to the next one, if any. If you do not want to replace the current
+occurrence, jump to the next one by pressing <span class="guilabel">Next</span>.</p>
+<p>The <span class="guilabel">Repl all</span> button replaces all occurrences found. By default,
+a popup is displayed asking for confirmation. You can disable this popup by
+either checking the box <span class="guilabel">Do not ask this question again</span> or going
+to the <span class="guilabel">Search</span> panel of the preferences pages and unchecking
+<span class="guilabel">Confirmation</span> for <span class="guilabel">Replace all</span>.</p>
+<p id="index-17">Like most GPS components, the search window is under control of the
+multiple document interface and can be integrated into the main GPS window
+instead of being an external window.  To do this, open the
+<span class="menuselection">Window ‣ Search</span> menu in the list at the bottom of the
+menu, and either select <span class="menuselection">Window ‣ Floating</span> or
+<span class="menuselection">Window ‣ Docked</span>.</p>
+<p>If you save the desktop (<span class="menuselection">File ‣ Save More ‣ Desktop</span>),
+GPS automatically reopens the search dialog in its new place when it is next
+started.</p>
+</div>
+<div class="section" id="searching-in-current-file">
+<h2>8.3. Searching in current file<a class="headerlink" href="#searching-in-current-file" title="Permalink to this headline">¶</a></h2>
+<p>The dialog we described above is convenient when you want to search in
+multiple files, or even in files that are not opened in GPS. However,
+the most frequent context is to search in the current file. GPS provides
+a number of facilities just for this:</p>
+<ul>
+<li><p class="first">Use the <span class="guilabel">Incremental search</span> option</p>
+<p>When this option is enabled, GPS automatically jumps to the next match for the
+word you are currently typing.</p>
+</li>
+<li><p class="first">Use the omni-search</p>
+<p>At the top-right corner of the GPS window, the search field is able to
+search in all the sources of your project. But it can also search just
+in the current source. The recommended approach is once again to define
+a new key shortcut via <span class="menuselection">Edit ‣ Preferences...</span>, for
+the action <cite>Global Search in context: current file</cite>.
+Whenever you press that shortcut from now on, GPS will move the keyboard
+focus to the global search box, and when you type some text, a popup
+window will show all occurrences of that text within the current file.</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="compilation.html" title="9. Compilation/Build"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="projects.html" title="7. Project Handling"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>19. Config: Parsing configuration files &mdash; GNATColl 2019 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="GNATColl 2019 documentation" href="index.html" />
+    <link rel="next" title="20. Pools: Controlling access to resources" href="pools.html" />
+    <link rel="prev" title="18. Refcount: Reference counting" href="refcount.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="pools.html" title="20. Pools: Controlling access to resources"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="refcount.html" title="18. Refcount: Reference counting"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">GNATColl 2019 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="refcount.html"
+                        title="previous chapter">18. <strong>Refcount</strong>: Reference counting</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pools.html"
+                        title="next chapter">20. <strong>Pools</strong>: Controlling access to resources</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="config-parsing-configuration-files">
+<h1>19. <strong>Config</strong>: Parsing configuration files<a class="headerlink" href="#config-parsing-configuration-files" title="Permalink to this headline">¶</a></h1>
+<p><cite>gnatcoll</cite> provides a general framework for reading and manipulating
+configuration files. These files are in general static configuration for
+your application, and might be different from the preferences that a user
+might change interactively. However, it is possible to use them for both
+cases.</p>
+<p>There are lots of possible formats for such configuration files: you could
+chose to use an XML file (but these are in general hard to edit manually),
+a binary file, or any other format. One format that is found very often is
+the one used by a lot of Windows applications (the <code class="file docutils literal"><span class="pre">.ini</span></code> file format).</p>
+<p><cite>GNATCOLL.Config</cite> is independent from the actual format you are using,
+and you can add your own parsers compatible with the <cite>GNATCOLL.Config</cite>
+API. Out of the box, support is provided for <code class="file docutils literal"><span class="pre">.ini</span></code> files, so let&#8217;s
+detail this very simply format:</p>
+<div class="highlight-ada"><div class="highlight"><pre># A single-line comment
+[Section1]
+key1 = value
+key2=value2
+
+[Section2]
+key1 = value3
+</pre></div>
+</div>
+<p>Comments are (by default) started with <cite>&#8216;#&#8217;</cite> signs, but you can
+configure that and use any prefix you want. The <cite>(key, value)</cite> pairs
+are then organized into optional sections (if you do not start a section
+before the first key, that key will be considered as part of the <cite>&#8220;&#8221;</cite>
+section). A section then extends until the start of the next section.</p>
+<p>The values associated with the various keys can be strings, integers or
+booleans. Spaces on the left and right of the values and keys are trimmed,
+and therefore irrelevant.</p>
+<p>Support is providing for interpreting the values as file or directory
+names. In such a case, if a relative name is specified in the configuration
+file it will be assumed to be relative to the location of the configuration
+file (by default, but you can also configure that).</p>
+<p><cite>GNATCOLL.Config</cite> provides an abstract iterator over a config stream
+(in general, that stream will be a file, but you could conceptually read it
+from memory, a socket, or any other location). A specific implementation is
+provided for file-based streams, which is further specialized to parse
+<code class="file docutils literal"><span class="pre">.ini</span></code> files.</p>
+<p>Reading all the values from a configuration file is done with a loop
+similar to:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span class="kr">declare</span>
+   <span class="n">C</span> <span class="p">:</span> <span class="n">INI_Parser</span><span class="p">;</span>
+<span class="kr">begin</span>
+   <span class="n">Open</span> <span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="s">&quot;settings.txt&quot;</span><span class="p">);</span>
+   <span class="kr">while</span> <span class="ow">not</span> <span class="n">At_End</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="kr">loop</span>
+      <span class="n">Put_Line</span> <span class="p">(</span><span class="s">&quot;Found key &quot;</span> <span class="o">&amp;</span> <span class="n">Key</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">&quot; with value &quot;</span> <span class="o">&amp;</span> <span class="n">Value</span> <span class="p">(</span><span class="n">C</span><span class="p">));</span>
+      <span class="n">Next</span> <span class="p">(</span><span class="n">C</span><span class="p">);</span>
+   <span class="kr">end</span> <span class="kr">loop</span><span class="p">;</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This can be made slightly lighter by using the Ada05 dotted notation.</p>
+<p>You would only use such a loop in your application if you intend to store
+the values in various typed constants in your application. But
+<cite>GNATCOLL.Config</cite> provides a slightly easier interface for this,
+in the form of a <cite>Config_Pool</cite>. Such a pool is filled by reading a
+configuration file, and then the values associated with each key can be
+read at any point during the lifetime of your application. You can also
+explicitely override the values when needed:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span class="n">Config</span> <span class="p">:</span> <span class="n">Config_Pool</span><span class="p">;</span>   <span class="c1">--  A global variable</span>
+
+<span class="kr">declare</span>
+   <span class="n">C</span> <span class="p">:</span> <span class="n">INI_Parser</span><span class="p">;</span>
+<span class="kr">begin</span>
+   <span class="n">Open</span> <span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="s">&quot;settings.txt&quot;</span><span class="p">);</span>
+   <span class="n">Fill</span> <span class="p">(</span><span class="n">Config</span><span class="p">,</span> <span class="n">C</span><span class="p">);</span>
+<span class="kr">end</span><span class="p">;</span>
+
+<span class="n">Put_Line</span> <span class="p">(</span><span class="n">Config</span><span class="p">.</span><span class="n">Get</span> <span class="p">(</span><span class="s">&quot;section.key&quot;</span><span class="p">));</span>  <span class="c1">--  Ada05 dotted notation</span>
+</pre></div>
+</div>
+<p>Again, the values are by default read as strings, but you can interpret
+them as integers, booleans or files.</p>
+<p>A third layer is provided in <cite>GNATCOLL.Config</cite>. This solves the issue
+of possible typos in code: in the above example, we could have made a typo
+when writting <cite>&#8220;section.key&#8221;</cite>. That would only be detected at run
+time. Another issue is that we might decide to rename the key in the
+configuration file. We would then have to go through all the application
+code to find all the places where this key is references (and that can&#8217;t
+be based on cross-references generated by the compiler, since that&#8217;s inside
+a string).</p>
+<p>To solve this issue, it is possible to declare a set of constants that
+represent the keys, and then use these to access the values, solving the
+two problems above:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span class="no">Section_Key1</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">Config_Key</span> <span class="p">:=</span> <span class="n">Create</span> <span class="p">(</span><span class="s">&quot;Key1&quot;</span><span class="p">,</span> <span class="s">&quot;Section&quot;</span><span class="p">);</span>
+<span class="no">Section_Key2</span> <span class="p">:</span> <span class="kr">constant</span> <span class="n">Config_Key</span> <span class="p">:=</span> <span class="n">Create</span> <span class="p">(</span><span class="s">&quot;Key2&quot;</span><span class="p">,</span> <span class="s">&quot;Section&quot;</span><span class="p">);</span>
+
+<span class="n">Put_Line</span> <span class="p">(</span><span class="n">Section_Key1</span><span class="p">.</span><span class="n">Get</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You then access the value of the keys using the Ada05 dotted notation,
+providing a very natural syntax. When and if the key is renamed, you then
+have a single place to change.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="pools.html" title="20. Pools: Controlling access to resources"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="refcount.html" title="18. Refcount: Reference counting"
+             >previous</a> |</li>
+        <li><a href="index.html">GNATColl 2019 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2007-2019, AdaCore.
+    </div>
+  </body>
+</html>

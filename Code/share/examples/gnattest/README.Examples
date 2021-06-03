@@ -1,0 +1,68 @@
+             G N A T T E S T   E X A M P L E S
+
+This directory contains various examples that demonstrate how to use GNATtest.
+Each subdirectory contains a set of small examples illustrating a particular
+feature of the tool, as well as a short text file called README.testing
+indicating how to compile and run the corresponding examples.
+
+In any README file, the '$' sign denotes the system prompt.
+
+Important notice: if you are on a multi-user machine and get the present
+example directory from a shared gnat installation, you may not be able to
+compile directly in this directory due to access permissions.
+In this situation, you will need to copy this directory to your local area.
+
+You can compile and run all the examples by simply running:
+  $ make
+
+If you are on a Windows system and use the Cygwin environment, in order to
+use the Makefiles from the cygwin shell you need to type:
+  $ make CYGWIN=true
+
+You can also compile and run the examples located in a given directory by
+doing:
+  $ cd <directory>
+  $ make
+
+You can also type
+  $ make clean
+
+anywhere to remove the files produced at compilation time.
+
+You may want to have a look at Makefile.inc which defines all of the variables
+allowing some customizing in the runs.
+
+Here's a list of the various subdirectories:
+
+simple:
+
+    This directory contains a very simple package to be tested. You will
+    learn how to invoke gnattest and how to write an actual test in the
+    generated template. The Example also shows how once written tests
+    can be re-used.
+
+tagged_rec:
+
+    This directory illustrates additional testing capabilities that appear
+    while testing packages containing primitives of tagged types.
+
+contracts:
+
+    This directory shows how conditions described with Test_Case pragmas
+    are automatically checked by the generated driver.
+
+complex:
+
+    This directory gives an example of a test driver for a hierarchy of
+    project files.
+
+additional_tests:
+
+    This directory demonstrates how already existing AUnit tests can be
+    included in the main suite of the generated test driver.
+
+stubbing
+
+    This directory demonstrates a testing campaign that uses stubbed
+    subsystems. It also introduces a different way of organizing the tests
+    as individual test executables.

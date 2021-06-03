@@ -1,0 +1,613 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P SS ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U opt%b			opt.adb			429f7c51 NE OO PK
+W gnatvsn%s		gnatvsn.adb		gnatvsn.ali
+W system%s		system.ads		system.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W tree_io%s		tree_io.adb		tree_io.ali
+
+U opt%s			opt.ads			d40cc0f6 EE OO PK
+W hostparm%s		hostparm.ads		hostparm.ali
+W system%s		system.ads		system.ali
+W system.strings%s	s-string.adb		s-string.ali
+W system.wch_con%s	s-wchcon.adb		s-wchcon.ali
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D gnatvsn.ads		20190518132638 aa5360c2 gnatvsn%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D opt.ads		20190518044710 3d2ce478 opt%s
+D opt.adb		20190518044709 b05b783c opt%b
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+G a e
+G c Z s b [back_end_exceptions opt 627 13 none]
+G c Z s b [front_end_exceptions opt 628 13 none]
+G c Z s b [zcx_exceptions opt 629 13 none]
+G c Z s b [sjlj_exceptions opt 630 13 none]
+G c Z s b [register_config_switches opt 2168 14 none]
+G c Z s b [restore_config_switches opt 2174 14 none]
+G c Z s b [save_config_switches opt 2178 13 none]
+G c Z s b [set_config_switches opt 2181 14 none]
+G c Z s b [tree_read opt 2223 14 none]
+G c Z s b [tree_write opt 2226 14 none]
+G c Z s s [Twarnings_as_errorsBIP opt 2275 4 none]
+G c Z s s [get_gcc_version opt 2406 13 none]
+G c Z s s [config_switches_typeIP opt 2367 9 none]
+G r c none [tree_read opt 2223 14 none] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read opt 2223 14 none] [tree_read_bool tree_io 83 14 none]
+G r c none [tree_read opt 2223 14 none] [tree_read_char tree_io 87 14 none]
+G r c none [tree_read opt 2223 14 none] [tree_read_data tree_io 76 14 none]
+G r c none [tree_write opt 2226 14 none] [gnat_version_string gnatvsn 60 13 none]
+G r c none [tree_write opt 2226 14 none] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write opt 2226 14 none] [tree_write_bool tree_io 112 14 none]
+G r c none [tree_write opt 2226 14 none] [tree_write_char tree_io 115 14 none]
+G r c none [tree_write opt 2226 14 none] [tree_write_data tree_io 108 14 none]
+X 4 gnatvsn.ads
+35K9*Gnatvsn 114e12 7|32w6 32r19
+60V13*Gnat_Version_String{string} 7|393s34
+X 5 hostparm.ads
+38K9*Hostparm 73e13 6|41w6 41r20
+65b4*Tag_Errors{boolean} 6|1658r34
+X 6 opt.ads
+50K9*Opt 2367E9 2414l5 2414e8 7|36b14 438l5 438t8
+90b4*Checksum_Accumulate_Token_Checksum{boolean}
+96b4*Checksum_GNAT_6_3{boolean}
+100b4*Checksum_GNAT_5_03{boolean}
+104b4*Checksum_Accumulate_Limited_Checksum{boolean}
+120b4*Latest_Ada_Only{boolean}
+125E9*Ada_Version_Type 125e75 126r20 132r35 138r18 148r27 156r26 1987r25
+. 2000r34 2368r40 2369r40 7|351r9 353r9 410r24 411r24
+125n30*Ada_83{125E9}
+125n38*Ada_95{125E9}
+125n46*Ada_2005{125E9}
+125n56*Ada_2012{125E9} 132r55 156r46
+125n66*Ada_2020{125E9}
+132e4*Ada_Version_Default{125E9} 133r26 138r38 148r47
+138e4*Ada_Version{125E9} 7|89r48 129m7 172r44 219m10 273m10
+144i4*Ada_Version_Pragma{20|397I9} 7|90r48 130m7 173r44 220m10 274m10
+148e4*Ada_Version_Explicit{125E9} 7|91r48 131m7 174r44 275m10
+156e4*Ada_Version_Runtime{125E9} 7|219r41
+161a4*Ada_Final_Suffix{string} 162r57
+162p4*Ada_Final_Name{20|113P9}
+167a4*Ada_Init_Suffix{string} 168r56
+168p4*Ada_Init_Name{20|113P9}
+173a4*Ada_Main_Name_Suffix{string} 180r55
+180p4*Ada_Main_Name{20|113P9}
+185b4*Address_Clause_Overlay_Warnings{boolean}
+190b4*Address_Is_Private{boolean} 7|328m23 398r24
+194b4*All_Errors_Mode{boolean} 7|343m23 413r24
+200b4*Allow_Integer_Address{boolean}
+206b4*All_Sources{boolean}
+211p4*Alternate_Main_Name{20|113P9}
+216b4*ASIS_GNSA_Mode{boolean}
+221b4*ASIS_Mode{boolean}
+231b4*Assertions_Enabled{boolean} 7|92r48 132m7 175r44 244m13 255r31 259m16
+. 261m16 276m10 344m23 414r24
+238b4*Assume_No_Invalid_Values{boolean} 7|93r48 133m7 176r44 245m13 264m13
+. 277m10
+246b4*Back_Annotate_Rep_Info{boolean}
+254b4*Back_End_Handles_Limited_Types{boolean}
+264b4*Back_End_Inlining{boolean}
+271b4*Bind_Alternate_Main_Name{boolean}
+276b4*Bind_Main_Program{boolean}
+280b4*Bind_For_Library{boolean}
+285b4*Bind_Only{boolean}
+290b4*Blank_Deleted_Lines{boolean}
+295b4*Brief_Output{boolean} 7|329m23 399r24
+300b4*Build_Bind_And_Link_Full_Project{boolean}
+305b4*Check_Aliasing_Of_Parameters{boolean}
+310b4*Check_Float_Overflow{boolean} 7|94r48 134m7 177r44 278m10 345m23 415r24
+317b4*Check_Object_Consistency{boolean}
+327b4*Check_Only{boolean}
+331i4*Check_Policy_List{20|397I9} 7|95r48 135m7 178r44 246m13 265m13 279m10
+. 346m28 346r28 416r29
+340b4*Check_Readonly_Files{boolean}
+344b4*Check_Source_Files{boolean}
+351b4*Check_Switches{boolean}
+355b4*Check_Unreferenced{boolean}
+361b4*Check_Unreferenced_Formals{boolean}
+366b4*Check_Validity_Of_Parameters{boolean}
+371b4*Check_Withs{boolean}
+377b4*CodePeer_Mode{boolean}
+382b4*Commands_To_Stdout{boolean}
+386b4*Comment_Deleted_Lines{boolean}
+391a4*Compilation_Time{string}
+395b4*Compile_Only{boolean}
+403b4*Compiler_Unit{boolean}
+412b4*Config_File{boolean}
+416p4*Config_File_Names{16|55P9}
+420b4*Configurable_Run_Time_Mode{boolean} 7|377m23 427r24
+427b4*Constant_Condition_Warnings{boolean}
+432b4*Create_Mapping_File{boolean}
+437I12*Debug_Level_Value{20|62I12} 438r21
+438i4*Debugger_Level{437I12}
+445i4*Default_Exit_Status{20|59I9}
+450b4*Debug_Generated_Code{boolean}
+456i4*Default_Pool{20|397I9} 7|96r48 136m7 179r44 309m7 347m28 347r28 417r29
+466N4*No_Stack_Size 468r32 474r36
+468i4*Default_Stack_Size{20|59I9}
+474i4*Default_Sec_Stack_Size{20|59I9}
+481e4*Default_SSO{character} 7|97r48 137m7 180r44 221m10 280m10
+487b4*Detect_Blocking{boolean}
+492b4*Directories_Must_Exist_In_Projects{boolean}
+496b4*Display_Compilation_Progress{boolean}
+501E9*Distribution_Stub_Mode_Type 510e33 514r29
+503n7*No_Stubs{501E9} 514r60
+506n7*Generate_Receiver_Stub_Body{501E9}
+510n7*Generate_Caller_Stub_Body{501E9}
+514e4*Distribution_Stub_Mode{501E9} 7|371m23 371r23 372r24 421m24 421r24
+. 422r25
+519b4*Do_Not_Execute{boolean}
+523b4*Dump_Source_Text{boolean}
+528b4*Dynamic_Elaboration_Checks{boolean} 7|98r48 138m7 181r44 222m10 281m10
+533b4*Dynamic_Stack_Measurement{boolean}
+537i4*Dynamic_Stack_Measurement_Array_Size{20|62I12}
+544b4*Elab_Dependency_Output{boolean}
+548b4*Elab_Order_Output{boolean}
+552b4*Elab_Info_Messages{boolean}
+556b4*Elab_Warnings{boolean}
+564i4*Error_Msg_Line_Length{20|62I12}
+573b4*Error_To_Warning{boolean}
+580b4*Exception_Handler_Encountered{boolean}
+586b4*Exception_Extra_Info{boolean}
+592b4*Exception_Locations_Suppressed{boolean} 7|99r48 139m7 182r44 310m7
+597E9*Exception_Mechanism_Type 614e21 619r26 621r26
+600n7*Front_End_SJLJ{597E9} 621r54 7|59r36 71r31
+606n7*Back_End_ZCX{597E9} 7|50r31 80r36
+614n7*Back_End_SJLJ{597E9} 7|48r31 69r31
+621e4*Exception_Mechanism{597E9} 7|48r9 50r9 59r14 69r9 71r9 80r14
+627V13*Back_End_Exceptions{boolean} 7|45b13 51l8 51t27
+628V13*Front_End_Exceptions{boolean} 7|57b13 60l8 60t28
+629V13*ZCX_Exceptions{boolean} 7|78b13 81l8 81t22
+630V13*SJLJ_Exceptions{boolean} 7|66b13 72l8 72t23
+634b4*Exception_Tracebacks{boolean}
+638b4*Exception_Tracebacks_Symbolic{boolean}
+643b4*Expand_Nonbinary_Modular_Ops{boolean}
+647b4*Extensions_Allowed{boolean} 7|100r48 140m7 183r44 223m10 282m10
+652E9*External_Casing_Type 655e16 657r31 666r31 2062r38 2073r38 2380r40 2381r40
+653n6*As_Is{652E9} 666r55 7|224r41
+654n6*Uppercase{652E9}
+655n6*Lowercase{652E9} 657r55 7|225r41
+657e4*External_Name_Imp_Casing{652E9} 7|102r48 142m7 185r44 225m10 284m10
+666e4*External_Name_Exp_Casing{652E9} 7|101r48 141m7 184r44 224m10 283m10
+679b4*External_Unit_Compilation_Allowed{boolean}
+684b4*Fast_Math{boolean} 7|103r48 143m7 186r44 285m10 311m7
+689b4*Force_ALI_Tree_File{boolean} 7|385m23 435r24
+694b4*Disable_ALI_File{boolean}
+698b4*Follow_Links_For_Files{boolean}
+706b4*Follow_Links_For_Dirs{boolean}
+712b4*Force_Checking_Of_Elaboration_Flags{boolean}
+717b4*Force_Compilations{boolean}
+721p4*Force_Elab_Order_File{20|113P9}
+725b4*Front_End_Inlining{boolean}
+732b4*Full_Path_Name_For_Brief_Errors{boolean}
+738b4*Full_List{boolean} 7|348m23 418r24
+742p4*Full_List_File_Name{20|113P9}
+748b4*Generate_C_Code{boolean}
+753b4*Generate_CodePeer_Messages{boolean}
+758b4*Generate_Processed_File{boolean}
+763b4*Generate_SCIL{boolean}
+767b4*Generate_SCO{boolean}
+773b4*Generate_SCO_Instance_Table{boolean}
+778b4*Generating_Code{boolean}
+783E9*Ghost_Mode_Type 783e49 787r17
+783n29*None{783E9} 787r36
+783n35*Check{783E9}
+783n42*Ignore{783E9}
+787e4*Ghost_Mode{783E9}
+791b4*Global_Discard_Names{boolean}
+796i4*GNAT_Encodings{20|59I9} 797m22 797r22
+801i4*DWARF_GNAT_Encodings_All{20|59I9}
+802i4*DWARF_GNAT_Encodings_GDB{20|59I9}
+803i4*DWARF_GNAT_Encodings_Minimal{20|59I9}
+805e4*Identifier_Character_Set{character} 7|331m23 401r24
+828b4*Ignore_Rep_Clauses{boolean} 7|332m23 402r24
+834b4*Ignore_SPARK_Mode_Pragmas_In_Instance{boolean}
+840b4*Ignore_Style_Checks_Pragmas{boolean} 7|333m23 403r24
+845b4*Ignore_Unrecognized_VWY_Switches{boolean}
+851i4*Ignored_Ghost_Region{20|397I9}
+857b4*Implementation_Unit_Warnings{boolean}
+862b4*Implicit_Packing{boolean}
+868b4*Include_Subprogram_In_Messages{boolean}
+872b4*Ineffective_Inline_Warnings{boolean}
+880b4*Init_Or_Norm_Scalars{boolean} 7|162m7 304m10
+885b4*Initialize_Scalars{boolean} 7|104r48 144m7 162r31 187r44 286m10 304r34
+890e4*Initialize_Scalars_Mode1{character}
+891e4*Initialize_Scalars_Mode2{character}
+896b4*Inline_Active{boolean} 7|373m23 423r24
+901i4*Inline_Level{20|62I12}
+908b4*Interface_Library_Unit{boolean}
+914b4*Invalid_Value_Used{boolean}
+918b4*Inline_Processing_Required{boolean} 7|374m23 424r24
+924b4*In_Place_Mode{boolean}
+930b4*Keep_Going{boolean}
+935b4*Keep_Temporary_Files{boolean}
+940b4*Leap_Seconds_Support{boolean}
+945b4*Legacy_Elaboration_Checks{boolean}
+950b4*Legacy_Elaboration_Order{boolean}
+955b4*Link_Only{boolean}
+960b4*List_Body_Required_Info{boolean}
+965b4*List_Inherited_Aspects{boolean}
+971b4*List_Restrictions{boolean}
+975b4*List_Units{boolean} 7|375m23 425r24
+979b4*List_Closure{boolean}
+983b4*List_Closure_All{boolean}
+988b4*List_Dependencies{boolean}
+994i4*List_Representation_Info{20|59I9}
+1005b4*List_Representation_Info_To_File{boolean}
+1012b4*List_Representation_Info_To_JSON{boolean}
+1017b4*List_Representation_Info_Mechanisms{boolean}
+1022b4*List_Representation_Info_Extended{boolean}
+1027b4*List_Preprocessing_Symbols{boolean}
+1033P9*Create_Repinfo_File_Proc 1033>55 1038r33
+1033a55 Src{string}
+1034P9*Write_Repinfo_Line_Proc 1034>55 1039r33
+1034a55 Info{string}
+1035P9*Close_Repinfo_File_Proc 1040r33
+1038p4*Create_Repinfo_File_Access{1033P9}
+1039p4*Write_Repinfo_Line_Access{1034P9}
+1040p4*Close_Repinfo_File_Access{1035P9}
+1048P9*Create_List_File_Proc 1048>52 1053r30
+1048a52 S{string}
+1049P9*Write_List_Info_Proc 1049>52 1054r30
+1049a52 S{string}
+1050P9*Close_List_File_Proc 1055r30
+1053p4*Create_List_File_Access{1048P9}
+1054p4*Write_List_Info_Access{1049P9}
+1055p4*Close_List_File_Access{1050P9}
+1064e4*Locking_Policy{character}
+1073i4*Locking_Policy_Sloc{20|220I12}
+1079b4*Look_In_Primary_Dir{boolean}
+1085b4*Make_Steps{boolean}
+1090i4*Main_Index{20|59I9}
+1095p4*Mapping_File_Name{20|113P9}
+1100i4*Maximum_Messages{20|59I9}
+1106i4*Maximum_File_Name_Length{20|59I9} 7|334m23 404r24
+1112i4*Maximum_Instantiations{20|59I9}
+1118i4*Maximum_Processes{positive}
+1123b4*Minimal_Binder{boolean}
+1129b4*Minimal_Recompilation{boolean}
+1133b4*Minimize_Expression_With_Actions{boolean}
+1139b4*Modify_Tree_For_C{boolean}
+1146i4*Multiple_Unit_Index{20|59I9} 7|376m23 426r24
+1154b4*No_Backup{boolean}
+1158b4*No_Component_Reordering{boolean} 7|105r48 145m7 188r44 226m10 287m10
+1162b4*No_Deletion{boolean}
+1168i4*No_Elab_Code_All_Pragma{20|397I9}
+1173i4*No_Heap_Finalization_Pragma{20|397I9}
+1178b4*No_Main_Subprogram{boolean}
+1183b4*No_Run_Time_Mode{boolean}
+1188b4*No_Split_Units{boolean}
+1194b4*No_Stdinc{boolean}
+1198b4*No_Stdlib{boolean}
+1202b4*No_Strict_Aliasing{boolean}
+1206i4*No_Tagged_Streams{20|397I9}
+1211b4*Normalize_Scalars{boolean} 7|162r53 189r44 304r56
+1216b4*Object_Directory_Present{boolean}
+1220p4*Object_Path_File_Name{20|113P9}
+1225b4*One_Compilation_Per_Obj_Dir{boolean}
+1231b4*OpenAcc_Enabled{boolean}
+1236E9*Operating_Mode_Type 1236e78 1237r20 1238r21 1263r30
+1236n33*Check_Syntax{1236E9}
+1236n47*Check_Semantics{1236E9}
+1236n64*Generate_Code{1236E9} 1238r44 1263r53
+1238e4*Operating_Mode{1236E9} 7|378m23 378r23 379r24 428m24 428r24 429r25
+1249e4*Optimize_Alignment{character} 7|106r48 146m7 190r44 227m10 288m10
+1254b4*Optimize_Alignment_Local{boolean} 7|120m7 147m7 191r44 228m10 289m10
+1263e4*Original_Operating_Mode{1236E9}
+1269i4*Optimization_Level{20|59I9} 1270m22 1270r22
+1274i4*Optimize_Size{20|59I9} 1275m22 1275r22
+1280b4*Output_File_Name_Present{boolean}
+1286b4*Output_Linker_Option_List{boolean}
+1290b4*Output_ALI_List{boolean}
+1291p4*ALI_List_Filename{20|113P9}
+1296b4*Output_Object_List{boolean}
+1297p4*Object_List_Filename{20|113P9}
+1302e4*Partition_Elaboration_Policy{character}
+1308i4*Partition_Elaboration_Policy_Sloc{20|220I12}
+1314b4*Persistent_BSS_Mode{boolean} 7|107r48 148m7 192r44 229m10 290m10
+1319b4*Pessimistic_Elab_Order{boolean}
+1323b4*Polling_Required{boolean} 7|108r48 149m7 193r44 312m7
+1328b4*Prefix_Exception_Messages{boolean} 7|109r48 150m7 194r44 230m10 291m10
+1332p4*Preprocessing_Data_File{20|113P9}
+1336p4*Preprocessing_Symbol_Defs{16|55P9}
+1341i4*Preprocessing_Symbol_Last{natural}
+1344b4*Print_Generated_Code{boolean}
+1349b4*Print_Standard{boolean}
+1354E9*Usage 1354e47 1355r26
+1354n19*Unknown{1354E9} 1355r35
+1354n28*Not_In_Use{1354E9}
+1354n40*In_Use{1354E9}
+1355e4*Project_File_In_Use{1354E9}
+1360i4*Quantity_Of_Default_Size_Sec_Stacks{20|59I9}
+1367e4*Queuing_Policy{character}
+1373i4*Queuing_Policy_Sloc{20|220I12}
+1379b4*Quiet_Output{boolean}
+1384b4*Overriding_Renamings{boolean}
+1389b4*Relaxed_Elaboration_Checks{boolean}
+1395b4*Relaxed_RM_Semantics{boolean}
+1405b4*Replace_In_Comments{boolean}
+1409p4*RTS_Lib_Path_Name{20|113P9}
+1410p4*RTS_Src_Path_Name{20|113P9}
+1415b4*RTS_Switch{boolean}
+1419b4*Run_Path_Option{boolean}
+1423b4*Search_Directory_Present{boolean}
+1432b4*Sec_Stack_Used{boolean}
+1437b4*Setup_Projects{boolean}
+1442b4*Shared_Libgnat{boolean}
+1448b4*Short_Circuit_And_Or{boolean}
+1452E9*SPARK_Mode_Type 1452e43 1456r17 2139r24 2391r40
+1452n29*None{1452E9} 1456r36 2139r43 7|266r41
+1452n35*Off{1452E9}
+1452n40*On{1452E9}
+1456e4*SPARK_Mode{1452E9} 7|110r48 151m7 195r44 247m13 266m13 292m10
+1460i4*SPARK_Mode_Pragma{20|397I9} 7|111r48 152m7 196r44 248m13 267m13 293m10
+1465p4*SPARK_Switches_File_Name{20|113P9}
+1470b4*Special_Exception_Package_Used{boolean}
+1476i4*Sprint_Line_Limit{20|62I12}
+1481b4*Stack_Checking_Enabled{boolean}
+1487b4*Style_Check{boolean}
+1494b4*Style_Check_Main{boolean}
+1501b4*Disable_FE_Inline{boolean}
+1502b4*Disable_FE_Inline_Always{boolean}
+1510b4*Suppress_Control_Flow_Optimizations{boolean}
+1515i4*System_Extend_Pragma_Arg{20|397I9}
+1521i4*System_Extend_Unit{20|397I9}
+1529b4*Subunits_Missing{boolean}
+1534b4*Suppress_Checks{boolean} 7|380m23 430r24
+1538r4*Suppress_Options{20|761R9} 7|335m23 335r23 336r24 405m24 405r24 406r25
+1545i4*Table_Factor{20|59I9}
+1553b4*Tagged_Type_Expansion{boolean}
+1559p4*Target_Dependent_Info_Read_Name{20|113P9}
+1566p4*Target_Dependent_Info_Write_Name{20|113P9}
+1573E9*Origin_Of_Target 1573e58 1575r20
+1573n30*Unknown{1573E9} 1575r40
+1573n39*Default{1573E9}
+1573n48*Specified{1573E9}
+1575e4*Target_Origin{1573E9}
+1579p4*Target_Value{16|45P9}
+1583e4*Task_Dispatching_Policy{character}
+1589i4*Task_Dispatching_Policy_Sloc{20|220I12}
+1595b4*Tasking_Used{boolean}
+1599b4*Time_Slice_Set{boolean}
+1604i4*Time_Slice_Value{20|62I12}
+1612b4*Tolerate_Consistency_Errors{boolean}
+1617b4*Treat_Categorization_Errors_As_Warnings{boolean}
+1624b4*Treat_Restrictions_As_Warnings{boolean}
+1629b4*Tree_Output{boolean}
+1633b4*Try_Semantics{boolean} 7|381m23 431r24
+1640b4*Unchecked_Shared_Lib_Imports{boolean}
+1646b4*Undefined_Symbols_Are_False{boolean}
+1652e4*Uneval_Old{character} 7|112r48 153m7 197r44 231m10 294m10
+1658b4*Unique_Error_Tag{boolean}
+1663b4*Unnest_Subprogram_Mode{boolean}
+1667b4*Unreserve_All_Interrupts{boolean}
+1673b4*Upper_Half_Encoding{boolean} 7|384m23 434r24
+1681b4*Use_Include_Path_File{boolean}
+1686b4*Usage_Requested{boolean}
+1691b4*Use_Pragma_Linker_Constructor{boolean}
+1695b4*Use_VADS_Size{boolean} 7|113r48 154m7 198r44 232m10 295m10
+1699b4*Validity_Checks_On{boolean}
+1710b4*Verbose_Mode{boolean} 7|337m23 407r24
+1716E9*Verbosity_Level_Type 1716e58 1717r20 1718r22
+1716n34*None{1716E9}
+1716n40*Low{1716E9}
+1716n45*Medium{1716E9}
+1716n53*High{1716E9} 1718r46
+1718e4*Verbosity_Level{1716E9}
+1732b4*Warn_On_Ada_2005_Compatibility{boolean}
+1738b4*Warn_On_Ada_2012_Compatibility{boolean}
+1744b4*Warn_On_All_Unread_Out_Parameters{boolean}
+1751b4*Warn_On_Assertion_Failure{boolean}
+1756b4*Warn_On_Assumed_Low_Bound{boolean}
+1762b4*Warn_On_Atomic_Synchronization{boolean}
+1767b4*Warn_On_Bad_Fixed_Value{boolean}
+1773b4*Warn_On_Biased_Representation{boolean}
+1779b4*Warn_On_Constant{boolean}
+1784b4*Warn_On_Deleted_Code{boolean}
+1790b4*Warn_On_Dereference{boolean}
+1795b4*Warn_On_Export_Import{boolean}
+1800b4*Warn_On_Elab_Access{boolean}
+1807b4*Warn_On_Hiding{boolean}
+1813b4*Warn_On_Modified_Unread{boolean}
+1821b4*Warn_On_No_Value_Assigned{boolean}
+1828b4*Warn_On_Non_Local_Exception{boolean}
+1838b4*No_Warn_On_Non_Local_Exception{boolean}
+1844b4*Warn_On_Object_Renames_Function{boolean}
+1850b4*Warn_On_Obsolescent_Feature{boolean}
+1856b4*Warn_On_Overlap{boolean}
+1863b4*Warn_On_Questionable_Missing_Parens{boolean}
+1869b4*Warn_On_Parameter_Order{boolean}
+1875b4*Warn_On_Redundant_Constructs{boolean}
+1881b4*Warn_On_Reverse_Bit_Order{boolean}
+1887b4*Warn_On_Suspicious_Contract{boolean}
+1895b4*Warn_On_Suspicious_Modulus_Value{boolean}
+1900b4*Warn_On_Unchecked_Conversion{boolean}
+1906b4*Warn_On_Unordered_Enumeration_Type{boolean}
+1913b4*Warn_On_Unrecognized_Pragma{boolean}
+1918b4*Warn_On_Unrepped_Components{boolean}
+1924b4*Warn_On_Warnings_Off{boolean}
+1933E9*Warning_Mode_Type 1934e75 1935r19
+1934n7*Suppress{1933E9}
+1934n17*Normal{1933E9} 1935r40
+1934n25*Treat_As_Error{1933E9}
+1934n41*Treat_Run_Time_Warnings_As_Errors{1933E9}
+1935e4*Warning_Mode{1933E9} 7|338m23 338r23 339r24 408m24 408r24 409r25
+1947i4*Warnings_As_Errors_Count{natural} 7|114r48 155m7 199r44 296m10
+1951i4*Wide_Character_Encoding_Method{18|94I9} 7|382m23 382r23 383r24 432m24
+. 432r24 433r25
+1963b4*Wide_Character_Encoding_Method_Specified{boolean}
+1968b4*Xref_Active{boolean}
+1972b4*Zero_Formatting{boolean}
+1987e4*Ada_Version_Config{125E9} 7|89m7 273r41 350m7 410r46
+1997i4*Ada_Version_Pragma_Config{20|397I9} 7|90m7 274r41
+2000e4*Ada_Version_Explicit_Config{125E9} 7|91m7 275r41 352m7 411r46
+2007b4*Assertions_Enabled_Config{boolean} 7|92m7 244r41 259r41 276r41 354m7
+. 412r37
+2013b4*Assume_No_Invalid_Values_Config{boolean} 7|93m7 245r41 277r41
+2020b4*Check_Float_Overflow_Config{boolean} 7|94m7 278r41
+2027i4*Check_Policy_List_Config{20|397I9} 7|95m7 246r41 279r41
+2034i4*Default_Pool_Config{20|397I9} 7|96m7 309r41
+2039e4*Default_SSO_Config{character} 7|97m7 280r41
+2045b4*Dynamic_Elaboration_Checks_Config{boolean} 7|98m7 281r41
+2050b4*Exception_Locations_Suppressed_Config{boolean} 7|99m7 310r41
+2054b4*Extensions_Allowed_Config{boolean} 7|100m7 282r41
+2062e4*External_Name_Exp_Casing_Config{652E9} 7|101m7 283r41
+2073e4*External_Name_Imp_Casing_Config{652E9} 7|102m7 284r41
+2084b4*Fast_Math_Config{boolean} 7|103m7 285r41 311r41
+2091b4*Initialize_Scalars_Config{boolean} 7|104m7 286r41
+2098b4*No_Component_Reordering_Config{boolean} 7|105m7 287r41
+2106b4*No_Exit_Message{boolean}
+2111e4*Optimize_Alignment_Config{character} 7|106m7 288r41
+2119b4*Persistent_BSS_Mode_Config{boolean} 7|107m7 290r41
+2128b4*Polling_Required_Config{boolean} 7|108m7 312r41
+2136b4*Prefix_Exception_Messages_Config{boolean} 7|109m7 291r41
+2139e4*SPARK_Mode_Config{1452E9} 7|110m7 247r41 292r41
+2143i4*SPARK_Mode_Pragma_Config{20|397I9} 7|111m7 248r41 293r41
+2147e4*Uneval_Old_Config{character} 7|112m7 294r41
+2151b4*Use_VADS_Size_Config{boolean} 7|113m7 295r41
+2161i4*Warnings_As_Errors_Count_Config{natural} 7|114m7 296r41
+2165R9*Config_Switches_Type 2174r46 2178r41 2367c9 2396e14 7|127r46 169r41
+2168U14*Register_Config_Switches 7|87b14 121l8 121t32
+2174U14*Restore_Config_Switches 2174>39 7|127b14 163l8 163t31
+2174r39 Save{2165R9} 7|127b39 129r41 130r41 131r41 132r41 133r41 134r41 135r41
+. 136r41 137r41 138r41 139r41 140r41 141r41 142r41 143r41 144r41 145r41 146r41
+. 147r41 148r41 149r41 150r41 151r41 152r41 153r41 154r41 155r41
+2178V13*Save_Config_Switches{2165R9} 7|169b13 200l8 200t28
+2181U14*Set_Config_Switches 2182>7 2183>7 7|206b14 313l8 313t27
+2182b7 Internal_Unit{boolean} 7|207b7 213r10
+2183b7 Main_Unit{boolean} 7|208b7 243r13
+2197b4*Building_Static_Dispatch_Tables{boolean}
+2209b4*Expander_Active{boolean}
+2223U14*Tree_Read 7|319b14 386l8 386t17
+2226U14*Tree_Write 7|392b14 436l8 436t18
+2242p4*Tree_Version_String{16|45P9} 7|366m31 366r31 367m16 367r16 368m10
+2251i4*Tree_ASIS_Version_Number{20|59I9} 7|326m23
+2259b4*GNATprove_Mode{boolean} 7|254r16
+2275a4*Warnings_As_Errors(20|113P9)
+2286b4*GNAT_Mode{boolean} 7|330m23 400r24
+2290b4*GNAT_Mode_Config{boolean} 7|258r19
+2368e7*Ada_Version{125E9} 7|129r46 172m10
+2369e7*Ada_Version_Explicit{125E9} 7|131r46 174m10
+2370i7*Ada_Version_Pragma{20|397I9} 7|130r46 173m10
+2371b7*Assertions_Enabled{boolean} 7|132r46 175m10
+2372b7*Assume_No_Invalid_Values{boolean} 7|133r46 176m10
+2373b7*Check_Float_Overflow{boolean} 7|134r46 177m10
+2374i7*Check_Policy_List{20|397I9} 7|135r46 178m10
+2375i7*Default_Pool{20|397I9} 7|136r46 179m10
+2376e7*Default_SSO{character} 7|137r46 180m10
+2377b7*Dynamic_Elaboration_Checks{boolean} 7|138r46 181m10
+2378b7*Exception_Locations_Suppressed{boolean} 7|139r46 182m10
+2379b7*Extensions_Allowed{boolean} 7|140r46 183m10
+2380e7*External_Name_Exp_Casing{652E9} 7|141r46 184m10
+2381e7*External_Name_Imp_Casing{652E9} 7|142r46 185m10
+2382b7*Fast_Math{boolean} 7|143r46 186m10
+2383b7*Initialize_Scalars{boolean} 7|144r46 187m10
+2384b7*No_Component_Reordering{boolean} 7|145r46 188m10
+2385b7*Normalize_Scalars{boolean} 7|189m10
+2386e7*Optimize_Alignment{character} 7|146r46 190m10
+2387b7*Optimize_Alignment_Local{boolean} 7|147r46 191m10
+2388b7*Persistent_BSS_Mode{boolean} 7|148r46 192m10
+2389b7*Polling_Required{boolean} 7|149r46 193m10
+2390b7*Prefix_Exception_Messages{boolean} 7|150r46 194m10
+2391e7*SPARK_Mode{1452E9} 7|151r46 195m10
+2392i7*SPARK_Mode_Pragma{20|397I9} 7|152r46 196m10
+2393e7*Uneval_Old{character} 7|153r46 197m10
+2394b7*Use_VADS_Size{boolean} 7|154r46 198m10
+2395i7*Warnings_As_Errors_Count{natural} 7|155r46 199m10
+2406V13 get_gcc_version{20|59I9} 2407b<c,get_gcc_version>22 2409s34
+2409i4 GCC_Version{20|62I12}
+X 7 opt.adb
+38N4 SU 336r48 336r58 339r44 339r54 372r54 379r46 383r62 383r72 406r49 406r59
+. 409r45 422r55 422r65 429r47 429r57 433r63 433r73
+320i7 Tree_Version_String_Len{20|62I12} 359m22 362r38 365r26
+321i7 Ada_Version_Config_Val{20|62I12} 340m23 351r31
+322i7 Ada_Version_Explicit_Config_Val{20|62I12} 341m23 353r31
+323i7 Assertions_Enabled_Config_Val{20|62I12} 342m23 355r22
+362a10 Tmp{string} 365m13 365r13 368r45
+393a7 Version_String{string} 419r29 420r24 420r48
+X 8 system.ads
+37K9*System 6|46r6 46r26 47r6 47r26 7|33w6 33r19 366r10 8|174e11
+71N4*Storage_Unit 7|38r21 372r64 379r56 409r55
+X 16 s-string.ads
+42K16*Strings 6|46w13 46r33 7|366r17 16|63e19
+45P9*String_Access(string) 6|1579r19 2242r26
+49U14*Free[3|20] 7|366s25 367s10
+54A9*String_List(45P9)<integer> 6|1336r58
+55P9*String_List_Access(54A9) 6|416r24 1336r32
+X 18 s-wchcon.ads
+41K16*WCh_Con 6|47w13 47r33 18|220e19
+94I9*WC_Encoding_Method<short_short_integer> 6|1951r37
+156i4*WCEM_Brackets{94I9} 6|1951r59
+X 19 tree_io.ads
+45K9*Tree_IO 7|34w6 34r19 19|128e12
+50N4*ASIS_Version_Number 7|396r24
+76U14*Tree_Read_Data 7|335s7 338s7 364s10 371s7 378s7 382s7
+83U14*Tree_Read_Bool 7|328s7 329s7 330s7 332s7 333s7 337s7 343s7 344s7 345s7
+. 348s7 373s7 374s7 375s7 377s7 380s7 381s7 384s7 385s7
+87U14*Tree_Read_Char 7|331s7
+91U14*Tree_Read_Int 7|326s7 334s7 340s7 341s7 342s7 346s7 347s7 359s7 376s7
+108U14*Tree_Write_Data 7|405s7 408s7 420s7 421s7 428s7 432s7
+112U14*Tree_Write_Bool 7|398s7 399s7 400s7 402s7 403s7 407s7 413s7 414s7
+. 415s7 418s7 423s7 424s7 425s7 427s7 430s7 431s7 434s7 435s7
+115U14*Tree_Write_Char 7|401s7
+118U14*Tree_Write_Int 7|396s7 404s7 410s7 411s7 412s7 416s7 417s7 419s7 426s7
+X 20 types.ads
+52K9*Types 6|42w6 42r20 20|948e10
+59I9*Int<integer> 6|445r26 468r25 474r29 796r21 801r44 802r44 803r44 994r31
+. 1090r17 1100r23 1106r31 1112r29 1146r26 1269r25 1274r20 1360r42 1545r19
+. 2251r31 2406r36 7|346r23 347r23 416r24 417r24 419r24
+62I12*Nat{59I9} 6|437r33 537r43 564r28 901r19 1476r24 1604r23 2409r27 7|320r41
+. 321r41 322r41 323r41
+113P9*String_Ptr(string) 6|162r23 168r22 180r20 211r26 721r28 742r26 1095r24
+. 1220r28 1291r24 1297r27 1332r30 1409r24 1410r24 1465r31 1559r38 1566r39
+. 2275r48
+145I9*Text_Ptr<59I9>
+220I12*Source_Ptr{145I9} 6|1073r26 1308r40 1373r26 1589r35
+227i4*No_Location{220I12} 6|1073r40 1308r54 1373r40 1589r49
+397I9*Node_Id<integer> 6|144r25 331r24 456r19 851r27 1168r30 1173r34 1206r24
+. 1460r24 1515r31 1521r25 1997r32 2027r31 2034r26 2143r31 2370r40 2374r40
+. 2375r40 2392r40
+412i4*Empty{397I9} 6|144r36 331r35 456r30 851r38 1168r41 1173r45 1206r35
+. 1460r35 1515r42 1521r36 2034r37 2143r42 7|220r41 265r41 267r41
+761R9*Suppress_Record 6|1538r23 20|774e14
+

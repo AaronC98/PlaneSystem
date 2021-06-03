@@ -1,0 +1,53 @@
+             G N A T T E S T   E X A M P L E S
+
+In order to generate and compile test driver, make sure that 'gnattest' and
+'gprbuild' commands are in your path and AUnit is in your default project path.
+
+To generate a test driver for a number of sources you need to use gnattest
+utility. Note that in order to process given files, gnattest has to
+semantically analyze the Ada sources. Therefore, test packages can only be
+generated legal Ada units. Moreover, when a unit depends semantically upon
+units located outside the current directory, the source search path has to be
+provided when calling gnattest through a specified project file.
+
+Invocation
+----------
+
+In order to build the executables provided in this example you need to
+generate a test driver for the project and compile it:
+  $ gnattest -Pgenerics.gpr
+  $ gprbuild -Pobj/gnattest/harness/test_driver.gpr
+
+Actual tests are already provided for this example, so let's run the driver:
+  $ obj/gnattest/harness/test_runner
+
+Generic Tests
+-------------
+
+Gnattest provides capabilities to create generic tests for library level
+generic packages that will be automatically applied to each corresponding
+instantiation. As can be seen from test driver output, there are two
+similar blocks of passed tests each for corresponding instantiation of
+Sorting_Algorithms declared in Instantiations.
+
+Writing tests for generic packages differ from creating regular test routines
+in a number of ways. First of all, you can only use objects of formal types.
+To be able to later specify values of actual types for instantiations of
+generic test packages you need to put all the objects of formal types you wish
+to work with as components of test type. In this example the tests are
+conducted under an array Arr (see sorting_algorithms-test_data.ads,
+sorting_algorithms-test_data-tests.adb).
+
+In package Instantiations there are two instantiations of Sorting_Algorithms:
+Sort_Integers and Sort_String_3. Corresponding instantiations of generic test
+packages are located at Instantiations.Test_Data.Tests.Sort_Integers.Test_Data
+and Instantiations.Test_Data.Tests.Sort_String_3.Test_Data. To specify 
+values of actual types to be used in corresponding instances of test routines
+you have to set them in User_Set_Up routines declared in those packages.
+
+Note that same generic test may pass or fail on different instantiations
+depending on the actual data specified in User_Set_Up. For example, let's
+break Sorting_Algorithms.Selection_Sort: uncomment out line 22 and comment
+line 23 (which will obviously break the sorting algorithm). Now recompile and
+rerun the test driver and you will see that only the test for
+Instantiations.Sort_Integers fails.

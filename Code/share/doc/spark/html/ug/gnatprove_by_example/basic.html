@@ -1,0 +1,696 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7.9.1. Basic Examples &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.9.2. Loop Examples" href="loop.html" />
+    <link rel="prev" title="7.9. GNATprove by Example" href="../en/source/gnatprove_by_example.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="loop.html" title="7.9.2. Loop Examples"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../en/source/gnatprove_by_example.html" title="7.9. GNATprove by Example"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../en/gnatprove.html" >7. Formal Verification with GNATprove</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../en/source/gnatprove_by_example.html" accesskey="U">7.9. GNATprove by Example</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">7.9.1. Basic Examples</a><ul>
+<li><a class="reference internal" href="#increment">7.9.1.1. Increment</a></li>
+<li><a class="reference internal" href="#swap">7.9.1.2. Swap</a></li>
+<li><a class="reference internal" href="#addition">7.9.1.3. Addition</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../en/source/gnatprove_by_example.html"
+                        title="previous chapter">7.9. GNATprove by Example</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="loop.html"
+                        title="next chapter">7.9.2. Loop Examples</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/gnatprove_by_example/basic.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="basic-examples">
+<span id="id1"></span><h1>7.9.1. Basic Examples<a class="headerlink" href="#basic-examples" title="Permalink to this headline">¶</a></h1>
+<p>The examples in this section have no loops, and do not use more complex
+features of SPARK like <a class="reference internal" href="../en/source/specification_features.html#ghost-code"><span class="std std-ref">Ghost Code</span></a>, <a class="reference internal" href="../en/source/package_contracts.html#interfaces-to-the-physical-world"><span class="std std-ref">Interfaces to the Physical World</span></a>, or <a class="reference internal" href="../en/source/object_oriented_programming.html#object-oriented-programming-and-liskov-substitution-principle"><span class="std std-ref">Object Oriented Programming and Liskov Substitution Principle</span></a>.</p>
+<div class="section" id="increment">
+<span id="id2"></span><h2>7.9.1.1. Increment<a class="headerlink" href="#increment" title="Permalink to this headline">¶</a></h2>
+<p>Consider a simple procedure that increments its integer parameter <code class="docutils literal"><span class="pre">X</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Increment</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Increment</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>As this procedure does not have a contract yet, GNATprove only checks that
+there are no possible reads of uninitialized data and no possible run-time
+errors in the procedure. Here, it issues a message about a possible overflow
+check failure on <code class="docutils literal"><span class="pre">X</span> <span class="pre">+</span> <span class="pre">1</span></code>:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>increment.adb:5:11: medium: overflow check might fail (e.g. when X = Integer&#39;Last) [possible explanation: subprogram at line 1 should mention X in a precondition]
+</pre></div>
+</div>
+<p>The counterexample displayed tells us that <code class="docutils literal"><span class="pre">Increment</span></code> could be called on
+value <code class="docutils literal"><span class="pre">Integer'Last</span></code> for parameter <code class="docutils literal"><span class="pre">X</span></code>, which would cause the increment to
+raise a run-time error. As suggested by the possible explanation in the message
+issued by GNATprove, one way to eliminate this vulnerability is to add a
+precondition to <code class="docutils literal"><span class="pre">Increment</span></code> specifying that <code class="docutils literal"><span class="pre">X</span></code> should be less than
+<code class="docutils literal"><span class="pre">Integer'Last</span></code> when calling the procedure:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Increment_Guarded</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&lt;</span> <span class="n">Integer</span><span class="na">&#39;Last</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Increment_Guarded</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>As this procedure has a contract now, GNATprove checks like before that there
+are no possible reads of uninitialized data and no possible run-time errors in
+the procedure, including in its contrat, and that the procedure implements its
+contract. As expected, GNATprove now proves that there is no possible
+overflow check failure on <code class="docutils literal"><span class="pre">X</span> <span class="pre">+</span> <span class="pre">1</span></code>:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>increment_guarded.adb:6:11: info: overflow check proved
+</pre></div>
+</div>
+<p>The precondition is usually the first contract added to a subprogram, but there
+are other <a class="reference internal" href="../en/source/subprogram_contracts.html#subprogram-contracts"><span class="std std-ref">Subprogram Contracts</span></a>. Here is a version of <code class="docutils literal"><span class="pre">Increment</span></code>
+with:</p>
+<ul class="simple">
+<li>global dependencies (aspect <code class="docutils literal"><span class="pre">Global</span></code>) stating that the procedure reads and
+writes no global variables</li>
+<li>flow dependencies (aspect <code class="docutils literal"><span class="pre">Depends</span></code>) stating that the final value of
+parameter <code class="docutils literal"><span class="pre">X</span></code> only depends on its input value</li>
+<li>a precondition (aspect <code class="docutils literal"><span class="pre">Pre</span></code>) stating that parameter <code class="docutils literal"><span class="pre">X</span></code> should be less
+than <code class="docutils literal"><span class="pre">Integer'Last</span></code> on entry</li>
+<li>a postcondition (aspect <code class="docutils literal"><span class="pre">Post</span></code>) stating that parameter <code class="docutils literal"><span class="pre">X</span></code> should have
+been incremented by the procedure on exit</li>
+</ul>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Increment_Full</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="kr">null</span><span class="p">,</span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="o">)</span><span class="p">,</span>
+  <span class="n">Pre</span>     <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&lt;</span> <span class="n">Integer</span><span class="na">&#39;Last</span><span class="p">,</span>
+  <span class="n">Post</span>    <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Increment_Full</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove checks that <code class="docutils literal"><span class="pre">Increment_Full</span></code> implements its contract, and that it
+cannot raise run-time errors or read uninitialized data. By default,
+GNATprove&#8216;s output is empty in such a case, but we can request that it prints
+one line per check proved by using switch <code class="docutils literal"><span class="pre">--report=all</span></code>, which we do here:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>increment_full.adb:3:03: info: data dependencies proved
+increment_full.adb:4:03: info: flow dependencies proved
+increment_full.adb:6:14: info: postcondition proved
+increment_full.adb:6:24: info: overflow check proved
+increment_full.adb:9:11: info: overflow check proved
+</pre></div>
+</div>
+<p>As subprogram contracts are used to analyze callers of a subprogram, let&#8217;s
+consider a procedure <code class="docutils literal"><span class="pre">Increment_Calls</span></code> that calls the different versions of
+<code class="docutils literal"><span class="pre">Increment</span></code> presented so far:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Increment</span><span class="p">;</span>
+<span class="kr">with</span><span class="nn"> Increment_Guarded;</span><span class="p"></span>
+<span class="kr">with</span><span class="nn"> Increment_Full;</span>
+
+<span class="k">procedure </span><span class="nf">Increment_Calls</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">Increment</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">Increment</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="n">X</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">Increment_Guarded</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">Increment_Guarded</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="n">X</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">Increment_Full</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">Increment_Full</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Increment_Calls</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove proves all preconditions expect the one on the second call to
+<code class="docutils literal"><span class="pre">Increment_Guarded</span></code>:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>increment_calls.adb:8:04: info: initialization of &quot;X&quot; proved
+increment_calls.adb:15:04: info: precondition proved
+increment_calls.adb:16:04: medium: precondition might fail, cannot prove X &lt; Integer&#39;last (e.g. when X = Integer&#39;Last) [possible explanation: call at line 15 should mention X (for argument X) in a postcondition]
+increment_calls.adb:19:04: info: precondition proved
+increment_calls.adb:20:04: info: precondition proved
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">Increment</span></code> has no precondition, so there is nothing to check here except the
+initialization of <code class="docutils literal"><span class="pre">X</span></code> when calling <code class="docutils literal"><span class="pre">Increment</span></code> on lines 11 and 12. But
+remember that GNATprove did issue a message about a true vulnaribility on
+<code class="docutils literal"><span class="pre">Increment</span></code>&#8216;s implementation.</p>
+<p>This vulnerability was corrected by adding a precondition to
+<code class="docutils literal"><span class="pre">Increment_Guarded</span></code>. This has the effect of pushing the constraint on
+callers, here procedure <code class="docutils literal"><span class="pre">Increment_Calls</span></code>. As expected, GNATprove proves
+that the first call to <code class="docutils literal"><span class="pre">Increment_Guarded</span></code> on line 15 satisfies its
+precondition. But it does not prove the same for the second call to
+<code class="docutils literal"><span class="pre">Increment_Guarded</span></code> on line 16, because the value of <code class="docutils literal"><span class="pre">X</span></code> on line 16 was set
+by the call to <code class="docutils literal"><span class="pre">Increment_Guarded</span></code> on line 15, and the contract of
+<code class="docutils literal"><span class="pre">Increment_Guarded</span></code> does not say anything about the possible values of <code class="docutils literal"><span class="pre">X</span></code>
+on exit.</p>
+<p>As suggested by the possible explanation in the message issued by GNATprove,
+a postcondition like the one on <code class="docutils literal"><span class="pre">Increment_Full</span></code> is needed so that
+GNATprove can check the second call to increment <code class="docutils literal"><span class="pre">X</span></code>. As expected,
+GNATprove proves that both calls to <code class="docutils literal"><span class="pre">Increment_Full</span></code> on lines 19 and 20
+satisfy their precondition.</p>
+<p>In some cases, the user is not interested in specifying and verifying a
+complete contract like the one on <code class="docutils literal"><span class="pre">Increment_Full</span></code>, typically for helper
+subprograms defined locally in a subprogram or package body. GNATprove allows
+performing <a class="reference internal" href="../en/source/how_to_write_subprogram_contracts.html#contextual-analysis-of-subprograms-without-contracts"><span class="std std-ref">Contextual Analysis of Subprograms Without Contracts</span></a> for these
+local subprograms. For example, consider a local definition of <code class="docutils literal"><span class="pre">Increment</span></code>
+inside procedure <code class="docutils literal"><span class="pre">Increment_Local</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Increment_Local</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">procedure </span><span class="nf">Increment</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">X</span> <span class="o">:=</span> <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Increment</span><span class="p">;</span>
+
+   <span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="n">Increment</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">Increment</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">X</span> <span class="o">=</span> <span class="mi">2</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Increment_Local</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Although <code class="docutils literal"><span class="pre">Increment</span></code> has no contract (like the previous non-local version),
+GNATprove proves that this program is free from run-time errors, and that the
+assertion on line 15 holds:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>increment_local.adb:6:14: info: overflow check proved, in call inlined at increment_local.adb:13
+increment_local.adb:6:14: info: overflow check proved, in call inlined at increment_local.adb:14
+increment_local.adb:9:04: info: initialization of &quot;X&quot; proved
+increment_local.adb:15:19: info: assertion proved
+</pre></div>
+</div>
+</div>
+<div class="section" id="swap">
+<span id="id3"></span><h2>7.9.1.2. Swap<a class="headerlink" href="#swap" title="Permalink to this headline">¶</a></h2>
+<p>Consider a simple procedure that swaps its integer parameters <code class="docutils literal"><span class="pre">X</span></code> and <code class="docutils literal"><span class="pre">Y</span></code>,
+whose simple-minded implementation is wrong:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Swap_Bad</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="n">Y</span><span class="p">;</span>
+   <span class="n">Y</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Swap_Bad</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>As this procedure does not have a contract yet, GNATprove only checks that
+there are no possible reads of uninitialized data and no possible run-time
+errors in the procedure. Here, it simply issues a warning:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>swap_bad.adb:1:21: warning: unused initial value of &quot;X&quot;
+</pre></div>
+</div>
+<p>But we know the procedure is wrong, so we&#8217;d like to get an error of some sort!
+We could not detect it with GNATprove because the error is functional, and
+GNATprove cannot guess the intended functionality of
+<code class="docutils literal"><span class="pre">Swap_Bad</span></code>. Fortunately, we can give this information to GNATprove by
+adding a contract to <code class="docutils literal"><span class="pre">Swap_Bad</span></code>.</p>
+<p>One such contract is the flow dependencies introduced by aspect
+<code class="docutils literal"><span class="pre">Depends</span></code>. Here it specifies that the final value of <code class="docutils literal"><span class="pre">X</span></code> (resp. <code class="docutils literal"><span class="pre">Y</span></code>)
+should depend on the initial value of <code class="docutils literal"><span class="pre">Y</span></code> (resp. <code class="docutils literal"><span class="pre">X</span></code>):</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Swap_Bad_Depends</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span> <span class="o">=&gt;</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="n">Y</span><span class="p">;</span>
+   <span class="n">Y</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Swap_Bad_Depends</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove issues 3 check messages on <code class="docutils literal"><span class="pre">Swap_Bad_Depends</span></code>:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>swap_bad_depends.adb:1:29: warning: unused initial value of &quot;X&quot;
+swap_bad_depends.adb:3:03: medium: missing dependency &quot;null =&gt; X&quot;
+swap_bad_depends.adb:3:23: medium: missing self-dependency &quot;Y =&gt; Y&quot;
+swap_bad_depends.adb:3:28: medium: incorrect dependency &quot;Y =&gt; X&quot;
+</pre></div>
+</div>
+<p>The last message informs us that the dependency <code class="docutils literal"><span class="pre">Y</span> <span class="pre">=&gt;</span> <span class="pre">X</span></code> stated in
+<code class="docutils literal"><span class="pre">Swap_Bad_Depends</span></code>&#8216;s contract is incorrect for the given implementation. That
+might be either an error in the code or an error in the contract. Here this is
+an error in the code. The two other messages are consequences of this error.</p>
+<p>Another possible contract is the postcondition introduced by aspect
+<code class="docutils literal"><span class="pre">Post</span></code>. Here it specifies that the final value of <code class="docutils literal"><span class="pre">X</span></code> (resp. <code class="docutils literal"><span class="pre">Y</span></code>) is
+equal to the initial value of <code class="docutils literal"><span class="pre">Y</span></code> (resp. <code class="docutils literal"><span class="pre">X</span></code>):</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Swap_Bad_Post</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="n">Y</span><span class="na">&#39;Old</span> <span class="kr">and</span><span class="p"> </span><span class="n">Y</span> <span class="o">=</span> <span class="n">X</span><span class="na">&#39;Old</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="n">Y</span><span class="p">;</span>
+   <span class="n">Y</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Swap_Bad_Post</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove issues one check message on the unproved postcondition of
+<code class="docutils literal"><span class="pre">Swap_Bad_Post</span></code>, with a counterexample giving concrete values of a wrong
+execution:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>swap_bad_post.adb:3:25: medium: postcondition might fail, cannot prove Y = X&#39;old (e.g. when X&#39;Old = 0 and Y = 1)
+</pre></div>
+</div>
+<p>Both the check messages on <code class="docutils literal"><span class="pre">Swap_Bad_Depends</span></code> and on <code class="docutils literal"><span class="pre">Swap_Bad_Post</span></code> inform
+us that the intended functionality as expressed in the contracts is not
+implemented in the procedure. And looking again at the warning issued by
+GNATprove on <code class="docutils literal"><span class="pre">Swap_Bad</span></code>, this was already pointing at the same issue:
+swapping the values of <code class="docutils literal"><span class="pre">X</span></code> and <code class="docutils literal"><span class="pre">Y</span></code> should obviously lead to reading the
+initial value of <code class="docutils literal"><span class="pre">X</span></code>; the fact that this value is not used is a clear sign
+that there is an error in the implementation. The correct version of <code class="docutils literal"><span class="pre">Swap</span></code>
+uses a temporary value to hold the value of <code class="docutils literal"><span class="pre">X</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Swap</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span> <span class="o">=&gt;</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="o">)</span><span class="p">,</span>
+  <span class="n">Post</span>    <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="n">Y</span><span class="na">&#39;Old</span> <span class="kr">and</span><span class="p"> </span><span class="n">Y</span> <span class="o">=</span> <span class="n">X</span><span class="na">&#39;Old</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Tmp</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="n">Integer</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="n">Y</span><span class="p">;</span>
+   <span class="n">Y</span> <span class="o">:=</span> <span class="n">Tmp</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Swap</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove proves both contracts on <code class="docutils literal"><span class="pre">Swap</span></code> and it informs us that the
+postcondition was proved:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>swap.adb:3:03: info: flow dependencies proved
+swap.adb:4:14: info: postcondition proved
+</pre></div>
+</div>
+<p>Let&#8217;s now consider a well-known <cite>in place</cite> implementation of <code class="docutils literal"><span class="pre">Swap</span></code> that
+avoids introducing a temporary variable by using bitwise operations:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Interfaces</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Interfaces;</span>
+
+<span class="k">procedure </span><span class="nf">Swap_Modulo</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Unsigned_32</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="n">Y</span><span class="na">&#39;Old</span> <span class="kr">and</span><span class="p"> </span><span class="n">Y</span> <span class="o">=</span> <span class="n">X</span><span class="na">&#39;Old</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="n">X</span> <span class="kr">xor</span><span class="p"> </span><span class="n">Y</span><span class="p">;</span>
+   <span class="n">Y</span> <span class="o">:=</span> <span class="n">X</span> <span class="kr">xor</span><span class="p"> </span><span class="n">Y</span><span class="p">;</span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="n">X</span> <span class="kr">xor</span><span class="p"> </span><span class="n">Y</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Swap_Modulo</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove understands the bitwise operations on values of modular types, and
+it proves here that the postcondition of <code class="docutils literal"><span class="pre">Swap_Modulo</span></code> is proved:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>swap_modulo.adb:5:11: info: postcondition proved
+</pre></div>
+</div>
+<p>GNATprove&#8216;s flow analysis issues warnings like the one on <code class="docutils literal"><span class="pre">Swap_Bad</span></code>
+whenever it detects that some variables or statements are not used in the
+computation, which is likely uncovering an error. For example, consider
+procedure <code class="docutils literal"><span class="pre">Swap_Warn</span></code> which assigns <code class="docutils literal"><span class="pre">X</span></code> and <code class="docutils literal"><span class="pre">Tmp_Y</span></code> out of order:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Swap_Warn</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Tmp_X</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+   <span class="n">Tmp_Y</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Tmp_X</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="n">Tmp_Y</span><span class="p">;</span>
+   <span class="n">Tmp_Y</span> <span class="o">:=</span> <span class="n">Y</span><span class="p">;</span>
+   <span class="n">Y</span> <span class="o">:=</span> <span class="n">Tmp_X</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Swap_Warn</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>On this wrong implementation, GNATprove issues a high check message for the
+certain read of an uninitialized variable, and two warnings that point to
+unused constructs:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>swap_warn.adb:1:25: warning: unused initial value of &quot;Y&quot;
+swap_warn.adb:4:04: info: initialization of &quot;Tmp_X&quot; proved
+swap_warn.adb:8:09: high: &quot;Tmp_Y&quot; is not initialized
+swap_warn.adb:8:09: warning: &quot;Tmp_Y&quot; may be referenced before it has a value
+swap_warn.adb:9:10: warning: unused assignment
+</pre></div>
+</div>
+<p>In general, warnings issued by GNATprove&#8216;s flow analysis should be carefully
+reviewed, as they may lead to the discovery of errors in the program.</p>
+</div>
+<div class="section" id="addition">
+<span id="id4"></span><h2>7.9.1.3. Addition<a class="headerlink" href="#addition" title="Permalink to this headline">¶</a></h2>
+<p>Consider a simple function <code class="docutils literal"><span class="pre">Addition</span></code> that returns the sum of its integer
+parameters <code class="docutils literal"><span class="pre">X</span></code> and <code class="docutils literal"><span class="pre">Y</span></code>. As in <a class="reference internal" href="#increment"><span class="std std-ref">Increment</span></a>, we add a suitable
+precondition and postcondition for this function:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Addition</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Addition</span><span class="na">&#39;Result</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">))</span><span class="p">,</span>
+  <span class="n">Pre</span>     <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="p">,</span>
+  <span class="n">Post</span>    <span class="o">=&gt;</span> <span class="n">Addition</span><span class="na">&#39;Result</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="kr">return</span><span class="p"> </span><span class="n">X</span> <span class="o">+</span> <span class="n">Y</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Addition</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>We also added flow dependencies to <code class="docutils literal"><span class="pre">Addition</span></code> for illustration purposes, but
+they are the same as the default generated ones (the result of the function
+depends on all its inputs), so are not in general given explicitly.</p>
+<p>GNATprove issues a check message about a possible overflow in the
+precondition of <code class="docutils literal"><span class="pre">Addition</span></code>:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>addition.adb:3:03: info: flow dependencies proved
+addition.adb:4:16: medium: overflow check might fail (e.g. when X = -1 and Y = Integer&#39;First)
+addition.adb:5:14: info: postcondition proved
+addition.adb:5:34: info: overflow check proved
+addition.adb:8:13: info: overflow check proved
+</pre></div>
+</div>
+<p>Indeed, if we call for example <code class="docutils literal"><span class="pre">Addition</span></code> on values <code class="docutils literal"><span class="pre">Integer'Last</span></code> for
+<code class="docutils literal"><span class="pre">X</span></code> and <code class="docutils literal"><span class="pre">1</span></code> for <code class="docutils literal"><span class="pre">Y</span></code>, the expression <code class="docutils literal"><span class="pre">X</span> <span class="pre">+</span> <span class="pre">Y</span></code> evaluated in the
+precondition does not fit in a machine integer and raises an exception at run
+time. In this specific case, some people may consider that it does not really
+matter that an exception is raised due to overflow as the failure of the
+precondition should also raise a run-time exception. But in general the
+precondition should not fail (just consider the precondition <code class="docutils literal"><span class="pre">X</span> <span class="pre">+</span> <span class="pre">Y</span> <span class="pre">not</span> <span class="pre">in</span>
+<span class="pre">Integer</span></code> for example), and even here, the different exceptions raised may be
+treated differently (<code class="docutils literal"><span class="pre">Constraint_Error</span></code> in the case of an overflow,
+<code class="docutils literal"><span class="pre">Assertion_Error</span></code> in the case of a failing precondition).</p>
+<p>One way to avoid this vulnerability is to rewrite the precondition so that no
+overflow can occur:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Addition_Rewrite</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Addition_Rewrite</span><span class="na">&#39;Result</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">))</span><span class="p">,</span>
+  <span class="n">Pre</span>     <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">Y</span> <span class="o">&lt;=</span> <span class="n">Integer</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="n">X</span><span class="o">)</span> <span class="kr">or</span><span class="p"> </span><span class="kr">else</span><span class="p"> </span><span class="o">(</span><span class="n">X</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">Y</span> <span class="o">&gt;=</span> <span class="n">Integer</span><span class="na">&#39;First</span> <span class="o">-</span> <span class="n">X</span><span class="o">)</span><span class="p">,</span>
+  <span class="n">Post</span>    <span class="o">=&gt;</span> <span class="n">Addition_Rewrite</span><span class="na">&#39;Result</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="kr">return</span><span class="p"> </span><span class="n">X</span> <span class="o">+</span> <span class="n">Y</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Addition_Rewrite</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Although GNATprove proves that <code class="docutils literal"><span class="pre">Addition_Rewrite</span></code> implements its contract
+and is free from run-time errors, the rewritten precondition is not so readable
+anymore:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>addition_rewrite.adb:3:03: info: flow dependencies proved
+addition_rewrite.adb:4:49: info: overflow check proved
+addition_rewrite.adb:4:97: info: overflow check proved
+addition_rewrite.adb:5:14: info: postcondition proved
+addition_rewrite.adb:5:42: info: overflow check proved
+addition_rewrite.adb:8:13: info: overflow check proved
+</pre></div>
+</div>
+<p>A better way to achieve the same goal without losing in readability is to
+execute and analyze contracts in a special mode where overflows cannot occur,
+as explained in <a class="reference internal" href="../en/source/overflow_modes.html#overflow-modes"><span class="std std-ref">Overflow Modes</span></a>. In that case, GNATprove proves that
+there are no run-time errors in function <code class="docutils literal"><span class="pre">Addition</span></code>, and that it implements
+its contract.</p>
+<p>Finally, we can choose to expand the range of applicability of the function, by
+accepting any values of inputs <code class="docutils literal"><span class="pre">X</span></code> and <code class="docutils literal"><span class="pre">Y</span></code>, and saturating when the
+addition would overflow the bounds of machine integers. That&#8217;s what function
+<code class="docutils literal"><span class="pre">Addition_Saturated</span></code> does, and its saturating behavior is expressed in
+<a class="reference internal" href="../en/source/subprogram_contracts.html#contract-cases"><span class="std std-ref">Contract Cases</span></a>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Addition_Saturated</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Contract_Cases</span> <span class="o">=&gt;</span> <span class="o">((</span><span class="n">X</span> <span class="o">+</span> <span class="n">Y</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span>    <span class="o">=&gt;</span> <span class="n">Addition_Saturated</span><span class="na">&#39;Result</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span><span class="p">,</span>
+                     <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span> <span class="o">&lt;</span> <span class="n">Integer</span><span class="na">&#39;First</span> <span class="o">=&gt;</span> <span class="n">Addition_Saturated</span><span class="na">&#39;Result</span> <span class="o">=</span> <span class="n">Integer</span><span class="na">&#39;First</span><span class="p">,</span>
+                     <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span> <span class="o">&gt;</span> <span class="n">Integer</span><span class="na">&#39;Last</span>  <span class="o">=&gt;</span> <span class="n">Addition_Saturated</span><span class="na">&#39;Result</span> <span class="o">=</span> <span class="n">Integer</span><span class="na">&#39;Last</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="n">Y</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">then</span><span class="p"> </span><span class="c">-- both negative</span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">&lt;</span> <span class="n">Integer</span><span class="na">&#39;First</span> <span class="o">-</span> <span class="n">Y</span> <span class="kr">then</span><span class="p"></span>
+         <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="na">&#39;First</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+         <span class="kr">return</span><span class="p"> </span><span class="n">X</span> <span class="o">+</span> <span class="n">Y</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+
+   <span class="kr">elsif</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="n">Y</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span><span class="p"> </span><span class="c">-- both positive</span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">Integer</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="n">Y</span> <span class="kr">then</span><span class="p"></span>
+         <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="na">&#39;Last</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+         <span class="kr">return</span><span class="p"> </span><span class="n">X</span> <span class="o">+</span> <span class="n">Y</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+
+   <span class="kr">else</span><span class="p"> </span><span class="c">-- one positive or null, one negative or null, adding them is safe</span>
+      <span class="kr">return</span><span class="p"> </span><span class="n">X</span> <span class="o">+</span> <span class="n">Y</span><span class="p">;</span>
+   <span class="k">end if</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Addition_Saturated</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove proves that <code class="docutils literal"><span class="pre">Addition_Saturated</span></code> implements its contract and is
+free from run-time errors:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>addition_saturated.adb:3:03: info: complete contract cases proved
+addition_saturated.adb:3:03: info: disjoint contract cases proved
+addition_saturated.adb:3:44: info: contract case proved
+addition_saturated.adb:4:44: info: contract case proved
+addition_saturated.adb:5:44: info: contract case proved
+addition_saturated.adb:9:28: info: overflow check proved
+addition_saturated.adb:12:19: info: overflow check proved
+addition_saturated.adb:16:27: info: overflow check proved
+addition_saturated.adb:19:19: info: overflow check proved
+addition_saturated.adb:23:16: info: overflow check proved
+</pre></div>
+</div>
+<p>Note that we analyzed this function in ELIMINATED overflow mode, using the
+switch <code class="docutils literal"><span class="pre">-gnato13</span></code>, otherwise there would be possible overflows in the guard
+expressions of the contract cases.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="loop.html" title="7.9.2. Loop Examples"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../en/source/gnatprove_by_example.html" title="7.9. GNATprove by Example"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../en/gnatprove.html" >7. Formal Verification with GNATprove</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../en/source/gnatprove_by_example.html" >7.9. GNATprove by Example</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

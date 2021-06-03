@@ -1,0 +1,783 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>5.4. Type Contracts &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5.5. Specification Features" href="specification_features.html" />
+    <link rel="prev" title="5.3. Package Contracts" href="package_contracts.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="specification_features.html" title="5.5. Specification Features"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="package_contracts.html" title="5.3. Package Contracts"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../spark_2014.html" accesskey="U">5. Overview of SPARK Language</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5.4. Type Contracts</a><ul>
+<li><a class="reference internal" href="#scalar-ranges">5.4.1. Scalar Ranges</a></li>
+<li><a class="reference internal" href="#record-discriminants">5.4.2. Record Discriminants</a></li>
+<li><a class="reference internal" href="#predicates">5.4.3. Predicates</a><ul>
+<li><a class="reference internal" href="#static-predicates">5.4.3.1. Static Predicates</a></li>
+<li><a class="reference internal" href="#dynamic-predicates">5.4.3.2. Dynamic Predicates</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type-invariants">5.4.4. Type Invariants</a></li>
+<li><a class="reference internal" href="#default-initial-condition">5.4.5. Default Initial Condition</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="package_contracts.html"
+                        title="previous chapter">5.3. Package Contracts</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="specification_features.html"
+                        title="next chapter">5.5. Specification Features</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/type_contracts.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="type-contracts">
+<span id="id1"></span><h1>5.4. Type Contracts<a class="headerlink" href="#type-contracts" title="Permalink to this headline">¶</a></h1>
+<p>SPARK contains various features to constrain the values of a given type:</p>
+<ul class="simple">
+<li>A <em>scalar range</em> may be specified on a scalar type or subtype to bound its
+values.</li>
+<li>A <em>record discriminant</em> may be specified on a record type to distinguish
+between variants of the same record.</li>
+<li>A <em>predicate</em> introduced by aspect <code class="docutils literal"><span class="pre">Static_Predicate</span></code>,
+<code class="docutils literal"><span class="pre">Dynamic_Predicate</span></code> or <code class="docutils literal"><span class="pre">Predicate</span></code> may be specified on a type or subtype
+to express a property verified by objects of the (sub)type.</li>
+<li>A <em>type invariant</em> introduced by aspect <code class="docutils literal"><span class="pre">Type_Invariant</span></code> or <code class="docutils literal"><span class="pre">Invariant</span></code>
+may be specified on the completion of a private type to express a property
+that is only guaranteed outside of the type scope.</li>
+<li>A <em>default initial condition</em> introduced by aspect
+<code class="docutils literal"><span class="pre">Default_Initial_Condition</span></code> on a private type specifies the initialization
+status and possibly properties of the default initialization for a type.</li>
+</ul>
+<p>Note that SPARK does not yet support aspect <code class="docutils literal"><span class="pre">Type_Invariant</span></code> from Ada 2012.</p>
+<div class="section" id="scalar-ranges">
+<span id="id2"></span><h2>5.4.1. Scalar Ranges<a class="headerlink" href="#scalar-ranges" title="Permalink to this headline">¶</a></h2>
+<p>[Ada 83]</p>
+<p>Scalar types (signed integer types, modulo types, fixed-point types,
+floating-point types) can be given a low bound and a high bound to specify that
+values of the type must remain within these bounds. For example, the global
+counter <code class="docutils literal"><span class="pre">Total</span></code> can never be negative, which can be expressed in its type:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">Total</span> <span class="o">:</span> <span class="n">Integer</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="n">Integer</span><span class="na">&#39;Last</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Any attempt to assign a negative value to variable <code class="docutils literal"><span class="pre">Total</span></code> results in raising
+an exception at run time. During analysis, GNATprove checks that all values
+assigned to <code class="docutils literal"><span class="pre">Total</span></code> are positive or null. The anonymous subtype above can
+also be given an explicit name:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">subtype</span><span class="p"> </span><span class="n">Nat</span> <span class="kr">is</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="n">Integer</span><span class="na">&#39;Last</span><span class="p">;</span>
+<span class="n">Total</span> <span class="o">:</span> <span class="n">Nat</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>or we can use the equivalent standard subtype <code class="docutils literal"><span class="pre">Natural</span></code>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">Total</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>or <code class="docutils literal"><span class="pre">Nat</span></code> can be defined as a derived type instead of a subtype:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Nat</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="n">Integer</span><span class="na">&#39;Last</span><span class="p">;</span>
+<span class="n">Total</span> <span class="o">:</span> <span class="n">Nat</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>or as a new signed integer type:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Nat</span> <span class="kr">is</span><span class="p"> </span><span class="kr">range</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="n">Integer</span><span class="na">&#39;Last</span><span class="p">;</span>
+<span class="n">Total</span> <span class="o">:</span> <span class="n">Nat</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>All the variants above result in the same range checks both at run-time and in
+GNATprove. GNATprove also uses the range information for proving properties
+about the program (for example, the absence of overflows in computations).</p>
+</div>
+<div class="section" id="record-discriminants">
+<h2>5.4.2. Record Discriminants<a class="headerlink" href="#record-discriminants" title="Permalink to this headline">¶</a></h2>
+<p>[Ada 83]</p>
+<p>Record types can use discriminants to:</p>
+<ul class="simple">
+<li>define multiple variants and associate each component with a specific variant</li>
+<li>bound the size of array components</li>
+</ul>
+<p>For example, the log introduced in <a class="reference internal" href="package_contracts.html#state-abstraction"><span class="std std-ref">State Abstraction</span></a> could be
+implemented as a discriminated record with a discriminant <code class="docutils literal"><span class="pre">Kind</span></code> selecting
+between two variants of the record for logging either only the minimum and
+maximum entries or the last entries, and a discriminant <code class="docutils literal"><span class="pre">Capacity</span></code> specifying
+the maximum number of entries logged:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Logging_Discr</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Log_Kind</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Min_Max_Values</span><span class="p">,</span> <span class="n">Last_Values</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Integer_Array</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Positive</span> <span class="kr">range</span><span class="p"> </span><span class="o">&lt;&gt;)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Log_Type</span> <span class="o">(</span><span class="n">Kind</span> <span class="o">:</span> <span class="n">Log_Kind</span><span class="p">;</span> <span class="n">Capacity</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="kr">case</span><span class="p"> </span><span class="n">Kind</span> <span class="kr">is</span><span class="p"></span>
+         <span class="kr">when</span><span class="p"> </span><span class="n">Min_Max_Values</span> <span class="o">=&gt;</span>
+            <span class="n">Min_Entry</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+            <span class="n">Max_Entry</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+         <span class="kr">when</span><span class="p"> </span><span class="n">Last_Values</span> <span class="o">=&gt;</span>
+            <span class="n">Log_Data</span> <span class="o">:</span> <span class="n">Integer_Array</span> <span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="n">Capacity</span><span class="o">)</span><span class="p">;</span>
+            <span class="n">Log_Size</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span>
+      <span class="k">end </span><span class="nf">case</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="kr">subtype</span><span class="p"> </span><span class="n">Min_Max_Log</span> <span class="kr">is</span><span class="p"> </span><span class="n">Log_Type</span> <span class="o">(</span><span class="n">Min_Max_Values</span><span class="p">,</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">subtype</span><span class="p"> </span><span class="n">Ten_Values_Log</span> <span class="kr">is</span><span class="p"> </span><span class="n">Log_Type</span> <span class="o">(</span><span class="n">Last_Values</span><span class="p">,</span> <span class="mi">10</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Log_Size</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Last_Entry</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">Log.Kind</span> <span class="o">=</span> <span class="n">Last_Values</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">Log.Log_Size</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="n">Log.Capacity</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Logging_Discr</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Subtypes of <code class="docutils literal"><span class="pre">Log_Type</span></code> can specify fixed values for <code class="docutils literal"><span class="pre">Kind</span></code> and
+<code class="docutils literal"><span class="pre">Capacity</span></code>, like in <code class="docutils literal"><span class="pre">Min_Max_Log</span></code> and <code class="docutils literal"><span class="pre">Ten_Values_Log</span></code>. The discriminants
+<code class="docutils literal"><span class="pre">Kind</span></code> and <code class="docutils literal"><span class="pre">Capacity</span></code> are accessed like regular components, for example:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Logging_Discr</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="k">function </span><span class="nf">Log_Size</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">case</span><span class="p"> </span><span class="n">Log.Kind</span> <span class="kr">is</span><span class="p"></span>
+         <span class="kr">when</span><span class="p"> </span><span class="n">Min_Max_Values</span> <span class="o">=&gt;</span>
+            <span class="kr">return</span><span class="p"> </span><span class="mi">2</span><span class="p">;</span>
+         <span class="kr">when</span><span class="p"> </span><span class="n">Last_Values</span> <span class="o">=&gt;</span>
+            <span class="kr">return</span><span class="p"> </span><span class="n">Log.Log_Size</span><span class="p">;</span>
+      <span class="k">end </span><span class="nf">case</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Log_Size</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Last_Entry</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">return</span><span class="p"> </span><span class="n">Log.Log_Data</span> <span class="o">(</span><span class="n">Log.Log_Size</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Last_Entry</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Logging_Discr</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Any attempt to access a component not present in a variable (because it is of a
+different variant), or to access an array component outside its bounds, results
+in raising an exception at run time. During analysis, GNATprove checks that
+components accessed are present, and that array components are accessed within
+bounds:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>logging_discr.adb:10:23: info: discriminant check proved
+logging_discr.adb:16:17: info: discriminant check proved
+logging_discr.adb:16:31: info: discriminant check proved
+logging_discr.adb:16:31: info: index check proved
+logging_discr.ads:13:13: info: range check proved
+logging_discr.ads:18:37: info: range check proved
+logging_discr.ads:18:53: info: range check proved
+logging_discr.ads:19:40: info: range check proved
+logging_discr.ads:19:53: info: range check proved
+logging_discr.ads:24:48: info: discriminant check proved
+</pre></div>
+</div>
+</div>
+<div class="section" id="predicates">
+<span id="id3"></span><h2>5.4.3. Predicates<a class="headerlink" href="#predicates" title="Permalink to this headline">¶</a></h2>
+<p>[Ada 2012]</p>
+<p>Predicates can be used on any subtype to express a property verified by objects of
+the subtype at all times. Aspects <code class="docutils literal"><span class="pre">Static_Predicate</span></code> and <code class="docutils literal"><span class="pre">Dynamic_Predicate</span></code>
+are defined in Ada 2012 to associate a predicate with a subtype. Aspect
+<code class="docutils literal"><span class="pre">Dynamic_Predicate</span></code> allows to express more general predicates than aspect
+<code class="docutils literal"><span class="pre">Static_Predicate</span></code>, at the cost of restricting the use of variables of the
+subtype. The following table summarizes the main similarities and differences
+between both aspects:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="60%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Feature</th>
+<th class="head"><code class="docutils literal"><span class="pre">Static_Predicate</span></code></th>
+<th class="head"><code class="docutils literal"><span class="pre">Dynamic_Predicate</span></code></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Applicable to scalar subtype</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>Applicable to array/record subtype</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="row-even"><td>Allows simple comparisons with static values</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>Allows conjunctions/disjunctions</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-even"><td>Allows function calls</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>Allows general Boolean properties</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="row-even"><td>Can be used in membership test</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>Can be used as range in for-loop</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-even"><td>Can be used as choice in case-statement</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td>Can be used as prefix with attributes First, Last or Range</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="row-even"><td>Can be used as index subtype in array</td>
+<td>No</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>Aspect <code class="docutils literal"><span class="pre">Predicate</span></code> is specific to GNAT and can be used instead of
+<code class="docutils literal"><span class="pre">Static_Predicate</span></code> or <code class="docutils literal"><span class="pre">Dynamic_Predicate</span></code>. GNAT treats it as a
+<code class="docutils literal"><span class="pre">Static_Predicate</span></code> whenever possible and as a <code class="docutils literal"><span class="pre">Dynamic_Predicate</span></code> in the
+remaining cases, thus not restricting uses of variables of the subtype more than
+necessary.</p>
+<p>Predicates are inherited by subtypes and derived types. If a subtype or a
+derived type inherits a predicate and defines its own predicate, both
+predicates are checked on values of the new (sub)type. Predicates are restricted in
+SPARK so that they cannot depend on variable input. In particular, a
+predicate cannot mention a global variable in SPARK, although it can mention
+a global constant.</p>
+<p>GNATprove checks that all values assigned to a subtype with a predicate are
+allowed by its predicate (for all three forms of predicate: <code class="docutils literal"><span class="pre">Predicate</span></code>,
+<code class="docutils literal"><span class="pre">Static_Predicate</span></code> and <code class="docutils literal"><span class="pre">Dynamic_Predicate</span></code>). GNATprove generates a
+predicate check even in cases where there is no corresponding run-time check,
+for example when assigning to a component of a record with a
+predicate. GNATprove also uses the predicate information for proving
+properties about the program.</p>
+<div class="section" id="static-predicates">
+<h3>5.4.3.1. Static Predicates<a class="headerlink" href="#static-predicates" title="Permalink to this headline">¶</a></h3>
+<p>A static predicate allows specifying which values are allowed or forbidden in a
+scalar subtype, when this specification cannot be expressed with <a class="reference internal" href="#scalar-ranges"><span class="std std-ref">Scalar Ranges</span></a> (because it has <em>holes</em>). For example, we can express that the global
+counter <code class="docutils literal"><span class="pre">Total</span></code> cannot be equal to <code class="docutils literal"><span class="pre">10</span></code> or <code class="docutils literal"><span class="pre">100</span></code> with the following
+static predicate:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">subtype</span><span class="p"> </span><span class="n">Count</span> <span class="kr">is</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Static_Predicate</span> <span class="o">=&gt;</span> <span class="n">Count</span> <span class="o">/=</span> <span class="mi">10</span> <span class="kr">and</span><span class="p"> </span><span class="n">Count</span> <span class="o">/=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="n">Total</span> <span class="o">:</span> <span class="n">Count</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>or equivalently:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">subtype</span><span class="p"> </span><span class="n">Count</span> <span class="kr">is</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Static_Predicate</span> <span class="o">=&gt;</span> <span class="n">Count</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="na">&#39;First</span> <span class="o">..</span> <span class="mi">9</span> <span class="o">|</span> <span class="mi">11</span> <span class="o">..</span> <span class="mi">99</span> <span class="o">|</span> <span class="mi">101</span> <span class="o">..</span> <span class="n">Integer</span><span class="na">&#39;Last</span><span class="p">;</span>
+<span class="n">Total</span> <span class="o">:</span> <span class="n">Count</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Uses of the name of the subtype <code class="docutils literal"><span class="pre">Count</span></code> in the predicate refer to variables
+of this subtype. Scalar ranges and static predicates can also be combined, and
+static predicates can be specified on subtypes, derived types and new signed
+integer types. For example, we may define <code class="docutils literal"><span class="pre">Count</span></code> as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Count</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Static_Predicate</span> <span class="o">=&gt;</span> <span class="n">Count</span> <span class="o">/=</span> <span class="mi">10</span> <span class="kr">and</span><span class="p"> </span><span class="n">Count</span> <span class="o">/=</span> <span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Any attempt to assign a forbidden value to variable <code class="docutils literal"><span class="pre">Total</span></code> results in
+raising an exception at run time. During analysis, GNATprove checks that all
+values assigned to <code class="docutils literal"><span class="pre">Total</span></code> are allowed.</p>
+<p>Similarly, we can express that values of subtype <code class="docutils literal"><span class="pre">Normal_Float</span></code> are the <em>normal</em>
+32-bits floating-point values (thus excluding <em>subnormal</em> values), assuming
+here that <code class="docutils literal"><span class="pre">Float</span></code> is the 32-bits floating-point type on the target:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">subtype</span><span class="p"> </span><span class="n">Normal_Float</span> <span class="kr">is</span><span class="p"> </span><span class="n">Float</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Static_Predicate</span> <span class="o">=&gt;</span> <span class="n">Normal_Float</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">**(-</span><span class="mi">126</span><span class="o">)</span> <span class="kr">or</span><span class="p"> </span><span class="n">Normal_Float</span> <span class="o">=</span> <span class="mi">0</span><span class="o">.</span><span class="mi">0</span> <span class="kr">or</span><span class="p"> </span><span class="n">Normal_Float</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">**(-</span><span class="mi">126</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Any attempt to assign a subnormal value to a variable of subtype <code class="docutils literal"><span class="pre">Normal_Float</span></code>
+results in raising an exception at run time. During analysis, GNATprove
+checks that only normal values are assigned to such variables.</p>
+</div>
+<div class="section" id="dynamic-predicates">
+<h3>5.4.3.2. Dynamic Predicates<a class="headerlink" href="#dynamic-predicates" title="Permalink to this headline">¶</a></h3>
+<p>A dynamic predicate allows specifying properties of scalar subtypes that cannot be
+expressed as static predicates. For example, we can express that values of subtype
+<code class="docutils literal"><span class="pre">Odd</span></code> and <code class="docutils literal"><span class="pre">Even</span></code> are distributed according to their name as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">subtype</span><span class="p"> </span><span class="n">Odd</span> <span class="kr">is</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Dynamic_Predicate</span> <span class="o">=&gt;</span> <span class="n">Odd</span> <span class="kr">mod</span><span class="p"> </span><span class="mi">2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="kr">subtype</span><span class="p"> </span><span class="n">Even</span> <span class="kr">is</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Dynamic_Predicate</span> <span class="o">=&gt;</span> <span class="n">Even</span> <span class="kr">mod</span><span class="p"> </span><span class="mi">2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>or that values of type <code class="docutils literal"><span class="pre">Prime</span></code> are prime numbers as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Prime</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Positive</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Dynamic_Predicate</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">Divisor</span> <span class="kr">in</span><span class="p"> </span><span class="mi">2</span> <span class="o">..</span> <span class="n">Prime</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">=&gt;</span> <span class="n">Prime</span> <span class="kr">mod</span><span class="p"> </span><span class="n">Divisor</span> <span class="o">/=</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A dynamic predicate also allows specifying relations between components of a
+record. For example, we can express that the values paired together in a record
+are always distinct as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Distinct_Pair</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+  <span class="n">Val1</span><span class="p">,</span> <span class="n">Val2</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="k">end record</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Dynamic_Predicate</span> <span class="o">=&gt;</span> <span class="n">Distinct_Pair.Val1</span> <span class="o">/=</span> <span class="n">Distinct_Pair.Val2</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>or that a record stores pairs of values with their greatest common divisor as
+follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Bundle_Values</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+  <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+  <span class="n">GCD</span>  <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span>
+<span class="k">end record</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Dynamic_Predicate</span> <span class="o">=&gt;</span> <span class="n">Bundle_Values.GCD</span> <span class="o">=</span> <span class="n">Get_GCD</span> <span class="o">(</span><span class="n">Bundle_Values.X</span><span class="p">,</span> <span class="n">Bundle_Values.Y</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>or that the number of elements <code class="docutils literal"><span class="pre">Count</span></code> in a resizable table is always less
+than or equal to its maximal number of elements <code class="docutils literal"><span class="pre">Max</span></code> as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Resizable_Table</span> <span class="o">(</span><span class="n">Max</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">Count</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span>
+   <span class="n">Data</span>  <span class="o">:</span> <span class="n">Data_Array</span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="n">Max</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end record</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Dynamic_Predicate</span> <span class="o">=&gt;</span> <span class="n">Resizable_Table.Count</span> <span class="o">&lt;=</span> <span class="n">Resizable_Table.Max</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A dynamic predicate also allows specifying global properties over the content
+of an array. For example, we can express that elements of an array are stored
+in increasing order as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Ordered_Array</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Index</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Dynamic_Predicate</span> <span class="o">=&gt;</span>
+    <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="n">Index</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">I</span> <span class="o">&lt;</span> <span class="n">Index</span><span class="na">&#39;Last</span> <span class="kr">then</span><span class="p"> </span><span class="n">Ordered_Array</span><span class="o">(</span><span class="n">I</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">Ordered_Array</span><span class="o">(</span><span class="n">I</span><span class="o">+</span><span class="mi">1</span><span class="o">)))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>or that a special end marker is always present in the array as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Ended_Array</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="n">Index</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span>
+  <span class="kr">with</span><span class="p"> </span><span class="n">Dynamic_Predicate</span> <span class="o">=&gt;</span>
+    <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">some</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="n">Index</span> <span class="o">=&gt;</span> <span class="n">Ended_Array</span><span class="o">(</span><span class="n">I</span><span class="o">)</span> <span class="o">=</span> <span class="n">End_Marker</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Dynamic predicates are checked only at specific places at run time, as mandated
+by the Ada Reference Manual:</p>
+<ul class="simple">
+<li>when converting a value to the subtype with the predicate</li>
+<li>when returning from a call, for each in-out and out parameter passed by reference</li>
+<li>when declaring an object, except when there is no initialization expression
+and no subcomponent has a default expression</li>
+</ul>
+<p>Thus, not all violations of the dynamic predicate are caught at run time. On
+the contrary, during analysis, GNATprove checks that initialized variables
+whose subtype has a predicate always contain a value allowed by the predicate.</p>
+</div>
+</div>
+<div class="section" id="type-invariants">
+<span id="id4"></span><h2>5.4.4. Type Invariants<a class="headerlink" href="#type-invariants" title="Permalink to this headline">¶</a></h2>
+<p>[Ada 2012]</p>
+<p>In SPARK, type invariants can only be specified on completions of private
+types (and not directly on private type declarations). They express a property
+that is only guaranteed outside of the immediate scope of the type bearing the
+invariant. Aspect <code class="docutils literal"><span class="pre">Type_Invariant</span></code> is defined in Ada 2012 to associate an
+invariant with a type. Aspect <code class="docutils literal"><span class="pre">Invariant</span></code> is specific to GNAT and can be
+used instead of <code class="docutils literal"><span class="pre">Type_Invariant</span></code>.</p>
+<p>GNATprove checks that, outside of the immediate scope of a type with an
+invariant, all values of this type are allowed by its invariant.
+In order to provide such a strong guarantee, GNATprove generates an invariant
+check even in cases where there is no corresponding run-time check, for example
+on global variables that are modified by a subprogram. GNATprove also uses
+the invariant information for proving properties about the program.</p>
+<p>As an example, let us consider a stack, which can be queried for the maximum of
+the elements stored in it:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">P</span> <span class="kr">is</span><span class="p"></span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Stack</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Max</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="n">Stack</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Element</span><span class="p">;</span>
+
+<span class="kr">private</span><span class="p"></span>
+</pre></div>
+</div>
+<p>In the implementation, an additional component is allocated for the maximum,
+which is kept up to date by the implementation of the stack. This information is
+a type invariant, which can be specified using a <code class="docutils literal"><span class="pre">Type_Invariant</span></code> aspect:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">private</span><span class="p"></span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Stack</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">Content</span> <span class="o">:</span> <span class="n">Element_Array</span> <span class="o">:=</span> <span class="o">(</span><span class="kr">others</span><span class="p"> </span><span class="o">=&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Size</span>    <span class="o">:</span> <span class="n">My_Length</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="n">Max</span>     <span class="o">:</span> <span class="n">Element</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="k">end record</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Type_Invariant</span> <span class="o">=&gt;</span> <span class="n">Is_Valid</span> <span class="o">(</span><span class="n">Stack</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Is_Valid</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="n">Stack</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">is</span><span class="p"></span>
+     <span class="o">((</span><span class="kr">for</span><span class="p"> </span><span class="kr">all</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="n">S.Size</span> <span class="o">=&gt;</span> <span class="n">S.Content</span> <span class="o">(</span><span class="n">I</span><span class="o">)</span> <span class="o">&lt;=</span> <span class="n">S.Max</span><span class="o">)</span>
+      <span class="kr">and</span><span class="p"> </span><span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">S.Max</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span><span class="p"></span>
+               <span class="o">(</span><span class="kr">for</span><span class="p"> </span><span class="kr">some</span><span class="p"> </span><span class="n">I</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="n">S.Size</span> <span class="o">=&gt;</span> <span class="n">S.Content</span> <span class="o">(</span><span class="n">I</span><span class="o">)</span> <span class="o">=</span> <span class="n">S.Max</span><span class="o">)))</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Max</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="n">Stack</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Element</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">S.Max</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">P</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Like for subtype predicates, the name of the type can be used inside the invariant
+expression to refer to the current instance of the type. Here the subtype predicate
+of <code class="docutils literal"><span class="pre">Stack</span></code> expresses that the <code class="docutils literal"><span class="pre">Max</span></code> field of a valid stack is the maximum of
+the elements stored in the stack.</p>
+<p>To make sure that the invariant holds for every value of type <code class="docutils literal"><span class="pre">Stack</span></code> outside
+of the package <code class="docutils literal"><span class="pre">P</span></code>, GNATprove introduces invariant checks in several
+places. First, at the type declaration, it will make sure that the invariant
+holds every time an object of type <code class="docutils literal"><span class="pre">Stack</span></code> is default initialized. Here, as
+the stack is empty by default and the default value of <code class="docutils literal"><span class="pre">Max</span></code> is 0, the check
+will succeed. It is also possible to forbid default initialization of objects of
+type <code class="docutils literal"><span class="pre">Stack</span></code> altogether by using a <a class="reference internal" href="#default-initial-condition"><span class="std std-ref">Default Initial Condition</span></a> of
+<code class="docutils literal"><span class="pre">False</span></code>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Stack</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p"> </span><span class="kr">with</span><span class="p"> </span><span class="n">Default_Initial_Condition</span> <span class="o">=&gt;</span> <span class="kc">False</span><span class="p">;</span>
+
+<span class="kr">type</span><span class="p"> </span><span class="n">Stack</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+   <span class="n">Content</span> <span class="o">:</span> <span class="n">Element_Array</span><span class="p">;</span>
+   <span class="n">Size</span>    <span class="o">:</span> <span class="n">My_Length</span><span class="p">;</span>
+   <span class="n">Max</span>     <span class="o">:</span> <span class="n">Element</span><span class="p">;</span>
+<span class="k">end record</span> <span class="kr">with</span><span class="p"> </span><span class="n">Type_Invariant</span> <span class="o">=&gt;</span> <span class="n">Is_Valid</span> <span class="o">(</span><span class="n">Stack</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A check is also introduced to make sure the invariant holds for every global
+object declared in the scope of <code class="docutils literal"><span class="pre">Stack</span></code> after it has been initialized:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">P</span> <span class="kr">is</span><span class="p"></span>
+
+   <span class="n">The_Stack</span> <span class="o">:</span> <span class="n">Stack</span> <span class="o">:=</span> <span class="o">(</span><span class="n">Content</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">others</span><span class="p"> </span><span class="o">=&gt;</span> <span class="mi">1</span><span class="o">)</span><span class="p">,</span>
+                         <span class="n">Size</span>    <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+                         <span class="n">Max</span>     <span class="o">=&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+
+<span class="kr">begin</span><span class="p"></span>
+
+   <span class="n">The_Stack.Max</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">P</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Here the global variable <code class="docutils literal"><span class="pre">The_Stack</span></code> is allowed to break its invariant during
+the elaboration of <code class="docutils literal"><span class="pre">P</span></code>. The invariant check will only be done at the end of
+the elaboration of <code class="docutils literal"><span class="pre">P</span></code>, and will succeed.</p>
+<p>In the same way, variables and parameters of a subprogram are allowed to break
+their invariants in the subprogram body. Verification
+conditions are generated to ensure that no invariant breaking value can leak
+outside of <code class="docutils literal"><span class="pre">P</span></code>. More precisely, invariant checks on subprogram parameters are
+performed:</p>
+<ul class="simple">
+<li>when calling a subprogram visible outside of <code class="docutils literal"><span class="pre">P</span></code> from inside of <code class="docutils literal"><span class="pre">P</span></code>. Such
+a subprogram can be either declared in the visible part of <code class="docutils literal"><span class="pre">P</span></code> or in another
+unit,</li>
+<li>when returning from a subprogram declared in the visible part of <code class="docutils literal"><span class="pre">P</span></code>.</li>
+</ul>
+<p>For example, let us consider the implementation of a procedure <code class="docutils literal"><span class="pre">Push</span></code> that
+pushes an element of top of a stack. It is declared in the visible part of the
+specification of <code class="docutils literal"><span class="pre">P</span></code>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Size</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="n">Stack</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">My_Length</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Push</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Stack</span><span class="p">;</span> <span class="n">E</span> <span class="o">:</span> <span class="n">Element</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">Size</span> <span class="o">(</span><span class="n">S</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">My_Length</span><span class="na">&#39;Last</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Push_Zero</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Stack</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">Size</span> <span class="o">(</span><span class="n">S</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">My_Length</span><span class="na">&#39;Last</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>It is then implemented using an internal procedure <code class="docutils literal"><span class="pre">Push_Internal</span></code> declared
+in the body of <code class="docutils literal"><span class="pre">P</span></code>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Push_Internal</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Stack</span><span class="p">;</span> <span class="n">E</span> <span class="o">:</span> <span class="n">Element</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">S.Size</span> <span class="o">&lt;</span> <span class="n">My_Length</span><span class="na">&#39;Last</span><span class="p">,</span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">S.Size</span> <span class="o">=</span> <span class="n">S.Size</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="mi">1</span> <span class="kr">and</span><span class="p"> </span><span class="n">S.Content</span> <span class="o">(</span><span class="n">S.Size</span><span class="o">)</span> <span class="o">=</span> <span class="n">E</span>
+  <span class="kr">and</span><span class="p"> </span><span class="n">S.Content</span> <span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="n">S.Size</span><span class="o">)</span><span class="na">&#39;Old</span> <span class="o">=</span> <span class="n">S.Content</span> <span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="n">S.Size</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span>
+  <span class="kr">and</span><span class="p"> </span><span class="n">S.Max</span> <span class="o">=</span> <span class="n">S.Max</span><span class="na">&#39;Old</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">S.Size</span> <span class="o">:=</span> <span class="n">S.Size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="n">S.Content</span> <span class="o">(</span><span class="n">S.Size</span><span class="o">)</span> <span class="o">:=</span> <span class="n">E</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Push_Internal</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Push</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Stack</span><span class="p">;</span> <span class="n">E</span> <span class="o">:</span> <span class="n">Element</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Push_Internal</span> <span class="o">(</span><span class="n">S</span><span class="p">,</span> <span class="n">E</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">if</span><span class="p"> </span><span class="n">S.Max</span> <span class="o">&lt;</span> <span class="n">E</span> <span class="kr">then</span><span class="p"></span>
+      <span class="n">S.Max</span> <span class="o">:=</span> <span class="n">E</span><span class="p">;</span>
+   <span class="k">end if</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Push</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Push_Zero</span> <span class="o">(</span><span class="n">S</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Stack</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Push</span> <span class="o">(</span><span class="n">S</span><span class="p">,</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Push_Zero</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>On exit of <code class="docutils literal"><span class="pre">Push_Internal</span></code>, the invariant of <code class="docutils literal"><span class="pre">Stack</span></code> is broken. It is OK
+since <code class="docutils literal"><span class="pre">Push_Internal</span></code> is not visible from outside of <code class="docutils literal"><span class="pre">P</span></code>. Invariant checks
+are performed when exiting <code class="docutils literal"><span class="pre">Push</span></code> and when calling it from inside
+<code class="docutils literal"><span class="pre">Push_Zero</span></code>. They both succeed.
+Note that, because of invariant checks on parameters, it is not allowed in
+SPARK to call a function that is visible from outside <code class="docutils literal"><span class="pre">P</span></code> in the invariant
+of <code class="docutils literal"><span class="pre">Stack</span></code> otherwise this would lead to a recursive proof. In particular, it
+is not allowed to make <code class="docutils literal"><span class="pre">Is_Valid</span></code> visible in
+the public declarations of <code class="docutils literal"><span class="pre">P</span></code>. In the same way, the function <code class="docutils literal"><span class="pre">Size</span></code> cannot
+be used in the invariant of <code class="docutils literal"><span class="pre">Stack</span></code>. We also avoid using <code class="docutils literal"><span class="pre">Size</span></code> in the
+contract of <code class="docutils literal"><span class="pre">Push_Internal</span></code> as it would have enforced additional invariant
+checks on its parameter.</p>
+<p>Checks are also performed for global variables accessed by subprograms inside
+<code class="docutils literal"><span class="pre">P</span></code>. Even if it is allowed to break the invariant of a global variable when
+inside the body of a subprogram declared in <code class="docutils literal"><span class="pre">P</span></code>, invariant checks are
+performed when calling and returning from every subprogram inside <code class="docutils literal"><span class="pre">P</span></code>. For
+example, if <code class="docutils literal"><span class="pre">Push</span></code> and <code class="docutils literal"><span class="pre">Push_Internal</span></code> are accessing directly the global
+stack <code class="docutils literal"><span class="pre">The_Stack</span></code> instead of taking it as a parameter, there will be a failed
+invariant check on exit of <code class="docutils literal"><span class="pre">Push_Internal</span></code>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Push_Internal</span> <span class="o">(</span><span class="n">E</span> <span class="o">:</span> <span class="n">Element</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">The_Stack.Size</span> <span class="o">&lt;</span> <span class="n">My_Length</span><span class="na">&#39;Last</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">The_Stack.Size</span> <span class="o">:=</span> <span class="n">The_Stack.Size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="n">The_Stack.Content</span> <span class="o">(</span><span class="n">The_Stack.Size</span><span class="o">)</span> <span class="o">:=</span> <span class="n">E</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Push_Internal</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Push</span> <span class="o">(</span><span class="n">E</span> <span class="o">:</span> <span class="n">Element</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Push_Internal</span> <span class="o">(</span><span class="n">E</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">if</span><span class="p"> </span><span class="n">The_Stack.Max</span> <span class="o">&lt;</span> <span class="n">E</span> <span class="kr">then</span><span class="p"></span>
+      <span class="n">The_Stack.Max</span> <span class="o">:=</span> <span class="n">E</span><span class="p">;</span>
+   <span class="k">end if</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Push</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In this way, users will never have to use contracts to ensure that the invariant
+holds on global variable <code class="docutils literal"><span class="pre">The_Stack</span></code> through local subprogram calls.</p>
+</div>
+<div class="section" id="default-initial-condition">
+<span id="id5"></span><h2>5.4.5. Default Initial Condition<a class="headerlink" href="#default-initial-condition" title="Permalink to this headline">¶</a></h2>
+<p>[SPARK]</p>
+<p>Private types in a package define an encapsulation mechanism that prevents
+client units from accessing the implementation of the type. That boundary may
+also be used to specify properties that hold for default initialized values of
+that type in client units. For example, the log introduced in <a class="reference internal" href="package_contracts.html#state-abstraction"><span class="std std-ref">State Abstraction</span></a> could be implemented as a private type with a default initial
+condition specifying that the size of the log is initially zero, where uses of
+the name of the private type <code class="docutils literal"><span class="pre">Log_Type</span></code> in the argument refer to variables of
+this type:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Logging_Priv</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Max_Count</span> <span class="o">:</span> <span class="kr">constant</span><span class="p"> </span><span class="o">:=</span> <span class="mi">100</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Log_Type</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p"> </span><span class="kr">with</span><span class="p"></span>
+     <span class="n">Default_Initial_Condition</span> <span class="o">=&gt;</span> <span class="n">Log_Size</span> <span class="o">(</span><span class="n">Log_Type</span><span class="o">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Log_Size</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Append_To_Log</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Log_Type</span><span class="p">;</span> <span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">Log_Size</span> <span class="o">(</span><span class="n">Log</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">Max_Count</span><span class="p">;</span>
+
+<span class="kr">private</span><span class="p"></span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Integer_Array</span> <span class="kr">is</span><span class="p"> </span><span class="kr">array</span><span class="p"> </span><span class="o">(</span><span class="mi">1</span> <span class="o">..</span> <span class="n">Max_Count</span><span class="o">)</span> <span class="kr">of</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+   <span class="kr">type</span><span class="p"> </span><span class="n">Log_Type</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+     <span class="n">Log_Data</span> <span class="o">:</span> <span class="n">Integer_Array</span><span class="p">;</span>
+     <span class="n">Log_Size</span> <span class="o">:</span> <span class="n">Natural</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="k">function </span><span class="nf">Log_Size</span> <span class="o">(</span><span class="n">Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Natural</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Log.Log_Size</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Logging_Priv</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>This may be useful to analyze with GNATprove client code that defines a
+variable of type <code class="docutils literal"><span class="pre">Log_Type</span></code> with default initialization, and then proceeds to
+append values to this log, as procedure <code class="docutils literal"><span class="pre">Append_To_Log</span></code>&#8216;s precondition
+requires that the log size is not maximal:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">The_Log</span> <span class="o">:</span> <span class="n">Log_Type</span><span class="p">;</span>
+<span class="o">...</span>
+<span class="n">Append_To_Log</span> <span class="o">(</span><span class="n">The_Log</span><span class="p">,</span> <span class="n">X</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>GNATprove&#8216;s flow analysis also uses the presence of a default initial
+condition as an indication that default initialized variables of that type are
+considered as fully initialized. So the code snippet above would pass flow
+analysis without messages being issued on the read of <code class="docutils literal"><span class="pre">The_Log</span></code>. If the full
+definition of the private type is in SPARK, GNATprove also checks that the
+type is indeed fully default initialized, and if not issues a message like
+here:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>logging_priv.ads:18:04: medium: type &quot;Log_Type&quot; is not fully initialized
+</pre></div>
+</div>
+<p>If partial default initialization of the type is intended, in general for
+efficiency like here, then the corresponding message can be justified with
+pragma <code class="docutils literal"><span class="pre">Annotate</span></code>, see section <a class="reference internal" href="how_to_use_gnatprove_in_a_team.html#justifying-check-messages"><span class="std std-ref">Justifying Check Messages</span></a>.</p>
+<p>Aspect <code class="docutils literal"><span class="pre">Default_Initial_Condition</span></code> can also be specified without argument to
+only indicate that default initialized variables of that type are considered as
+fully initialized. This is equivalent to <code class="docutils literal"><span class="pre">Default_Initial_Condition</span> <span class="pre">=&gt;</span> <span class="pre">True</span></code>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Log_Type</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p"> </span><span class="kr">with</span><span class="p"></span>
+  <span class="n">Default_Initial_Condition</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The argument can also be <code class="docutils literal"><span class="pre">null</span></code> to specify that default initialized variables
+of that type are <em>not</em> considered as fully initialized:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">type</span><span class="p"> </span><span class="n">Log_Type</span> <span class="kr">is</span><span class="p"> </span><span class="kr">private</span><span class="p"> </span><span class="kr">with</span><span class="p"></span>
+  <span class="n">Default_Initial_Condition</span> <span class="o">=&gt;</span> <span class="kr">null</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This is different from an argument of <code class="docutils literal"><span class="pre">False</span></code> which can be used to indicate
+that variables of that type should always be explicitly initialized (otherwise
+GNATprove will not be able to prove the condition <code class="docutils literal"><span class="pre">False</span></code> on the default
+initialization and will issue a message during proof).</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="specification_features.html" title="5.5. Specification Features"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="package_contracts.html" title="5.3. Package Contracts"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../spark_2014.html" >5. Overview of SPARK Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

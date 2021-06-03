@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>13. Projects &#8212; Tutorial 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="14. Epilogue" href="epilogue.html" />
+    <link rel="prev" title="12. Locations View" href="locations.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="epilogue.html" title="14. Epilogue"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="locations.html" title="12. Locations View"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Tutorial 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">13. Projects</a><ul>
+<li><a class="reference internal" href="#project-wizard">13.1. Project Wizard</a></li>
+<li><a class="reference internal" href="#project-properties">13.2. Project properties</a></li>
+<li><a class="reference internal" href="#variable-editor">13.3. Variable editor</a></li>
+<li><a class="reference internal" href="#switch-editor">13.4. Switch editor</a></li>
+<li><a class="reference internal" href="#source-dependencies">13.5. Source dependencies</a></li>
+<li><a class="reference internal" href="#project-dependencies">13.6. Project dependencies</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="locations.html"
+                        title="previous chapter">12. Locations View</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="epilogue.html"
+                        title="next chapter">14. Epilogue</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/projects.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="projects">
+<h1>13. Projects<a class="headerlink" href="#projects" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="project-wizard">
+<h2>13.1. Project Wizard<a class="headerlink" href="#project-wizard" title="Permalink to this headline">¶</a></h2>
+<p>Go to the menu <cite>File-&gt;New Project...</cite>: this opens up the GPS project
+creation wizard.</p>
+<p>The first page of the wizard allows you to select a pre-defined project
+template in the left-hand pane. These project templates are organized
+according to the technology they use (e.g: <cite>AWS</cite>) or the platform that
+is targeted (e.g: <cite>STM32F4 compatible</cite>). The description of the currently
+selected project is displayed on the right-hand side pane.</p>
+<p>Select a project template and click on <cite>Next</cite>: a page asking you the name and
+the location of your project will appear. This page may also list project
+template-specific options.</p>
+<p>Once completed, click on <cite>Apply</cite> to actually create the project. Note that you
+can still can customize your newly created project after is creation using the
+<a class="reference internal" href="#project-properties"><span class="std std-ref">Project properties</span></a> editor.</p>
+</div>
+<div class="section" id="project-properties">
+<span id="id1"></span><h2>13.2. Project properties<a class="headerlink" href="#project-properties" title="Permalink to this headline">¶</a></h2>
+<p>In the project view, on the project <em>sdc</em>, use the contextual menu
+<cite>Project-&gt;Properties</cite>.  All the properties set in the project wizard can be
+found here as well.  You can switch between pages by clicking on the tabs
+located along the left side of the window.</p>
+<p>Once you&#8217;re done exploring the property pages, click on the <cite>Cancel</cite>
+button to close the properties window.</p>
+</div>
+<div class="section" id="variable-editor">
+<span id="id2"></span><h2>13.3. Variable editor<a class="headerlink" href="#variable-editor" title="Permalink to this headline">¶</a></h2>
+<p>Select the window titled &#8220;Scenario&#8221;.  If not available, you can open it
+using the menu <cite>View-&gt;Scenario</cite>.
+This window contains a <cite>Build</cite> label.</p>
+<p>This is a configuration variable. With GPS and the GNAT
+project facility, you can define as many configuration variables as you want,
+and modify any project settings (e.g. switches, sources, ...) based on the
+values of configuration variables. These variables can also take any
+number of different values.</p>
+<p>The <cite>Build</cite> variable demonstrates a typical <cite>Debug/Production</cite>
+configuration where we&#8217;ve set different switches for the two modes.</p>
+<p>Right click on the <cite>Build</cite> label and select
+<cite>Edit properties of Build...</cite>: this opens the
+variable editor, where values can be added or renamed.
+Close the variable editor by clicking on the <cite>Cancel</cite> button.</p>
+<p>Now, let&#8217;s take a look at the switches set in the project.</p>
+</div>
+<div class="section" id="switch-editor">
+<span id="id3"></span><h2>13.4. Switch editor<a class="headerlink" href="#switch-editor" title="Permalink to this headline">¶</a></h2>
+<p>Select the menu item <cite>View-&gt;File Switches</cite>: a global switch editor is
+displayed in the working area, showing the switches associated with each file
+in the <cite>sdc</cite> project.</p>
+<p>The editor lists the switches associated with each file in the project.  Gray
+entries indicate default (global) switches.  Notice that
+<code class="file docutils literal"><span class="pre">screen_output.adb</span></code> has specific switches, which are highlighted using a
+different font.</p>
+<p>Switch between <cite>Debug</cite> and <cite>Production</cite> mode in the <cite>Build</cite> combo box: the
+switches are updated automatically.</p>
+<p>Back to our project, let&#8217;s now examine the dependencies between sources.</p>
+</div>
+<div class="section" id="source-dependencies">
+<span id="id4"></span><h2>13.5. Source dependencies<a class="headerlink" href="#source-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Select <code class="file docutils literal"><span class="pre">sdc.adb</span></code> in the <cite>Project View</cite> and then the contextual menu item
+<cite>Show dependencies for sdc.adb</cite>: this will open a new graph showing the
+dependencies between sources of the project.</p>
+<p>Click on the right arrow of <code class="file docutils literal"><span class="pre">tokens.ads</span></code> to display the files that
+<code class="file docutils literal"><span class="pre">tokens.ads</span></code> depends on. Similarly, click on the right arrow of
+<code class="file docutils literal"><span class="pre">stack.ads</span></code>.</p>
+</div>
+<div class="section" id="project-dependencies">
+<span id="id5"></span><h2>13.6. Project dependencies<a class="headerlink" href="#project-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Back in the project view, on the <em>Sdc</em> project, select the contextual menu
+<cite>Project-&gt;Dependencies</cite>, then on the <cite>Add From File</cite>, then open the <em>tutorial</em>
+directory and click on the <cite>projects</cite> subdirectory. Select the file <cite>prj1.gpr</cite>,
+click on <cite>OK</cite>.  Click on <cite>Apply</cite> to validate the change.</p>
+<p>You can see the new dependency added in the project view, as a list (or tree,
+if &#8216;Show flat view&#8217; is enabled in local configuration menu) of projects. In
+particular, project dependencies are duplicated when tree view is used: if you
+open the <cite>prj1</cite> icon by clicking on the triangle, and then similarly open the
+<cite>prj2</cite> icon, you will notice that the project <cite>prj4</cite> is displayed twice: once
+as a dependency of <cite>prj2</cite>, and once as a dependency of <cite>prj1</cite>.</p>
+<p>GPS can also display the graph of dependencies between projects: on <em>Sdc</em>
+project, use the contextual menu <cite>Show projects imported by Sdc</cite>: this will
+open a project hierarchy browser.</p>
+<p>On the <em>Sdc</em> project, select the contextual menu <cite>Show projects imported by
+Sdc recursively</cite>.</p>
+<p>In the browser, you can move the project items, and select them to highlight
+the dependencies.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="epilogue.html" title="14. Epilogue"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="locations.html" title="12. Locations View"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Tutorial 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

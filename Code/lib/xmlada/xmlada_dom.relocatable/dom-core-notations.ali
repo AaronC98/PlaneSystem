@@ -1,0 +1,103 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatwu
+A -gnatwa
+A -gnaty
+A -gnatQ
+A -gnatn
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_SECONDARY_STACK
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U dom.core.notations%b	dom-core-notations.adb	d66f18e4 NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W dom.core%s		dom-core.adb		dom-core.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W unicode%s		unicode.adb		unicode.ali
+W unicode.ces%s		unicode-ces.adb		unicode-ces.ali
+
+U dom.core.notations%s	dom-core-notations.ads	3d814c77 EE NE OO PK IU
+W dom.core%s		dom-core.adb		dom-core.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D dom.ads		20190430051631 2bd88f63 dom%s
+D dom-core.ads		20190430051631 3a4cc7f1 dom.core%s
+D dom-core-notations.ads  20190430051631 07cd8b86 dom.core.notations%s
+D dom-core-notations.adb  20190430051631 b957cbc9 dom.core.notations%b
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-tasloc.ads		20190518041255 9c49392e gnat.task_lock%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D sax.ads		20190430051631 17965ec6 sax%s
+D sax-htable.ads	20190430051631 2df615ad sax.htable%s
+D sax-pointers.ads	20190430051631 d9877e85 sax.pointers%s
+D sax-pointers.adb	20190430051631 8f6422c0 sax.pointers%b
+D sax-symbols.ads	20190430051631 d3179de8 sax.symbols%s
+D sax-utils.ads		20190430051631 617205ad sax.utils%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-finmas.ads		20190518041256 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041255 ede33ef8 system.pool_global%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20190518041256 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-stposu.ads		20190518041255 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20190518041255 aedef97e system.stream_attributes%s
+D s-tasloc.ads		20190518041255 618a376e system.task_lock%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D unicode.ads		20190430051631 a421878d unicode%s
+D unicode-ces.ads	20190430051631 68f558ab unicode.ces%s
+G a e
+G c Z s b [public_id dom__core__notations 29 13 none]
+G c Z s b [system_id dom__core__notations 33 13 none]
+X 8 dom.ads
+37K9*DOM 39e8 10|24r9 37r5 11|26r14 53r5
+X 9 dom-core.ads
+38K13*Core 8|37k9 9|382e13 10|24r13 37r9 11|26r18 53r9
+48A12*DOM_String{42|41A12}<integer> 10|29r45 33r45 11|32r45 45r45
+53P12*DOM_String_Access{42|42P9}
+79P9*Node(78R9)
+93P12*Notation{79P9} 10|29r28 33r28 11|32r28 45r28
+359p13*Public_ID{53P12} 11|34r12 37r19
+360p13*System_ID{53P12} 11|47r12 50r19
+X 10 dom-core-notations.ads
+24K18*Notations 9|38k13 10|37l14 37e23 11|26b23 53l14 53t23
+29V13*Public_Id{9|48A12} 29>24 11|32b13 39l8 39t17
+29p24 N{9|93P12} 11|32b24 34r10 37r17
+33V13*System_Id{9|48A12} 33>24 11|45b13 52l8 52t17
+33p24 N{9|93P12} 11|45b24 47r10 50r17
+X 21 system.ads
+67M9*Address
+X 25 s-memory.ads
+53V13*Alloc{21|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{21|67M9} 105i<c,__gnat_realloc>22
+X 41 unicode.ads
+111K9*Unicode 11|24r6 24r23 41|157e12
+X 42 unicode-ces.ads
+35K17*CES 11|24w14 24r31 42|171e16
+41A12*Byte_Sequence{string}<integer>
+42P9*Byte_Sequence_Access(41A12)
+

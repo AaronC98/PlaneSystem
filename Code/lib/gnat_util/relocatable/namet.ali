@@ -1,0 +1,1048 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P SS ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U namet%b		namet.adb		cf78e126 OO PK
+W debug%s		debug.adb		debug.ali
+W interfaces%s		interfac.ads		interfac.ali
+W opt%s			opt.adb			opt.ali
+W output%s		output.adb		output.ali  AD
+W system%s		system.ads		system.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W tree_io%s		tree_io.adb		tree_io.ali
+W widechar%s		widechar.adb		widechar.ali
+
+U namet%s		namet.ads		f1c61094 BN EE OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W alloc%s		alloc.ads		alloc.ali
+W hostparm%s		hostparm.ads		hostparm.ali
+Z system%s		system.ads		system.ali
+W table%s		table.adb		table.ali
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D namet.ads		20190518044709 b520bebe namet%s
+D namet.adb		20190518044709 64106062 namet%b
+D opt.ads		20190518044710 3d2ce478 opt%s
+D output.ads		20190518044709 a916e413 output%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-carun8.ads		20190518041257 a903718d system.compare_array_unsigned_8%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D types.adb		20190518044709 87ca568f types%b
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D widechar.ads		20190518044709 afb9abd7 widechar%s
+G a e
+G c b b b [b namet 45 1 none]
+G c s s s [s namet 37 1 none]
+G c Z s s [bounded_stringIP namet 151 9 none]
+G c Z s b [present namet 207 13 none]
+G c Z s b [nam_in namet 222 13 none]
+G c Z s b [nam_in namet 227 13 none]
+G c Z s b [nam_in namet 233 13 none]
+G c Z s b [nam_in namet 240 13 none]
+G c Z s b [nam_in namet 248 13 none]
+G c Z s b [nam_in namet 257 13 none]
+G c Z s b [nam_in namet 267 13 none]
+G c Z s b [nam_in namet 278 13 none]
+G c Z s b [nam_in namet 290 13 none]
+G c Z s b [nam_in namet 303 13 none]
+G c Z s b [nam_in namet 317 13 none]
+G c Z s b [to_string namet 339 13 none]
+G c Z s b [name_find namet 343 13 none]
+G c Z s b [name_find namet 345 13 none]
+G c Z s b [name_enter namet 352 13 none]
+G c Z s b [name_enter namet 354 13 none]
+G c Z s b [name_equals namet 365 13 none]
+G c Z s b [get_name_string namet 370 13 none]
+G c Z s b [append namet 376 14 none]
+G c Z s b [append namet 380 14 none]
+G c Z s b [append namet 383 14 none]
+G c Z s b [append namet 386 14 none]
+G c Z s b [append namet 389 14 none]
+G c Z s b [append_decoded namet 393 14 none]
+G c Z s b [append_decoded_with_brackets namet 400 14 none]
+G c Z s b [append_unqualified namet 412 14 none]
+G c Z s b [append_unqualified_decoded namet 423 14 none]
+G c Z s b [append_encoded namet 428 14 none]
+G c Z s b [set_character_literal_name namet 437 14 none]
+G c Z s b [insert_str namet 443 14 none]
+G c Z s b [is_internal_name namet 450 13 none]
+G c Z s b [get_last_two_chars namet 452 14 none]
+G c Z s b [get_name_table_boolean1 namet 460 13 none]
+G c Z s b [get_name_table_boolean2 namet 461 13 none]
+G c Z s b [get_name_table_boolean3 namet 462 13 none]
+G c Z s b [get_name_table_byte namet 465 13 none]
+G c Z s b [get_name_table_int namet 469 13 none]
+G c Z s b [set_name_table_boolean1 namet 473 14 none]
+G c Z s b [set_name_table_boolean2 namet 474 14 none]
+G c Z s b [set_name_table_boolean3 namet 475 14 none]
+G c Z s b [set_name_table_byte namet 478 14 none]
+G c Z s b [set_name_table_int namet 482 14 none]
+G c Z s b [is_internal_name namet 486 13 none]
+G c Z s b [is_ok_internal_letter namet 502 13 none]
+G c Z s b [is_operator_name namet 510 13 none]
+G c Z s b [is_valid_name namet 514 13 none]
+G c Z s b [length_of_name namet 518 13 none]
+G c Z s b [initialize namet 523 14 none]
+G c Z s b [reinitialize namet 531 14 none]
+G c Z s b [reset_name_table namet 534 14 none]
+G c Z s b [finalize namet 541 14 none]
+G c Z s b [lock namet 546 14 none]
+G c Z s b [unlock namet 550 14 none]
+G c Z s b [tree_read namet 554 14 none]
+G c Z s b [tree_write namet 559 14 none]
+G c Z s b [write_name namet 563 14 none]
+G c Z s b [write_name_decoded namet 569 14 none]
+G c Z s b [name_entries_count namet 573 13 none]
+G c Z s b [add_char_to_name_buffer namet 589 14 none]
+G c Z s b [add_nat_to_name_buffer namet 592 14 none]
+G c Z s b [add_str_to_name_buffer namet 594 14 none]
+G c Z s b [get_decoded_name_string namet 596 14 none]
+G c Z s b [get_decoded_name_string_with_brackets namet 598 14 none]
+G c Z s b [get_name_string namet 600 14 none]
+G c Z s b [get_name_string_and_append namet 602 14 none]
+G c Z s b [get_unqualified_decoded_name_string namet 604 14 none]
+G c Z s b [get_unqualified_name_string namet 606 14 none]
+G c Z s b [insert_str_in_name_buffer namet 608 14 none]
+G c Z s b [is_internal_name namet 610 13 none]
+G c Z s b [set_character_literal_name namet 612 14 none]
+G c Z s b [store_encoded_character namet 614 14 none]
+G c Z s b [present namet 633 13 none]
+G c Z s b [present namet 661 13 none]
+G c Z s b [wn namet 676 14 none]
+G c Z s s [init namet__name_chars 142 17 702_4]
+G c Z s s [last namet__name_chars 149 16 702_4]
+G c Z s s [release namet__name_chars 156 17 702_4]
+G c Z s s [free namet__name_chars 168 17 702_4]
+G c Z s s [set_last namet__name_chars 175 17 702_4]
+G c Z s s [increment_last namet__name_chars 184 17 702_4]
+G c Z s s [decrement_last namet__name_chars 188 17 702_4]
+G c Z s s [append namet__name_chars 192 17 702_4]
+G c Z s s [append_all namet__name_chars 200 17 702_4]
+G c Z s s [set_item namet__name_chars 203 17 702_4]
+G c Z s s [save namet__name_chars 215 16 702_4]
+G c Z s s [restore namet__name_chars 219 17 702_4]
+G c Z s s [tree_write namet__name_chars 223 17 702_4]
+G c Z s s [tree_read namet__name_chars 226 17 702_4]
+G c Z s s [table_typeIP namet__name_chars 110 12 702_4]
+G c Z s s [saved_tableIP namet__name_chars 241 12 702_4]
+G c Z s s [reallocate namet__name_chars 58 17 702_4]
+G c Z s s [tree_get_table_address namet__name_chars 63 16 702_4]
+G c Z s s [to_address namet__name_chars 72 16 702_4]
+G c Z s s [to_pointer namet__name_chars 73 16 702_4]
+G c Z s s [name_entryIP namet 710 9 none]
+G c Z s s [init namet__name_entries 142 17 760_4]
+G c Z s s [last namet__name_entries 149 16 760_4]
+G c Z s s [release namet__name_entries 156 17 760_4]
+G c Z s s [free namet__name_entries 168 17 760_4]
+G c Z s s [set_last namet__name_entries 175 17 760_4]
+G c Z s s [increment_last namet__name_entries 184 17 760_4]
+G c Z s s [decrement_last namet__name_entries 188 17 760_4]
+G c Z s s [append namet__name_entries 192 17 760_4]
+G c Z s s [append_all namet__name_entries 200 17 760_4]
+G c Z s s [set_item namet__name_entries 203 17 760_4]
+G c Z s s [save namet__name_entries 215 16 760_4]
+G c Z s s [restore namet__name_entries 219 17 760_4]
+G c Z s s [tree_write namet__name_entries 223 17 760_4]
+G c Z s s [tree_read namet__name_entries 226 17 760_4]
+G c Z s s [table_typeIP namet__name_entries 110 12 760_4]
+G c Z s s [saved_tableIP namet__name_entries 241 12 760_4]
+G c Z s s [reallocate namet__name_entries 58 17 760_4]
+G c Z s s [tree_get_table_address namet__name_entries 63 16 760_4]
+G c Z s s [to_address namet__name_entries 72 16 760_4]
+G c Z s s [to_pointer namet__name_entries 73 16 760_4]
+G c Z b b [Thash_tableBIP namet 67 4 none]
+G c Z b b [hash namet 77 13 none]
+G c Z b b [strip_qualification_and_suffixes namet 81 14 none]
+G r c none [b namet 45 1 none] [write_str output 130 14 none]
+G r c none [b namet 45 1 none] [write_int output 123 14 none]
+G r c none [b namet 45 1 none] [write_eol output 113 14 none]
+G r c none [b namet 45 1 none] [set_standard_error output 77 14 none]
+G r c none [b namet 45 1 none] [set_standard_output output 84 14 none]
+G r i none [s namet 37 1 none] [table table 59 12 none]
+G r c none [s namet 37 1 none] [write_str output 130 14 none]
+G r c none [s namet 37 1 none] [write_int output 123 14 none]
+G r c none [s namet 37 1 none] [write_eol output 113 14 none]
+G r c none [s namet 37 1 none] [set_standard_error output 77 14 none]
+G r c none [s namet 37 1 none] [set_standard_output output 84 14 none]
+G r c none [name_find namet 343 13 none] [write_str output 130 14 none]
+G r c none [name_find namet 343 13 none] [write_int output 123 14 none]
+G r c none [name_find namet 343 13 none] [write_eol output 113 14 none]
+G r c none [name_find namet 343 13 none] [set_standard_error output 77 14 none]
+G r c none [name_find namet 343 13 none] [set_standard_output output 84 14 none]
+G r c none [name_find namet 345 13 none] [write_str output 130 14 none]
+G r c none [name_find namet 345 13 none] [write_int output 123 14 none]
+G r c none [name_find namet 345 13 none] [write_line output 137 14 none]
+G r c none [name_find namet 345 13 none] [write_eol output 113 14 none]
+G r c none [name_find namet 345 13 none] [set_standard_error output 77 14 none]
+G r c none [name_find namet 345 13 none] [set_standard_output output 84 14 none]
+G r c none [name_enter namet 352 13 none] [write_str output 130 14 none]
+G r c none [name_enter namet 352 13 none] [write_int output 123 14 none]
+G r c none [name_enter namet 352 13 none] [write_eol output 113 14 none]
+G r c none [name_enter namet 352 13 none] [set_standard_error output 77 14 none]
+G r c none [name_enter namet 352 13 none] [set_standard_output output 84 14 none]
+G r c none [name_enter namet 354 13 none] [write_str output 130 14 none]
+G r c none [name_enter namet 354 13 none] [write_int output 123 14 none]
+G r c none [name_enter namet 354 13 none] [write_line output 137 14 none]
+G r c none [name_enter namet 354 13 none] [write_eol output 113 14 none]
+G r c none [name_enter namet 354 13 none] [set_standard_error output 77 14 none]
+G r c none [name_enter namet 354 13 none] [set_standard_output output 84 14 none]
+G r c none [name_equals namet 365 13 none] [write_str output 130 14 none]
+G r c none [name_equals namet 365 13 none] [write_int output 123 14 none]
+G r c none [name_equals namet 365 13 none] [write_line output 137 14 none]
+G r c none [get_name_string namet 370 13 none] [write_str output 130 14 none]
+G r c none [get_name_string namet 370 13 none] [write_int output 123 14 none]
+G r c none [get_name_string namet 370 13 none] [write_line output 137 14 none]
+G r c none [append namet 376 14 none] [write_str output 130 14 none]
+G r c none [append namet 376 14 none] [write_int output 123 14 none]
+G r c none [append namet 376 14 none] [write_line output 137 14 none]
+G r c none [append namet 380 14 none] [write_str output 130 14 none]
+G r c none [append namet 380 14 none] [write_int output 123 14 none]
+G r c none [append namet 380 14 none] [write_line output 137 14 none]
+G r c none [append namet 383 14 none] [write_str output 130 14 none]
+G r c none [append namet 383 14 none] [write_int output 123 14 none]
+G r c none [append namet 383 14 none] [write_line output 137 14 none]
+G r c none [append namet 386 14 none] [write_str output 130 14 none]
+G r c none [append namet 386 14 none] [write_int output 123 14 none]
+G r c none [append namet 386 14 none] [write_line output 137 14 none]
+G r c none [append namet 389 14 none] [write_str output 130 14 none]
+G r c none [append namet 389 14 none] [write_int output 123 14 none]
+G r c none [append namet 389 14 none] [write_line output 137 14 none]
+G r c none [append_decoded namet 393 14 none] [write_str output 130 14 none]
+G r c none [append_decoded namet 393 14 none] [write_int output 123 14 none]
+G r c none [append_decoded namet 393 14 none] [write_line output 137 14 none]
+G r c none [append_decoded namet 393 14 none] [set_wide widechar 68 14 none]
+G r c none [append_decoded_with_brackets namet 400 14 none] [write_str output 130 14 none]
+G r c none [append_decoded_with_brackets namet 400 14 none] [write_int output 123 14 none]
+G r c none [append_decoded_with_brackets namet 400 14 none] [write_line output 137 14 none]
+G r c none [append_decoded_with_brackets namet 400 14 none] [set_wide widechar 68 14 none]
+G r c none [append_unqualified namet 412 14 none] [write_str output 130 14 none]
+G r c none [append_unqualified namet 412 14 none] [write_int output 123 14 none]
+G r c none [append_unqualified namet 412 14 none] [write_line output 137 14 none]
+G r c none [append_unqualified_decoded namet 423 14 none] [write_str output 130 14 none]
+G r c none [append_unqualified_decoded namet 423 14 none] [write_int output 123 14 none]
+G r c none [append_unqualified_decoded namet 423 14 none] [write_line output 137 14 none]
+G r c none [append_unqualified_decoded namet 423 14 none] [set_wide widechar 68 14 none]
+G r c none [append_encoded namet 428 14 none] [in_character_range types 539 13 none]
+G r c none [append_encoded namet 428 14 none] [in_wide_character_range types 544 13 none]
+G r c none [append_encoded namet 428 14 none] [get_character types 549 13 none]
+G r c none [set_character_literal_name namet 437 14 none] [write_str output 130 14 none]
+G r c none [set_character_literal_name namet 437 14 none] [write_int output 123 14 none]
+G r c none [set_character_literal_name namet 437 14 none] [write_line output 137 14 none]
+G r c none [set_character_literal_name namet 437 14 none] [in_character_range types 539 13 none]
+G r c none [set_character_literal_name namet 437 14 none] [in_wide_character_range types 544 13 none]
+G r c none [set_character_literal_name namet 437 14 none] [get_character types 549 13 none]
+G r c none [is_internal_name namet 486 13 none] [write_str output 130 14 none]
+G r c none [is_internal_name namet 486 13 none] [write_int output 123 14 none]
+G r c none [is_internal_name namet 486 13 none] [write_line output 137 14 none]
+G r c none [reinitialize namet 531 14 none] [write_str output 130 14 none]
+G r c none [reinitialize namet 531 14 none] [write_int output 123 14 none]
+G r c none [reinitialize namet 531 14 none] [write_eol output 113 14 none]
+G r c none [reinitialize namet 531 14 none] [set_standard_error output 77 14 none]
+G r c none [reinitialize namet 531 14 none] [set_standard_output output 84 14 none]
+G r c none [finalize namet 541 14 none] [write_eol output 113 14 none]
+G r c none [finalize namet 541 14 none] [write_str output 130 14 none]
+G r c none [finalize namet 541 14 none] [write_char output 106 14 none]
+G r c none [finalize namet 541 14 none] [write_int output 123 14 none]
+G r c none [lock namet 546 14 none] [write_str output 130 14 none]
+G r c none [lock namet 546 14 none] [write_int output 123 14 none]
+G r c none [lock namet 546 14 none] [write_eol output 113 14 none]
+G r c none [lock namet 546 14 none] [set_standard_error output 77 14 none]
+G r c none [lock namet 546 14 none] [set_standard_output output 84 14 none]
+G r c none [unlock namet 550 14 none] [write_str output 130 14 none]
+G r c none [unlock namet 550 14 none] [write_int output 123 14 none]
+G r c none [unlock namet 550 14 none] [write_eol output 113 14 none]
+G r c none [unlock namet 550 14 none] [set_standard_error output 77 14 none]
+G r c none [unlock namet 550 14 none] [set_standard_output output 84 14 none]
+G r c none [tree_read namet 554 14 none] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read namet 554 14 none] [write_str output 130 14 none]
+G r c none [tree_read namet 554 14 none] [write_int output 123 14 none]
+G r c none [tree_read namet 554 14 none] [write_eol output 113 14 none]
+G r c none [tree_read namet 554 14 none] [set_standard_error output 77 14 none]
+G r c none [tree_read namet 554 14 none] [set_standard_output output 84 14 none]
+G r c none [tree_read namet 554 14 none] [tree_read_data tree_io 76 14 none]
+G r c none [tree_write namet 559 14 none] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write namet 559 14 none] [tree_write_data tree_io 108 14 none]
+G r c none [write_name namet 563 14 none] [write_str output 130 14 none]
+G r c none [write_name namet 563 14 none] [write_int output 123 14 none]
+G r c none [write_name namet 563 14 none] [write_line output 137 14 none]
+G r c none [write_name_decoded namet 569 14 none] [write_str output 130 14 none]
+G r c none [write_name_decoded namet 569 14 none] [write_int output 123 14 none]
+G r c none [write_name_decoded namet 569 14 none] [write_line output 137 14 none]
+G r c none [write_name_decoded namet 569 14 none] [set_wide widechar 68 14 none]
+G r c none [add_char_to_name_buffer namet 589 14 none] [write_str output 130 14 none]
+G r c none [add_char_to_name_buffer namet 589 14 none] [write_int output 123 14 none]
+G r c none [add_char_to_name_buffer namet 589 14 none] [write_line output 137 14 none]
+G r c none [add_nat_to_name_buffer namet 592 14 none] [write_str output 130 14 none]
+G r c none [add_nat_to_name_buffer namet 592 14 none] [write_int output 123 14 none]
+G r c none [add_nat_to_name_buffer namet 592 14 none] [write_line output 137 14 none]
+G r c none [add_str_to_name_buffer namet 594 14 none] [write_str output 130 14 none]
+G r c none [add_str_to_name_buffer namet 594 14 none] [write_int output 123 14 none]
+G r c none [add_str_to_name_buffer namet 594 14 none] [write_line output 137 14 none]
+G r c none [get_decoded_name_string namet 596 14 none] [write_str output 130 14 none]
+G r c none [get_decoded_name_string namet 596 14 none] [write_int output 123 14 none]
+G r c none [get_decoded_name_string namet 596 14 none] [write_line output 137 14 none]
+G r c none [get_decoded_name_string namet 596 14 none] [set_wide widechar 68 14 none]
+G r c none [get_decoded_name_string_with_brackets namet 598 14 none] [write_str output 130 14 none]
+G r c none [get_decoded_name_string_with_brackets namet 598 14 none] [write_int output 123 14 none]
+G r c none [get_decoded_name_string_with_brackets namet 598 14 none] [write_line output 137 14 none]
+G r c none [get_decoded_name_string_with_brackets namet 598 14 none] [set_wide widechar 68 14 none]
+G r c none [get_name_string namet 600 14 none] [write_str output 130 14 none]
+G r c none [get_name_string namet 600 14 none] [write_int output 123 14 none]
+G r c none [get_name_string namet 600 14 none] [write_line output 137 14 none]
+G r c none [get_name_string_and_append namet 602 14 none] [write_str output 130 14 none]
+G r c none [get_name_string_and_append namet 602 14 none] [write_int output 123 14 none]
+G r c none [get_name_string_and_append namet 602 14 none] [write_line output 137 14 none]
+G r c none [get_unqualified_decoded_name_string namet 604 14 none] [write_str output 130 14 none]
+G r c none [get_unqualified_decoded_name_string namet 604 14 none] [write_int output 123 14 none]
+G r c none [get_unqualified_decoded_name_string namet 604 14 none] [write_line output 137 14 none]
+G r c none [get_unqualified_decoded_name_string namet 604 14 none] [set_wide widechar 68 14 none]
+G r c none [get_unqualified_name_string namet 606 14 none] [write_str output 130 14 none]
+G r c none [get_unqualified_name_string namet 606 14 none] [write_int output 123 14 none]
+G r c none [get_unqualified_name_string namet 606 14 none] [write_line output 137 14 none]
+G r c none [set_character_literal_name namet 612 14 none] [write_str output 130 14 none]
+G r c none [set_character_literal_name namet 612 14 none] [write_int output 123 14 none]
+G r c none [set_character_literal_name namet 612 14 none] [write_line output 137 14 none]
+G r c none [set_character_literal_name namet 612 14 none] [in_character_range types 539 13 none]
+G r c none [set_character_literal_name namet 612 14 none] [in_wide_character_range types 544 13 none]
+G r c none [set_character_literal_name namet 612 14 none] [get_character types 549 13 none]
+G r c none [store_encoded_character namet 614 14 none] [in_character_range types 539 13 none]
+G r c none [store_encoded_character namet 614 14 none] [in_wide_character_range types 544 13 none]
+G r c none [store_encoded_character namet 614 14 none] [get_character types 549 13 none]
+G r c none [wn namet 676 14 none] [write_str output 130 14 none]
+G r c none [wn namet 676 14 none] [write_int output 123 14 none]
+G r c none [wn namet 676 14 none] [write_line output 137 14 none]
+G r c none [wn namet 676 14 none] [write_eol output 113 14 none]
+G r c none [init namet__name_chars 142 17 702_4] [write_str output 130 14 none]
+G r c none [init namet__name_chars 142 17 702_4] [write_int output 123 14 none]
+G r c none [init namet__name_chars 142 17 702_4] [write_eol output 113 14 none]
+G r c none [init namet__name_chars 142 17 702_4] [set_standard_error output 77 14 none]
+G r c none [init namet__name_chars 142 17 702_4] [set_standard_output output 84 14 none]
+G r c none [release namet__name_chars 156 17 702_4] [write_str output 130 14 none]
+G r c none [release namet__name_chars 156 17 702_4] [write_int output 123 14 none]
+G r c none [release namet__name_chars 156 17 702_4] [write_eol output 113 14 none]
+G r c none [release namet__name_chars 156 17 702_4] [set_standard_error output 77 14 none]
+G r c none [release namet__name_chars 156 17 702_4] [set_standard_output output 84 14 none]
+G r c none [set_last namet__name_chars 175 17 702_4] [write_str output 130 14 none]
+G r c none [set_last namet__name_chars 175 17 702_4] [write_int output 123 14 none]
+G r c none [set_last namet__name_chars 175 17 702_4] [write_eol output 113 14 none]
+G r c none [set_last namet__name_chars 175 17 702_4] [set_standard_error output 77 14 none]
+G r c none [set_last namet__name_chars 175 17 702_4] [set_standard_output output 84 14 none]
+G r c none [increment_last namet__name_chars 184 17 702_4] [write_str output 130 14 none]
+G r c none [increment_last namet__name_chars 184 17 702_4] [write_int output 123 14 none]
+G r c none [increment_last namet__name_chars 184 17 702_4] [write_eol output 113 14 none]
+G r c none [increment_last namet__name_chars 184 17 702_4] [set_standard_error output 77 14 none]
+G r c none [increment_last namet__name_chars 184 17 702_4] [set_standard_output output 84 14 none]
+G r c none [append namet__name_chars 192 17 702_4] [write_str output 130 14 none]
+G r c none [append namet__name_chars 192 17 702_4] [write_int output 123 14 none]
+G r c none [append namet__name_chars 192 17 702_4] [write_eol output 113 14 none]
+G r c none [append namet__name_chars 192 17 702_4] [set_standard_error output 77 14 none]
+G r c none [append namet__name_chars 192 17 702_4] [set_standard_output output 84 14 none]
+G r c none [append_all namet__name_chars 200 17 702_4] [write_str output 130 14 none]
+G r c none [append_all namet__name_chars 200 17 702_4] [write_int output 123 14 none]
+G r c none [append_all namet__name_chars 200 17 702_4] [write_eol output 113 14 none]
+G r c none [append_all namet__name_chars 200 17 702_4] [set_standard_error output 77 14 none]
+G r c none [append_all namet__name_chars 200 17 702_4] [set_standard_output output 84 14 none]
+G r c none [set_item namet__name_chars 203 17 702_4] [write_str output 130 14 none]
+G r c none [set_item namet__name_chars 203 17 702_4] [write_int output 123 14 none]
+G r c none [set_item namet__name_chars 203 17 702_4] [write_eol output 113 14 none]
+G r c none [set_item namet__name_chars 203 17 702_4] [set_standard_error output 77 14 none]
+G r c none [set_item namet__name_chars 203 17 702_4] [set_standard_output output 84 14 none]
+G r c none [save namet__name_chars 215 16 702_4] [write_str output 130 14 none]
+G r c none [save namet__name_chars 215 16 702_4] [write_int output 123 14 none]
+G r c none [save namet__name_chars 215 16 702_4] [write_eol output 113 14 none]
+G r c none [save namet__name_chars 215 16 702_4] [set_standard_error output 77 14 none]
+G r c none [save namet__name_chars 215 16 702_4] [set_standard_output output 84 14 none]
+G r c none [tree_write namet__name_chars 223 17 702_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write namet__name_chars 223 17 702_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read namet__name_chars 226 17 702_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read namet__name_chars 226 17 702_4] [write_str output 130 14 none]
+G r c none [tree_read namet__name_chars 226 17 702_4] [write_int output 123 14 none]
+G r c none [tree_read namet__name_chars 226 17 702_4] [write_eol output 113 14 none]
+G r c none [tree_read namet__name_chars 226 17 702_4] [set_standard_error output 77 14 none]
+G r c none [tree_read namet__name_chars 226 17 702_4] [set_standard_output output 84 14 none]
+G r c none [tree_read namet__name_chars 226 17 702_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate namet__name_chars 58 17 702_4] [write_str output 130 14 none]
+G r c none [reallocate namet__name_chars 58 17 702_4] [write_int output 123 14 none]
+G r c none [reallocate namet__name_chars 58 17 702_4] [write_eol output 113 14 none]
+G r c none [reallocate namet__name_chars 58 17 702_4] [set_standard_error output 77 14 none]
+G r c none [reallocate namet__name_chars 58 17 702_4] [set_standard_output output 84 14 none]
+G r c none [init namet__name_entries 142 17 760_4] [write_str output 130 14 none]
+G r c none [init namet__name_entries 142 17 760_4] [write_int output 123 14 none]
+G r c none [init namet__name_entries 142 17 760_4] [write_eol output 113 14 none]
+G r c none [init namet__name_entries 142 17 760_4] [set_standard_error output 77 14 none]
+G r c none [init namet__name_entries 142 17 760_4] [set_standard_output output 84 14 none]
+G r c none [release namet__name_entries 156 17 760_4] [write_str output 130 14 none]
+G r c none [release namet__name_entries 156 17 760_4] [write_int output 123 14 none]
+G r c none [release namet__name_entries 156 17 760_4] [write_eol output 113 14 none]
+G r c none [release namet__name_entries 156 17 760_4] [set_standard_error output 77 14 none]
+G r c none [release namet__name_entries 156 17 760_4] [set_standard_output output 84 14 none]
+G r c none [set_last namet__name_entries 175 17 760_4] [write_str output 130 14 none]
+G r c none [set_last namet__name_entries 175 17 760_4] [write_int output 123 14 none]
+G r c none [set_last namet__name_entries 175 17 760_4] [write_eol output 113 14 none]
+G r c none [set_last namet__name_entries 175 17 760_4] [set_standard_error output 77 14 none]
+G r c none [set_last namet__name_entries 175 17 760_4] [set_standard_output output 84 14 none]
+G r c none [increment_last namet__name_entries 184 17 760_4] [write_str output 130 14 none]
+G r c none [increment_last namet__name_entries 184 17 760_4] [write_int output 123 14 none]
+G r c none [increment_last namet__name_entries 184 17 760_4] [write_eol output 113 14 none]
+G r c none [increment_last namet__name_entries 184 17 760_4] [set_standard_error output 77 14 none]
+G r c none [increment_last namet__name_entries 184 17 760_4] [set_standard_output output 84 14 none]
+G r c none [append namet__name_entries 192 17 760_4] [write_str output 130 14 none]
+G r c none [append namet__name_entries 192 17 760_4] [write_int output 123 14 none]
+G r c none [append namet__name_entries 192 17 760_4] [write_eol output 113 14 none]
+G r c none [append namet__name_entries 192 17 760_4] [set_standard_error output 77 14 none]
+G r c none [append namet__name_entries 192 17 760_4] [set_standard_output output 84 14 none]
+G r c none [append_all namet__name_entries 200 17 760_4] [write_str output 130 14 none]
+G r c none [append_all namet__name_entries 200 17 760_4] [write_int output 123 14 none]
+G r c none [append_all namet__name_entries 200 17 760_4] [write_eol output 113 14 none]
+G r c none [append_all namet__name_entries 200 17 760_4] [set_standard_error output 77 14 none]
+G r c none [append_all namet__name_entries 200 17 760_4] [set_standard_output output 84 14 none]
+G r c none [set_item namet__name_entries 203 17 760_4] [write_str output 130 14 none]
+G r c none [set_item namet__name_entries 203 17 760_4] [write_int output 123 14 none]
+G r c none [set_item namet__name_entries 203 17 760_4] [write_eol output 113 14 none]
+G r c none [set_item namet__name_entries 203 17 760_4] [set_standard_error output 77 14 none]
+G r c none [set_item namet__name_entries 203 17 760_4] [set_standard_output output 84 14 none]
+G r c none [save namet__name_entries 215 16 760_4] [write_str output 130 14 none]
+G r c none [save namet__name_entries 215 16 760_4] [write_int output 123 14 none]
+G r c none [save namet__name_entries 215 16 760_4] [write_eol output 113 14 none]
+G r c none [save namet__name_entries 215 16 760_4] [set_standard_error output 77 14 none]
+G r c none [save namet__name_entries 215 16 760_4] [set_standard_output output 84 14 none]
+G r c none [tree_write namet__name_entries 223 17 760_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write namet__name_entries 223 17 760_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read namet__name_entries 226 17 760_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read namet__name_entries 226 17 760_4] [write_str output 130 14 none]
+G r c none [tree_read namet__name_entries 226 17 760_4] [write_int output 123 14 none]
+G r c none [tree_read namet__name_entries 226 17 760_4] [write_eol output 113 14 none]
+G r c none [tree_read namet__name_entries 226 17 760_4] [set_standard_error output 77 14 none]
+G r c none [tree_read namet__name_entries 226 17 760_4] [set_standard_output output 84 14 none]
+G r c none [tree_read namet__name_entries 226 17 760_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate namet__name_entries 58 17 760_4] [write_str output 130 14 none]
+G r c none [reallocate namet__name_entries 58 17 760_4] [write_int output 123 14 none]
+G r c none [reallocate namet__name_entries 58 17 760_4] [write_eol output 113 14 none]
+G r c none [reallocate namet__name_entries 58 17 760_4] [set_standard_error output 77 14 none]
+G r c none [reallocate namet__name_entries 58 17 760_4] [set_standard_output output 84 14 none]
+X 5 alloc.ads
+42K9*Alloc 167e10 9|32w6 706r30 707r30 764r30 765r30
+94N4*Name_Chars_Initial 9|706r36
+95N4*Name_Chars_Increment 9|707r36
+100N4*Names_Initial 9|764r36
+101N4*Names_Increment 9|765r36
+X 6 debug.ads
+36K9*Debug 256e10 10|36w6 36r20
+58b4*Debug_Flag_H{boolean} 10|668r14
+X 7 hostparm.ads
+38K9*Hostparm 73e13 9|33w6 33r20
+49N4*Max_Line_Length 9|168r59
+X 8 interfac.ads
+38K9*Interfaces 184e15 10|43w6 43r22
+66M9*Unsigned_16 10|945r16
+113V13*Rotate_Left{66M9} 10|949s20
+X 9 namet.ads
+37K9*Namet 702E12 768l5 768e10 10|45b14 1193r24 1828l5 1828t10
+151R9*Bounded_String 151d25 157e14 168r25 339r30 341r24 344r13 353r13 376r35
+. 380r35 383r35 386r35 386r58 389r35 393r43 401r20 413r20 424r20 428r43 438r20
+. 444r22 450r37 10|77r25 81r61 117r35 131r35 140r35 157r35 157r58 162r35
+. 178r20 183r14 462r20 482r20 555r43 611r20 614r14 626r20 629r14 842r13 931r25
+. 969r22 995r37 1053r13 1127r13 1153r13 1173r13 1258r13 1578r20 1655r61 1727r30
+. 1782r19 1807r13 1818r13
+151i25*Max_Length{natural} 156r29 10|123r30 147r30
+155i7*Length{natural} 170m60 10|119m11 119r25 121r14 128r22 141r39 143m11
+. 143r25 145r14 152r31 159r42 198r22 245r35 275r35 284r35 342r28 347r35 357r35
+. 418r40 430r40 449m15 487r28 494r54 498m24 498r39 510r41 515r46 516r48 521m24
+. 521r39 527r36 531r49 532r47 538m24 538r39 568r25 569r25 570m14 570r28 576m11
+. 576r25 583r31 585r31 591r25 596r25 597m14 597r28 598r25 795m26 805m26 837m26
+. 913m26 923m26 948r25 976r36 977r33 979m11 979r25 1002r32 1017r19 1132r47
+. 1143r25 1187r14 1201r23 1209r34 1236r50 1247r28 1582m11 1661r33 1663m17
+. 1676r25 1677r19 1683r19 1693m17 1694r22 1704m20 1705r25 1711r36 1712r42
+. 1713m20 1713r34 1729r34 1785r44 1810r38 1821r38
+156a7*Chars{string} 169m59 10|121r27 128m11 145r27 152m11 159r25 203r23 220r38
+. 240r23 246r29 247r29 276r29 285r29 286r29 309r26 346r21 356r24 358r29 359r29
+. 400r37 401r38 419r38 431r39 450m15 470r14 475r17 488r24 493r27 495m27 495r49
+. 499m24 499r46 500m24 500r46 501m24 502m24 503m24 504m24 509r27 511r32 512r32
+. 513r32 515m24 516r26 517m24 518m24 519m24 520m24 526r27 528r32 529r32 531m24
+. 532r26 533m24 533r55 534m24 535m24 536m24 537m24 568m14 569m14 583m20 585m20
+. 591m14 596m14 598m14 949r67 976m11 977r13 978m11 1001r14 1002r21 1008r17
+. 1022r20 1025r47 1030r46 1038r23 1039r28 1040r28 1144r33 1188r67 1210r60
+. 1248r36 1662r17 1667r24 1668r25 1669r25 1676r14 1678r35 1692r17 1698r20
+. 1698r49 1703r20 1711m20 1712r22 1729r18 1785r28 1810r22 1821r22
+168r4*Global_Name_Buffer{151R9} 169r40 170r41 344r31 353r31 10|92m15 92r15
+. 101m15 101r15 110m15 110r15 795m7 796m23 796r23 805m7 806m37 806r37 837m7
+. 838m15 838r15 854m15 854r15 913m7 914m35 914r35 923m7 924m27 924r27 988m19
+. 988r19 1061r32 1127r31 1173r31 1589m35 1589r35 1648m23 1648r23
+169a4*Name_Buffer{string}
+170i4*Name_Len{natural}
+188I9*Name_Id<integer> 189r8 192r23 196r26 201r29 204r29 204r60 207r28 223r12
+. 224r12 225r12 228r12 229r12 230r12 231r12 234r12 235r12 236r12 237r12 238r12
+. 241r12 242r12 243r12 244r12 245r12 246r12 249r12 250r12 251r12 252r12 253r12
+. 254r12 255r12 258r12 259r12 260r12 261r12 262r12 263r12 264r12 265r12 268r12
+. 269r12 270r12 271r12 272r12 273r12 274r12 275r12 276r12 279r12 280r12 281r12
+. 282r12 283r12 284r12 285r12 286r12 287r12 288r12 291r13 292r13 293r13 294r13
+. 295r13 296r13 297r13 298r13 299r13 300r13 301r13 304r13 305r13 306r13 307r13
+. 308r13 309r13 310r13 311r13 312r13 313r13 314r13 315r13 318r13 319r13 320r13
+. 321r13 322r13 323r13 324r13 325r13 326r13 327r13 328r13 329r13 330r13 514r33
+. 624r31 645r31 653r31 676r23 734r19 10|67r44 683r20 1094r33 1175r16 1269r12
+. 1270r12 1271r12 1279r12 1280r12 1281r12 1282r12 1291r12 1292r12 1293r12
+. 1294r12 1295r12 1305r12 1306r12 1307r12 1308r12 1309r12 1310r12 1321r12
+. 1322r12 1323r12 1324r12 1325r12 1326r12 1327r12 1339r12 1340r12 1341r12
+. 1342r12 1343r12 1344r12 1345r12 1346r12 1359r12 1360r12 1361r12 1362r12
+. 1363r12 1364r12 1365r12 1366r12 1367r12 1381r12 1382r12 1383r12 1384r12
+. 1385r12 1386r12 1387r12 1388r12 1389r12 1390r12 1405r13 1406r13 1407r13
+. 1408r13 1409r13 1410r13 1411r13 1412r13 1413r13 1414r13 1415r13 1431r13
+. 1432r13 1433r13 1434r13 1435r13 1436r13 1437r13 1438r13 1439r13 1440r13
+. 1441r13 1442r13 1459r13 1460r13 1461r13 1462r13 1463r13 1464r13 1465r13
+. 1466r13 1467r13 1468r13 1469r13 1470r13 1471r13 1513r28 1778r23
+192i4*No_Name{188I9} 629r57 650r57 658r62 10|677r30 690r27 719r30 1139r36
+. 1196r22 1220r63 1237r39 1515r21 1548r39 1557r28 1788r18
+196i4*Error_Name{188I9} 637r65 665r65 10|1791r18
+201i4*First_Name_Id{188I9} 204r43 763r30 10|1188r32 1567r16
+204I12*Valid_Name_Id{188I9} 344r58 345r43 353r58 354r44 366r12 367r12 370r35
+. 389r56 393r64 402r13 413r41 425r13 453r12 460r43 461r43 462r43 465r39 469r38
+. 473r44 474r44 475r44 478r40 482r39 486r36 510r36 518r34 563r31 569r39 596r44
+. 598r58 600r36 602r47 604r56 606r48 762r30 10|162r56 179r13 463r13 612r13
+. 627r13 793r44 803r58 814r12 835r36 841r35 852r47 861r43 871r43 881r43 891r39
+. 901r38 911r56 921r48 1052r36 1082r36 1103r34 1127r58 1152r44 1173r58 1188r17
+. 1257r43 1493r12 1494r12 1596r44 1606r44 1616r44 1626r40 1636r39 1806r31
+. 1817r39
+207V13*Present{boolean} 207>22 208r19 10|1513b13 1516l8 1516t15
+207i22 Nam{188I9} 10|1513b22 1515r14
+222V13*Nam_In{boolean} 223>7 224>7 225>7 10|1268b13 1276l8 1276t14
+223i7 T{188I9} 10|1269b7 1274r14 1275r14
+224i7 V1{188I9} 10|1270b7 1274r18
+225i7 V2{188I9} 10|1271b7 1275r18
+227V13*Nam_In{boolean} 228>7 229>7 230>7 231>7 10|1278b13 1288l8 1288t14
+228i7 T{188I9} 10|1279b7 1285r14 1286r14 1287r14
+229i7 V1{188I9} 10|1280b7 1285r18
+230i7 V2{188I9} 10|1281b7 1286r18
+231i7 V3{188I9} 10|1282b7 1287r18
+233V13*Nam_In{boolean} 234>7 235>7 236>7 237>7 238>7 10|1290b13 1302l8 1302t14
+234i7 T{188I9} 10|1291b7 1298r14 1299r14 1300r14 1301r14
+235i7 V1{188I9} 10|1292b7 1298r18
+236i7 V2{188I9} 10|1293b7 1299r18
+237i7 V3{188I9} 10|1294b7 1300r18
+238i7 V4{188I9} 10|1295b7 1301r18
+240V13*Nam_In{boolean} 241>7 242>7 243>7 244>7 245>7 246>7 10|1304b13 1318l8
+. 1318t14
+241i7 T{188I9} 10|1305b7 1313r14 1314r14 1315r14 1316r14 1317r14
+242i7 V1{188I9} 10|1306b7 1313r18
+243i7 V2{188I9} 10|1307b7 1314r18
+244i7 V3{188I9} 10|1308b7 1315r18
+245i7 V4{188I9} 10|1309b7 1316r18
+246i7 V5{188I9} 10|1310b7 1317r18
+248V13*Nam_In{boolean} 249>7 250>7 251>7 252>7 253>7 254>7 255>7 10|1320b13
+. 1336l8 1336t14
+249i7 T{188I9} 10|1321b7 1330r14 1331r14 1332r14 1333r14 1334r14 1335r14
+250i7 V1{188I9} 10|1322b7 1330r18
+251i7 V2{188I9} 10|1323b7 1331r18
+252i7 V3{188I9} 10|1324b7 1332r18
+253i7 V4{188I9} 10|1325b7 1333r18
+254i7 V5{188I9} 10|1326b7 1334r18
+255i7 V6{188I9} 10|1327b7 1335r18
+257V13*Nam_In{boolean} 258>7 259>7 260>7 261>7 262>7 263>7 264>7 265>7 10|1338b13
+. 1356l8 1356t14
+258i7 T{188I9} 10|1339b7 1349r14 1350r14 1351r14 1352r14 1353r14 1354r14
+. 1355r14
+259i7 V1{188I9} 10|1340b7 1349r18
+260i7 V2{188I9} 10|1341b7 1350r18
+261i7 V3{188I9} 10|1342b7 1351r18
+262i7 V4{188I9} 10|1343b7 1352r18
+263i7 V5{188I9} 10|1344b7 1353r18
+264i7 V6{188I9} 10|1345b7 1354r18
+265i7 V7{188I9} 10|1346b7 1355r18
+267V13*Nam_In{boolean} 268>7 269>7 270>7 271>7 272>7 273>7 274>7 275>7 276>7
+. 10|1358b13 1378l8 1378t14
+268i7 T{188I9} 10|1359b7 1370r14 1371r14 1372r14 1373r14 1374r14 1375r14
+. 1376r14 1377r14
+269i7 V1{188I9} 10|1360b7 1370r18
+270i7 V2{188I9} 10|1361b7 1371r18
+271i7 V3{188I9} 10|1362b7 1372r18
+272i7 V4{188I9} 10|1363b7 1373r18
+273i7 V5{188I9} 10|1364b7 1374r18
+274i7 V6{188I9} 10|1365b7 1375r18
+275i7 V7{188I9} 10|1366b7 1376r18
+276i7 V8{188I9} 10|1367b7 1377r18
+278V13*Nam_In{boolean} 279>7 280>7 281>7 282>7 283>7 284>7 285>7 286>7 287>7
+. 288>7 10|1380b13 1402l8 1402t14
+279i7 T{188I9} 10|1381b7 1393r14 1394r14 1395r14 1396r14 1397r14 1398r14
+. 1399r14 1400r14 1401r14
+280i7 V1{188I9} 10|1382b7 1393r18
+281i7 V2{188I9} 10|1383b7 1394r18
+282i7 V3{188I9} 10|1384b7 1395r18
+283i7 V4{188I9} 10|1385b7 1396r18
+284i7 V5{188I9} 10|1386b7 1397r18
+285i7 V6{188I9} 10|1387b7 1398r18
+286i7 V7{188I9} 10|1388b7 1399r18
+287i7 V8{188I9} 10|1389b7 1400r18
+288i7 V9{188I9} 10|1390b7 1401r18
+290V13*Nam_In{boolean} 291>7 292>7 293>7 294>7 295>7 296>7 297>7 298>7 299>7
+. 300>7 301>7 10|1404b13 1428l8 1428t14
+291i7 T{188I9} 10|1405b7 1418r14 1419r14 1420r14 1421r14 1422r14 1423r14
+. 1424r14 1425r14 1426r14 1427r14
+292i7 V1{188I9} 10|1406b7 1418r18
+293i7 V2{188I9} 10|1407b7 1419r18
+294i7 V3{188I9} 10|1408b7 1420r18
+295i7 V4{188I9} 10|1409b7 1421r18
+296i7 V5{188I9} 10|1410b7 1422r18
+297i7 V6{188I9} 10|1411b7 1423r18
+298i7 V7{188I9} 10|1412b7 1424r18
+299i7 V8{188I9} 10|1413b7 1425r18
+300i7 V9{188I9} 10|1414b7 1426r18
+301i7 V10{188I9} 10|1415b7 1427r18
+303V13*Nam_In{boolean} 304>7 305>7 306>7 307>7 308>7 309>7 310>7 311>7 312>7
+. 313>7 314>7 315>7 10|1430b13 1456l8 1456t14
+304i7 T{188I9} 10|1431b7 1445r14 1446r14 1447r14 1448r14 1449r14 1450r14
+. 1451r14 1452r14 1453r14 1454r14 1455r14
+305i7 V1{188I9} 10|1432b7 1445r18
+306i7 V2{188I9} 10|1433b7 1446r18
+307i7 V3{188I9} 10|1434b7 1447r18
+308i7 V4{188I9} 10|1435b7 1448r18
+309i7 V5{188I9} 10|1436b7 1449r18
+310i7 V6{188I9} 10|1437b7 1450r18
+311i7 V7{188I9} 10|1438b7 1451r18
+312i7 V8{188I9} 10|1439b7 1452r18
+313i7 V9{188I9} 10|1440b7 1453r18
+314i7 V10{188I9} 10|1441b7 1454r18
+315i7 V11{188I9} 10|1442b7 1455r18
+317V13*Nam_In{boolean} 318>7 319>7 320>7 321>7 322>7 323>7 324>7 325>7 326>7
+. 327>7 328>7 329>7 330>7 10|1458b13 1486l8 1486t14
+318i7 T{188I9} 10|1459b7 1474r14 1475r14 1476r14 1477r14 1478r14 1479r14
+. 1480r14 1481r14 1482r14 1483r14 1484r14 1485r14
+319i7 V1{188I9} 10|1460b7 1474r18
+320i7 V2{188I9} 10|1461b7 1475r18
+321i7 V3{188I9} 10|1462b7 1476r18
+322i7 V4{188I9} 10|1463b7 1477r18
+323i7 V5{188I9} 10|1464b7 1478r18
+324i7 V6{188I9} 10|1465b7 1479r18
+325i7 V7{188I9} 10|1466b7 1480r18
+326i7 V8{188I9} 10|1467b7 1481r18
+327i7 V9{188I9} 10|1468b7 1482r18
+328i7 V10{188I9} 10|1469b7 1483r18
+329i7 V11{188I9} 10|1470b7 1484r18
+330i7 V12{188I9} 10|1471b7 1485r18
+339V13*To_String{string} 339>24 340r19 341r62 10|1727b13 1730l8 1730t17
+339r24 Buf{151R9} 10|1727b24 1729r14 1729r30
+341V14*"+"=341:62{string} 10|845s14
+341r18 Buf{151R9}
+343V13*Name_Find{204I12} 344>7 10|1172b13 1255l8 1255t17 1261s14
+344r7 Buf{151R9} 10|1173b7 1187r10 1188r63 1193r36 1201r19 1209r30 1210r56
+. 1236r46 1247r24 1248r32
+345V13*Name_Find{204I12} 345>24 10|1257b13 1262l8 1262t17
+345a24 S{string} 10|1257b24 1258r43 1260r20
+352V13*Name_Enter{204I12} 353>7 10|1126b13 1150l8 1150t18 1156s14
+353r7 Buf{151R9} 10|1127b7 1132r43 1143r21 1144r29
+354V13*Name_Enter{204I12} 354>25 10|1152b13 1157l8 1157t18
+354a25 S{string} 10|1152b25 1153r43 1155r20
+365V13*Name_Equals{boolean} 366>7 367>7 10|1492b13 1498l8 1498t19
+366i7 N1{204I12} 10|1493b7 1497r14 1497r47
+367i7 N2{204I12} 10|1494b7 1497r19 1497r70
+370V13*Get_Name_String{string} 370>30 10|841b13 846l8 846t23 1497s30 1497s53
+370i30 Id{204I12} 10|841b30 842r68 844r20
+376U14*Append 376=22 376>51 378r19 10|92s7 117b14 129l8 129t14 137s7 1583s7
+376r22 Buf{151R9} 10|117b22 119m7 119r21 121r10 121r23 123r26 128m7 128r18
+376e51 C{character} 10|117b51 128r33
+380U14*Append 380=22 380>51 10|101s7 131b14 134s10 138l8 138t14
+380r22 Buf{151R9} 10|131b22 134m18 137m15
+380i51 V{30|62I12} 10|131b51 133r10 134r23 137r57
+383U14*Append 383=22 383>51 10|110s7 140b14 155l8 155t14 159s7 170s7 1155s7
+. 1260s7
+383r22 Buf{151R9} 10|140b22 141r35 143m7 143r21 145r10 145r23 147r26 152m7
+. 152r7 152r27
+383a51 S{string} 10|140b51 143r34 152r42
+386U14*Append 386=22 386>51 10|157b14 160l8 160t14 454s7 546s13 618s7 633s7
+386r22 Buf{151R9} 10|157b22 159m15
+386r51 Buf2{151R9} 10|157b51 159r20 159r37
+389U14*Append 389=22 389>51 10|162b14 171l8 171t14 186s7 484s13 616s7 838s7
+. 844s7 854s7 1055s7 1784s13 1809s7
+389r22 Buf{151R9} 10|162b22 170m15
+389i51 Id{204I12} 10|162b51 163r37 165r53 166r53
+393U14*Append_Decoded 393=30 393>59 10|177b14 455l8 455t22 471s10 476s10
+. 631s7 796s7 1820s7
+393r30 Buf{151R9} 10|178b7 454m15
+393i59 Id{204I12} 10|179b7 186r21 190r30 199r33
+400U14*Append_Decoded_With_Brackets 401=7 402>7 10|461b14 549l8 549t36 806s7
+401r7 Buf{151R9} 10|462b7 470r10 471m26 475r13 476m26 546m21
+402i7 Id{204I12} 10|463b7 471r31 476r31 484r27
+412U14*Append_Unqualified 413=7 413>36 10|610b14 619l8 619t26 924s7
+413r7 Buf{151R9} 10|611b7 618m15
+413i36 Id{204I12} 10|612b7 616r21
+423U14*Append_Unqualified_Decoded 424=7 425>7 10|625b14 634l8 634t34 914s7
+424r7 Buf{151R9} 10|626b7 633m15
+425i7 Id{204I12} 10|627b7 631r29
+428U14*Append_Encoded 428=30 428>59 10|555b14 604l8 604t22 1584s7 1648s7
+428r30 Buf{151R9} 10|555b30 568m10 568r21 569m10 569r21 570m10 570r24 576m7
+. 576r21 583m16 583r27 585m16 585r27 591m10 591r21 596m10 596r21 597m10 597r24
+. 598m10 598r21
+428m59 C{30|528M12} 10|555b59 578r30 580r55 586r31 590r38 592r25 593r25 599r25
+. 600r26 601r26 602r25
+437U14*Set_Character_Literal_Name 438=7 439>7 10|1577b14 1585l8 1585t34 1589s7
+438r7 Buf{151R9} 10|1578b7 1582m7 1583m15 1584m23
+439m7 C{30|528M12} 10|1579b7 1584r28
+443U14*Insert_Str 444=7 445>7 446>7 10|968b14 980l8 980t18 988s7
+444r7 Buf{151R9} 10|969b7 976m7 976r7 976r32 977r9 977r29 978m7 978r7 979m7
+. 979r21
+445a7 S{string} 10|970b7 973r32 978r46
+446i7 Index{positive} 10|971b7 976r18 977r20 978r18 978r27
+450V13*Is_Internal_Name{boolean} 450>31 10|995b13 1050l8 1050t24 1056s14
+. 1061s14
+450r31 Buf{151R9} 10|995b31 1001r10 1002r17 1002r28 1008r13 1017r15 1022r16
+. 1025r43 1030r42 1038r19 1039r24 1040r24
+452U14*Get_Last_Two_Chars 453>7 454<7 455<7 10|813b14 829l8 829t26
+453i7 N{204I12} 10|814b7 818r52
+454e7 C1{character} 10|815b7 823m10 826m10
+455e7 C2{character} 10|816b7 824m10 827m10
+460V13*Get_Name_Table_Boolean1{boolean} 460>38 10|861b13 865l8 865t31
+460i38 Id{204I12} 10|861b38 863r37 864r34
+461V13*Get_Name_Table_Boolean2{boolean} 461>38 10|871b13 875l8 875t31
+461i38 Id{204I12} 10|871b38 873r37 874r34
+462V13*Get_Name_Table_Boolean3{boolean} 462>38 10|881b13 885l8 885t31
+462i38 Id{204I12} 10|881b38 883r37 884r34
+465V13*Get_Name_Table_Byte{30|75M9} 465>34 466r19 10|891b13 895l8 895t27
+465i34 Id{204I12} 10|891b34 893r37 894r34
+469V13*Get_Name_Table_Int{30|59I9} 469>33 470r19 10|901b13 905l8 905t26
+469i33 Id{204I12} 10|901b33 903r37 904r34
+473U14*Set_Name_Table_Boolean1 473>39 473>59 10|1596b14 1600l8 1600t31
+473i39 Id{204I12} 10|1596b39 1598r37 1599r27
+473b59 Val{boolean} 10|1596b59 1599r48
+474U14*Set_Name_Table_Boolean2 474>39 474>59 10|1606b14 1610l8 1610t31
+474i39 Id{204I12} 10|1606b39 1608r37 1609r27
+474b59 Val{boolean} 10|1606b59 1609r48
+475U14*Set_Name_Table_Boolean3 475>39 475>59 10|1616b14 1620l8 1620t31
+475i39 Id{204I12} 10|1616b39 1618r37 1619r27
+475b59 Val{boolean} 10|1616b59 1619r48
+478U14*Set_Name_Table_Byte 478>35 478>55 479r19 10|1626b14 1630l8 1630t27
+478i35 Id{204I12} 10|1626b35 1628r37 1629r27
+478m55 Val{30|75M9} 10|1626b55 1629r44
+482U14*Set_Name_Table_Int 482>34 482>54 483r19 10|1636b14 1640l8 1640t26
+482i34 Id{204I12} 10|1636b34 1638r37 1639r27
+482i54 Val{30|59I9} 10|1636b54 1639r43
+486V13*Is_Internal_Name{boolean} 486>31 10|1052b13 1057l8 1057t24
+486i31 Id{204I12} 10|1052b31 1053r68 1055r20
+502V13*Is_OK_Internal_Letter{boolean} 502>36 503r19 10|1030s19 1068b13 1076l8
+. 1076t29
+502e36 C{character} 10|1068b36 1070r14 1071r18 1072r18 1073r18 1074r18 1075r18
+510V13*Is_Operator_Name{boolean} 510>31 10|1082b13 1088l8 1088t24
+510i31 Id{204I12} 10|1082b31 1085r37 1086r32
+514V13*Is_Valid_Name{boolean} 514>28 10|163s22 863s22 873s22 883s22 893s22
+. 903s22 1085s22 1094b13 1097l8 1097t21 1598s22 1608s22 1618s22 1628s22 1638s22
+. 1780s10
+514i28 Id{188I9} 10|1094b28 1096r14
+518V13*Length_Of_Name{30|62I12} 518>29 519r19 10|842s52 1053s52 1103b13 1106l8
+. 1106t22 1782s58 1807s52
+518i29 Id{204I12} 10|1103b29 1105r39
+523U14*Initialize 10|959b14 962l8 962t18
+531U14*Reinitialize 10|1531b14 1559l8 1559t20 1827s4
+534U14*Reset_Name_Table 10|1565b14 1571l8 1571t24
+541U14*Finalize 10|640b14 787l8 787t16
+546U14*Lock 10|1112b14 1120l8 1120t12
+550U14*Unlock 10|1764b14 1772l8 1772t14
+554U14*Tree_Read 10|1736b14 1744l8 1744t17
+559U14*Tree_Write 10|1750b14 1758l8 1758t18
+563U14*Write_Name 563>26 10|1806b14 1811l8 1811t18
+563i26 Id{204I12} 10|1806b26 1807r68 1809r20
+569U14*Write_Name_Decoded 569>34 10|1817b14 1822l8 1822t26
+569i34 Id{204I12} 10|1817b34 1820r28
+573V13*Name_Entries_Count{30|62I12} 10|1163b13 1166l8 1166t26
+589U14*Add_Char_To_Name_Buffer 589>39 590r19 10|90b14 93l8 93t31
+589e39 C{character} 10|90b39 92r35
+592U14*Add_Nat_To_Name_Buffer 592>38 10|99b14 102l8 102t30
+592i38 V{30|62I12} 10|99b38 101r35
+594U14*Add_Str_To_Name_Buffer 594>38 10|108b14 111l8 111t30
+594a38 S{string} 10|108b38 110r35
+596U14*Get_Decoded_Name_String 596>39 10|793b14 797l8 797t31
+596i39 Id{204I12} 10|793b39 796r43
+598U14*Get_Decoded_Name_String_With_Brackets 598>53 10|803b14 807l8 807t45
+598i53 Id{204I12} 10|803b53 806r57
+600U14*Get_Name_String 600>31 10|835b14 839l8 839t23
+600i31 Id{204I12} 10|835b31 838r35
+602U14*Get_Name_String_And_Append 602>42 10|852b14 855l8 855t34
+602i42 Id{204I12} 10|852b42 854r35
+604U14*Get_Unqualified_Decoded_Name_String 604>51 10|911b14 915l8 915t43
+604i51 Id{204I12} 10|911b51 914r55
+606U14*Get_Unqualified_Name_String 606>43 10|921b14 925l8 925t35
+606i43 Id{204I12} 10|921b43 924r47
+608U14*Insert_Str_In_Name_Buffer 608>41 608>53 10|986b14 989l8 989t33
+608a41 S{string} 10|986b41 988r39
+608i53 Index{positive} 10|986b53 988r42
+610V13*Is_Internal_Name{boolean} 10|1059b13 1062l8 1062t24
+612U14*Set_Character_Literal_Name 612>42 10|1587b14 1590l8 1590t34
+612m42 C{30|528M12} 10|1587b42 1589r55
+614U14*Store_Encoded_Character 614>39 10|1646b14 1649l8 1649t31
+614m39 C{30|528M12} 10|1646b39 1648r43
+624I9*File_Name_Type<188I9> 629r23 629r41 633r28 637r31 637r49 642r6 10|1504r28
+629i4*No_File{624I9} 642r27 10|1506r21
+633V13*Present{boolean}<207p13> 633>22 10|1504b13 1507l8 1507t15
+633i22 Nam{624I9} 10|1504b22 1506r14
+637i4*Error_File_Name{624I9} 642r38
+641I12*Error_File_Name_Or_No_File{624I9}
+645I9*Path_Name_Type<188I9> 650r23 650r41
+650i4*No_Path{645I9}
+653I9*Unit_Name_Type<188I9> 658r28 658r46 661r28 665r31 665r49 670r6 10|1522r28
+658i4*No_Unit_Name{653I9} 670r27 10|1524r21
+661V13*Present{boolean}<207p13> 661>22 10|1522b13 1525l8 1525t15
+661i22 Nam{653I9} 10|1522b22 1524r14
+665i4*Error_Unit_Name{653I9} 670r43
+669I12*Error_Unit_Name_Or_No_Unit_Name{653I9}
+676U14*wn 676>18 677r24 10|1778b14 1800l8 1800t10
+676i18 Id{188I9} 10|1778b18 1780r25 1782r74 1784r26 1788r13 1791r13 1796r26
+702K12 Name_Chars[27|59] 10|167r15 168r17 725r37 779r18 779r36 823r16 824r16
+. 1087r14 1114r7 1114r28 1116r7 1117r7 1131r36 1144r10 1147r7 1210r22 1235r39
+. 1248r13 1251r10 1533r7 1540r39 1550r10 1551r10 1738r7 1752r7 1766r7 1767r7
+. 1767r28 1768r7
+710R9 Name_Entry 740e14 742r8 754r8 761r30 10|818r13
+711i7*Name_Chars_Index{30|59I9} 743r7 10|165r57 720r50 823r37 824r37 1086r36
+. 1131m11 1207r49 1235m14 1540m14
+717i7*Name_Len{30|71I9} 744r7 10|166r57 724r59 819r37 1105r43 1132m11 1202r55
+. 1236m14 1541m14
+720m7*Byte_Info{30|75M9} 745r7 10|894r38 1133m11 1240m14 1542m14 1569m33
+. 1629m31
+723b7*Boolean1_Info{boolean} 746r7 10|864r38 1135m11 1241m14 1544m14 1599m31
+724b7*Boolean2_Info{boolean} 747r7 10|874r38 1136m11 1242m14 1545m14 1609m31
+725b7*Boolean3_Info{boolean} 748r7 10|884r38 1137m11 1243m14 1546m14 1619m31
+728b7*Name_Has_No_Encodings{boolean} 749r7 10|190r34 199m37 1138m11 1238m14
+. 1547m14
+734i7*Hash_Link{188I9} 750r7 10|691r47 730r50 1139m11 1220r50 1221r60 1223m50
+. 1237m14 1548m14
+737i7*Int_Info{30|59I9} 751r7 10|904r38 1134m11 1239m14 1543m14 1568m33 1639m31
+760K12 Name_Entries[27|59] 10|165r33 166r33 190r10 199r13 691r24 720r27 724r36
+. 730r27 782r23 782r43 818r32 864r14 874r14 884r14 894r14 904r14 1086r12
+. 1096r20 1096r42 1105r19 1115r7 1115r30 1118r7 1119r7 1130r7 1149r14 1165r19
+. 1165r39 1197r40 1202r27 1207r21 1220r22 1221r32 1223r22 1224r24 1234r10
+. 1253r17 1534r7 1539r10 1567r33 1568r10 1569r10 1599r7 1609r7 1619r7 1629r7
+. 1639r7 1739r7 1753r7 1769r7 1770r7 1770r30 1771r7
+X 10 namet.adb
+47N4 Name_Chars_Reserve 1114r46 1767r46
+48N4 Name_Entries_Reserve 1115r50 1770r50
+56i4 Hash_Num{30|59I9} 61r31
+61i4 Hash_Max{30|59I9} 64r46
+64I12 Hash_Index_Type{30|59I9} 67r24 77r48 676r16 931r48 952r14 1181r20 1556r16
+67a4 Hash_Table(9|188I9) 677r13 688r21 718r24 1194r20 1197m13 1557m10 1742m10
+. 1742r10 1743r10 1743r31 1756m10 1756r10 1757r10 1757r31
+77V13 Hash{64I12} 77>19 78r19 931b13 953l8 953t12 1193s30
+77r19 Buf{9|151R9} 931b19 948r21 949r63
+81U14 Strip_Qualification_And_Suffixes 81=48 617s7 632s7 1655b14 1721l8 1721t40
+81r48 Buf{9|151R9} 1655b48 1661r29 1662r13 1663m13 1667r20 1668r21 1669r21
+. 1676r10 1676r21 1677r15 1678r31 1683r15 1692r13 1693m13 1694r18 1698r16
+. 1698r45 1703r16 1704m16 1705r21 1711m16 1711r16 1711r32 1712r18 1712r38
+. 1713m16 1713r30
+141i7 First{natural} 152r18
+165i7 Index{30|59I9} 168r35 168r48
+166i7 Len{30|71I9} 168r61
+167a7 Chars{27|110A12[9|702]} 170r28
+181e7 C{character} 203m13 206r15 207r15 208r15 209r15
+182i7 P{natural} 196m7 198r13 203r30 211m13 211r18
+183r7 Temp{9|151R9} 186m15 186r15 198r17 203r18 220r33 240r18 245r30 246r24
+. 247r24 275r30 276r24 284r30 285r24 286r24 309r21 342r23 346r16 347r30 356r19
+. 357r30 358r24 359r24 400r32 401r33 418r35 419r33 430r35 431r34 449m10 450m10
+. 454r20
+217q7 Decode 451l11 451e17
+218i10 New_Len{natural} 255m68 255r68 279m65 279r65 289m65 289r65 330m13
+. 330r24 331r22 337m10 449r25 450r27 450r53
+219i10 Old{positive} 240r30 245r24 246r36 247r36 249m16 249r23 275r24 276r36
+. 278m16 278r23 284r24 285r36 286r36 288m16 288r23 295m16 295r23 309r33 310m16
+. 310r23 338m10 342r16 346r28 347r24 349m16 349r23 356r31 357r24 358r36 359r36
+. 361m16 361r23 400r44 401r45 418r28 419r45 421m25 421r32 430r28 431r46
+220a10 New_Buf{string} 255m59 255r59 279m56 279r56 289m56 289r56 331m13 450r39
+222U20 Copy_One_Character 236b20 297l14 297t32 351s16 433s25 443s16
+226V19 Hex{30|68M9} 226>24 255s49 262s44 279s46 289s46 303b19 322l14 322t17
+226i24 N{natural} 303b24 308r27
+229U20 Insert_Character 229>38 268s22 294s16 328b20 332l14 332t30 350s16
+. 352s16 392s19 408s22 411s25 414s22 436s22
+229e38 C{character} 328b38 331r34
+237e13 C{character} 240m13 244r16 274r19 283r19 294r34
+262m22 W2{30|68M9} 264r37 268r55
+304m13 T{30|68M9} 315m19 315r29 317m19 317r29 321r20
+305e13 C{character} 309m16 312r31 312r55 314r19 315r48 317r48
+308i17 J{integer}
+368a19 Map{string} 398r24 400r51 401r56 407r22 408r40 410r25 411r43
+389i19 J{integer} 398m19 400r56 401r61 402m22 402r27 407r27 408r45 410r30
+. 411r48
+453L9 Done 191r15 200r18
+465i7 P{natural} 486m13 487r19 488r31 489m19 489r24 493r34 494r36 494r45
+. 499r31 499r53 500r31 500r53 501r31 502r31 503r31 504r31 505m19 505r24 509r34
+. 510r27 511r39 512r39 513r39 515r31 516r33 517r31 518r31 519r31 520r31 522m19
+. 522r24 526r34 527r27 528r39 529r39 531r31 531r40 532r33 533r31 533r40 533r62
+. 533r71 534r31 535r31 536r31 537r31 539m19 539r24 542m19 542r24
+482r13 Temp{9|151R9} 484m21 484r21 487r23 488r19 493r22 494r49 495m22 495r44
+. 498m19 498r34 499m19 499r41 500m19 500r41 501m19 502m19 503m19 504m19 509r22
+. 510r36 511r27 512r27 513r27 515m19 515r41 516r21 516r43 517m19 518m19 519m19
+. 520m19 521m19 521r34 526r22 527r31 528r27 529r27 531m19 531r44 532r21 532r42
+. 533m19 533r50 534m19 535m19 536m19 537m19 538m19 538r34 546r26
+494i23 J{integer} 495r34 495r56
+556U17 Set_Hex_Chars 556>32 564b17 571l11 571t24 586s16 592s10 593s10 599s10
+. 600s10 601s10 602s10
+556m32 C{30|528M12} 564b32 566r46
+565a10 Hexd{string} 568r40 569r40
+566i10 N{natural} 568r46 569r46
+580e13 CC{character} 582r16 582r41 583r42
+614r7 Temp{9|151R9} 616m15 616r15 617m41 617r41 618r20
+629r7 Temp{9|151R9} 631m23 631r23 632m41 632r41 633r20
+641a7 F(30|59I9) 672r16 673m10 678m13 678r22 711r23 712m19 712r28 714m19
+. 714r22 714r33 714r36 739r16 740r13 749r20 754r24
+645i7 Max_Chain_Length{30|62I12} 698r23 699m19 776r18
+648i7 Probes{30|62I12} 696m16 696r26 767m7 767r17 768r18 770m7 770r18 771r41
+. 772r41
+651i7 Nsyms{30|62I12} 695m16 695r25 764r22 767r26 785r18
+654i7 Verbosity{30|59I9} 655r29 702r19 717r19
+665i7 Zero{30|59I9} 771r34 772r34
+672i11 J<integer> 673r13
+676i11 J{64I12} 677r25 688r33 704r30 718r36
+682i16 C{30|62I12} 687m16 692m19 692r24 696r40 698r19 699r39 706r30 711r19
+. 712r22 712r31
+683i16 N{9|188I9} 688m16 690r22 691m19 691r44 718m19 719r25 720r47 724r56
+. 730m22 730r47
+684i16 S{30|59I9} 720m22 725r55
+724i26 J<short_integer> 725r64
+739i11 J<integer> 740r16 743r16 747r24 749r16 754r27
+818r7 NE{9|710R9} 819r34 823r34 824r34
+819i7 NEL{30|59I9} 822r10 823r56 824r56
+842r7 Buf{9|151R9} 844m15 844r15 845r15
+945m7 Result{8|66M9} 949m10 949r33 952r31
+948i11 J{integer} 949r74
+973i7 SL{natural} 976r26 976r45 978r35 979r34
+996i7 J{natural} 1017m10 1018r16 1022r27 1024m19 1024r24 1025r29 1025r54
+. 1030r53 1038r30 1039r35 1040r35 1045m13 1045r18
+1053r7 Buf{9|151R9} 1055m15 1055r15 1056r32
+1083i7 S{30|59I9} 1086m7 1087r32
+1143i11 J{integer} 1144r40
+1153r7 Buf{9|151R9} 1155m15 1155r15 1156r26
+1175i7 New_Id{9|188I9} 1194m10 1196r13 1202r47 1207r41 1215r23 1220r42 1221m22
+. 1221r52 1223r42
+1178i7 S{30|59I9} 1207m16 1210r40
+1181i7 Hash_Index{64I12} 1193m10 1194r32 1197r25
+1200l13 Search 1225r27 1227l22 1227e28
+1209i20 J{integer} 1210r49 1210r67
+1219L18 No_Match 1204r24 1211r27
+1247i14 J{integer} 1248r43
+1258r7 Buf{9|151R9} 1260m15 1260r15 1261r25
+1538e11 C{character} 1550r29
+1556i11 J{64I12} 1557r22
+1567i11 J<integer> 1568r30 1569r30
+1656i7 J{integer} 1677m10 1678r16 1678r42 1679m13 1679r18 1683m10 1688r13
+. 1692r24 1693r27 1694m13 1698r27 1698r56 1703r27 1704r30 1705m16 1711r45
+. 1712r29 1713r43 1718m13 1718r18
+1661i11 J{integer} 1662r24 1663r27 1667r31 1668r32 1669r32
+1782r13 Buf{9|151R9} 1784m21 1784r21 1785r24 1785r40
+1807r7 Buf{9|151R9} 1809m15 1809r15 1810r18 1810r34
+1818r7 Buf{9|151R9} 1820m23 1820r23 1821r18 1821r34
+X 11 opt.ads
+50K9*Opt 10|37w6 37r20 11|2414e8
+1673b4*Upper_Half_Encoding{boolean} 10|254r19
+X 12 output.ads
+44K9*Output 10|38w6 38r20 12|213e11
+106U14*Write_Char 10|725s25 744s16 769s7 771s7 772s7
+113U14*Write_Eol 10|708s19 728s22 737s7 755s13 762s7 773s7 777s7 780s7 783s7
+. 786s7 1799s7
+123U14*Write_Int 10|123s10 147s10 704s19 706s19 747s13 754s13 768s7 776s7
+. 779s7 782s7 785s7 1796s10
+130U14*Write_Str 10|122s10 146s10 703s19 705s19 707s19 722s22 741s13 750s16
+. 753s13 763s7 775s7 778s7 781s7 784s7 1785s13 1789s10 1792s10 1795s10 1810s7
+. 1821s7
+137U14*Write_Line 10|124s10 148s10
+X 13 system.ads
+37K9*System 10|39w6 39r20 13|174e11
+67M9*Address
+71N4*Storage_Unit 10|1743r59 1757r59
+X 17 s-memory.ads
+53V13*Alloc{13|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{13|67M9} 105i<c,__gnat_realloc>22
+X 27 table.ads
+46K9*Table 9|34w6 702r30 760r32 27|248e10
+50+12 Table_Component_Type 9|703r6 761r6
+51I12 Table_Index_Type 9|704r6 762r6
+53*7 Table_Low_Bound{51I12} 9|705r6 763r6
+54i7 Table_Initial{30|65I12} 9|706r6 764r6
+55i7 Table_Increment{30|62I12} 9|707r6 765r6
+56a7 Table_Name{string} 9|708r6 766r6
+59k12*Table 9|702r36 760r38 27|247e13
+110A12*Table_Type(9|710R9)<9|188I9> 10|167r26[9|702]
+113A15*Big_Table_Type{110A12[9|760]}<9|188I9>
+121P12*Table_Ptr(113A15[9|760])
+125p7*Table{121P12[9|760]} 10|165r46[9|760] 166r46[9|760] 168r28[9|702] 190r23[9|760]
+. 199r26[9|760] 691r37[9|760] 720r39[9|760] 720r40[9|760] 724r48[9|760] 724r49[9|760]
+. 725r47[9|702] 725r48[9|702] 730r39[9|760] 730r40[9|760] 818r45[9|760] 823r27[9|702]
+. 824r27[9|702] 864r27[9|760] 874r27[9|760] 884r27[9|760] 894r27[9|760] 904r27[9|760]
+. 1086r25[9|760] 1087r25[9|702] 1105r32[9|760] 1202r40[9|760] 1207r34[9|760]
+. 1210r33[9|702] 1220r35[9|760] 1221r45[9|760] 1223r35[9|760] 1568r23[9|760]
+. 1569r23[9|760] 1599r20[9|760] 1609r20[9|760] 1619r20[9|760] 1629r20[9|760]
+. 1639r20[9|760]
+132b7*Locked{boolean} 10|1117m18[9|702] 1119m20[9|760] 1766m18[9|702] 1769m20[9|760]
+142U17*Init 10|1533s18[9|702] 1534s20[9|760]
+149V16*Last{30|59I9} 10|779s29[9|702] 782s36[9|760] 1096s55[9|760] 1114s39[9|702]
+. 1115s43[9|760] 1131s47[9|702] 1149s27[9|760] 1165s32[9|760] 1197s53[9|760]
+. 1224s37[9|760] 1235s50[9|702] 1253s30[9|760] 1540s50[9|702] 1567s46[9|760]
+. 1767s39[9|702] 1770s43[9|760]
+156U17*Release 10|1116s18[9|702] 1118s20[9|760] 1768s18[9|702] 1771s20[9|760]
+172i7*First{30|59I9} 10|779r47[9|702] 782r56[9|760] 1096r33[9|760] 1165r52[9|760]
+175U17*Set_Last 10|1114s18[9|702] 1115s20[9|760] 1767s18[9|702] 1770s20[9|760]
+192U17*Append 10|1130s20[9|760] 1144s21[9|702] 1147s18[9|702] 1234s23[9|760]
+. 1248s24[9|702] 1251s21[9|702] 1539s23[9|760] 1550s21[9|702] 1551s21[9|702]
+223U17*Tree_Write 10|1752s18[9|702] 1753s20[9|760]
+226U17*Tree_Read 10|1738s18[9|702] 1739s20[9|760]
+X 29 tree_io.ads
+45K9*Tree_IO 10|40w6 40r20 29|128e12
+76U14*Tree_Read_Data 10|1741s7
+108U14*Tree_Write_Data 10|1755s7
+X 30 types.ads
+52K9*Types 9|35w6 35r20 30|948e10
+59I9*Int<integer> 9|469r60 482r60 704r30 711r26 737r18 10|56r24 61r24 64r31
+. 123r21 147r21 165r24 168r56 641r18 641r40 654r28 665r23 684r20 725r59 782r18
+. 819r22 819r29 901r60 1083r11 1105r14 1165r14 1178r11 1210r44 1636r60 1796r21
+62I12*Nat{59I9} 9|380r55 518r56 573r39 592r42 10|99r42 131r55 645r26 648r16
+. 651r15 682r20 1103r56 1163r39
+65I12*Pos{59I9}
+68M9*Word 10|226r44 262r36 303r44 304r17
+71I9*Short<short_integer> 9|717r18 10|166r24 1132r36 1236r39
+75M9*Byte 9|465r61 478r61 720r19 10|891r61 1626r61
+328N4*Names_Low_Bound 9|188r26 192r34 196r37 201r40
+331N4*Names_High_Bound 9|188r45
+525M9*Char_Code_Base
+528M12*Char_Code{525M9} 9|428r63 439r13 612r46 614r43 10|255r38 279r35 289r35
+. 555r63 556r36 564r36 1579r13 1587r46 1646r43
+539V13*In_Character_Range{boolean} 10|578s10
+544V13*In_Wide_Character_Range{boolean} 10|590s13
+549V13*Get_Character{character} 10|580s40
+X 34 widechar.ads
+39K9*Widechar 10|41w6 255r19 279r16 289r16 34|101e13
+68U14*Set_Wide 10|255s28 279s25 289s25
+

@@ -1,0 +1,1420 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U restrict%b		restrict.adb		9b3e77e6 OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W atree%s		atree.adb		atree.ali
+W casing%s		casing.adb		casing.ali
+W debug%s		debug.adb		debug.ali
+W einfo%s		einfo.adb		einfo.ali
+W errout%s		errout.adb		errout.ali
+W fname%s		fname.adb		fname.ali
+W fname.uf%s		fname-uf.adb		fname-uf.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W lib%s			lib.adb			lib.ali
+W opt%s			opt.adb			opt.ali
+Z output%s		output.adb		output.ali  AD
+W sinfo%s		sinfo.adb		sinfo.ali
+W sinput%s		sinput.adb		sinput.ali
+W stand%s		stand.adb		stand.ali
+Z system%s		system.ads		system.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W uname%s		uname.adb		uname.ali
+
+U restrict%s		restrict.ads		28ebce8e BN EE OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W aspects%s		aspects.adb		aspects.ali
+W namet%s		namet.adb		namet.ali
+W rident%s		rident.ads		rident.ali
+W snames%s		snames.adb		snames.ali
+Z system%s		system.ads		system.ali
+W table%s		table.adb		table.ali
+W types%s		types.adb		types.ali
+W uintp%s		uintp.adb		uintp.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D aspects.ads		20190518044710 bc94048b aspects%s
+D aspects.adb		20190518044709 beb69845 aspects%b
+D atree.ads		20190518044709 2c9e949c atree%s
+D atree.adb		20190518044709 3ab87b63 atree%b
+D casing.ads		20190518044709 9b922bd9 casing%s
+D casing.adb		20190518044709 a368c85b casing%b
+D csets.ads		20190518044709 e948558f csets%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D einfo.ads		20190518044709 0cc0e22d einfo%s
+D einfo.adb		20190518044709 ad5e25fd einfo%b
+D elists.ads		20190518044709 299e4c60 elists%s
+D err_vars.ads		20190518044709 572d4c83 err_vars%s
+D errout.ads		20190518044709 5a3f6b01 errout%s
+D erroutc.ads		20190518044709 4502cfdd erroutc%s
+D fname.ads		20190518044709 b3fc94d8 fname%s
+D fname-uf.ads		20190518044709 8161e886 fname.uf%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-byorma.ads		20190518041256 2b13b02c gnat.byte_order_mark%s
+D g-hesorg.ads		20190518041255 106922da gnat.heap_sort_g%s
+D g-htable.ads		20190518041255 4b643b8d gnat.htable%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D lib.ads		20190518044709 a95956cc lib%s
+D lib.adb		20190518044709 263934f5 lib%b
+D lib-list.adb		20190518044709 b37fd35d lib.list
+D lib-sort.adb		20190518044709 857b8e8e lib.sort
+D namet.ads		20190518044709 b520bebe namet%s
+D namet.adb		20190518044709 64106062 namet%b
+D nlists.ads		20190518044709 0f3f40a5 nlists%s
+D opt.ads		20190518044710 3d2ce478 opt%s
+D output.ads		20190518044709 a916e413 output%s
+D restrict.ads		20190518044709 be95cc18 restrict%s
+D restrict.adb		20190518044709 0a2a81a8 restrict%b
+D rident.ads		20190518044709 770cd2d0 rident%s
+D scans.ads		20190518044709 8b26a439 scans%s
+D sinfo.ads		20190518044709 4a0f957d sinfo%s
+D sinfo.adb		20190518044709 61e0e836 sinfo%b
+D sinput.ads		20190518044709 573062f0 sinput%s
+D sinput.adb		20190518044709 d9451392 sinput%b
+D snames.ads		20190518132638 5f03100c snames%s
+D stand.ads		20190518044709 4852f602 stand%s
+D stringt.ads		20190518044709 36edeb84 stringt%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-htable.ads		20190518041257 84c2b3ea system.htable%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-rident.ads		20190518041257 50efdf23 system.rident%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D uintp.ads		20190518044709 c6012b27 uintp%s
+D uintp.adb		20190518044709 db343839 uintp%b
+D uname.ads		20190518044709 1136d870 uname%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D urealp.ads		20190518044709 e500ee51 urealp%s
+D widechar.ads		20190518044709 afb9abd7 widechar%s
+G a e
+G c b b b [b restrict 46 1 none]
+G c s s s [s restrict 42 1 none]
+G c Z s s [Trestriction_profile_nameBIP restrict 61 4 none]
+G c Z s s [unit_entryIP restrict 85 9 none]
+G c Z s s [nd_entryIP restrict 175 9 none]
+G c Z s s [init restrict__no_dependences 142 17 187_4]
+G c Z s s [last restrict__no_dependences 149 16 187_4]
+G c Z s s [release restrict__no_dependences 156 17 187_4]
+G c Z s s [free restrict__no_dependences 168 17 187_4]
+G c Z s s [set_last restrict__no_dependences 175 17 187_4]
+G c Z s s [increment_last restrict__no_dependences 184 17 187_4]
+G c Z s s [decrement_last restrict__no_dependences 188 17 187_4]
+G c Z s s [append restrict__no_dependences 192 17 187_4]
+G c Z s s [append_all restrict__no_dependences 200 17 187_4]
+G c Z s s [set_item restrict__no_dependences 203 17 187_4]
+G c Z s s [save restrict__no_dependences 215 16 187_4]
+G c Z s s [restore restrict__no_dependences 219 17 187_4]
+G c Z s s [tree_write restrict__no_dependences 223 17 187_4]
+G c Z s s [tree_read restrict__no_dependences 226 17 187_4]
+G c Z s s [table_typeIP restrict__no_dependences 110 12 187_4]
+G c Z s s [saved_tableIP restrict__no_dependences 241 12 187_4]
+G c Z s s [reallocate restrict__no_dependences 58 17 187_4]
+G c Z s s [tree_get_table_address restrict__no_dependences 63 16 187_4]
+G c Z s s [to_address restrict__no_dependences 72 16 187_4]
+G c Z s s [to_pointer restrict__no_dependences 73 16 187_4]
+G c Z s s [ne_entryIP restrict 206 9 none]
+G c Z s s [init restrict__no_use_of_entity 142 17 220_4]
+G c Z s s [last restrict__no_use_of_entity 149 16 220_4]
+G c Z s s [release restrict__no_use_of_entity 156 17 220_4]
+G c Z s s [free restrict__no_use_of_entity 168 17 220_4]
+G c Z s s [set_last restrict__no_use_of_entity 175 17 220_4]
+G c Z s s [increment_last restrict__no_use_of_entity 184 17 220_4]
+G c Z s s [decrement_last restrict__no_use_of_entity 188 17 220_4]
+G c Z s s [append restrict__no_use_of_entity 192 17 220_4]
+G c Z s s [append_all restrict__no_use_of_entity 200 17 220_4]
+G c Z s s [set_item restrict__no_use_of_entity 203 17 220_4]
+G c Z s s [save restrict__no_use_of_entity 215 16 220_4]
+G c Z s s [restore restrict__no_use_of_entity 219 17 220_4]
+G c Z s s [tree_write restrict__no_use_of_entity 223 17 220_4]
+G c Z s s [tree_read restrict__no_use_of_entity 226 17 220_4]
+G c Z s s [table_typeIP restrict__no_use_of_entity 110 12 220_4]
+G c Z s s [saved_tableIP restrict__no_use_of_entity 241 12 220_4]
+G c Z s s [reallocate restrict__no_use_of_entity 58 17 220_4]
+G c Z s s [tree_get_table_address restrict__no_use_of_entity 63 16 220_4]
+G c Z s s [to_address restrict__no_use_of_entity 72 16 220_4]
+G c Z s s [to_pointer restrict__no_use_of_entity 73 16 220_4]
+G c Z s b [abort_allowed restrict 241 13 none]
+G c Z s b [check_compiler_unit restrict 247 14 none]
+G c Z s b [check_compiler_unit restrict 252 14 none]
+G c Z s b [check_restricted_unit restrict 257 14 none]
+G c Z s b [check_restriction restrict 262 14 none]
+G c Z s b [check_restriction restrict 278 14 none]
+G c Z s b [check_restriction_no_dependence restrict 285 14 none]
+G c Z s b [check_restriction_no_specification_of_aspect restrict 290 14 none]
+G c Z s b [check_restriction_no_use_of_attribute restrict 295 14 none]
+G c Z s b [check_restriction_no_use_of_entity restrict 300 14 none]
+G c Z s b [check_restriction_no_use_of_pragma restrict 305 14 none]
+G c Z s b [check_elaboration_code_allowed restrict 310 14 none]
+G c Z s b [check_spark_05_restriction restrict 316 14 none]
+G c Z s b [check_spark_05_restriction restrict 325 14 none]
+G c Z s b [check_no_implicit_aliasing restrict 332 14 none]
+G c Z s b [check_implicit_dynamic_code_allowed restrict 339 14 none]
+G c Z s b [check_no_implicit_heap_alloc restrict 346 14 none]
+G c Z s b [check_no_implicit_task_alloc restrict 350 14 none]
+G c Z s b [check_no_implicit_protected_alloc restrict 354 14 none]
+G c Z s b [check_obsolescent_2005_entity restrict 359 14 none]
+G c Z s b [check_wide_character_restriction restrict 368 14 none]
+G c Z s b [get_restriction_id restrict 374 13 none]
+G c Z s b [ok_no_dependence_unit_name restrict 380 13 none]
+G c Z s b [ok_no_use_of_entity_name restrict 385 13 none]
+G c Z s b [is_in_hidden_part_in_spark restrict 390 13 none]
+G c Z s b [no_exception_handlers_set restrict 394 13 none]
+G c Z s b [no_exception_propagation_active restrict 403 13 none]
+G c Z s b [process_restriction_synonyms restrict 407 13 none]
+G c Z s b [restriction_active restrict 412 13 none]
+G c Z s b [restriction_check_required restrict 422 13 none]
+G c Z s b [restricted_profile restrict 432 13 none]
+G c Z s b [set_hidden_part_in_spark restrict 438 14 none]
+G c Z s b [set_profile_restrictions restrict 443 14 none]
+G c Z s b [set_restriction restrict 454 14 none]
+G c Z s b [set_restriction restrict 461 14 none]
+G c Z s b [set_restriction_no_dependence restrict 468 14 none]
+G c Z s b [set_restriction_no_specification_of_aspect restrict 478 14 none]
+G c Z s b [set_restriction_no_specification_of_aspect restrict 487 14 none]
+G c Z s b [set_restriction_no_use_of_attribute restrict 490 14 none]
+G c Z s b [set_restriction_no_use_of_attribute restrict 497 14 none]
+G c Z s b [set_restriction_no_use_of_entity restrict 500 14 none]
+G c Z s b [set_restriction_no_use_of_pragma restrict 512 14 none]
+G c Z s b [set_restriction_no_use_of_pragma restrict 518 14 none]
+G c Z s b [tasking_allowed restrict 521 13 none]
+G c Z s b [cunit_boolean_restrictions_save restrict 556 13 none]
+G c Z s b [cunit_boolean_restrictions_restore restrict 563 14 none]
+G c Z s b [save_config_cunit_boolean_restrictions restrict 572 14 none]
+G c Z s b [restore_config_cunit_boolean_restrictions restrict 578 14 none]
+G c Z s b [reset_cunit_boolean_restrictions restrict 584 14 none]
+G c Z s b [add_to_config_boolean_restrictions restrict 587 14 none]
+G c Z s s [Tsave_cunit_boolean_restrictionsBIP restrict 592 4 none]
+G c Z b b [spark_hide_entryIP restrict 63 9 none]
+G c Z b b [init restrict__spark_hides 142 17 68_4]
+G c Z b b [last restrict__spark_hides 149 16 68_4]
+G c Z b b [release restrict__spark_hides 156 17 68_4]
+G c Z b b [free restrict__spark_hides 168 17 68_4]
+G c Z b b [set_last restrict__spark_hides 175 17 68_4]
+G c Z b b [increment_last restrict__spark_hides 184 17 68_4]
+G c Z b b [decrement_last restrict__spark_hides 188 17 68_4]
+G c Z b b [append restrict__spark_hides 192 17 68_4]
+G c Z b b [append_all restrict__spark_hides 200 17 68_4]
+G c Z b b [set_item restrict__spark_hides 203 17 68_4]
+G c Z b b [save restrict__spark_hides 215 16 68_4]
+G c Z b b [restore restrict__spark_hides 219 17 68_4]
+G c Z b b [tree_write restrict__spark_hides 223 17 68_4]
+G c Z b b [tree_read restrict__spark_hides 226 17 68_4]
+G c Z b b [table_typeIP restrict__spark_hides 110 12 68_4]
+G c Z b b [saved_tableIP restrict__spark_hides 241 12 68_4]
+G c Z b b [reallocate restrict__spark_hides 58 17 68_4]
+G c Z b b [tree_get_table_address restrict__spark_hides 63 16 68_4]
+G c Z b b [to_address restrict__spark_hides 72 16 68_4]
+G c Z b b [to_pointer restrict__spark_hides 73 16 68_4]
+G c Z b b [restriction_msg restrict 131 14 none]
+G c Z b b [same_entity restrict 137 13 none]
+G c Z b b [same_unit restrict 141 13 none]
+G c Z b b [suppress_restriction_message restrict 145 13 none]
+G r c none [b restrict 46 1 none] [write_str output 130 14 none]
+G r c none [b restrict 46 1 none] [write_int output 123 14 none]
+G r c none [b restrict 46 1 none] [write_eol output 113 14 none]
+G r c none [b restrict 46 1 none] [set_standard_error output 77 14 none]
+G r c none [b restrict 46 1 none] [set_standard_output output 84 14 none]
+G r i none [b restrict 46 1 none] [table table 59 12 none]
+G r c none [s restrict 42 1 none] [write_str output 130 14 none]
+G r c none [s restrict 42 1 none] [write_int output 123 14 none]
+G r c none [s restrict 42 1 none] [write_eol output 113 14 none]
+G r c none [s restrict 42 1 none] [set_standard_error output 77 14 none]
+G r c none [s restrict 42 1 none] [set_standard_output output 84 14 none]
+G r i none [s restrict 42 1 none] [table table 59 12 none]
+G r c none [init restrict__no_dependences 142 17 187_4] [write_str output 130 14 none]
+G r c none [init restrict__no_dependences 142 17 187_4] [write_int output 123 14 none]
+G r c none [init restrict__no_dependences 142 17 187_4] [write_eol output 113 14 none]
+G r c none [init restrict__no_dependences 142 17 187_4] [set_standard_error output 77 14 none]
+G r c none [init restrict__no_dependences 142 17 187_4] [set_standard_output output 84 14 none]
+G r c none [release restrict__no_dependences 156 17 187_4] [write_str output 130 14 none]
+G r c none [release restrict__no_dependences 156 17 187_4] [write_int output 123 14 none]
+G r c none [release restrict__no_dependences 156 17 187_4] [write_eol output 113 14 none]
+G r c none [release restrict__no_dependences 156 17 187_4] [set_standard_error output 77 14 none]
+G r c none [release restrict__no_dependences 156 17 187_4] [set_standard_output output 84 14 none]
+G r c none [set_last restrict__no_dependences 175 17 187_4] [write_str output 130 14 none]
+G r c none [set_last restrict__no_dependences 175 17 187_4] [write_int output 123 14 none]
+G r c none [set_last restrict__no_dependences 175 17 187_4] [write_eol output 113 14 none]
+G r c none [set_last restrict__no_dependences 175 17 187_4] [set_standard_error output 77 14 none]
+G r c none [set_last restrict__no_dependences 175 17 187_4] [set_standard_output output 84 14 none]
+G r c none [increment_last restrict__no_dependences 184 17 187_4] [write_str output 130 14 none]
+G r c none [increment_last restrict__no_dependences 184 17 187_4] [write_int output 123 14 none]
+G r c none [increment_last restrict__no_dependences 184 17 187_4] [write_eol output 113 14 none]
+G r c none [increment_last restrict__no_dependences 184 17 187_4] [set_standard_error output 77 14 none]
+G r c none [increment_last restrict__no_dependences 184 17 187_4] [set_standard_output output 84 14 none]
+G r c none [append restrict__no_dependences 192 17 187_4] [write_str output 130 14 none]
+G r c none [append restrict__no_dependences 192 17 187_4] [write_int output 123 14 none]
+G r c none [append restrict__no_dependences 192 17 187_4] [write_eol output 113 14 none]
+G r c none [append restrict__no_dependences 192 17 187_4] [set_standard_error output 77 14 none]
+G r c none [append restrict__no_dependences 192 17 187_4] [set_standard_output output 84 14 none]
+G r c none [append_all restrict__no_dependences 200 17 187_4] [write_str output 130 14 none]
+G r c none [append_all restrict__no_dependences 200 17 187_4] [write_int output 123 14 none]
+G r c none [append_all restrict__no_dependences 200 17 187_4] [write_eol output 113 14 none]
+G r c none [append_all restrict__no_dependences 200 17 187_4] [set_standard_error output 77 14 none]
+G r c none [append_all restrict__no_dependences 200 17 187_4] [set_standard_output output 84 14 none]
+G r c none [set_item restrict__no_dependences 203 17 187_4] [write_str output 130 14 none]
+G r c none [set_item restrict__no_dependences 203 17 187_4] [write_int output 123 14 none]
+G r c none [set_item restrict__no_dependences 203 17 187_4] [write_eol output 113 14 none]
+G r c none [set_item restrict__no_dependences 203 17 187_4] [set_standard_error output 77 14 none]
+G r c none [set_item restrict__no_dependences 203 17 187_4] [set_standard_output output 84 14 none]
+G r c none [save restrict__no_dependences 215 16 187_4] [write_str output 130 14 none]
+G r c none [save restrict__no_dependences 215 16 187_4] [write_int output 123 14 none]
+G r c none [save restrict__no_dependences 215 16 187_4] [write_eol output 113 14 none]
+G r c none [save restrict__no_dependences 215 16 187_4] [set_standard_error output 77 14 none]
+G r c none [save restrict__no_dependences 215 16 187_4] [set_standard_output output 84 14 none]
+G r c none [tree_write restrict__no_dependences 223 17 187_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write restrict__no_dependences 223 17 187_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read restrict__no_dependences 226 17 187_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read restrict__no_dependences 226 17 187_4] [write_str output 130 14 none]
+G r c none [tree_read restrict__no_dependences 226 17 187_4] [write_int output 123 14 none]
+G r c none [tree_read restrict__no_dependences 226 17 187_4] [write_eol output 113 14 none]
+G r c none [tree_read restrict__no_dependences 226 17 187_4] [set_standard_error output 77 14 none]
+G r c none [tree_read restrict__no_dependences 226 17 187_4] [set_standard_output output 84 14 none]
+G r c none [tree_read restrict__no_dependences 226 17 187_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate restrict__no_dependences 58 17 187_4] [write_str output 130 14 none]
+G r c none [reallocate restrict__no_dependences 58 17 187_4] [write_int output 123 14 none]
+G r c none [reallocate restrict__no_dependences 58 17 187_4] [write_eol output 113 14 none]
+G r c none [reallocate restrict__no_dependences 58 17 187_4] [set_standard_error output 77 14 none]
+G r c none [reallocate restrict__no_dependences 58 17 187_4] [set_standard_output output 84 14 none]
+G r c none [init restrict__no_use_of_entity 142 17 220_4] [write_str output 130 14 none]
+G r c none [init restrict__no_use_of_entity 142 17 220_4] [write_int output 123 14 none]
+G r c none [init restrict__no_use_of_entity 142 17 220_4] [write_eol output 113 14 none]
+G r c none [init restrict__no_use_of_entity 142 17 220_4] [set_standard_error output 77 14 none]
+G r c none [init restrict__no_use_of_entity 142 17 220_4] [set_standard_output output 84 14 none]
+G r c none [release restrict__no_use_of_entity 156 17 220_4] [write_str output 130 14 none]
+G r c none [release restrict__no_use_of_entity 156 17 220_4] [write_int output 123 14 none]
+G r c none [release restrict__no_use_of_entity 156 17 220_4] [write_eol output 113 14 none]
+G r c none [release restrict__no_use_of_entity 156 17 220_4] [set_standard_error output 77 14 none]
+G r c none [release restrict__no_use_of_entity 156 17 220_4] [set_standard_output output 84 14 none]
+G r c none [set_last restrict__no_use_of_entity 175 17 220_4] [write_str output 130 14 none]
+G r c none [set_last restrict__no_use_of_entity 175 17 220_4] [write_int output 123 14 none]
+G r c none [set_last restrict__no_use_of_entity 175 17 220_4] [write_eol output 113 14 none]
+G r c none [set_last restrict__no_use_of_entity 175 17 220_4] [set_standard_error output 77 14 none]
+G r c none [set_last restrict__no_use_of_entity 175 17 220_4] [set_standard_output output 84 14 none]
+G r c none [increment_last restrict__no_use_of_entity 184 17 220_4] [write_str output 130 14 none]
+G r c none [increment_last restrict__no_use_of_entity 184 17 220_4] [write_int output 123 14 none]
+G r c none [increment_last restrict__no_use_of_entity 184 17 220_4] [write_eol output 113 14 none]
+G r c none [increment_last restrict__no_use_of_entity 184 17 220_4] [set_standard_error output 77 14 none]
+G r c none [increment_last restrict__no_use_of_entity 184 17 220_4] [set_standard_output output 84 14 none]
+G r c none [append restrict__no_use_of_entity 192 17 220_4] [write_str output 130 14 none]
+G r c none [append restrict__no_use_of_entity 192 17 220_4] [write_int output 123 14 none]
+G r c none [append restrict__no_use_of_entity 192 17 220_4] [write_eol output 113 14 none]
+G r c none [append restrict__no_use_of_entity 192 17 220_4] [set_standard_error output 77 14 none]
+G r c none [append restrict__no_use_of_entity 192 17 220_4] [set_standard_output output 84 14 none]
+G r c none [append_all restrict__no_use_of_entity 200 17 220_4] [write_str output 130 14 none]
+G r c none [append_all restrict__no_use_of_entity 200 17 220_4] [write_int output 123 14 none]
+G r c none [append_all restrict__no_use_of_entity 200 17 220_4] [write_eol output 113 14 none]
+G r c none [append_all restrict__no_use_of_entity 200 17 220_4] [set_standard_error output 77 14 none]
+G r c none [append_all restrict__no_use_of_entity 200 17 220_4] [set_standard_output output 84 14 none]
+G r c none [set_item restrict__no_use_of_entity 203 17 220_4] [write_str output 130 14 none]
+G r c none [set_item restrict__no_use_of_entity 203 17 220_4] [write_int output 123 14 none]
+G r c none [set_item restrict__no_use_of_entity 203 17 220_4] [write_eol output 113 14 none]
+G r c none [set_item restrict__no_use_of_entity 203 17 220_4] [set_standard_error output 77 14 none]
+G r c none [set_item restrict__no_use_of_entity 203 17 220_4] [set_standard_output output 84 14 none]
+G r c none [save restrict__no_use_of_entity 215 16 220_4] [write_str output 130 14 none]
+G r c none [save restrict__no_use_of_entity 215 16 220_4] [write_int output 123 14 none]
+G r c none [save restrict__no_use_of_entity 215 16 220_4] [write_eol output 113 14 none]
+G r c none [save restrict__no_use_of_entity 215 16 220_4] [set_standard_error output 77 14 none]
+G r c none [save restrict__no_use_of_entity 215 16 220_4] [set_standard_output output 84 14 none]
+G r c none [tree_write restrict__no_use_of_entity 223 17 220_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write restrict__no_use_of_entity 223 17 220_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read restrict__no_use_of_entity 226 17 220_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read restrict__no_use_of_entity 226 17 220_4] [write_str output 130 14 none]
+G r c none [tree_read restrict__no_use_of_entity 226 17 220_4] [write_int output 123 14 none]
+G r c none [tree_read restrict__no_use_of_entity 226 17 220_4] [write_eol output 113 14 none]
+G r c none [tree_read restrict__no_use_of_entity 226 17 220_4] [set_standard_error output 77 14 none]
+G r c none [tree_read restrict__no_use_of_entity 226 17 220_4] [set_standard_output output 84 14 none]
+G r c none [tree_read restrict__no_use_of_entity 226 17 220_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate restrict__no_use_of_entity 58 17 220_4] [write_str output 130 14 none]
+G r c none [reallocate restrict__no_use_of_entity 58 17 220_4] [write_int output 123 14 none]
+G r c none [reallocate restrict__no_use_of_entity 58 17 220_4] [write_eol output 113 14 none]
+G r c none [reallocate restrict__no_use_of_entity 58 17 220_4] [set_standard_error output 77 14 none]
+G r c none [reallocate restrict__no_use_of_entity 58 17 220_4] [set_standard_output output 84 14 none]
+G r c none [check_compiler_unit restrict 247 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_compiler_unit restrict 252 14 none] [error_msg errout 695 14 none]
+G r c none [check_restricted_unit restrict 257 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_restricted_unit restrict 257 14 none] [sloc atree 678 13 none]
+G r c none [check_restricted_unit restrict 257 14 none] [in_internal_unit lib 645 13 none]
+G r c none [check_restricted_unit restrict 257 14 none] [is_spec_name uname 148 13 none]
+G r c none [check_restricted_unit restrict 257 14 none] [get_name_string namet 600 14 none]
+G r c none [check_restricted_unit restrict 257 14 none] [add_str_to_name_buffer namet 594 14 none]
+G r c none [check_restricted_unit restrict 257 14 none] [is_predefined_file_name fname 68 13 none]
+G r c none [check_restricted_unit restrict 257 14 none] [original_node atree 1157 13 none]
+G r c none [check_restricted_unit restrict 257 14 none] [comes_from_source atree 645 13 none]
+G r c none [check_restricted_unit restrict 257 14 none] [nkind atree 657 13 none]
+G r c none [check_restricted_unit restrict 257 14 none] [attribute_name sinfo 9322 13 none]
+G r c none [check_restricted_unit restrict 257 14 none] [first_node errout 784 13 none]
+G r c none [check_restricted_unit restrict 257 14 none] [error_msg_f errout 737 14 none]
+G r c none [check_restricted_unit restrict 257 14 none] [ui_is_in_int_range uintp 180 13 none]
+G r c none [check_restricted_unit restrict 257 14 none] [ui_to_int uintp 261 13 none]
+G r c none [check_restricted_unit restrict 257 14 none] [instantiation_location sinput 605 13 none]
+G r c none [check_restricted_unit restrict 257 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [check_restricted_unit restrict 257 14 none] [identifier_casing sinput 302 13 none]
+G r c none [check_restricted_unit restrict 257 14 none] [set_casing casing 84 14 none]
+G r c none [check_restricted_unit restrict 257 14 none] [set_all_upper_case casing 87 14 none]
+G r c none [check_restricted_unit restrict 257 14 none] [ui_from_int uintp 248 13 none]
+G r c none [check_restricted_unit restrict 257 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_restricted_unit restrict 257 14 none] [get_file_name fname__uf 62 13 none]
+G r c none [check_restriction restrict 262 14 none] [original_node atree 1157 13 none]
+G r c none [check_restriction restrict 262 14 none] [comes_from_source atree 645 13 none]
+G r c none [check_restriction restrict 262 14 none] [nkind atree 657 13 none]
+G r c none [check_restriction restrict 262 14 none] [attribute_name sinfo 9322 13 none]
+G r c none [check_restriction restrict 262 14 none] [sloc atree 678 13 none]
+G r c none [check_restriction restrict 262 14 none] [first_node errout 784 13 none]
+G r c none [check_restriction restrict 262 14 none] [error_msg_f errout 737 14 none]
+G r c none [check_restriction restrict 262 14 none] [ui_is_in_int_range uintp 180 13 none]
+G r c none [check_restriction restrict 262 14 none] [ui_to_int uintp 261 13 none]
+G r c none [check_restriction restrict 262 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_restriction restrict 262 14 none] [in_internal_unit lib 645 13 none]
+G r c none [check_restriction restrict 262 14 none] [instantiation_location sinput 605 13 none]
+G r c none [check_restriction restrict 262 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [check_restriction restrict 262 14 none] [identifier_casing sinput 302 13 none]
+G r c none [check_restriction restrict 262 14 none] [set_casing casing 84 14 none]
+G r c none [check_restriction restrict 262 14 none] [set_all_upper_case casing 87 14 none]
+G r c none [check_restriction restrict 262 14 none] [ui_from_int uintp 248 13 none]
+G r c none [check_restriction restrict 262 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_restriction restrict 278 14 none] [original_node atree 1157 13 none]
+G r c none [check_restriction restrict 278 14 none] [comes_from_source atree 645 13 none]
+G r c none [check_restriction restrict 278 14 none] [nkind atree 657 13 none]
+G r c none [check_restriction restrict 278 14 none] [attribute_name sinfo 9322 13 none]
+G r c none [check_restriction restrict 278 14 none] [sloc atree 678 13 none]
+G r c none [check_restriction restrict 278 14 none] [first_node errout 784 13 none]
+G r c none [check_restriction restrict 278 14 none] [error_msg_f errout 737 14 none]
+G r c none [check_restriction restrict 278 14 none] [ui_is_in_int_range uintp 180 13 none]
+G r c none [check_restriction restrict 278 14 none] [ui_to_int uintp 261 13 none]
+G r c none [check_restriction restrict 278 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_restriction restrict 278 14 none] [in_internal_unit lib 645 13 none]
+G r c none [check_restriction restrict 278 14 none] [instantiation_location sinput 605 13 none]
+G r c none [check_restriction restrict 278 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [check_restriction restrict 278 14 none] [identifier_casing sinput 302 13 none]
+G r c none [check_restriction restrict 278 14 none] [set_casing casing 84 14 none]
+G r c none [check_restriction restrict 278 14 none] [set_all_upper_case casing 87 14 none]
+G r c none [check_restriction restrict 278 14 none] [ui_from_int uintp 248 13 none]
+G r c none [check_restriction restrict 278 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_restriction_no_dependence restrict 285 14 none] [sloc atree 678 13 none]
+G r c none [check_restriction_no_dependence restrict 285 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_restriction_no_dependence restrict 285 14 none] [nkind atree 657 13 none]
+G r c none [check_restriction_no_dependence restrict 285 14 none] [nkind_in atree 688 13 none]
+G r c none [check_restriction_no_dependence restrict 285 14 none] [selector_name sinfo 10219 13 none]
+G r c none [check_restriction_no_dependence restrict 285 14 none] [prefix sinfo 10117 13 none]
+G r c none [check_restriction_no_dependence restrict 285 14 none] [chars sinfo 9349 13 none]
+G r c none [check_restriction_no_dependence restrict 285 14 none] [error_msg errout 695 14 none]
+G r c none [check_restriction_no_specification_of_aspect restrict 290 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_restriction_no_specification_of_aspect restrict 290 14 none] [identifier sinfo 9745 13 none]
+G r c none [check_restriction_no_specification_of_aspect restrict 290 14 none] [chars sinfo 9349 13 none]
+G r c none [check_restriction_no_specification_of_aspect restrict 290 14 none] [get_aspect_id aspects 542 13 none]
+G r c none [check_restriction_no_specification_of_aspect restrict 290 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_restriction_no_use_of_attribute restrict 295 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_restriction_no_use_of_attribute restrict 295 14 none] [comes_from_source atree 645 13 none]
+G r c none [check_restriction_no_use_of_attribute restrict 295 14 none] [nkind atree 657 13 none]
+G r c none [check_restriction_no_use_of_attribute restrict 295 14 none] [attribute_name sinfo 9322 13 none]
+G r c none [check_restriction_no_use_of_attribute restrict 295 14 none] [chars sinfo 9349 13 none]
+G r c none [check_restriction_no_use_of_attribute restrict 295 14 none] [get_attribute_id snames 2200 13 none]
+G r c none [check_restriction_no_use_of_attribute restrict 295 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_restriction_no_use_of_entity restrict 300 14 none] [entity sinfo 9568 13 none]
+G r c none [check_restriction_no_use_of_entity restrict 300 14 none] [no atree 660 13 none]
+G r c none [check_restriction_no_use_of_entity restrict 300 14 none] [chars sinfo 9349 13 none]
+G r c none [check_restriction_no_use_of_entity restrict 300 14 none] [get_name_table_boolean2 namet 461 13 none]
+G r c none [check_restriction_no_use_of_entity restrict 300 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_restriction_no_use_of_entity restrict 300 14 none] [scope sinfo 10213 13 none]
+G r c none [check_restriction_no_use_of_entity restrict 300 14 none] [nkind atree 657 13 none]
+G r c none [check_restriction_no_use_of_entity restrict 300 14 none] [nkind_in atree 688 13 none]
+G r c none [check_restriction_no_use_of_entity restrict 300 14 none] [selector_name sinfo 10219 13 none]
+G r c none [check_restriction_no_use_of_entity restrict 300 14 none] [sloc atree 678 13 none]
+G r c none [check_restriction_no_use_of_entity restrict 300 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_restriction_no_use_of_entity restrict 300 14 none] [is_internal_name namet 486 13 none]
+G r c none [check_restriction_no_use_of_entity restrict 300 14 none] [prefix sinfo 10117 13 none]
+G r c none [check_restriction_no_use_of_pragma restrict 305 14 none] [pragma_identifier sinfo 10105 13 none]
+G r c none [check_restriction_no_use_of_pragma restrict 305 14 none] [chars sinfo 9349 13 none]
+G r c none [check_restriction_no_use_of_pragma restrict 305 14 none] [get_pragma_id snames 2220 13 none]
+G r c none [check_restriction_no_use_of_pragma restrict 305 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_restriction_no_use_of_pragma restrict 305 14 none] [comes_from_source atree 645 13 none]
+G r c none [check_restriction_no_use_of_pragma restrict 305 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [original_node atree 1157 13 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [comes_from_source atree 645 13 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [nkind atree 657 13 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [attribute_name sinfo 9322 13 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [sloc atree 678 13 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [first_node errout 784 13 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [error_msg_f errout 737 14 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [ui_is_in_int_range uintp 180 13 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [ui_to_int uintp 261 13 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [in_internal_unit lib 645 13 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [instantiation_location sinput 605 13 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [identifier_casing sinput 302 13 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [set_casing casing 84 14 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [set_all_upper_case casing 87 14 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [ui_from_int uintp 248 13 none]
+G r c none [check_elaboration_code_allowed restrict 310 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [original_node atree 1157 13 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [comes_from_source atree 645 13 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [nkind atree 657 13 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [attribute_name sinfo 9322 13 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [sloc atree 678 13 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [first_node errout 784 13 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [ui_is_in_int_range uintp 180 13 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [ui_to_int uintp 261 13 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [in_internal_unit lib 645 13 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [instantiation_location sinput 605 13 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [identifier_casing sinput 302 13 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [set_casing casing 84 14 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [set_all_upper_case casing 87 14 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [ui_from_int uintp 248 13 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_spark_05_restriction restrict 316 14 none] [error_msg_f errout 737 14 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [original_node atree 1157 13 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [comes_from_source atree 645 13 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [sloc atree 678 13 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [first_node errout 784 13 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [nkind atree 657 13 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [attribute_name sinfo 9322 13 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [error_msg_f errout 737 14 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [ui_is_in_int_range uintp 180 13 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [ui_to_int uintp 261 13 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [in_internal_unit lib 645 13 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [instantiation_location sinput 605 13 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [identifier_casing sinput 302 13 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [set_casing casing 84 14 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [set_all_upper_case casing 87 14 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [ui_from_int uintp 248 13 none]
+G r c none [check_spark_05_restriction restrict 325 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [is_entity_name einfo 8479 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [nkind atree 657 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [nkind_in atree 688 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [expression sinfo 9616 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [prefix sinfo 10117 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [etype sinfo 9592 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [designated_type einfo 7598 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [has_aliased_components einfo 7155 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [is_access_type einfo 7534 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [selector_name sinfo 10219 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [entity sinfo 9568 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [is_object einfo 7571 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [is_aliased einfo 7272 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [renamed_object einfo 7462 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [present atree 673 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [original_node atree 1157 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [comes_from_source atree 645 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [attribute_name sinfo 9322 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [sloc atree 678 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [first_node errout 784 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [error_msg_f errout 737 14 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [ui_is_in_int_range uintp 180 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [ui_to_int uintp 261 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [in_internal_unit lib 645 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [instantiation_location sinput 605 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [identifier_casing sinput 302 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [set_casing casing 84 14 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [set_all_upper_case casing 87 14 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [ui_from_int uintp 248 13 none]
+G r c none [check_no_implicit_aliasing restrict 332 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [original_node atree 1157 13 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [comes_from_source atree 645 13 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [nkind atree 657 13 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [attribute_name sinfo 9322 13 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [sloc atree 678 13 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [first_node errout 784 13 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [error_msg_f errout 737 14 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [ui_is_in_int_range uintp 180 13 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [ui_to_int uintp 261 13 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [in_internal_unit lib 645 13 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [instantiation_location sinput 605 13 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [identifier_casing sinput 302 13 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [set_casing casing 84 14 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [set_all_upper_case casing 87 14 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [ui_from_int uintp 248 13 none]
+G r c none [check_implicit_dynamic_code_allowed restrict 339 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [original_node atree 1157 13 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [comes_from_source atree 645 13 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [nkind atree 657 13 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [attribute_name sinfo 9322 13 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [sloc atree 678 13 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [first_node errout 784 13 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [error_msg_f errout 737 14 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [ui_is_in_int_range uintp 180 13 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [ui_to_int uintp 261 13 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [in_internal_unit lib 645 13 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [instantiation_location sinput 605 13 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [identifier_casing sinput 302 13 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [set_casing casing 84 14 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [set_all_upper_case casing 87 14 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [ui_from_int uintp 248 13 none]
+G r c none [check_no_implicit_heap_alloc restrict 346 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [original_node atree 1157 13 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [comes_from_source atree 645 13 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [nkind atree 657 13 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [attribute_name sinfo 9322 13 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [sloc atree 678 13 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [first_node errout 784 13 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [error_msg_f errout 737 14 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [ui_is_in_int_range uintp 180 13 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [ui_to_int uintp 261 13 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [in_internal_unit lib 645 13 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [instantiation_location sinput 605 13 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [identifier_casing sinput 302 13 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [set_casing casing 84 14 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [set_all_upper_case casing 87 14 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [ui_from_int uintp 248 13 none]
+G r c none [check_no_implicit_task_alloc restrict 350 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [original_node atree 1157 13 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [comes_from_source atree 645 13 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [nkind atree 657 13 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [attribute_name sinfo 9322 13 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [sloc atree 678 13 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [first_node errout 784 13 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [error_msg_f errout 737 14 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [ui_is_in_int_range uintp 180 13 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [ui_to_int uintp 261 13 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [in_internal_unit lib 645 13 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [instantiation_location sinput 605 13 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [identifier_casing sinput 302 13 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [set_casing casing 84 14 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [set_all_upper_case casing 87 14 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [ui_from_int uintp 248 13 none]
+G r c none [check_no_implicit_protected_alloc restrict 354 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [scope sinfo 10213 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [chars sinfo 9349 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [length_of_name namet 518 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [get_name_string namet 370 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [original_node atree 1157 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [comes_from_source atree 645 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [nkind atree 657 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [attribute_name sinfo 9322 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [sloc atree 678 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [first_node errout 784 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [error_msg_f errout 737 14 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [ui_is_in_int_range uintp 180 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [ui_to_int uintp 261 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [in_internal_unit lib 645 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [instantiation_location sinput 605 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [identifier_casing sinput 302 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [set_casing casing 84 14 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [set_all_upper_case casing 87 14 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [ui_from_int uintp 248 13 none]
+G r c none [check_obsolescent_2005_entity restrict 359 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [comes_from_source atree 645 13 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [original_node atree 1157 13 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [nkind atree 657 13 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [attribute_name sinfo 9322 13 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [sloc atree 678 13 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [first_node errout 784 13 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [error_msg_f errout 737 14 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [ui_is_in_int_range uintp 180 13 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [ui_to_int uintp 261 13 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [in_internal_unit lib 645 13 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [instantiation_location sinput 605 13 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [identifier_casing sinput 302 13 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [set_casing casing 84 14 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [set_all_upper_case casing 87 14 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [ui_from_int uintp 248 13 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [error_msg_n errout 728 14 none]
+G r c none [check_wide_character_restriction restrict 368 14 none] [root_type einfo 7659 13 none]
+G r c none [get_restriction_id restrict 374 13 none] [get_name_string namet 600 14 none]
+G r c none [get_restriction_id restrict 374 13 none] [set_casing casing 84 14 none]
+G r c none [ok_no_dependence_unit_name restrict 380 13 none] [nkind atree 657 13 none]
+G r c none [ok_no_dependence_unit_name restrict 380 13 none] [error_msg_n errout 728 14 none]
+G r c none [ok_no_dependence_unit_name restrict 380 13 none] [selector_name sinfo 10219 13 none]
+G r c none [ok_no_dependence_unit_name restrict 380 13 none] [prefix sinfo 10117 13 none]
+G r c none [ok_no_use_of_entity_name restrict 385 13 none] [nkind atree 657 13 none]
+G r c none [ok_no_use_of_entity_name restrict 385 13 none] [nkind_in atree 688 13 none]
+G r c none [ok_no_use_of_entity_name restrict 385 13 none] [error_msg_n errout 728 14 none]
+G r c none [ok_no_use_of_entity_name restrict 385 13 none] [selector_name sinfo 10219 13 none]
+G r c none [ok_no_use_of_entity_name restrict 385 13 none] [prefix sinfo 10117 13 none]
+G r c none [process_restriction_synonyms restrict 407 13 none] [chars sinfo 9349 13 none]
+G r c none [process_restriction_synonyms restrict 407 13 none] [error_msg_n errout 728 14 none]
+G r c none [set_hidden_part_in_spark restrict 438 14 none] [write_str output 130 14 none]
+G r c none [set_hidden_part_in_spark restrict 438 14 none] [write_int output 123 14 none]
+G r c none [set_hidden_part_in_spark restrict 438 14 none] [write_eol output 113 14 none]
+G r c none [set_hidden_part_in_spark restrict 438 14 none] [set_standard_error output 77 14 none]
+G r c none [set_hidden_part_in_spark restrict 438 14 none] [set_standard_output output 84 14 none]
+G r c none [set_profile_restrictions restrict 443 14 none] [sloc atree 678 13 none]
+G r c none [set_profile_restrictions restrict 443 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [set_restriction restrict 454 14 none] [sloc atree 678 13 none]
+G r c none [set_restriction restrict 454 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [set_restriction restrict 461 14 none] [sloc atree 678 13 none]
+G r c none [set_restriction restrict 461 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [set_restriction_no_dependence restrict 468 14 none] [nkind atree 657 13 none]
+G r c none [set_restriction_no_dependence restrict 468 14 none] [nkind_in atree 688 13 none]
+G r c none [set_restriction_no_dependence restrict 468 14 none] [selector_name sinfo 10219 13 none]
+G r c none [set_restriction_no_dependence restrict 468 14 none] [prefix sinfo 10117 13 none]
+G r c none [set_restriction_no_dependence restrict 468 14 none] [chars sinfo 9349 13 none]
+G r c none [set_restriction_no_dependence restrict 468 14 none] [write_str output 130 14 none]
+G r c none [set_restriction_no_dependence restrict 468 14 none] [write_int output 123 14 none]
+G r c none [set_restriction_no_dependence restrict 468 14 none] [write_eol output 113 14 none]
+G r c none [set_restriction_no_dependence restrict 468 14 none] [set_standard_error output 77 14 none]
+G r c none [set_restriction_no_dependence restrict 468 14 none] [set_standard_output output 84 14 none]
+G r c none [set_restriction_no_specification_of_aspect restrict 478 14 none] [chars sinfo 9349 13 none]
+G r c none [set_restriction_no_specification_of_aspect restrict 478 14 none] [get_aspect_id aspects 542 13 none]
+G r c none [set_restriction_no_specification_of_aspect restrict 478 14 none] [sloc atree 678 13 none]
+G r c none [set_restriction_no_use_of_attribute restrict 490 14 none] [chars sinfo 9349 13 none]
+G r c none [set_restriction_no_use_of_attribute restrict 490 14 none] [get_attribute_id snames 2200 13 none]
+G r c none [set_restriction_no_use_of_attribute restrict 490 14 none] [sloc atree 678 13 none]
+G r c none [set_restriction_no_use_of_entity restrict 500 14 none] [nkind_in atree 688 13 none]
+G r c none [set_restriction_no_use_of_entity restrict 500 14 none] [selector_name sinfo 10219 13 none]
+G r c none [set_restriction_no_use_of_entity restrict 500 14 none] [nkind atree 657 13 none]
+G r c none [set_restriction_no_use_of_entity restrict 500 14 none] [prefix sinfo 10117 13 none]
+G r c none [set_restriction_no_use_of_entity restrict 500 14 none] [chars sinfo 9349 13 none]
+G r c none [set_restriction_no_use_of_entity restrict 500 14 none] [write_str output 130 14 none]
+G r c none [set_restriction_no_use_of_entity restrict 500 14 none] [write_int output 123 14 none]
+G r c none [set_restriction_no_use_of_entity restrict 500 14 none] [write_eol output 113 14 none]
+G r c none [set_restriction_no_use_of_entity restrict 500 14 none] [set_standard_error output 77 14 none]
+G r c none [set_restriction_no_use_of_entity restrict 500 14 none] [set_standard_output output 84 14 none]
+G r c none [set_restriction_no_use_of_entity restrict 500 14 none] [set_name_table_boolean2 namet 474 14 none]
+G r c none [set_restriction_no_use_of_pragma restrict 512 14 none] [chars sinfo 9349 13 none]
+G r c none [set_restriction_no_use_of_pragma restrict 512 14 none] [get_pragma_id snames 2220 13 none]
+G r c none [set_restriction_no_use_of_pragma restrict 512 14 none] [sloc atree 678 13 none]
+G r c none [cunit_boolean_restrictions_restore restrict 563 14 none] [cunit_entity lib 449 13 none]
+G r c none [cunit_boolean_restrictions_restore restrict 563 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [restore_config_cunit_boolean_restrictions restrict 578 14 none] [cunit_entity lib 449 13 none]
+G r c none [restore_config_cunit_boolean_restrictions restrict 578 14 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [init restrict__spark_hides 142 17 68_4] [write_str output 130 14 none]
+G r c none [init restrict__spark_hides 142 17 68_4] [write_int output 123 14 none]
+G r c none [init restrict__spark_hides 142 17 68_4] [write_eol output 113 14 none]
+G r c none [init restrict__spark_hides 142 17 68_4] [set_standard_error output 77 14 none]
+G r c none [init restrict__spark_hides 142 17 68_4] [set_standard_output output 84 14 none]
+G r c none [release restrict__spark_hides 156 17 68_4] [write_str output 130 14 none]
+G r c none [release restrict__spark_hides 156 17 68_4] [write_int output 123 14 none]
+G r c none [release restrict__spark_hides 156 17 68_4] [write_eol output 113 14 none]
+G r c none [release restrict__spark_hides 156 17 68_4] [set_standard_error output 77 14 none]
+G r c none [release restrict__spark_hides 156 17 68_4] [set_standard_output output 84 14 none]
+G r c none [set_last restrict__spark_hides 175 17 68_4] [write_str output 130 14 none]
+G r c none [set_last restrict__spark_hides 175 17 68_4] [write_int output 123 14 none]
+G r c none [set_last restrict__spark_hides 175 17 68_4] [write_eol output 113 14 none]
+G r c none [set_last restrict__spark_hides 175 17 68_4] [set_standard_error output 77 14 none]
+G r c none [set_last restrict__spark_hides 175 17 68_4] [set_standard_output output 84 14 none]
+G r c none [increment_last restrict__spark_hides 184 17 68_4] [write_str output 130 14 none]
+G r c none [increment_last restrict__spark_hides 184 17 68_4] [write_int output 123 14 none]
+G r c none [increment_last restrict__spark_hides 184 17 68_4] [write_eol output 113 14 none]
+G r c none [increment_last restrict__spark_hides 184 17 68_4] [set_standard_error output 77 14 none]
+G r c none [increment_last restrict__spark_hides 184 17 68_4] [set_standard_output output 84 14 none]
+G r c none [append restrict__spark_hides 192 17 68_4] [write_str output 130 14 none]
+G r c none [append restrict__spark_hides 192 17 68_4] [write_int output 123 14 none]
+G r c none [append restrict__spark_hides 192 17 68_4] [write_eol output 113 14 none]
+G r c none [append restrict__spark_hides 192 17 68_4] [set_standard_error output 77 14 none]
+G r c none [append restrict__spark_hides 192 17 68_4] [set_standard_output output 84 14 none]
+G r c none [append_all restrict__spark_hides 200 17 68_4] [write_str output 130 14 none]
+G r c none [append_all restrict__spark_hides 200 17 68_4] [write_int output 123 14 none]
+G r c none [append_all restrict__spark_hides 200 17 68_4] [write_eol output 113 14 none]
+G r c none [append_all restrict__spark_hides 200 17 68_4] [set_standard_error output 77 14 none]
+G r c none [append_all restrict__spark_hides 200 17 68_4] [set_standard_output output 84 14 none]
+G r c none [set_item restrict__spark_hides 203 17 68_4] [write_str output 130 14 none]
+G r c none [set_item restrict__spark_hides 203 17 68_4] [write_int output 123 14 none]
+G r c none [set_item restrict__spark_hides 203 17 68_4] [write_eol output 113 14 none]
+G r c none [set_item restrict__spark_hides 203 17 68_4] [set_standard_error output 77 14 none]
+G r c none [set_item restrict__spark_hides 203 17 68_4] [set_standard_output output 84 14 none]
+G r c none [save restrict__spark_hides 215 16 68_4] [write_str output 130 14 none]
+G r c none [save restrict__spark_hides 215 16 68_4] [write_int output 123 14 none]
+G r c none [save restrict__spark_hides 215 16 68_4] [write_eol output 113 14 none]
+G r c none [save restrict__spark_hides 215 16 68_4] [set_standard_error output 77 14 none]
+G r c none [save restrict__spark_hides 215 16 68_4] [set_standard_output output 84 14 none]
+G r c none [tree_write restrict__spark_hides 223 17 68_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write restrict__spark_hides 223 17 68_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read restrict__spark_hides 226 17 68_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read restrict__spark_hides 226 17 68_4] [write_str output 130 14 none]
+G r c none [tree_read restrict__spark_hides 226 17 68_4] [write_int output 123 14 none]
+G r c none [tree_read restrict__spark_hides 226 17 68_4] [write_eol output 113 14 none]
+G r c none [tree_read restrict__spark_hides 226 17 68_4] [set_standard_error output 77 14 none]
+G r c none [tree_read restrict__spark_hides 226 17 68_4] [set_standard_output output 84 14 none]
+G r c none [tree_read restrict__spark_hides 226 17 68_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate restrict__spark_hides 58 17 68_4] [write_str output 130 14 none]
+G r c none [reallocate restrict__spark_hides 58 17 68_4] [write_int output 123 14 none]
+G r c none [reallocate restrict__spark_hides 58 17 68_4] [write_eol output 113 14 none]
+G r c none [reallocate restrict__spark_hides 58 17 68_4] [set_standard_error output 77 14 none]
+G r c none [reallocate restrict__spark_hides 58 17 68_4] [set_standard_output output 84 14 none]
+G r c none [restriction_msg restrict 131 14 none] [sloc atree 678 13 none]
+G r c none [restriction_msg restrict 131 14 none] [get_source_file_index sinput 558 13 none]
+G r c none [restriction_msg restrict 131 14 none] [identifier_casing sinput 302 13 none]
+G r c none [restriction_msg restrict 131 14 none] [set_casing casing 84 14 none]
+G r c none [restriction_msg restrict 131 14 none] [set_all_upper_case casing 87 14 none]
+G r c none [restriction_msg restrict 131 14 none] [ui_from_int uintp 248 13 none]
+G r c none [restriction_msg restrict 131 14 none] [error_msg_n errout 728 14 none]
+G r c none [same_entity restrict 137 13 none] [nkind_in atree 688 13 none]
+G r c none [same_entity restrict 137 13 none] [selector_name sinfo 10219 13 none]
+G r c none [same_entity restrict 137 13 none] [nkind atree 657 13 none]
+G r c none [same_entity restrict 137 13 none] [prefix sinfo 10117 13 none]
+G r c none [same_entity restrict 137 13 none] [chars sinfo 9349 13 none]
+G r c none [same_unit restrict 141 13 none] [nkind atree 657 13 none]
+G r c none [same_unit restrict 141 13 none] [nkind_in atree 688 13 none]
+G r c none [same_unit restrict 141 13 none] [selector_name sinfo 10219 13 none]
+G r c none [same_unit restrict 141 13 none] [prefix sinfo 10117 13 none]
+G r c none [same_unit restrict 141 13 none] [chars sinfo 9349 13 none]
+G r c none [suppress_restriction_message restrict 145 13 none] [in_extended_main_source_unit lib 622 13 none]
+G r c none [suppress_restriction_message restrict 145 13 none] [sloc atree 678 13 none]
+G r c none [suppress_restriction_message restrict 145 13 none] [in_internal_unit lib 645 13 none]
+X 6 aspects.ads
+71K9*Aspects 945e12 37|34w6 34r19
+75E9*Aspect_Id 213e35 37|487r65 38|92r41 97r48 647r14 1700r65
+76n7*No_Aspect{75E9} 38|667r30
+215E12*Aspect_Id_Exclude_No_Aspect{75E9} 38|1692r23
+542V13*Get_Aspect_Id{75E9} 38|666s15 1692s54
+X 8 atree.ads
+44K9*Atree 4321e10 38|32w6 32r20
+645V13*Comes_From_Source{boolean} 38|704s17 842s17 875s17 883s28 888s50 921s10
+. 950s18
+657V13*Nkind{41|8645E9} 38|251s13 257s13 275s13 708s10 711s25 773s27 801s34
+. 880s18 881s28 888s18 1079s10 1085s13 1100s10 1428s10 1428s45 1676s25
+660V13*No{boolean} 38|734s10
+673V13*Present{boolean} 38|238s19
+678V13*Sloc{66|220I12} 38|572s42 613s18 624s31 630s19 634s19 783s40 891s49
+. 923s49 1297s67 1530s34 1569s37 1575s34 1696s45 1719s37 1742s34 1766s13
+688V13*Nkind_In{boolean} 38|269s13 778s22 795s22 1106s13 1404s10 1406s10
+. 1410s13 1412s13 1431s13 1433s13 1672s10 1678s25
+1157V13*Original_Node{66|397I9} 38|866s49 921s29
+X 9 atree.adb
+2658V16 Traverse[8|601]{8|595E12} 2523b13[44|944]
+X 10 casing.ads
+35K9*Casing 98e11 38|33w6 33r20
+50n7*All_Upper_Case{48E9} 38|1015r19
+84U14*Set_Casing 38|1015s7 1297s13
+87U14*Set_All_Upper_Case 38|1295s13
+X 13 debug.ads
+36K9*Debug 256e10 38|36w6 36r20
+121b4*Debug_Flag_Dot_G{boolean} 38|1069r24
+X 14 einfo.ads
+37K9*Einfo 9617e10 38|34w6 34r20
+7016B12*B{boolean}
+7018I12*E{66|400I12}
+7021I12*N{66|397I9}
+7155V13*Has_Aliased_Components{7016E12} 38|258s13 261s25
+7272V13*Is_Aliased{7016E12} 38|235s16
+7462V13*Renamed_Object{7021I12} 38|238s28 239s44
+7534V13*Is_Access_Type{7016E12} 38|260s15
+7571V13*Is_Object{7016E12} 38|234s13
+7598V13*Designated_Type{7018I12} 38|262s28
+7659V13*Root_Type{7018I12} 38|953s39
+8479V13*Is_Entity_Name{boolean} 38|229s10
+X 18 errout.ads
+40K9*Errout 951e11 38|35w6 35r20
+459i4*Error_Msg_Uint_1=459:45{67|48I9} 38|1347r10
+463i4*Error_Msg_Sloc=463:49{66|220I12} 38|624r13 669r7 671r10 716r7 718r10
+. 783r22 846r7 848r10 900r33 902r10 932r33 934r10 1328r7 1332r10 1333r17
+. 1338r10 1358r13 1387r13
+466i4*Error_Msg_Name_1=466:48{32|188I9} 38|719r10 1146r13 1148r13 1160r10
+. 1162r10
+480i4*Error_Msg_Node_1=480:48{66|397I9} 38|625r13 672r10 781r22
+490b4*Error_Msg_Warn=490:46{boolean} 38|673r10 720r10 782r22 849r10
+496a4*Error_Msg_String=496:48{string} 38|1301r10
+497i4*Error_Msg_Strlen=497:48{natural} 38|1300r10
+695U14*Error_Msg 38|191s10 628s16 632s16
+728U14*Error_Msg_N 38|184s10 674s10 721s10 784s22 850s10 1089s10 1110s10
+. 1147s13 1149s13 1161s10 1163s10 1363s10 1369s10 1394s10
+737U14*Error_Msg_F 38|905s13 937s13 938s13
+784V13*First_Node{66|397I9} 38|901s51 933s51
+X 20 fname.ads
+38K9*Fname 113e10 38|37w6 37r20 38r6 38r20
+68V13*Is_Predefined_File_Name{boolean} 38|393s16
+X 21 fname-uf.ads
+46K15*UF 120e13 38|38w12 38r26
+62V13*Get_File_Name{32|624I9} 38|368s22
+64b7 Subunit{boolean} 38|368r40
+X 28 lib.ads
+40K9*Lib 1025e8 38|39w6 39r20
+247i4*Current_Sem_Unit{66|564I9} 38|551r10 750r10 982r54 1543r10 1584r10
+449V13*Cunit_Entity{66|400I12} 38|982s40
+622V13*In_Extended_Main_Source_Unit{boolean} 38|552s17 612s14 661s14 693s14
+. 751s22 831s14 982s10 1544s17 1585s17 1761s10
+645V13*In_Internal_Unit{boolean} 38|1772s17
+X 32 namet.ads
+37K9*Namet 768e10 37|35w6 35r19
+169a4*Name_Buffer{string} 38|379r24 381r24 396r30 407r19 1021r20 1291r10
+. 1301r46
+170i4*Name_Len{natural} 38|378r16 379r37 379r53 381r37 381r53 388r13 388r25
+. 389r38 395r22 1021r38 1292r10 1300r30 1301r33 1301r64
+188I9*Name_Id<integer> 37|375r11 407r63 38|325r25 686r18 1011r11 1122r63
+. 1123r27 1124r18
+370V13*Get_Name_String{string} 38|330s20
+461V13*Get_Name_Table_Boolean2{boolean} 38|741s10
+474U14*Set_Name_Table_Boolean2 38|1681s7
+486V13*Is_Internal_Name{boolean} 38|809s33
+518V13*Length_Of_Name{66|62I12} 38|327s13
+594U14*Add_Str_To_Name_Buffer 38|389s13
+600U14*Get_Name_String 38|373s13 1014s7
+624I9*File_Name_Type<188I9> 38|367r29
+653I9*Unit_Name_Type<188I9> 37|257r41 38|360r41
+X 35 opt.ads
+50K9*Opt 2414e8 38|40w6 40r20
+125n46*Ada_2005{125E9} 38|338r33
+138e4*Ada_Version{125E9} 38|338r18
+377b4*CodePeer_Mode{boolean} 38|514r10
+403b4*Compiler_Unit{boolean} 38|183r10 190r10
+420b4*Configurable_Run_Time_Mode{boolean} 38|1055r40 1068r24
+1183b4*No_Run_Time_Mode{boolean} 38|1055r15 1067r15 1785r22
+1850b4*Warn_On_Obsolescent_Feature{boolean} 38|1159r10
+2259b4*GNATprove_Mode{boolean} 38|515r18
+X 37 restrict.ads
+42K9*Restrict 592E9 597l5 597e13 38|46b14 1788l5 1788t13
+44r4*Restrictions{55|322R9[39|49]} 38|156r10 157r18 158r18 545m28 545r28
+. 564r17 582r18 583r29 584r17 584r42 594m10 595m10 975m10 985m10 1000r19
+. 1056r19 1058r19 1176m10 1210r28 1214r42 1232r14 1241r14 1347r48 1518m7
+. 1566r10 1567r17 1568m13 1573m10 1574m10 1782r18 1783r23 1784r28
+53a4*Restrictions_Loc(66|220I12) 38|1328r25 1529r10 1530m10 1569m13 1575m10
+61a4*Restriction_Profile_Name(55|379E9[39|49]) 38|1357r10 1383r39 1492m16
+. 1535m7 1600m7
+67r4*Main_Restrictions{55|322R9[39|49]} 38|554m31 554r31 1547m13 1587r13
+. 1588r20 1589m16 1593m13 1594m13
+73a4*Restriction_Warnings{55|318A9[39|49]} 38|1211r37 1232r48 1315r10 1376r13
+. 1500m19 1546r17 1592r20
+85R9*Unit_Entry 88e14 90r55
+86e7*Res_Id{55|85E9[39|49]} 38|398r56
+87a7*Filenm{string} 38|396r68
+90a4*Unit_Array(85R9) 38|394r25 396r53 398r41
+116a4*Implementation_Restriction(boolean)
+175R9*ND_Entry 185e14 188r30
+176i7*Unit{66|397I9} 38|621r41 1619r55
+179b7*Warn{boolean} 38|627r41 1624m41
+182e7*Profile{55|379E9[39|49]}
+187K12*No_Dependences[63|59] 38|620r16 620r40 621r16 627r16 1615r16 1615r40
+. 1619r30 1624r16 1633r7
+206R9*NE_Entry 218e14 221r30 38|760r22
+207i7*Entity{66|397I9} 38|766r28 783r53 1654r61
+212b7*Warn{boolean} 38|782r47 1659m43
+215e7*Profile{55|379E9[39|49]}
+220K12*No_Use_Of_Entity[63|59] 38|758r16 758r42 760r39 1650r16 1650r42 1654r34
+. 1659r16 1668r7
+241V13*Abort_Allowed{boolean} 242r19 38|154b13 164l8 164t21
+247U14*Check_Compiler_Unit 247>35 247>53 38|181b14 186l8 186t27
+247a35 Feature{string} 38|181b35 184r23
+247i53 N{66|397I9} 38|181b53 184r70
+252U14*Check_Compiler_Unit 252>35 252>53 38|188b14 193l8 193t27
+252a35 Feature{string} 38|188b35 191r21
+252i53 Loc{66|220I12} 38|188b53 191r68
+257U14*Check_Restricted_Unit 257>37 257>57 38|360b14 413l8 413t29
+257i37 U{32|653I9} 38|360b37 365r27 368r37
+257i57 N{66|397I9} 38|360b57 362r40 398r64 408r64
+262U14*Check_Restriction 263<7 264>7 265>7 266>7 38|427s7 430b14 597l8 597t25
+. 901s10 933s10
+263b7 Msg_Issued{boolean} 38|431b7 505m7 586m10
+264e7 R{55|85E9[39|49]} 38|432b7 451r32 452r28 454r16 456r33 457r31 460r31
+. 467r16 472r30 477r19 482r19 486r31 486r49 489r34 490r36 515r42 523r10 535r37
+. 564r35 571r13 581r13 582r40 583r49 584r37 584r62 587r27 593r10 594r30 595r33
+265i7 N{66|397I9} 38|433b7 524r67 552r47 559r40 572r48 587r30
+266i7 V{67|48I9} 38|434b7 527r30 528r36
+278U14*Check_Restriction 279>7 280>7 281>7 38|201s7 210s7 282s7 291s7 300s7
+. 309s7 351s13 398s22 408s19 419b14 428l8 428t25 960s16
+279e7 R{55|85E9[39|49]} 38|420b7 427r38
+280i7 N{66|397I9} 38|421b7 427r41
+281i7 V{67|48I9} 38|422b7 427r44
+285U14*Check_Restriction_No_Dependence 285>47 285>60 38|603b14 640l8 640t39
+285i47 U{66|397I9} 38|603b47 612r44 613r24 623r24
+285i60 Err{66|397I9} 38|603b60 630r25 634r25
+290U14*Check_Restriction_No_Specification_Of_Aspect 290>60 38|646b14 678l8
+. 678t52
+290i60 N{66|397I9} 38|646b60 661r44 665r25
+295U14*Check_Restriction_No_Use_Of_Attribute 295>53 38|684b14 724l8 724t45
+295i53 N{66|397I9} 38|684b53 693r44 704r36 708r17 709r29 711r32 712r38 722r75
+300U14*Check_Restriction_No_Use_Of_Entity 300>50 38|730b14 816l8 816t42
+300i50 N{66|397I9} 38|730b50 734r22 741r50 751r52 765r29 781r42 786r49
+305U14*Check_Restriction_No_Use_Of_Pragma 305>50 38|822b14 853l8 853t42
+305i50 N{66|397I9} 38|822b50 823r55 831r44 842r36
+310U14*Check_Elaboration_Code_Allowed 310>46 38|199b14 202l8 202t38
+310i46 N{66|397I9} 38|199b46 201r47
+316U14*Check_SPARK_05_Restriction 317>7 318>7 319>7 38|524s10 859b14 908l8
+. 908t34
+317a7 Msg{string} 38|860b7 905r35
+318i7 N{66|397I9} 38|861b7 866r64 875r36 880r25 888r25 891r55 901r63 905r40
+319b7 Force{boolean} 38|862b7 871r10
+325U14*Check_SPARK_05_Restriction 326>7 327>7 328>7 38|910b14 941l8 941t34
+326a7 Msg1{string} 38|911b7 937r35
+327a7 Msg2{string} 38|912b7 919r22 919r48 919r54 938r26
+328i7 N{66|397I9} 38|913b7 921r44 923r55 933r63 937r41 938r32
+332U14*Check_No_Implicit_Aliasing 332>42 38|217b14 239s16 252s10 270s10 283l8
+. 283t34
+332i42 Obj{66|397I9} 38|217b42 229r26 230r23 251r20 252r53 257r20 258r52
+. 260r46 262r60 269r23 270r50 275r20 282r48
+339U14*Check_Implicit_Dynamic_Code_Allowed 339>51 38|208b14 211l8 211t43
+339i51 N{66|397I9} 38|208b51 210r52
+346U14*Check_No_Implicit_Heap_Alloc 346>44 38|289b14 292l8 292t36
+346i44 N{66|397I9} 38|289b44 291r56
+350U14*Check_No_Implicit_Task_Alloc 350>44 38|298b14 301l8 301t36
+350i44 N{66|397I9} 38|298b44 300r56
+354U14*Check_No_Implicit_Protected_Alloc 354>49 38|307b14 310l8 310t41
+354i49 N{66|397I9} 38|307b49 309r68
+359U14*Check_Obsolescent_2005_Entity 359>45 359>60 38|316b14 354l8 354t37
+359i45 E{66|400I12} 38|316b45 339r35 340r42 341r49 342r46 344r23 345r23 346r23
+. 347r23 348r23 349r23
+359i60 N{66|397I9} 38|316b60 351r57
+368U14*Check_Wide_Character_Restriction 368>48 368>63 38|947b14 964l8 964t40
+368i48 E{66|400I12} 38|947b48 953r50
+368i63 N{66|397I9} 38|947b63 950r37 960r55
+374V13*Get_Restriction_Id{55|85E9[39|49]} 375>7 38|1010b13 1028l8 1028t26
+375i7 N{32|188I9} 38|1011b7 1014r24
+380V13*OK_No_Dependence_Unit_Name{boolean} 380>41 38|1077b13 1081s12 1083s12
+. 1092l8 1092t34
+380i41 N{66|397I9} 38|1077b41 1079r17 1081r48 1083r55 1085r20 1089r69
+385V13*OK_No_Use_Of_Entity_Name{boolean} 385>39 38|1098b13 1102s12 1104s12
+. 1113l8 1113t32
+385i39 N{66|397I9} 38|1098b39 1100r17 1102r46 1104r53 1106r23 1110r74
+390V13*Is_In_Hidden_Part_In_SPARK{boolean} 390>41 38|891s21 923s21 1034b13
+. 1047l8 1047t34
+390i41 Loc{66|220I12} 38|1034b41 1039r44 1040r21
+394V13*No_Exception_Handlers_Set{boolean} 38|1053b13 1059l8 1059t33
+403V13*No_Exception_Propagation_Active{boolean} 38|1065b13 1071l8 1071t39
+407V13*Process_Restriction_Synonyms{32|188I9} 407>43 38|1122b13 1167l8 1167t36
+407i43 N{66|397I9} 38|1122b43 1123r45 1147r71 1149r69 1161r69 1163r67
+412V13*Restriction_Active{boolean} 412>33 413r19 38|223s14 1070s18 1230b13
+. 1233l8 1233t26 1479s57
+412e33 R{55|237E12[39|49]} 38|1230b33 1232r32 1232r70
+422V13*Restriction_Check_Required{boolean} 422>41 423r19 38|337s10 890s13
+. 922s13 949s10 1239b13 1242l8 1242t34
+422e41 R{55|237E12[39|49]} 38|1239b41 1241r32
+432V13*Restricted_Profile{boolean} 38|1193b13 1224l8 1224t26
+438U14*Set_Hidden_Part_In_SPARK 438>40 438>46 38|1456b14 1461l8 1461t32
+438i40 Loc1{66|220I12} 38|1456b40 1459r53
+438i46 Loc2{66|220I12} 38|1456b46 1460r53
+443U14*Set_Profile_Restrictions 444>7 445>7 446>7 38|1467b14 1505l8 1505t32
+444e7 P{55|379E9[39|49]} 38|1468b7 1472r52 1473r52 1492r48
+445i7 N{66|397I9} 38|1469b7 1485r39 1487r39
+446b7 Warn{boolean} 38|1470b7 1499r24 1500r47
+454U14*Set_Restriction 455>7 456>7 38|1485s19 1513b14 1550l8 1550t23
+455e7 R{55|241E12[39|49]} 38|1514b7 1518r25 1529r28 1530r28 1535r33 1546r39
+. 1547r36
+456i7 N{66|397I9} 38|1515b7 1530r40 1544r47
+461U14*Set_Restriction 462>7 463>7 464>7 38|1487s19 1554b14 1601l8 1601t23
+462e7 R{55|259E12[39|49]} 38|1555b7 1566r28 1567r37 1568r33 1569r31 1573r28
+. 1574r30 1575r28 1587r36 1588r45 1589r41 1592r42 1593r36 1594r38 1600r33
+463i7 N{66|397I9} 38|1556b7 1569r43 1575r40 1585r47
+464i7 V{integer} 38|1557b7 1567r13 1568r39 1574r36 1588r16 1589r47 1594r44
+468U14*Set_Restriction_No_Dependence 469>7 470>7 471>7 38|1607b14 1634l8
+. 1634t37
+469i7 Unit{66|397I9} 38|1608b7 1619r24 1633r31
+470b7 Warn{boolean} 38|1609b7 1623r20 1633r37
+471e7 Profile{55|379E9[39|49]} 38|1610b7 1633r43
+478U14*Set_Restriction_No_Specification_Of_Aspect 479>7 480>7 38|1688b14
+. 1698l8 1698t50
+479i7 N{66|397I9} 38|1689b7 1692r76 1696r51
+480b7 Warning{boolean} 38|1690b7 1697r52
+487U14*Set_Restriction_No_Specification_Of_Aspect 487>58 38|1700b14 1705l8
+. 1705t50
+487e58 A_Id{6|75E9} 38|1700b58 1703r36 1704r43
+490U14*Set_Restriction_No_Use_Of_Attribute 491>7 492>7 38|1711b14 1721l8
+. 1721t43
+491i7 N{66|397I9} 38|1712b7 1715r64 1719r43
+492b7 Warning{boolean} 38|1713b7 1720r45
+497U14*Set_Restriction_No_Use_Of_Attribute 497>51 38|1723b14 1728l8 1728t43
+497e51 A_Id{45|1577E9} 38|1723b51 1726r28 1727r36
+500U14*Set_Restriction_No_Use_Of_Entity 501>7 502>7 503>7 38|1640b14 1682l8
+. 1682t40
+501i7 Entity{66|397I9} 38|1641b7 1654r26 1668r33 1672r20 1673r17 1676r32
+. 1677r32
+502b7 Warning{boolean} 38|1642b7 1658r20 1668r41
+503e7 Profile{55|379E9[39|49]} 38|1643b7 1668r50
+512U14*Set_Restriction_No_Use_Of_Pragma 513>7 514>7 38|1734b14 1744l8 1744t40
+513i7 N{66|397I9} 38|1735b7 1738r58 1742r40
+514b7 Warning{boolean} 38|1736b7 1743r42
+518U14*Set_Restriction_No_Use_Of_Pragma 518>48 38|1746b14 1751l8 1751t40
+518e48 A_Id{45|1834E9} 38|1746b48 1749r25 1750r33
+521V13*Tasking_Allowed{boolean} 522r19 38|1780b13 1786l8 1786t23
+553A9*Save_Cunit_Boolean_Restrictions(boolean) 557r13 564r11 592c9 38|80r40
+. 971r11 994r13 996r11
+556V13*Cunit_Boolean_Restrictions_Save{553A9} 38|993b13 1004l8 1004t39 1449s44
+563U14*Cunit_Boolean_Restrictions_Restore 564>7 38|970b14 987l8 987t42 1186s7
+564a7 R{553A9} 38|971b7 975r34
+572U14*Save_Config_Cunit_Boolean_Restrictions 38|1447b14 1450l8 1450t46
+578U14*Restore_Config_Cunit_Boolean_Restrictions 38|1184b14 1187l8 1187t49
+584U14*Reset_Cunit_Boolean_Restrictions 38|1173b14 1178l8 1178t40
+587U14*Add_To_Config_Boolean_Restrictions 587>50 38|170b14 173l8 173t42
+587e50 R{55|85E9[39|49]} 38|170b50 172r42
+X 38 restrict.adb
+63R9 SPARK_Hide_Entry 66e14 69r30
+64i7*Start{66|220I12} 1039r35 1459m44
+65i7*Stop{66|220I12} 1040r49 1460m44
+68K12 SPARK_Hides[63|59] 1038r16 1038r37 1039r13 1040r27 1458r7 1459r7 1459r26
+. 1460r7 1460r26
+80a4 Config_Cunit_Boolean_Restrictions{37|553A9} 172m7 983r18 1186r43 1449m7
+83b4 Restricted_Profile_Result{boolean} 1196r17 1199m10 1216m19 1221r20 1520r40
+. 1560r40
+88b4 Restricted_Profile_Cached{boolean} 1195r10 1200m10 1520r10 1523m10 1560r10
+. 1563m10
+92a4 No_Specification_Of_Aspects(66|220I12) 669r25 1696m7 1703m7
+97a4 No_Specification_Of_Aspect_Warning(boolean) 673r28 1697m7 1704m7
+103b4 No_Specification_Of_Aspect_Set{boolean} 653r14 1695m7 1702m7
+107a4 No_Use_Of_Attribute(66|220I12) 716r25 1719m7 1726m7
+110a4 No_Use_Of_Attribute_Warning(boolean) 720r30 1720m7 1727m7
+113b4 No_Use_Of_Attribute_Set{boolean} 698r17 1718m7 1725m7
+116a4 No_Use_Of_Pragma(66|220I12) 846r25 1742m7 1749m7
+121a4 No_Use_Of_Pragma_Warning(boolean) 849r28 1743m7 1750m7
+124b4 No_Use_Of_Pragma_Set{boolean} 836r17 1741m7 1748m7
+131U14 Restriction_Msg 131>31 131>51 587s10 1248b14 1396l8 1396t23
+131e31 R{55|85E9[39|49]} 1248b31 1294r13 1315r32 1324r13 1328r43 1343r10
+. 1345r41 1347r68 1352r41 1357r36 1376r35 1383r65
+131i51 N{66|397I9} 1248b51 1297r73 1363r39 1369r39 1394r39
+137V13 Same_Entity{boolean} 137>26 137>30 1402b13 1420l8 1420t19 1654s13
+137i26 E1{66|397I9} 1402b26 1404r20 1408r24 1410r23 1414r36 1416r43
+137i30 E2{66|397I9} 1402b30 1406r20 1408r37 1412r23 1414r49 1416r63
+141V13 Same_Unit{boolean} 141>24 141>28 623s13 1414s17 1416s17 1426b13 1435s17
+. 1437s17 1441l8 1441t17 1619s13
+141i24 U1{66|397I9} 1426b24 1428r17 1429r24 1431r23 1435r36 1437r43
+141i28 U2{66|397I9} 1426b28 1428r52 1429r37 1433r23 1435r49 1437r63
+145V13 Suppress_Restriction_Message{boolean} 145>43 362s10 559s10 1757b13
+. 1774l8 1774t36
+145i43 N{66|397I9} 1757b43 1761r40 1766r19 1772r35
+218i7 E{66|400I12} 230m10 234r24 235r28 238r44 239r60
+317V16 Chars_Is{boolean} 317>26 317>41 324b16 332l11 332t19 339s18 340s18
+. 341s18 344s13 345s13 346s13 347s13 348s13 349s13
+317i26 E{66|400I12} 324b26 325r43
+317a41 S{string} 324b41 327r37 330r44
+325i10 Nam{32|188I9} 327r29 330r37
+367i13 Fnam{32|624I9} 373r30 393r41
+394i20 J{integer} 396r65 398r53
+424b7 Msg_Issued{boolean} 425r28 427m26
+436i7 VV{integer} 455r19 460r37 471r16 486r54 528m10 530m10 535r22 539r10
+440U17 Update_Restrictions 440=38 447b17 500l11 500t30 545s7 554s10
+440r38 Info{55|322R9[39|49]} 447b38 451r17 452m13 456m19 457m19 460m19 472m16
+. 486m19 486r37 489m22 490m22
+604i7 DU{66|397I9} 621m10 623r27 624r37 625r33
+620i11 J<integer> 621r38 627r38
+647e7 A_Id{6|75E9} 666m7 667r22 669r54 673r64
+648i7 Id{66|397I9} 665m7 666r37 672r30 676r13
+685e7 Attr_Id{45|1577E9} 715m7 716r46 720r59
+686i7 Attr_Nam{32|188I9} 709m10 712m10 715r43 719r30
+758i11 J<integer> 760r63
+760r13 NE_Ent{37|206R9} 766r21 782r40 783r46
+761i13 Ent{66|400I12} 765m13 772r26 774r44 775r51 776r51 779r37 802r68 808m19
+. 808r33 809r58
+762i13 Expr{66|397I9} 766m13 773r34 778r32 779r51 795r32 801r41 802r51 812m16
+. 812r32
+823i7 Id{66|397I9} 824r58 851r72
+824e7 P_Id{45|1834E9} 846r43 849r54
+864b7 Msg_Issued{boolean} 901m29 904r13
+865i7 Save_Error_Msg_Sloc{66|220I12} 900m10 902r28
+866i7 Onode{66|397I9} 881r35 882r44 883r47 888r69
+915b7 Msg_Issued{boolean} 933m29 936r13
+916i7 Save_Error_Msg_Sloc{66|220I12} 932m10 934r28
+953i13 T{66|400I12} 955r16 956r16 957r16 958r16
+974e11 J{55|252E12[39|49]} 975r28 975r37
+996a7 R{37|553A9} 1000m10 1003r14
+999e11 J{55|252E12[39|49]} 1000r13 1000r37
+1017e11 J{55|237E12[39|49]} 1019r58 1022r23
+1019a13 S{string} 1021r16
+1038i11 J{integer} 1039r32 1040r46
+1123i7 Old_Name{32|188I9} 1127r12 1153r20 1160r30
+1124i7 New_Name{32|188I9} 1129m13 1132m13 1135m13 1138m13 1141m13 1162r30
+. 1166r14
+1175e11 J{55|252E12[39|49]} 1176r28
+1203a13 R{55|318A9[39|49]} 1208r22 1209r19
+1205a13 V{55|319A9[39|49]} 1214r67
+1208e17 J{55|85E9[39|49]} 1209r22 1210r46 1211r59 1213r32 1214r62 1214r70
+1249a7 Msg{string} 1272m10 1281m10 1363r23 1369r23 1394r23
+1250i7 Len{natural} 1271m10 1271r17 1272r15 1281r15 1281r26 1282m10 1282r17
+. 1363r33 1369r33 1371m10 1394r33
+1252U17 Add_Char 1252>27 1269b17 1273l11 1273t19 1306s13 1325s10 1344s10
+. 1359s13 1362s10 1368s10 1372s10 1388s13 1393s10
+1252e27 C{character} 1269b27 1272r23
+1255U17 Add_Str 1255>26 1279b17 1283l11 1283t18 1304s13 1316s10 1335s10 1337s10
+. 1346s10 1377s13 1382s10
+1255a26 S{string} 1279b26 1281r32 1281r45 1282r23
+1258U17 Id_Case 1258>26 1258>38 1289b17 1308l11 1308t18 1345s10 1352s10 1383s10
+1258a26 S{string} 1289b26 1291r28 1291r39 1292r22
+1258b38 Quotes{boolean} 1289b38 1303r13 1345r45
+1472a7 R{55|318A9[39|49]} 1476r16 1477r13
+1473a7 V{55|319A9[39|49]} 1487r42
+1476e11 J{55|85E9[39|49]} 1477r16 1479r77 1484r19 1485r36 1487r36 1487r45
+. 1492r42 1500r41
+1479b16 Already_Restricted{boolean} 1499r33
+1615i11 J<integer> 1619r52 1624r38
+1645i7 Nam{66|397I9} 1673m10 1677m10 1678r35 1681r39
+1650i11 J<integer> 1654r58 1659r40
+1692e7 A_Id{6|215E12} 1696r36 1697r43
+1715e7 A_Id{45|1577E9} 1719r28 1720r36
+1738e7 A_Id{45|1834E9} 1742r25 1743r33
+X 39 rident.ads
+49K9*Rident[55|75] 37|36w6 36r19 73r27
+X 41 sinfo.ads
+54K9*Sinfo 38|41w6 41r20 41|14019e10
+8658n7*N_Attribute_Definition_Clause{8645E9} 38|708r22
+8684n7*N_Expanded_Name{8645E9} 38|1410r49 1412r49 1431r49 1433r49
+8689n7*N_Identifier{8645E9} 38|773r42 778r38 795r38 1085r25 1106r26 1404r24
+. 1406r24 1428r23 1428r58 1672r28 1678r40
+8690n7*N_Operator_Symbol{8645E9} 38|778r52 795r52 1106r40 1404r38 1406r38
+. 1672r42 1678r54
+8753n7*N_Attribute_Reference{8645E9} 38|711r37 881r44
+8784n7*N_Explicit_Dereference{8645E9} 38|275r27
+8787n7*N_Indexed_Component{8645E9} 38|257r27
+8797n7*N_Range{8645E9} 38|880r30
+8799n7*N_Selected_Component{8645E9} 38|251r27 801r49 1079r22 1100r22 1410r27
+. 1412r27 1431r27 1433r27 1676r42
+8802n7*N_Type_Conversion{8645E9} 38|269r57
+8804n7*N_Unchecked_Type_Conversion{8645E9} 38|269r28
+9215E12*N_Subexpr{8645E9} 38|888r31
+9322V13*Attribute_Name{32|188I9} 38|712s22 882s28
+9349V13*Chars{32|188I9} 38|325s36 666s30 709s22 741s35 774s37 775s37 779s30
+. 779s44 802s29 802s61 809s51 824s51 1123s38 1408s17 1408s30 1429s17 1429s30
+. 1681s32 1692s69 1715s57 1738s51
+9568V13*Entity{66|397I9} 38|230s15 734s14 741s42 765s21
+9592V13*Etype{66|397I9} 38|258s37 260s31 262s45
+9616V13*Expression{66|397I9} 38|270s38
+9745V13*Identifier{66|397I9} 38|665s13
+10105V13*Pragma_Identifier{66|397I9} 38|823s36
+10117V13*Prefix{66|397I9} 38|258s44 260s38 262s52 812s24 1081s40 1102s38
+. 1414s28 1414s41 1435s28 1435s41
+10213V13*Scope{66|397I9} 38|339s28 340s28 340s35 341s28 341s35 341s42 342s18
+. 342s25 342s32 342s39 772s19 775s44 776s37 776s44 808s26
+10219V13*Selector_Name{66|397I9} 38|252s38 802s36 1083s40 1104s38 1416s28
+. 1416s48 1437s28 1437s48 1677s17
+X 43 sinput.ads
+70K9*Sinput 38|42w6 42r20 43|967e11
+302V13*Identifier_Casing{10|48E9} 38|1297s25
+558V13*Get_Source_File_Index{66|575I9} 38|1297s44
+605V13*Instantiation_Location{66|220I12} 38|572s18
+X 44 sinput.adb
+944U17 Traverse[8|627] 9|2657b14
+X 45 snames.ads
+34K9*Snames 37|37w6 37r19 45|2255e11
+261i4*Name_Text_IO{32|188I9} 38|774r51
+595i4*Name_Max_Entry_Queue_Depth{32|188I9} 38|1131r15
+700i4*Name_Ada{32|188I9} 38|775r59
+741i4*Name_Boolean_Entry_Barriers{32|188I9} 38|1128r15
+784i4*Name_Max_Entry_Queue_Length{32|188I9} 38|1132r25
+799i4*Name_No_Dynamic_Attachment{32|188I9} 38|1135r25
+800i4*Name_No_Dynamic_Interrupts{32|188I9} 38|1134r15
+804i4*Name_No_Requeue{32|188I9} 38|1137r15
+805i4*Name_No_Requeue_Statements{32|188I9} 38|1138r25
+808i4*Name_No_Task_Attributes{32|188I9} 38|1140r15
+809i4*Name_No_Task_Attributes_Package{32|188I9} 38|1141r25
+834i4*Name_Simple_Barriers{32|188I9} 38|1129r25
+835i4*Name_SPARK{32|188I9} 38|1145r15 1146r33
+836i4*Name_SPARK_05{32|188I9} 38|1148r33 1150r20
+1001i4*Name_Range{32|188I9} 38|882r53
+1577E9*Attribute_Id 37|497r58 38|107r33 110r41 685r18 1715r23 1723r58 45|1772e36
+1834E9*Pragma_Id 37|518r55 38|116r30 121r38 824r23 1738r23 1746r55 45|2098e22
+2200V13*Get_Attribute_Id{1577E9} 38|715s25 1715s39
+2220V13*Get_Pragma_Id{1834E9} 38|824s36 1738s36
+X 46 stand.ads
+38K9*Stand 38|43w6 43r20 46|496e10
+250i4*Standard_Standard=250:53{66|397I9} 38|342r54 772r33 776r59
+254i4*Standard_Wide_Character=254:53{66|397I9} 38|955r20
+255i4*Standard_Wide_Wide_Character=255:53{66|397I9} 38|957r20
+257i4*Standard_Wide_String=257:53{66|397I9} 38|956r20
+258i4*Standard_Wide_Wide_String=258:53{66|397I9} 38|958r20
+X 48 system.ads
+67M9*Address
+X 52 s-memory.ads
+53V13*Alloc{48|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{48|67M9} 105i<c,__gnat_realloc>22
+X 55 s-rident.ads
+85E9*Restriction_Id 37|86r16[39|49] 264r20[39|49] 279r11[39|49] 375r27[39|49]
+. 587r54[39|49] 38|131r35[39|49] 170r54[39|49] 420r11[39|49] 432r20[39|49]
+. 1011r27[39|49] 1019r36[39|49] 1248r35[39|49] 1345r19[39|49] 1352r19[39|49]
+91n7*Simple_Barriers{85E9[39|49]} 37|117r7[39|49]
+92n7*Pure_Barriers{85E9[39|49]} 37|156r7[39|49]
+93n7*No_Abort_Statements{85E9[39|49]} 38|156r28[39|49]
+98n7*No_Asynchronous_Control{85E9[39|49]} 37|91r7[39|49]
+99n7*No_Calendar{85E9[39|49]} 37|92r7[39|49] 93r7[39|49] 118r7[39|49]
+102n7*No_Delay{85E9[39|49]} 37|94r7[39|49] 95r7[39|49]
+103n7*No_Direct_Boolean_Operators{85E9[39|49]} 37|120r7[39|49]
+104n7*No_Dispatch{85E9[39|49]} 38|523r14[39|49]
+105n7*No_Dispatching_Calls{85E9[39|49]} 37|121r7[39|49]
+106n7*No_Dynamic_Attachment{85E9[39|49]} 37|122r7[39|49]
+107n7*No_Dynamic_Priorities{85E9[39|49]} 37|96r7[39|49]
+108n7*No_Enumeration_Maps{85E9[39|49]} 37|124r7[39|49]
+109n7*No_Entry_Calls_In_Elaboration_Code{85E9[39|49]} 37|125r7[39|49]
+110n7*No_Entry_Queue{85E9[39|49]} 37|126r7[39|49]
+111n7*No_Exception_Handlers{85E9[39|49]} 37|127r7[39|49] 38|1056r37[39|49]
+112n7*No_Exception_Propagation{85E9[39|49]} 37|128r7[39|49] 38|408r38[39|49]
+. 1058r37[39|49] 1070r38[39|49]
+113n7*No_Exception_Registration{85E9[39|49]} 37|129r7[39|49]
+115n7*No_Finalization{85E9[39|49]} 37|97r7[39|49] 130r7[39|49] 38|1324r18[39|49]
+116n7*No_Fixed_IO{85E9[39|49]} 37|131r7[39|49]
+119n7*No_IO{85E9[39|49]} 37|98r7[39|49] 99r7[39|49] 100r7[39|49] 101r7[39|49]
+. 102r7[39|49] 103r7[39|49] 104r7[39|49] 105r7[39|49]
+120n7*No_Implicit_Conditionals{85E9[39|49]} 37|134r7[39|49]
+121n7*No_Implicit_Dynamic_Code{85E9[39|49]} 37|136r7[39|49] 38|210r26[39|49]
+122n7*No_Implicit_Heap_Allocations{85E9[39|49]} 38|291r26[39|49]
+123n7*No_Implicit_Task_Allocations{85E9[39|49]} 38|300r26[39|49]
+124n7*No_Implicit_Protected_Object_Allocations{85E9[39|49]} 38|309r26[39|49]
+125n7*No_Initialize_Scalars{85E9[39|49]} 37|138r7[39|49] 38|515r46[39|49]
+128n7*No_Local_Protected_Objects{85E9[39|49]} 37|139r7[39|49]
+129n7*No_Long_Long_Integers{85E9[39|49]} 37|140r7[39|49]
+130n7*No_Multiple_Elaboration{85E9[39|49]} 37|141r7[39|49]
+132n7*No_Protected_Type_Allocators{85E9[39|49]} 37|142r7[39|49]
+136n7*No_Relative_Delay{85E9[39|49]} 37|143r7[39|49]
+137n7*No_Requeue_Statements{85E9[39|49]} 37|144r7[39|49]
+138n7*No_Secondary_Stack{85E9[39|49]} 37|145r7[39|49]
+139n7*No_Select_Statements{85E9[39|49]} 37|146r7[39|49]
+142n7*No_Standard_Storage_Pools{85E9[39|49]} 37|147r7[39|49]
+143n7*No_Stream_Optimizations{85E9[39|49]} 37|148r7[39|49]
+144n7*No_Streams{85E9[39|49]} 37|149r7[39|49]
+146n7*No_Task_Attributes_Package{85E9[39|49]} 37|106r7[39|49] 150r7[39|49]
+149n7*No_Task_Termination{85E9[39|49]} 37|151r7[39|49]
+150n7*No_Tasking{85E9[39|49]} 37|152r7[39|49] 38|1782r36[39|49]
+153n7*No_Unchecked_Conversion{85E9[39|49]} 37|107r7[39|49] 108r7[39|49]
+154n7*No_Unchecked_Deallocation{85E9[39|49]} 37|109r7[39|49] 110r7[39|49]
+155n7*Static_Priorities{85E9[39|49]} 37|154r7[39|49]
+156n7*Static_Storage_Size{85E9[39|49]} 37|155r7[39|49]
+161n7*No_Default_Initialization{85E9[39|49]} 37|119r7[39|49]
+176n7*No_Implementation_Attributes{85E9[39|49]} 37|132r7[39|49]
+178n7*No_Implementation_Pragmas{85E9[39|49]} 37|133r7[39|49]
+181n7*No_Implicit_Aliasing{85E9[39|49]} 37|135r7[39|49] 38|223r34[39|49]
+. 282r26[39|49]
+182n7*No_Implicit_Loops{85E9[39|49]} 37|137r7[39|49]
+183n7*No_Elaboration_Code{85E9[39|49]} 37|123r7[39|49] 38|201r26[39|49] 983r53[39|49]
+. 985r28[39|49]
+184n7*No_Obsolescent_Features{85E9[39|49]} 38|337r38[39|49] 351r32[39|49]
+. 571r17[39|49]
+185n7*No_Wide_Characters{85E9[39|49]} 37|153r7[39|49] 38|949r38[39|49] 960r35[39|49]
+187n7*SPARK_05{85E9[39|49]} 37|157r7[39|49] 38|890r41[39|49] 901r41[39|49]
+. 922r41[39|49] 933r41[39|49] 1294r17[39|49]
+211n7*Max_Tasks{85E9[39|49]} 38|1783r41[39|49] 1784r48[39|49]
+218n7*Max_Asynchronous_Select_Nesting{85E9[39|49]} 38|157r36[39|49] 158r38[39|49]
+225n7*Not_A_Restriction_Id{85E9[39|49]} 38|1027r14[39|49]
+237E12*All_Restrictions{85E9[39|49]} 37|53r30[39|49] 61r38[39|49] 116r49[39|49]
+. 412r37[39|49] 422r45[39|49] 38|1017r16[39|49] 1230r37[39|49] 1239r45[39|49]
+241E12*All_Boolean_Restrictions{85E9[39|49]} 37|455r11[39|49] 38|581r18[39|49]
+. 1484r24[39|49] 1514r11[39|49]
+252E12*Cunit_Boolean_Restrictions{241E12[39|49]} 37|593r13[39|49] 38|974r16[39|49]
+. 999r16[39|49] 1175r16[39|49]
+259E12*All_Parameter_Restrictions{85E9[39|49]} 37|462r11[39|49] 38|454r21[39|49]
+. 467r21[39|49] 1213r37[39|49] 1343r15[39|49] 1555r11[39|49]
+276E12*Checked_Max_Parameter_Restrictions{269E12[39|49]} 38|477r24[39|49]
+. 593r15[39|49]
+283E12*Checked_Add_Parameter_Restrictions{269E12[39|49]} 38|482r24[39|49]
+290E12*Checked_Val_Parameter_Restrictions{269E12[39|49]} 38|535r42[39|49]
+318A9*Restriction_Flags(boolean)<85E9[39|49]> 37|73r34[39|49] 38|1203r17[39|49]
+. 1472r11[39|49]
+319A9*Restriction_Values(natural)<85E9[39|49]> 38|1205r17[39|49] 1473r11[39|49]
+320A9*Parameter_Flags(boolean)<85E9[39|49]>
+322R9*Restrictions_Info 37|44r19[39|49] 67r24[39|49] 38|440r52[39|49] 447r52[39|49]
+323a7*Set{318A9[39|49]} 38|156r23[39|49] 157r31[39|49] 564r30[39|49] 975m23[39|49]
+. 985m23[39|49] 1000r32[39|49] 1056r32[39|49] 1058r32[39|49] 1176m23[39|49]
+. 1210r41[39|49] 1232r27[39|49] 1241r27[39|49] 1518m20[39|49] 1547m31[39|49]
+. 1566r23[39|49] 1573m23[39|49] 1587r31[39|49] 1593m31[39|49] 1782r31[39|49]
+. 1783r36[39|49]
+329a7*Value{319A9[39|49]} 38|158r31[39|49] 583r42[39|49] 584r55[39|49] 1214r55[39|49]
+. 1347r61[39|49] 1567r30[39|49] 1568m26[39|49] 1574m23[39|49] 1588r38[39|49]
+. 1589m34[39|49] 1594m31[39|49] 1784r41[39|49]
+336a7*Violated{318A9[39|49]} 38|451r22[39|49] 452m18[39|49] 595m23[39|49]
+341a7*Count{319A9[39|49]} 38|457m24[39|49] 460m24[39|49] 486m24[39|49] 486r42[39|49]
+. 489m27[39|49] 584r30[39|49] 594m23[39|49]
+349a7*Unknown{320A9[39|49]} 38|456m24[39|49] 472m21[39|49] 490m27[39|49]
+. 582r31[39|49]
+363r4*No_Restrictions{322R9[39|49]} 37|44r40[39|49] 67r45[39|49]
+379E9*Profile_Name 37|61r59[39|49] 182r17[39|49] 215r17[39|49] 444r14[39|49]
+. 471r17[39|49] 503r17[39|49] 38|1383r19[39|49] 1468r14[39|49] 1610r17[39|49]
+. 1643r17[39|49]
+380n7*No_Profile{379E9[39|49]} 37|471r33[39|49] 503r33[39|49] 38|1357r41[39|49]
+. 1535r39[39|49] 1600r39[39|49] 1610r33[39|49] 1643r33[39|49]
+382n7*Restricted_Tasking{379E9[39|49]} 38|1204r33[39|49] 1206r33[39|49]
+398R9*Profile_Data
+399a7*Set{318A9[39|49]} 38|1204m53[39|49] 1472m55[39|49]
+406a7*Value{319A9[39|49]} 38|1206m53[39|49] 1473m55[39|49]
+412a4*Profile_Info(398R9[39|49]) 38|1204r19[39|49] 1206r19[39|49] 1472r38[39|49]
+. 1473r38[39|49]
+X 63 table.ads
+46K9*Table 37|38w6 187r34 220r36 38|68r31 63|248e10
+50+12 Table_Component_Type 37|188r6 221r6 38|69r6
+51I12 Table_Index_Type 37|189r6 222r6 38|70r6
+53*7 Table_Low_Bound{51I12} 37|190r6 223r6 38|71r6
+54i7 Table_Initial{66|65I12} 37|191r6 224r6 38|72r6
+55i7 Table_Increment{66|62I12} 37|192r6 225r6 38|73r6
+56a7 Table_Name{string} 37|193r6 226r6 38|74r6
+59k12*Table 37|187r40 220r42 38|68r37 63|247e13
+110A12*Table_Type(37|175R9)<66|59I9>
+113A15*Big_Table_Type{110A12[37|187]}<66|59I9>
+121P12*Table_Ptr(113A15[37|187])
+125p7*Table{121P12[37|187]} 38|621r31[37|187] 627r31[37|187] 760r56[37|220]
+. 1039r25[68] 1040r39[68] 1459r19[68] 1460r19[68] 1619r45[37|187] 1624r31[37|187]
+. 1654r51[37|220] 1659r33[37|220]
+149V16*Last{66|59I9} 38|620s55[37|187] 758s59[37|220] 1038s49[68] 1459s38[68]
+. 1460s38[68] 1615s55[37|187] 1650s59[37|220]
+172i7*First{66|59I9} 38|620r31[37|187] 758r33[37|220] 1038r28[68] 1615r31[37|187]
+. 1650r33[37|220]
+184U17*Increment_Last 38|1458s19[68]
+192U17*Append 38|1633s22[37|187] 1668s24[37|220]
+X 66 types.ads
+52K9*Types 37|39w6 39r19 66|948e10
+59I9*Int<integer> 37|189r30 222r30 38|1347r43
+62I12*Nat{59I9}
+65I12*Pos{59I9}
+145I9*Text_Ptr<59I9>
+220I12*Source_Ptr{145I9} 37|53r51 252r59 390r47 438r53 38|64r15 65r15 92r55
+. 107r50 116r44 188r59 865r29 916r29 1034r47 1456r53
+227i4*No_Location{220I12} 37|54r35 38|93r47 108r39 117r36 572r55 671r28 718r28
+. 848r28 1332r27 1338r28 1358r31 1387r31 1766r25
+236i4*Standard_Location{220I12} 38|613r30
+245i4*System_Location{220I12} 38|1333r34 1529r34 1703r45 1726r37 1749r34
+397I9*Node_Id<integer> 37|176r14 207r16 247r57 257r61 265r20 280r11 285r51
+. 285r66 290r64 295r57 300r54 305r54 310r50 318r15 328r14 332r48 339r55 346r48
+. 350r48 354r53 359r64 368r67 380r45 385r43 407r47 445r14 456r11 463r11 469r17
+. 479r17 491r17 501r17 513r17 38|131r55 137r35 141r33 145r47 181r57 199r50
+. 208r55 217r48 289r48 298r48 307r53 316r64 360r61 421r11 433r20 603r51 603r66
+. 604r12 646r64 648r14 684r57 730r54 762r22 822r54 823r23 861r15 866r38 913r14
+. 947r67 1077r45 1098r43 1122r47 1248r55 1402r35 1426r33 1469r14 1515r11
+. 1556r11 1608r17 1641r17 1645r13 1689r17 1712r17 1735r17 1757r47
+400I12*Entity_Id{397I9} 37|359r49 368r52 38|218r11 316r49 317r30 324r30 761r22
+. 947r52 953r26
+564I9*Unit_Number_Type<59I9>
+569i4*Main_Unit{564I9} 38|551r29 750r30 1543r29 1584r29
+575I9*Source_File_Index<59I9>
+X 67 uintp.ads
+42K9*Uintp 37|40w6 40r19 67|565e10
+48I9*Uint<66|59I9> 37|266r20 281r11 38|422r11 434r20
+78i4*Uint_Minus_1{48I9} 37|266r28 281r19 38|422r19 434r28
+180V13*UI_Is_In_Int_Range{boolean} 38|527s10
+248V13*UI_From_Int{48I9} 38|1347s30
+261V13*UI_To_Int{66|59I9} 38|528s25
+X 69 uname.ads
+35K9*Uname 38|44w6 44r20 69|188e10
+148V13*Is_Spec_Name{boolean} 38|365s13
+

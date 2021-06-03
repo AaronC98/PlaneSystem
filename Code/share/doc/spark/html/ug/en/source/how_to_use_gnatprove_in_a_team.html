@@ -1,0 +1,610 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7.3. How to Use GNATprove in a Team &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7.4. How to Write Subprogram Contracts" href="how_to_write_subprogram_contracts.html" />
+    <link rel="prev" title="7.2.5.2. Messages reported by Flow Analysis" href="flow_checks_table.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="how_to_write_subprogram_contracts.html" title="7.4. How to Write Subprogram Contracts"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="flow_checks_table.html" title="7.2.5.2. Messages reported by Flow Analysis"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" accesskey="U">7. Formal Verification with GNATprove</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">7.3. How to Use GNATprove in a Team</a><ul>
+<li><a class="reference internal" href="#possible-workflows">7.3.1. Possible Workflows</a></li>
+<li><a class="reference internal" href="#suppressing-warnings">7.3.2. Suppressing Warnings</a></li>
+<li><a class="reference internal" href="#suppressing-information-messages">7.3.3. Suppressing Information Messages</a></li>
+<li><a class="reference internal" href="#justifying-check-messages">7.3.4. Justifying Check Messages</a><ul>
+<li><a class="reference internal" href="#direct-justification-with-pragma-annotate">7.3.4.1. Direct Justification with Pragma Annotate</a></li>
+<li><a class="reference internal" href="#indirect-justification-with-pragma-assume">7.3.4.2. Indirect Justification with Pragma Assume</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sharing-proof-results-via-a-memcached-server">7.3.5. Sharing Proof Results Via a Memcached Server</a></li>
+<li><a class="reference internal" href="#managing-assumptions">7.3.6. Managing Assumptions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="flow_checks_table.html"
+                        title="previous chapter">7.2.5.2. Messages reported by Flow Analysis</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="how_to_write_subprogram_contracts.html"
+                        title="next chapter">7.4. How to Write Subprogram Contracts</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/how_to_use_gnatprove_in_a_team.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-use-gnatprove-in-a-team">
+<span id="id1"></span><h1>7.3. How to Use GNATprove in a Team<a class="headerlink" href="#how-to-use-gnatprove-in-a-team" title="Permalink to this headline">¶</a></h1>
+<p>The most common use of GNATprove is as part of a regular quality control or
+quality assurance activity inside a team. Usually, GNATprove is run every
+night on the current codebase, and during the day by developers either on their
+computer or on servers. For both nightly and daily runs, GNATprove results
+need to be shared between team members, either for viewing results or to
+compare new results with the shared results. These various processes are
+supported by specific ways to run GNATprove and share its results.</p>
+<p>In all cases, the source code should not be shared directly (say, on a shared
+drive) between developers, as this is bound to cause problems with file access
+rights and concurrent accesses. Rather, the typical usage is for each user to
+do a check out of the sources/environment, and use therefore her own
+version/copy of sources and project files, instead of physically sharing
+sources across all users.</p>
+<p>The project file should also always specify a local, non shared, user writable
+directory as object directory (whether explicitly or implicitly, as the absence
+of an explicit object directory means the project file directory is used as
+object directory).</p>
+<div class="section" id="possible-workflows">
+<h2>7.3.1. Possible Workflows<a class="headerlink" href="#possible-workflows" title="Permalink to this headline">¶</a></h2>
+<p>Multiple workflows allow to use GNATprove in a team:</p>
+<ol class="arabic simple">
+<li>GNATprove is run on a server or locally, and no warnings or check messages
+should be issued. Typically this is achieved by suppressing spurious
+warnings and justifying unproved check messages.</li>
+<li>GNATprove is run on a server or locally, and textual results are shared in
+Configuration Management.</li>
+<li>GNATprove is run on a server, and textual results are sent to a third-party
+qualimetry tool (like GNATdashboard, SonarQube, SQUORE, etc.)</li>
+<li>GNATprove is run on a server or locally, and the GNATprove session files
+are shared in Configuration Management.</li>
+</ol>
+<p>In all workflows (but critically for the first workflow), messages can be
+suppressed or justified. Indeed, like every sound and complete verification
+tool, GNATprove may issue false alarms. A first step is to identify the type
+of message:</p>
+<ul class="simple">
+<li>warnings can be suppressed, see <a class="reference internal" href="#suppressing-warnings"><span class="std std-ref">Suppressing Warnings</span></a></li>
+<li>check messages can be justified, see <a class="reference internal" href="#justifying-check-messages"><span class="std std-ref">Justifying Check Messages</span></a></li>
+</ul>
+<p>Check messages from proof may also correspond to provable checks, which require
+interacting with GNATprove to find the correct contracts and/or analysis
+switches, see <a class="reference internal" href="how_to_investigate_unproved_checks.html#how-to-investigate-unproved-checks"><span class="std std-ref">How to Investigate Unproved Checks</span></a>.</p>
+<p>The textual output in workflow 3 corresponds to the compiler-like output
+generated by GNATprove and controlled with switches <code class="docutils literal"><span class="pre">--report</span></code> and
+<code class="docutils literal"><span class="pre">--warnings</span></code> (see <a class="reference internal" href="how_to_run_gnatprove.html#running-gnatprove-from-the-command-line"><span class="std std-ref">Running GNATprove from the Command Line</span></a>). By default
+messages are issued only for unproved checks and warnings.</p>
+<p>The textual output in workflow 2 comprises this compiler-like output, and
+possibly additional output generated by GNATprove in file <code class="docutils literal"><span class="pre">gnatprove.out</span></code>
+(see <a class="reference internal" href="how_to_view_gnatprove_output.html#effect-of-mode-on-output"><span class="std std-ref">Effect of Mode on Output</span></a> and <a class="reference internal" href="#managing-assumptions"><span class="std std-ref">Managing Assumptions</span></a>).</p>
+<p>Workflow 4 requires sharing session files used by GNATprove to record the
+state of formal verification on each source package. This is achieved by
+specifying in the <a class="reference internal" href="../appendix/project_attributes.html#project-attributes"><span class="std std-ref">Project Attributes</span></a> the <code class="docutils literal"><span class="pre">Proof_Dir</span></code> proof directory,
+and sharing this directory under Configuration Management. To avoid conflicts,
+it is recommended that developers do not push their local changes to this
+directory in Configuration Management, but instead periodically retrieve an
+updated version of the directory. For example, a nightly run on a server, or a
+dedicated team member, can be responsible for updating the proof directory with
+the latest version generated by GNATprove.</p>
+<p>A benefit of workflow 4 compared to other workflows is that it avoids reproving
+locally properties that were previously proved, as the shared session files
+keep track of which checks were proved.</p>
+</div>
+<div class="section" id="suppressing-warnings">
+<span id="id2"></span><h2>7.3.2. Suppressing Warnings<a class="headerlink" href="#suppressing-warnings" title="Permalink to this headline">¶</a></h2>
+<p>GNATprove issues two kinds of warnings, which are controlled separately:</p>
+<ul>
+<li><p class="first">Compiler warnings are controlled with the usual GNAT compilation switches:</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">-gnatws</span></code> suppresses all warnings</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">-gnatwa</span></code> enables all optional warnings</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">-gnatw?</span></code> enables a specific warning denoted by the last character</p>
+<p>See the GNAT User&#8217;s Guide for more details. These should passed
+through the compilation switches specified in the project file.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">GNATprove specific warnings are controlled with switch <code class="docutils literal"><span class="pre">--warnings</span></code>:</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">--warnings=off</span></code> suppresses all warnings</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">--warnings=error</span></code> treats warnings as errors</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">--warnings=continue</span></code> issues warnings but does not stop analysis (default)</p>
+<p>The default is that GNATprove issues warnings but does not stop.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Both types of warnings can be suppressed selectively by the use of pragma
+<code class="docutils literal"><span class="pre">Warnings</span></code> in the source code. For example, GNATprove issues three warnings
+on procedure <code class="docutils literal"><span class="pre">Warn</span></code>, which are suppressed by the three pragma <code class="docutils literal"><span class="pre">Warnings</span></code> in
+the source code:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Warnings</span> <span class="o">(</span><span class="n">Off</span><span class="p">,</span> <span class="s">&quot;unused initial value of &quot;&quot;X&quot;&quot;&quot;</span><span class="p">,</span>
+                 <span class="n">Reason</span> <span class="o">=&gt;</span> <span class="s">&quot;Parameter mode is mandated by API&quot;</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Warn</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Warnings</span> <span class="o">(</span><span class="n">Off</span><span class="p">,</span> <span class="s">&quot;initialization has no effect&quot;</span><span class="p">,</span>
+                    <span class="n">Reason</span> <span class="o">=&gt;</span> <span class="s">&quot;Coding standard requires initialization&quot;</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">Y</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Warnings</span> <span class="o">(</span><span class="n">On</span><span class="p">,</span> <span class="s">&quot;initialization has no effect&quot;</span><span class="o">)</span><span class="p">;</span>
+
+<span class="kr">begin</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Warnings</span> <span class="o">(</span><span class="n">Off</span><span class="p">,</span> <span class="s">&quot;unused assignment&quot;</span><span class="p">,</span>
+                    <span class="n">Reason</span> <span class="o">=&gt;</span> <span class="s">&quot;Test program requires double assignment&quot;</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="n">Y</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Warnings</span> <span class="o">(</span><span class="n">On</span><span class="p">,</span> <span class="s">&quot;unused assignment&quot;</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="n">Y</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Warn</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Warnings with the specified message are suppressed in the region starting at
+pragma <code class="docutils literal"><span class="pre">Warnings</span> <span class="pre">Off</span></code> and ending at the matching pragma <code class="docutils literal"><span class="pre">Warnings</span> <span class="pre">On</span></code> or at
+the end of the file (pragma <code class="docutils literal"><span class="pre">Warnings</span></code> is purely textual, so its effect does
+not stop at the end of the enclosing scope). The <code class="docutils literal"><span class="pre">Reason</span></code> argument string is
+optional. A regular expression can be given instead of a specific message in
+order to suppress all warnings of a given form. Pragma <code class="docutils literal"><span class="pre">Warnings</span> <span class="pre">Off</span></code> can be
+added in a configuration file to suppress the corresponding warnings across all
+units in the project. Pragma <code class="docutils literal"><span class="pre">Warnings</span> <span class="pre">Off</span></code> can be specified for an entity to
+suppress all warnings related to this entity.</p>
+<p>Pragma <code class="docutils literal"><span class="pre">Warnings</span></code> can also take a first argument of <code class="docutils literal"><span class="pre">GNAT</span></code> or <code class="docutils literal"><span class="pre">GNATprove</span></code>
+to specify that it applies only to GNAT compiler or GNATprove. For example, the
+previous example can be modified to use these refined pragma <code class="docutils literal"><span class="pre">Warnings</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Warnings</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Off</span><span class="p">,</span> <span class="s">&quot;unused initial value of &quot;&quot;X&quot;&quot;&quot;</span><span class="p">,</span>
+                 <span class="n">Reason</span> <span class="o">=&gt;</span> <span class="s">&quot;Parameter mode is mandated by API&quot;</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Warn2</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Warnings</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Off</span><span class="p">,</span> <span class="s">&quot;initialization has no effect&quot;</span><span class="p">,</span>
+                    <span class="n">Reason</span> <span class="o">=&gt;</span> <span class="s">&quot;Coding standard requires initialization&quot;</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">Y</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Warnings</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">On</span><span class="p">,</span> <span class="s">&quot;initialization has no effect&quot;</span><span class="o">)</span><span class="p">;</span>
+
+<span class="kr">begin</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Warnings</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Off</span><span class="p">,</span> <span class="s">&quot;unused assignment&quot;</span><span class="p">,</span>
+                    <span class="n">Reason</span> <span class="o">=&gt;</span> <span class="s">&quot;Test program requires double assignment&quot;</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="n">Y</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Warnings</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">On</span><span class="p">,</span> <span class="s">&quot;unused assignment&quot;</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="n">Y</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Warn2</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Besides the documentation benefit of using this refined version of pragma
+<code class="docutils literal"><span class="pre">Warnings</span></code>, it makes it possible to detect useless pragma <code class="docutils literal"><span class="pre">Warnings</span></code>, that
+do not suppress any warning, with switch <code class="docutils literal"><span class="pre">-gnatw.w</span></code>. Indeed, this switch can
+then be used both during compilation with GNAT and formal verification with
+GNATprove, as pragma <code class="docutils literal"><span class="pre">Warnings</span></code> that apply to only one tool can be identified
+as such.</p>
+<p>See the GNAT Reference Manual for more details.</p>
+<p>Additionally, GNATprove can issue warnings as part of proof, on preconditions
+or postconditions or pragma <code class="docutils literal"><span class="pre">Assume</span></code> that are always false,
+dead code after loops and unreachable
+branches in assertions and contracts. These warnings are not enabled by
+default, as they require calling a prover for each potential warning, which
+incurs a small cost (1 sec for each property thus checked). They can be enabled
+with switch <code class="docutils literal"><span class="pre">--proof-warnings</span></code>, and their effect is controlled by switch
+<code class="docutils literal"><span class="pre">--warnings</span></code> and pragma <code class="docutils literal"><span class="pre">Warnings</span></code> as described previously.</p>
+<p>Note that GNATprove, just like GNAT, suppresses warnings about unused variables
+if their name contains any of the substrings DISCARD, DUMMY, IGNORE, JUNK,
+UNUSED, in any casing.</p>
+</div>
+<div class="section" id="suppressing-information-messages">
+<span id="id3"></span><h2>7.3.3. Suppressing Information Messages<a class="headerlink" href="#suppressing-information-messages" title="Permalink to this headline">¶</a></h2>
+<p>Information messages can be suppressed by the use of pragma <code class="docutils literal"><span class="pre">Warnings</span></code> in the
+source code, like for warnings.</p>
+</div>
+<div class="section" id="justifying-check-messages">
+<span id="id4"></span><h2>7.3.4. Justifying Check Messages<a class="headerlink" href="#justifying-check-messages" title="Permalink to this headline">¶</a></h2>
+<p>GNATprove&#8216;s analysis relies on the fact that, at any given point in the
+program, previous checks on any execution reaching that program point have been
+successful. Thus, given two successive assertions of the same property:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">Prop</span><span class="o">)</span><span class="p">;</span>  <span class="c">--  possibly not proved</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">Prop</span><span class="o">)</span><span class="p">;</span>  <span class="c">--  proved</span>
+</pre></div>
+</div>
+<p>The second assertion will be reported as proved by GNATprove, even if the
+first assertion is reported as not proved. This is because any execution that
+fails the first assertion is not analyzed further by GNATprove.</p>
+<p>Similarly, consider two successive calls to the same procedure with a
+precondition:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">Proc</span> <span class="o">(</span><span class="n">Args</span><span class="o">)</span><span class="p">;</span>  <span class="c">--  precondition possibly not proved</span>
+<span class="n">Proc</span> <span class="o">(</span><span class="n">Args</span><span class="o">)</span><span class="p">;</span>  <span class="c">--  precondition proved</span>
+</pre></div>
+</div>
+<p>The precondition of the second call will be reported as proved by GNATprove,
+even if the precondition of the first call is reported as not proved. This is
+because any execution that fails the first precondition is not analyzed further
+by GNATprove.</p>
+<p>This applies to all proof checks, and to a lesser extent to flow analysis
+checks. For example, outputs of a subprogram are considered fully initialtized
+in a caller, as explained in <a class="reference internal" href="language_restrictions.html#data-initialization-policy"><span class="std std-ref">Data Initialization Policy</span></a>. In particular,
+such outputs are considered to have values that respect the constraints of
+their type, which is used during proof.</p>
+<p>Thus, the user should be careful when justifying check messages, as the
+incorrect justification of a check message that could fail could also hide
+other possible failures later for the same execution of the analyzed program.</p>
+<div class="section" id="direct-justification-with-pragma-annotate">
+<span id="id5"></span><h3>7.3.4.1. Direct Justification with Pragma Annotate<a class="headerlink" href="#direct-justification-with-pragma-annotate" title="Permalink to this headline">¶</a></h3>
+<p>Check messages generated by GNATprove&#8216;s flow analysis or proof can be
+selectively justified by adding a pragma <code class="docutils literal"><span class="pre">Annotate</span></code> in the source code. For
+example, the check message about a possible division by zero in the return
+expression below can be justified as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">return</span><span class="p"> </span><span class="o">(</span><span class="n">X</span> <span class="o">+</span> <span class="n">Y</span><span class="o">)</span> <span class="o">/</span> <span class="o">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="kc">False</span><span class="n">_Positive</span><span class="p">,</span>
+                 <span class="s">&quot;divide by zero&quot;</span><span class="p">,</span> <span class="s">&quot;reviewed by John Smith&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The pragma has the following form:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Category</span><span class="p">,</span> <span class="n">Pattern</span><span class="p">,</span> <span class="n">Reason</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>where the following table explains the different entries:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Item</th>
+<th class="head">Explanation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>GNATprove</td>
+<td>is a fixed identifier</td>
+</tr>
+<tr class="row-odd"><td>Category</td>
+<td>is one of <code class="docutils literal"><span class="pre">False_Positive</span></code> or <code class="docutils literal"><span class="pre">Intentional</span></code></td>
+</tr>
+<tr class="row-even"><td>Pattern</td>
+<td>is a string literal describing the pattern of the check messages which shall be justified</td>
+</tr>
+<tr class="row-odd"><td>Reason</td>
+<td>is a string literal providing a justification for reviews</td>
+</tr>
+</tbody>
+</table>
+<p>All arguments should be provided.</p>
+<p>The <em>Category</em> currently has no impact on the behavior of the tool but serves a
+documentation purpose:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">False_Positive</span></code> indicates that the check cannot fail, although GNATprove
+was unable to prove it.</li>
+<li><code class="docutils literal"><span class="pre">Intentional</span></code> indicates that the check can fail but that it is not
+considered to be a bug.</li>
+</ul>
+<p><em>Pattern</em> should be a substring of the check message to justify.</p>
+<p><em>Reason</em> is a string provided by the user as a justification for reviews. This
+reason may be present in a GNATprove report.</p>
+<p>Placement rules are as follows: in a statement list or declaration list, pragma
+<code class="docutils literal"><span class="pre">Annotate</span></code> applies to the preceding item in the list, ignoring other pragma
+<code class="docutils literal"><span class="pre">Annotate</span></code>. If there is no preceding item, the pragma applies to the
+enclosing construct. For example, if the pragma is the first element of the
+then-branch of an if-statement, it will apply to condition in the
+if-statement.</p>
+<p>If the preceding or enclosing construct is a subprogram
+body, the pragma applies to both the subprogram body and the spec including its
+contract. This allows to place a justification for a check message issued by
+GNATprove either on the spec when it is relevant for callers. Note that
+this placement of a justification is ineffective on subprograms analyzed
+only in the context of their calls (see details in
+<a class="reference internal" href="how_to_write_subprogram_contracts.html#contextual-analysis-of-subprograms-without-contracts"><span class="std std-ref">Contextual Analysis of Subprograms Without Contracts</span></a>).</p>
+<p>An aspect on a package or subprogram declaration/body can be used instead of a
+pragma at the beginning of the corresponding declaration list inside the
+declaration/body:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Pack</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Annotate</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="kc">False</span><span class="n">_Positive</span><span class="p">,</span>
+               <span class="s">&quot;divide by zero&quot;</span><span class="p">,</span> <span class="s">&quot;reviewed by John Smith&quot;</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="o">...</span>
+
+<span class="k">procedure </span><span class="nf">Proc</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Annotate</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="kc">False</span><span class="n">_Positive</span><span class="p">,</span>
+               <span class="s">&quot;divide by zero&quot;</span><span class="p">,</span> <span class="s">&quot;reviewed by John Smith&quot;</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="o">...</span>
+</pre></div>
+</div>
+<p>As a point of caution, the following placements of pragma Annotate will apply
+the pragma to a possibly large range of source lines:</p>
+<ul class="simple">
+<li>when the pragma appears in a statement list after a block, it will apply to
+the entire block (e.g. an if statement including all branches, or a loop
+including the loop body).</li>
+<li>when the pragma appears directly after a subprogram body, it will apply to
+the entire body and the spec of the subprogram.</li>
+</ul>
+<p>Users should take care to not justify checks which were not intended to be
+justified, when placing pragma Annotate in such places.</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span>   <span class="k">procedure </span><span class="nf">Do_Something_1</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">((</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">))</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Intentional</span><span class="p">,</span> <span class="s">&quot;incorrect dependency &quot;&quot;Y =&gt; X&quot;&quot;&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;Dependency is kept for compatibility reasons&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>or on the body when it is an implementation choice that need not be visible
+to users of the unit:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span>   <span class="k">procedure </span><span class="nf">Do_Something_2</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">((</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-ada"><div class="highlight"><pre><span></span>   <span class="k">procedure </span><span class="nf">Do_Something_2</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">X</span> <span class="o">:=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span><span class="p">;</span>
+      <span class="n">Y</span> <span class="o">:=</span> <span class="n">Y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Do_Something_2</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Annotate</span> <span class="o">(</span><span class="n">GNATprove</span><span class="p">,</span> <span class="n">Intentional</span><span class="p">,</span> <span class="s">&quot;incorrect dependency &quot;&quot;Y =&gt; X&quot;&quot;&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;Currently Y does not depend on X, but may change later&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Pragmas <code class="docutils literal"><span class="pre">Annotate</span></code> of the form above that do not justify any check message
+are useless and result in a warning by GNATprove. Like other warnings emitted
+by GNATprove, this warning is treated like an error if the switch
+<code class="docutils literal"><span class="pre">--warnings=error</span></code> is set.</p>
+</div>
+<div class="section" id="indirect-justification-with-pragma-assume">
+<span id="id6"></span><h3>7.3.4.2. Indirect Justification with Pragma Assume<a class="headerlink" href="#indirect-justification-with-pragma-assume" title="Permalink to this headline">¶</a></h3>
+<p>Check messages generated by GNATprove&#8216;s proof can alternatively be justified
+indirectly by adding a <a class="reference internal" href="assertion_pragmas.html#pragma-assume"><span class="std std-ref">Pragma Assume</span></a> in the source code, which allows the
+check to be proved. For example, the check message about a possible integer
+overflow in the assignment statement below can be justified as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span>   <span class="k">procedure </span><span class="nf">Next_Tick</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Assume</span> <span class="o">(</span><span class="n">Clock_Ticks</span> <span class="o">&lt;</span> <span class="n">Natural</span><span class="na">&#39;Last</span><span class="p">,</span>
+                     <span class="s">&quot;Device uptime is short enough that Clock_Ticks is less than 1_000 always&quot;</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Clock_Ticks</span> <span class="o">:=</span> <span class="n">Clock_Ticks</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Next_Tick</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Using pragma <code class="docutils literal"><span class="pre">Assume</span></code> is more powerful than using pragma <code class="docutils literal"><span class="pre">Annotate</span></code>, as the
+property assumed may be used to prove more than one check. Thus, one should in
+general use pragma <code class="docutils literal"><span class="pre">Annotate</span></code> rather than pragma <code class="docutils literal"><span class="pre">Assume</span></code> to justify simple
+runtime checks. There are some cases though where using a pragma <code class="docutils literal"><span class="pre">Assume</span></code> may
+be preferred. In particular:</p>
+<ul>
+<li><p class="first">To keep assumptions local:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Assume</span> <span class="o">(&lt;</span><span class="n">External_Call</span><span class="o">&#39;</span><span class="n">s</span> <span class="n">precondition</span><span class="o">&gt;</span><span class="p">,</span>
+               <span class="s">&quot;because for these internal reasons I know it holds&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="n">External_Call</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If the precondition of <code class="docutils literal"><span class="pre">External_Call</span></code> changes, it may not be valid anymore
+to assume it here, though the assumption will stay True for the same reasons
+it used to be. Incompatible changes in the precondition of <code class="docutils literal"><span class="pre">External_Call</span></code>
+will lead to a failure in the proof of External_Call&#8217;s precondition.</p>
+</li>
+<li><p class="first">To sum up what is expected from the outside world so that it can be reviewed
+easily:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">External_Find</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">X</span><span class="o">)</span><span class="p">;</span>
+<span class="kr">pragma</span><span class="p"> </span><span class="n">Assume</span> <span class="o">(</span><span class="n">X</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">or</span><span class="p"> </span><span class="o">(</span><span class="n">X</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="kr">and</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span> <span class="o">=</span> <span class="n">E</span><span class="o">)</span><span class="p">,</span>
+               <span class="s">&quot;because of the documentation of External_Find&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Maintenance and review is easier with a single pragma <code class="docutils literal"><span class="pre">Assume</span></code> than if it is
+spread out into various pragmas <code class="docutils literal"><span class="pre">Annotate</span></code>. If the information is required
+at several places, the pragma <code class="docutils literal"><span class="pre">Assume</span></code> can be factorized into a procedure:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">External_Find_Assumption</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="kr">Array</span><span class="p">,</span> <span class="n">E</span> <span class="o">:</span> <span class="n">Element</span><span class="p">,</span> <span class="n">X</span> <span class="o">:</span> <span class="n">Index</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span>
+<span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">X</span> <span class="o">=</span> <span class="mi">0</span> <span class="kr">or</span><span class="p"> </span><span class="o">(</span><span class="n">X</span> <span class="kr">in</span><span class="p"> </span><span class="n">A</span><span class="na">&#39;Range</span> <span class="kr">and</span><span class="p"> </span><span class="n">A</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span> <span class="o">=</span> <span class="n">E</span><span class="o">))</span><span class="p"></span>
+<span class="kr">with</span><span class="nn"> Ghost;</span>
+
+<span class="k">procedure </span><span class="nf">Assume_External_Find_Assumption</span> <span class="o">(</span><span class="n">A</span> <span class="o">:</span> <span class="kr">Array</span><span class="p">,</span> <span class="n">E</span> <span class="o">:</span> <span class="n">Element</span><span class="p">,</span> <span class="n">X</span> <span class="o">:</span> <span class="n">Index</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+ <span class="n">Ghost</span><span class="p">,</span>
+ <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">External_Find_Assumption</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">X</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assume</span> <span class="o">(</span><span class="n">External_Find_Assumption</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">X</span><span class="o">)</span><span class="p">,</span>
+                  <span class="s">&quot;because of the documentation of External_Find&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Assume_External_Find_Assumption</span><span class="p">;</span>
+
+<span class="n">External_Find</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">X</span><span class="o">)</span><span class="p">;</span>
+<span class="n">Assume_External_Find_Assumption</span> <span class="o">(</span><span class="n">A</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">X</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>In general, assumptions should be kept as small as possible (only assume what
+is needed for the code to work). Indirect justifications with pragma
+<code class="docutils literal"><span class="pre">Assume</span></code> should be carefully inspected as they can easily introduce errors
+in the verification process.</p>
+</div>
+</div>
+<div class="section" id="sharing-proof-results-via-a-memcached-server">
+<h2>7.3.5. Sharing Proof Results Via a Memcached Server<a class="headerlink" href="#sharing-proof-results-via-a-memcached-server" title="Permalink to this headline">¶</a></h2>
+<p>GNATprove can cache and share results between distinct runs of the tool,
+even across several computers, via a Memcached server. To use this feature, you
+need to setup a memcached server (see <a class="reference external" href="https://memcached.org/">https://memcached.org/</a>) on your network
+or on your local machine. Then, if you add the option
+<code class="docutils literal"><span class="pre">--memcached-server=hostname:portnumber</span></code> to your invocation of gnatprove (or
+use the <code class="docutils literal"><span class="pre">Switches</span></code> Attribute of the <code class="docutils literal"><span class="pre">Prove</span></code> Package of your project file),
+then caching will be used, and speedups should be observed in many cases.</p>
+</div>
+<div class="section" id="managing-assumptions">
+<span id="id7"></span><h2>7.3.6. Managing Assumptions<a class="headerlink" href="#managing-assumptions" title="Permalink to this headline">¶</a></h2>
+<p>Because GNATprove analyzes separately subprograms and packages, its results
+depend on assumptions about other subprograms and packages. For example,
+the verification that a subprogram is free from run-time errors depends on the
+property that all the subprograms it calls implement their specified
+contract. If a program is completely analyzed with GNATprove, GNATprove
+will report messages on those other subprograms, if they might not implement
+their contract correctly. But in general, a program is partly
+in SPARK and partly in other languages, mostly Ada, C and assembly
+languages. Thus, assumptions on parts of the program that cannot be analyzed
+with GNATprove need to be recorded for verification by other means, like
+testing, manual analysis or reviews.</p>
+<p>When switch <code class="docutils literal"><span class="pre">--assumptions</span></code> is used, GNATprove generates information about
+remaining assumptions in its result file <code class="docutils literal"><span class="pre">gnatprove.out</span></code>. These remaining
+assumptions need to be justified to ensure that the desired verification
+objectives are met. An assumption on a subprogram may be generated in various
+cases:</p>
+<ul class="simple">
+<li>the subprogram was not analyzed (for example because it is marked
+<code class="docutils literal"><span class="pre">SPARK_Mode</span> <span class="pre">=&gt;</span> <span class="pre">Off</span></code>)</li>
+<li>the subprogram was not completely verified by GNATprove (that is, some
+unproved checks remain)</li>
+</ul>
+<p>Note that currently, only assumptions on called subprograms are output, and not
+assumptions on calling subprograms.</p>
+<p>The following table explains the meaning of assumptions and claims which
+gnatprove may output:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Assumption</th>
+<th class="head">Explanation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>effects on parameters and global variables</td>
+<td>The subprogram does not read or write any other parameters or global variables than what is described in its spec (signature + data dependencies).</td>
+</tr>
+<tr class="row-odd"><td>absence of run-time errors</td>
+<td>The subprogram is free from run-time errors.</td>
+</tr>
+<tr class="row-even"><td>the postcondition</td>
+<td>The postconditon of the subprogram holds after each call of the subprogram.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="how_to_write_subprogram_contracts.html" title="7.4. How to Write Subprogram Contracts"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="flow_checks_table.html" title="7.2.5.2. Messages reported by Flow Analysis"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" >7. Formal Verification with GNATprove</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

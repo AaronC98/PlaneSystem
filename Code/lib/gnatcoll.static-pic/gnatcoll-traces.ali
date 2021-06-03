@@ -1,0 +1,1656 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_ALLOCATORS
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_ENUMERATION_MAPS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FINALIZATION
+RV NO_FIXED_POINT
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLICIT_HEAP_ALLOCATIONS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U gnatcoll.traces%b	gnatcoll-traces.adb	2319d61e OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+W ada.calendar.formatting%s  a-calfor.adb	a-calfor.ali
+W ada.calendar.time_zones%s  a-catizo.adb	a-catizo.ali
+W ada.environment_variables%s  a-envvar.adb	a-envvar.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.exceptions.traceback%s  a-exctra.adb	a-exctra.ali
+W ada.io_exceptions%s	a-ioexce.ads		a-ioexce.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_deallocation%s
+W gnat%s		gnat.ads		gnat.ali
+W gnat.calendar%s	g-calend.adb		g-calend.ali
+W gnat.calendar.time_io%s  g-catiio.adb		g-catiio.ali
+W gnat.os_lib%s		g-os_lib.ads		g-os_lib.ali
+W gnat.regpat%s		g-regpat.ads		g-regpat.ali
+W gnat.traceback%s	g-traceb.adb		g-traceb.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+Z gnatcoll.atomic%s	gnatcoll-atomic.adb	gnatcoll-atomic.ali  AD
+W gnatcoll.memory%s	gnatcoll-memory.adb	gnatcoll-memory.ali
+W gnatcoll.mmap%s	gnatcoll-mmap.adb	gnatcoll-mmap.ali
+Z gnatcoll.strings_impl%s  gnatcoll-strings_impl.adb  gnatcoll-strings_impl.ali  ED
+W gnatcoll.templates%s	gnatcoll-templates.adb	gnatcoll-templates.ali
+Z gnatcoll.terminal%s	gnatcoll-terminal.adb	gnatcoll-terminal.ali  AD
+W gnatcoll.utils%s	gnatcoll-utils.adb	gnatcoll-utils.ali
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c_streams%s  i-cstrea.adb		i-cstrea.ali
+W system%s		system.ads		system.ali
+W system.address_image%s  s-addima.adb		s-addima.ali
+W system.assertions%s	s-assert.adb		s-assert.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.img_int%s	s-imgint.adb		s-imgint.ali
+Z system.img_llu%s	s-imgllu.adb		s-imgllu.ali
+Z system.img_uns%s	s-imguns.adb		s-imguns.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+Z system.val_enum%s	s-valenu.adb		s-valenu.ali
+Z system.val_llu%s	s-valllu.adb		s-valllu.ali
+
+U gnatcoll.traces%s	gnatcoll-traces.ads	add8d16f BN EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+W ada.characters%s	a-charac.ads		a-charac.ali
+W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.source_info%s	g-souinf.ads		g-souinf.ali
+W gnat.strings%s	g-string.ads		g-string.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.atomic%s	gnatcoll-atomic.adb	gnatcoll-atomic.ali
+W gnatcoll.strings_impl%s  gnatcoll-strings_impl.adb  gnatcoll-strings_impl.ali
+W gnatcoll.terminal%s	gnatcoll-terminal.adb	gnatcoll-terminal.ali
+W gnatcoll.vfs%s	gnatcoll-vfs.adb	gnatcoll-vfs.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+Z system.compare_array_unsigned_8%s  s-carun8.adb  s-carun8.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.img_int%s	s-imgint.adb		s-imgint.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-calend.ads		20190518041256 474d9720 ada.calendar%s
+D a-calend.adb		20190518041256 e65e26b2 ada.calendar%b
+D a-calfor.ads		20190518041255 0a6f9afc ada.calendar.formatting%s
+D a-catizo.ads		20190518041257 409d7e5b ada.calendar.time_zones%s
+D a-charac.ads		20190518041256 2d3ec45b ada.characters%s
+D a-chahan.ads		20190518041256 1601a50f ada.characters.handling%s
+D a-chahan.adb		20190518041255 0b9287e4 ada.characters.handling%b
+D a-chlat1.ads		20190518041256 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20190518041255 61e5e089 ada.containers%s
+D a-envvar.ads		20190518041256 00080416 ada.environment_variables%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-exctra.ads		20190518041257 0966bad0 ada.exceptions.traceback%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-ioexce.ads		20190518041255 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-string.ads		20190518041256 90ac6797 ada.strings%s
+D a-strfix.ads		20190518041257 86d6bc21 ada.strings.fixed%s
+D a-strhas.ads		20190518041257 c71c2a52 ada.strings.hash%s
+D a-shcain.ads		20190518041256 08af52df ada.strings.hash_case_insensitive%s
+D a-strmap.ads		20190518041256 e8bb714a ada.strings.maps%s
+D a-stmaco.ads		20190518041255 1c0e5368 ada.strings.maps.constants%s
+D a-strunb.ads		20190518041256 1656705b ada.strings.unbounded%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-textio.ads		20190518041257 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-calend.ads		20190518041256 cad86fa7 gnat.calendar%s
+D g-catiio.ads		20190518041255 b8a4f3d4 gnat.calendar.time_io%s
+D g-debpoo.ads		20190518041256 9fb7f271 gnat.debug_pools%s
+D g-expect.ads		20190518041256 8c6f1a8c gnat.expect%s
+D g-heasor.ads		20190518041256 49e3215a gnat.heap_sort%s
+D g-os_lib.ads		20190518041255 0db74523 gnat.os_lib%s
+D g-regpat.ads		20190518041257 b85d88ef gnat.regpat%s
+D g-souinf.ads		20190518041257 291df751 gnat.source_info%s
+D g-string.ads		20190518041257 c6abc540 gnat.strings%s
+D g-traceb.ads		20190518041255 0526e8e7 gnat.traceback%s
+D gnatcoll.ads		20190516174408 6a5da479 gnatcoll%s
+D gnatcoll-atomic.ads	20190516174408 a760a918 gnatcoll.atomic%s
+D gnatcoll-atomic.adb	20190516174408 d76879ba gnatcoll.atomic%b
+D gnatcoll-io.ads	20190516174408 40b00e79 gnatcoll.io%s
+D gnatcoll-io-native.ads  20190516174409 1da3ee19 gnatcoll.io.native%s
+D gnatcoll-io-remote.ads  20190516174409 dbadffe6 gnatcoll.io.remote%s
+D gnatcoll-memory.ads	20190516174408 93527ec9 gnatcoll.memory%s
+D gnatcoll-mmap.ads	20190516174408 645345a7 gnatcoll.mmap%s
+D gnatcoll-mmap.adb	20190516174408 d58b3ca4 gnatcoll.mmap%b
+D gnatcoll-mmap-system__unix.ads  20190516174409 90da8a29 gnatcoll.mmap.system%s
+D gnatcoll-path.ads	20190516174408 44783065 gnatcoll.path%s
+D gnatcoll-refcount.ads	20190516174408 b4dda25c gnatcoll.refcount%s
+D gnatcoll-remote.ads	20190516174408 0702f81b gnatcoll.remote%s
+D gnatcoll-remote-db.ads  20190516174408 359f4135 gnatcoll.remote.db%s
+D gnatcoll-storage_pools.ads  20190516174408 f82e283b gnatcoll.storage_pools%s
+D gnatcoll-storage_pools-headers.ads  20190516174409 968b2c2e gnatcoll.storage_pools.headers%s
+D gnatcoll-storage_pools-headers.adb  20190516174408 156a496e gnatcoll.storage_pools.headers%b
+D gnatcoll-strings.ads	20190516174408 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings.ads	20190516174408 014a3fb6 gnatcoll.strings%s
+D gnatcoll-strings_impl.ads  20190516174409 660cba3c gnatcoll.strings_impl%s
+D gnatcoll-strings_impl.adb  20190516174408 4bac4314 gnatcoll.strings_impl%b
+D gnatcoll-templates.ads  20190516174408 bc671465 gnatcoll.templates%s
+D gnatcoll-terminal.ads	20190516174408 d1bdf60c gnatcoll.terminal%s
+D gnatcoll-traces.ads	20190516174409 070c3069 gnatcoll.traces%s
+D gnatcoll-traces.adb	20190516174408 38afdfaf gnatcoll.traces%b
+D gnatcoll-utils.ads	20190516174409 5fbcf72a gnatcoll.utils%s
+D gnatcoll-vfs.ads	20190516174408 f8f432d7 gnatcoll.vfs%s
+D gnatcoll-vfs.adb	20190516174408 82c8d2fb gnatcoll.vfs%b
+D gnatcoll-vfs_types.ads  20190516174409 14be4a8d gnatcoll.vfs_types%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D i-c.ads		20190518041255 5421119b interfaces.c%s
+D i-cstrin.ads		20190518041256 341d0ddf interfaces.c.strings%s
+D i-cstrea.ads		20190518041255 e53d8b8e interfaces.c_streams%s
+D i-cstrea.adb		20190518041255 98747b85 interfaces.c_streams%b
+D system.ads		20190518041256 085b6ffb system%s
+D s-addima.ads		20190518041256 a1ec9d3a system.address_image%s
+D s-assert.ads		20190518041256 cd8d2c94 system.assertions%s
+D s-atocou.ads		20190518041257 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20190518041256 b65612c0 system.atomic_counters%b
+D s-chepoo.ads		20190518041256 7b01371d system.checked_pools%s
+D s-carun8.ads		20190518041257 a903718d system.compare_array_unsigned_8%s
+D s-crtl.ads		20190518041255 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041257 078245e4 system.file_control_block%s
+D s-finmas.ads		20190518041256 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-imgint.ads		20190518041255 02dbe0c2 system.img_int%s
+D s-imgllu.ads		20190518041257 49c900c3 system.img_llu%s
+D s-imgllu.adb		20190518041256 43dc5537 system.img_llu%b
+D s-imguns.ads		20190518041256 9ff43cf7 system.img_uns%s
+D s-imguns.adb		20190518041256 470a82cb system.img_uns%b
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-osprim.ads		20190518041255 07fd65f6 system.os_primitives%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041255 ede33ef8 system.pool_global%s
+D s-poosiz.ads		20190518041257 9d8c569f system.pool_size%s
+D s-regpat.ads		20190518041256 825a9b7f system.regpat%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stalib.adb		20190518041255 f2fe2716 system.standard_library%b
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20190518041256 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-stposu.ads		20190518041255 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20190518041255 aedef97e system.stream_attributes%s
+D s-stratt.adb		20190518041256 56ef263e system.stream_attributes%b
+D s-strhas.ads		20190518041255 269cd894 system.string_hash%s
+D s-strhas.adb		20190518041256 2e038444 system.string_hash%b
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-ststop.ads		20190518041255 5fbf1b38 system.strings.stream_ops%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-traent.adb		20190518041257 9e8f6355 system.traceback_entries%b
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-valenu.ads		20190518041257 6201ebfb system.val_enum%s
+D s-valllu.ads		20190518041256 6dce8de2 system.val_llu%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+G a e
+G c b b b [b gnatcoll__traces 50 1 none]
+G c s s s [s gnatcoll__traces 254 1 none]
+G c Z s b [parse_config_file gnatcoll__traces 280 14 none]
+G c Z s b [parse_config_file gnatcoll__traces 304 14 none]
+G c Z s b [parse_config gnatcoll__traces 311 14 none]
+G c Z s b [show_configuration gnatcoll__traces 330 14 none]
+G c Z s b [finalize gnatcoll__traces 334 14 none]
+G c Z s b [create gnatcoll__traces 356 13 none]
+G c Z s b [exists gnatcoll__traces 396 13 none]
+G c Z s b [unit_name gnatcoll__traces 401 13 none]
+G c Z s b [trace gnatcoll__traces 501 14 none]
+G c Z s b [trace gnatcoll__traces 506 14 none]
+G c Z s b [trace gnatcoll__traces 526 14 none]
+G c Z s b [trace gnatcoll__traces 532 14 none]
+G c Z s b [assert gnatcoll__traces 562 14 none]
+G c Z s b [increase_indent gnatcoll__traces 586 14 none]
+G c Z s b [decrease_indent gnatcoll__traces 592 14 none]
+G c Z s b [count gnatcoll__traces 609 13 none]
+G c Z s b [set_active gnatcoll__traces 614 14 none]
+G c Z s b [is_active gnatcoll__traces 624 13 none]
+G c Z s s [active gnatcoll__traces 628 13 none]
+G c Z s b [for_each_handle gnatcoll__traces 646 14 none]
+G c Z s b [create gnatcoll__traces 660 13 none]
+G c Z s s [length gnatcoll__traces__msg_strings 346 16 719_4]
+G c Z s s [is_empty gnatcoll__traces__msg_strings 349 16 719_4]
+G c Z s s [get gnatcoll__traces__msg_strings 353 16 719_4]
+G c Z s s [reference gnatcoll__traces__msg_strings 372 16 719_4]
+G c Z s s [first gnatcoll__traces__msg_strings 397 16 719_4]
+G c Z s s [next gnatcoll__traces__msg_strings 398 16 719_4]
+G c Z s s [has_element gnatcoll__traces__msg_strings 400 16 719_4]
+G c Z s s [element gnatcoll__traces__msg_strings 402 16 719_4]
+G c Z s s [iterate gnatcoll__traces__msg_strings 406 16 719_4]
+G c Z s s [first gnatcoll__traces__msg_strings 420 16 719_4]
+G c Z s s [next gnatcoll__traces__msg_strings 421 16 719_4]
+G c Z s s [has_element gnatcoll__traces__msg_strings 423 16 719_4]
+G c Z s s [set gnatcoll__traces__msg_strings 443 17 719_4]
+G c Z s s [to_xstring gnatcoll__traces__msg_strings 446 16 719_4]
+G c Z s s [append gnatcoll__traces__msg_strings 450 17 719_4]
+G c Z s s [append gnatcoll__traces__msg_strings 451 17 719_4]
+G c Z s s [append gnatcoll__traces__msg_strings 452 17 719_4]
+G c Z s s [Omultiply gnatcoll__traces__msg_strings 455 16 719_4]
+G c Z s s [Omultiply gnatcoll__traces__msg_strings 456 16 719_4]
+G c Z s s [Omultiply gnatcoll__traces__msg_strings 457 16 719_4]
+G c Z s s [reserve gnatcoll__traces__msg_strings 460 17 719_4]
+G c Z s s [shrink gnatcoll__traces__msg_strings 466 17 719_4]
+G c Z s s [swap gnatcoll__traces__msg_strings 470 17 719_4]
+G c Z s s [center gnatcoll__traces__msg_strings 479 17 719_4]
+G c Z s s [center gnatcoll__traces__msg_strings 483 16 719_4]
+G c Z s s [left_justify gnatcoll__traces__msg_strings 495 17 719_4]
+G c Z s s [left_justify gnatcoll__traces__msg_strings 499 16 719_4]
+G c Z s s [right_justify gnatcoll__traces__msg_strings 509 17 719_4]
+G c Z s s [right_justify gnatcoll__traces__msg_strings 513 16 719_4]
+G c Z s s [Oeq gnatcoll__traces__msg_strings 527 16 719_4]
+G c Z s s [Oeq gnatcoll__traces__msg_strings 528 16 719_4]
+G c Z s s [Oeq gnatcoll__traces__msg_strings 529 16 719_4]
+G c Z s s [Olt gnatcoll__traces__msg_strings 532 16 719_4]
+G c Z s s [Olt gnatcoll__traces__msg_strings 533 16 719_4]
+G c Z s s [Olt gnatcoll__traces__msg_strings 534 16 719_4]
+G c Z s s [Ole gnatcoll__traces__msg_strings 536 16 719_4]
+G c Z s s [Ole gnatcoll__traces__msg_strings 537 16 719_4]
+G c Z s s [Ole gnatcoll__traces__msg_strings 538 16 719_4]
+G c Z s s [Ogt gnatcoll__traces__msg_strings 540 16 719_4]
+G c Z s s [Ogt gnatcoll__traces__msg_strings 542 16 719_4]
+G c Z s s [Ogt gnatcoll__traces__msg_strings 544 16 719_4]
+G c Z s s [Oge gnatcoll__traces__msg_strings 547 16 719_4]
+G c Z s s [Oge gnatcoll__traces__msg_strings 549 16 719_4]
+G c Z s s [Oge gnatcoll__traces__msg_strings 551 16 719_4]
+G c Z s s [compare gnatcoll__traces__msg_strings 556 16 719_4]
+G c Z s s [compare gnatcoll__traces__msg_strings 558 16 719_4]
+G c Z s s [compare gnatcoll__traces__msg_strings 561 16 719_4]
+G c Z s s [compare_case_insensitive gnatcoll__traces__msg_strings 572 16 719_4]
+G c Z s s [compare_case_insensitive gnatcoll__traces__msg_strings 574 16 719_4]
+G c Z s s [compare_case_insensitive gnatcoll__traces__msg_strings 577 16 719_4]
+G c Z s s [equal_case_insensitive gnatcoll__traces__msg_strings 582 16 719_4]
+G c Z s s [equal_case_insensitive gnatcoll__traces__msg_strings 585 16 719_4]
+G c Z s s [equal_case_insensitive gnatcoll__traces__msg_strings 588 16 719_4]
+G c Z s s [less_case_insensitive gnatcoll__traces__msg_strings 592 16 719_4]
+G c Z s s [less_case_insensitive gnatcoll__traces__msg_strings 595 16 719_4]
+G c Z s s [less_case_insensitive gnatcoll__traces__msg_strings 598 16 719_4]
+G c Z s s [get_string gnatcoll__traces__msg_strings 606 17 719_4]
+G c Z s s [access_string gnatcoll__traces__msg_strings 616 17 719_4]
+G c Z s s [to_string gnatcoll__traces__msg_strings 626 16 719_4]
+G c Z s s [hash gnatcoll__traces__msg_strings 638 16 719_4]
+G c Z s s [hash_case_insensitive gnatcoll__traces__msg_strings 642 16 719_4]
+G c Z s s [to_upper gnatcoll__traces__msg_strings 650 17 719_4]
+G c Z s s [to_upper gnatcoll__traces__msg_strings 651 16 719_4]
+G c Z s s [to_lower gnatcoll__traces__msg_strings 655 17 719_4]
+G c Z s s [to_lower gnatcoll__traces__msg_strings 656 16 719_4]
+G c Z s s [capitalize gnatcoll__traces__msg_strings 660 17 719_4]
+G c Z s s [title gnatcoll__traces__msg_strings 664 17 719_4]
+G c Z s s [is_upper gnatcoll__traces__msg_strings 668 16 719_4]
+G c Z s s [is_lower gnatcoll__traces__msg_strings 669 16 719_4]
+G c Z s s [starts_with gnatcoll__traces__msg_strings 676 16 719_4]
+G c Z s s [starts_with gnatcoll__traces__msg_strings 678 16 719_4]
+G c Z s s [ends_with gnatcoll__traces__msg_strings 681 16 719_4]
+G c Z s s [ends_with gnatcoll__traces__msg_strings 683 16 719_4]
+G c Z s s [count gnatcoll__traces__msg_strings 694 16 719_4]
+G c Z s s [count gnatcoll__traces__msg_strings 699 16 719_4]
+G c Z s s [find gnatcoll__traces__msg_strings 711 16 719_4]
+G c Z s s [find gnatcoll__traces__msg_strings 716 16 719_4]
+G c Z s s [right_find gnatcoll__traces__msg_strings 721 16 719_4]
+G c Z s s [right_find gnatcoll__traces__msg_strings 726 16 719_4]
+G c Z s s [slice gnatcoll__traces__msg_strings 758 17 719_4]
+G c Z s s [slice gnatcoll__traces__msg_strings 760 16 719_4]
+G c Z s s [slice gnatcoll__traces__msg_strings 762 17 719_4]
+G c Z s s [trim gnatcoll__traces__msg_strings 774 17 719_4]
+G c Z s s [trim gnatcoll__traces__msg_strings 778 16 719_4]
+G c Z s s [head gnatcoll__traces__msg_strings 785 16 719_4]
+G c Z s s [tail gnatcoll__traces__msg_strings 789 16 719_4]
+G c Z s s [split gnatcoll__traces__msg_strings 793 16 719_4]
+G c Z s s [split gnatcoll__traces__msg_strings 798 17 719_4]
+G c Z s s [split gnatcoll__traces__msg_strings 804 16 719_4]
+G c Z s s [split gnatcoll__traces__msg_strings 809 17 719_4]
+G c Z s s [right_split gnatcoll__traces__msg_strings 844 16 719_4]
+G c Z s s [right_split gnatcoll__traces__msg_strings 849 17 719_4]
+G c Z s s [right_split gnatcoll__traces__msg_strings 855 16 719_4]
+G c Z s s [right_split gnatcoll__traces__msg_strings 860 17 719_4]
+G c Z s s [set_as_join gnatcoll__traces__msg_strings 870 17 719_4]
+G c Z s s [join gnatcoll__traces__msg_strings 876 16 719_4]
+G c Z s s [join gnatcoll__traces__msg_strings 882 16 719_4]
+G c Z s s [set_as_join gnatcoll__traces__msg_strings 887 17 719_4]
+G c Z s s [join gnatcoll__traces__msg_strings 893 16 719_4]
+G c Z s s [replace gnatcoll__traces__msg_strings 910 17 719_4]
+G c Z s s [replace gnatcoll__traces__msg_strings 915 17 719_4]
+G c Z s s [replace_slice gnatcoll__traces__msg_strings 920 17 719_4]
+G c Z s s [insert gnatcoll__traces__msg_strings 931 17 719_4]
+G c Z s s [insert gnatcoll__traces__msg_strings 935 17 719_4]
+G c Z s s [overwrite gnatcoll__traces__msg_strings 941 17 719_4]
+G c Z s s [overwrite gnatcoll__traces__msg_strings 945 17 719_4]
+G c Z s s [delete gnatcoll__traces__msg_strings 952 17 719_4]
+G c Z s s [clear gnatcoll__traces__msg_strings 960 17 719_4]
+G c Z s s [adjust gnatcoll__traces__msg_strings 1051 28 719_4]
+G c Z s s [finalize gnatcoll__traces__msg_strings 1052 28 719_4]
+G c Z s s [string_dataIP gnatcoll__traces__msg_strings 1040 12 719_4]
+G c Z s s [xstringDA gnatcoll__traces__msg_strings 1048 12 719_4]
+G c Z s s [xstringDF gnatcoll__traces__msg_strings 1048 12 719_4]
+G c Z s s [xstringIP gnatcoll__traces__msg_strings 1048 12 719_4]
+G c Z s s [character_referenceIP gnatcoll__traces__msg_strings 974 12 719_4]
+G c Z s s [index_rangeIP gnatcoll__traces__msg_strings 390 12 719_4]
+G c Z s s [xstring_arrayIP gnatcoll__traces__msg_strings 340 12 719_4]
+G c Z s s [xstring_arrayDI gnatcoll__traces__msg_strings 340 12 719_4]
+G c Z s s [xstring_arrayDA gnatcoll__traces__msg_strings 340 12 719_4]
+G c Z s s [xstring_arrayDF gnatcoll__traces__msg_strings 340 12 719_4]
+G c Z s s [big_string_dataIP gnatcoll__traces__msg_strings 977 12 719_4]
+G c Z s s [convert gnatcoll__traces__msg_strings 68 16 719_4]
+G c Z s s [convert gnatcoll__traces__msg_strings 70 16 719_4]
+G c Z s s [convert gnatcoll__traces__msg_strings 72 16 719_4]
+G c Z s s [store_capacity gnatcoll__traces__msg_strings 97 17 719_4]
+G c Z s s [get_capacity gnatcoll__traces__msg_strings 99 16 719_4]
+G c Z s s [store_size gnatcoll__traces__msg_strings 103 17 719_4]
+G c Z s s [clone gnatcoll__traces__msg_strings 107 17 719_4]
+G c Z s s [make_writable_thread_safe gnatcoll__traces__msg_strings 117 17 719_4]
+G c Z s s [make_writable_thread_unsafe gnatcoll__traces__msg_strings 118 17 719_4]
+G c Z s s [convert_to_big_string gnatcoll__traces__msg_strings 140 17 719_4]
+G c Z s b [close gnatcoll__traces 754 14 none]
+G c Z s s [supports_color gnatcoll__traces 757 13 none]
+G c Z s s [supports_time gnatcoll__traces 759 13 none]
+G c Z s b [register_stream_factory gnatcoll__traces 777 14 none]
+G c Z s b [set_default_stream gnatcoll__traces 801 14 none]
+G c Z s s [start_of_line gnatcoll__traces 819 14 none]
+G c Z s s [before_message gnatcoll__traces 830 14 none]
+G c Z s s [after_message gnatcoll__traces 834 14 none]
+G c Z s b [add_global_decorator gnatcoll__traces 859 14 none]
+G c Z s b [finalize gnatcoll__traces 902 25 none]
+G c Z s s [trace_handle_recordDF gnatcoll__traces 904 9 none]
+G c Z s s [trace_handle_recordIP gnatcoll__traces 904 9 none]
+G c Z s s [block_trace_handleDF gnatcoll__traces 896 9 none]
+G c Z s s [block_trace_handleIP gnatcoll__traces 896 9 none]
+G c Z s s [trace_stream_recordDF gnatcoll__traces 887 9 none]
+G c Z s s [trace_stream_recordIP gnatcoll__traces 887 9 none]
+G c Z s s [stream_factoryDA gnatcoll__traces 766 9 none]
+G c Z s s [stream_factoryDF gnatcoll__traces 766 9 none]
+G c Z s s [stream_factoryIP gnatcoll__traces 766 9 none]
+G c Z s s [trace_decorator_recordDF gnatcoll__traces 933 9 none]
+G c Z s s [trace_decorator_recordIP gnatcoll__traces 933 9 none]
+G c Z b b [unchecked_free gnatcoll__traces 99 14 none]
+G c Z b b [unchecked_free gnatcoll__traces 101 14 none]
+G c Z b b [stream_factoriesIP gnatcoll__traces 106 9 none]
+G c Z b b [unchecked_free gnatcoll__traces 112 14 none]
+G c Z b b [unchecked_free gnatcoll__traces 115 14 none]
+G c Z b b [Tdecorator_arrayBIP gnatcoll__traces 96 4 none]
+G c Z b b [global_varsIP gnatcoll__traces 118 9 none]
+G c Z b b [after_message gnatcoll__traces 172 25 none]
+G c Z b b [after_message gnatcoll__traces 178 25 none]
+G c Z b b [before_message gnatcoll__traces 184 25 none]
+G c Z b b [after_message gnatcoll__traces 192 25 none]
+G c Z b b [after_message gnatcoll__traces 200 25 none]
+G c Z b b [lock gnatcoll__traces 205 14 none]
+G c Z b b [unlock gnatcoll__traces 207 14 none]
+G c Z b b [create_exception_handle gnatcoll__traces 212 14 none]
+G c Z b b [local_sub_second gnatcoll__traces 215 13 none]
+G c Z b b [find_handle gnatcoll__traces 220 13 none]
+G c Z b b [find_wildcard_handle gnatcoll__traces 229 13 none]
+G c Z b b [wildcard_applies_to gnatcoll__traces 234 13 none]
+G c Z b b [find_stream gnatcoll__traces 239 13 none]
+G c Z b b [put_absolute_time gnatcoll__traces 249 14 none]
+G c Z b b [config_file gnatcoll__traces 253 13 none]
+G c Z b b [register_handle gnatcoll__traces 263 14 none]
+G c Z b b [create_internal gnatcoll__traces 269 13 none]
+G c Z b b [get_process_id gnatcoll__traces 279 13 none]
+G c Z b b [put gnatcoll__traces 288 25 none]
+G c Z b b [close gnatcoll__traces 291 25 none]
+G c Z b b [supports_color gnatcoll__traces 292 24 none]
+G c Z b b [cache_settings gnatcoll__traces 297 14 none]
+G c Z b b [elapse_time_traceDF gnatcoll__traces 171 9 none]
+G c Z b b [elapse_time_traceIP gnatcoll__traces 171 9 none]
+G c Z b b [stack_traceDF gnatcoll__traces 177 9 none]
+G c Z b b [stack_traceIP gnatcoll__traces 177 9 none]
+G c Z b b [count_traceDF gnatcoll__traces 183 9 none]
+G c Z b b [count_traceIP gnatcoll__traces 183 9 none]
+G c Z b b [memory_traceDF gnatcoll__traces 189 9 none]
+G c Z b b [memory_traceIP gnatcoll__traces 189 9 none]
+G c Z b b [ada_memory_traceDF gnatcoll__traces 197 9 none]
+G c Z b b [ada_memory_traceIP gnatcoll__traces 197 9 none]
+G c Z b b [file_stream_recordDF gnatcoll__traces 283 9 none]
+G c Z b b [file_stream_recordIP gnatcoll__traces 283 9 none]
+G r c none [b gnatcoll__traces 50 1 none] [get_ansi_sequence gnatcoll__terminal 154 13 none]
+G r i none [s gnatcoll__traces 254 1 none] [strings gnatcoll__strings_impl 302 12 none]
+G r c none [s gnatcoll__traces 254 1 none] [get_ansi_sequence gnatcoll__terminal 154 13 none]
+G r c none [s gnatcoll__traces 254 1 none] [is_lock_free gnatcoll__atomic 39 13 none]
+G r s virtual_file [parse_config_file gnatcoll__traces 280 14 none] [virtual_fileIP gnatcoll__vfs 625 9 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [is_regular_file gnatcoll__vfs 329 13 none]
+G r d virtual_file [parse_config_file gnatcoll__traces 280 14 none] [adjust gnatcoll__vfs 631 25 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [Oadd gnatcoll__vfs 77 13 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [create gnatcoll__vfs 143 13 none]
+G r e virtual_file [parse_config_file gnatcoll__traces 280 14 none] [finalize gnatcoll__vfs 630 25 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [get_current_dir gnatcoll__vfs 470 13 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [create_from_dir gnatcoll__vfs 154 13 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [get_home_directory gnatcoll__vfs 477 13 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [Oeq gnatcoll__vfs 336 24 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [full_name gnatcoll__vfs 238 13 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [Oadd gnatcoll__vfs 75 13 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [open_read gnatcoll__mmap 118 13 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [dir gnatcoll__vfs 464 13 none]
+G r s terminal_info [parse_config_file gnatcoll__traces 280 14 none] [terminal_infoIP gnatcoll__terminal 165 9 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [starts_with gnatcoll__utils 122 13 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [split gnatcoll__utils 88 13 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [substitute gnatcoll__templates 107 13 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [full_name gnatcoll__vfs 226 13 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [init_for_file gnatcoll__terminal 57 14 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [has_ansi_colors gnatcoll__terminal 71 13 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [init_for_stderr gnatcoll__terminal 54 14 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [init_for_stdout gnatcoll__terminal 51 14 none]
+G r s full_style [parse_config_file gnatcoll__traces 280 14 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [ends_with gnatcoll__utils 125 13 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [split gnatcoll__utils 80 14 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [read gnatcoll__mmap 216 14 none]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [data gnatcoll__mmap__short 316 16 323_4]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [last gnatcoll__mmap__short 302 16 323_4]
+G r c none [parse_config_file gnatcoll__traces 280 14 none] [close gnatcoll__mmap 136 14 none]
+G r s virtual_file [parse_config_file gnatcoll__traces 304 14 none] [virtual_fileIP gnatcoll__vfs 625 9 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [Oadd gnatcoll__vfs 77 13 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [create_from_base gnatcoll__vfs 162 13 none]
+G r e virtual_file [parse_config_file gnatcoll__traces 304 14 none] [finalize gnatcoll__vfs 630 25 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [is_regular_file gnatcoll__vfs 329 13 none]
+G r d virtual_file [parse_config_file gnatcoll__traces 304 14 none] [adjust gnatcoll__vfs 631 25 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [create gnatcoll__vfs 143 13 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [get_current_dir gnatcoll__vfs 470 13 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [create_from_dir gnatcoll__vfs 154 13 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [get_home_directory gnatcoll__vfs 477 13 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [Oeq gnatcoll__vfs 336 24 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [full_name gnatcoll__vfs 238 13 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [Oadd gnatcoll__vfs 75 13 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [open_read gnatcoll__mmap 118 13 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [dir gnatcoll__vfs 464 13 none]
+G r s terminal_info [parse_config_file gnatcoll__traces 304 14 none] [terminal_infoIP gnatcoll__terminal 165 9 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [starts_with gnatcoll__utils 122 13 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [split gnatcoll__utils 88 13 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [substitute gnatcoll__templates 107 13 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [full_name gnatcoll__vfs 226 13 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [init_for_file gnatcoll__terminal 57 14 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [has_ansi_colors gnatcoll__terminal 71 13 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [init_for_stderr gnatcoll__terminal 54 14 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [init_for_stdout gnatcoll__terminal 51 14 none]
+G r s full_style [parse_config_file gnatcoll__traces 304 14 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [ends_with gnatcoll__utils 125 13 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [split gnatcoll__utils 80 14 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [read gnatcoll__mmap 216 14 none]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [data gnatcoll__mmap__short 316 16 323_4]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [last gnatcoll__mmap__short 302 16 323_4]
+G r c none [parse_config_file gnatcoll__traces 304 14 none] [close gnatcoll__mmap 136 14 none]
+G r c none [parse_config gnatcoll__traces 311 14 none] [dir gnatcoll__vfs 464 13 none]
+G r s terminal_info [parse_config gnatcoll__traces 311 14 none] [terminal_infoIP gnatcoll__terminal 165 9 none]
+G r c none [parse_config gnatcoll__traces 311 14 none] [starts_with gnatcoll__utils 122 13 none]
+G r c none [parse_config gnatcoll__traces 311 14 none] [split gnatcoll__utils 88 13 none]
+G r c none [parse_config gnatcoll__traces 311 14 none] [substitute gnatcoll__templates 107 13 none]
+G r c none [parse_config gnatcoll__traces 311 14 none] [full_name gnatcoll__vfs 226 13 none]
+G r c none [parse_config gnatcoll__traces 311 14 none] [Oadd gnatcoll__vfs 75 13 none]
+G r c none [parse_config gnatcoll__traces 311 14 none] [init_for_file gnatcoll__terminal 57 14 none]
+G r c none [parse_config gnatcoll__traces 311 14 none] [has_ansi_colors gnatcoll__terminal 71 13 none]
+G r c none [parse_config gnatcoll__traces 311 14 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [parse_config gnatcoll__traces 311 14 none] [init_for_stderr gnatcoll__terminal 54 14 none]
+G r c none [parse_config gnatcoll__traces 311 14 none] [init_for_stdout gnatcoll__terminal 51 14 none]
+G r e virtual_file [parse_config gnatcoll__traces 311 14 none] [finalize gnatcoll__vfs 630 25 none]
+G r s full_style [parse_config gnatcoll__traces 311 14 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r c none [parse_config gnatcoll__traces 311 14 none] [ends_with gnatcoll__utils 125 13 none]
+G r c none [parse_config gnatcoll__traces 311 14 none] [split gnatcoll__utils 80 14 none]
+G r c none [finalize gnatcoll__traces 334 14 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r s terminal_info [create gnatcoll__traces 356 13 none] [terminal_infoIP gnatcoll__terminal 165 9 none]
+G r c none [create gnatcoll__traces 356 13 none] [starts_with gnatcoll__utils 122 13 none]
+G r c none [create gnatcoll__traces 356 13 none] [split gnatcoll__utils 88 13 none]
+G r c none [create gnatcoll__traces 356 13 none] [substitute gnatcoll__templates 107 13 none]
+G r c none [create gnatcoll__traces 356 13 none] [full_name gnatcoll__vfs 226 13 none]
+G r c none [create gnatcoll__traces 356 13 none] [Oadd gnatcoll__vfs 75 13 none]
+G r c none [create gnatcoll__traces 356 13 none] [init_for_file gnatcoll__terminal 57 14 none]
+G r c none [create gnatcoll__traces 356 13 none] [has_ansi_colors gnatcoll__terminal 71 13 none]
+G r c none [create gnatcoll__traces 356 13 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [create gnatcoll__traces 356 13 none] [init_for_stderr gnatcoll__terminal 54 14 none]
+G r c none [create gnatcoll__traces 356 13 none] [init_for_stdout gnatcoll__terminal 51 14 none]
+G r c none [create gnatcoll__traces 356 13 none] [ends_with gnatcoll__utils 125 13 none]
+G r s full_style [create gnatcoll__traces 356 13 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r c none [exists gnatcoll__traces 396 13 none] [ends_with gnatcoll__utils 125 13 none]
+G r c none [exists gnatcoll__traces 396 13 none] [starts_with gnatcoll__utils 122 13 none]
+G r c none [trace gnatcoll__traces 501 14 none] [ends_with gnatcoll__utils 125 13 none]
+G r c none [trace gnatcoll__traces 501 14 none] [starts_with gnatcoll__utils 122 13 none]
+G r s full_style [trace gnatcoll__traces 501 14 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r c none [trace gnatcoll__traces 501 14 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [trace gnatcoll__traces 501 14 none] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [trace gnatcoll__traces 501 14 none] [get_ansi_sequence gnatcoll__terminal 154 13 none]
+G r c none [trace gnatcoll__traces 501 14 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [trace gnatcoll__traces 506 14 none] [ends_with gnatcoll__utils 125 13 none]
+G r c none [trace gnatcoll__traces 506 14 none] [starts_with gnatcoll__utils 122 13 none]
+G r s full_style [trace gnatcoll__traces 506 14 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r c none [trace gnatcoll__traces 506 14 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [trace gnatcoll__traces 506 14 none] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [trace gnatcoll__traces 506 14 none] [get_ansi_sequence gnatcoll__terminal 154 13 none]
+G r c none [trace gnatcoll__traces 506 14 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [trace gnatcoll__traces 526 14 none] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [trace gnatcoll__traces 526 14 none] [get_ansi_sequence gnatcoll__terminal 154 13 none]
+G r c none [trace gnatcoll__traces 526 14 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [trace gnatcoll__traces 532 14 none] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [trace gnatcoll__traces 532 14 none] [get_ansi_sequence gnatcoll__terminal 154 13 none]
+G r c none [trace gnatcoll__traces 532 14 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [assert gnatcoll__traces 562 14 none] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [assert gnatcoll__traces 562 14 none] [get_ansi_sequence gnatcoll__terminal 154 13 none]
+G r c none [assert gnatcoll__traces 562 14 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [assert gnatcoll__traces 562 14 none] [ends_with gnatcoll__utils 125 13 none]
+G r c none [assert gnatcoll__traces 562 14 none] [starts_with gnatcoll__utils 122 13 none]
+G r s full_style [assert gnatcoll__traces 562 14 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r c none [assert gnatcoll__traces 562 14 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [increase_indent gnatcoll__traces 586 14 none] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [increase_indent gnatcoll__traces 586 14 none] [get_ansi_sequence gnatcoll__terminal 154 13 none]
+G r c none [increase_indent gnatcoll__traces 586 14 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [increase_indent gnatcoll__traces 586 14 none] [increment gnatcoll__atomic 66 14 none]
+G r c none [decrease_indent gnatcoll__traces 592 14 none] [sync_sub_and_fetch gnatcoll__atomic 52 13 none]
+G r c none [decrease_indent gnatcoll__traces 592 14 none] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [decrease_indent gnatcoll__traces 592 14 none] [get_ansi_sequence gnatcoll__terminal 154 13 none]
+G r c none [decrease_indent gnatcoll__traces 592 14 none] [decrement gnatcoll__atomic 70 13 none]
+G r s full_style [create gnatcoll__traces 660 13 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r c none [create gnatcoll__traces 660 13 none] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [create gnatcoll__traces 660 13 none] [get_ansi_sequence gnatcoll__terminal 154 13 none]
+G r c none [create gnatcoll__traces 660 13 none] [decrement gnatcoll__atomic 70 13 none]
+G r c none [create gnatcoll__traces 660 13 none] [increment gnatcoll__atomic 66 14 none]
+G r c none [set gnatcoll__traces__msg_strings 443 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [to_xstring gnatcoll__traces__msg_strings 446 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [to_xstring gnatcoll__traces__msg_strings 446 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [append gnatcoll__traces__msg_strings 450 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [append gnatcoll__traces__msg_strings 451 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [append gnatcoll__traces__msg_strings 452 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [Omultiply gnatcoll__traces__msg_strings 455 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [Omultiply gnatcoll__traces__msg_strings 455 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [Omultiply gnatcoll__traces__msg_strings 456 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [Omultiply gnatcoll__traces__msg_strings 456 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [Omultiply gnatcoll__traces__msg_strings 457 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [Omultiply gnatcoll__traces__msg_strings 457 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [reserve gnatcoll__traces__msg_strings 460 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [shrink gnatcoll__traces__msg_strings 466 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [center gnatcoll__traces__msg_strings 479 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [center gnatcoll__traces__msg_strings 483 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [center gnatcoll__traces__msg_strings 483 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [left_justify gnatcoll__traces__msg_strings 495 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [left_justify gnatcoll__traces__msg_strings 499 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [left_justify gnatcoll__traces__msg_strings 499 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [right_justify gnatcoll__traces__msg_strings 509 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [right_justify gnatcoll__traces__msg_strings 513 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [right_justify gnatcoll__traces__msg_strings 513 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [access_string gnatcoll__traces__msg_strings 616 17 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [access_string gnatcoll__traces__msg_strings 616 17 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [to_upper gnatcoll__traces__msg_strings 651 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [to_upper gnatcoll__traces__msg_strings 651 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [to_lower gnatcoll__traces__msg_strings 656 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [to_lower gnatcoll__traces__msg_strings 656 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [slice gnatcoll__traces__msg_strings 758 17 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [slice gnatcoll__traces__msg_strings 760 16 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [slice gnatcoll__traces__msg_strings 760 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [slice gnatcoll__traces__msg_strings 760 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [slice gnatcoll__traces__msg_strings 762 17 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [slice gnatcoll__traces__msg_strings 762 17 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [slice gnatcoll__traces__msg_strings 762 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [trim gnatcoll__traces__msg_strings 774 17 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [trim gnatcoll__traces__msg_strings 778 16 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [trim gnatcoll__traces__msg_strings 778 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [trim gnatcoll__traces__msg_strings 778 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [head gnatcoll__traces__msg_strings 785 16 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [head gnatcoll__traces__msg_strings 785 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [head gnatcoll__traces__msg_strings 785 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [tail gnatcoll__traces__msg_strings 789 16 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [tail gnatcoll__traces__msg_strings 789 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [tail gnatcoll__traces__msg_strings 789 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [split gnatcoll__traces__msg_strings 793 16 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [split gnatcoll__traces__msg_strings 793 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [split gnatcoll__traces__msg_strings 793 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [split gnatcoll__traces__msg_strings 798 17 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [split gnatcoll__traces__msg_strings 798 17 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [split gnatcoll__traces__msg_strings 798 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [split gnatcoll__traces__msg_strings 804 16 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [split gnatcoll__traces__msg_strings 804 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [split gnatcoll__traces__msg_strings 804 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [split gnatcoll__traces__msg_strings 809 17 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [split gnatcoll__traces__msg_strings 809 17 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [split gnatcoll__traces__msg_strings 809 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [right_split gnatcoll__traces__msg_strings 844 16 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [right_split gnatcoll__traces__msg_strings 844 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [right_split gnatcoll__traces__msg_strings 844 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [right_split gnatcoll__traces__msg_strings 849 17 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [right_split gnatcoll__traces__msg_strings 849 17 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [right_split gnatcoll__traces__msg_strings 849 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [right_split gnatcoll__traces__msg_strings 855 16 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [right_split gnatcoll__traces__msg_strings 855 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [right_split gnatcoll__traces__msg_strings 855 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [right_split gnatcoll__traces__msg_strings 860 17 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [right_split gnatcoll__traces__msg_strings 860 17 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [right_split gnatcoll__traces__msg_strings 860 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [set_as_join gnatcoll__traces__msg_strings 870 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [join gnatcoll__traces__msg_strings 876 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [join gnatcoll__traces__msg_strings 876 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [join gnatcoll__traces__msg_strings 882 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [join gnatcoll__traces__msg_strings 882 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [set_as_join gnatcoll__traces__msg_strings 887 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [join gnatcoll__traces__msg_strings 893 16 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [join gnatcoll__traces__msg_strings 893 16 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [replace gnatcoll__traces__msg_strings 915 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [replace_slice gnatcoll__traces__msg_strings 920 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [insert gnatcoll__traces__msg_strings 931 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [insert gnatcoll__traces__msg_strings 935 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [overwrite gnatcoll__traces__msg_strings 941 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [overwrite gnatcoll__traces__msg_strings 945 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [delete gnatcoll__traces__msg_strings 952 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [clear gnatcoll__traces__msg_strings 960 17 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [adjust gnatcoll__traces__msg_strings 1051 28 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [adjust gnatcoll__traces__msg_strings 1051 28 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [finalize gnatcoll__traces__msg_strings 1052 28 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [xstringDA gnatcoll__traces__msg_strings 1048 12 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [xstringDA gnatcoll__traces__msg_strings 1048 12 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [xstringDF gnatcoll__traces__msg_strings 1048 12 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [xstring_arrayDA gnatcoll__traces__msg_strings 340 12 719_4] [increment gnatcoll__atomic 66 14 none]
+G r c none [xstring_arrayDA gnatcoll__traces__msg_strings 340 12 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [xstring_arrayDF gnatcoll__traces__msg_strings 340 12 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [clone gnatcoll__traces__msg_strings 107 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [make_writable_thread_safe gnatcoll__traces__msg_strings 117 17 719_4] [decrement gnatcoll__atomic 70 13 none]
+G r c none [make_writable_thread_safe gnatcoll__traces__msg_strings 117 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [make_writable_thread_safe gnatcoll__traces__msg_strings 117 17 719_4] [unsafe_increment gnatcoll__atomic 86 14 none]
+G r c none [make_writable_thread_unsafe gnatcoll__traces__msg_strings 118 17 719_4] [decrement gnatcoll__atomic 68 14 none]
+G r c none [make_writable_thread_unsafe gnatcoll__traces__msg_strings 118 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [convert_to_big_string gnatcoll__traces__msg_strings 140 17 719_4] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [register_stream_factory gnatcoll__traces 777 14 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [set_default_stream gnatcoll__traces 801 14 none] [dir gnatcoll__vfs 464 13 none]
+G r s terminal_info [set_default_stream gnatcoll__traces 801 14 none] [terminal_infoIP gnatcoll__terminal 165 9 none]
+G r c none [set_default_stream gnatcoll__traces 801 14 none] [starts_with gnatcoll__utils 122 13 none]
+G r c none [set_default_stream gnatcoll__traces 801 14 none] [split gnatcoll__utils 88 13 none]
+G r c none [set_default_stream gnatcoll__traces 801 14 none] [substitute gnatcoll__templates 107 13 none]
+G r c none [set_default_stream gnatcoll__traces 801 14 none] [full_name gnatcoll__vfs 226 13 none]
+G r c none [set_default_stream gnatcoll__traces 801 14 none] [Oadd gnatcoll__vfs 75 13 none]
+G r c none [set_default_stream gnatcoll__traces 801 14 none] [init_for_file gnatcoll__terminal 57 14 none]
+G r c none [set_default_stream gnatcoll__traces 801 14 none] [has_ansi_colors gnatcoll__terminal 71 13 none]
+G r c none [set_default_stream gnatcoll__traces 801 14 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [set_default_stream gnatcoll__traces 801 14 none] [init_for_stderr gnatcoll__terminal 54 14 none]
+G r c none [set_default_stream gnatcoll__traces 801 14 none] [init_for_stdout gnatcoll__terminal 51 14 none]
+G r e virtual_file [set_default_stream gnatcoll__traces 801 14 none] [finalize gnatcoll__vfs 630 25 none]
+G r c none [add_global_decorator gnatcoll__traces 859 14 none] [ends_with gnatcoll__utils 125 13 none]
+G r c none [add_global_decorator gnatcoll__traces 859 14 none] [starts_with gnatcoll__utils 122 13 none]
+G r c none [add_global_decorator gnatcoll__traces 859 14 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [finalize gnatcoll__traces 902 25 none] [sync_sub_and_fetch gnatcoll__atomic 52 13 none]
+G r c none [finalize gnatcoll__traces 902 25 none] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [finalize gnatcoll__traces 902 25 none] [get_ansi_sequence gnatcoll__terminal 154 13 none]
+G r c none [finalize gnatcoll__traces 902 25 none] [decrement gnatcoll__atomic 70 13 none]
+G r s full_style [trace_handle_recordIP gnatcoll__traces 904 9 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r c none [block_trace_handleDF gnatcoll__traces 896 9 none] [sync_sub_and_fetch gnatcoll__atomic 52 13 none]
+G r c none [block_trace_handleDF gnatcoll__traces 896 9 none] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [block_trace_handleDF gnatcoll__traces 896 9 none] [get_ansi_sequence gnatcoll__terminal 154 13 none]
+G r c none [block_trace_handleDF gnatcoll__traces 896 9 none] [decrement gnatcoll__atomic 70 13 none]
+G r s full_style [block_trace_handleIP gnatcoll__traces 896 9 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r s full_style [trace_decorator_recordIP gnatcoll__traces 933 9 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r c none [after_message gnatcoll__traces 172 25 none] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [after_message gnatcoll__traces 178 25 none] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [before_message gnatcoll__traces 184 25 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [before_message gnatcoll__traces 184 25 none] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [after_message gnatcoll__traces 192 25 none] [get_allocations gnatcoll__memory 226 13 none]
+G r c none [after_message gnatcoll__traces 192 25 none] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [after_message gnatcoll__traces 200 25 none] [get_ada_allocations gnatcoll__memory 222 13 none]
+G r c none [after_message gnatcoll__traces 200 25 none] [default_growth gnatcoll__strings_impl 253 13 none]
+G r c none [lock gnatcoll__traces 205 14 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [create_exception_handle gnatcoll__traces 212 14 none] [ends_with gnatcoll__utils 125 13 none]
+G r c none [create_exception_handle gnatcoll__traces 212 14 none] [starts_with gnatcoll__utils 122 13 none]
+G r s full_style [create_exception_handle gnatcoll__traces 212 14 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r c none [create_exception_handle gnatcoll__traces 212 14 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [find_wildcard_handle gnatcoll__traces 229 13 none] [starts_with gnatcoll__utils 122 13 none]
+G r c none [find_wildcard_handle gnatcoll__traces 229 13 none] [ends_with gnatcoll__utils 125 13 none]
+G r c none [wildcard_applies_to gnatcoll__traces 234 13 none] [starts_with gnatcoll__utils 122 13 none]
+G r c none [wildcard_applies_to gnatcoll__traces 234 13 none] [ends_with gnatcoll__utils 125 13 none]
+G r s terminal_info [find_stream gnatcoll__traces 239 13 none] [terminal_infoIP gnatcoll__terminal 165 9 none]
+G r c none [find_stream gnatcoll__traces 239 13 none] [starts_with gnatcoll__utils 122 13 none]
+G r c none [find_stream gnatcoll__traces 239 13 none] [split gnatcoll__utils 88 13 none]
+G r c none [find_stream gnatcoll__traces 239 13 none] [substitute gnatcoll__templates 107 13 none]
+G r c none [find_stream gnatcoll__traces 239 13 none] [full_name gnatcoll__vfs 226 13 none]
+G r c none [find_stream gnatcoll__traces 239 13 none] [Oadd gnatcoll__vfs 75 13 none]
+G r c none [find_stream gnatcoll__traces 239 13 none] [init_for_file gnatcoll__terminal 57 14 none]
+G r c none [find_stream gnatcoll__traces 239 13 none] [has_ansi_colors gnatcoll__terminal 71 13 none]
+G r c none [find_stream gnatcoll__traces 239 13 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [find_stream gnatcoll__traces 239 13 none] [init_for_stderr gnatcoll__terminal 54 14 none]
+G r c none [find_stream gnatcoll__traces 239 13 none] [init_for_stdout gnatcoll__terminal 51 14 none]
+G r c none [put_absolute_time gnatcoll__traces 249 14 none] [default_growth gnatcoll__strings_impl 253 13 none]
+G r s virtual_file [config_file gnatcoll__traces 253 13 none] [virtual_fileIP gnatcoll__vfs 625 9 none]
+G r c none [config_file gnatcoll__traces 253 13 none] [is_regular_file gnatcoll__vfs 329 13 none]
+G r d virtual_file [config_file gnatcoll__traces 253 13 none] [adjust gnatcoll__vfs 631 25 none]
+G r c none [config_file gnatcoll__traces 253 13 none] [Oadd gnatcoll__vfs 77 13 none]
+G r c none [config_file gnatcoll__traces 253 13 none] [create gnatcoll__vfs 143 13 none]
+G r e virtual_file [config_file gnatcoll__traces 253 13 none] [finalize gnatcoll__vfs 630 25 none]
+G r c none [config_file gnatcoll__traces 253 13 none] [get_current_dir gnatcoll__vfs 470 13 none]
+G r c none [config_file gnatcoll__traces 253 13 none] [create_from_dir gnatcoll__vfs 154 13 none]
+G r c none [config_file gnatcoll__traces 253 13 none] [get_home_directory gnatcoll__vfs 477 13 none]
+G r c none [register_handle gnatcoll__traces 263 14 none] [ends_with gnatcoll__utils 125 13 none]
+G r c none [register_handle gnatcoll__traces 263 14 none] [starts_with gnatcoll__utils 122 13 none]
+G r c none [register_handle gnatcoll__traces 263 14 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [create_internal gnatcoll__traces 269 13 none] [ends_with gnatcoll__utils 125 13 none]
+G r c none [create_internal gnatcoll__traces 269 13 none] [starts_with gnatcoll__utils 122 13 none]
+G r s full_style [create_internal gnatcoll__traces 269 13 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r c none [create_internal gnatcoll__traces 269 13 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r c none [put gnatcoll__traces 288 25 none] [sync_add_and_fetch gnatcoll__atomic 43 13 none]
+G r s full_style [elapse_time_traceIP gnatcoll__traces 171 9 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r s full_style [stack_traceIP gnatcoll__traces 177 9 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r s full_style [count_traceIP gnatcoll__traces 183 9 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r s full_style [memory_traceIP gnatcoll__traces 189 9 none] [full_styleIP gnatcoll__terminal 147 9 none]
+G r s full_style [ada_memory_traceIP gnatcoll__traces 197 9 none] [full_styleIP gnatcoll__terminal 147 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 62|244r6 245r6 246r6 246r38 247r14 503r16 508r16 896r35 907r23
+. 63|26r6 26r37 27r6 27r37 28r6 28r37 29r6 30r6 30r37 32r6 32r37 33r6 34r6
+. 99r36 101r36 112r36 115r36 215r35 482r53 597r28 601r41 635r19 636r26 1058r16
+. 1077r16 1086r23 1267r23 1381r35 1385r12 1386r12 1387r12 1388r12 1391r7
+. 1405r21 1405r42 1505r22 1505r43 1937r18
+X 2 a-calend.ads
+36K13*Calendar 409e17 62|244w10 907r27 63|26w10 26r41 27r10 27r41 28r10 28r41
+. 215r39 597r32 1381r39 1385r16 1386r16 1387r16 1388r16 1391r11 1405r25 1405r46
+. 1505r26 1505r47
+42I9*Time<222I9> 62|907r36 63|215r48 597r41 1381r48 1405r34 1505r35
+48I12*Year_Number{integer} 63|1382r12
+49I12*Month_Number{integer} 63|1383r12
+50I12*Day_Number{integer} 63|1384r12
+54O12*Day_Duration{duration}
+56V13*Clock{42I9} 63|597s49 1405s55 1505s56
+112V14*"-"{duration} 63|1509s29
+222I9 Time_Rep<long_long_integer>
+X 4 a-calfor.ads
+24K22*Formatting 215e28 63|27w19 27r50 1385r25 1386r25 1387r25 1388r25 1391r20
+35I12*Hour_Number{natural} 63|1385r36
+36I12*Minute_Number{natural} 63|1386r36
+37I12*Second_Number{natural} 63|1387r36
+38O12*Second_Duration{2|54O12} 63|1388r36
+137U14*Split 63|1391s31
+X 5 a-catizo.ads
+19K22*Time_Zones 32e28 63|28w19 28r50
+23I9*Time_Offset<short_integer> 63|139r12
+27V13*UTC_Time_Offset{23I9} 63|139s27
+X 6 a-charac.ads
+16K13*Characters 18e19 62|246r10 246r42
+X 7 a-chahan.ads
+36K24*Handling 159e28 62|246w21 246r53
+66V13*To_Lower{character} 58|283i21
+67V13*To_Upper{character} 58|285i21
+70V13*To_Lower{string} 63|534s42
+71V13*To_Upper{string} 63|733s39 881s39 1544s35
+X 10 a-contai.ads
+19M9*Hash_Type
+X 11 a-envvar.ads
+19K13*Environment_Variables 69e30 63|29w10 635r23 636r30
+22V13*Value{string} 63|636s52
+34V13*Exists{boolean} 63|635s45
+X 12 a-except.ads
+54K13*Exceptions 349e19 62|245w10 503r20 508r20 63|32r10 32r41 1058r20 1077r20
+. 1086r27
+63R9*Exception_Occurrence 317e14 62|503r31 508r31 63|1058r31 1077r31
+104V13*Exception_Information{string} 63|1086s38
+X 13 a-exctra.ads
+40K24*Traceback 63e29 63|32w21 32r52
+47A12*Tracebacks_Array{112|56A9}<integer>
+58V13*Get_PC=59:19{73|67M9} 63|1531s44
+X 14 a-finali.ads
+40K13*Finalization 68e21 62|247w18 896r39
+50H9*Limited_Controlled<84|40R9> 66e55 62|896r52
+X 15 a-ioexce.ads
+18K13*IO_Exceptions 30e22 63|33w10 1937r22
+23X4*Name_Error 63|1937r36
+X 17 a-string.ads
+16K13*Strings 35e16 63|30r10 30r41 482r57 601r45 1267r27
+33n30*Right{33E9} 63|1267r35
+33n37*Both{33E9} 63|482r65 601r53
+X 18 a-strfix.ads
+43K21*Fixed 596e22 63|30w18 30r49
+143V13*Index{natural} 63|513s16
+468V13*Trim{string} 63|482s34 601s15
+X 27 a-uncdea.ads
+20u15*Unchecked_Deallocation 63|34w10 99r40 101r40 112r40 115r40
+X 28 gnat.ads
+34K9*GNAT 57e9 62|242r6 243r6 530r28 531r28 536r28 537r28 568r38 569r38 590r28
+. 591r28 596r28 597r28 663r29 664r29 888r23 899r23 906r23 63|36r6 36r37 37r6
+. 37r37 38r6 38r37 39r6 39r37 107r17 1099r28 1100r28 1120r28 1121r28 1305r38
+. 1306r38 1337r28 1338r28 1358r28 1359r28 1525r20 1561r13 1763r26 1763r57
+. 1782r14 2142r29 2143r29
+X 29 g-calend.ads
+45K14*Calendar 185e18 63|36r11 36r42
+X 30 g-catiio.ads
+35K23*Time_IO 168e26 63|36w20 36r51
+40A9*Picture_String<string>(character)<integer>
+99a4*ISO_Date{40A9} 63|604r56 1413r44 1415r44 1418r41 1423r41
+111V13*Image{string} 63|604s44 607s52 1413s34 1415s34 1418s31 1423s31 1425s31
+X 31 g-debpoo.ads
+246U14*Print_Pool 247i<c,print_pool>22
+302M9*Byte_Count
+X 34 g-os_lib.ads
+51K14*OS_Lib=51:36 63|37w11 37r42
+X 35 g-regpat.ads
+72K14*Regpat=72:36 63|38w11 38r42 1763r31 1763r62 1782r19
+X 36 g-souinf.ads
+39K14*Source_Info 96e21 62|242w11 530r33 531r33 536r33 537r33 568r43 569r43
+. 590r33 591r33 596r33 597r33 663r34 664r34 63|1099r33 1100r33 1120r33 1121r33
+. 1305r43 1306r43 1337r33 1338r33 1358r33 1359r33 2142r34 2143r34
+59V13*Source_Location{string} 62|530s45 536s45 568s55 590s45 596s45 663s46
+. 63|1099s45 1120s45 1305s55 1337s45 1358s45 2142s46
+68V13*Enclosing_Entity{string} 62|531s45 537s45 569s55 591s45 597s45 664s46
+. 63|1100s45 1121s45 1306s55 1338s45 1359s45 2143s46
+X 37 g-string.ads
+38K14*Strings=38:37 62|243w11 888r28 899r28 906r28 63|107r22 1561r18
+X 38 g-traceb.ads
+80K14*Traceback 111e19 63|39w11 39r42 1525r25
+86A12*Tracebacks_Array{13|47A12}<integer> 63|1525r35
+93U14*Call_Chain 63|1528s7
+X 39 gnatcoll.ads
+24K9*GNATCOLL 27e13 62|249r6 249r34 250r6 250r34 251r6 252r6 254r9 315r26
+. 316r10 484r29 490r16 491r16 492r16 497r16 498r16 499r16 719r31 803r22 803r51
+. 935r5 63|45r6 46r6 46r37 47r6 48r6 48r37 50r14 53r13 53r43 54r13 76r36
+. 77r18 78r18 79r18 82r17 83r17 84r17 89r17 90r17 91r17 190r20 198r18 285r22
+. 487r24 488r10 489r15 537r40 539r40 541r40 595r17 1159r28 1163r28 1167r31
+. 1199r23 1230r20 1461r11 1482r11 1688r26 1689r10 1839r26 1899r7 1928r7 2182r5
+X 40 gnatcoll-atomic.ads
+32K18*Atomic 130e20 62|250w15 250r43 63|285r31
+34M12*Atomic_Counter{76|75M9} 62|890r31 915r35 63|143r22 205r46 207r48 285r38
+. 306r46 329r48 1440r24 1442r24 1444r30 1445r30
+36m4*Minus_One{34M12} 63|1365r63
+43V13*Sync_Add_And_Fetch{34M12} 63|320s20 1441s10 1443s10
+52V13*Sync_Sub_And_Fetch{34M12} 63|1364s13
+66U14*Increment 63|1346s10
+95V14*">"{boolean} 63|2079r22
+101V14*"="=103:38{boolean} 63|316r25 321r44 1365r61
+X 45 gnatcoll-memory.ads
+64K18*Memory 237e20 63|45w15 190r29 198r27 1461r20 1482r20
+215M9*Byte_Count<31|302M9> 63|190r36 198r34
+217R9*Watermark_Info 220e14 63|1462r28 1483r28
+218m7*High{215M9} 63|1468r23 1485r20 1490r26
+219m7*Current{215M9} 63|1466r27 1467r23 1469r34 1488r30 1489r26 1492r34
+222V13*Get_Ada_Allocations{217R9} 63|1483s46
+226V13*Get_Allocations{217R9} 63|1462s46
+X 46 gnatcoll-mmap.ads
+90K18*Mmap 401e18 63|46w15 46r46
+92P9*Mapped_File 63|1922r19
+118V13*Open_Read{92P9} 63|1935s21
+136U14*Close 63|1951s10
+216U14*Read 63|1943s10
+271I15*Extended_Index_Type{integer}
+274A15*Unconstrained_String{string}<integer>
+275P12*Str_Access(274A15[323])
+335P12*Str_Access{275P12[323]} 63|1921r19
+340V13*Last=341:21{271I15[323]} 63|1947s55
+344V13*Data=345:21{275P12[323]} 63|1944s20
+X 58 gnatcoll-strings_impl.ads
+238K18*Strings_Impl 1083e26 62|251w15 719r40
+263M12 SSize 62|720r8
+271E12 Character_Type 62|721r8
+276A12 Character_String(271E12)<integer> 62|722r8
+302k12*Strings 1064e15 62|719r53
+306E15*Char_Type{character}
+311R12*XString<14|43R9> 62|746r32[719] 821r44[719] 833r35[719] 837r35[719]
+. 63|175r36[62|719] 181r36[62|719] 187r36[62|719] 195r36[62|719] 203r36[62|719]
+. 249r58[62|719] 290r33[62|719] 1145r37[62|719] 1404r58[62|719] 1437r36[62|719]
+. 1458r36[62|719] 1479r36[62|719] 1502r36[62|719] 1522r36[62|719] 1636r33[62|719]
+327A12*Unconstrained_Char_Array(306E15[62|719])<integer>
+329P12*Char_Array(327A12[62|719]) 63|1639r29[62|719]
+450U17*Append 63|1153s17[62|719] 1171s17[62|719] 1175s14[62|719] 1198s23[62|719]
+. 1202s20[62|719] 1215s23[62|719] 1219s23[62|719] 1223s20[62|719] 1229s20[62|719]
+. 1233s17[62|719] 1240s20[62|719] 1256s20[62|719] 1257s20[62|719] 1262s20[62|719]
+. 1263s20[62|719] 1271s17[62|719] 1413s20[62|719] 1415s20[62|719] 1418s17[62|719]
+. 1423s17[62|719] 1425s17[62|719] 1447s11[62|719] 1464s11[62|719] 1486s14[62|719]
+. 1510s14[62|719] 1529s11[62|719] 1531s14[62|719] 1533s11[62|719]
+451U17*Append 63|1174s14[62|719] 1176s14[62|719] 1177s14[62|719] 1207s20[62|719]
+. 1222s20[62|719] 1224s20[62|719] 1225s20[62|719] 1243s17[62|719] 1258s20[62|719]
+. 1264s20[62|719] 1274s14[62|719]
+606U17*Get_String 63|1645s11[62|719]
+774U17*Trim 63|1267s17[62|719]
+X 59 gnatcoll-strings_impl.adb
+1495V19 H[108|60]{10|19M9} 109|44b13[57|31]
+1511V19 H[108|60]{10|19M9} 109|44b13[62|719]
+X 60 gnatcoll-templates.ads
+34K18*Templates 137e23 63|47w15 595r26
+37p7*Name{110|45P9} 63|610m17 613m17 616m17
+38p7*Value{110|45P9} 63|611m17 614m17 617m17
+40A9*Substitution_Array(36R9)<integer> 63|609r45
+47P9*Substitute_Callback(string)
+107V13*Substitute{string} 63|643s16
+108a7 Str{string} 63|644r19
+109a7 Substrings{40A9} 63|645r19
+110p7 Callback{47P9} 63|646r19
+111e7 Delimiter{character} 63|647r19
+133X4*Invalid_Substitution 63|638r25
+X 61 gnatcoll-terminal.ads
+33K18*Terminal 183e22 62|252w15 418r35 419r17 420r17 421r17 422r35 423r17
+. 424r17 425r17 426r35 427r17 428r17 429r17 430r35 431r17 432r17 433r17 434r35
+. 435r17 436r17 437r17 438r35 439r17 440r17 441r17 442r35 443r17 444r17 445r17
+. 446r38 447r17 448r17 449r17 451r35 452r17 453r17 454r17 455r35 456r17 457r17
+. 458r17 459r35 460r17 461r17 462r17 463r35 464r17 465r17 466r17 467r35 468r17
+. 469r17 470r17 471r35 472r17 473r17 474r17 475r35 476r17 477r17 478r17 484r38
+. 490r25 491r25 492r25 497r25 498r25 499r25 63|53r22 53r52 54r22 76r45 77r27
+. 78r27 79r27 82r26 83r26 84r26 89r26 90r26 91r26 487r33 488r19 489r24 537r49
+. 539r49 541r49 1159r37 1163r37 1167r40 1199r32 1230r29 1839r35
+35R9*Terminal_Info 181e14 63|489r33
+50E9*Supports_Color 50e42 63|487r42
+50n28*Yes{50E9} 63|537r58
+50n33*No{50E9} 63|539r58
+50n37*Auto{50E9} 63|488r28 541r58
+51U14*Init_For_Stdout 63|553s15
+53e8 Colors{50E9} 63|553r32
+54U14*Init_For_Stderr 63|563s15
+56e8 Colors{50E9} 63|563r32
+57U14*Init_For_File 63|662s18
+59e8 Colors{50E9} 63|662r33
+71V13*Has_ANSI_Colors{boolean} 63|557s36 567s36 667s39
+78E9*ANSI_Color 88e14 63|53r31 1847r40 1850r40
+79n8*Unchanged{78E9} 62|421r26 425r26 429r26 433r26 437r26 441r26 445r26
+. 449r26 453r26 457r26 461r26 465r26 469r26 473r26 477r26 490r34 491r34 497r34
+. 498r34 63|78r36 79r36 83r35 1159r46 1163r46
+80n8*Black{78E9} 63|89r35
+81n8*Red{78E9} 62|420r26 454r26 63|90r35
+82n8*Green{78E9} 62|424r26 458r26
+83n8*Yellow{78E9} 62|428r26 462r26
+84n8*Blue{78E9} 62|432r26 466r26
+85n8*Magenta{78E9} 62|436r26 470r26
+86n8*Cyan{78E9} 62|440r26 474r26
+87n8*Grey{78E9} 62|444r26 478r26
+88n8*Reset{78E9} 62|448r26 63|82r35
+93E9*ANSI_Style 98e18 63|53r61 1853r43
+94n8*Unchanged{93E9} 62|439r26 447r26 492r34 63|84r35 91r35 1167r49
+96n8*Dim{93E9} 62|499r34
+98n8*Reset_All{93E9} 62|419r26 423r26 427r26 431r26 435r26 443r26 452r26
+. 456r26 460r26 464r26 468r26 472r26 476r26 63|77r36
+147R9*Full_Style 151e14 62|484r47 63|54r31
+148e7*Fg{78E9} 62|420m8 424m8 428m8 432m8 436m8 440m8 444m8 448m8 453m8 457m8
+. 461m8 465m8 469m8 473m8 477m8 490m7 497m7 63|78m9 82m8 89m8 1159r22 1160m29
+. 1160r41 1847m34
+149e7*Bg{78E9} 62|421m8 425m8 429m8 433m8 437m8 441m8 445m8 449m8 454m8 458m8
+. 462m8 466m8 470m8 474m8 478m8 491m7 498m7 63|79m9 83m8 90m8 1163r22 1164m29
+. 1164r41 1850m34
+150e7*Style{93E9} 62|419m8 423m8 427m8 431m8 435m8 439m8 443m8 447m8 452m8
+. 456m8 460m8 464m8 468m8 472m8 476m8 492m7 499m7 63|77m9 84m8 91m8 1167r22
+. 1168m29 1168r44 1853m34
+154V13*Get_ANSI_Sequence{string} 62|418s44 422s44 426s44 430s44 434s44 438s44
+. 442s44 446s47 451s44 455s44 459s44 463s44 467s44 471s44 475s44 63|76s54
+. 1199s41 1230s38
+X 62 gnatcoll-traces.ads
+254K18*Traces 39|24k9 62|887E9 935l14 935e20 63|50b23 1899m16 1928m16 2182l14
+. 2182t20
+256a4*Config_File_Environment{string} 63|1568r22
+257a4*Default_Config_File{65|70A9} 63|1586r48 1592r51
+265b4*Debug_Mode{boolean} 630r11 63|1062r10 1081r10 1102r10 1895r14 1924r14
+271E9*On_Exception_Mode 271e61 283r26 307r26 313r26 63|59r19 1686r26 1917r26
+. 1962r26
+271n31*Propagate{271E9} 283r47 307r47 313r47 63|59r40 1281r18 1686r47 1799r31
+. 1917r47 1962r47
+271n42*Ignore{271E9} 63|1283r18
+271n50*Deactivate{271E9} 63|1285r18
+280U14*Parse_Config_File 281>7 282>7 283>7 284>7 63|1914b14 1953l8 1953t25
+. 1980s7
+281r7 Filename{65|99R9} 63|1915b7 1920r57
+282r7 Default{65|99R9} 63|1916b7 1920r67
+283e7 On_Exception{271E9} 63|1917b7 1928r39 1932r18 1939r24 1948r34
+284b7 Force_Activation{boolean} 63|1918b7 1932r52 1939r58 1949r34
+304U14*Parse_Config_File 305>7 306>7 307>7 308>7 63|1959b14 1982l8 1982t25
+305a7 Filename{string} 63|1960b7 1968r10 1971r43
+306a7 Default{string} 63|1961b7 1974r10 1977r42
+307e7 On_Exception{271E9} 63|1962b7 1981r33
+308b7 Force_Activation{boolean} 63|1963b7 1981r47
+311U14*Parse_Config 312>7 313>7 314>7 315>7 63|1684b14 1908l8 1908t20 1931s10
+. 1938s16 1946s10
+312a7 Config{string} 63|1685b7 1820r16 1828r27 1841r25 1870r33 1877r25 1883r19
+. 1901r35 1905r10 1906r17 1947r14
+313e7 On_Exception{271E9} 63|1686b7 1799r16 1899r39 1948r14
+314b7 Force_Activation{boolean} 63|1687b7 1901r10 1932r32 1939r38 1949r14
+315r7 Relative_Path_To{65|99R9} 63|1688b7 1822r31 1878r25 1950r14
+329P9*Output_Proc 329>42 330r43 63|415r43
+329a42 Str{string}
+330U14*Show_Configuration 330>34 63|415b14 446l8 446t26
+330p34 Output{329P9} 63|415b34 434r10 439r13 442r13
+334U14*Finalize 63|1988b14 2051l8 2051t16
+343R9*Trace_Handle_Record 344r36 402r33 502r32 507r32 527r34 533r34 563r44
+. 587r25 593r25 610r34 615r33 625r33 629r33 816r39 904c9 928e14 929r17 933r39
+. 63|100r7 750r27 953r33 1010r33 1020r33 1057r32 1076r32 1096r34 1117r34
+. 1300r44 1334r25 1355r25 2130r34
+344P9*Trace_Handle(343R9) 345r22 645r53 63|100r34 119r22 128r31 212r57 221r16
+. 221r63 230r45 264r36 276r42 297r48 339r16 339r63 341r13 393r45 395r13 416r13
+. 705r43 728r42 732r20 734r18 735r18 880r20 895r48 915r36 955r13 1029r57
+. 1436r26 1457r26 1478r26 1501r26 1521r26 1691r16 1989r15 1990r15 2058r13
+. 2076r11 2140r19
+345P12*Logger{344P9} 353r50 362r14 661r19 832r25 836r25 898r23 905r23 910r26
+. 63|174r26 180r26 186r26 194r26 202r26
+353P9*Handle_Factory(344P9) 360r19 63|273r19 704r19 725r19
+355E9*Default_Activation_Status 355e60 358r19 63|271r19 702r19 723r19 1826r34
+355n39*From_Config{355E9} 358r48 63|271r48 702r48 723r48 761r24 819r18
+355n52*On{355E9} 63|813r18 1045r49 1830r24
+355n56*Off{355E9} 63|816r18 1045r57 1831r24
+356V13*Create{345P12} 357>7 358>7 359>7 360>7 361>7 63|700b13 715l8 715t14
+357a7 Unit_Name{string} 63|701b7 709r31
+358e7 Default{355E9} 63|702b7 710r31
+359a7 Stream{string} 63|703b7 711r44
+360p7 Factory{353P9} 63|704b7 712r31
+361b7 Finalize{boolean} 63|705b7 714r31
+396V13*Exists{boolean} 396>21 63|877b13 889l8 889t14
+396a21 Unit_Name{string} 63|877b21 878r53 879r28 881r49
+401V13*Unit_Name{string} 402^8 63|1019b13 1023l8 1023t17
+402p8 Handle(343R9) 63|1020b8 1022r14
+418a4*Red_Fg{string}
+422a4*Green_Fg{string}
+426a4*Brown_Fg{string} 63|1240r28
+430a4*Blue_Fg{string}
+434a4*Purple_Fg{string} 63|1219r31
+438a4*Cyan_Fg{string} 63|1171r25
+442a4*Grey_Fg{string}
+446a4*Default_Fg{string}
+451a4*Red_Bg{string}
+455a4*Green_Bg{string}
+459a4*Brown_Bg{string}
+463a4*Blue_Bg{string}
+467a4*Purple_Bg{string}
+471a4*Cyan_Bg{string}
+475a4*Grey_Bg{string}
+484R12*Message_Style{61|147R9} 489r33 496r35 505r16 529r18 589r18 595r18
+. 665r19 900r23 917r27 63|81r29 88r39 275r19 727r19 1079r16 1119r18 1128r22
+. 1336r18 1357r18 1833r25 2144r19
+489r4*Use_Default_Style{484R12} 505r33 529r35 589r35 595r35 63|848r28 864r19
+. 1079r33 1119r35 1336r35 1357r35
+496r4*Default_Block_Style{484R12} 665r36 63|2144r36
+501U14*Trace 502^7 503>7 504>7 505>7 63|1064s13 1066s13 1075b14 1089l8 1089t13
+502p7 Handle(343R9) 63|1076b7 1084r35 1085r17
+503r7 E{12|63R9} 63|1077b7 1086r61
+504a7 Msg{string} 63|1078b7 1086r17
+505r7 Style{484R12} 63|1079b7 1087r26
+506U14*Trace 507^7 508>7 509>7 510>7 63|1056b14 1069l8 1069t13
+507p7 Handle(343R9) 63|1057b7 1063r13 1064r20 1066r20
+508r7 E{12|63R9} 63|1058b7 1064r28 1066r28
+509a7 Msg{string} 63|1059b7 1064r39 1066r31
+510a7 Color{string} 63|1060b7 1064r31
+526U14*Trace 527^7 528>7 529>7 530>7 531>7 63|1085s10 1104s13 1107s13 1116b14
+. 1293l8 1293t13 1311s13 1342s13 1368s13 1372s13
+527p7 Handle(343R9) 63|1117b7 1137r22 1137r38 1143r48 1144r45 1157r29 1175r22
+. 1182r58 1223r28 1246r60 1251r16 1275r10 1287r26
+528a7 Message{string} 63|1118b7 1188r22 1191r30 1192r27 1202r28 1205r34 1233r25
+529r7 Style{484R12} 63|1087r17 1119b7 1159r16 1160r35 1163r16 1164r35 1167r16
+. 1168r38
+530a7 Location{string} 63|1105r20 1107r37 1120b7 1257r28 1314r16 1342r40
+. 1372r40
+531a7 Entity{string} 63|1105r42 1107r59 1121b7 1263r28 1315r16 1342r62 1372r62
+532U14*Trace 533^7 534>7 535>7 536>7 537>7 63|1095b14 1110l8 1110t13 1324s13
+533p7 Handle(343R9) 63|1096b7 1103r13 1104r20 1107r20
+534a7 Message{string} 63|1097b7 1104r36 1107r28
+535a7 Color{string} 63|1098b7 1104r28
+536a7 Location{string} 63|1099b7 1105r32 1107r49
+537a7 Entity{string} 63|1100b7 1105r52 1107r69
+562U14*Assert 563^7 564>7 565>7 566>7 567>7 568>7 569>7 63|1299b14 1327l8
+. 1327t14
+563p7 Handle(343R9) 63|1300b7 1308r18 1310r38 1312r16 1324r20
+564b7 Condition{boolean} 63|1301b7 1309r17
+565a7 Error_Message{string} 63|1302b7 1313r16 1319r19
+566a7 Message_If_Success{string} 63|1303b7 1323r16 1324r28
+567b7 Raise_Exception{boolean} 63|1304b7 1317r16
+568a7 Location{string} 63|1305b7 1314r28 1320r19 1324r48
+569a7 Entity{string} 63|1306b7 1315r28 1319r42 1324r58
+586U14*Increase_Indent 587^7 588>7 589>7 590>7 591>7 63|1333b14 1348l8 1348t23
+. 2153s16 2157s16
+587p7 Handle(343R9) 63|1334b7 1340r10 1340r34 1342r20 1346r21
+588a7 Msg{string} 63|1335b7 1341r13 1342r28
+589r7 Style{484R12} 63|1336b7 1342r33 2155r20 2159r20
+590a7 Location{string} 63|1337b7 1342r52 2155r36 2159r36
+591a7 Entity{string} 63|1338b7 1342r72 2155r52 2159r52
+592U14*Decrease_Indent 593^7 594>7 595>7 596>7 597>7 63|1354b14 1375l8 1375t23
+. 2173s10
+593p7 Handle(343R9) 63|1355b7 1361r10 1361r34 1365r14 1367r13 1368r20 1372r20
+594a7 Msg{string} 63|1356b7 1371r13 1372r28
+595r7 Style{484R12} 63|1357b7 1372r33 2175r14
+596a7 Location{string} 63|1358b7 1372r52 2176r14
+597a7 Entity{string} 63|1359b7 1372r72 2177r14
+609V13*Count{natural} 610^8 63|2129b13 2133l8 2133t13
+610p8 Handler(343R9) 63|2130b8 2132r23
+614U14*Set_Active 615^8 615>60 63|767s16 777s16 815s16 818s16 846s16 952b14
+. 1003l8 1003t18 1809s19
+615p8 Handle(343R9) 63|953b8 958r7 960r10 961r34
+615b60 Active{boolean} 63|815r36 818r36 953b60 958r24 968r16
+624V13*Is_Active{boolean} 625^8 630s31 63|1009b13 1013l8 1013t17
+625p8 Handle(343R9) 63|1010b8 1012r44
+628V13*Active{boolean} 629^8 63|1137s14 1308s10 2148s13
+629p8 Handle(343R9) 630r42
+645P9*Handlers_Proc 645>44 646r47 63|2057r47
+645p44 Handle{344P9}
+646U14*For_Each_Handle 646>31 63|2057b14 2064l8 2064t23
+646p31 Proc{645P9} 63|2057b31 2061r10
+653R9*Block_Trace_Handle<14|50R9> 655r28 896c9 901e14 63|2145r14 2147r23
+. 2169r49
+655R12*Block_Logger{653R9} 666r14 902r49
+660V13*Create{655R12} 661>8 662>8 663>8 664>8 665>8 63|2139b13 2163l8 2163t14
+661p8 Handle{345P12} 63|2140b8 2148r21 2149r26 2154r20 2158r20
+662a8 Message{string} 63|2141b8 2152r16 2154r65
+663a8 Location{string} 63|2142b8 2151r54
+664a8 Entity{string} 63|2143b8 2151r39
+665r8 Style{484R12} 63|2144b8 2150r29 2155r29 2159r29
+717M9*Typical_Msg_Size 718r8 720r28
+719K12*Msg_Strings[58|302] 746r20 821r32 833r23 837r23 63|175r24 181r24 187r24
+. 195r24 203r24 249r46 290r21 1145r25 1404r46 1437r24 1458r24 1479r24 1502r24
+. 1522r24 1636r21 1639r17
+728H9*Trace_Stream_Record 729r36 744p14 745r27 754p14 754r37 757p13 757r38
+. 759p13 759r38 887c9 892e14 63|102r7 283r35 1625r37 1677r14
+729P9*Trace_Stream(728R9) 770r55 889r23 908r23 63|102r34 132r22 242r42 272r19
+. 455r42 457r39 463r39 484r15 724r19 1030r17 1832r25 1991r15 1992r15 2074r11
+. 2075r11
+744x14*Put 745=7 746>7 63|1275R24
+745r7 Stream{728R9}
+746r7 Str{58|311R12[719]}
+754U14*Close 754=21 63|1287R19 1625b14 1628l8 1628t13 1677s7 2031R13
+754r21 Stream{728R9} 63|1625b21 1627m13 1627r13
+757V13*Supports_Color{boolean} 757>29 63|906R57
+757r29 Stream{728R9}
+759V13*Supports_Time{boolean} 759>29 63|904R36
+759r29 Stream{728R9}
+766H9*Stream_Factory 766e54 767r45 769p13 770r17 63|116r7
+767P9*Stream_Factory_Access(766R9) 778r32 63|108r17 116r29 1610r32
+769y13*New_Stream{729P9} 770>7 770>33 63|579R39 582R39
+770r7 Factory{766R9}
+770a33 Args{string}
+777U14*Register_Stream_Factory 778>7 778>22 63|1609b14 1619l8 1619t31
+778a7 Name{string} 63|1610b7 1615r39
+778p22 Factory{767P9} 63|1610b22 1616r21
+801U14*Set_Default_Stream 802>8 803>8 63|1708s13 1819s13 2070b14 2123l8 2123t26
+802a8 Name{string} 63|2071b8 2079r10 2080r18 2080r24 2080r38 2083r13 2083r19
+. 2083r37 2085r13 2085r19 2087r14 2087r20 2087r38 2090r28
+803r8 Config_File{65|99R9} 63|1822r16 2072b8 2084r13 2088r14 2090r34
+816R9*Trace_Decorator_Record<343R9> 817r39 819p14 820r32 830p14 831r23 834p14
+. 835r23 860r36 933c9 933e75 63|171r34 177r28 183r28 189r29 197r33 440r31
+. 960r24 1541r36 1710r38 1732r41 1735r41 1738r44 1742r36 1747r43 1752r39
+. 1756r34
+817P9*Trace_Decorator(816R9) 63|97r45 146r26 147r26 148r26 149r26 150r26
+. 151r26 152r26 153r26 956r13 961r17 1692r16
+819U14*Start_Of_Line 820=7 821=7 822>7 63|1148R42 1210R48
+820r7 Self{816R9}
+821r7 Msg{58|311R12[719]}
+822b7 Is_Continuation{boolean} 63|1149r22 1211r28
+830U14*Before_Message 831=7 832>7 833=7 63|1182R42
+831r7 Self{816R9}
+832p7 Handle{344P9}
+833r7 Msg{58|311R12[719]}
+834U14*After_Message 835=7 836>7 837=7 63|1246R45
+835r7 Self{816R9}
+836p7 Handle{344P9}
+837r7 Msg{58|311R12[719]}
+859U14*Add_Global_Decorator 860^8 861>8 63|1540b14 1550l8 1550t28 1711s31
+. 1714s17 1717s17 1720s17 1723s17 1726s17 1733s34 1736s34 1739s37 1743s29
+. 1748s36 1753s32 1757s27
+860p8 Decorator(816R9) 63|1541b8 1544r24 1545r7 1549r7
+861a8 Name{string} 63|1542b8 1544r45
+888p7*Name{110|45P9} 63|426r38 434r45 505r17 555m13 565m13 585m20 665m16
+. 1627m20
+889p7*Next{729P9} 63|473m17 475m17 475r45 476m33 508r21 2030r27 2099r21 2100r23
+. 2103m15 2103r25 2104m15
+890m7*Indentation{40|34M12} 63|1143r62 1346m35 1365m28 1367m27
+898p7*Me{345P12} 63|2149m20 2172r15 2174r19
+899p7*Loc{110|45P9} 63|2151m20 2154r49 2158r49 2174r41 2179m18
+900r7*Style{484R12} 63|2150m20 2175r31
+902U25 Finalize<14|54p14> 902=35 63|2169b25 2180l8 2180t16
+902r35 Self{655R12} 63|2169b35 2172r10 2174m14 2174r14 2174r36 2175r26 2179m13
+. 2179r13
+905p7*Next{344P9} 63|346r21 405r21 444r21 860r26 934m17 937m17 999r27 1815r33
+. 2004r25 2017r25 2062r21 2118r20
+906p7*Name{110|45P9} 63|344r22 400r31 439r25 442r25 764r54 833r21 833r52
+. 923m14 1022r21 1042r33 1175r29 1223r35 2007m26 2020m26
+907i7*Timer{2|42I9} 63|926m14 1508r17 1509r38 1512m14
+908p7*Stream{729P9} 63|423r17 424r26 426r31 771r51 772m26 772r45 792m20 804m20
+. 854r58 855m24 855r41 900r26 904r29 906r50 1035r20 1038r25 1137r45 1143r55
+. 1275r17 1287r33 1340r41 1346r28 1361r41 1365r21 1367r20 2113r18 2114m18
+910p7*Exception_Handle{344P9} 63|1032r17 1041m17 1048r33 1085r24 1312r23
+915m7*Count{40|34M12} 63|925m14 1441m35 1443m37 2132r31
+917r7*Default_Style{484R12} 63|849r33 851m24 865m17 1157r36
+919b7*Finalize{boolean} 63|927m14 2006r20 2019r20
+920b7*Active{boolean} 63|438r17 767r45 846r41 903r35 903r71 906r27 928m14
+. 958m14 1012r51 1045r37 1187r68 1255r32 1261r40 1410r31 1411r34 1412r34
+. 1422r31 1545m17 1750m36 1754m32 1999r42
+921b7*Forced_Active{boolean} 63|768m23 811r21 814m23 817m23 924m14 1549m17
+. 1808r30 1813m26
+922b7*Stream_Is_Default{boolean} 63|773m26 773r56 791r45 793m20 803r50 805m20
+. 854r24 856m24 856r52 929m14 2113r42 2115m18
+924b7*With_Colors{boolean} 63|905m17 1063r20 1103r20 1144r52
+925b7*With_Time{boolean} 63|902m17 1251r23
+X 63 gnatcoll-traces.adb
+56N4 Max_Active_Decorators 97r19
+59e4 On_Exception{62|271E9} 1280r15 1899m23 1928m23
+73a4 A_Zero{string} 653r52
+74a4 W_Zero{string} 655r52
+76a4 Reset_All{string} 1271r25
+81r4 Default_Style{62|484R12} 713r31 849r49 1833r42
+88r4 Default_Exception_Style{62|484R12} 1046r26
+96A9 Decorator_Array(62|817P9)<integer> 122r27
+99U14 Unchecked_Free[27|20] 2008s16 2021s16
+101U14 Unchecked_Free[27|20] 2032s13
+104R9 Stream_Factories 105r41 106c9 110e14 113r7 1614r36
+105P9 Stream_Factories_List(104R9) 109r17 113r25 136r24 486r15 1993r15 1994r15
+107p7*Name{110|45P9} 577r21 1615m10 2040m24
+108p7*Factory{62|767P9} 579r31 582r31 1616m10 2041m34
+109p7*Next{105P9} 590r26 1617m10 2039r27
+112U14 Unchecked_Free[27|20] 2042s13
+115U14 Unchecked_Free[27|20] 2041s13
+118R9 Global_Vars 167e14 169r13
+119p7*Handles_List{62|344P9} 416r36 741r23 830r25 885r23 937r40 938m17 996r27
+. 1806r30 2002r24 2013m17 2058r36 2111r22
+122a7*Active_Decorators{96A9} 970r29 978m23 982r29 983m29 984r32 1148r20
+. 1182r20 1210r26 1246r23
+123i7*Active_Last{natural} 969r37 977m23 977r45 978r49 981r37 983r60 984r67
+. 985m29 985r51 1147r32 1181r32 1209r38 1238r20 1245r35
+128p7*Wildcard_Handles_List{62|344P9} 395r36 740r34 884r34 934r49 935m17
+. 2015r24 2026m17
+132p7*Streams_List{62|729P9} 424r43 433r17 434r32 471r20 472m20 475r32 476r20
+. 503r21 804r37 1035r36 2028r25 2035m17 2097r20 2098r25 2104r30 2105m20
+136p7*Factories_List{105P9} 574r25 1614m14 1617r28 2037r25 2045m17
+139i7*TZ{5|23I9} 1391r75
+143m7*Lock{40|34M12} 467m23 479m25 931m20 941m22 944m25 1613m20 1618m22 2001m23
+. 2047m25 2096m23 2121m25
+146p7*Absolute_Time{62|817P9} 903r21 993r34 1411r20 1732m20 1733r20
+147p7*Absolute_Date{62|817P9} 903r57 994r34 1410r17 1735m20 1736r20
+148p7*Micro_Time{62|817P9} 1412r23 1422r20 1710m20 1711r20
+149p7*Colors{62|817P9} 899r17 906r20 963r27 992r26 1707r20 1756m20 1757r20
+150p7*Enclosing_Entity{62|817P9} 1261r23 1738m20 1739r20
+151p7*Location{62|817P9} 1255r23 1742m20 1743r20
+152p7*Finalize_Traces{62|817P9} 964r36 1747m20 1748r20 1750r20 1998r26 1999r26
+153p7*Split_Lines{62|817P9} 965r36 1187r20 1187r56 1752m20 1753r20 1754r20
+158b7*Default_Activation{boolean} 777r43 1805m20
+163b7*Finalized{boolean} 1012r25 1082r29 1996r21 2050m14
+169r4 Global{118R9} 395r29 416r29 424r36 433r10 434r25 467m16 467r16 471r13
+. 472m13 475r25 476r13 479m18 479r18 503r14 574r18 740r27 741r16 777r36 804r30
+. 830r18 884r27 885r16 899r10 903r14 903r50 906r13 931m13 931r13 934r42 935m10
+. 937r33 938m10 941m15 941r15 944m18 944r18 963r20 964r29 965r29 969r30 970r22
+. 977m16 977r38 978m16 978r42 981r30 982r22 983m22 983r53 984r25 984r60 985m22
+. 985r44 992r19 993r27 994r27 996r20 1012r18 1035r29 1082r22 1147r25 1148r13
+. 1181r25 1182r13 1187r13 1187r49 1209r31 1210r19 1238r13 1245r28 1246r16
+. 1255r16 1261r16 1391r68 1410r10 1411r13 1412r16 1422r13 1613m13 1613r13
+. 1614m7 1617r21 1618m15 1618r15 1707r13 1710m13 1711m13 1711r13 1732m13
+. 1733m13 1733r13 1735m13 1736m13 1736r13 1738m13 1739m13 1739r13 1742m13
+. 1743m13 1743r13 1747m13 1748m13 1748r13 1750r13 1752m13 1753m13 1753r13
+. 1754r13 1756m13 1757m13 1757r13 1805m13 1806r23 1996r14 1998r19 1999r19
+. 2001m16 2001r16 2002r17 2013m10 2015r17 2026m10 2028r18 2035m10 2037r18
+. 2045m10 2047m18 2047r18 2050m7 2058r29 2096m16 2096r16 2097r13 2098r18
+. 2104r23 2105m13 2111r15 2121m18 2121r18
+171R9 Elapse_Time_Trace<62|816R9> 62|819p14 830p14 63|171e73 172P25 173r24
+. 1500r24 1713r24
+172U25 After_Message<62|834p14> 173=8 174>8 175=8 1499b25 1513l8 1513t21
+173r8 Self{171R9} 1500b8 1504r28
+174p8 Handle{62|344P9} 1501b8 1508r10 1509r31 1512r7
+175r8 Msg{58|311R12[62|719]} 1502b8 1510m10 1510r10
+177R9 Stack_Trace<62|816R9> 62|819p14 830p14 63|177e67 178P25 179r24 1520r24
+. 1716r24
+178U25 After_Message<62|834p14> 179=8 180>8 181=8 1519b25 1534l8 1534t21
+179r8 Self{177R9} 1520b8 1524r28
+180p8 Handle{62|344P9} 1521b8 1524r34
+181r8 Msg{58|311R12[62|719]} 1522b8 1529m7 1529r7 1531m10 1531r10 1533m7
+. 1533r7
+183R9 Count_Trace<62|816R9> 62|819p14 834p14 63|183e67 184P25 185r24 1435r24
+. 1719r24
+184U25 Before_Message<62|830p14> 185=8 186>8 187=8 1434b25 1449l8 1449t22
+185r8 Self{183R9} 1435b8 1441m30 1441r30
+186p8 Handle{62|344P9} 1436b8 1443r30
+187r8 Msg{58|311R12[62|719]} 1437b8 1447m7 1447r7
+189R9 Memory_Trace<62|816R9> 62|819p14 830p14 63|191e14 192P25 193r24 1456r24
+. 1722r24
+190m7*Previous{45|215M9} 1466r42 1469m12
+192U25 After_Message<62|834p14> 193=8 194>8 195=8 1455b25 1470l8 1470t21
+193r8 Self{189R9} 1456b8 1466r37 1469m7
+194p8 Handle{62|344P9} 1457b8 1460r28
+195r8 Msg{58|311R12[62|719]} 1458b8 1464m7 1464r7
+197R9 Ada_Memory_Trace<62|816R9> 62|819p14 830p14 63|199e14 200P25 201r24
+. 1477r24 1725r24
+198m7*Previous{45|215M9} 1488r45 1492m12
+200U25 After_Message<62|834p14> 201=8 202>8 203=8 1476b25 1493l8 1493t21
+201r8 Self{197R9} 1477b8 1488r40 1492m7
+202p8 Handle{62|344P9} 1478b8 1481r28
+203r8 Msg{58|311R12[62|719]} 1479b8 1486m10 1486r10
+205U14 Lock 205=20 306b14 323l8 323t12 467s10 931s7 1613s7 1648s7 2001s10
+. 2096s10
+205m20 The_Lock{40|34M12} 306b20 316r16 321m14 321r14
+207U14 Unlock 207=22 329b14 332l8 332t14 479s10 941s7 944s10 1618s7 1654s7
+. 2047s10 2121s10
+207m22 The_Lock{40|34M12} 329b22 331m7
+212U14 Create_Exception_Handle 212>39 1029b14 1050l8 1050t31 1084s10 1310s13
+212p39 Handle{62|344P9} 1029b39 1032r10 1035r13 1038r18 1041r10 1042r26 1045r30
+. 1048r26
+215V13 Local_Sub_Second{integer} 215>31 216r19 1381b13 1398l8 1398t24 1407s46
+215i31 T{2|42I9} 1381b31 1391r38
+220V13 Find_Handle{62|344P9} 221>7 221>30 338b13 350l8 350t19 739s17 883s17
+221p7 Handle{62|344P9} 339b7 341r29
+221a30 Name_Upper_Case{string} 339b30 344r34
+229V13 Find_Wildcard_Handle{62|344P9} 230>7 392b13 409l8 409t28 764s25
+230a7 Unit_Name_Upper_Case{string} 393b7 399r27
+234V13 Wildcard_Applies_To{boolean} 235>7 235>28 356b13 386l8 386t27 398s13
+. 832s16
+235a7 Upper_Name{string} 357b7 363r13 370r13 380r13 399r13
+235a28 Upper_Star{string} 357b28 360r10 360r22 363r25 363r37 363r61 368r13
+. 368r25 371r12 371r24 371r44 380r25 380r37 380r57 400r13 833r31
+239V13 Find_Stream{62|729P9} 240>7 241>7 242>7 452b13 694l8 694t19 711s31
+. 1876s32 2082s15 2086s15 2090s15
+240a7 Stream_Name{string} 453b7 482r40
+241r7 Relative_Path_To{65|99R9} 454b7 648r17
+242b7 Append{boolean} 455b7 652r16 711r61 2084r30 2088r31 2090r51
+249U14 Put_Absolute_Time 249=33 1252s16 1404b14 1428l8 1428t25
+249r33 Msg{58|311R12[62|719]} 1404b33 1413m16 1413r16 1415m16 1415r16 1418m13
+. 1418r13 1423m13 1423r13 1425m13 1425r13
+253V13 Config_File{65|99R9} 254>7 255>7 1556b13 1603l8 1603t19 1920s44
+254r7 Filename{65|99R9} 1557b7 1564r10 1564r39 1565r17
+255r7 Default{65|99R9} 1558b7 1598r10 1598r55 1599r17
+263U14 Register_Handle 264>8 265>8 266>8 753s10 914b14 946l8 946t23 1544s7
+264p8 Handle{62|344P9} 754r13 915b8 923r7 924r7 925r7 926r7 927r7 928r7 929r7
+. 934r10 935r42 937r10 938r33
+265a8 Upper_Case{string} 755r13 916b8 920r23 921r29 923r47
+266b8 Finalize{boolean} 756r13 917b8 927r35
+269V13 Create_Internal{62|344P9} 270>7 271>7 272>7 273>7 274>7 275>7 276>7
+. 707s14 721b13 871l8 871t23 1041s37 1882s26
+270a7 Unit_Name{string} 709r11 722b7 730r53 731r28 733r49 1042r13
+271e7 Default{62|355E9} 710r11 723b7 761r14 812r15 1045r13 1885r19
+272p7 Stream{62|729P9} 711r11 724b7 761r44 771r19 782r10 792r30 1044r13 1887r19
+273p7 Factory{62|353P9} 712r11 725b7 745r13 746r23
+274b7 Finalize{boolean} 714r11 726b7 756r27
+275r7 Style{62|484R12} 713r11 727b7 848r19 851r41 864r10 865r34 1046r13 1886r19
+276b7 From_Config_File{boolean} 708r11 728b7 791r13 803r17 811r43 1043r13
+. 1884r19
+279V13 Get_Process_Id{integer} 281b<c,getpid>22 601s21
+283R9 File_Stream_Record<62|728R9> 62|759p13 63|287e14 288P25 289r28 291P25
+. 291r48 292P24 293r15 554r21 564r21 664r24 674r30 681r16 1635r28 1666r48
+284m7*File{71|41M12} 556m13 566m13 666m16 681r45 1653r29 1670r17 1671r26
+. 1673r35 1674m17
+285m7*Lock{40|34M12} 1648m20 1654m22
+286b7*Colors_Support{boolean} 294r16 557m13 567m13 667m16
+288U25 Put<62|744p14> 289=8 290>8 1634b25 1660l8 1660t11
+289r8 Stream{283R9} 1635b8 1648m13 1648r13 1653r22 1654m15 1654r15
+290r8 Str{58|311R12[62|719]} 1636b8 1645r7
+291U25 Close<62|754p14> 291=32 1666b25 1678l8 1678t13
+291r32 Stream{283R9} 1666b32 1670r10 1671r19 1673r28 1674m10 1677m35 1677r35
+292V24 Supports_Color{boolean}<62|757p13> 293>8
+293r8 Self{283R9} 294r11
+297U14 Cache_Settings 297>30 868s7 895b14 908l8 908t22 998s16 1048s10 2116s16
+297p30 Handle{62|344P9} 895b30 900r19 902r10 904r22 905r10 906r43
+341p7 Tmp{62|344P9} 343r13 344r18 346m10 346r17 349r14
+395p7 Tmp{62|344P9} 397r13 400r27 402r20 405m10 405r17
+416p7 Tmp{62|344P9} 423r13 424r22 426r27 437r13 438r13 439r21 440r16 442r21
+. 444m10 444r17
+418V16 Stream_Name{string} 421b16 430l11 430t22 439s45 442s44
+457U17 Add_To_Streams 457>33 463b17 480l11 480t25 559s10 569s10 586s16 669s13
+457p33 Tmp{62|729P9} 463b33 472r36 473r13 475r13 476r41
+482a7 Name{string} 495r10 505r28 513r23 514r18 515r19 519r47 552r10 552r16
+. 555r43 562r13 562r19 565r43 572r13 572r19 577r32 577r38 578r27 580r22 580r41
+. 585r40 644r33 644r39 665r46
+484p7 Tmp{62|729P9} 503m7 504r13 505r13 506r20 508m10 508r17 554m10 559r26
+. 564m10 569r26 573m10 579m19 582m19 585r16 586r32 664m13 669r29 673r10 674r19
+. 681r36 693r14
+485i7 Colon{natural} 513m7 514r10 515m10 552r30 562r33 577r52 578r19 580r28
+. 644r53
+486p7 TmpF{105P9} 574m10 576r16 577r16 579r26 582r26 590m13 590r21
+487e7 Default_Colors{61|50E9} 537m22 539m22 541m22 553r42 563r42 662r43
+489r7 Term{61|35R9} 553m10 553r10 557r31 563m10 563r10 567r31 662m13 662r13
+. 667r34
+491b7 Supports_Buffer{boolean} 560m10 570m10 675r19
+492m7 Buf_Size{71|44M12} 524m19 683r22 687r16
+519p10 Args{91|88P12} 521r19 521r25 521r43 547m16 547r16
+521p14 A=521:14{110|45P9} 522r29 524r45 524r48 524r64 532r32 534r52 534r55
+. 534r70
+534a19 V{string} 536r22 536r39 538r25 538r43
+597i13 Now{2|42I9} 604r51 607r59
+599a13 Nam_Dollar{string} 610m26 610r26
+600a13 Val_Dollar{string} 611m26 611r26
+603a13 Nam_D{string} 613m26 613r26
+604a13 Val_D{string} 607r44 614m26 614r26
+606a13 Nam_T{string} 616m26 616r26
+607a13 Val_T{string} 617m26 617r26
+609a13 Predef_Substitutions{60|40A9} 645r33
+619V22 Substitute_Cb{string} 620>16 620>30 627b22 640l17 640t30 646r33
+620a16 Var{string} 628b16 635r53 636r59
+620b30 Quoted{boolean} 628b30 630r37
+642a13 N{string} 649r49
+649a13 N_Zero{string} 653r28 655r28
+650m13 F{71|41M12} 653m16 655m16 658r16 659m16 666r34
+678i13 Dummy{71|42I12} 680m13
+730b7 Is_Star{boolean} 740r14 762r25 799r17 829r10
+732p7 Handle{62|344P9} 739m7 744r10 746m13 749r13 750m13 754r27 764r47 767r28
+. 768r16 772r19 773r19 777r28 791r38 792r13 793r13 803r43 804r13 805r13 811r14
+. 814r16 815r28 817r16 818r28 833r45 846r34 854r51 855r34 856r45 865r10 868r23
+. 870r14
+733a7 Upper_Case{string} 742r10 755r27
+734p7 Tmp2{62|344P9} 830m10 831r16 833r16 846r28 849r28 851r19 854r19 855r19
+. 856r19 860m13 860r21
+735p7 Wildcard{62|344P9} 764m13 766r16 767r36 771r42 772r36 773r47
+878b7 Is_Star{boolean} 884r14
+880p7 Handle{62|344P9} 883m7 888r14
+881a7 Upper_Case{string} 886r10
+919b7 Is_Star{boolean} 933r10
+955p7 Tmp{62|344P9} 996m13 997r19 998r32 999m16 999r23
+956p7 Dec{62|817P9} 961m10 963r13 964r22 965r22 970r53 978r65 982r53 992r13
+. 993r21 994r21
+969i20 A{integer} 970r48
+981i20 A{integer} 982r48 983r48 984r51
+1030p7 S{62|729P9} 1036m13 1038m13 1044r26
+1128r7 Merged_Style{62|484R12} 1157m13 1160m16 1164m16 1168m16 1199r60 1230r57
+1142i10 Start{natural} 1188m13 1190r24 1202r37 1204m16 1205r26
+1142i17 Last{natural} 1190m16 1191r22 1192r36 1194m19 1194r27 1202r46 1204r25
+1143i10 Indent{integer} 1152r13 1153r31 1214r19 1215r37
+1144b10 With_Color{boolean} 1156r13 1197r19 1218r19 1228r16 1239r16 1270r13
+1145r10 Msg{58|311R12[62|719]} 1149m17 1149r17 1153m13 1153r13 1171m13 1171r13
+. 1174m10 1174r10 1175m10 1175r10 1176m10 1176r10 1177m10 1177r10 1182m66
+. 1182r66 1198m19 1198r19 1202m16 1202r16 1207m16 1207r16 1211m23 1211r23
+. 1215m19 1215r19 1219m19 1219r19 1222m16 1222r16 1223m16 1223r16 1224m16
+. 1224r16 1225m16 1225r16 1229m16 1229r16 1233m13 1233r13 1240m16 1240r16
+. 1243m13 1243r13 1246m68 1246r68 1252m35 1252r35 1256m16 1256r16 1257m16
+. 1257r16 1258m16 1258r16 1262m16 1262r16 1263m16 1263r16 1264m16 1264r16
+. 1267m13 1267r13 1271m13 1271r13 1274m10 1274r10 1275r29
+1147i14 D{integer} 1148r39
+1181i14 D{integer} 1182r39
+1209i20 D{integer} 1210r45
+1245i17 D{integer} 1246r42
+1382i7 Y{2|48I12} 1391m41
+1383i7 M{2|49I12} 1391m44
+1384i7 D{2|50I12} 1391m47
+1385i7 H{4|35I12} 1391m50
+1386i7 Mi{4|36I12} 1391m53
+1387i7 S{4|37I12} 1391m57
+1388o7 Ss{4|38O12} 1391m60 1393r10 1396r26
+1389b7 Ls{boolean} 1391m64
+1405i7 T{2|42I9} 1407r64 1413r41 1415r41 1418r38 1423r38 1425r38
+1406a7 Z{string} 1409m7 1415r65 1425r50
+1407a7 Ms{string} 1409r19 1409r43 1409r47 1409r63
+1440m7 Total{40|34M12} 1444r52
+1442m7 Local{40|34M12} 1445r52
+1444a7 C{string} 1448r18 1448r21 1448r36
+1445a7 H{string} 1447r19 1447r22 1447r37
+1462r7 Watermark{45|217R9} 1466r17 1467r13 1468r13 1469r24
+1483r7 Watermark{45|217R9} 1485r10 1488r20 1489r16 1490r16 1492r24
+1505i7 T{2|42I9} 1509r27 1512r23
+1506i7 Dur{integer} 1509m10 1510r51
+1525a7 Tracebacks{38|86A12} 1528m19 1530r16 1531r52
+1526i7 Len{natural} 1528m31 1530r36
+1530i11 J{integer} 1531r64
+1561p7 Env{110|45P9} 1568m7 1571r10 1571r31 1572r26 1573m16 1573r16 1582m13
+. 1582r13
+1562r7 Ret{65|99R9} 1572m10 1575r13 1576r20 1586m7 1587r10 1588r17 1592m7
+. 1593r10 1594r17
+1638m7 N{71|44M12} 1649m7 1656r10
+1639p7 S{58|329P12[62|719]} 1645m23 1645r23 1650r22
+1640i7 L{natural} 1645m26 1651r30 1656r23
+1667i7 Status{71|42I12} 1668r28 1673m10
+1691p7 Handle{62|344P9} 1806m13 1807r19 1808r23 1809r31 1813r19 1815m16 1815r26
+. 1882m16
+1692p7 Dec{62|817P9} 1713m13 1714r13 1716m13 1717r13 1719m13 1720r13 1722m13
+. 1723r13 1725m13 1726r13
+1693i7 Count{natural} 1790m10 1790r19 1801r28
+1695U17 Create_Decorators 1705b17 1759l11 1759t28 1902s10
+1698V16 One_Line{boolean} 1698>26 1781b16 1892l11 1892t19 1906r42
+1698a26 Line{string} 1781b26 1792r13 1796r26 1801r49
+1761a7 S{string} 1766r31 1767r22 1767r41 1768r29 1769r24 1769r40 1772r27
+. 1775r22 1778r13
+1763r7 Line_Re{96|383R9} 1796r17
+1782a10 M{96|342A9} 1796m43 1798r13 1804r16 1818r16 1820r24 1821r18 1824r16
+. 1827r22 1828r35 1829r23 1837r19 1841r33 1842r27 1864r19 1866r42 1869r37
+. 1877r41 1883r27 1883r51
+1783N10 Group_Name 1824r19 1883r30 1883r54
+1784N10 Group_Active 1827r25 1828r38 1829r26
+1785N10 Group_Options 1837r22 1841r36 1842r30
+1786N10 Group_Stream 1864r22 1866r45 1869r40 1877r44
+1787N10 Group_Default_Stream 1818r19 1820r27 1821r21
+1788N10 Group_All 1804r19
+1826e16 Active{62|355E9} 1885r39
+1832p16 Stream{62|729P9} 1876m22 1887r39
+1833r16 Style{62|484R12} 1847m28 1850m28 1853m28 1886r39
+1840p22 Options{91|88P12} 1845r33 1858m28 1858r28
+1845p26 Opt=1845:26{110|45P9} 1846r41 1848r31 1848r36 1848r53 1849r44 1851r31
+. 1851r36 1851r53 1852r44 1854r31 1854r36 1854r53
+1866i22 Save{integer} 1869r25 1870r41 1873m25 1873r33 1877r33
+1867b22 Append{boolean} 1872m25 1878r43
+1920r7 File_Name{65|99R9} 1930r10 1935r33 1950r34
+1921p7 Buffer{46|335P12} 1944m10 1947r42
+1922p7 File{46|92P9} 1935m13 1943r16 1944r26 1947r61 1951m17 1951r17
+1965r7 F_Filename{65|99R9} 1969m10 1971m10 1981r10
+1966r7 F_Default{65|99R9} 1975m10 1977m10 1981r22
+1989p7 Tmp{62|344P9} 2002m10 2003r16 2004r21 2006r16 2007r22 2008m32 2008r32
+. 2011m13 2015m10 2016r16 2017r21 2019r16 2020r22 2021m32 2021r32 2024m13
+1990p7 Next{62|344P9} 2004m13 2011r20 2017m13 2024r20
+1991p7 TmpS{62|729P9} 2028m10 2029r16 2030r22 2031r20 2032m29 2032r29 2033m13
+1992p7 NextS{62|729P9} 2030m13 2033r21
+1993p7 TmpF{105P9} 2037m10 2038r16 2039r22 2040r19 2041r29 2042m29 2042r29
+. 2043m13
+1994p7 NextF{105P9} 2039m13 2043r21
+2058p7 Tmp{62|344P9} 2060r13 2061r16 2062m10 2062r17
+2074p7 S{62|729P9} 2082m10 2086m10 2090m10 2093r10 2097r36 2099r29 2103r23
+. 2104r13 2105r36 2114r28
+2075p7 T{62|729P9} 2098m13 2099r19 2100m16 2100r21 2103r13
+2076p7 H{62|344P9} 2111m10 2112r16 2113r16 2113r40 2114r16 2115r16 2116r32
+. 2118m13 2118r18
+2147r14 Result{62|653R9} 2149m13 2150m13 2151m13 2154r42 2158r42
+X 64 gnatcoll-utils.ads
+36K18*Utils 63|48w15 48r46 64|317e19
+80U14*Split 63|1906s10
+88V13*Split{110|55P9} 63|519s40 1840s54
+122V13*Starts_With{boolean} 63|379s13 522s16 532s19 730s40 878s40 920s10
+. 1846s28 1849s31 1852s31
+125V13*Ends_With{boolean} 63|362s13 731s17 879s17 921s18
+283i4*No_Time=283:54{2|42I9} 63|926r35 1508r26
+X 65 gnatcoll-vfs.ads
+64K18*VFS 62|249w15 249r43 315r35 316r19 803r31 803r60 63|1688r35 1689r19
+. 65|673e17
+70A9*Filesystem_String<string>(character)<integer> 62|257r39
+75V14*"+"{string} 63|648s16 1935s32
+77V14*"+"{70A9} 63|1572s25 1971s42 1977s41
+85P9*Cst_Filesystem_String_Access(70A9)
+99R9*Virtual_File<14|43R9> 62|281r26 282r26 315r39 803r35 63|241r26 254r18
+. 255r18 256r14 454r26 1557r18 1558r18 1559r14 1562r13 1688r39 1915r26 1916r26
+. 1920r28 1965r20 1966r20 2072r22 65|627e14
+100r4*No_File{99R9} 62|282r42 803r64 63|711r52 1564r22 1579r17 1598r21 1602r14
+. 1916r42 1930r22 1969r24 1975r23 2072r38
+143V13*Create{99R9} 63|1572s17
+154V13*Create_From_Dir{99R9} 63|1586s14 1592s14
+162V13*Create_From_Base{99R9} 63|1971s24 1977s23
+226V13*Full_Name{85P9} 63|648s34
+238V13*Full_Name{70A9} 63|1935s43
+329V13*Is_Regular_File{boolean} 63|1564s48 1575s17 1587s14 1593s14 1598s38
+336V25*"="{boolean} 63|1930s20
+464V13*Dir{99R9} 63|1950s44 2084s25 2088s26 2090s46
+470V13*Get_Current_Dir{99R9} 62|316s23 63|1586s31 1689s23
+477V13*Get_Home_Directory{99R9} 63|1592s31
+X 68 interfac.ads
+38K9*Interfaces 63|41r6 41r37 68|184e15
+X 71 i-cstrea.ads
+37K20*C_Streams 63|41w17 41r48 71|315e25
+40M12*chars{80|41M12}
+41M12*FILEs{80|50M12} 63|52r13 284r14 650r22
+42I12*int{80|53I12} 63|678r21 1667r16
+44M12*size_t{80|60M9} 63|52r20 492r18 524r31 1638r17 1651r22 1656r15
+47M12*voids{73|67M9}
+49m4*NULL_Stream{41M12} 63|284r23 658r20 1674r25
+59i4*IOFBF{42I12} 63|686r35
+60i4*IOLBF{42I12} 63|685r35
+61i4*IONBF{42I12} 63|684r35
+73V13*stdout{41M12} 63|556s31 1670s25
+74V13*stderr{41M12} 63|566s31 659s21 1671s34
+90V13*fclose=90:68{80|53I12} 63|1673s20
+108V13*fopen=112:39{80|50M12} 63|653s21 655s21
+110m7 mode{40M12} 63|653r44 655r44
+171V13*fwrite{44M12} 63|1649s12
+172m7 buffer{47M12} 63|1650r11
+173m7 size{44M12} 63|1651r11
+174m7 count{44M12} 63|1652r11
+175m7 stream{41M12} 63|1653r11
+184V13*setvbuf{42I12} 63|680s22
+X 73 system.ads
+37K9*System 63|42r6 43r6 43r37 682r16 1531r22 73|174e11
+67M9*Address
+69m4*Null_Address{67M9} 63|682r23
+81V14*"="{boolean} 63|658r18 1670r22 1671r31
+X 74 s-addima.ads
+39V17*Address_Image{string} 63|42w13 1531s29
+X 75 s-assert.ads
+41K16*Assertions 63|43w13 43r44 75|50e22
+46U14*Raise_Assert_Failure 63|1318s16
+X 76 s-atocou.ads
+75M9*Atomic_Unsigned
+X 80 s-crtl.ads
+41M12*chars{73|67M9}
+50M12*FILEs{73|67M9}
+53I12*int{integer}
+60M9*size_t
+X 90 s-memory.ads
+53V13*Alloc{73|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{73|67M9} 105i<c,__gnat_realloc>22
+X 91 s-os_lib.ads
+69V14*"="=70:22{boolean} 63|1571r14
+72U14*Free=72:62 63|1573s10 1582s7 1627s7 2007s16 2020s16 2040s13 2179s7
+88P12*String_List_Access{110|55P9} 63|519r18 1840r32
+94U14*Free=94:69 63|547s10 1858s22
+521V13*Normalize_Pathname{string} 63|642s36
+1029V13*Getenv{67P12} 63|1568s14
+X 96 s-regpat.ads
+338i7*First{natural} 63|1820r49 1828r52 1841r51 1866r59 1883r42
+339i7*Last{natural} 63|1821r43 1829r40 1842r45 1869r54 1877r58 1883r66
+342A9*Match_Array(337R9)<integer> 63|1782r26
+371r4*No_Match{337R9} 63|1798r21 1804r33 1818r44 1824r34 1827r41 1837r40
+. 1864r39
+383R9*Pattern_Matcher 63|1763r38 96|644e14
+389V13*Compile{383R9} 63|1763s69
+574U14*Match 63|1796s10
+577a7 Matches{342A9} 63|1796r32
+X 101 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+X 110 s-string.ads
+45P9*String_Access(string) 62|888r36 899r36 906r36 63|107r30 1561r26
+54A9*String_List(45P9)<integer>
+55P9*String_List_Access(54A9)
+X 112 s-traent.ads
+50M12*Traceback_Entry{73|67M9}
+56A9*Tracebacks_Array(50M12)<integer>
+

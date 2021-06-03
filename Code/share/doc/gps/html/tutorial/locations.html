@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>12. Locations View &#8212; Tutorial 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="13. Projects" href="projects.html" />
+    <link rel="prev" title="11. Call Graph" href="callgraph.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="projects.html" title="13. Projects"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="callgraph.html" title="11. Call Graph"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Tutorial 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="callgraph.html"
+                        title="previous chapter">11. Call Graph</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="projects.html"
+                        title="next chapter">13. Projects</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/locations.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="locations-view">
+<h1>12. Locations View<a class="headerlink" href="#locations-view" title="Permalink to this headline">¶</a></h1>
+<p>From <cite>Call Graph Browser</cite>, select the contextual menu <cite>Goto declaration of
+View</cite>, this will open the file <code class="file docutils literal"><span class="pre">stack.ads</span></code> at line 32.  Then from the
+source editor (file <code class="file docutils literal"><span class="pre">stack.ads</span></code>), select the contextual menu
+<cite>References-&gt;Find all references to View</cite>: this highlights the <cite>Locations</cite> tree
+which now contains all the references for <cite>View</cite>, grouped by files
+(<code class="file docutils literal"><span class="pre">stack.ads</span></code> and <code class="file docutils literal"><span class="pre">stack.adb</span></code>).</p>
+<p>The first location is highlighted automatically: this is the spec of the
+procedure <cite>View</cite>. Now click in the tree on the triangle at the
+left of <code class="file docutils literal"><span class="pre">stack.adb</span></code>: two locations are listed, at line 90 and 97.  Click
+on each of these locations: they correspond to the procedure body.</p>
+<p>The <cite>Find all references</cite> capability is another way to list all the uses of an
+entity, and it confirms that <cite>View</cite> isn&#8217;t called in our project.</p>
+<p>Remove <em>View</em> body by e.g selecting it, and pressing the <code class="kbd docutils literal"><span class="pre">Delete</span></code> key,
+then save the file (<code class="kbd docutils literal"><span class="pre">Ctrl-S</span></code>).</p>
+<p>Do the same for the spec, save the file.</p>
+<p>Close the <code class="file docutils literal"><span class="pre">stack.ads</span></code> and <code class="file docutils literal"><span class="pre">stack.adb</span></code> files (menu File-&gt;Close, or
+using the shortcut <code class="kbd docutils literal"><span class="pre">Ctrl-W</span></code>).  Rebuild by pressing the <code class="kbd docutils literal"><span class="pre">F4</span></code> key.</p>
+<p>Let&#8217;s now see how to create a project corresponding to the <em>sdc</em>
+project we&#8217;ve used in this tutorial.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="projects.html" title="13. Projects"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="callgraph.html" title="11. Call Graph"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Tutorial 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

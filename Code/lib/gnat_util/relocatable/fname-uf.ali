@@ -1,0 +1,527 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U fname.uf%b		fname-uf.adb		af09a4d8 OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W alloc%s		alloc.ads		alloc.ali
+W debug%s		debug.adb		debug.ali
+W fmap%s		fmap.adb		fmap.ali
+W fname%s		fname.adb		fname.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.htable%s		g-htable.adb		g-htable.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W krunch%s		krunch.adb		krunch.ali
+W opt%s			opt.adb			opt.ali
+W osint%s		osint.adb		osint.ali
+Z output%s		output.adb		output.ali  AD
+Z system%s		system.ads		system.ali
+W table%s		table.adb		table.ali
+W uname%s		uname.adb		uname.ali
+W widechar%s		widechar.adb		widechar.ali
+
+U fname.uf%s		fname-uf.ads		76bbb8a3 EE NE OO PK
+W casing%s		casing.adb		casing.ali
+W fname%s		fname.adb		fname.ali
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D casing.ads		20190518044709 9b922bd9 casing%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D fmap.ads		20190518044709 2fe51c48 fmap%s
+D fname.ads		20190518044709 b3fc94d8 fname%s
+D fname-uf.ads		20190518044709 8161e886 fname.uf%s
+D fname-uf.adb		20190518044709 7cf1c27e fname.uf%b
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-htable.ads		20190518041255 4b643b8d gnat.htable%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D krunch.ads		20190518044709 c0b4ff65 krunch%s
+D namet.ads		20190518044709 b520bebe namet%s
+D opt.ads		20190518044710 3d2ce478 opt%s
+D osint.ads		20190518044709 56946067 osint%s
+D output.ads		20190518044709 a916e413 output%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-htable.ads		20190518041257 84c2b3ea system.htable%s
+D s-htable.adb		20190518041257 34c239ad system.htable%b
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-strhas.ads		20190518041255 269cd894 system.string_hash%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D uname.ads		20190518044709 1136d870 uname%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D widechar.ads		20190518044709 afb9abd7 widechar%s
+G a e
+G c b b b [b fname__uf 44 1 none]
+G c Z s b [get_expected_unit_type fname__uf 55 13 none]
+G c Z s b [get_file_name fname__uf 62 13 none]
+G c Z s b [get_unit_index fname__uf 76 13 none]
+G c Z s b [initialize fname__uf 80 14 none]
+G c Z s b [lock fname__uf 86 14 none]
+G c Z s b [file_name_of_spec fname__uf 89 13 none]
+G c Z s b [file_name_of_body fname__uf 94 13 none]
+G c Z s b [set_file_name fname__uf 99 14 none]
+G c Z s b [set_file_name_pattern fname__uf 108 14 none]
+G c Z b b [sfn_entryIP fname__uf 50 9 none]
+G c Z b b [init fname__uf__sfn_table 142 17 57_4]
+G c Z b b [last fname__uf__sfn_table 149 16 57_4]
+G c Z b b [release fname__uf__sfn_table 156 17 57_4]
+G c Z b b [free fname__uf__sfn_table 168 17 57_4]
+G c Z b b [set_last fname__uf__sfn_table 175 17 57_4]
+G c Z b b [increment_last fname__uf__sfn_table 184 17 57_4]
+G c Z b b [decrement_last fname__uf__sfn_table 188 17 57_4]
+G c Z b b [append fname__uf__sfn_table 192 17 57_4]
+G c Z b b [append_all fname__uf__sfn_table 200 17 57_4]
+G c Z b b [set_item fname__uf__sfn_table 203 17 57_4]
+G c Z b b [save fname__uf__sfn_table 215 16 57_4]
+G c Z b b [restore fname__uf__sfn_table 219 17 57_4]
+G c Z b b [tree_write fname__uf__sfn_table 223 17 57_4]
+G c Z b b [tree_read fname__uf__sfn_table 226 17 57_4]
+G c Z b b [table_typeIP fname__uf__sfn_table 110 12 57_4]
+G c Z b b [saved_tableIP fname__uf__sfn_table 241 12 57_4]
+G c Z b b [reallocate fname__uf__sfn_table 58 17 57_4]
+G c Z b b [tree_get_table_address fname__uf__sfn_table 63 16 57_4]
+G c Z b b [to_address fname__uf__sfn_table 72 16 57_4]
+G c Z b b [to_pointer fname__uf__sfn_table 73 16 57_4]
+G c Z b b [sfn_hash fname__uf 68 13 none]
+G c Z b b [set fname__uf__sfn_htable 72 17 74_4]
+G c Z b b [reset fname__uf__sfn_htable 76 17 74_4]
+G c Z b b [get fname__uf__sfn_htable 79 16 74_4]
+G c Z b b [remove fname__uf__sfn_htable 83 17 74_4]
+G c Z b b [get_first fname__uf__sfn_htable 87 16 74_4]
+G c Z b b [get_next fname__uf__sfn_htable 92 16 74_4]
+G c Z b b [get_first fname__uf__sfn_htable 98 17 74_4]
+G c Z b b [get_next fname__uf__sfn_htable 105 17 74_4]
+G c Z b b [element_wrapperIP fname__uf__sfn_htable 232 12 74_4]
+G c Z b b [free fname__uf__sfn_htable 238 17 74_4]
+G c Z b b [set_next fname__uf__sfn_htable 241 17 74_4]
+G c Z b b [next fname__uf__sfn_htable 242 17 74_4]
+G c Z b b [get_key fname__uf__sfn_htable 243 17 74_4]
+G c Z b b [reset fname__uf__sfn_htable__tab 170 17 245_7_74_4]
+G c Z b b [set fname__uf__sfn_htable__tab 179 17 245_7_74_4]
+G c Z b b [get fname__uf__sfn_htable__tab 182 16 245_7_74_4]
+G c Z b b [present fname__uf__sfn_htable__tab 186 16 245_7_74_4]
+G c Z b b [set_if_not_present fname__uf__sfn_htable__tab 189 16 245_7_74_4]
+G c Z b b [remove fname__uf__sfn_htable__tab 194 17 245_7_74_4]
+G c Z b b [get_first fname__uf__sfn_htable__tab 198 16 245_7_74_4]
+G c Z b b [get_next fname__uf__sfn_htable__tab 203 16 245_7_74_4]
+G c Z b b [TtableBIP fname__uf__sfn_htable__tab 45 7 245_7_74_4]
+G c Z b b [get_non_null fname__uf__sfn_htable__tab 51 16 245_7_74_4]
+G c Z b b [sfn_pattern_entryIP fname__uf 84 9 none]
+G c Z b b [init fname__uf__sfn_patterns 142 17 92_4]
+G c Z b b [last fname__uf__sfn_patterns 149 16 92_4]
+G c Z b b [release fname__uf__sfn_patterns 156 17 92_4]
+G c Z b b [free fname__uf__sfn_patterns 168 17 92_4]
+G c Z b b [set_last fname__uf__sfn_patterns 175 17 92_4]
+G c Z b b [increment_last fname__uf__sfn_patterns 184 17 92_4]
+G c Z b b [decrement_last fname__uf__sfn_patterns 188 17 92_4]
+G c Z b b [append fname__uf__sfn_patterns 192 17 92_4]
+G c Z b b [append_all fname__uf__sfn_patterns 200 17 92_4]
+G c Z b b [set_item fname__uf__sfn_patterns 203 17 92_4]
+G c Z b b [save fname__uf__sfn_patterns 215 16 92_4]
+G c Z b b [restore fname__uf__sfn_patterns 219 17 92_4]
+G c Z b b [tree_write fname__uf__sfn_patterns 223 17 92_4]
+G c Z b b [tree_read fname__uf__sfn_patterns 226 17 92_4]
+G c Z b b [table_typeIP fname__uf__sfn_patterns 110 12 92_4]
+G c Z b b [saved_tableIP fname__uf__sfn_patterns 241 12 92_4]
+G c Z b b [reallocate fname__uf__sfn_patterns 58 17 92_4]
+G c Z b b [tree_get_table_address fname__uf__sfn_patterns 63 16 92_4]
+G c Z b b [to_address fname__uf__sfn_patterns 72 16 92_4]
+G c Z b b [to_pointer fname__uf__sfn_patterns 73 16 92_4]
+G r c none [b fname__uf 44 1 none] [write_str output 130 14 none]
+G r c none [b fname__uf 44 1 none] [write_int output 123 14 none]
+G r c none [b fname__uf 44 1 none] [write_eol output 113 14 none]
+G r c none [b fname__uf 44 1 none] [set_standard_error output 77 14 none]
+G r c none [b fname__uf 44 1 none] [set_standard_output output 84 14 none]
+G r i none [b fname__uf 44 1 none] [table table 59 12 none]
+G r c none [get_expected_unit_type fname__uf 55 13 none] [is_body_name uname 128 13 none]
+G r c none [get_expected_unit_type fname__uf 55 13 none] [get_name_string namet 600 14 none]
+G r c none [get_file_name fname__uf 62 13 none] [mapped_file_name fmap 60 13 none]
+G r c none [get_file_name fname__uf 62 13 none] [get_decoded_name_string namet 596 14 none]
+G r c none [get_file_name fname__uf 62 13 none] [get_name_string namet 600 14 none]
+G r c none [get_file_name fname__uf 62 13 none] [is_predefined_unit_name uname 142 13 none]
+G r c none [get_file_name fname__uf 62 13 none] [set_casing casing 84 14 none]
+G r c none [get_file_name fname__uf 62 13 none] [skip_wide widechar 80 14 none]
+G r c none [get_file_name fname__uf 62 13 none] [krunch standard 120 11 none]
+G r c none [get_file_name fname__uf 62 13 none] [name_find namet 343 13 none]
+G r c none [get_file_name fname__uf 62 13 none] [find_file osint 75 13 none]
+G r c none [get_file_name fname__uf 62 13 none] [add_to_file_map fmap 65 14 none]
+G r c none [initialize fname__uf 80 14 none] [write_str output 130 14 none]
+G r c none [initialize fname__uf 80 14 none] [write_int output 123 14 none]
+G r c none [initialize fname__uf 80 14 none] [write_eol output 113 14 none]
+G r c none [initialize fname__uf 80 14 none] [set_standard_error output 77 14 none]
+G r c none [initialize fname__uf 80 14 none] [set_standard_output output 84 14 none]
+G r c none [lock fname__uf 86 14 none] [write_str output 130 14 none]
+G r c none [lock fname__uf 86 14 none] [write_int output 123 14 none]
+G r c none [lock fname__uf 86 14 none] [write_eol output 113 14 none]
+G r c none [lock fname__uf 86 14 none] [set_standard_error output 77 14 none]
+G r c none [lock fname__uf 86 14 none] [set_standard_output output 84 14 none]
+G r c none [file_name_of_spec fname__uf 89 13 none] [get_name_string namet 600 14 none]
+G r c none [file_name_of_spec fname__uf 89 13 none] [name_enter namet 352 13 none]
+G r c none [file_name_of_spec fname__uf 89 13 none] [mapped_file_name fmap 60 13 none]
+G r c none [file_name_of_spec fname__uf 89 13 none] [get_decoded_name_string namet 596 14 none]
+G r c none [file_name_of_spec fname__uf 89 13 none] [is_predefined_unit_name uname 142 13 none]
+G r c none [file_name_of_spec fname__uf 89 13 none] [set_casing casing 84 14 none]
+G r c none [file_name_of_spec fname__uf 89 13 none] [skip_wide widechar 80 14 none]
+G r c none [file_name_of_spec fname__uf 89 13 none] [krunch standard 120 11 none]
+G r c none [file_name_of_spec fname__uf 89 13 none] [name_find namet 343 13 none]
+G r c none [file_name_of_spec fname__uf 89 13 none] [find_file osint 75 13 none]
+G r c none [file_name_of_spec fname__uf 89 13 none] [add_to_file_map fmap 65 14 none]
+G r c none [file_name_of_body fname__uf 94 13 none] [get_name_string namet 600 14 none]
+G r c none [file_name_of_body fname__uf 94 13 none] [name_enter namet 352 13 none]
+G r c none [file_name_of_body fname__uf 94 13 none] [mapped_file_name fmap 60 13 none]
+G r c none [file_name_of_body fname__uf 94 13 none] [get_decoded_name_string namet 596 14 none]
+G r c none [file_name_of_body fname__uf 94 13 none] [is_predefined_unit_name uname 142 13 none]
+G r c none [file_name_of_body fname__uf 94 13 none] [set_casing casing 84 14 none]
+G r c none [file_name_of_body fname__uf 94 13 none] [skip_wide widechar 80 14 none]
+G r c none [file_name_of_body fname__uf 94 13 none] [krunch standard 120 11 none]
+G r c none [file_name_of_body fname__uf 94 13 none] [name_find namet 343 13 none]
+G r c none [file_name_of_body fname__uf 94 13 none] [find_file osint 75 13 none]
+G r c none [file_name_of_body fname__uf 94 13 none] [add_to_file_map fmap 65 14 none]
+G r c none [set_file_name fname__uf 99 14 none] [write_str output 130 14 none]
+G r c none [set_file_name fname__uf 99 14 none] [write_int output 123 14 none]
+G r c none [set_file_name fname__uf 99 14 none] [write_eol output 113 14 none]
+G r c none [set_file_name fname__uf 99 14 none] [set_standard_error output 77 14 none]
+G r c none [set_file_name fname__uf 99 14 none] [set_standard_output output 84 14 none]
+G r c none [set_file_name_pattern fname__uf 108 14 none] [write_str output 130 14 none]
+G r c none [set_file_name_pattern fname__uf 108 14 none] [write_int output 123 14 none]
+G r c none [set_file_name_pattern fname__uf 108 14 none] [write_eol output 113 14 none]
+G r c none [set_file_name_pattern fname__uf 108 14 none] [set_standard_error output 77 14 none]
+G r c none [set_file_name_pattern fname__uf 108 14 none] [set_standard_output output 84 14 none]
+G r c none [init fname__uf__sfn_table 142 17 57_4] [write_str output 130 14 none]
+G r c none [init fname__uf__sfn_table 142 17 57_4] [write_int output 123 14 none]
+G r c none [init fname__uf__sfn_table 142 17 57_4] [write_eol output 113 14 none]
+G r c none [init fname__uf__sfn_table 142 17 57_4] [set_standard_error output 77 14 none]
+G r c none [init fname__uf__sfn_table 142 17 57_4] [set_standard_output output 84 14 none]
+G r c none [release fname__uf__sfn_table 156 17 57_4] [write_str output 130 14 none]
+G r c none [release fname__uf__sfn_table 156 17 57_4] [write_int output 123 14 none]
+G r c none [release fname__uf__sfn_table 156 17 57_4] [write_eol output 113 14 none]
+G r c none [release fname__uf__sfn_table 156 17 57_4] [set_standard_error output 77 14 none]
+G r c none [release fname__uf__sfn_table 156 17 57_4] [set_standard_output output 84 14 none]
+G r c none [set_last fname__uf__sfn_table 175 17 57_4] [write_str output 130 14 none]
+G r c none [set_last fname__uf__sfn_table 175 17 57_4] [write_int output 123 14 none]
+G r c none [set_last fname__uf__sfn_table 175 17 57_4] [write_eol output 113 14 none]
+G r c none [set_last fname__uf__sfn_table 175 17 57_4] [set_standard_error output 77 14 none]
+G r c none [set_last fname__uf__sfn_table 175 17 57_4] [set_standard_output output 84 14 none]
+G r c none [increment_last fname__uf__sfn_table 184 17 57_4] [write_str output 130 14 none]
+G r c none [increment_last fname__uf__sfn_table 184 17 57_4] [write_int output 123 14 none]
+G r c none [increment_last fname__uf__sfn_table 184 17 57_4] [write_eol output 113 14 none]
+G r c none [increment_last fname__uf__sfn_table 184 17 57_4] [set_standard_error output 77 14 none]
+G r c none [increment_last fname__uf__sfn_table 184 17 57_4] [set_standard_output output 84 14 none]
+G r c none [append fname__uf__sfn_table 192 17 57_4] [write_str output 130 14 none]
+G r c none [append fname__uf__sfn_table 192 17 57_4] [write_int output 123 14 none]
+G r c none [append fname__uf__sfn_table 192 17 57_4] [write_eol output 113 14 none]
+G r c none [append fname__uf__sfn_table 192 17 57_4] [set_standard_error output 77 14 none]
+G r c none [append fname__uf__sfn_table 192 17 57_4] [set_standard_output output 84 14 none]
+G r c none [append_all fname__uf__sfn_table 200 17 57_4] [write_str output 130 14 none]
+G r c none [append_all fname__uf__sfn_table 200 17 57_4] [write_int output 123 14 none]
+G r c none [append_all fname__uf__sfn_table 200 17 57_4] [write_eol output 113 14 none]
+G r c none [append_all fname__uf__sfn_table 200 17 57_4] [set_standard_error output 77 14 none]
+G r c none [append_all fname__uf__sfn_table 200 17 57_4] [set_standard_output output 84 14 none]
+G r c none [set_item fname__uf__sfn_table 203 17 57_4] [write_str output 130 14 none]
+G r c none [set_item fname__uf__sfn_table 203 17 57_4] [write_int output 123 14 none]
+G r c none [set_item fname__uf__sfn_table 203 17 57_4] [write_eol output 113 14 none]
+G r c none [set_item fname__uf__sfn_table 203 17 57_4] [set_standard_error output 77 14 none]
+G r c none [set_item fname__uf__sfn_table 203 17 57_4] [set_standard_output output 84 14 none]
+G r c none [save fname__uf__sfn_table 215 16 57_4] [write_str output 130 14 none]
+G r c none [save fname__uf__sfn_table 215 16 57_4] [write_int output 123 14 none]
+G r c none [save fname__uf__sfn_table 215 16 57_4] [write_eol output 113 14 none]
+G r c none [save fname__uf__sfn_table 215 16 57_4] [set_standard_error output 77 14 none]
+G r c none [save fname__uf__sfn_table 215 16 57_4] [set_standard_output output 84 14 none]
+G r c none [tree_write fname__uf__sfn_table 223 17 57_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write fname__uf__sfn_table 223 17 57_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read fname__uf__sfn_table 226 17 57_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read fname__uf__sfn_table 226 17 57_4] [write_str output 130 14 none]
+G r c none [tree_read fname__uf__sfn_table 226 17 57_4] [write_int output 123 14 none]
+G r c none [tree_read fname__uf__sfn_table 226 17 57_4] [write_eol output 113 14 none]
+G r c none [tree_read fname__uf__sfn_table 226 17 57_4] [set_standard_error output 77 14 none]
+G r c none [tree_read fname__uf__sfn_table 226 17 57_4] [set_standard_output output 84 14 none]
+G r c none [tree_read fname__uf__sfn_table 226 17 57_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate fname__uf__sfn_table 58 17 57_4] [write_str output 130 14 none]
+G r c none [reallocate fname__uf__sfn_table 58 17 57_4] [write_int output 123 14 none]
+G r c none [reallocate fname__uf__sfn_table 58 17 57_4] [write_eol output 113 14 none]
+G r c none [reallocate fname__uf__sfn_table 58 17 57_4] [set_standard_error output 77 14 none]
+G r c none [reallocate fname__uf__sfn_table 58 17 57_4] [set_standard_output output 84 14 none]
+G r c none [init fname__uf__sfn_patterns 142 17 92_4] [write_str output 130 14 none]
+G r c none [init fname__uf__sfn_patterns 142 17 92_4] [write_int output 123 14 none]
+G r c none [init fname__uf__sfn_patterns 142 17 92_4] [write_eol output 113 14 none]
+G r c none [init fname__uf__sfn_patterns 142 17 92_4] [set_standard_error output 77 14 none]
+G r c none [init fname__uf__sfn_patterns 142 17 92_4] [set_standard_output output 84 14 none]
+G r c none [release fname__uf__sfn_patterns 156 17 92_4] [write_str output 130 14 none]
+G r c none [release fname__uf__sfn_patterns 156 17 92_4] [write_int output 123 14 none]
+G r c none [release fname__uf__sfn_patterns 156 17 92_4] [write_eol output 113 14 none]
+G r c none [release fname__uf__sfn_patterns 156 17 92_4] [set_standard_error output 77 14 none]
+G r c none [release fname__uf__sfn_patterns 156 17 92_4] [set_standard_output output 84 14 none]
+G r c none [set_last fname__uf__sfn_patterns 175 17 92_4] [write_str output 130 14 none]
+G r c none [set_last fname__uf__sfn_patterns 175 17 92_4] [write_int output 123 14 none]
+G r c none [set_last fname__uf__sfn_patterns 175 17 92_4] [write_eol output 113 14 none]
+G r c none [set_last fname__uf__sfn_patterns 175 17 92_4] [set_standard_error output 77 14 none]
+G r c none [set_last fname__uf__sfn_patterns 175 17 92_4] [set_standard_output output 84 14 none]
+G r c none [increment_last fname__uf__sfn_patterns 184 17 92_4] [write_str output 130 14 none]
+G r c none [increment_last fname__uf__sfn_patterns 184 17 92_4] [write_int output 123 14 none]
+G r c none [increment_last fname__uf__sfn_patterns 184 17 92_4] [write_eol output 113 14 none]
+G r c none [increment_last fname__uf__sfn_patterns 184 17 92_4] [set_standard_error output 77 14 none]
+G r c none [increment_last fname__uf__sfn_patterns 184 17 92_4] [set_standard_output output 84 14 none]
+G r c none [append fname__uf__sfn_patterns 192 17 92_4] [write_str output 130 14 none]
+G r c none [append fname__uf__sfn_patterns 192 17 92_4] [write_int output 123 14 none]
+G r c none [append fname__uf__sfn_patterns 192 17 92_4] [write_eol output 113 14 none]
+G r c none [append fname__uf__sfn_patterns 192 17 92_4] [set_standard_error output 77 14 none]
+G r c none [append fname__uf__sfn_patterns 192 17 92_4] [set_standard_output output 84 14 none]
+G r c none [append_all fname__uf__sfn_patterns 200 17 92_4] [write_str output 130 14 none]
+G r c none [append_all fname__uf__sfn_patterns 200 17 92_4] [write_int output 123 14 none]
+G r c none [append_all fname__uf__sfn_patterns 200 17 92_4] [write_eol output 113 14 none]
+G r c none [append_all fname__uf__sfn_patterns 200 17 92_4] [set_standard_error output 77 14 none]
+G r c none [append_all fname__uf__sfn_patterns 200 17 92_4] [set_standard_output output 84 14 none]
+G r c none [set_item fname__uf__sfn_patterns 203 17 92_4] [write_str output 130 14 none]
+G r c none [set_item fname__uf__sfn_patterns 203 17 92_4] [write_int output 123 14 none]
+G r c none [set_item fname__uf__sfn_patterns 203 17 92_4] [write_eol output 113 14 none]
+G r c none [set_item fname__uf__sfn_patterns 203 17 92_4] [set_standard_error output 77 14 none]
+G r c none [set_item fname__uf__sfn_patterns 203 17 92_4] [set_standard_output output 84 14 none]
+G r c none [save fname__uf__sfn_patterns 215 16 92_4] [write_str output 130 14 none]
+G r c none [save fname__uf__sfn_patterns 215 16 92_4] [write_int output 123 14 none]
+G r c none [save fname__uf__sfn_patterns 215 16 92_4] [write_eol output 113 14 none]
+G r c none [save fname__uf__sfn_patterns 215 16 92_4] [set_standard_error output 77 14 none]
+G r c none [save fname__uf__sfn_patterns 215 16 92_4] [set_standard_output output 84 14 none]
+G r c none [tree_write fname__uf__sfn_patterns 223 17 92_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write fname__uf__sfn_patterns 223 17 92_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read fname__uf__sfn_patterns 226 17 92_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read fname__uf__sfn_patterns 226 17 92_4] [write_str output 130 14 none]
+G r c none [tree_read fname__uf__sfn_patterns 226 17 92_4] [write_int output 123 14 none]
+G r c none [tree_read fname__uf__sfn_patterns 226 17 92_4] [write_eol output 113 14 none]
+G r c none [tree_read fname__uf__sfn_patterns 226 17 92_4] [set_standard_error output 77 14 none]
+G r c none [tree_read fname__uf__sfn_patterns 226 17 92_4] [set_standard_output output 84 14 none]
+G r c none [tree_read fname__uf__sfn_patterns 226 17 92_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate fname__uf__sfn_patterns 58 17 92_4] [write_str output 130 14 none]
+G r c none [reallocate fname__uf__sfn_patterns 58 17 92_4] [write_int output 123 14 none]
+G r c none [reallocate fname__uf__sfn_patterns 58 17 92_4] [write_eol output 113 14 none]
+G r c none [reallocate fname__uf__sfn_patterns 58 17 92_4] [set_standard_error output 77 14 none]
+G r c none [reallocate fname__uf__sfn_patterns 58 17 92_4] [set_standard_output output 84 14 none]
+X 5 alloc.ads
+42K9*Alloc 167e10 11|32w6 61r30 62r30
+125N4*SFN_Table_Initial 11|61r36
+126N4*SFN_Table_Increment 11|62r36
+X 6 casing.ads
+35K9*Casing 98e11 10|43w6 43r18
+48E9*Casing_Type 63e5 10|112r13 11|88r13 585r13
+53n7*All_Lower_Case{48E9} 11|543r17 549r17
+84U14*Set_Casing 11|323s22
+X 7 debug.ads
+36K9*Debug 256e10 11|33w6 33r20
+108b4*Debug_Flag_4{boolean} 11|415r28 432r25
+X 8 fmap.ads
+47K9*Fmap 87e9 11|34w6 34r20
+60V13*Mapped_File_Name{17|624I9} 11|205s16
+65U14*Add_To_File_Map 11|465s25
+X 9 fname.ads
+38K9*Fname 113e10 10|46r9 120r5 11|44r14 615r4 616r5
+X 10 fname-uf.ads
+46K15*UF 9|38k9 10|120l11 120e13 11|44b20 615r10 616l11 616t13
+52E9*Expected_Unit_Type 52e66 56r38 11|131r38
+52n32*Expect_Body{52E9} 11|150r23 166r20
+52n45*Expect_Spec{52E9} 11|152r23 164r20
+52n58*Unknown{52E9} 11|141r17 170r14
+55V13*Get_Expected_Unit_Type{52E9} 56>7 11|130b13 171l8 171t30
+56i7 Fname{17|624I9} 11|131b7 148r13 160r24
+62V13*Get_File_Name{17|624I9} 63>7 64>7 65>7 11|111s14 123s14 177b13 465r42
+. 511l8 511t21
+63i7 Uname{17|653I9} 11|178b7 199r10 205r34 216r28 224r32 244r27 465r56
+64b7 Subunit{boolean} 11|111r41 123r41 179b7 259r10
+65b7 May_Fail{boolean} 11|180b7 443r25 475r28
+76V13*Get_Unit_Index{39|62I12} 76>29 11|517b13 525l8 525t22
+76i29 Uname{17|653I9} 11|517b29 518r43
+80U14*Initialize 11|531b14 550l8 550t18 615s13
+86U14*Lock 11|556b14 560l8 560t12
+89V13*File_Name_Of_Spec{17|624I9} 89>32 11|118b13 124l8 124t25
+89i32 Name{17|188I9} 11|118b32 120r24
+94V13*File_Name_Of_Body{17|624I9} 94>32 11|106b13 112l8 112t25
+94i32 Name{17|188I9} 11|106b32 108r24
+99U14*Set_File_Name 100>7 101>7 102>7 11|566b14 575l8 575t21
+100i7 U{17|653I9} 11|567b7 573r44 574r23
+101i7 F{17|624I9} 11|568b7 573r47
+102i7 Index{39|62I12} 11|569b7 573r50
+108U14*Set_File_Name_Pattern 109>7 110>7 111>7 112>7 11|581b14 599l8 599t29
+109p7 Pat{39|113P9} 11|582b7 598r38
+110e7 Typ{character} 11|583b7 598r43
+111p7 Dot{39|113P9} 11|584b7 598r48
+112e7 Cas{6|48E9} 11|585b7 598r53
+X 11 fname-uf.adb
+50R9 SFN_Entry 54e14 58r30
+51i7*U{17|653I9} 149r50
+52i7*F{17|624I9} 148r41 219r37
+53i7*Index{39|62I12} 521r37
+57K12 SFN_Table[36|59] 147r16 147r35 148r21 149r30 219r17 521r17 533r7 558r7
+. 559r7 572r7 573r7 573r24 574r26
+66I9 SFN_Header_Num<short_short_integer> 68r50 75r20 605r50 607r14 607r42
+68V13 SFN_Hash{66I9} 68>23 79r20 605b13 608l8 608t16
+68i23 F{17|653I9} 605b23 607r35
+71i4 No_Entry{39|59I9} 77r20 218r15 520r15
+74K12 SFN_HTable[24|70] 216r12 518r27 574r7
+84R9 SFN_Pattern_Entry 89e14 93r30
+85p7*Pat{39|113P9} 284r46 366r53 540m10 546m10
+86e7*Typ{character} 306r45 541m10 547m10
+87p7*Dot{39|113P9} 328r53 542m10 548m10
+88e7*Cas{6|48E9} 323r60 543m10 549m10
+92K12 SFN_Patterns[36|59] 284r20 304r21 305r27 306r19 323r34 328r27 366r27
+. 474r28 534r7 539r7 545r7 587r27 590r7 596r7 596r37 597r7 597r37 598r7
+147i11 J<integer> 148r38 149r47
+182e7 Unit_Char{character} 254m7 255r22 255r46 260m10 298r33
+185e7 Unit_Char_Search{character} 298m13 306r51 497r40 498m16
+189i7 N{39|59I9} 216m7 218r10 219r34
+191i7 Pname{17|624I9} 452m22 457r25 465r69
+192i7 Fname{17|624I9} 205m7 210r10 211r17
+266a10 Uname{string} 311r24 315r31 316r50
+269i10 Pent{39|62I12} 284r40 304m13 305r19 306r39 323r54 328r47 366r47 490m16
+. 490r24
+270i10 Plen{natural} 366m19 367r33 380r43
+271i10 Fnam{17|624I9} 435m19 446r32 452r42 465r63 466r32 478r35 485m25 497r16
+272i10 J{natural} 332m22 334r28 335r41 338r44 341r44 342r46 343r44 343r49
+. 347m28 347r33 352r44 355r52 357m52 357r52 359m28 359r33 392m19 393r25 394r45
+. 395m22 395r27 400r22 402r63 407r37
+273p10 Dot{39|113P9} 328m19 329r27 331r22 338r50 338r55 343r66
+274i10 Dotl{natural} 329m19 337r31 341r48 341r67 343r53 344r54 347r37
+276b10 Is_Predef{boolean} 309m19 322r26
+279V19 C{character} 279>22 282b19 285l14 285t15 368s25 374s50 382s54
+279i22 N{natural} 282b22 284r51
+297b14 No_File_Check{boolean} 442r22
+300L12 Repeat_Search 499r21
+367i23 K{integer} 368r28 369r28 370r45 370r65 373r42 377r51 380r34
+373i32 L{integer} 374r44 374r53
+380i29 L{integer} 382r57
+402a25 Ext{string} 420r55 420r70 421r48
+518i7 N{39|59I9} 520r10 521r34
+587i7 L{39|62I12} 596r27 596r57 597r27 597r57 598r27
+X 12 gnat.ads
+34K9*GNAT 11|42r6 74r30 12|57e9
+X 13 g-htable.ads
+46K14*HTable 11|42w11 74r35 13|60e16
+55k20*Simple_HTable 11|74r42
+X 16 krunch.ads
+120U11*Krunch 11|35w6 411s25 428s22
+X 17 namet.ads
+169a4*Name_Buffer{string} 11|109r7 121r7 163r13 165r16 243r10 246r10 246r40
+. 247r10 247r40 248r10 249r10 254r20 256r45 267r20 316r19 335r28 338r31 341r31
+. 342r33 343r31 352r31 355r39 357r39 370r28 371r30 374r31 382r28 394r32 402r50
+. 412r28 419r25 429r25
+170i4*Name_Len{natural} 11|109r20 109r36 110r7 110r19 121r20 121r36 122r7
+. 122r19 162r10 163r26 163r42 165r29 165r45 245r10 245r22 246r23 246r53 247r23
+. 247r53 248r23 254r33 256r22 256r58 257r7 257r19 266r40 267r38 315r19 316r37
+. 334r33 341r56 342r55 344r31 344r43 370r54 371r48 377r28 377r40 381r28 381r40
+. 382r41 392r24 402r68 407r25 413r28 420r28 420r44 421r25 421r37 430r25
+188I9*Name_Id<integer> 10|89r39 94r39 11|106r39 118r39
+204I12*Valid_Name_Id{188I9}
+343V13*Name_Find{204I12} 11|435s27
+352V13*Name_Enter{204I12} 11|111s29 123s29
+596U14*Get_Decoded_Name_String 11|224s7
+600U14*Get_Name_String 11|108s7 120s7 160s7 244s10
+624I9*File_Name_Type<188I9> 10|56r15 65r43 89r55 94r55 101r15 11|52r15 106r55
+. 118r55 131r15 180r43 191r15 192r15 271r17 568r15
+629i4*No_File{624I9} 11|191r33 192r33 210r19 271r35 444r32 457r34 476r35
+. 485r33 497r23
+653I9*Unit_Name_Type<188I9> 10|63r18 76r37 100r15 11|51r15 68r27 78r20 178r18
+. 517r37 567r15 605r27
+669I12*Error_Unit_Name_Or_No_Unit_Name{653I9} 11|199r19
+X 18 opt.ads
+50K9*Opt 11|36w6 36r20 18|2414e8
+1106i4*Maximum_File_Name_Length{39|59I9} 11|414r37 431r34
+1146i4*Multiple_Unit_Index{39|59I9} 11|139r17
+1236n33*Check_Syntax{1236E9} 11|138r27
+1238e4*Operating_Mode{1236E9} 11|138r10
+1673b4*Upper_Half_Encoding{boolean} 11|353r36
+X 19 osint.ads
+50K9*Osint 11|37w6 37r20 19|785e10
+73n23*Source{73E9} 11|452r48
+75V13*Find_File{17|624I9} 11|452s31
+X 21 system.ads
+67M9*Address
+X 24 s-htable.ads
+56I12 Header_Num 11|75r6
+59+12 Element 11|76r6
+62*7 No_Element{59+12} 11|77r6
+66+12 Key 11|78r6
+67V21 Hash{56I12} 11|79r6
+68V21 Equal{boolean} 11|80r6
+72U17*Set 11|574s18[74]
+79V16*Get{39|59I9} 11|216s23[74] 518s38[74]
+X 26 s-memory.ads
+53V13*Alloc{21|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{21|67M9} 105i<c,__gnat_realloc>22
+X 36 table.ads
+46K9*Table 11|38w6 57r29 92r32 36|248e10
+50+12 Table_Component_Type 11|58r6 93r6
+51I12 Table_Index_Type 11|59r6 94r6
+53*7 Table_Low_Bound{51I12} 11|60r6 95r6
+54i7 Table_Initial{39|65I12} 11|61r6 96r6
+55i7 Table_Increment{39|62I12} 11|62r6 97r6
+56a7 Table_Name{string} 11|63r6 98r6
+59k12*Table 11|57r35 92r38 36|247e13
+110A12*Table_Type(11|84R9)<39|59I9>
+113A15*Big_Table_Type{110A12[11|57]}<39|59I9>
+121P12*Table_Ptr(113A15[11|57])
+125p7*Table{121P12[11|57]} 11|148r31[57] 149r40[57] 219r27[57] 284r33[92]
+. 306r32[92] 323r47[92] 328r40[92] 366r40[92] 521r27[57] 573r17[57] 596r20[92]
+. 596r50[92] 597r20[92] 597r50[92] 598r20[92]
+132b7*Locked{boolean} 11|559m17[57]
+142U17*Init 11|533s17[57] 534s20[92]
+149V16*Last{39|59I9} 11|147s45[57] 305s40[92] 474s41[92] 573s34[57] 574s36[57]
+. 587s40[92]
+156U17*Release 11|558s17[57]
+172i7*First{39|59I9} 11|147r26[57] 304r34[92]
+184U17*Increment_Last 11|572s17[57] 590s20[92]
+192U17*Append 11|539s20[92] 545s20[92]
+192r25 New_Val{11|84R9} 11|539r28[92] 545r28[92]
+X 39 types.ads
+52K9*Types 10|44w6 44r18 39|948e10
+59I9*Int<integer> 11|59r30 71r24 76r20 94r30 189r11 518r20 607r30
+62I12*Nat{59I9} 10|76r60 102r15 11|53r15 269r17 517r60 569r15 587r20
+65I12*Pos{59I9}
+108E12*Upper_Half_Character{character} 11|355r58
+113P9*String_Ptr(string) 10|109r13 111r13 11|85r13 87r13 273r17 582r13 584r13
+783X4*Unrecoverable_Error 11|200r16
+X 40 uname.ads
+35K9*Uname 11|39w6 39r20 40|188e10
+128V13*Is_Body_Name{boolean} 11|149s16
+142V13*Is_Predefined_Unit_Name{boolean} 11|310s21
+144b7 Renamings_Included{boolean} 11|311r31
+X 43 widechar.ads
+39K9*Widechar 11|40w6 40r20 43|101e13
+80U14*Skip_Wide 11|357s28
+

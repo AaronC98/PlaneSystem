@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1. Getting Started with SPARK &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Introduction" href="introduction.html" />
+    <link rel="prev" title="SPARK 2014 User’s Guide" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="introduction.html" title="2. Introduction"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="SPARK 2014 User’s Guide"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">SPARK 2014 User&#8217;s Guide</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="introduction.html"
+                        title="next chapter">2. Introduction</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/en/getting_started.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-started-with-spark">
+<span id="getting-started"></span><h1>1. Getting Started with SPARK<a class="headerlink" href="#getting-started-with-spark" title="Permalink to this headline">¶</a></h1>
+<p>We begin with a very simple guide aimed at getting new users up and running
+with the SPARK tools. A small SPARK example program will be used for
+illustration.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The online version of this User&#8217;s Guide applies to the latest development
+version of the SPARK toolset. If you&#8217;re using an official release, some of
+the described features may not apply. Refer to the version of the SPARK 2014
+User&#8217;s Guide shipping with your release, available through
+<span class="menuselection">Help ‣ SPARK</span> in GPS and GNATbench IDEs, or under
+<code class="docutils literal"><span class="pre">share/doc/spark</span></code> in your SPARK installation.</p>
+</div>
+<p>As a prerequisite, it is assumed that the SPARK tools have already been
+installed. As a minimum you should install:</p>
+<blockquote>
+<div><ul class="simple">
+<li>SPARK Pro, SPARK Discovery or SPARK Community</li>
+<li>GPS or the GNATbench plug-in of Eclipse</li>
+</ul>
+</div></blockquote>
+<p>SPARK Pro is the most complete toolset for SPARK. SPARK Discovery is a
+reduced toolset that still allows to perform all analyses presented in this
+User&#8217;s Guide, but is less powerful than SPARK Pro. Compared to SPARK Pro,
+SPARK Discovery:</p>
+<blockquote>
+<div><ul class="simple">
+<li>only comes with one automatic prover instead of three</li>
+<li>does not include the static analyzer CodePeer</li>
+<li>does not generate counterexamples for failed proofs</li>
+<li>has limited proof support for programs using modular arithmetic or
+floating-point arithmetic</li>
+<li>comes without a lemma library for more difficult proofs</li>
+</ul>
+</div></blockquote>
+<p>SPARK Community is a version packaged for free software developers,
+hobbyists, and students, which retains most of the capabilities of SPARK
+Pro. SPARK Community does not include the static analyzer CodePeer.</p>
+<p>Note that GPS is not strictly required for SPARK as all the commands can be
+invoked from the command line, or from Eclipse using the GNATbench plug-in, but
+the instructions in this section assume that GPS is being used. If you are a
+supported user, you can get more information on how to install the tools in
+&#8220;AdaCore Installation Procedures&#8221; under the &#8220;Download&#8221; tab in GNAT Tracker, or
+by contacting AdaCore for further advice.</p>
+<p>The key tools that we will use in this example are GNATprove and GPS.
+To begin with, launch GPS with a new default project and check that the
+<span class="menuselection">SPARK</span> menu is present in the menu bar.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For SPARK 2005 users, this menu will appear under the name
+<span class="menuselection">SPARK 2014</span>, to avoid any confusion with the existing
+<span class="menuselection">SPARK</span> menu for SPARK 2005 toolset.</p>
+</div>
+<p>Now open a new file in GPS and type the following short program into it.
+Save this file as <code class="docutils literal"><span class="pre">diff.adb</span></code>.</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Diff</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Natural</span><span class="p">;</span> <span class="n">Z</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Natural</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Z</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">))</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Z</span> <span class="o">:=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">X</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Diff</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The program is intended to calculate the difference between <code class="docutils literal"><span class="pre">X</span></code> and <code class="docutils literal"><span class="pre">Y</span></code> and
+store the result in <code class="docutils literal"><span class="pre">Z</span></code>.  This is reflected in the aspect <code class="docutils literal"><span class="pre">Depends</span></code> which
+states that the output value of Z depends on the input values of X and Y, but,
+as you may have noticed, there is a bug in the code. Note the use of aspect
+<code class="docutils literal"><span class="pre">SPARK_Mode</span></code> to identify this as SPARK code to be analysed with the SPARK
+tools.  To analyze this program, select <span class="menuselection">SPARK ‣ Examine File</span>
+from the menu in GPS. GNATprove executes in flow analysis mode and reports:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>diff.adb:1:20: warning: unused variable &quot;Y&quot;
+diff.adb:1:36: info: initialization of &quot;Z&quot; proved
+diff.adb:3:03: medium: missing dependency &quot;null =&gt; Y&quot;
+diff.adb:3:24: medium: incorrect dependency &quot;Z =&gt; Y&quot;
+</pre></div>
+</div>
+<p>These warnings are informing us that there is a discrepancy between the
+program&#8217;s contract (which says that the value of <code class="docutils literal"><span class="pre">Z</span></code> is obtained from the
+values of <code class="docutils literal"><span class="pre">X</span></code> and <code class="docutils literal"><span class="pre">Y</span></code>) and its implementation (in which the value of <code class="docutils literal"><span class="pre">Z</span></code>
+is derived only from the value of <code class="docutils literal"><span class="pre">X</span></code>, and <code class="docutils literal"><span class="pre">Y</span></code> is unused). In this case the
+contract is correct and the code is wrong, so fix the code by changing the
+assignment statement to <code class="docutils literal"><span class="pre">Z</span> <span class="pre">:=</span> <span class="pre">X</span> <span class="pre">-</span> <span class="pre">Y;</span></code> and re-run the analysis. This time it
+should report no warnings or errors.</p>
+<p>Having established that the program is free from flow errors, now let&#8217;s run the
+tools in proof mode to check for run-time errors.  Select <span class="menuselection">SPARK
+‣ Prove File</span> from the menu in GPS, and click on <code class="docutils literal"><span class="pre">Execute</span></code> in the resulting
+dialog box.  GNATprove now attempts to show, using formal verification, that
+the program is free from run-time errors. But it finds a problem and highlights
+the assignment statement in red, reporting:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>diff2.adb:1:37: info: initialization of &quot;Z&quot; proved
+diff2.adb:3:03: info: flow dependencies proved
+diff2.adb:6:11: info: overflow check proved
+diff2.adb:6:11: medium: range check might fail (e.g. when X = 0 and Y = 1) [possible explanation: subprogram at line 1 should mention X and Y in a precondition]
+</pre></div>
+</div>
+<p>This means that the tools are unable to show that the result of subtracting one
+<code class="docutils literal"><span class="pre">Natural</span></code> number from another will be within the range of the type
+<code class="docutils literal"><span class="pre">Natural</span></code>, which is hopefully not too surprising! There are various ways in
+which this could be addressed depending on what the requirements are for this
+subprogram, but for now let&#8217;s change the type of parameter <code class="docutils literal"><span class="pre">Z</span></code> from
+<code class="docutils literal"><span class="pre">Natural</span></code> to <code class="docutils literal"><span class="pre">Integer</span></code>.  If the analysis is re-run with this change in
+place then GNATprove will report no errors or warnings. All checks are proved
+so we can be confident that no exceptions will be raised by the execution of
+this code.</p>
+<p>This short example was intended to give a flavor of the types of analysis that
+can be performed with the SPARK tools. A more in-depth example is presented
+later in <a class="reference internal" href="tutorial.html#spark-tutorial"><span class="std std-ref">SPARK Tutorial</span></a>.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="introduction.html" title="2. Introduction"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="SPARK 2014 User’s Guide"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

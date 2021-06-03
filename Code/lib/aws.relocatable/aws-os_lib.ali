@@ -1,0 +1,295 @@
+V "GNAT Lib v2019"
+A -gnatwa
+A -Wall
+A -gnatA
+A -gnat2012
+A -gnatwc
+A -gnatwf
+A -gnatwi
+A -gnatwj
+A -gnatwk
+A -gnatwm
+A -gnatwr
+A -gnatwu
+A -gnatwv
+A -gnaty3
+A -gnatya
+A -gnatyb
+A -gnatyB
+A -gnatyc
+A -gnatyd
+A -gnatye
+A -gnatyf
+A -gnatyh
+A -gnatyi
+A -gnatyI
+A -gnatyk
+A -gnatyl
+A -gnatym
+A -gnatyn
+A -gnatyo
+A -gnatyO
+A -gnatyp
+A -gnatyr
+A -gnatys
+A -gnatyt
+A -gnatyx
+A -g
+A -gnata
+A -gnatVa
+A -gnatQ
+A -gnato
+A -gnatwe
+A -fno-common
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+A -feliminate-unused-debug-symbols
+P ZX
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U aws.os_lib%s		aws-os_lib.ads		339cb06e NE OO PK IU
+W aws%s			aws.ads			aws.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.os_lib%s		g-os_lib.ads		g-os_lib.ali
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.adb			i-c.ali
+W interfaces.c.strings%s  i-cstrin.adb		i-cstrin.ali
+W system%s		system.ads		system.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D aws.ads		20190518133103 bb4f9bdb aws%s
+D aws-os_lib.ads	20190518133111 b9220cb2 aws.os_lib%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-os_lib.ads		20190518041255 0db74523 gnat.os_lib%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D i-c.ads		20190518041255 5421119b interfaces.c%s
+D i-cstrin.ads		20190518041256 341d0ddf interfaces.c.strings%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+G a e
+G c Z s s [getaddrinfo aws__os_lib 303 13 none]
+G c Z s s [freeaddrinfo aws__os_lib 309 14 none]
+G c Z s s [gai_strerror aws__os_lib 311 13 none]
+G c Z s s [socket_strerror aws__os_lib 313 13 none]
+G c Z s s [set_sock_opt aws__os_lib 315 13 none]
+G c Z s s [c_ioctl aws__os_lib 322 13 none]
+G c Z s s [c_close aws__os_lib 324 13 none]
+G c Z s s [wsa_startup aws__os_lib 325 14 none]
+G c Z s s [timevalIP aws__os_lib 264 9 none]
+G c Z s s [Tin6_addrBIP aws__os_lib 273 4 none]
+G c Z s s [sockaddr_in6IP aws__os_lib 276 9 none]
+G c Z s s [addr_infoIP aws__os_lib 289 9 none]
+X 4 aws.ads
+32K9*AWS 41e8 5|45r9 338r5
+X 5 aws-os_lib.ads
+45K13*OS_Lib 4|32k9 5|330E35 338l9 338e15
+53E9*OS_Type 53e44 54r36
+53n21*Windows{53E9}
+53n30*VMS{53E9}
+53n35*Other_OS{53E9} 54r47
+54e4*Target_OS{53E9} 55r26
+60a4*Target_Name{string}
+62a4*Executable_Extension{string}
+63e4*Directory_Separator{character}
+64e4*Path_Separator{character}
+68N4*SIZEOF_unsigned_int
+69N4*SIZEOF_fd_set
+70N4*FD_SETSIZE
+71N4*SIZEOF_sin_family 270r33 271r29
+72N4*SIZEOF_nfds_t 243r28 244r24
+73N4*SIZEOF_pollfd_events 250r33 251r29
+74N4*SIZEOF_fd_type 247r23 247r53 248r25
+75N4*SIZEOF_socklen_t 253r31 254r27
+78N4*SIZEOF_tv_sec 257r23 257r52 258r34
+79N4*SIZEOF_tv_usec 261r23 261r53 262r35
+83N4*POLLIN
+84N4*POLLPRI
+85N4*POLLOUT
+86N4*POLLERR
+87N4*POLLHUP
+88N4*POLLNVAL
+94N4*FNDELAY
+100N4*FIONBIO
+101N4*FIONREAD
+102N4*FIONWRITE
+103N4*FIONSPACE
+109N4*AI_PASSIVE
+110N4*AI_CANONNAME
+111N4*AI_NUMERICSERV
+112N4*AI_NUMERICHOST
+113N4*EAI_SYSTEM
+114N4*NI_NUMERICHOST
+122N4*EAGAIN
+123N4*ENOENT
+124N4*ENOMEM
+125N4*EADDRNOTAVAIL
+126N4*EINPROGRESS
+127N4*EINTR
+128N4*EINVAL
+129N4*ENAMETOOLONG
+130N4*ENOBUFS
+131N4*ENOTCONN
+132N4*ESHUTDOWN
+133N4*ESOCKTNOSUPPORT
+134N4*ETIMEDOUT
+135N4*ETOOMANYREFS
+136N4*EWOULDBLOCK
+137N4*ECONNRESET
+138N4*EACCES
+139N4*EADDRINUSE
+140N4*EAFNOSUPPORT
+141N4*EALREADY
+142N4*EBADF
+143N4*ECONNABORTED
+144N4*ECONNREFUSED
+145N4*EDESTADDRREQ
+146N4*EFAULT
+147N4*EHOSTDOWN
+148N4*EHOSTUNREACH
+149N4*EIO
+150N4*EISCONN
+151N4*ELOOP
+152N4*EMFILE
+153N4*EMSGSIZE
+154N4*EPIPE
+155N4*EPFNOSUPPORT
+156N4*EPROTONOSUPPORT
+157N4*EPROTOTYPE
+158N4*ENETDOWN
+159N4*ENETRESET
+160N4*ENETUNREACH
+161N4*ENOPROTOOPT
+162N4*ENOTSOCK
+163N4*EOPNOTSUPP
+169N4*AF_INET
+170N4*AF_INET6
+171N4*AF_UNSPEC
+177N4*SOCK_STREAM
+178N4*SOCK_DGRAM
+184N4*HOST_NOT_FOUND
+185N4*TRY_AGAIN
+186N4*NO_DATA
+187N4*NO_RECOVERY
+193N4*SHUT_RD
+194N4*SHUT_WR
+195N4*SHUT_RDWR
+201N4*SOL_SOCKET
+202N4*IPPROTO_IP
+203N4*IPPROTO_IPV6
+204N4*IPPROTO_UDP
+205N4*IPPROTO_TCP
+211N4*MSG_OOB
+212N4*MSG_PEEK
+213N4*MSG_EOR
+214N4*MSG_WAITALL
+215N4*MSG_NOSIGNAL
+216N4*MSG_Forced_Flags
+223N4*TCP_NODELAY
+224N4*SO_REUSEADDR
+225N4*SO_KEEPALIVE
+226N4*SO_LINGER
+227N4*SO_BROADCAST
+228N4*SO_SNDBUF
+229N4*SO_RCVBUF
+230N4*SO_SNDTIMEO
+231N4*SO_RCVTIMEO
+232N4*SO_ERROR
+233N4*IP_MULTICAST_IF
+234N4*IP_MULTICAST_TTL
+235N4*IP_MULTICAST_LOOP
+236N4*IP_ADD_MEMBERSHIP
+237N4*IP_DROP_MEMBERSHIP
+238N4*IP_PKTINFO
+239N4*IPV6_V6ONLY
+243M9*nfds_t 244r8
+246I9*FD_Type<integer> 248r8
+250M9*Events_Type 251r8
+253M9*socklen_t 254r8 294r22
+256I9*timeval_tv_sec_t<long_integer> 258r8 265r17
+260I9*timeval_tv_usec_t<integer> 262r8 266r17
+264R9*Timeval 267e14 268r26
+265i7*tv_sec{256I9}
+266i7*tv_usec{260I9}
+270M9*sa_family_t 271r8 278r18
+273A9*In6_Addr(8|66M9)<integer> 274r26 281r18
+276R9*Sockaddr_In6 283e14 284r26
+277m7*Length{8|63M9}
+278m7*Family{270M9}
+279m7*Port{9|44M9}
+280m7*FlowInfo{8|74M9}
+281a7*Addr{273A9}
+282m7*Scope_Id{8|74M9}
+286R9*Addr_Info 287r40 289c9 298e14 299r26 306r17
+287P9*Addr_Info_Access(286R9) 297r22 307r33 309r34
+289R9*Addr_Info
+290i7*ai_flags{9|35I9}
+291i7*ai_family{9|35I9}
+292i7*ai_socktype{9|35I9}
+293i7*ai_protocol{9|35I9}
+294m7*ai_addrlen{253M9}
+295p7*ai_canonname{10|47P9}
+296m7*ai_addr{11|67M9}
+297p7*ai_next{287P9}
+303V13*GetAddrInfo{9|35I9} 304>7 305>7 306>7 307^7 330b<c,getaddrinfo>22
+304p7 node{10|47P9}
+305p7 service{10|47P9}
+306r7 hints{289R9}
+307p7 res(287P9)
+309U14*FreeAddrInfo 309>28 331b<c,freeaddrinfo>22
+309p28 res{287P9}
+311V13*GAI_StrError{10|47P9} 311>27 333b<c,gai_strerror>22
+311i27 ecode{9|35I9}
+313V13*Socket_StrError{10|47P9} 313>30 334b<c,strerror>22
+313i30 ecode{integer}
+315V13*Set_Sock_Opt{9|35I9} 316>7 317>7 318>7 319>7 320>7 332b<c,setsockopt>22
+316i7 S{9|35I9}
+317i7 Level{9|35I9}
+318i7 OptName{9|35I9}
+319m7 OptVal{11|67M9}
+320i7 OptLen{9|35I9}
+322V13*C_Ioctl{9|35I9} 322>22 322>33 322^46 335b<c,ioctl>22
+322i22 S{9|35I9}
+322i33 Req{9|35I9}
+322p46 Arg(9|35I9)
+324V13*C_Close{9|35I9} 324>22 336b<c,close>22
+324i22 Fd{9|35I9}
+325U14*WSA_Startup 325>27 325>44
+325i27 Version{9|35I9}
+325m44 Data{11|67M9}
+326V13*Socket_Errno=326:61{integer}
+X 6 gnat.ads
+34K9*GNAT 5|43r6 326r49 6|57e9
+X 7 g-os_lib.ads
+51K14*OS_Lib=51:36 5|43w11 326r54
+X 8 interfac.ads
+38K9*Interfaces 5|41r6 47r8 273r39 277r18 279r18 280r18 282r18 8|184e15
+63M9*Unsigned_8 5|277r29
+66M9*Unsigned_16 5|273r50
+74M9*Unsigned_32 5|280r29 282r29
+X 9 i-c.ads
+18K20*C 5|41r17 279r29 290r22 291r22 292r22 293r22 295r22 304r17 305r17 307r58
+. 311r35 311r49 313r54 316r17 317r17 318r17 320r17 320r31 322r26 322r39 322r59
+. 322r73 324r27 324r41 325r37 9|230e17
+35I9*int<integer> 5|290r24 291r24 292r24 293r24 307r60 311r37 316r19 317r19
+. 318r19 320r19 320r33 322r28 322r41 322r61 322r75 324r29 324r43 325r39
+44M9*unsigned_short 5|279r31
+X 10 i-cstrin.ads
+36K22*Strings 5|41w19 295r24 304r19 305r19 311r51 313r56 10|106e25
+47P9*chars_ptr 5|295r32 304r27 305r27 311r59 313r64
+X 11 system.ads
+37K9*System 5|42w6 296r22 319r17 325r51 11|174e11
+67M9*Address 5|296r29 319r24 325r58
+X 13 s-os_lib.ads
+1018V13*Errno{integer} 5|326r61
+

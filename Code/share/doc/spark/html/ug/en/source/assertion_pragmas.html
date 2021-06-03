@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>5.6. Assertion Pragmas &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5.7. Overflow Modes" href="overflow_modes.html" />
+    <link rel="prev" title="5.5. Specification Features" href="specification_features.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="overflow_modes.html" title="5.7. Overflow Modes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="specification_features.html" title="5.5. Specification Features"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../spark_2014.html" accesskey="U">5. Overview of SPARK Language</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5.6. Assertion Pragmas</a><ul>
+<li><a class="reference internal" href="#pragma-assert">5.6.1. Pragma <code class="docutils literal"><span class="pre">Assert</span></code></a></li>
+<li><a class="reference internal" href="#pragma-assertion-policy">5.6.2. Pragma <code class="docutils literal"><span class="pre">Assertion_Policy</span></code></a></li>
+<li><a class="reference internal" href="#loop-invariants">5.6.3. Loop Invariants</a></li>
+<li><a class="reference internal" href="#loop-variants">5.6.4. Loop Variants</a></li>
+<li><a class="reference internal" href="#pragma-assume">5.6.5. Pragma <code class="docutils literal"><span class="pre">Assume</span></code></a></li>
+<li><a class="reference internal" href="#pragma-assert-and-cut">5.6.6. Pragma <code class="docutils literal"><span class="pre">Assert_And_Cut</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="specification_features.html"
+                        title="previous chapter">5.5. Specification Features</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="overflow_modes.html"
+                        title="next chapter">5.7. Overflow Modes</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/assertion_pragmas.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="assertion-pragmas">
+<span id="id1"></span><h1>5.6. Assertion Pragmas<a class="headerlink" href="#assertion-pragmas" title="Permalink to this headline">¶</a></h1>
+<p>SPARK contains features for directing formal verification with
+GNATprove. These features may also be used by other tools, in particular the
+GNAT compiler. Assertion pragmas are refinements of pragma <code class="docutils literal"><span class="pre">Assert</span></code>
+defined in Ada. For all assertion pragmas, an exception <code class="docutils literal"><span class="pre">Assertion_Error</span></code> is
+raised at run time when the property asserted does not hold, if the program was
+compiled with assertions. The real difference between assertion pragmas is how
+they are used by GNATprove during proof.</p>
+<div class="section" id="pragma-assert">
+<span id="id2"></span><h2>5.6.1. Pragma <code class="docutils literal"><span class="pre">Assert</span></code><a class="headerlink" href="#pragma-assert" title="Permalink to this headline">¶</a></h2>
+<p>[Ada 2005]</p>
+<p>Pragma <code class="docutils literal"><span class="pre">Assert</span></code> is the simplest assertion pragma. GNATprove checks that the
+property asserted holds, and uses the information that it holds for analyzing
+code that follows. For example, consider two assertions of the same property
+<code class="docutils literal"><span class="pre">X</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> in procedure <code class="docutils literal"><span class="pre">Assert_Twice</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Assert_Twice</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Assert_Twice</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>As expected, the first assertion on line 5 is not provable in absence of a
+suitable precondition for <code class="docutils literal"><span class="pre">Assert_Twice</span></code>, but GNATprove proves that it
+holds the second time the property is asserted on line 6:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>assert_twice.adb:5:19: medium: assertion might fail, cannot prove X &gt; 0 [possible explanation: subprogram at line 1 should mention X in a precondition]
+assert_twice.adb:6:19: info: assertion proved
+</pre></div>
+</div>
+<p>GNATprove considers that an execution of <code class="docutils literal"><span class="pre">Assert_Twice</span></code> with <code class="docutils literal"><span class="pre">X</span> <span class="pre">&lt;=</span> <span class="pre">0</span></code>
+stops at the first assertion that fails. Thus <code class="docutils literal"><span class="pre">X</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> when execution reaches
+the second assertion.  This is true if assertions are executed at run time, but
+not if assertions are discarded during compilation. In the latter case,
+unproved assertions should be inspected carefully to ensure that the property
+asserted will indeed hold at run time. This is true of all assertion pragmas,
+which GNATprove analyzes like pragma <code class="docutils literal"><span class="pre">Assert</span></code> in that respect.</p>
+</div>
+<div class="section" id="pragma-assertion-policy">
+<span id="id3"></span><h2>5.6.2. Pragma <code class="docutils literal"><span class="pre">Assertion_Policy</span></code><a class="headerlink" href="#pragma-assertion-policy" title="Permalink to this headline">¶</a></h2>
+<p>[Ada 2005/Ada 2012]</p>
+<p>Assertions can be enabled either globally or locally. Here, <em>assertions</em> denote
+either <a class="reference internal" href="#assertion-pragmas"><span class="std std-ref">Assertion Pragmas</span></a> of all kinds (among which <a class="reference internal" href="#pragma-assert"><span class="std std-ref">Pragma Assert</span></a>)
+or functional contracts of all kinds (among which <a class="reference internal" href="subprogram_contracts.html#preconditions"><span class="std std-ref">Preconditions</span></a> and
+<a class="reference internal" href="subprogram_contracts.html#postconditions"><span class="std std-ref">Postconditions</span></a>).</p>
+<p>By default, assertions are ignored in compilation, and can be enabled globally
+by using the compilation switch <code class="docutils literal"><span class="pre">-gnata</span></code>. They can be enabled locally by
+using pragma <code class="docutils literal"><span class="pre">Assertion_Policy</span></code> in the program, or globally if the pragma is
+put in a configuration file. They can be enabled for all kinds of assertions or
+specific ones only by using the version of pragma <code class="docutils literal"><span class="pre">Assertion_Policy</span></code> that
+takes named associations which was introduced in Ada 2012.</p>
+<p>When used with the standard policies <code class="docutils literal"><span class="pre">Check</span></code> (for enabling assertions) or
+<code class="docutils literal"><span class="pre">Ignore</span></code> (for ignoring assertions), pragma <code class="docutils literal"><span class="pre">Assertion_Policy</span></code> has no
+effect on GNATprove. GNATprove takes all assertions into account, whatever
+the assertion policy in effect at the point of the assertion. For example,
+consider a code with some assertions enabled and some ignored:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Assertion_Policy</span> <span class="o">(</span><span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">Check</span><span class="p">,</span> <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Ignore</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Assert_Enabled</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>  <span class="c">--  executed at run time</span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&gt;</span> <span class="mi">2</span>   <span class="c">--  ignored at run time</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assertion_Policy</span> <span class="o">(</span><span class="n">Assert</span> <span class="o">=&gt;</span> <span class="n">Check</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">X</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>  <span class="c">--  executed at run time</span>
+
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assertion_Policy</span> <span class="o">(</span><span class="n">Assert</span> <span class="o">=&gt;</span> <span class="n">Ignore</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">X</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>  <span class="c">--  ignored at run time</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="n">X</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Assert_Enabled</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Although the postcondition and the second assertion are not executed at run
+time, GNATprove analyzes them and issues corresponding messages:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>assert_enabled.adb:6:11: medium: postcondition might fail, cannot prove X &gt; 2 (e.g. when X = 0)
+assert_enabled.adb:9:19: info: assertion proved
+assert_enabled.adb:12:19: info: assertion proved
+assert_enabled.adb:14:11: info: overflow check proved
+</pre></div>
+</div>
+<p>On the contrary, when used with the GNAT-specific policy <code class="docutils literal"><span class="pre">Disable</span></code>, pragma
+<code class="docutils literal"><span class="pre">Assertion_Policy</span></code> causes the corresponding assertions to be skipped both
+during execution and analysis with GNATprove. For example, consider the same
+code as above where policy <code class="docutils literal"><span class="pre">Ignore</span></code> is replaced with policy <code class="docutils literal"><span class="pre">Disable</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Assertion_Policy</span> <span class="o">(</span><span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">Check</span><span class="p">,</span> <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Disable</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Assert_Disabled</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span><span class="p">,</span>
+  <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>  <span class="c">--  executed at run time</span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">&gt;</span> <span class="mi">2</span>   <span class="c">--  ignored at compile time and in analysis</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assertion_Policy</span> <span class="o">(</span><span class="n">Assert</span> <span class="o">=&gt;</span> <span class="n">Check</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">X</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>  <span class="c">--  executed at run time</span>
+
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assertion_Policy</span> <span class="o">(</span><span class="n">Assert</span> <span class="o">=&gt;</span> <span class="n">Disable</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">X</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>  <span class="c">--  ignored at compile time and in analysis</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="n">X</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Assert_Disabled</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>On this program, GNATprove does not analyze the postcondition and the second
+assertion, and it does not issue corresponding messages:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>assert_disabled.adb:9:19: info: assertion proved
+assert_disabled.adb:14:11: info: overflow check proved
+</pre></div>
+</div>
+<p>The policy of <code class="docutils literal"><span class="pre">Disable</span></code> should thus be reserved for assertions that are not
+compilable, typically because a given build environment does not define the
+necessary entities.</p>
+</div>
+<div class="section" id="loop-invariants">
+<span id="id4"></span><h2>5.6.3. Loop Invariants<a class="headerlink" href="#loop-invariants" title="Permalink to this headline">¶</a></h2>
+<p>[SPARK]</p>
+<p>Pragma <code class="docutils literal"><span class="pre">Loop_Invariant</span></code> is a special kind of assertion used in
+loops. GNATprove performs two checks that ensure that the property asserted
+holds at each iteration of the loop:</p>
+<ol class="arabic simple">
+<li><cite>loop invariant initialization</cite>: GNATprove checks that the property
+asserted holds during the first iteration of the loop.</li>
+<li><cite>loop invariant preservation</cite>: GNATprove checks that the property asserted
+holds during an arbitrary iteration of the loop, assuming that it held in
+the previous iteration.</li>
+</ol>
+<p>Each of these properties can be independently true or false. For example, in
+the following loop, the loop invariant is false during the first iteration and
+true in all remaining iterations:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="n">Prop</span> <span class="o">:=</span> <span class="kc">False</span><span class="p">;</span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span> <span class="kr">loop</span><span class="p"></span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span> <span class="o">(</span><span class="n">Prop</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Prop</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+   <span class="k">end loop</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Thus, GNATprove checks that property 2 holds but not property 1:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>simple_loops.adb:8:30: info: loop invariant preservation proved
+simple_loops.adb:8:30: medium: loop invariant might fail in first iteration, cannot prove Prop (e.g. when Prop = False)
+</pre></div>
+</div>
+<p>Conversely, in the following loop, the loop invariant is true during the first
+iteration and false in all remaining iterations:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="n">Prop</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span> <span class="kr">loop</span><span class="p"></span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span> <span class="o">(</span><span class="n">Prop</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Prop</span> <span class="o">:=</span> <span class="kc">False</span><span class="p">;</span>
+   <span class="k">end loop</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Thus, GNATprove checks that property 1 holds but not property 2:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>simple_loops.adb:14:30: info: loop invariant initialization proved
+simple_loops.adb:14:30: medium: loop invariant might fail after first iteration, cannot prove Prop (e.g. when Prop = False)
+</pre></div>
+</div>
+<p>The following loop shows a case where the loop invariant holds both during the
+first iteration and all remaining iterations:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="n">Prop</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span> <span class="kr">loop</span><span class="p"></span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span> <span class="o">(</span><span class="n">Prop</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Prop</span> <span class="o">:=</span> <span class="n">Prop</span><span class="p">;</span>
+   <span class="k">end loop</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove checks here that both properties 1 and 2 hold:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>simple_loops.adb:20:30: info: loop invariant initialization proved
+simple_loops.adb:20:30: info: loop invariant preservation proved
+</pre></div>
+</div>
+<p>In general, it is not sufficient that a loop invariant is true for GNATprove
+to prove it. The loop invariant should also be <cite>inductive</cite>: it should be
+precise enough that GNATprove can check loop invariant preservation by
+assuming <cite>only</cite> that the loop invariant held during the last iteration. For
+example, the following loop is the same as the previous one, except the loop
+invariant is true but not inductive:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="n">Prop</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">;</span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">J</span> <span class="kr">in</span><span class="p"> </span><span class="mi">1</span> <span class="o">..</span> <span class="mi">10</span> <span class="kr">loop</span><span class="p"></span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Invariant</span> <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">J</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="kr">then</span><span class="p"> </span><span class="n">Prop</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Prop</span> <span class="o">:=</span> <span class="n">Prop</span><span class="p">;</span>
+   <span class="k">end loop</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove cannot check property 2 on that loop:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>simple_loops.adb:26:30: info: loop invariant initialization proved
+simple_loops.adb:26:44: medium: loop invariant might fail after first iteration, cannot prove Prop (e.g. when Prop = False)
+</pre></div>
+</div>
+<p>Note that using CodePeer static analysis allows here to fully prove the
+loop invariant, which is possible because CodePeer generates its own sound
+approximation of loop invariants (see <a class="reference internal" href="how_to_run_gnatprove.html#using-codepeer-static-analysis"><span class="std std-ref">Using CodePeer Static Analysis</span></a> for
+details):</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>simple_loops_cdp.adb:26:30: info: loop invariant proved
+</pre></div>
+</div>
+<p>Note also that not using an assertion (<a class="reference internal" href="#pragma-assert"><span class="std std-ref">Pragma Assert</span></a>) instead of a loop
+invariant also allows here to fully prove the corresponding property, by
+relying on <a class="reference internal" href="how_to_write_loop_invariants.html#automatic-unrolling-of-simple-for-loops"><span class="std std-ref">Automatic Unrolling of Simple For-Loops</span></a>:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>simple_loops_unroll.adb:26:22: info: assertion proved
+</pre></div>
+</div>
+<p>Returning to the case where neither automatic loop unrolling nor CodePeer are
+used, the reasoning of GNATprove for checking property 2 in that case can be
+summarized as follows:</p>
+<ul class="simple">
+<li>Let&#8217;s take iteration K of the loop, where K &gt; 1 (not the first iteration).</li>
+<li>Let&#8217;s assume that the loop invariant held during iteration K-1, so we know
+that if K-1 &gt; 1 then Prop holds.</li>
+<li>The previous assumption can be rewritten: if K &gt; 2 then Prop.</li>
+<li>But all we know is that K &gt; 1, so we cannot deduce Prop.</li>
+</ul>
+<p>See <a class="reference internal" href="how_to_write_loop_invariants.html#how-to-write-loop-invariants"><span class="std std-ref">How to Write Loop Invariants</span></a> for further guidelines.</p>
+<p>Pragma <code class="docutils literal"><span class="pre">Loop_Invariant</span></code> may appear anywhere at the top level of a loop: it is
+usually added at the start of the loop, but it may be more convenient in some
+cases to add it at the end of the loop, or in the middle of the loop, in cases
+where this simplifies the asserted property. In all cases, GNATprove checks
+loop invariant preservation by reasoning on the virtual loop that starts and
+ends at the loop invariant.</p>
+<p>It is possible to use multiple loop invariants, which should be grouped
+together without intervening statements or declarations. The resulting complete
+loop invariant is the conjunction of individual ones. The benefits of writing
+multiple loop invariants instead of a conjunction can be improved readability
+and better provability (because GNATprove checks each pragma
+<code class="docutils literal"><span class="pre">Loop_Invariant</span></code> separately).</p>
+<p>Finally, <a class="reference internal" href="specification_features.html#attribute-loop-entry"><span class="std std-ref">Attribute Loop_Entry</span></a> and <a class="reference internal" href="specification_features.html#attribute-update"><span class="std std-ref">Attribute Update</span></a> can be very
+useful to express complex loop invariants.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Users that are already familiar with the notion of loop invariant in other
+proof systems should be aware that loop invariants in SPARK are slightly
+different from the usual ones. In SPARK, a loop invariant must hold when
+execution reaches the corresponding pragma inside the loop. Hence, it needs
+not hold when the loop is never entered, or when exiting the loop.</p>
+</div>
+</div>
+<div class="section" id="loop-variants">
+<span id="id5"></span><h2>5.6.4. Loop Variants<a class="headerlink" href="#loop-variants" title="Permalink to this headline">¶</a></h2>
+<p>[SPARK]</p>
+<p>Pragma <code class="docutils literal"><span class="pre">Loop_Variant</span></code> is a special kind of assertion used in
+loops. GNATprove checks that the given scalar value decreases (or increases)
+at each iteration of the loop. Because a scalar value is always bounded by its
+type in Ada, it cannot decrease (or increase) at each iteration an infinite
+number of times, thus one of two outcomes is possible:</p>
+<ol class="arabic simple">
+<li>the loop exits, or</li>
+<li>a run-time error occurs.</li>
+</ol>
+<p>Therefore, it is possible to prove the termination of loops in SPARK programs
+by proving both a loop variant for each plain-loop or while-loop (for-loops
+always terminate in Ada) and the absence of run-time errors.</p>
+<p>For example, the while-loops in procedure <code class="docutils literal"><span class="pre">Terminating_Loops</span></code> compute the
+value of <code class="docutils literal"><span class="pre">X</span> <span class="pre">-</span> <span class="pre">X</span> <span class="pre">mod</span> <span class="pre">3</span></code> (or equivalently <code class="docutils literal"><span class="pre">X</span> <span class="pre">/</span> <span class="pre">3</span> <span class="pre">*</span> <span class="pre">3</span></code>) in variable <code class="docutils literal"><span class="pre">Y</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Terminating_Loops</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Natural</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Y</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Y</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="kr">while</span><span class="p"> </span><span class="n">X</span> <span class="o">-</span> <span class="n">Y</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="kr">loop</span><span class="p"></span>
+      <span class="n">Y</span> <span class="o">:=</span> <span class="n">Y</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Variant</span> <span class="o">(</span><span class="n">Increases</span> <span class="o">=&gt;</span> <span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end loop</span><span class="p">;</span>
+
+   <span class="n">Y</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="kr">while</span><span class="p"> </span><span class="n">X</span> <span class="o">-</span> <span class="n">Y</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="kr">loop</span><span class="p"></span>
+      <span class="n">Y</span> <span class="o">:=</span> <span class="n">Y</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Loop_Variant</span> <span class="o">(</span><span class="n">Decreases</span> <span class="o">=&gt;</span> <span class="n">X</span> <span class="o">-</span> <span class="n">Y</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end loop</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Terminating_Loops</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove is able to prove both loop variants, as well as absence of run-time
+errors in the subprogram, hence that loops terminate:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>terminating_loops.adb:4:04: info: initialization of &quot;Y&quot; proved
+terminating_loops.adb:7:12: info: overflow check proved
+terminating_loops.adb:8:14: info: overflow check proved
+terminating_loops.adb:9:07: info: loop variant proved
+terminating_loops.adb:13:12: info: overflow check proved
+terminating_loops.adb:14:14: info: overflow check proved
+terminating_loops.adb:15:07: info: loop variant proved
+terminating_loops.adb:15:43: info: overflow check proved
+</pre></div>
+</div>
+<p>Pragma <code class="docutils literal"><span class="pre">Loop_Variant</span></code> may appear anywhere a loop invariant appears. It is
+also possible to use multiple loop variants, which should be grouped together
+with loop invariants. A loop variant may be more complex than a single
+decreasing (or increasing) value, and be given instead by a list of either
+decreasing or increasing values (possibly a mix of both). In that case, the
+order of the list defines the lexicographic order of progress. See SPARK RM
+5.5.3 for details.</p>
+</div>
+<div class="section" id="pragma-assume">
+<span id="id6"></span><h2>5.6.5. Pragma <code class="docutils literal"><span class="pre">Assume</span></code><a class="headerlink" href="#pragma-assume" title="Permalink to this headline">¶</a></h2>
+<p>[SPARK]</p>
+<p>Pragma <code class="docutils literal"><span class="pre">Assume</span></code> is a variant of <a class="reference internal" href="#pragma-assert"><span class="std std-ref">Pragma Assert</span></a> that does not require
+GNATprove to check that the property holds. This is used to convey trustable
+information to GNATprove, in particular properties about external objects
+that GNATprove has no control upon. GNATprove uses the information that the
+assumed property holds for analyzing code that follows. For example, consider
+an assumption of the property <code class="docutils literal"><span class="pre">X</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> in procedure <code class="docutils literal"><span class="pre">Assume_Then_Assert</span></code>,
+followed by an assertion of the same property:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Assume_Then_Assert</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assume</span> <span class="o">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Assume_Then_Assert</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>As expected, GNATprove does not check the property on line 5, but used it to
+prove that the assertion holds on line 6:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>assume_then_assert.adb:6:19: info: assertion proved
+</pre></div>
+</div>
+<p>GNATprove considers that an execution of <code class="docutils literal"><span class="pre">Assume_Then_Assert</span></code> with <code class="docutils literal"><span class="pre">X</span> <span class="pre">&lt;=</span>
+<span class="pre">0</span></code> stops at the assumption on line 5, and it does not issue a message in that
+case because the user explicitly indicated that this case is not possible. Thus
+<code class="docutils literal"><span class="pre">X</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> when execution reaches the assertion on line 6. This is true if
+assertions (of which assumptions are a special kind) are executed at run time,
+but not if assertions are discarded during compilation. In the latter case,
+assumptions should be inspected carefully to ensure that the property assumed
+will indeed hold at run time. This inspection may be facilitated by passing a
+justification string as the second argument to pragma <code class="docutils literal"><span class="pre">Assume</span></code>.</p>
+</div>
+<div class="section" id="pragma-assert-and-cut">
+<span id="id7"></span><h2>5.6.6. Pragma <code class="docutils literal"><span class="pre">Assert_And_Cut</span></code><a class="headerlink" href="#pragma-assert-and-cut" title="Permalink to this headline">¶</a></h2>
+<p>[SPARK]</p>
+<p>Pragma <code class="docutils literal"><span class="pre">Assert_And_Cut</span></code> is a variant of <a class="reference internal" href="#pragma-assert"><span class="std std-ref">Pragma Assert</span></a> that allows
+hiding some information to GNATprove. GNATprove checks that the property
+asserted holds, and uses <em>only</em> the information that it holds for analyzing
+code that follows. For example, consider two assertions of the same property
+<code class="docutils literal"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">1</span></code> in procedure <code class="docutils literal"><span class="pre">Forgetful_Assert</span></code>, separated by a pragma
+<code class="docutils literal"><span class="pre">Assert_And_Cut</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Forgetful_Assert</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span>
+
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">X</span> <span class="o">=</span> <span class="mi">1</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert_And_Cut</span> <span class="o">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">X</span> <span class="o">=</span> <span class="mi">1</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Forgetful_Assert</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove proves that the assertion on line 7 holds, but it cannot prove that
+the same assertion on line 12 holds:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>forgetful_assert.adb:1:29: info: initialization of &quot;X&quot; proved
+forgetful_assert.adb:7:19: info: assertion proved
+forgetful_assert.adb:9:27: info: assertion proved
+forgetful_assert.adb:11:19: info: assertion proved
+forgetful_assert.adb:12:19: medium: assertion might fail, cannot prove X = 1 (e.g. when X = 2)
+</pre></div>
+</div>
+<p>GNATprove <em>forgets</em> the exact value of <code class="docutils literal"><span class="pre">X</span></code> after line 9. All it knows is
+the information given in pragma <code class="docutils literal"><span class="pre">Assert_And_Cut</span></code>, here that <code class="docutils literal"><span class="pre">X</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>. And
+indeed GNATprove proves that such an assertion holds on line 11. But it
+cannot prove the assertion on line 12, and the counterexample displayed
+mentions a possible value of 2 for <code class="docutils literal"><span class="pre">X</span></code>, showing indeed that GNATprove
+forgot its value of 1.</p>
+<p>Pragma <code class="docutils literal"><span class="pre">Assert_And_Cut</span></code> may be useful in two cases:</p>
+<ol class="arabic">
+<li><p class="first">When the automatic provers are overwhelmed with information from the
+context, pragma <code class="docutils literal"><span class="pre">Assert_And_Cut</span></code> may be used to simplify this context,
+thus leading to more automatic proofs.</p>
+</li>
+<li><p class="first">When GNATprove is proving checks for each path through the subprogram (see
+switch <code class="docutils literal"><span class="pre">--proof</span></code> in <a class="reference internal" href="how_to_run_gnatprove.html#running-gnatprove-from-the-command-line"><span class="std std-ref">Running GNATprove from the Command Line</span></a>), and
+the number of paths is very large, pragma <code class="docutils literal"><span class="pre">Assert_And_Cut</span></code> may be used to
+reduce the number of paths, thus leading to faster automatic proofs.</p>
+<p>For example, consider procedure <code class="docutils literal"><span class="pre">P</span></code> below, where all that is needed to
+prove that the code using <code class="docutils literal"><span class="pre">X</span></code> is free from run-time errors is that <code class="docutils literal"><span class="pre">X</span></code>
+is positive. Let&#8217;s assume that we are running GNATprove with switch
+<code class="docutils literal"><span class="pre">--proof=per_path</span></code> so that a formula is generated for each execution path.
+Without the pragma, GNATprove considers all execution paths through <code class="docutils literal"><span class="pre">P</span></code>,
+which may be many. With the pragma, GNATprove only considers the paths
+from the start of the procedure to the pragma, and the paths from the pragma
+to the end of the procedure, hence many fewer paths.</p>
+</li>
+</ol>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">P</span> <span class="kr">is</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="c">--  complex computation that sets X</span>
+   <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert_And_Cut</span> <span class="o">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span><span class="p">;</span>
+   <span class="c">--  complex computation that uses X</span>
+<span class="k">end </span><span class="nf">P</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="overflow_modes.html" title="5.7. Overflow Modes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="specification_features.html" title="5.5. Specification Features"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../spark_2014.html" >5. Overview of SPARK Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

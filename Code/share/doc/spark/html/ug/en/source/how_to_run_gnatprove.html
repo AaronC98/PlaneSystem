@@ -1,0 +1,922 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7.1. How to Run GNATprove &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7.2. How to View GNATprove Output" href="how_to_view_gnatprove_output.html" />
+    <link rel="prev" title="7. Formal Verification with GNATprove" href="../gnatprove.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="how_to_view_gnatprove_output.html" title="7.2. How to View GNATprove Output"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../gnatprove.html" title="7. Formal Verification with GNATprove"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" accesskey="U">7. Formal Verification with GNATprove</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">7.1. How to Run GNATprove</a><ul>
+<li><a class="reference internal" href="#setting-up-a-project-file">7.1.1. Setting Up a Project File</a><ul>
+<li><a class="reference internal" href="#basic-project-set-up">7.1.1.1. Basic Project Set Up</a></li>
+<li><a class="reference internal" href="#having-different-switches-for-compilation-and-verification">7.1.1.2. Having Different Switches for Compilation and Verification</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#running-gnatprove-from-the-command-line">7.1.2. Running GNATprove from the Command Line</a></li>
+<li><a class="reference internal" href="#using-the-gnat-target-runtime-directory">7.1.3. Using the GNAT Target Runtime Directory</a></li>
+<li><a class="reference internal" href="#specifying-the-target-architecture-and-implementation-defined-behavior">7.1.4. Specifying the Target Architecture and Implementation-Defined Behavior</a><ul>
+<li><a class="reference internal" href="#target-parameterization">7.1.4.1. Target Parameterization</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-codepeer-static-analysis">7.1.5. Using CodePeer Static Analysis</a></li>
+<li><a class="reference internal" href="#running-gnatprove-from-gps">7.1.6. Running GNATprove from GPS</a></li>
+<li><a class="reference internal" href="#running-gnatprove-from-gnatbench">7.1.7. Running GNATprove from GNATbench</a></li>
+<li><a class="reference internal" href="#gnatprove-and-manual-proof">7.1.8. GNATprove and Manual Proof</a><ul>
+<li><a class="reference internal" href="#calling-an-interactive-prover-from-the-command-line">7.1.8.1. Calling an Interactive Prover From the Command Line</a></li>
+<li><a class="reference internal" href="#calling-an-interactive-prover-from-gps">7.1.8.2. Calling an Interactive Prover From GPS</a></li>
+<li><a class="reference internal" href="#manual-proof-within-gps">7.1.8.3. Manual Proof Within GPS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-to-speed-up-a-run-of-gnatprove">7.1.9. How to Speed Up a Run of GNATprove</a></li>
+<li><a class="reference internal" href="#gnatprove-and-network-file-systems-or-shared-folders">7.1.10. GNATprove and Network File Systems or Shared Folders</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../gnatprove.html"
+                        title="previous chapter">7. Formal Verification with GNATprove</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="how_to_view_gnatprove_output.html"
+                        title="next chapter">7.2. How to View GNATprove Output</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/how_to_run_gnatprove.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-run-gnatprove">
+<h1>7.1. How to Run GNATprove<a class="headerlink" href="#how-to-run-gnatprove" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setting-up-a-project-file">
+<span id="id1"></span><h2>7.1.1. Setting Up a Project File<a class="headerlink" href="#setting-up-a-project-file" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basic-project-set-up">
+<h3>7.1.1.1. Basic Project Set Up<a class="headerlink" href="#basic-project-set-up" title="Permalink to this headline">¶</a></h3>
+<p>If not already done, create a GNAT project file (<cite>.gpr</cite>), as documented in the
+GNAT User&#8217;s Guide, section <cite>GNAT Project Manager</cite>. See also <a class="reference internal" href="../appendix/project_attributes.html#project-attributes"><span class="std std-ref">Project Attributes</span></a> for optional project attributes to specify the proof directory and
+other GNATprove switches in the project file directly.</p>
+<p>Note that you can use the project wizard from GPS to create a project file
+interactively, via the menu <span class="menuselection">File ‣ New Project...</span>.
+In the dialog, see in particular the default option (<span class="menuselection">Single Project</span>).</p>
+<p>If you want to get started quickly, and assuming a standard naming scheme using
+<code class="docutils literal"><span class="pre">.ads/.adb</span></code> lower case files and a single source directory, then your project
+file will look like:</p>
+<div class="highlight-gpr"><div class="highlight"><pre><span></span><span class="k">project </span><span class="nf">My_Project</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">for</span><span class="p"> </span><span class="n">Source_Dirs</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;.&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">My_Project</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>saved in a file called <code class="docutils literal"><span class="pre">my_project.gpr</span></code>.</p>
+</div>
+<div class="section" id="having-different-switches-for-compilation-and-verification">
+<span id="id2"></span><h3>7.1.1.2. Having Different Switches for Compilation and Verification<a class="headerlink" href="#having-different-switches-for-compilation-and-verification" title="Permalink to this headline">¶</a></h3>
+<p>In some cases, you may want to pass different compilation-level switches to
+GNAT and GNATprove, for example use warning switches only for compilation, in
+the same project file. In that case, you can use a scenario variable to specify
+different switches for compilation and verification. We recommend to use the
+predefined <code class="docutils literal"><span class="pre">GPR_TOOL</span></code> variable for this purpose:</p>
+<div class="highlight-gpr"><div class="highlight"><pre><span></span><span class="k">project </span><span class="nf">My_Project</span> <span class="kr">is</span><span class="p"></span>
+
+  <span class="n">Mode</span> <span class="o">:=</span> <span class="kr">External</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;GPR_TOOL&quot;</span><span class="o">)</span><span class="p">;</span>
+
+  <span class="k">package </span><span class="nf">Compiler</span> <span class="kr">is</span><span class="p"></span>
+     <span class="kr">case</span><span class="p"> </span><span class="n">Mode</span> <span class="kr">is</span><span class="p"></span>
+        <span class="kr">when</span><span class="p"> </span><span class="s">&quot;gnatprove&quot;</span> <span class="o">=&gt;</span>
+           <span class="kr">for</span><span class="p"> </span><span class="n">Switches</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="o">...</span>
+        <span class="kr">when</span><span class="p"> </span><span class="kr">others</span><span class="p"> </span><span class="o">=&gt;</span>
+           <span class="kr">for</span><span class="p"> </span><span class="n">Switches</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="o">...</span>
+     <span class="k">end </span><span class="nf">case</span><span class="p">;</span>
+  <span class="k">end </span><span class="nf">Compiler</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">My_Project</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>With the above project, compilation will be automatically done in the &#8220;normal&#8221;
+mode (the &#8220;others&#8221; branch above):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gprbuild</span> <span class="o">-</span><span class="n">P</span> <span class="n">my_project</span><span class="o">.</span><span class="n">gpr</span>
+</pre></div>
+</div>
+<p>while GNATprove automatically sets the <code class="docutils literal"><span class="pre">GPR_TOOL</span></code> variable to the <code class="docutils literal"><span class="pre">gnatprove</span></code> value:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gnatprove</span> <span class="o">-</span><span class="n">P</span> <span class="n">my_project</span><span class="o">.</span><span class="n">gpr</span>
+</pre></div>
+</div>
+<p>Other tools set the value of this variable to other values. See the
+documentation of other AdaCore tools to know more about this.</p>
+<p>Note that before SPARK Pro 20, the <code class="docutils literal"><span class="pre">GPR_TOOL</span></code> was not set automatically by the
+tool. You can set it manually in this case:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gnatprove</span> <span class="o">-</span><span class="n">P</span> <span class="n">my_project</span><span class="o">.</span><span class="n">gpr</span> <span class="o">-</span><span class="n">XGPR_TOOL</span><span class="o">=</span><span class="n">gnatprove</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="running-gnatprove-from-the-command-line">
+<span id="id3"></span><h2>7.1.2. Running GNATprove from the Command Line<a class="headerlink" href="#running-gnatprove-from-the-command-line" title="Permalink to this headline">¶</a></h2>
+<p>GNATprove can be run from the command line as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gnatprove</span> <span class="o">-</span><span class="n">P</span> <span class="o">&lt;</span><span class="n">project</span><span class="o">-</span><span class="n">file</span><span class="o">.</span><span class="n">gpr</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>In the appendix, section <a class="reference internal" href="../appendix/command_line_invocation.html#command-line-invocation"><span class="std std-ref">Command Line Invocation</span></a>, you can find an
+exhaustive list of switches; here we only give an overview over the most common
+uses. Note that GNATprove cannot be run without a project file.</p>
+<p>There are essentially three common ways you can select the files which will
+be analyzed by GNATprove:</p>
+<ul>
+<li><p class="first">Analyze everything:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gnatprove</span> <span class="o">-</span><span class="n">P</span> <span class="o">&lt;</span><span class="n">project</span><span class="o">-</span><span class="n">file</span><span class="o">.</span><span class="n">gpr</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">U</span>
+</pre></div>
+</div>
+<p>With switch <code class="docutils literal"><span class="pre">-U</span></code>, all units of all projects in the project tree are
+analyzed. This includes units that are not used yet.</p>
+<p>This is usually what you want to use for an overnight analysis of a
+complex project.</p>
+</li>
+<li><p class="first">Analyze this project:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gnatprove</span> <span class="o">-</span><span class="n">P</span> <span class="o">&lt;</span><span class="n">project</span><span class="o">-</span><span class="n">file</span><span class="o">.</span><span class="n">gpr</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>All main units in the project and all units they (recursively) depend on
+are analyzed. If there are no main units specified, analyze all files in
+the project.</p>
+<p>This is what you want to use for the analysis of a particular executable
+only, or if you want to analyze different executables within a complex
+project with different options.</p>
+</li>
+<li><p class="first">Analyze files:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gnatprove</span> <span class="o">-</span><span class="n">P</span> <span class="o">&lt;</span><span class="n">project</span><span class="o">-</span><span class="n">file</span><span class="o">.</span><span class="n">gpr</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">-</span><span class="n">u</span><span class="p">]</span> <span class="n">FILES</span><span class="o">...</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal"><span class="pre">-u</span></code> is specified, we only analyze the given files. If <code class="docutils literal"><span class="pre">-u</span></code> is not
+specified, we also analyze all units these files (recursively) depend on.</p>
+<p>This is intended for the day-to-day command-line or IDE use of
+GNATprove when implementing a project.</p>
+</li>
+</ul>
+<p>GNATprove consists of two distinct analyses: flow analysis and proof.
+Flow analysis checks the correctness of aspects related to data flow
+(<code class="docutils literal"><span class="pre">Global</span></code>, <code class="docutils literal"><span class="pre">Depends</span></code>, <code class="docutils literal"><span class="pre">Abstract_State</span></code>, <code class="docutils literal"><span class="pre">Initializes</span></code>, and
+refinement versions of these), and verifies the initialization of
+variables. Proof verifies the absence of run-time errors and the
+correctness of assertions such as <code class="docutils literal"><span class="pre">Pre</span></code> and <code class="docutils literal"><span class="pre">Post</span></code> aspects. Using the
+switch <code class="docutils literal"><span class="pre">--mode=&lt;mode&gt;</span></code>, whose possible values are <code class="docutils literal"><span class="pre">check</span></code>,
+<code class="docutils literal"><span class="pre">check_all</span></code>, <code class="docutils literal"><span class="pre">flow</span></code>, <code class="docutils literal"><span class="pre">prove</span></code> <code class="docutils literal"><span class="pre">all</span></code>, <code class="docutils literal"><span class="pre">stone</span></code>, <code class="docutils literal"><span class="pre">bronze</span></code>, <code class="docutils literal"><span class="pre">silver</span></code>
+and <code class="docutils literal"><span class="pre">gold</span></code>, you can choose which analysis is performed:</p>
+<ul class="simple">
+<li>In mode <code class="docutils literal"><span class="pre">check</span></code>, GNATprove partially checks that the program does not
+violate SPARK restrictions. The benefit of using this mode prior to mode
+<code class="docutils literal"><span class="pre">check_all</span></code> is that it is much faster, as it does not require the results
+of flow analysis.</li>
+<li>In mode <code class="docutils literal"><span class="pre">check_all</span></code> (<code class="docutils literal"><span class="pre">stone</span></code> is a synonym for this mode), GNATprove
+fully checks that the program does not violate SPARK restrictions,
+including checks not performed in mode <code class="docutils literal"><span class="pre">check</span></code> like the absence of
+side-effects in functions. Mode <code class="docutils literal"><span class="pre">check_all</span></code> includes mode <code class="docutils literal"><span class="pre">check</span></code>.</li>
+<li>In mode <code class="docutils literal"><span class="pre">flow</span></code> (<code class="docutils literal"><span class="pre">bronze</span></code> is a synonym for this mode), GNATprove checks
+that no uninitialized data are read in the program, and that the specified
+data dependencies and flow dependencies are respected in the implementation.
+Mode <code class="docutils literal"><span class="pre">flow</span></code> includes mode <code class="docutils literal"><span class="pre">check_all</span></code>.  This phase is called <em>flow
+analysis</em>.</li>
+<li>In mode <code class="docutils literal"><span class="pre">prove</span></code> ,
+GNATprove checks that the program is free from run-time errors, and that
+the specified functional contracts are respected in the implementation. Mode
+<code class="docutils literal"><span class="pre">prove</span></code> includes mode <code class="docutils literal"><span class="pre">check_all</span></code>, as well as the part of mode <code class="docutils literal"><span class="pre">flow</span></code>
+that checks that no uninitialized data are read, to guarantee soundness of
+the proof results. This phase is called <em>proof</em>.</li>
+<li>In the default mode <code class="docutils literal"><span class="pre">all</span></code>, GNATprove does both flow analysis and proof.
+The <code class="docutils literal"><span class="pre">silver</span></code> and <code class="docutils literal"><span class="pre">gold</span></code> modes are synonyms for this mode.</li>
+</ul>
+<p>Using the option <code class="docutils literal"><span class="pre">--limit-line=</span></code> one can limit proofs to a particular file
+and line of an Ada file. For example, if you want to prove only line 12 of
+file <code class="docutils literal"><span class="pre">example.adb</span></code>, you can add the option <code class="docutils literal"><span class="pre">--limit-line=example.adb:12</span></code> to
+the call to GNATprove. Using the option <code class="docutils literal"><span class="pre">--limit-subp=</span></code> one can limit proofs
+to a subprogram declared in a particular file at a particular line. Using
+<code class="docutils literal"><span class="pre">--limit-region=</span></code> one can limit proofs to a range of lines in a particular
+file. For example, <code class="docutils literal"><span class="pre">--limit-region=example.adb:12:14</span></code> will limit analysis to
+lines 12 to 14 in <code class="docutils literal"><span class="pre">example.adb</span></code>.</p>
+<p>A number of options exist to influence the behavior for proof. Internally, the
+prover(s) specified with option <code class="docutils literal"><span class="pre">--prover</span></code> is/are called repeatedly for each
+check or assertion. Using the options <code class="docutils literal"><span class="pre">--timeout</span></code> and <code class="docutils literal"><span class="pre">--memlimit</span></code>, one
+can change the maximal time and memory that is allocated to each prover to
+prove each check or assertion.  Using the option <code class="docutils literal"><span class="pre">--steps</span></code> (default: 100),
+one can set the maximum number of reasoning steps that the prover is allowed
+to perform before giving up. The <code class="docutils literal"><span class="pre">steps</span></code> option should be used when
+predictable results are required, because the results with a timeout and
+memory limit may differ depending on the computing power, current load or
+platform of the machine. The option <code class="docutils literal"><span class="pre">-j</span></code> activates parallel compilation and
+parallel proofs. With <code class="docutils literal"><span class="pre">-jnnn</span></code>, at most nnn cores can be used in parallel.
+With the special value <code class="docutils literal"><span class="pre">-j0</span></code>, at most N cores can be used in parallel, when
+N is the number of cores on the machine.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When the project has a main file, or a file is passed as starting point to
+gnatprove, and the dependencies in the project are very linear (unit A
+depends only on unit B, which depends only on unit C, etc), then even when
+the <code class="docutils literal"><span class="pre">-j</span></code> switch is used, gnatprove may only consider one file at a time.
+This problem can be avoided by additionally using the <code class="docutils literal"><span class="pre">-U</span></code> switch.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The &#8211;memlimit switch is currently ineffective on the Mac OS X operating
+system, due to limitations of the underlying system call on that system.</p>
+</div>
+<p>The way checks are passed to the prover can also be influenced using the option
+<code class="docutils literal"><span class="pre">--proof</span></code>. By default, the prover is invoked a single time for each check or
+assertion (mode <code class="docutils literal"><span class="pre">per_check</span></code>). This can be changed using mode <code class="docutils literal"><span class="pre">per_path</span></code> to
+invoke the prover for each <em>path</em> that leads to the check. This option usually
+takes much longer, because the prover is invoked much more often, but may give
+better proof results. Finally, in mode <code class="docutils literal"><span class="pre">progressive</span></code>, invoking the prover a
+single time on the entire check is tried, and only if the check is not proved,
+then other techniques that progressively consider each path in isolation
+are tried.</p>
+<p>The proof mode set with <code class="docutils literal"><span class="pre">--proof</span></code> can be extended with a qualifier <code class="docutils literal"><span class="pre">all</span></code> or
+<code class="docutils literal"><span class="pre">lazy</span></code>, so that the entire switch may for example look like this:
+<code class="docutils literal"><span class="pre">--proof=progressive:all</span></code>.  With this qualifier, one can select if proof
+should stop at the first unproved formula (to save time) for a check or should
+continue attempting to prove the other formulas related to the same check
+(typically to identify more precisely which formulas are left unproved, which
+can be then be handled with manual proof). The former is most suited for fully
+automatic proof, it is the default value, and can be explicitly selected with
+<code class="docutils literal"><span class="pre">lazy</span></code>. The latter is most suited for combination of automatic and manual
+proof and can be selected with <code class="docutils literal"><span class="pre">all</span></code>.</p>
+<p>Instead of setting individually switches that influence the speed and power of
+proof, one may use the switch <code class="docutils literal"><span class="pre">--level</span></code>, which corresponds to predefined
+proof levels, from the faster level 0 to the more powerful
+level 4. More precisely, each value of <code class="docutils literal"><span class="pre">--level</span></code> is equivalent to directly
+setting a collection of other switches discussed above:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">--level=0</span></code> is equivalent to
+<code class="docutils literal"><span class="pre">--prover=cvc4</span> <span class="pre">--timeout=1</span> <span class="pre">--memlimit=1000</span> <span class="pre">--steps=0</span></code></li>
+<li><code class="docutils literal"><span class="pre">--level=1</span></code> is equivalent to
+<code class="docutils literal"><span class="pre">--prover=cvc4,z3,altergo</span> <span class="pre">--timeout=1</span> <span class="pre">--memlimit=1000</span> <span class="pre">--steps=0</span></code></li>
+<li><code class="docutils literal"><span class="pre">--level=2</span></code> is equivalent to
+<code class="docutils literal"><span class="pre">--prover=cvc4,z3,altergo</span> <span class="pre">--timeout=5</span> <span class="pre">--memlimit=1000</span> <span class="pre">--steps=0</span></code></li>
+<li><code class="docutils literal"><span class="pre">--level=3</span></code> is equivalent to
+<code class="docutils literal"><span class="pre">--prover=cvc4,z3,altergo</span> <span class="pre">--timeout=20</span> <span class="pre">--memlimit=2000</span> <span class="pre">--steps=0</span></code></li>
+<li><code class="docutils literal"><span class="pre">--level=4</span></code> is equivalent to
+<code class="docutils literal"><span class="pre">--prover=cvc4,z3,altergo</span> <span class="pre">--timeout=60</span> <span class="pre">--memlimit=2000</span> <span class="pre">--steps=0</span></code></li>
+</ul>
+<p>If both <code class="docutils literal"><span class="pre">--level</span></code> is set and an underlying switch is set (<code class="docutils literal"><span class="pre">--prover</span></code>,
+<code class="docutils literal"><span class="pre">--timeout</span></code>, or <code class="docutils literal"><span class="pre">--proof</span></code>), the value of the latter takes precedence over
+the value set through <code class="docutils literal"><span class="pre">--level</span></code>.</p>
+<p>Note that using <code class="docutils literal"><span class="pre">--level</span></code> does not provide results that are reproducible
+accross different machines. For nightly builds or shared repositories, consider
+using the <code class="docutils literal"><span class="pre">--steps</span></code> or <code class="docutils literal"><span class="pre">--replay</span></code> switches instead. The number of steps
+required to proved an example can be accessed by running GNATprove with the option
+<code class="docutils literal"><span class="pre">--report=statistics</span></code>.</p>
+<p>GNATprove also supports using the static analysis tool CodePeer as an
+additional source for the proof of checks, by specifying the command line
+option <code class="docutils literal"><span class="pre">--codepeer=on</span></code> (see <a class="reference internal" href="#using-codepeer-static-analysis"><span class="std std-ref">Using CodePeer Static Analysis</span></a>).</p>
+<p>By default, GNATprove avoids reanalyzing unchanged files, on a
+per-unit basis. This mechanism can be disabled with the option <code class="docutils literal"><span class="pre">-f</span></code>.</p>
+<p>When GNATprove proves a check, it stores this result in a session file,
+along with the required time and steps for this check to be proved. This
+information can be used to replay the proofs, to check that they are indeed
+correct. When GNATprove is invoked using the <code class="docutils literal"><span class="pre">--replay</span></code> option,
+it will attempt such a replay, using the same prover that was able to prove
+the check last time, with some slightly higher time and step limit. In this
+mode, the user-provided steps and time limits are ignored. If the <code class="docutils literal"><span class="pre">--prover</span></code>
+option is not provided, GNATprove will attempt to replay all checks,
+otherwise it will replay only the proofs proved by one of the specified
+provers.  If all
+replays succeeded, GNATprove output will be exactly the same as a normal run
+of GNATprove. If a replay failed, the corresponding check will be reported
+as not proved. If a replay has not been attempted because the corresponding
+prover is not available (a third-party prover that is not configured, or the
+user has selected other provers using the <code class="docutils literal"><span class="pre">--prover</span></code> option), a warning will
+be issued that the proof could not be replayed, but the check will still be
+marked as proved.</p>
+<p>By default, GNATprove stops at the first unit where it detect errors
+(violations of Ada or SPARK legality rules). The option <code class="docutils literal"><span class="pre">-k</span></code> can be used to
+get GNATprove to issue errors of the same kind for multiple units. If there
+are any violations of Ada legality rules, GNATprove does not attempt any
+analysis. If there are violations of SPARK legality rules, GNATprove stops
+after the checking phase and does not attempt flow analysis or proof.</p>
+<p>GNATprove returns with a non-zero exit status when an error is detected.
+This includes cases where GNATprove issues unproved check messages when
+switch <code class="docutils literal"><span class="pre">--checks-as-errors</span></code> is used, as well as cases where GNATprove
+issues warnings when switch <code class="docutils literal"><span class="pre">--warnings=error</span></code> is used. In such cases,
+GNATprove also issues a message about termination in error. Otherwise,
+GNATprove returns with an exit status of zero, even when unproved check
+messages and warnings are issued.</p>
+</div>
+<div class="section" id="using-the-gnat-target-runtime-directory">
+<h2>7.1.3. Using the GNAT Target Runtime Directory<a class="headerlink" href="#using-the-gnat-target-runtime-directory" title="Permalink to this headline">¶</a></h2>
+<p>If you are using GNAT as your target compiler and explicitly specify
+a runtime and target to use in your project, for instance:</p>
+<div class="highlight-gpr"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Target</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;arm-eabi&quot;</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Runtime</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;ravenscar-sfp-stm32f4&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>GNATprove will take such setting into account and will use the GNAT
+runtime directory, as long as your target compiler is found in your PATH
+environment variable. Note that you will need to use a matching version
+of GNAT and SPARK (e.g. GNAT 18.2 and SPARK 18.2).</p>
+<p>The handling of runtimes of GNATprove is in fact unified with that of the
+GNAT compiler. For details, see &#8220;GNAT User&#8217;s Guide Supplement for Cross
+Platforms&#8221;, Section 3. If you specify a target, note that GNATprove requires
+additional configuration, see the section <a class="reference internal" href="#implementation-defined"><span class="std std-ref">Specifying the Target Architecture and Implementation-Defined Behavior</span></a>.</p>
+<p>If you&#8217;re using GNAT Common Code Generator to generate C code from SPARK, you
+can specify the target and runtime as follows:</p>
+<div class="highlight-gpr"><div class="highlight"><pre><span></span><span class="kr">for</span><span class="p"> </span><span class="n">Target</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;c&quot;</span><span class="p">;</span>
+<span class="kr">for</span><span class="p"> </span><span class="n">Runtime</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="s">&quot;ccg&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="specifying-the-target-architecture-and-implementation-defined-behavior">
+<span id="implementation-defined"></span><h2>7.1.4. Specifying the Target Architecture and Implementation-Defined Behavior<a class="headerlink" href="#specifying-the-target-architecture-and-implementation-defined-behavior" title="Permalink to this headline">¶</a></h2>
+<p>A SPARK program is guaranteed to be unambiguous, so that formal verification
+of properties is possible. However, some behaviors (for example some
+representation attribute values like the <code class="docutils literal"><span class="pre">Size</span></code> attribute) may depend on the
+compiler used. By default, GNATprove adopts the same choices as the GNAT
+compiler. GNATprove also supports other compilers by providing special
+switches:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">-gnateT</span></code> for specifying the target configuration</li>
+<li><code class="docutils literal"><span class="pre">--pedantic</span></code> for warnings about possible implementation-defined behavior</li>
+</ul>
+<p>Note that, even with switch <code class="docutils literal"><span class="pre">--pedantic</span></code>, GNATprove only detects some
+implementation-defined behaviors. For more details, see the dedicated section
+on how to <a class="reference internal" href="../usage_scenarios.html#ensure-portability-of-programs"><span class="std std-ref">Ensure Portability of Programs</span></a>.</p>
+<p>Note that GNATprove will always choose the smallest multiple of 8 bits for
+the base type, which is a safe and conservative choice for any Ada compiler.</p>
+<div class="section" id="target-parameterization">
+<span id="id4"></span><h3>7.1.4.1. Target Parameterization<a class="headerlink" href="#target-parameterization" title="Permalink to this headline">¶</a></h3>
+<p>By default, GNATprove assumes that the compilation target is the same as the
+host on which it is run, for setting target dependent values, such as
+endianness or sizes and alignments of standard types.  If your target is not
+the same as the host on which you run GNATprove, you have to tell
+GNATprove the specificities of your target.</p>
+<p>Note that specifying the <code class="docutils literal"><span class="pre">Target</span></code> attribute of project files is
+not enough for GNATprove. In addition, you need to add the
+following to your project file, under a scenario variable as seen in
+<a class="reference internal" href="#having-different-switches-for-compilation-and-verification"><span class="std std-ref">Having Different Switches for Compilation and Verification</span></a>:</p>
+<div class="highlight-gpr"><div class="highlight"><pre><span></span><span class="k">project </span><span class="nf">My_Project</span> <span class="kr">is</span><span class="p"></span>
+   [<span class="o">...</span>]
+   <span class="k">package </span><span class="nf">Builder</span> <span class="kr">is</span><span class="p"></span>
+      <span class="kr">case</span><span class="p"> </span><span class="n">Mode</span> <span class="kr">is</span><span class="p"></span>
+         <span class="kr">when</span><span class="p"> </span><span class="s">&quot;Compile&quot;</span> <span class="o">=&gt;</span>
+            <span class="o">...</span>
+         <span class="kr">when</span><span class="p"> </span><span class="s">&quot;Analyze&quot;</span> <span class="o">=&gt;</span>
+            <span class="kr">for</span><span class="p"> </span><span class="n">Global_Compilation_Switches</span> <span class="o">(</span><span class="s">&quot;Ada&quot;</span><span class="o">)</span> <span class="kr">use</span><span class="p"> </span><span class="o">(</span><span class="s">&quot;-gnateT=&quot;</span> <span class="o">&amp;</span> <span class="n">My_Project</span><span class="o">&#39;</span><span class="n">Project_Dir</span> <span class="o">&amp;</span> <span class="s">&quot;/target.atp&quot;</span><span class="o">)</span><span class="p">;</span>
+      <span class="k">end </span><span class="nf">case</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Builder</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">My_Project</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal"><span class="pre">target.atp</span></code> is a file stored here in the same directory as the project
+file <code class="docutils literal"><span class="pre">my_project.gpr</span></code>, which contains the target parametrization. The format
+of this file is described in the GNAT User&#8217;s Guide as part of the
+<code class="docutils literal"><span class="pre">-gnateT</span></code> switch description.</p>
+<p>Target parameterization can be used:</p>
+<ul class="simple">
+<li>to specify a target different than the host on which GNATprove is run, when
+cross-compilation is used. If GNAT is the cross compiler, the
+configuration file can be generated by calling the compiler for your target
+with the switch <code class="docutils literal"><span class="pre">-gnatet=target.atp</span></code>. Otherwise, the target file should be
+generated manually.</li>
+<li>to specify the parameters for a different compiler than GNAT, even when
+the host and target are the same. In that case, the target file should be
+generated manually.</li>
+</ul>
+<p>Here is an example of a configuration file for a bare board PowerPC 750
+processor configured as big-endian:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Bits_BE</span>                       <span class="mi">1</span>
+<span class="n">Bits_Per_Unit</span>                 <span class="mi">8</span>
+<span class="n">Bits_Per_Word</span>                <span class="mi">32</span>
+<span class="n">Bytes_BE</span>                      <span class="mi">1</span>
+<span class="n">Char_Size</span>                     <span class="mi">8</span>
+<span class="n">Double_Float_Alignment</span>        <span class="mi">0</span>
+<span class="n">Double_Scalar_Alignment</span>       <span class="mi">0</span>
+<span class="n">Double_Size</span>                  <span class="mi">64</span>
+<span class="n">Float_Size</span>                   <span class="mi">32</span>
+<span class="n">Float_Words_BE</span>                <span class="mi">1</span>
+<span class="n">Int_Size</span>                     <span class="mi">32</span>
+<span class="n">Long_Double_Size</span>             <span class="mi">64</span>
+<span class="n">Long_Long_Size</span>               <span class="mi">64</span>
+<span class="n">Long_Size</span>                    <span class="mi">32</span>
+<span class="n">Maximum_Alignment</span>            <span class="mi">16</span>
+<span class="n">Max_Unaligned_Field</span>          <span class="mi">64</span>
+<span class="n">Pointer_Size</span>                 <span class="mi">32</span>
+<span class="n">Short_Enums</span>                   <span class="mi">0</span>
+<span class="n">Short_Size</span>                   <span class="mi">16</span>
+<span class="n">Strict_Alignment</span>              <span class="mi">1</span>
+<span class="n">System_Allocator_Alignment</span>    <span class="mi">8</span>
+<span class="n">Wchar_T_Size</span>                 <span class="mi">32</span>
+<span class="n">Words_BE</span>                      <span class="mi">1</span>
+
+<span class="nb">float</span>          <span class="mi">6</span>  <span class="n">I</span>  <span class="mi">32</span>  <span class="mi">32</span>
+<span class="n">double</span>        <span class="mi">15</span>  <span class="n">I</span>  <span class="mi">64</span>  <span class="mi">64</span>
+<span class="n">long</span> <span class="n">double</span>   <span class="mi">15</span>  <span class="n">I</span>  <span class="mi">64</span>  <span class="mi">64</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-codepeer-static-analysis">
+<span id="id5"></span><h2>7.1.5. Using CodePeer Static Analysis<a class="headerlink" href="#using-codepeer-static-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>CodePeer is only available in SPARK Pro. It is not available in the
+following SPARK releases:</p>
+<ul class="last simple">
+<li>the Community release</li>
+<li>SPARK Discovery</li>
+<li>on the MacOS X operating system</li>
+</ul>
+</div>
+<p>CodePeer is a static analysis tool developed and commercialized by AdaCore
+(see <a class="reference external" href="http://www.adacore.com/codepeer">http://www.adacore.com/codepeer</a>). GNATprove supports using CodePeer as
+an additional source for the proof of checks, by specifying the command line
+option <code class="docutils literal"><span class="pre">--codepeer=on</span></code>. CodePeer will be run before automatic provers. If
+it proves a check, GNATprove will not attempt to run another prover on this
+check.</p>
+<p>When run by GNATprove, CodePeer does not attempt to generate preconditions,
+and relies instead on user-provided preconditions for its analysis. CodePeer
+analysis inside GNATprove is sound, in that it does not allow to prove a check
+that could fail. CodePeer analysis may allow to prove more properties than
+the strict contract-based reasoning performed in SPARK allow in general:</p>
+<ol class="arabic simple">
+<li>CodePeer generates a sound approximation of data dependencies for
+subprograms based on the implementation of subprograms and the call-graph
+relating subprograms. Hence CodePeer may be able to prove properties which
+cannot be deduced otherwise based on too coarse user-provided data
+dependencies.</li>
+<li>CodePeer generates a sound approximation of loop invariants for
+loops. Hence CodePeer may be able to prove properties which cannot be
+deduced otherwise based on imprecise loop invariants, or in absence of a
+loop invariant.</li>
+<li>CodePeer ignores the <code class="docutils literal"><span class="pre">SPARK_Mode</span></code> pragma and aspects; in particular it
+uses information that is hidden from SPARK using <code class="docutils literal"><span class="pre">pragma</span> <span class="pre">SPARK_Mode(Off)</span></code>
+or the equivalent aspect.</li>
+</ol>
+<p>In addition, CodePeer is using the same choice as GNAT compiler for the
+rounding of fixed-point multiplication and division. This makes it more precise
+for the analysis of code compiled with GNAT. If some code using fixed-point
+arithmetic is compiled with another compiler than GNAT, and the code uses
+fixed-point multiplication or division, the choice of rounding made in
+CodePeer may not be suitable, in which case <code class="docutils literal"><span class="pre">--codepeer=on</span></code> should not be
+used.</p>
+<p>CodePeer analysis is particularly interesting when analyzing code using
+floating-point computations, as CodePeer is both fast and precise for proving
+bounds of floating-point operations.</p>
+</div>
+<div class="section" id="running-gnatprove-from-gps">
+<span id="id6"></span><h2>7.1.6. Running GNATprove from GPS<a class="headerlink" href="#running-gnatprove-from-gps" title="Permalink to this headline">¶</a></h2>
+<p>GNATprove can be run from GPS. When GNATprove is installed and found on
+your PATH, a <span class="menuselection">SPARK</span> menu is available with the following
+entries:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Submenu</th>
+<th class="head">Action</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Examine All</td>
+<td>This runs GNATprove in flow analysis mode on all mains and the units they depend on in the project.</td>
+</tr>
+<tr class="row-odd"><td>Examine All Sources</td>
+<td>This runs GNATprove in flow analysis mode on all files in the project.</td>
+</tr>
+<tr class="row-even"><td>Examine File</td>
+<td>This runs GNATprove in flow analysis mode on the current unit, its body and any subunits.</td>
+</tr>
+<tr class="row-odd"><td>Prove All</td>
+<td>This runs GNATprove on all mains and the units they depend on in the project.</td>
+</tr>
+<tr class="row-even"><td>Prove All Sources</td>
+<td>This runs GNATprove on all files in the project.</td>
+</tr>
+<tr class="row-odd"><td>Prove File</td>
+<td>This runs GNATprove on the current unit, its body and any subunits.</td>
+</tr>
+<tr class="row-even"><td>Show Report</td>
+<td>This displays the report file generated by GNATprove.</td>
+</tr>
+<tr class="row-odd"><td>Clean Proofs</td>
+<td>This removes all files generated by GNATprove.</td>
+</tr>
+</tbody>
+</table>
+<p>The three &#8220;Prove...&#8221; entries run GNATprove in the mode given by the project
+file, or in the default mode &#8220;all&#8221; if no mode is specified.</p>
+<p>The menus <span class="menuselection">SPARK ‣ Examine/Prove All</span> run GNATprove on all
+main files in the project, and all files they depend on (recursively). Both
+main files in the root project and in projects that are included in the root
+project are considered. The menus <span class="menuselection">SPARK ‣ Examine/Prove All
+Sources</span> run GNATprove on all files in all projects. On a project that has
+neither main files nor includes other projects, menus <span class="menuselection">SPARK
+‣ Examine/Prove All</span> and <span class="menuselection">SPARK ‣ Examine/Prove All
+Sources</span> are equivalent.</p>
+<p>Keyboard shortcuts for these menu items can be set using the
+<span class="menuselection">Edit ‣ Preferences</span> dialog in GPS, and opening
+the <span class="menuselection">General ‣ Key Shortcuts</span> section.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The changes made by users in the panels raised by these submenus are
+persistent from one session to the other. Be sure to check that the selected
+checkboxes and additional switches that were previously added are still
+appropriate.</p>
+</div>
+<p>When editing an Ada file, GNATprove can also be run from a
+<span class="menuselection">SPARK</span> contextual menu, which can be obtained by a right click:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Submenu</th>
+<th class="head">Action</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Examine File</td>
+<td>This runs GNATprove in flow analysis mode on the current unit, its body and any subunits.</td>
+</tr>
+<tr class="row-odd"><td>Examine Subprogram</td>
+<td>This runs GNATprove in flow analysis mode on the current subprogram.</td>
+</tr>
+<tr class="row-even"><td>Prove File</td>
+<td>This runs GNATprove on the current unit, its body and any subunits.</td>
+</tr>
+<tr class="row-odd"><td>Prove Subprogram</td>
+<td>This runs GNATprove on the current subprogram.</td>
+</tr>
+<tr class="row-even"><td>Prove Line</td>
+<td>This runs GNATprove on the current line.</td>
+</tr>
+<tr class="row-odd"><td>Prove Selected Region</td>
+<td>This runs GNATprove on the currently selected region.</td>
+</tr>
+<tr class="row-even"><td>Prove Check</td>
+<td>This runs GNATprove on the current failing condition. GNATprove must have been run at least once for this option to be available in order to know which conditions are failing.</td>
+</tr>
+</tbody>
+</table>
+<p>Except from <span class="menuselection">Examine File</span> and <span class="menuselection">Prove File</span>, all
+other submenus are also applicable to code inside generic units, in which case
+the corresponding action is applied to all instances of the generic unit in the
+project. For example, if a generic unit is instantiated twice, selecting
+<span class="menuselection">Prove Subprogram</span> on a subprogram inside the generic unit will
+apply proof to the two corresponding subprograms in instances of the generic
+unit.</p>
+<p>The menus <span class="menuselection">SPARK ‣ Examine ...</span> open a panel which allows
+setting various switches for GNATprove&#8216;s analysis. The main choice offered in
+this panel is to select the mode of analysis, among modes <code class="docutils literal"><span class="pre">check</span></code>,
+<code class="docutils literal"><span class="pre">check_all</span></code> and <code class="docutils literal"><span class="pre">flow</span></code> (the default).</p>
+<p>The menus <span class="menuselection">SPARK ‣ Prove ...</span> open a panel which allows
+setting various switches for GNATprove&#8216;s analysis. By default, this panel
+offers a few simple choices, like the proof level (see description of switch
+<code class="docutils literal"><span class="pre">--level</span></code> in <a class="reference internal" href="#running-gnatprove-from-the-command-line"><span class="std std-ref">Running GNATprove from the Command Line</span></a>). If the user
+changes its <code class="docutils literal"><span class="pre">User</span> <span class="pre">profile</span></code> for SPARK (in the SPARK section of the
+Preferences dialog - menu <span class="menuselection">Edit ‣ Preferences</span>) from <code class="docutils literal"><span class="pre">Basic</span></code>
+to <code class="docutils literal"><span class="pre">Advanced</span></code>, then a more complex panel is displayed for proof,
+with more detailed switches.</p>
+<p>GNATprove project switches can be edited from the panel <code class="docutils literal"><span class="pre">GNATprove</span></code> (menu
+<span class="menuselection">Edit ‣ Project Properties</span>, in the <span class="menuselection">Build ‣ Switches</span>
+section of the dialog).</p>
+<p>When proving a check fails on a specific path through a subprogram (for both
+checks verified in flow analysis and in proof), GNATprove may generate path
+information for the user to see. The user can display this path in GPS by
+clicking on the icon to the left of the failed proof message, or to the left of
+the corresponding line in the editor. The path is hidden again when re-clicking
+on the same icon.</p>
+<p>For checks verified in proof, GNATprove may also generate counterexample
+information for the user to see (see <a class="reference internal" href="how_to_view_gnatprove_output.html#understanding-counterexamples"><span class="std std-ref">Understanding Counterexamples</span></a>). The
+user can display this counterexample in GPS by clicking on the icon to the left
+of the failed proof message, or to the left of the corresponding line in the
+editor. The counterexample is hidden again when re-clicking on the same icon.</p>
+<p>A monospace font with ligature like Fira Code
+(<a class="reference external" href="https://github.com/tonsky/FiraCode">https://github.com/tonsky/FiraCode</a>) or Hasklig
+(<a class="reference external" href="https://github.com/i-tu/Hasklig">https://github.com/i-tu/Hasklig</a>) can be separately installed and selected to
+make contracts more readable inside GPS or GNATbench. See the following
+screenshot which shows how symbols like <code class="code docutils literal"><span class="pre">=&gt;</span></code> (arrow) or <code class="code docutils literal"><span class="pre">&gt;=</span></code>
+(greater than or equal) are displayed in such a font:</p>
+<img alt="../../_images/firacode.png" src="../../_images/firacode.png" />
+</div>
+<div class="section" id="running-gnatprove-from-gnatbench">
+<span id="id7"></span><h2>7.1.7. Running GNATprove from GNATbench<a class="headerlink" href="#running-gnatprove-from-gnatbench" title="Permalink to this headline">¶</a></h2>
+<p>GNATprove can be run from GNATbench. When GNATprove is installed and found
+on your PATH, a <span class="menuselection">SPARK</span> menu is available with the following
+entries:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Submenu</th>
+<th class="head">Action</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Examine All</td>
+<td>This runs GNATprove in flow analysis mode on all mains and the units they depend on in the project.</td>
+</tr>
+<tr class="row-odd"><td>Examine All Sources</td>
+<td>This runs GNATprove in flow analysis mode on all files in the project.</td>
+</tr>
+<tr class="row-even"><td>Examine File</td>
+<td>This runs GNATprove in flow analysis mode on the current unit, its body and any subunits.</td>
+</tr>
+<tr class="row-odd"><td>Prove All</td>
+<td>This runs GNATprove on all mains and the units they depend on in the project.</td>
+</tr>
+<tr class="row-even"><td>Prove All Sources</td>
+<td>This runs GNATprove on all files in the project.</td>
+</tr>
+<tr class="row-odd"><td>Prove File</td>
+<td>This runs GNATprove on the current unit, its body and any subunits.</td>
+</tr>
+<tr class="row-even"><td>Show Report</td>
+<td>This displays the report file generated by GNATprove.</td>
+</tr>
+<tr class="row-odd"><td>Clean Proofs</td>
+<td>This removes all files generated by GNATprove.</td>
+</tr>
+</tbody>
+</table>
+<p>The three &#8220;Prove...&#8221; entries run GNATprove in the mode given by the project
+file, or in the default mode &#8220;all&#8221; if no mode is specified.</p>
+<p>The menus <span class="menuselection">SPARK ‣ Examine/Prove All</span> run GNATprove on all
+main files in the project, and all files they depend on (recursively). Both
+main files in the root project and in projects that are included in the root
+project are considered. The menus <span class="menuselection">SPARK ‣ Examine/Prove All
+Sources</span> run GNATprove on all files in all projects. On a project that has
+neither main files nor includes other projects, menus <span class="menuselection">SPARK
+‣ Examine/Prove All</span> and <span class="menuselection">SPARK ‣ Examine/Prove All
+Sources</span> are equivalent.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The changes made by users in the panels raised by these submenus are
+persistent from one session to the other. Be sure to check that the selected
+checkboxes and additional switches that were previously added are still
+appropriate.</p>
+</div>
+<p>When editing an Ada file, GNATprove can also be run from a
+<span class="menuselection">SPARK</span> contextual menu, which can be obtained by a right click:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Submenu</th>
+<th class="head">Action</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Examine File</td>
+<td>This runs GNATprove in flow analysis mode on the current unit, its body and any subunits.</td>
+</tr>
+<tr class="row-odd"><td>Examine Subprogram</td>
+<td>This runs GNATprove in flow analysis mode on the current subprogram.</td>
+</tr>
+<tr class="row-even"><td>Prove File</td>
+<td>This runs GNATprove on the current unit, its body and any subunits.</td>
+</tr>
+<tr class="row-odd"><td>Prove Subprogram</td>
+<td>This runs GNATprove on the current subprogram.</td>
+</tr>
+<tr class="row-even"><td>Prove Line</td>
+<td>This runs GNATprove on the current line.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gnatprove-and-manual-proof">
+<span id="id8"></span><h2>7.1.8. GNATprove and Manual Proof<a class="headerlink" href="#gnatprove-and-manual-proof" title="Permalink to this headline">¶</a></h2>
+<p>When automated provers fail to prove some condition that is valid, the validity
+may be proved using manual proof inside GPS or an external interactive prover.</p>
+<p>In the appendix, section <a class="reference internal" href="../appendix/alternative_provers.html#alternative-provers"><span class="std std-ref">Alternative Provers</span></a>, is explained how to use
+different provers than the one GNATprove uses as default.</p>
+<div class="section" id="calling-an-interactive-prover-from-the-command-line">
+<h3>7.1.8.1. Calling an Interactive Prover From the Command Line<a class="headerlink" href="#calling-an-interactive-prover-from-the-command-line" title="Permalink to this headline">¶</a></h3>
+<p>When the prover used by GNATprove is configured as interactive, for each
+analysed condition, either:</p>
+<ul class="simple">
+<li>It is the first time the prover is used on the condition then a file
+(containing the condition as input to the specified prover) is created in the
+project&#8217;s proof directory (see <a class="reference internal" href="../appendix/project_attributes.html#project-attributes"><span class="std std-ref">Project Attributes</span></a>). GNATprove
+outputs a message concerning this condition indicating the file that was
+created. The created file should be edited by the user in order to prove the
+condition.</li>
+<li>The prover has already been used on this condition and the editable file
+exists. The prover is run on the file and the success or failure of the proof
+is reported in the same way it is done with the default prover.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Once a manual proof file is created and has been edited by the user, in
+order to run the prover on the file, the same prover must be once again
+specified to GNATprove. Once the condition is proved, the result will be
+saved in the why3 session so GNATprove won&#8217;t need to be specified the
+prover again to know that the condition is valid.</p>
+</div>
+<p>Analysis with GNATprove can be limited to a single condition with the
+<code class="docutils literal"><span class="pre">--limit-line</span></code> option:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gnatprove</span> <span class="o">-</span><span class="n">P</span> <span class="o">&lt;</span><span class="n">project</span><span class="o">-</span><span class="n">file</span><span class="o">.</span><span class="n">gpr</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">prover</span><span class="o">=&lt;</span><span class="n">prover</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">limit</span><span class="o">-</span><span class="n">line</span><span class="o">=&lt;</span><span class="n">file</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">line</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">column</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">check</span><span class="o">-</span><span class="n">kind</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Please use the output of <code class="docutils literal"><span class="pre">gnatprove</span> <span class="pre">--list-categories</span></code> to determine the
+<code class="docutils literal"><span class="pre">check-kind</span></code> to be provided in this command.</p>
+</div>
+<div class="section" id="calling-an-interactive-prover-from-gps">
+<h3>7.1.8.2. Calling an Interactive Prover From GPS<a class="headerlink" href="#calling-an-interactive-prover-from-gps" title="Permalink to this headline">¶</a></h3>
+<p>After running GNATprove with proof mode, the menu
+<span class="menuselection">SPARK ‣ Prove Check</span> is available by right-clicking on a
+check message in the location tab or by right-clicking on a line that fails
+because of a single condition (i.e. there is only one check in the output of
+GNATprove concerning this line).</p>
+<p>In the dialog box, the field &#8220;Alternate prover&#8221; can be filled to use another
+prover than Alt-Ergo. If the alternative prover is configured as
+&#8220;interactive&#8221;, after the execution of <span class="menuselection">SPARK ‣ Prove Check</span>,
+GPS opens the manual proof file with the editor corresponding to the prover
+under the condition that an editor is specified in the configuration of the
+alternative prover.</p>
+<p>Once the editor is closed, GPS re-executes
+<span class="menuselection">SPARK ‣ Prove Check</span>. The user should verify the same
+alternative prover as before is still specified. After execution, GPS will
+offer to re-edit the file if the proof fails.</p>
+</div>
+<div class="section" id="manual-proof-within-gps">
+<h3>7.1.8.3. Manual Proof Within GPS<a class="headerlink" href="#manual-proof-within-gps" title="Permalink to this headline">¶</a></h3>
+<p>After running GNATprove with proof mode, the menu
+<span class="menuselection">SPARK ‣ Start Manual Proof</span> is available by right-clicking on
+a check message in the location tab.</p>
+<p>The manual proof interface immediately starts. It will change the GPS
+window by adding a Manual Proof console, a Proof Tree and the current
+Verification Condition being dealt with.
+This is an experimental system that allows the user to directly visualize the
+condition given to the prover. We provide safe transformations that can be
+used to help the prover. For example, you can directly provide a value to an
+existential in the goal, perform an induction on an integer or instantiate
+hypothesis with values that should be used by the prover.</p>
+<p>At first, you can type <code class="docutils literal"><span class="pre">help</span></code> in the Manual Proof console. This will return
+the available commands. The most useful commands to the beginner are
+<code class="docutils literal"><span class="pre">list-provers</span></code> and <code class="docutils literal"><span class="pre">list-transforms</span></code>.
+<code class="docutils literal"><span class="pre">list-provers</span></code> returns the list of provers available on your machine. You can
+use any of them on your goal by typing its name in the console. For example,
+one can type <code class="docutils literal"><span class="pre">z3</span></code> to launch <code class="docutils literal"><span class="pre">z3</span></code> on the current Verification Condition.
+<code class="docutils literal"><span class="pre">list-transforms</span></code> returns a list of transformations that can be used on the
+Verification Condition.
+You can then try transformations like <code class="docutils literal"><span class="pre">assert</span> <span class="pre">(0</span> <span class="pre">=</span> <span class="pre">0)</span></code>. It will add two
+subgoals in the Proof Tree, one
+asking you to prove <code class="docutils literal"><span class="pre">0</span> <span class="pre">=</span> <span class="pre">0</span></code> and one assuming <code class="docutils literal"><span class="pre">0</span> <span class="pre">=</span> <span class="pre">0</span></code> to prove the current
+condition. The first one is easy, <code class="docutils literal"><span class="pre">CVC4</span></code> should be able to solve it. The
+corresponding part of the Proof Tree switched to green because <code class="docutils literal"><span class="pre">CVC4</span></code> proved
+the subgoal.</p>
+<p>Once the goal is completely proved, you will get a popup window asking you if
+you want
+to save the session and exit. Answer yes and run GNATprove again on your
+file. The condition that was failing before should now be reported as checked.
+If you want to exit manual proof, you can select
+<span class="menuselection">SPARK ‣ Exit Manual Proof</span> in the menu. It is recommended to
+close it using the menu because it makes sure to close everything related to
+manual proof.</p>
+<p>More details on how to use it are available in <a class="reference internal" href="../../gnatprove_by_example/manual_proof.html#manual-proof-using-gps"><span class="std std-ref">Manual Proof Using GPS</span></a>.</p>
+</div>
+</div>
+<div class="section" id="how-to-speed-up-a-run-of-gnatprove">
+<h2>7.1.9. How to Speed Up a Run of GNATprove<a class="headerlink" href="#how-to-speed-up-a-run-of-gnatprove" title="Permalink to this headline">¶</a></h2>
+<p>GNATprove can take some time on large programs with difficult checks to
+prove. This section describes how one can improve the running time of the
+GNATprove tool. Note that some of the suggested settings will decrease the
+number of proved checks or decrease usability of the tool, because spending
+more time often results in more successful proofs. You may still want to try
+some of the suggestions here to see if the time spent by GNATprove is really
+useful in your context.</p>
+<p>These settings will speed up GNATprove:</p>
+<ul class="simple">
+<li>Use the <code class="docutils literal"><span class="pre">-j</span></code> switch to use more than one core on your machine. GNATprove
+can make efficient usage of multi-processing. If your machine has more than
+one processor or core, we strongly suggest to enable multi-processing, using
+the <code class="docutils literal"><span class="pre">-j</span></code> switch. This switch should not have an impact on proof results,
+only on running time.</li>
+<li>Use <code class="docutils literal"><span class="pre">--no-loop-unrolling</span></code> to deactivate loop unrolling. Loop unrolling can
+often avoid the use of a loop invariant, but it almost always will be more
+costly to analyze than a loop with a loop invariant. See also <a class="reference internal" href="how_to_write_loop_invariants.html#automatic-unrolling-of-simple-for-loops"><span class="std std-ref">Automatic Unrolling of Simple For-Loops</span></a>.</li>
+<li>Use <code class="docutils literal"><span class="pre">--no-inlining</span></code> to deactivate contextual analysis of local subprograms
+without contracts. This feature can often avoid the use of subprogram
+contracts, but it will be more costly to analyze such subprograms in their
+calling context than analyzing them separately. See also <a class="reference internal" href="how_to_write_subprogram_contracts.html#contextual-analysis-of-subprograms-without-contracts"><span class="std std-ref">Contextual Analysis of Subprograms Without Contracts</span></a>.</li>
+<li>Use <code class="docutils literal"><span class="pre">--no-counterexample</span></code> to deactive counterexamples. Counter-examples are
+very useful to understand the reason for a failed proof attempt. You can
+disable this feature if you are not working on a failed proof attempt.</li>
+<li>Use the <code class="docutils literal"><span class="pre">--level</span></code> switch to use a lower level and faster presets.
+Generally, a lower level is faster than higher levels. See also <a class="reference internal" href="#running-gnatprove-from-the-command-line"><span class="std std-ref">Running GNATprove from the Command Line</span></a>.</li>
+<li>More fine-grained than the <code class="docutils literal"><span class="pre">--level</span></code> switch, you can directly set the
+<code class="docutils literal"><span class="pre">--prover</span></code>, <code class="docutils literal"><span class="pre">--timeout</span></code> and <code class="docutils literal"><span class="pre">--steps</span></code> options. Using only one prover
+with a small timeout or a small steps limit will result in much faster
+execution.</li>
+</ul>
+</div>
+<div class="section" id="gnatprove-and-network-file-systems-or-shared-folders">
+<h2>7.1.10. GNATprove and Network File Systems or Shared Folders<a class="headerlink" href="#gnatprove-and-network-file-systems-or-shared-folders" title="Permalink to this headline">¶</a></h2>
+<p>On Linux and Mac-OS, GNATprove needs to create a Unix domain socket file.
+This might be a problem if GNATprove attempts to create such a file in a
+directory that is a shared folder or on a network file system like NFS, which
+does not support such folders. To minimize changes for this to occur,
+GNATprove determines the folder to create that special file as follows:</p>
+<ul class="simple">
+<li>if the environment variable <code class="docutils literal"><span class="pre">TMPDIR</span></code> is set, and the corresponding directory
+exists and is writeable, use that; otherwise,</li>
+<li>if <code class="docutils literal"><span class="pre">/tmp</span></code> exists and is writable, use that; otherwise,</li>
+<li>use the <code class="docutils literal"><span class="pre">gnatprove</span></code> subfolder of the object directory of the root project.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="how_to_view_gnatprove_output.html" title="7.2. How to View GNATprove Output"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../gnatprove.html" title="7. Formal Verification with GNATprove"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../gnatprove.html" >7. Formal Verification with GNATprove</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,751 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>5.1. Language Restrictions &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5.2. Subprogram Contracts" href="subprogram_contracts.html" />
+    <link rel="prev" title="5. Overview of SPARK Language" href="../spark_2014.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="subprogram_contracts.html" title="5.2. Subprogram Contracts"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../spark_2014.html" title="5. Overview of SPARK Language"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../spark_2014.html" accesskey="U">5. Overview of SPARK Language</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5.1. Language Restrictions</a><ul>
+<li><a class="reference internal" href="#excluded-ada-features">5.1.1. Excluded Ada Features</a></li>
+<li><a class="reference internal" href="#partially-analyzed-ada-features">5.1.2. Partially Analyzed Ada Features</a></li>
+<li><a class="reference internal" href="#data-initialization-policy">5.1.3. Data Initialization Policy</a></li>
+<li><a class="reference internal" href="#memory-ownership-policy">5.1.4. Memory Ownership Policy</a></li>
+<li><a class="reference internal" href="#absence-of-interferences">5.1.5. Absence of Interferences</a></li>
+<li><a class="reference internal" href="#raising-exceptions-and-other-error-signaling-mechanisms">5.1.6. Raising Exceptions and Other Error Signaling Mechanisms</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../spark_2014.html"
+                        title="previous chapter">5. Overview of SPARK Language</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="subprogram_contracts.html"
+                        title="next chapter">5.2. Subprogram Contracts</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/language_restrictions.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="language-restrictions">
+<span id="id1"></span><h1>5.1. Language Restrictions<a class="headerlink" href="#language-restrictions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="excluded-ada-features">
+<span id="id2"></span><h2>5.1.1. Excluded Ada Features<a class="headerlink" href="#excluded-ada-features" title="Permalink to this headline">¶</a></h2>
+<p>To facilitate formal verification, SPARK enforces a number of global
+simplifications to Ada. The most notable simplifications are:</p>
+<ul class="simple">
+<li>Uses of access types and allocators must follow an ownership policy, so that
+only one access object has read-write permission to some allocated memory at
+any given time, or only read-only permission for that allocated memory is
+granted to possibly multiple access objects. See <a class="reference internal" href="#memory-ownership-policy"><span class="std std-ref">Memory Ownership Policy</span></a>.</li>
+<li>All expressions (including function calls) are free of
+side-effects. Functions with side-effects are more complex to treat logically
+and may lead to non-deterministic evaluation due to conflicting side-effects
+in sub-expressions of an enclosing expression. Functions with side-effects
+should be written as procedures in SPARK.</li>
+<li>Aliasing of names is not permitted. Aliasing may lead to unexpected
+interferences, in which the value denoted locally by a given name changes as
+the result of an update to another locally named variable. Formal
+verification of programs with aliasing is less precise and requires more
+manual work. See <a class="reference internal" href="#absence-of-interferences"><span class="std std-ref">Absence of Interferences</span></a>.</li>
+<li>The goto statement is not permitted. Gotos can be used to create loops, which
+require a specific treatment in formal verification, and thus should be
+precisely identified. See <a class="reference internal" href="assertion_pragmas.html#loop-invariants"><span class="std std-ref">Loop Invariants</span></a> and <a class="reference internal" href="assertion_pragmas.html#loop-variants"><span class="std std-ref">Loop Variants</span></a>.</li>
+<li>The use of controlled types is not permitted. Controlled types lead to the
+insertion of implicit calls by the compiler. Formal verification of implicit
+calls makes it harder for users to interact with formal verification tools,
+as there is no source code on which information can be reported.</li>
+<li>Handling of exceptions is not permitted. Exception handling gives raise to
+numerous interprocedural control-flow paths. Formal verification of programs
+with exception handlers requires tracking properties along all those paths,
+which is not doable precisely without a lot of manual work. But raising
+exceptions is allowed (see <a class="reference internal" href="#raising-exceptions-and-other-error-signaling-mechanisms"><span class="std std-ref">Raising Exceptions and Other Error Signaling Mechanisms</span></a>).</li>
+</ul>
+<p>The features listed above are excluded from SPARK because, currently, they
+defy formal verification. As formal verification technology advances the list
+will be revisited and it may be possible to relax some of these
+restrictions. There are other features which are technically feasible to
+formally verify but which are currently not supported in SPARK, such as
+access-to-subprogram types.</p>
+<p>Uses of these features in SPARK code are detected by GNATprove and reported
+as errors. Formal verification is not possible on subprograms using these
+features. But these features can be used in subprograms in Ada not identified
+as SPARK code, see <a class="reference internal" href="../spark_mode.html#identifying-spark-code"><span class="std std-ref">Identifying SPARK Code</span></a>.</p>
+</div>
+<div class="section" id="partially-analyzed-ada-features">
+<h2>5.1.2. Partially Analyzed Ada Features<a class="headerlink" href="#partially-analyzed-ada-features" title="Permalink to this headline">¶</a></h2>
+<p>SPARK reinforces the strong typing of Ada with a stricter initialization
+policy (see <a class="reference internal" href="#data-initialization-policy"><span class="std std-ref">Data Initialization Policy</span></a>), and thus provides no means
+currently of specifying that some input data may be invalid. As a result, the
+following features are allowed in SPARK, but only partially analyzed by
+GNATprove:</p>
+<ul class="simple">
+<li>The result of a call to <code class="docutils literal"><span class="pre">Unchecked_Conversion</span></code> is assumed to be a valid
+value of the resulting type.</li>
+<li>The evaluation of attribute <code class="docutils literal"><span class="pre">Valid</span></code> is assumed to always return True.</li>
+</ul>
+<p>This is illustrated in the following example:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Validity</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="k">procedure </span><span class="nf">Convert</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Float</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Validity</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Ada.Unchecked_Conversion</span><span class="p">;</span>
+
+<span class="k">package body </span><span class="nf">Validity</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="k">function </span><span class="nf">Int_To_Float</span> <span class="kr">is</span><span class="p"> </span><span class="kr">new</span><span class="p"> </span><span class="n">Ada.Unchecked_Conversion</span> <span class="o">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">Float</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Convert</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span> <span class="n">Y</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Float</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">X</span><span class="na">&#39;Valid</span><span class="o">)</span><span class="p">;</span>
+      <span class="n">Y</span> <span class="o">:=</span> <span class="n">Int_To_Float</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>
+      <span class="kr">pragma</span><span class="p"> </span><span class="n">Assert</span> <span class="o">(</span><span class="n">Y</span><span class="na">&#39;Valid</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Convert</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Validity</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove proves both assertions, but issues warnings about its assumptions
+that the evaluation of attribute <code class="docutils literal"><span class="pre">Valid</span></code> on both input parameter <code class="docutils literal"><span class="pre">X</span></code> and
+the result of the call to <code class="docutils literal"><span class="pre">Unchecked_Conversion</span></code> return True:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>validity.adb:11:22: info: assertion proved
+validity.adb:11:22: warning: attribute Valid is assumed to return True
+validity.adb:13:22: info: assertion proved
+validity.adb:13:22: warning: attribute Valid is assumed to return True
+validity.ads:5:36: info: initialization of &quot;Y&quot; proved
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-initialization-policy">
+<span id="id3"></span><h2>5.1.3. Data Initialization Policy<a class="headerlink" href="#data-initialization-policy" title="Permalink to this headline">¶</a></h2>
+<p>Modes on parameters and data dependency contracts (see <a class="reference internal" href="subprogram_contracts.html#data-dependencies"><span class="std std-ref">Data Dependencies</span></a>) in SPARK have a stricter meaning than in Ada:</p>
+<ul class="simple">
+<li>Parameter mode <code class="docutils literal"><span class="pre">in</span></code> (resp. global mode <code class="docutils literal"><span class="pre">Input</span></code>) indicates that the
+object denoted in the parameter (resp. data dependencies) should be
+completely initialized before calling the subprogram. It should not be
+written in the subprogram.</li>
+<li>Parameter mode <code class="docutils literal"><span class="pre">out</span></code> (resp. global mode <code class="docutils literal"><span class="pre">Output</span></code>) indicates that the
+object denoted in the parameter (resp. data dependencies) should be
+completely initialized before returning from the subprogram. It should not
+be read in the program prior to initialization.</li>
+<li>Parameter mode <code class="docutils literal"><span class="pre">in</span> <span class="pre">out</span></code> (resp. global mode <code class="docutils literal"><span class="pre">In_Out</span></code>) indicates that the
+object denoted in the parameter (resp. data dependencies) should be
+completely initialized before calling the subprogram. It can be written in
+the subprogram.</li>
+<li>Global mode <code class="docutils literal"><span class="pre">Proof_In</span></code> indicates that the object denoted in the data
+dependencies should be completely initialized before calling the
+subprogram. It should not be written in the subprogram, and only read in
+contracts and assertions.</li>
+</ul>
+<p>Hence, all inputs should be completely initialized at subprogram entry, and all
+outputs should be completely initialized at subprogram output. Similarly, all
+objects should be completely initialized when read (e.g. inside subprograms),
+at the exception of record subcomponents (but not array subcomponents) provided
+the subcomponents that are read are initialized.</p>
+<p>A consequence of the rules above is that a parameter (resp. global variable)
+that is partially written in a subprogram should be marked as <code class="docutils literal"><span class="pre">in</span> <span class="pre">out</span></code>
+(resp. <code class="docutils literal"><span class="pre">In_Out</span></code>), because the input value of the parameter (resp. global
+variable) is <cite>read</cite> when returning from the subprogram.</p>
+<p>GNATprove will issue check messages if a subprogram does not respect the
+aforementioned data initialization policy. For example, consider a procedure
+<code class="docutils literal"><span class="pre">Proc</span></code> which has a parameter and a global item of each mode:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Data_Initialization</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Data</span> <span class="kr">is</span><span class="p"> </span><span class="kr">record</span><span class="p"></span>
+      <span class="n">Val</span> <span class="o">:</span> <span class="n">Float</span><span class="p">;</span>
+      <span class="n">Num</span> <span class="o">:</span> <span class="n">Natural</span><span class="p">;</span>
+   <span class="k">end record</span><span class="p">;</span>
+
+   <span class="n">G1</span><span class="p">,</span> <span class="n">G2</span><span class="p">,</span> <span class="n">G3</span> <span class="o">:</span> <span class="n">Data</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Proc</span>
+     <span class="o">(</span><span class="n">P1</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span>    <span class="n">Data</span><span class="p">;</span>
+      <span class="n">P2</span> <span class="o">:</span>    <span class="kr">out</span><span class="p"> </span><span class="n">Data</span><span class="p">;</span>
+      <span class="n">P3</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Data</span><span class="o">)</span>
+   <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Input</span>  <span class="o">=&gt;</span> <span class="n">G1</span><span class="p">,</span>
+                <span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">G2</span><span class="p">,</span>
+                <span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">G3</span><span class="o">)</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Call_Proc</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">G1</span><span class="p">,</span> <span class="n">G2</span><span class="p">,</span> <span class="n">G3</span><span class="o">))</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Data_Initialization</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Procedure <code class="docutils literal"><span class="pre">Proc</span></code> should completely initialize its outputs <code class="docutils literal"><span class="pre">P2</span></code> and <code class="docutils literal"><span class="pre">G2</span></code>,
+but it only initalizes them partially. Similarly, procedure <code class="docutils literal"><span class="pre">Call_Proc</span></code> which
+calls <code class="docutils literal"><span class="pre">Proc</span></code> should completely initalize all of <code class="docutils literal"><span class="pre">Proc</span></code>&#8216;s inputs prior to
+the call, but it only initalizes <code class="docutils literal"><span class="pre">G1</span></code> completely.</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Data_Initialization</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="k">procedure </span><span class="nf">Proc</span>
+     <span class="o">(</span><span class="n">P1</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span>    <span class="n">Data</span><span class="p">;</span>
+      <span class="n">P2</span> <span class="o">:</span>    <span class="kr">out</span><span class="p"> </span><span class="n">Data</span><span class="p">;</span>
+      <span class="n">P3</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Data</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">P2.Val</span> <span class="o">:=</span> <span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">;</span>
+      <span class="n">G2.Num</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="c">--  fail to completely initialize P2 and G2 before exit</span>
+   <span class="k">end </span><span class="nf">Proc</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Call_Proc</span> <span class="kr">is</span><span class="p"></span>
+      <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">X3</span> <span class="o">:</span> <span class="n">Data</span><span class="p">;</span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">X1.Val</span> <span class="o">:=</span> <span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">;</span>
+      <span class="n">X3.Num</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="n">G1.Val</span> <span class="o">:=</span> <span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">;</span>
+      <span class="n">G1.Num</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="c">--  fail to completely initialize X1, X3 and G3 before call</span>
+      <span class="n">Proc</span> <span class="o">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">X3</span><span class="o">)</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Call_Proc</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Data_Initialization</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>On this program, GNATprove issues 6 high check messages, corresponding to
+the violations of the data initialization policy:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>data_initialization.adb:23:07: high: &quot;G3.Num&quot; is not an input in the Global contract of subprogram &quot;Call_Proc&quot; at data_initialization.ads:20
+data_initialization.adb:23:07: high: &quot;G3.Num&quot; is not initialized
+data_initialization.adb:23:07: high: &quot;G3.Val&quot; is not an input in the Global contract of subprogram &quot;Call_Proc&quot; at data_initialization.ads:20
+data_initialization.adb:23:07: high: &quot;G3.Val&quot; is not initialized
+data_initialization.adb:23:07: high: either make &quot;G3.Num&quot; an input in the Global contract or initialize it before use
+data_initialization.adb:23:07: high: either make &quot;G3.Val&quot; an input in the Global contract or initialize it before use
+data_initialization.adb:23:13: high: &quot;X1.Num&quot; is not initialized
+data_initialization.adb:23:17: warning: unused assignment to &quot;X2&quot;
+data_initialization.adb:23:21: high: &quot;X3.Val&quot; is not initialized
+data_initialization.adb:23:21: warning: unused assignment to &quot;X3&quot;
+data_initialization.ads:12:07: warning: unused variable &quot;P1&quot;
+data_initialization.ads:13:07: high: &quot;P2.Num&quot; is not initialized in &quot;Proc&quot;
+data_initialization.ads:14:07: warning: &quot;P3&quot; is not modified, could be IN
+data_initialization.ads:14:07: warning: unused variable &quot;P3&quot;
+data_initialization.ads:16:06: info: data dependencies proved
+data_initialization.ads:16:27: low: unused global &quot;G1&quot;
+data_initialization.ads:17:27: high: &quot;G2.Val&quot; is not an input in the Global contract of subprogram &quot;Proc&quot; at line 11
+data_initialization.ads:17:27: high: &quot;G2.Val&quot; is not initialized
+data_initialization.ads:17:27: high: either make &quot;G2.Val&quot; an input in the Global contract or initialize it before use
+data_initialization.ads:18:27: low: unused global &quot;G3&quot;
+data_initialization.ads:18:27: warning: &quot;G3&quot; is not modified, could be INPUT
+data_initialization.ads:21:06: info: data dependencies proved
+data_initialization.ads:21:28: info: initialization of &quot;G1&quot; proved
+data_initialization.ads:21:32: info: initialization of &quot;G2&quot; proved
+</pre></div>
+</div>
+<p>While a user can justify individually such messages with pragma <code class="docutils literal"><span class="pre">Annotate</span></code>
+(see section <a class="reference internal" href="how_to_use_gnatprove_in_a_team.html#justifying-check-messages"><span class="std std-ref">Justifying Check Messages</span></a>), it is under her responsibility
+to then ensure correct initialization of subcomponents that are read, as
+GNATprove relies during proof on the property that data is properly
+initialized before being read.</p>
+<p>Note also the various warnings that GNATprove issues on unused parameters,
+global items and assignments, also based on the stricter SPARK interpretation
+of parameter and global modes.</p>
+</div>
+<div class="section" id="memory-ownership-policy">
+<span id="id4"></span><h2>5.1.4. Memory Ownership Policy<a class="headerlink" href="#memory-ownership-policy" title="Permalink to this headline">¶</a></h2>
+<p>In SPARK, access values (a.k.a. pointers) are only allowed to alias in known
+ways, so that formal verification can be applied <em>as if</em> allocated memory
+pointed to by access values was a component of the access value seen as a
+record object.</p>
+<p>In particular, assignment between access objects operates a transfer of
+ownership, where the source object loses its permission to read or write the
+underlying allocated memory.</p>
+<p>For example, in the following example:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Ownership_Transfer</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Int_Ptr</span> <span class="kr">is</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+   <span class="n">X</span>   <span class="o">:</span> <span class="n">Int_Ptr</span><span class="p">;</span>
+   <span class="n">Y</span>   <span class="o">:</span> <span class="n">Int_Ptr</span><span class="p">;</span>
+   <span class="n">Tmp</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="kr">new</span><span class="p"> </span><span class="n">Integer</span><span class="o">&#39;(</span><span class="mi">1</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">X.all</span> <span class="o">:=</span> <span class="n">X.all</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="n">Y</span> <span class="o">:=</span> <span class="n">X</span><span class="p">;</span>
+   <span class="n">Y.all</span> <span class="o">:=</span> <span class="n">Y.all</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="n">X.all</span> <span class="o">:=</span> <span class="n">X.all</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>  <span class="c">--  illegal</span>
+   <span class="n">X.all</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span>          <span class="c">--  illegal</span>
+   <span class="n">Tmp</span>   <span class="o">:=</span> <span class="n">X.all</span><span class="p">;</span>      <span class="c">--  illegal</span>
+<span class="k">end </span><span class="nf">Ownership_Transfer</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove correctly detects that <code class="docutils literal"><span class="pre">X.all</span></code> can neither be read nor written
+after the assignment of <code class="docutils literal"><span class="pre">X</span></code> to <code class="docutils literal"><span class="pre">Y</span></code> and issues corresponding messages:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ownership_transfer.adb:13:06: insufficient permission on dereference from &quot;X&quot;
+ownership_transfer.adb:13:06: object was moved at line 11
+ownership_transfer.adb:13:15: insufficient permission on dereference from &quot;X&quot;
+ownership_transfer.adb:13:15: object was moved at line 11
+ownership_transfer.adb:14:06: insufficient permission on dereference from &quot;X&quot;
+ownership_transfer.adb:14:06: object was moved at line 11
+ownership_transfer.adb:15:15: insufficient permission on dereference from &quot;X&quot;
+ownership_transfer.adb:15:15: object was moved at line 11
+</pre></div>
+</div>
+<p>At call site, ownership is similarly transferred to the callee&#8217;s parameters for
+the duration of the call, and returned to the actual parameters (a.k.a.
+arguments) when returning from the call.</p>
+<p>For example, in the following example:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Ownership_Transfer_At_Call</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="kr">type</span><span class="p"> </span><span class="n">Int_Ptr</span> <span class="kr">is</span><span class="p"> </span><span class="kr">access</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+   <span class="n">X</span> <span class="o">:</span> <span class="n">Int_Ptr</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Proc</span> <span class="o">(</span><span class="n">Y</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="kr">out</span><span class="p"> </span><span class="n">Int_Ptr</span><span class="o">)</span>
+     <span class="kr">with</span><span class="p"> </span><span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="o">)</span>
+   <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="n">Y.all</span> <span class="o">:=</span> <span class="n">Y.all</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="n">X.all</span> <span class="o">:=</span> <span class="n">X.all</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Proc</span><span class="p">;</span>
+
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">X</span> <span class="o">:=</span> <span class="kr">new</span><span class="p"> </span><span class="n">Integer</span><span class="o">&#39;(</span><span class="mi">1</span><span class="o">)</span><span class="p">;</span>
+   <span class="n">X.all</span> <span class="o">:=</span> <span class="n">X.all</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="n">Proc</span> <span class="o">(</span><span class="n">X</span><span class="o">)</span><span class="p">;</span>  <span class="c">--  illegal</span>
+<span class="k">end </span><span class="nf">Ownership_Transfer_At_Call</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove correctly detects that the call to <code class="docutils literal"><span class="pre">Proc</span></code> cannot take <code class="docutils literal"><span class="pre">X</span></code> in
+argument as <code class="docutils literal"><span class="pre">X</span></code> is already accessed as a global variable by <code class="docutils literal"><span class="pre">Proc</span></code>.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>ownership_transfer_at_call.adb:5:04: info: initialization of &quot;X&quot; proved
+ownership_transfer_at_call.adb:8:11: info: data dependencies proved
+ownership_transfer_at_call.adb:18:10: high: formal parameter &quot;Y&quot; and global &quot;X&quot; are aliased (SPARK RM 6.4.2)
+</pre></div>
+</div>
+<p>Only pool-specific access types are allowed in SPARK, so it is not possible to
+declare access types with the qualifiers <code class="docutils literal"><span class="pre">all</span></code> or <code class="docutils literal"><span class="pre">const</span></code>, as these define
+general access types. This ensures in particular that access values in SPARK
+always point to dynamically-allocated memory, and thus can be freed when not
+null.</p>
+</div>
+<div class="section" id="absence-of-interferences">
+<span id="id5"></span><h2>5.1.5. Absence of Interferences<a class="headerlink" href="#absence-of-interferences" title="Permalink to this headline">¶</a></h2>
+<p>In SPARK, an assignment to a variable cannot change the value of another
+variable. This is enforced by restricting the use of access types (pointers) in
+SPARK, and by restricting aliasing between parameters and global variables so
+that only benign aliasing is accepted (i.e. aliasing that does not cause
+interference).</p>
+<p>The precise rules detailed in SPARK RM 6.4.2 can be summarized as follows:</p>
+<ul class="simple">
+<li>Two mutable parameters should never be aliased.</li>
+<li>An immutable and a mutable parameters should not be aliased, unless the
+immutable parameter is always passed by copy.</li>
+<li>A mutable parameter should never be aliased with a global variable referenced
+by the subprogram.</li>
+<li>An immutable parameter should not be aliased with a global variable
+referenced by the subprogram, unless the immutable parameter is always passed
+by copy.</li>
+</ul>
+<p>An immutable parameter is either an input parameter that is not of an access
+type, or an anonymous access-to-constant parameter. Except for parameters of
+access types, the immutable/mutable distinction is the same as the input/output
+one.</p>
+<p>These rules extend the existing rules in Ada RM 6.4.1 for restricting aliasing,
+which already make it illegal to call a procedure with problematic (non-benign)
+aliasing between parameters of scalar type that are <cite>known to denote the same
+object</cite> (a notion formally defined in Ada RM).</p>
+<p>For example, in the following example:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Aliasing</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">Glob</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Whatever</span> <span class="o">(</span><span class="n">In_1</span><span class="p">,</span> <span class="n">In_2</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span> <span class="n">Out_1</span><span class="p">,</span> <span class="n">Out_2</span> <span class="o">:</span> <span class="kr">out</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span> <span class="o">=&gt;</span> <span class="n">Glob</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Aliasing</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Procedure <code class="docutils literal"><span class="pre">Whatever</span></code> can only be called on arguments that satisfy the
+following constraints:</p>
+<ol class="arabic simple">
+<li>Arguments for <code class="docutils literal"><span class="pre">Out_1</span></code> and <code class="docutils literal"><span class="pre">Out_2</span></code> should not be aliased.</li>
+<li>Variable <code class="docutils literal"><span class="pre">Glob</span></code> should not be passed in argument for <code class="docutils literal"><span class="pre">Out_1</span></code> and <code class="docutils literal"><span class="pre">Out_2</span></code>.</li>
+</ol>
+<p>Note that there are no constraints on input parameters <code class="docutils literal"><span class="pre">In_1</span></code> and <code class="docutils literal"><span class="pre">In_2</span></code>,
+as these are always passed by copy (being of a scalar type). This would not be
+the case if these input parameters were of a record or array type.</p>
+<p>For example, here are examples of correct and illegal (according to Ada and
+SPARK rules) calls to procedure <code class="docutils literal"><span class="pre">Whatever</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Aliasing</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Aliasing;</span>
+
+<span class="k">procedure </span><span class="nf">Check_Param_Aliasing</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Whatever</span> <span class="o">(</span><span class="n">In_1</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">In_2</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">Out_1</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">Out_2</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="o">)</span><span class="p">;</span>  <span class="c">--  illegal</span>
+   <span class="n">Whatever</span> <span class="o">(</span><span class="n">In_1</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">In_2</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">Out_1</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">Out_2</span> <span class="o">=&gt;</span> <span class="n">Y</span><span class="o">)</span><span class="p">;</span>  <span class="c">--  correct</span>
+   <span class="n">Whatever</span> <span class="o">(</span><span class="n">In_1</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">In_2</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">Out_1</span> <span class="o">=&gt;</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Out_2</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="o">)</span><span class="p">;</span>  <span class="c">--  correct</span>
+   <span class="n">Whatever</span> <span class="o">(</span><span class="n">In_1</span> <span class="o">=&gt;</span> <span class="n">Y</span><span class="p">,</span> <span class="n">In_2</span> <span class="o">=&gt;</span> <span class="n">Z</span><span class="p">,</span> <span class="n">Out_1</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">Out_2</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="o">)</span><span class="p">;</span>  <span class="c">--  illegal</span>
+<span class="k">end </span><span class="nf">Check_Param_Aliasing</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove (like GNAT compiler, since these are also Ada rules)
+correctly detects the two illegal calls and issues errors:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>check_param_aliasing.adb:8:45: writable actual for &quot;Out_1&quot; overlaps with actual for &quot;Out_2&quot;
+check_param_aliasing.adb:11:45: writable actual for &quot;Out_1&quot; overlaps with actual for &quot;Out_2&quot;
+</pre></div>
+</div>
+<p>Here are other examples of correct and incorrect calls (according to SPARK
+rules) to procedure <code class="docutils literal"><span class="pre">Whatever</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">with</span><span class="p"> </span><span class="n">Aliasing</span><span class="p">; </span><span class="kr">use</span><span class="nn"> Aliasing;</span>
+
+<span class="k">procedure </span><span class="nf">Check_Aliasing</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Whatever</span> <span class="o">(</span><span class="n">In_1</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">In_2</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">Out_1</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">Out_2</span> <span class="o">=&gt;</span> <span class="n">Glob</span><span class="o">)</span><span class="p">;</span>     <span class="c">--  incorrect</span>
+   <span class="n">Whatever</span> <span class="o">(</span><span class="n">In_1</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">In_2</span> <span class="o">=&gt;</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Out_1</span> <span class="o">=&gt;</span> <span class="n">Z</span><span class="p">,</span> <span class="n">Out_2</span> <span class="o">=&gt;</span> <span class="n">Glob</span><span class="o">)</span><span class="p">;</span>     <span class="c">--  incorrect</span>
+   <span class="n">Whatever</span> <span class="o">(</span><span class="n">In_1</span> <span class="o">=&gt;</span> <span class="n">Glob</span><span class="p">,</span> <span class="n">In_2</span> <span class="o">=&gt;</span> <span class="n">Glob</span><span class="p">,</span> <span class="n">Out_1</span> <span class="o">=&gt;</span> <span class="n">X</span><span class="p">,</span> <span class="n">Out_2</span> <span class="o">=&gt;</span> <span class="n">Y</span><span class="o">)</span><span class="p">;</span>  <span class="c">--  correct</span>
+<span class="k">end </span><span class="nf">Check_Aliasing</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>GNATprove correctly detects the two incorrect calls and issues high check
+messages:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>check_aliasing.adb:8:57: high: formal parameter &quot;Out_2&quot; and global &quot;Glob&quot; are aliased (SPARK RM 6.4.2)
+check_aliasing.adb:9:57: high: formal parameter &quot;Out_2&quot; and global &quot;Glob&quot; are aliased (SPARK RM 6.4.2)
+</pre></div>
+</div>
+</div>
+<div class="section" id="raising-exceptions-and-other-error-signaling-mechanisms">
+<span id="id6"></span><h2>5.1.6. Raising Exceptions and Other Error Signaling Mechanisms<a class="headerlink" href="#raising-exceptions-and-other-error-signaling-mechanisms" title="Permalink to this headline">¶</a></h2>
+<p>Raising an exception is allowed in SPARK to signal an error, but handling the
+exception raised to perform recovery or mitigation actions is outside of the
+SPARK subset. Typically, such exception handling code should be added to
+top-level subprograms in full Ada, or to a last chance handler called by the
+runtime when an exception is raised, none of which is analyzed by GNATprove.</p>
+<p>GNATprove treats raising an exception specially:</p>
+<blockquote>
+<div><ul class="simple">
+<li>in flow analysis, the program paths that lead to a <code class="docutils literal"><span class="pre">raise_statement</span></code> are
+not considered when checking the contract of the subprogram, which is only
+concerned with executions that terminate normally; and</li>
+<li>in proof, a check is generated for each <code class="docutils literal"><span class="pre">raise_statement</span></code>, to prove that
+no such program point is reachable.</li>
+</ul>
+</div></blockquote>
+<p>Multiple error signaling mechanisms are treated the same way:</p>
+<blockquote>
+<div><ul class="simple">
+<li>raising an exception</li>
+<li><code class="docutils literal"><span class="pre">pragma</span> <span class="pre">Assert</span> <span class="pre">(X)</span></code> where <code class="docutils literal"><span class="pre">X</span></code> is an expression statically equivalent to
+<code class="docutils literal"><span class="pre">False</span></code></li>
+<li>calling a procedure with an aspect or pragma <code class="docutils literal"><span class="pre">No_Return</span></code> that has no
+outputs (unless the call is itself inside such a procedure, in which case
+the check is only generated on the call to the enclosing error-signaling
+procedure)</li>
+</ul>
+</div></blockquote>
+<p>For example, consider the artificial subprogram <code class="docutils literal"><span class="pre">Check_OK</span></code> which raises an
+exception when parameter <code class="docutils literal"><span class="pre">OK</span></code> is <code class="docutils literal"><span class="pre">False</span></code>:</p>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package </span><span class="nf">Abnormal_Terminations</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="n">G1</span><span class="p">,</span> <span class="n">G2</span> <span class="o">:</span> <span class="n">Integer</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+
+   <span class="k">procedure </span><span class="nf">Check_OK</span> <span class="o">(</span><span class="n">OK</span> <span class="o">:</span> <span class="n">Boolean</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+     <span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">G1</span><span class="o">)</span><span class="p">,</span>
+     <span class="n">Pre</span>    <span class="o">=&gt;</span> <span class="n">OK</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Abnormal_Terminations</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ada"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">package body </span><span class="nf">Abnormal_Terminations</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">SPARK_Mode</span>
+<span class="kr">is</span><span class="p"></span>
+
+   <span class="k">procedure </span><span class="nf">Check_OK</span> <span class="o">(</span><span class="n">OK</span> <span class="o">:</span> <span class="n">Boolean</span><span class="o">)</span> <span class="kr">is</span><span class="p"></span>
+   <span class="kr">begin</span><span class="p"></span>
+      <span class="kr">if</span><span class="p"> </span><span class="n">OK</span> <span class="kr">then</span><span class="p"></span>
+         <span class="n">G1</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="kr">else</span><span class="p"></span>
+         <span class="n">G2</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span>
+         <span class="kr">raise</span><span class="p"> </span><span class="n">Program_Error</span><span class="p">;</span>
+      <span class="k">end if</span><span class="p">;</span>
+   <span class="k">end </span><span class="nf">Check_OK</span><span class="p">;</span>
+
+<span class="k">end </span><span class="nf">Abnormal_Terminations</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that, although <code class="docutils literal"><span class="pre">G2</span></code> is assigned in <code class="docutils literal"><span class="pre">Check_OK</span></code>, its assignment
+is directly followed by a <code class="docutils literal"><span class="pre">raise_statement</span></code>, so <code class="docutils literal"><span class="pre">G2</span></code> is never
+assigned on an execution of <code class="docutils literal"><span class="pre">Check_OK</span></code> that terminates normally. As
+a result, <code class="docutils literal"><span class="pre">G2</span></code> is not mentioned in the data dependencies of
+<code class="docutils literal"><span class="pre">Check_OK</span></code>. During flow analysis, GNATprove verifies that the body of
+<code class="docutils literal"><span class="pre">Check_OK</span></code> implements its declared data dependencies.</p>
+<p>During proof, GNATprove generates a check that the
+<code class="docutils literal"><span class="pre">raise_statement</span></code> on line 11 is never reached. Here, it is proved
+thanks to the precondition of <code class="docutils literal"><span class="pre">Check_OK</span></code> which states that parameter
+<code class="docutils literal"><span class="pre">OK</span></code> should always be <code class="docutils literal"><span class="pre">True</span></code> on entry:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>abnormal_terminations.adb:11:10: info: raise statement proved unreachable
+abnormal_terminations.ads:8:06: info: data dependencies proved
+abnormal_terminations.ads:8:27: info: initialization of &quot;G1&quot; proved
+</pre></div>
+</div>
+<p>GNATprove also checks that procedures that are marked with aspect or pragma
+<code class="docutils literal"><span class="pre">No_Return</span></code> do not return: they should either raise an exception or loop
+forever on any input.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="subprogram_contracts.html" title="5.2. Subprogram Contracts"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../spark_2014.html" title="5. Overview of SPARK Language"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../spark_2014.html" >5. Overview of SPARK Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U casing%b		casing.adb		4327f9a2 NE OO PK
+W csets%s		csets.adb		csets.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W opt%s			opt.adb			opt.ali
+W widechar%s		widechar.adb		widechar.ali
+
+U casing%s		casing.ads		f1067a43 BN EE NE OO PK
+W namet%s		namet.adb		namet.ali
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D casing.ads		20190518044709 9b922bd9 casing%s
+D casing.adb		20190518044709 a368c85b casing%b
+D csets.ads		20190518044709 e948558f csets%s
+D csets.adb		20190518044709 05216c24 csets%b
+D debug.ads		20190518044709 1ac546f9 debug%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D namet.ads		20190518044709 b520bebe namet%s
+D opt.ads		20190518044710 3d2ce478 opt%s
+D output.ads		20190518044709 a916e413 output%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D widechar.ads		20190518044709 afb9abd7 widechar%s
+G a e
+G c Z s b [set_casing casing 72 14 none]
+G c Z s b [set_casing casing 84 14 none]
+G c Z s b [set_all_upper_case casing 87 14 none]
+G c Z s b [determine_casing casing 93 13 none]
+G r c none [set_casing casing 72 14 none] [is_lower_case_letter csets 79 13 none]
+G r c none [set_casing casing 72 14 none] [is_upper_case_letter csets 75 13 none]
+G r c none [set_casing casing 72 14 none] [skip_wide widechar 80 14 none]
+G r c none [set_casing casing 84 14 none] [is_lower_case_letter csets 79 13 none]
+G r c none [set_casing casing 84 14 none] [is_upper_case_letter csets 75 13 none]
+G r c none [set_casing casing 84 14 none] [skip_wide widechar 80 14 none]
+G r c none [set_all_upper_case casing 87 14 none] [is_lower_case_letter csets 79 13 none]
+G r c none [set_all_upper_case casing 87 14 none] [is_upper_case_letter csets 75 13 none]
+G r c none [set_all_upper_case casing 87 14 none] [skip_wide widechar 80 14 none]
+G r c none [determine_casing casing 93 13 none] [is_lower_case_letter csets 79 13 none]
+G r c none [determine_casing casing 93 13 none] [is_upper_case_letter csets 75 13 none]
+X 6 casing.ads
+35K9*Casing 98l5 98e11 7|36b14 216l5 216t11
+48E9*Casing_Type 63e5 65r28 74r13 75r13 84r30 84r47 93r59 7|42r59 129r13
+. 130r13 134r23 211r30 211r47
+50n7*All_Upper_Case{48E9} 65r46 7|104r17 120r19 181r32
+53n7*All_Lower_Case{48E9} 7|98r17 193r32
+56n7*Mixed_Case{48E9} 65r64 75r28 84r62 7|64r17 107r17 130r28 182r59 194r63
+. 211r62
+60n7*Unknown{48E9} 7|101r17 110r17 142r15
+65E12*Known_Casing{48E9}
+72U14*Set_Casing 73=7 74>7 75>7 7|127b14 209l8 209t18 213s7
+73r7 Buf{13|151R9} 7|128b7 150r20 162r13 163r20 165r31 167r24 172r16 173r41
+. 180r38 184m16 184r47 192r38 196m16 196r47
+74e7 C{48E9} 7|129b7 142r10 143r27
+75e7 D{48E9} 7|130b7 145r27
+84U14*Set_Casing 84>26 84>43 7|120s7 211b14 214l8 214t18
+84e26 C{48E9} 7|211b26 213r39
+84e43 D{48E9} 7|211b43 213r42
+87U14*Set_All_Upper_Case 88r19 7|118b14 121l8 121t26
+93V13*Determine_Casing{48E9} 93>31 7|42b13 112l8 112t24
+93a31 Ident{30|148A9} 7|42b31 63r10 69r16 70r13 70r37 73r38 83r38
+X 7 casing.adb
+44b7 All_Lower{boolean} 84m13 97r10
+47b7 All_Upper{boolean} 74m13 103r13
+50b7 Mixed{boolean} 80m16 88m16 106r13
+54b7 Decisive{boolean} 77m16 87m16 100r17
+57b7 After_Und{boolean} 71m13 76r20 79m16 86r20 90m16
+69i11 S<30|59I9> 70r20 70r44 73r45 83r45
+132i7 Ptr{natural} 148m7 150r13 162r24 163r31 165r42 167m35 167r35 172r27
+. 173r52 176m13 176r20 180r49 184r27 184r58 188m13 188r20 192r49 196r27 196r58
+. 200m13 200r20 206m13 206r20
+134e7 Actual_Casing{6|48E9} 143m10 145m10 181r16 182r43 193r16 194r47
+137b7 After_Und{boolean} 168m13 175m13 182r24 187m13 194r28 199m13 205m13
+X 8 csets.ads
+32K9*Csets 7|32w6 32r20 8|97e10
+44A9*Translate_Table(character)<character>
+47A9*Char_Array_Flags(boolean)<character>
+75V13*Is_Upper_Case_Letter{boolean} 7|83s16 192s16
+79V13*Is_Lower_Case_Letter{boolean} 7|73s16 180s16
+83a4*Fold_Upper{44A9} 7|184r35
+86a4*Fold_Lower{44A9} 7|196r35
+89a4*Identifier_Char{47A9} 7|173r24
+X 13 namet.ads
+37K9*Namet 6|32w6 32r17 13|768e10
+151R9*Bounded_String 6|73r20 7|128r20 13|157e14
+155i7*Length{natural} 7|150r24
+156a7*Chars{string} 7|162r17 163r24 165r35 167r28 172r20 173r45 180r42 184m20
+. 184r51 192r42 196m20 196r51
+168r4*Global_Name_Buffer{151R9} 7|213m19 213r19
+X 14 opt.ads
+50K9*Opt 7|33w6 33r20 14|2414e8
+1673b4*Upper_Half_Encoding{boolean} 7|164r21
+X 16 system.ads
+67M9*Address
+X 19 s-memory.ads
+53V13*Alloc{16|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{16|67M9} 105i<c,__gnat_realloc>22
+X 30 types.ads
+52K9*Types 6|33w6 33r17 30|948e10
+59I9*Int<integer>
+108E12*Upper_Half_Character{character} 7|165r50
+148A9*Text_Buffer(character)<145I9> 6|93r39 7|42r39
+X 33 widechar.ads
+39K9*Widechar 7|34w6 34r20 33|101e13
+80U14*Skip_Wide 7|167s13
+

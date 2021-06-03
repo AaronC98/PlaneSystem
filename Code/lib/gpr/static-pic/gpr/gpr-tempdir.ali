@@ -1,0 +1,162 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnat12
+A -gnaty
+A -gnatQ
+A -gnata
+A -gnatn
+A -gnatws
+A -g1
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U gpr.tempdir%b		gpr-tempdir.adb		1cb5e255 OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.directory_operations%s  g-dirope.adb	g-dirope.ali
+W gnat.strings%s	g-string.ads		g-string.ali
+W gpr%s			gpr.adb			gpr.ali
+W gpr.names%s		gpr-names.adb		gpr-names.ali
+W gpr.opt%s		gpr-opt.ads		gpr-opt.ali
+W gpr.output%s		gpr-output.adb		gpr-output.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U gpr.tempdir%s		gpr-tempdir.ads		96c7672a EE NE OO PK IU
+W gpr%s			gpr.adb			gpr.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-charac.ads		20190518041256 2d3ec45b ada.characters%s
+D a-chlat1.ads		20190518041256 66457d31 ada.characters.latin_1%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-string.ads		20190518041256 90ac6797 ada.strings%s
+D a-strmap.ads		20190518041256 e8bb714a ada.strings.maps%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-dirope.ads		20190518041255 940c4438 gnat.directory_operations%s
+D g-dynhta.ads		20190518041255 b061de91 gnat.dynamic_htables%s
+D g-dyntab.ads		20190518041256 21cef781 gnat.dynamic_tables%s
+D g-dyntab.adb		20190518041257 8cc056dd gnat.dynamic_tables%b
+D g-hesorg.ads		20190518041255 106922da gnat.heap_sort_g%s
+D g-os_lib.ads		20190518041255 0db74523 gnat.os_lib%s
+D g-string.ads		20190518041257 c6abc540 gnat.strings%s
+D gpr.ads		20190518044756 e8837047 gpr%s
+D gpr-names.ads		20190518044756 97f8a5e7 gpr.names%s
+D gpr-opt.ads		20190518044757 5a675452 gpr.opt%s
+D gpr-output.ads	20190518044756 be97932e gpr.output%s
+D gpr-tempdir.ads	20190518044756 7e44176d gpr.tempdir%s
+D gpr-tempdir.adb	20190518044757 435e16db gpr.tempdir%b
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-assert.ads		20190518041256 cd8d2c94 system.assertions%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-finmas.ads		20190518041256 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041255 ede33ef8 system.pool_global%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+G a e
+G c Z s b [create_temp_file gpr__tempdir 32 14 none]
+G c Z s b [use_temp_dir gpr__tempdir 43 14 none]
+G c Z s b [temporary_directory_path gpr__tempdir 49 13 none]
+G r c none [create_temp_file gpr__tempdir 32 14 none] [write_str gpr__output 97 14 none]
+G r c none [create_temp_file gpr__tempdir 32 14 none] [write_line gpr__output 104 14 none]
+G r c none [create_temp_file gpr__tempdir 32 14 none] [name_find gpr__names 58 13 none]
+X 12 gnat.ads
+34K9*GNAT 57e9 25|25r6 25r37 31r6 41r28 47r26
+X 13 g-dirope.ads
+43K14*Directory_Operations 262e30 25|25w11 25r42
+45A12*Dir_Name_Str{string}<integer>
+73U14*Change_Dir 25|102s10 104s10
+89V13*Get_Current_Dir{45A12} 25|63s40 193s31
+X 19 g-string.ads
+38K14*Strings=38:37 25|31w11 41r33 47r31
+X 20 gpr.ads
+38K9*GPR 3004e8 24|30r9 55r5 25|27r6 27r22 28r6 28r22 29r6 29r22 33r14 214r5
+251I9*Name_Id<integer>
+288I9*Path_Name_Type<251I9> 24|34r18 25|60r18
+293i4*No_Path{288I9} 25|112r18
+X 21 gpr-names.ads
+25K13*Names 172e14 25|27w10 27r26
+27a4*Name_Buffer{string} 25|121m13
+28i4*Name_Len{natural} 25|120m13 121r31
+58V13*Name_Find{20|288I9} 25|122s21
+X 22 gpr-opt.ads
+29K13*Opt 263e12 25|28w10 28r26 90r13 90r35
+219n40*Low{219E9} 25|90r39
+221e4*Verbosity_Level{219E9} 25|90r17
+X 23 gpr-output.ads
+33K13*Output 107e15 25|29w10 29r26
+97U14*Write_Str 25|93s13 94s13
+104U14*Write_Line 25|95s13 111s10
+X 24 gpr-tempdir.ads
+30K13*Tempdir 20|38k9 24|55l9 55e16 25|33b18 214l9 214t16
+32U14*Create_Temp_File 33<7 34<7 25|58b14 126l8 126t24
+33i7 FD{32|183I9} 25|59b7 103m28 107m28 110r10
+34i7 Name{20|288I9} 25|60b7 112m10 122m13
+43U14*Use_Temp_Dir 43>28 25|132b14 195l8 195t20 213s4
+43b28 Status{boolean} 25|132b28 142r14 213r18
+49V13*Temporary_Directory_Path{string} 25|201b13 208l8 208t32
+X 25 gpr-tempdir.adb
+35b4 Tmpdir_Needs_To_Be_Displayed{boolean} 91r12 96m13
+37a4 Tmpdir{string} 149r22
+38a4 Temp{string} 153r25
+39a4 Tmp{string} 157r28
+41a4 Windows_List{41|54A9} 173r19 174r20
+47a4 Other_List{41|54A9} 183r19 184r20
+52p4 Temp_Dir{32|67P12} 74r13 75r20 84r10 94r24 102r22 143m10 161m13 161r13
+. 164m10 176m16 186m16 193m7 203r10 204r17
+62p7 File_Name{32|67P12} 103m32 103r32 107m32 107r32 118r64 123m19 123r19
+63a7 Current_Dir{string} 77r20 104r22
+65V16 Directory{string} 72b16 79l11 79t20 111s62 118s30
+116a13 Path_Name{string} 120r25 121r44
+133p7 Dir{32|67P12} 136r10 137r19 138r37 139r33 149m7 152m16 152r16 153m10
+. 156m19 156r19 157m13 164r54 165m16 165r16 169m13 169r13 174m13 176r60 184m13
+. 186r60
+135V16 Dir_Is_Temporary_Dir{boolean} 151s14 155s17 163s10 175s16 185s16
+173i14 I{integer} 174r34
+183i14 I{integer} 184r32
+X 32 s-os_lib.ads
+67P12*String_Access{41|45P9} 25|52r15 62r21 133r13
+69V14*"="=70:22{boolean} 25|136r14 203r19
+72U14*Free=72:62 25|123s13 152s10 156s13 161s7 165s10 169s7
+183I9*File_Descriptor<integer> 24|33r18 25|59r18
+191i4*Invalid_FD{183I9} 25|110r15
+331U14*Create_Temp_File 25|103s10 107s10
+413V13*Is_Absolute_Path{boolean} 25|138s19
+417V13*Is_Directory{boolean} 25|139s19
+521V13*Normalize_Pathname{string} 25|117s27 164s34 176s40 186s40
+1029V13*Getenv{67P12} 25|149s14 153s17 157s20
+1079e4*Directory_Separator{character} 25|118r42 171r10
+X 41 s-string.ads
+45P9*String_Access(string)
+54A9*String_List(45P9)<integer> 25|41r41 47r39
+

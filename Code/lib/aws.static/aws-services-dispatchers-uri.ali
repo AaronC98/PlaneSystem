@@ -1,0 +1,620 @@
+V "GNAT Lib v2019"
+A -gnatwa
+A -Wall
+A -gnatA
+A -gnat2012
+A -gnatwc
+A -gnatwf
+A -gnatwi
+A -gnatwj
+A -gnatwk
+A -gnatwm
+A -gnatwr
+A -gnatwu
+A -gnatwv
+A -gnaty3
+A -gnatya
+A -gnatyb
+A -gnatyB
+A -gnatyc
+A -gnatyd
+A -gnatye
+A -gnatyf
+A -gnatyh
+A -gnatyi
+A -gnatyI
+A -gnatyk
+A -gnatyl
+A -gnatym
+A -gnatyn
+A -gnatyo
+A -gnatyO
+A -gnatyp
+A -gnatyr
+A -gnatys
+A -gnatyt
+A -gnatyx
+A -g
+A -gnata
+A -gnatVa
+A -gnatQ
+A -gnato
+A -gnatwe
+A -fno-common
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+A -feliminate-unused-debug-symbols
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U aws.services.dispatchers.uri%b  aws-services-dispatchers-uri.adb  1dfe8001 OO PF PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_deallocation%s
+W aws%s			aws.ads			aws.ali
+W aws.dispatchers%s	aws-dispatchers.adb	aws-dispatchers.ali
+W aws.dispatchers.callback%s  aws-dispatchers-callback.adb  aws-dispatchers-callback.ali
+W aws.messages%s	aws-messages.adb	aws-messages.ali
+W aws.services.dispatchers%s  aws-services-dispatchers.ads  aws-services-dispatchers.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.regpat%s		g-regpat.ads		g-regpat.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+Z system.concat_3%s	s-conca3.adb		s-conca3.ali
+Z system.concat_4%s	s-conca4.adb		s-conca4.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+
+U aws.services.dispatchers.uri%s  aws-services-dispatchers-uri.ads  2ff2c73f EE OO PF PK IU
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+Z ada.containers.generic_array_sort%s
+Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
+W ada.containers.vectors%s
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.finalization%s	a-finali.ads		a-finali.ali
+Z ada.iterator_interfaces%s
+Z ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z ada.unchecked_deallocation%s
+W aws%s			aws.ads			aws.ali
+W aws.dispatchers%s	aws-dispatchers.adb	aws-dispatchers.ali
+W aws.response%s	aws-response.adb	aws-response.ali
+W aws.services.dispatchers%s  aws-services-dispatchers.ads  aws-services-dispatchers.ali
+W aws.status%s		aws-status.adb		aws-status.ali
+W aws.utils%s		aws-utils.adb		aws-utils.ali
+Z system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+Z system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-calend.ads		20190518041256 474d9720 ada.calendar%s
+D a-charac.ads		20190518041256 2d3ec45b ada.characters%s
+D a-chlat1.ads		20190518041256 66457d31 ada.characters.latin_1%s
+D a-contai.ads		20190518041255 61e5e089 ada.containers%s
+D a-cgarso.ads		20190518041255 9129bfa8 ada.containers.generic_array_sort%s
+D a-cohata.ads		20190518041257 80a8c839 ada.containers.hash_tables%s
+D a-conhel.ads		20190518041255 20298884 ada.containers.helpers%s
+D a-conhel.adb		20190518041257 9cc5095b ada.containers.helpers%b
+D a-cihama.ads		20190518041256 bece8dbf ada.containers.indefinite_hashed_maps%s
+D a-cihase.ads		20190518041255 4f8a62e0 ada.containers.indefinite_hashed_sets%s
+D a-ciorma.ads		20190518041256 e1f95638 ada.containers.indefinite_ordered_maps%s
+D a-coinve.ads		20190518041257 b7300cfa ada.containers.indefinite_vectors%s
+D a-crbltr.ads		20190518041256 c3e90a86 ada.containers.red_black_trees%s
+D a-convec.ads		20190518041257 7e2b0fdf ada.containers.vectors%s
+D a-convec.adb		20190518041255 32f4e1a7 ada.containers.vectors%b
+D a-direct.ads		20190518041256 078228da ada.directories%s
+D a-envvar.ads		20190518041256 00080416 ada.environment_variables%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-ioexce.ads		20190518041255 e4a01f64 ada.io_exceptions%s
+D a-iteint.ads		20190518041256 7c7305e9 ada.iterator_interfaces%s
+D a-reatim.ads		20190518041257 0240fc73 ada.real_time%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-string.ads		20190518041256 90ac6797 ada.strings%s
+D a-strhas.ads		20190518041257 c71c2a52 ada.strings.hash%s
+D a-strmap.ads		20190518041256 e8bb714a ada.strings.maps%s
+D a-strunb.ads		20190518041256 1656705b ada.strings.unbounded%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-taside.ads		20190518041258 00e3a3f6 ada.task_identification%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D aws.ads		20190518133103 bb4f9bdb aws%s
+D aws-attachments.ads	20190513040548 2270236e aws.attachments%s
+D aws-config.ads	20190513040548 abec052a aws.config%s
+D aws-containers.ads	20190513040547 c7ab8288 aws.containers%s
+D aws-containers-memory_streams.ads  20190513040548 ea28c859 aws.containers.memory_streams%s
+D aws-containers-string_vectors.ads  20190513040547 b5692847 aws.containers.string_vectors%s
+D aws-containers-tables.ads  20190513040548 dda133b5 aws.containers.tables%s
+D aws-default.ads	20190513040547 4983fa2f aws.default%s
+D aws-dispatchers.ads	20190513040548 c78b16eb aws.dispatchers%s
+D aws-dispatchers-callback.ads  20190513040548 e42e53cb aws.dispatchers.callback%s
+D aws-headers.ads	20190513040548 25633780 aws.headers%s
+D aws-messages.ads	20190513040548 0ce1462a aws.messages%s
+D aws-mime.ads		20190513040548 796c9a32 aws.mime%s
+D aws-net.ads		20190513040548 4345e169 aws.net%s
+D aws-parameters.ads	20190513040548 ff4aa491 aws.parameters%s
+D aws-resources.ads	20190513040547 407ba395 aws.resources%s
+D aws-resources-streams.ads  20190513040548 95c86167 aws.resources.streams%s
+D aws-resources-streams-memory.ads  20190513040548 eb23d323 aws.resources.streams.memory%s
+D aws-response.ads	20190513040548 907d00d3 aws.response%s
+D aws-services.ads	20190513040548 e275bf31 aws.services%s
+D aws-services-dispatchers.ads  20190513040547 ae46fd63 aws.services.dispatchers%s
+D aws-services-dispatchers-uri.ads  20190513040547 40f8a465 aws.services.dispatchers.uri%s
+D aws-services-dispatchers-uri.adb  20190513040547 e267da48 aws.services.dispatchers.uri%b
+D aws-session.ads	20190513040547 41acdbbb aws.session%s
+D aws-status.ads	20190513040547 715df1ae aws.status%s
+D aws-url.ads		20190513040548 44a3858c aws.url%s
+D aws-utils.ads		20190513040548 8f9a062b aws.utils%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-bytswa.ads		20190518041256 a4d21639 gnat.byte_swapping%s
+D g-regexp.ads		20190518041256 691be386 gnat.regexp%s
+D g-regpat.ads		20190518041257 b85d88ef gnat.regpat%s
+D g-sechas.ads		20190518041257 3b5ca98e gnat.secure_hashes%s
+D g-shsh32.ads		20190518041257 671c9849 gnat.secure_hashes.sha2_32%s
+D g-shshco.ads		20190518041257 1144502c gnat.secure_hashes.sha2_common%s
+D g-sha256.ads		20190518041257 c083f050 gnat.sha256%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D i-c.ads		20190518041255 5421119b interfaces.c%s
+D memory_streams.ads	20190513040549 bf3b9ce5 memory_streams%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-atacco.ads		20190518041257 4c36d12f system.address_to_access_conversions%s
+D s-assert.ads		20190518041256 cd8d2c94 system.assertions%s
+D s-atocou.ads		20190518041257 b45c2d8d system.atomic_counters%s
+D s-atocou.adb		20190518041256 b65612c0 system.atomic_counters%b
+D s-conca3.ads		20190518041257 0b705ca5 system.concat_3%s
+D s-conca4.ads		20190518041257 7e642b20 system.concat_4%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-finmas.ads		20190518041256 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-multip.ads		20190518041255 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20190518124529 e40aaf2d system.os_constants%s
+D s-osinte.ads		20190518041258 01b3ad47 system.os_interface%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041255 ede33ef8 system.pool_global%s
+D s-regexp.ads		20190518041257 9c7d27a7 system.regexp%s
+D s-regpat.ads		20190518041256 825a9b7f system.regpat%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stausa.ads		20190518041256 017a0a05 system.stack_usage%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stalib.adb		20190518041255 f2fe2716 system.standard_library%b
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20190518041256 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-stposu.ads		20190518041255 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20190518041255 aedef97e system.stream_attributes%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-ststop.ads		20190518041255 5fbf1b38 system.strings.stream_ops%s
+D s-tasinf.ads		20190518041257 801abd01 system.task_info%s
+D s-taspri.ads		20190518041257 f40ac08d system.task_primitives%s
+D s-taprop.ads		20190518041257 1dd2e1b6 system.task_primitives.operations%s
+D s-taskin.ads		20190518041258 b9d612e2 system.tasking%s
+D s-taprob.ads		20190518041257 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20190518041258 60ad3dae system.tasking.protected_objects.entries%s
+D s-tassta.ads		20190518041257 cca55c94 system.tasking.stages%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D templates_parser.ads	20190513040549 619e699c templates_parser%s
+D templates_parser-utils.ads  20190513040549 8849593d templates_parser.utils%s
+D templates_parser_tasking.ads  20190513040549 4c0209f0 templates_parser_tasking%s
+D zlib.ads		20190513040549 0714e1ed zlib%s
+G a e
+G c Z s b [register aws__services__dispatchers__uri 44 14 none]
+G c Z s b [register aws__services__dispatchers__uri 53 14 none]
+G c Z s b [register_regexp aws__services__dispatchers__uri 60 14 none]
+G c Z s b [register_regexp aws__services__dispatchers__uri 67 14 none]
+G c Z s b [unregister aws__services__dispatchers__uri 73 14 none]
+G c Z s b [register_default_callback aws__services__dispatchers__uri 79 14 none]
+G c Z s b [finalize aws__services__dispatchers__uri 89 25 none]
+G c Z s b [dispatch aws__services__dispatchers__uri 91 24 none]
+G c Z s b [clone aws__services__dispatchers__uri 100 24 none]
+G c Z s b [clone aws__services__dispatchers__uri 109 24 none]
+G c Z s b [match aws__services__dispatchers__uri 111 13 none]
+G c Z s s [has_element aws__services__dispatchers__uri__uri_table 107 13 115_4]
+G c Z s s [Oeq aws__services__dispatchers__uri__uri_table 117 24 115_4]
+G c Z s s [to_vector aws__services__dispatchers__uri__uri_table 126 13 115_4]
+G c Z s s [to_vector aws__services__dispatchers__uri__uri_table 129 13 115_4]
+G c Z s s [Oconcat aws__services__dispatchers__uri__uri_table 135 13 115_4]
+G c Z s s [Oconcat aws__services__dispatchers__uri__uri_table 139 13 115_4]
+G c Z s s [Oconcat aws__services__dispatchers__uri__uri_table 143 13 115_4]
+G c Z s s [Oconcat aws__services__dispatchers__uri__uri_table 147 13 115_4]
+G c Z s s [capacity aws__services__dispatchers__uri__uri_table 151 13 115_4]
+G c Z s s [reserve_capacity aws__services__dispatchers__uri__uri_table 154 14 115_4]
+G c Z s s [length aws__services__dispatchers__uri__uri_table 165 13 115_4]
+G c Z s s [set_length aws__services__dispatchers__uri__uri_table 168 14 115_4]
+G c Z s s [is_empty aws__services__dispatchers__uri__uri_table 177 13 115_4]
+G c Z s s [clear aws__services__dispatchers__uri__uri_table 180 14 115_4]
+G c Z s s [to_cursor aws__services__dispatchers__uri__uri_table 184 13 115_4]
+G c Z s s [to_index aws__services__dispatchers__uri__uri_table 191 13 115_4]
+G c Z s s [element aws__services__dispatchers__uri__uri_table 196 13 115_4]
+G c Z s s [element aws__services__dispatchers__uri__uri_table 203 13 115_4]
+G c Z s s [replace_element aws__services__dispatchers__uri__uri_table 207 14 115_4]
+G c Z s s [replace_element aws__services__dispatchers__uri__uri_table 218 14 115_4]
+G c Z s s [query_element aws__services__dispatchers__uri__uri_table 229 14 115_4]
+G c Z s s [query_element aws__services__dispatchers__uri__uri_table 240 14 115_4]
+G c Z s s [update_element aws__services__dispatchers__uri__uri_table 249 14 115_4]
+G c Z s s [update_element aws__services__dispatchers__uri__uri_table 266 14 115_4]
+G c Z s s [constant_reference aws__services__dispatchers__uri__uri_table 293 13 115_4]
+G c Z s s [reference aws__services__dispatchers__uri__uri_table 298 13 115_4]
+G c Z s s [constant_reference aws__services__dispatchers__uri__uri_table 303 13 115_4]
+G c Z s s [reference aws__services__dispatchers__uri__uri_table 308 13 115_4]
+G c Z s s [assign aws__services__dispatchers__uri__uri_table 313 14 115_4]
+G c Z s s [copy aws__services__dispatchers__uri__uri_table 315 13 115_4]
+G c Z s s [move aws__services__dispatchers__uri__uri_table 317 14 115_4]
+G c Z s s [insert aws__services__dispatchers__uri__uri_table 323 14 115_4]
+G c Z s s [insert aws__services__dispatchers__uri__uri_table 341 14 115_4]
+G c Z s s [insert aws__services__dispatchers__uri__uri_table 352 14 115_4]
+G c Z s s [insert aws__services__dispatchers__uri__uri_table 363 14 115_4]
+G c Z s s [insert aws__services__dispatchers__uri__uri_table 370 14 115_4]
+G c Z s s [insert aws__services__dispatchers__uri__uri_table 377 14 115_4]
+G c Z s s [insert aws__services__dispatchers__uri__uri_table 386 14 115_4]
+G c Z s s [insert aws__services__dispatchers__uri__uri_table 403 14 115_4]
+G c Z s s [prepend aws__services__dispatchers__uri__uri_table 414 14 115_4]
+G c Z s s [prepend aws__services__dispatchers__uri__uri_table 419 14 115_4]
+G c Z s s [append aws__services__dispatchers__uri__uri_table 426 14 115_4]
+G c Z s s [append aws__services__dispatchers__uri__uri_table 431 14 115_4]
+G c Z s s [insert_space aws__services__dispatchers__uri__uri_table 438 14 115_4]
+G c Z s s [insert_space aws__services__dispatchers__uri__uri_table 455 14 115_4]
+G c Z s s [delete aws__services__dispatchers__uri__uri_table 466 14 115_4]
+G c Z s s [delete aws__services__dispatchers__uri__uri_table 476 14 115_4]
+G c Z s s [delete_first aws__services__dispatchers__uri__uri_table 485 14 115_4]
+G c Z s s [delete_last aws__services__dispatchers__uri__uri_table 490 14 115_4]
+G c Z s s [reverse_elements aws__services__dispatchers__uri__uri_table 498 14 115_4]
+G c Z s s [swap aws__services__dispatchers__uri__uri_table 501 14 115_4]
+G c Z s s [swap aws__services__dispatchers__uri__uri_table 506 14 115_4]
+G c Z s s [first_index aws__services__dispatchers__uri__uri_table 512 13 115_4]
+G c Z s s [first aws__services__dispatchers__uri__uri_table 515 13 115_4]
+G c Z s s [first_element aws__services__dispatchers__uri__uri_table 519 13 115_4]
+G c Z s s [last_index aws__services__dispatchers__uri__uri_table 522 13 115_4]
+G c Z s s [last aws__services__dispatchers__uri__uri_table 526 13 115_4]
+G c Z s s [last_element aws__services__dispatchers__uri__uri_table 530 13 115_4]
+G c Z s s [next aws__services__dispatchers__uri__uri_table 533 13 115_4]
+G c Z s s [next aws__services__dispatchers__uri__uri_table 539 14 115_4]
+G c Z s s [previous aws__services__dispatchers__uri__uri_table 542 13 115_4]
+G c Z s s [previous aws__services__dispatchers__uri__uri_table 548 14 115_4]
+G c Z s s [find_index aws__services__dispatchers__uri__uri_table 551 13 115_4]
+G c Z s s [find aws__services__dispatchers__uri__uri_table 561 13 115_4]
+G c Z s s [reverse_find_index aws__services__dispatchers__uri__uri_table 575 13 115_4]
+G c Z s s [reverse_find aws__services__dispatchers__uri__uri_table 587 13 115_4]
+G c Z s s [contains aws__services__dispatchers__uri__uri_table 601 13 115_4]
+G c Z s s [iterate aws__services__dispatchers__uri__uri_table 606 14 115_4]
+G c Z s s [reverse_iterate aws__services__dispatchers__uri__uri_table 614 14 115_4]
+G c Z s s [iterate aws__services__dispatchers__uri__uri_table 621 13 115_4]
+G c Z s s [iterate aws__services__dispatchers__uri__uri_table 624 13 115_4]
+G c Z s s [adjust aws__services__dispatchers__uri__uri_table__implementation 90 28 678_4_115_4]
+G c Z s s [finalize aws__services__dispatchers__uri__uri_table__implementation 93 28 678_4_115_4]
+G c Z s s [zero_counts aws__services__dispatchers__uri__uri_table__implementation 96 17 678_4_115_4]
+G c Z s s [busy aws__services__dispatchers__uri__uri_table__implementation 100 17 678_4_115_4]
+G c Z s s [unbusy aws__services__dispatchers__uri__uri_table__implementation 104 17 678_4_115_4]
+G c Z s s [lock aws__services__dispatchers__uri__uri_table__implementation 108 17 678_4_115_4]
+G c Z s s [unlock aws__services__dispatchers__uri__uri_table__implementation 112 17 678_4_115_4]
+G c Z s s [tc_check aws__services__dispatchers__uri__uri_table__implementation 116 17 678_4_115_4]
+G c Z s s [te_check aws__services__dispatchers__uri__uri_table__implementation 120 17 678_4_115_4]
+G c Z s s [initialize aws__services__dispatchers__uri__uri_table__implementation 139 28 678_4_115_4]
+G c Z s s [finalize aws__services__dispatchers__uri__uri_table__implementation 140 28 678_4_115_4]
+G c Z s s [initialize aws__services__dispatchers__uri__uri_table__implementation 145 28 678_4_115_4]
+G c Z s s [finalize aws__services__dispatchers__uri__uri_table__implementation 146 28 678_4_115_4]
+G c Z s s [reference_control_typeDA aws__services__dispatchers__uri__uri_table__implementation 84 12 678_4_115_4]
+G c Z s s [reference_control_typeDF aws__services__dispatchers__uri__uri_table__implementation 84 12 678_4_115_4]
+G c Z s s [reference_control_typeIP aws__services__dispatchers__uri__uri_table__implementation 84 12 678_4_115_4]
+G c Z s s [with_busyDF aws__services__dispatchers__uri__uri_table__implementation 136 12 678_4_115_4]
+G c Z s s [with_busyIP aws__services__dispatchers__uri__uri_table__implementation 136 12 678_4_115_4]
+G c Z s s [with_lockDF aws__services__dispatchers__uri__uri_table__implementation 142 12 678_4_115_4]
+G c Z s s [with_lockIP aws__services__dispatchers__uri__uri_table__implementation 142 12 678_4_115_4]
+G c Z s s [adjust aws__services__dispatchers__uri__uri_table 699 25 115_4]
+G c Z s s [finalize aws__services__dispatchers__uri__uri_table 700 25 115_4]
+G c Z s s [write aws__services__dispatchers__uri__uri_table 702 14 115_4]
+G c Z s s [read aws__services__dispatchers__uri__uri_table 708 14 115_4]
+G c Z s s [read aws__services__dispatchers__uri__uri_table 722 14 115_4]
+G c Z s s [write aws__services__dispatchers__uri__uri_table 728 14 115_4]
+G c Z s s [write aws__services__dispatchers__uri__uri_table 747 14 115_4]
+G c Z s s [read aws__services__dispatchers__uri__uri_table 753 14 115_4]
+G c Z s s [write aws__services__dispatchers__uri__uri_table 769 14 115_4]
+G c Z s s [read aws__services__dispatchers__uri__uri_table 775 14 115_4]
+G c Z s s [pseudo_reference aws__services__dispatchers__uri__uri_table 786 13 115_4]
+G c Z s s [get_element_access aws__services__dispatchers__uri__uri_table 795 13 115_4]
+G c Z s s [cursorIP aws__services__dispatchers__uri__uri_table 717 9 115_4]
+G c Z s s [vectorDA aws__services__dispatchers__uri__uri_table 693 9 115_4]
+G c Z s s [vectorDF aws__services__dispatchers__uri__uri_table 693 9 115_4]
+G c Z s s [vectorIP aws__services__dispatchers__uri__uri_table 693 9 115_4]
+G c Z s s [constant_reference_typeDI aws__services__dispatchers__uri__uri_table 737 9 115_4]
+G c Z s s [constant_reference_typeDA aws__services__dispatchers__uri__uri_table 737 9 115_4]
+G c Z s s [constant_reference_typeDF aws__services__dispatchers__uri__uri_table 737 9 115_4]
+G c Z s s [constant_reference_typeIP aws__services__dispatchers__uri__uri_table 737 9 115_4]
+G c Z s s [reference_typeDI aws__services__dispatchers__uri__uri_table 759 9 115_4]
+G c Z s s [reference_typeDA aws__services__dispatchers__uri__uri_table 759 9 115_4]
+G c Z s s [reference_typeDF aws__services__dispatchers__uri__uri_table 759 9 115_4]
+G c Z s s [reference_typeIP aws__services__dispatchers__uri__uri_table 759 9 115_4]
+G c Z s s [finalize aws__services__dispatchers__uri__uri_table 811 25 115_4]
+G c Z s s [first aws__services__dispatchers__uri__uri_table 813 24 115_4]
+G c Z s s [last aws__services__dispatchers__uri__uri_table 814 24 115_4]
+G c Z s s [next aws__services__dispatchers__uri__uri_table 816 24 115_4]
+G c Z s s [previous aws__services__dispatchers__uri__uri_table 820 24 115_4]
+G c Z s s [elements_arrayIP aws__services__dispatchers__uri__uri_table 681 9 115_4]
+G c Z s s [elements_typeIP aws__services__dispatchers__uri__uri_table 684 9 115_4]
+G c Z s s [iteratorDF aws__services__dispatchers__uri__uri_table 803 9 115_4]
+G c Z s s [iteratorIP aws__services__dispatchers__uri__uri_table 803 9 115_4]
+G c Z s s [free aws__services__dispatchers__uri__uri_table 41 14 115_4]
+G c Z s s [append_slow_path aws__services__dispatchers__uri__uri_table 44 14 115_4]
+G c Z s s [handlerDA aws__services__dispatchers__uri 118 9 none]
+G c Z s s [handlerDF aws__services__dispatchers__uri 118 9 none]
+G c Z s s [handlerDI aws__services__dispatchers__uri 118 9 none]
+G c Z s s [handlerIP aws__services__dispatchers__uri 118 9 none]
+G c Z s s [std_uriDA aws__services__dispatchers__uri 103 9 none]
+G c Z s s [std_uriDF aws__services__dispatchers__uri 103 9 none]
+G c Z s s [std_uriDI aws__services__dispatchers__uri 103 9 none]
+G c Z s s [std_uriIP aws__services__dispatchers__uri 103 9 none]
+G c Z b b [clone aws__services__dispatchers__uri 50 24 none]
+G c Z b b [match aws__services__dispatchers__uri 53 24 none]
+G c Z b b [unchecked_free aws__services__dispatchers__uri 56 14 none]
+G c Z b b [reg_uriDA aws__services__dispatchers__uri 46 9 none]
+G c Z b b [reg_uriDF aws__services__dispatchers__uri 46 9 none]
+G c Z b b [reg_uriDI aws__services__dispatchers__uri 46 9 none]
+G c Z b b [reg_uriIP aws__services__dispatchers__uri 46 9 none]
+G r j handler [register aws__services__dispatchers__uri 44 14 none] [handlerDA aws__dispatchers 63 9 none]
+G r k handler [register aws__services__dispatchers__uri 44 14 none] [handlerDF aws__dispatchers 63 9 none]
+G r c none [register aws__services__dispatchers__uri 53 14 none] [create aws__dispatchers__callback 45 13 none]
+G r j handler [register aws__services__dispatchers__uri 53 14 none] [handlerDA aws__dispatchers 63 9 none]
+G r k handler [register aws__services__dispatchers__uri 53 14 none] [handlerDF aws__dispatchers 63 9 none]
+G r e handler [register aws__services__dispatchers__uri 53 14 none] [finalize aws__dispatchers 71 25 none]
+G r j handler [register_regexp aws__services__dispatchers__uri 60 14 none] [handlerDA aws__dispatchers 63 9 none]
+G r k handler [register_regexp aws__services__dispatchers__uri 60 14 none] [handlerDF aws__dispatchers 63 9 none]
+G r c none [register_regexp aws__services__dispatchers__uri 67 14 none] [create aws__dispatchers__callback 45 13 none]
+G r j handler [register_regexp aws__services__dispatchers__uri 67 14 none] [handlerDA aws__dispatchers 63 9 none]
+G r k handler [register_regexp aws__services__dispatchers__uri 67 14 none] [handlerDF aws__dispatchers 63 9 none]
+G r e handler [register_regexp aws__services__dispatchers__uri 67 14 none] [finalize aws__dispatchers 71 25 none]
+G r c none [unregister aws__services__dispatchers__uri 73 14 none] [free aws__dispatchers 58 14 none]
+G r c none [register_default_callback aws__services__dispatchers__uri 79 14 none] [free aws__dispatchers 58 14 none]
+G r j handler [register_default_callback aws__services__dispatchers__uri 79 14 none] [handlerDA aws__dispatchers 63 9 none]
+G r k handler [register_default_callback aws__services__dispatchers__uri 79 14 none] [handlerDF aws__dispatchers 63 9 none]
+G r c none [finalize aws__services__dispatchers__uri 89 25 none] [ref_counter aws__dispatchers 52 13 none]
+G r e handler [finalize aws__services__dispatchers__uri 89 25 none] [finalize aws__dispatchers 71 25 none]
+G r c none [finalize aws__services__dispatchers__uri 89 25 none] [free aws__dispatchers 58 14 none]
+G r c none [dispatch aws__services__dispatchers__uri 91 24 none] [uri aws__status 79 13 none]
+G r s data [dispatch aws__services__dispatchers__uri 91 24 none] [dataIP aws__response 436 9 none]
+G r l data [dispatch aws__services__dispatchers__uri 91 24 none] [dataDI aws__response 436 9 none]
+G r k data [dispatch aws__services__dispatchers__uri 91 24 none] [dataDF aws__response 436 9 none]
+G r c none [dispatch aws__services__dispatchers__uri 91 24 none] [mode aws__response 328 13 none]
+G r j data [dispatch aws__services__dispatchers__uri 91 24 none] [dataDA aws__response 436 9 none]
+G r c none [dispatch aws__services__dispatchers__uri 91 24 none] [acknowledge aws__response 234 13 none]
+G r s handler [clone aws__services__dispatchers__uri 100 24 none] [handlerIP aws__dispatchers 63 9 none]
+G r f handler [clone aws__services__dispatchers__uri 100 24 none] [initialize aws__dispatchers 69 25 none]
+G r c none [clone aws__services__dispatchers__uri 100 24 none] [ref_counter aws__dispatchers 52 13 none]
+G r e handler [clone aws__services__dispatchers__uri 100 24 none] [finalize aws__dispatchers 71 25 none]
+G r c none [clone aws__services__dispatchers__uri 100 24 none] [free aws__dispatchers 58 14 none]
+G r j handler [clone aws__services__dispatchers__uri 100 24 none] [handlerDA aws__dispatchers 63 9 none]
+G r k handler [clone aws__services__dispatchers__uri 100 24 none] [handlerDF aws__dispatchers 63 9 none]
+G r d handler [clone aws__services__dispatchers__uri 100 24 none] [adjust aws__dispatchers 70 25 none]
+G r j handler [clone aws__services__dispatchers__uri 109 24 none] [handlerDA aws__dispatchers 63 9 none]
+G r k handler [clone aws__services__dispatchers__uri 109 24 none] [handlerDF aws__dispatchers 63 9 none]
+G r d handler [handlerDA aws__services__dispatchers__uri 118 9 none] [adjust aws__dispatchers 70 25 none]
+G r c none [handlerDF aws__services__dispatchers__uri 118 9 none] [ref_counter aws__dispatchers 52 13 none]
+G r e handler [handlerDF aws__services__dispatchers__uri 118 9 none] [finalize aws__dispatchers 71 25 none]
+G r c none [handlerDF aws__services__dispatchers__uri 118 9 none] [free aws__dispatchers 58 14 none]
+G r f handler [handlerDI aws__services__dispatchers__uri 118 9 none] [initialize aws__dispatchers 69 25 none]
+G r s handler [handlerIP aws__services__dispatchers__uri 118 9 none] [handlerIP aws__dispatchers 63 9 none]
+G r j handler [clone aws__services__dispatchers__uri 50 24 none] [handlerDA aws__dispatchers 63 9 none]
+G r k handler [clone aws__services__dispatchers__uri 50 24 none] [handlerDF aws__dispatchers 63 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 54|37r14 38r14 87r8 116r10 55|32r6 57r10 172r13
+X 5 a-contai.ads
+16K13*Containers 24e19 54|37r18 116r14
+20I9*Count_Type<integer>
+X 8 a-conhel.ads
+84R12 Reference_Control_Type<20|43R9>
+X 15 a-convec.ads
+73k24*Vectors 824e27 54|37w29 116r25
+78I12*Extended_Index{integer}
+88R9*Vector<20|43R9> 54|120r26[115]
+165V13*Length{5|20I9} 55|298s40[54|115]
+177V13*Is_Empty{boolean} 55|180s37[54|115]
+196V13*Element{54|113P9} 55|78s35[54|115] 139s35[54|115] 301s32[54|115]
+431U14*Append 55|80s20[54|115] 235s17[54|115] 278s17[54|115]
+466U14*Delete 55|306s26[54|115]
+490U14*Delete_Last 55|182s30[54|115]
+512V13*First_Index{integer} 55|73s33[54|115] 134s33[54|115]
+522V13*Last_Index{78I12[54|115]} 55|73s65[54|115] 134s65[54|115]
+530V13*Last_Element{54|113P9} 55|181s38[54|115]
+X 22 a-iteint.ads
+24h9 Forward_Iterator
+32h9 Reversible_Iterator<24R9[12|70]>
+X 25 a-string.ads
+16K13*Strings 35e16 54|38r18 87r12
+X 28 a-strunb.ads
+82K21*Unbounded 756e26 54|38w26 87r20
+87R9*Unbounded_String<20|43R9> 739e14 54|105r16
+103V13*To_Unbounded_String{87R9} 55|233s30 275s20
+116V13*To_String{string} 55|201s30 303s16
+X 32 a-uncdea.ads
+20u15*Unchecked_Deallocation 55|32w10 57r14 172r17
+X 33 aws.ads
+32K9*AWS 41e8 54|32r6 33r6 34r6 35r6 40r9 42r24 47r20 63r20 81r20 104r16
+. 118r24 119r16 123r5 55|36r6 37r6 39r14 41r8 69r16 70r15 97r16 98r15 112r16
+. 113r15 177r17 228r20 232r34 245r27 254r20 260r32 270r20 274r24 287r27 315r5
+34a4*Version{string} 55|161r22
+X 41 aws-dispatchers.ads
+42K13*Dispatchers 76e20 54|32w10 42r28 47r24 63r24 81r24 104r20 118r28 119r20
+. 55|36r10 41r12 69r20 70r19 97r20 98r19 112r20 113r19 177r21 228r24 232r38
+. 245r31 254r24 260r36 270r24 274r28 287r31
+44H9*Handler<20|43R9><59|452R9> 67e14 54|42r40 47r36 63r36 81r36 118r40 55|69r32
+. 70r31 97r32 98r31 112r32 113r31 177r33 228r36 232r50 254r36 260r48 270r36
+. 274r40
+47y13*Dispatch{51|59R9} 55|142R23 156R17
+52V13*Ref_Counter{natural} 55|174s52
+56P9*Handler_Class_Access(44R9) 54|104r32 119r32
+58U14*Free 55|184s13 192s10 257s10 304s16
+69U25 Initialize<20|46p14>
+70U25 Adjust<20|47p14>
+71U25 Finalize<20|48p14> 55|177s7
+X 42 aws-dispatchers-callback.ads
+38K25*Callback 62e29 55|36w22 245r43 287r43
+45V13*Create{40R9} 55|245s52 287s52
+X 44 aws-messages.ads
+36K13*Messages 401e17 55|37w10 160r10
+186n31*S404{174E9} 55|160r19
+X 51 aws-response.ads
+51K13*Response 455e17 54|33w10 56r20 70r20 93r40 55|126r40 128r16 131r16
+. 147r16 147r42 159r14 241r20 284r20
+59R9*Data<20|43R9> 446e14 54|93r49 55|126r49 131r25
+62P9*Callback(59R9) 54|56r29 70r29 55|241r29 284r29
+66E9*Data_Mode 74e15 55|128r25
+74n7*No_Data{66E9} 55|147r51
+234V13*Acknowledge{59R9} 55|159s23
+328V13*Mode{66E9} 55|147s25
+X 52 aws-services.ads
+32K13*Services 33|32k9 52|37e17 54|40r13 123r9 55|39r18 315r9
+X 53 aws-services-dispatchers.ads
+32K22*Dispatchers 52|32k13 53|64e29 54|40r22 123r18 55|39r27 315r18
+X 54 aws-services-dispatchers-uri.ads
+40K34*URI 53|32k22 54|89E25 123l30 123e33 55|39b39 315l30 315t33
+42R9*Handler<41|44R9> 41|52p13 69P25 70P25 54|44p14 45r27 53p14 54r27 60p14
+. 61r27 67p14 68r27 73p14 74r27 79p14 80r27 89P25 89r55 91P24 92r20 100P24
+. 100r44 100r60 118c9 121e14 55|63r44 63r60 64r24 125r20 170r55 226r27 239r27
+. 253r27 268r27 282r27 295r27
+44U14*Register 45=7 46>7 47>7 48>7 55|225b14 236l8 236t16 244s7
+45r7 Dispatcher{42R9} 55|226b7 235m25 235r25
+46a7 URI{string} 55|227b7 233r51
+47c7 Action<41|44R9> 55|228b7 232r65
+48b7 Prefix{boolean} 55|229b7 233r57
+53U14*Register 54=7 55>7 56>7 57>7 55|238b14 246l8 246t16
+54r7 Dispatcher{42R9} 55|239b7 245m10
+55a7 URI{string} 55|240b7 245r22
+56p7 Action{51|62P9} 55|241b7 245r60
+57b7 Prefix{boolean} 55|242b7 245r69
+60U14*Register_Regexp 61=7 62>7 63>7 55|267b14 279l8 279t23 286s7
+61r7 Dispatcher{42R9} 55|268b7 278m25 278r25
+62a7 URI{string} 55|269b7 275r41 276r64
+63c7 Action<41|44R9> 55|270b7 274r55
+67U14*Register_Regexp 68=7 69>7 70>7 55|281b14 288l8 288t23
+68r7 Dispatcher{42R9} 55|282b7 287m10
+69a7 URI{string} 55|283b7 287r22
+70p7 Action{51|62P9} 55|284b7 287r60
+73U14*Unregister 74=7 75>7 55|294b14 313l8 313t18
+74r7 Dispatcher{42R9} 55|295b7 298r48 301r41 306m34 306r34
+75a7 URI{string} 55|296b7 303r39 312r56
+79U14*Register_Default_Callback 80=7 81>7 55|252b14 261l8 261t33
+80r7 Dispatcher{42R9} 55|253b7 256r10 257m16 257r16 260m7
+81c7 Action<41|44R9> 55|254b7 260r63
+89U25 Finalize<41|71p25> 89=35 55|170b25 194l8 194t16
+89r35 Dispatcher{42R9} 55|170b35 174r41 177m42 177r42 180r20 181r21 182m13
+. 182r13 192m16 192r16
+91V24 Dispatch{51|59R9}<41|47p13> 92>7 93>7 55|124b24 164l8 164t16
+92r7 Dispatcher{42R9} 55|125b7 134r16 134r48 139r18 155r10 156r27
+93r7 Request{57|58R9} 55|126b7 130r47 142r50 156r50
+100V24 Clone{42R9}<59|454p13> 100>31 55|63b24 86l8 86t13
+100r31 Dispatcher{42R9} 55|63b31 67r10 70r46 73r16 73r48 78r18
+103R9 Std_URI<59|452R9> 107e14 109P24 109r37 109r53 111p13 111r26 113r40
+. 55|46r24 57r38 82r17 82r32 92r37 92r53 93r17 200r26 232r21
+104p7*Action{41|56P9} 55|95r14 96m18 98r50 110r14 111m18 113r50 142r38 184m24
+. 304m27
+105r7*URI{28|87R9} 55|201r45 303r32
+106b7*Prefix{boolean} 55|203r14
+109V24 Clone{103R9}<59|454p13> 109>31 55|82R52 92b24 101l8 101t13
+109r31 URI{103R9} 55|92b31 93r28 95r10 98r46
+111V13 Match{boolean} 111>20 111>35 55|141R13 200b13 213l8 213t13
+111r20 URI{103R9} 55|200b20 201r41 203r10
+111a35 Value{string} 55|200b35 204r25 205r20 205r27 205r42 211r21
+113P9 URI_Class_Access(103R9) 116r44 55|57r53 65r24 132r16 175r21 231r24
+. 272r24 300r20
+115K12 URI_Table[15|73] 120r16 55|80r10 235r7 278r7 298r30 301r22 306r16
+119p7 Action{41|56P9} 55|67r21 68m25 70r57 155r21 156r38 192m27 256r21 257m27
+. 260m18
+120r7 Table{15|88R9[115]} 55|73r27 73r59 78r29 81m28 134r27 134r59 139r29
+. 180r31 181r32 182m24 235m36 278m36 298r59 301r52 306m45
+X 55 aws-services-dispatchers-uri.adb
+44P9 Regpat_Access(88|383R9) 47r17 172r65
+46R9 Reg_URI<54|103R9> 48e14 50P24 50r37 50r53 53P24 54r13 107r37 107r53
+. 108r17 186r28 187r32 216r13 273r21
+47p7*Reg_URI{44P9} 116m15 116r58 187m51 187r51 218r32
+50V24 Clone{46R9}<54|109p24> 50>31 107b24 118l8 118t13
+50r31 URI{46R9} 107b31 108r28 110r10 113r46 116r54
+53V24 Match{boolean}<54|111p13> 54>7 54>22 215b24 219l8 219t13
+54r7 URI{46R9} 216b7 218r28
+54a22 Value{string} 216b22 218r45 218r54
+56U14 Unchecked_Free[32|20] 189s13 305s16
+64r7 New_Dispatcher{54|42R9} 68m10 81m13 81r13 85r14
+65p7 Item{54|113P9} 78m10 82r47
+73i11 J{integer} 78r44
+93r7 New_URI{54|103R9} 96m10 100r14
+108r7 New_URI{46R9} 111m10 116m7 117r14
+130a7 URI{string} 141r30 162r40
+131r7 Result{51|59R9} 142m13 147r31 148r23
+132p7 Item{54|113P9} 139m10 141r20 142r33
+134i11 J{integer} 139r44
+171U17 Unchecked_Free[32|20] 187s16
+174i7 Ref_Counter{natural} 179r10
+175p7 Item{54|113P9} 181m13 184r19 186r16 187r41 189m29 189r29
+201a7 U{string} 204r13 205r56 205r72 211r17
+231p7 Value{54|113P9} 235r43
+272p7 Value{54|113P9} 278r43
+298i11 K{integer} 301r59 306r52
+300p13 Item{54|113P9} 303r27 304r22 305m32 305r32
+X 57 aws-status.ads
+52K13*Status 54|34w10 93r20 55|126r20 130r35 57|405e15
+58R9*Data 54|93r27 55|126r27 57|403e14
+79V13*URI{string} 55|130s42
+X 59 aws-utils.ads
+44K13*Utils 54|35w10 103r24 59|461e14
+452h9*Clonable 54|103r30
+454y13*Clone{452R9} 55|70R64 98R57 113R57
+X 60 gnat.ads
+34K9*GNAT 55|34r6 42r8 60|57e9
+X 63 g-regpat.ads
+72K14*Regpat=72:36 55|34w11 44r37 116r30 172r41 218r14 276r24 276r48
+X 71 system.ads
+67M9*Address
+X 81 s-memory.ads
+53V13*Alloc{71|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{71|67M9} 105i<c,__gnat_realloc>22
+X 88 s-regpat.ads
+383R9*Pattern_Matcher 55|44r44 116r37 172r48 276r31 88|644e14
+389V13*Compile{383R9} 55|276s55
+556V14*Match{natural} 55|218s21
+X 92 s-stausa.ads
+203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
+268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
+X 94 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+

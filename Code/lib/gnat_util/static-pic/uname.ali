@@ -1,0 +1,375 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P SS ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_RECURSION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U uname%b		uname.adb		2f603bca NE OO PK
+W atree%s		atree.adb		atree.ali
+W casing%s		casing.adb		casing.ali
+W einfo%s		einfo.adb		einfo.ali
+W hostparm%s		hostparm.ads		hostparm.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W lib%s			lib.adb			lib.ali
+W nlists%s		nlists.adb		nlists.ali
+W output%s		output.adb		output.ali
+W sinfo%s		sinfo.adb		sinfo.ali
+W sinput%s		sinput.adb		sinput.ali
+
+U uname%s		uname.ads		7ba289ea EE NE OO PK
+W namet%s		namet.adb		namet.ali
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D aspects.ads		20190518044710 bc94048b aspects%s
+D atree.ads		20190518044709 2c9e949c atree%s
+D atree.adb		20190518044709 3ab87b63 atree%b
+D casing.ads		20190518044709 9b922bd9 casing%s
+D csets.ads		20190518044709 e948558f csets%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D einfo.ads		20190518044709 0cc0e22d einfo%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-byorma.ads		20190518041256 2b13b02c gnat.byte_order_mark%s
+D g-hesorg.ads		20190518041255 106922da gnat.heap_sort_g%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D lib.ads		20190518044709 a95956cc lib%s
+D lib.adb		20190518044709 263934f5 lib%b
+D lib-list.adb		20190518044709 b37fd35d lib.list
+D lib-sort.adb		20190518044709 857b8e8e lib.sort
+D namet.ads		20190518044709 b520bebe namet%s
+D nlists.ads		20190518044709 0f3f40a5 nlists%s
+D nlists.adb		20190518044709 75b2fe96 nlists%b
+D opt.ads		20190518044710 3d2ce478 opt%s
+D output.ads		20190518044709 a916e413 output%s
+D scans.ads		20190518044709 8b26a439 scans%s
+D sinfo.ads		20190518044709 4a0f957d sinfo%s
+D sinfo.adb		20190518044709 61e0e836 sinfo%b
+D sinput.ads		20190518044709 573062f0 sinput%s
+D sinput.adb		20190518044709 d9451392 sinput%b
+D snames.ads		20190518132638 5f03100c snames%s
+D stand.ads		20190518044709 4852f602 stand%s
+D stringt.ads		20190518044709 36edeb84 stringt%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D uintp.ads		20190518044709 c6012b27 uintp%s
+D uname.ads		20190518044709 1136d870 uname%s
+D uname.adb		20190518044709 03dd4039 uname%b
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D urealp.ads		20190518044709 e500ee51 urealp%s
+D widechar.ads		20190518044709 afb9abd7 widechar%s
+G a e
+G c Z s b [get_body_name uname 72 13 none]
+G c Z s b [get_parent_body_name uname 76 13 none]
+G c Z s b [get_parent_spec_name uname 79 13 none]
+G c Z s b [get_external_unit_name_string uname 84 14 none]
+G c Z s b [get_spec_name uname 91 13 none]
+G c Z s b [get_unit_name uname 95 13 none]
+G c Z s b [get_unit_name_string uname 119 14 none]
+G c Z s b [is_body_name uname 128 13 none]
+G c Z s b [is_child_name uname 132 13 none]
+G c Z s b [is_internal_unit_name uname 136 13 none]
+G c Z s b [is_predefined_unit_name uname 142 13 none]
+G c Z s b [is_spec_name uname 148 13 none]
+G c Z s b [name_to_unit_name uname 152 13 none]
+G c Z s b [new_child uname 156 13 none]
+G c Z s b [uname_ge uname 172 13 none]
+G c Z s b [uname_gt uname 173 13 none]
+G c Z s b [uname_le uname 174 13 none]
+G c Z s b [uname_lt uname 175 13 none]
+G c Z s b [write_unit_name uname 183 14 none]
+G c Z b b [has_prefix uname 44 13 none]
+G r c none [get_body_name uname 72 13 none] [get_name_string namet 600 14 none]
+G r c none [get_body_name uname 72 13 none] [name_find namet 343 13 none]
+G r c none [get_parent_body_name uname 76 13 none] [get_name_string namet 600 14 none]
+G r c none [get_parent_body_name uname 76 13 none] [name_find namet 343 13 none]
+G r c none [get_parent_spec_name uname 79 13 none] [get_name_string namet 600 14 none]
+G r c none [get_parent_spec_name uname 79 13 none] [name_find namet 343 13 none]
+G r c none [get_external_unit_name_string uname 84 14 none] [get_name_string namet 600 14 none]
+G r c none [get_spec_name uname 91 13 none] [get_name_string namet 600 14 none]
+G r c none [get_spec_name uname 91 13 none] [name_find namet 343 13 none]
+G r c none [get_unit_name uname 95 13 none] [nkind atree 657 13 none]
+G r c none [get_unit_name uname 95 13 none] [entity sinfo 9568 13 none]
+G r c none [get_unit_name uname 95 13 none] [declaration_node einfo 7597 13 none]
+G r c none [get_unit_name uname 95 13 none] [parent atree 665 13 none]
+G r c none [get_unit_name uname 95 13 none] [chars sinfo 9349 13 none]
+G r c none [get_unit_name uname 95 13 none] [get_name_string namet 600 14 none]
+G r c none [get_unit_name uname 95 13 none] [name sinfo 10000 13 none]
+G r c none [get_unit_name uname 95 13 none] [defining_identifier sinfo 9475 13 none]
+G r c none [get_unit_name uname 95 13 none] [prefix sinfo 10117 13 none]
+G r c none [get_unit_name uname 95 13 none] [selector_name sinfo 10219 13 none]
+G r c none [get_unit_name uname 95 13 none] [defining_unit_name sinfo 9478 13 none]
+G r c none [get_unit_name uname 95 13 none] [specification sinfo 10231 13 none]
+G r c none [get_unit_name uname 95 13 none] [unit sinfo 10309 13 none]
+G r c none [get_unit_name uname 95 13 none] [proper_body sinfo 10144 13 none]
+G r c none [get_unit_name uname 95 13 none] [pragma_argument_associations sinfo 10102 13 none]
+G r c none [get_unit_name uname 95 13 none] [first nlists 124 13 none]
+G r c none [get_unit_name uname 95 13 none] [expression sinfo 9616 13 none]
+G r c none [get_unit_name uname 95 13 none] [name_find namet 343 13 none]
+G r c none [get_unit_name_string uname 119 14 none] [get_decoded_name_string namet 596 14 none]
+G r c none [get_unit_name_string uname 119 14 none] [source_index lib 472 13 none]
+G r c none [get_unit_name_string uname 119 14 none] [identifier_casing sinput 302 13 none]
+G r c none [get_unit_name_string uname 119 14 none] [set_casing casing 84 14 none]
+G r c none [is_body_name uname 128 13 none] [get_name_string namet 600 14 none]
+G r c none [is_child_name uname 132 13 none] [get_name_string namet 600 14 none]
+G r c none [is_spec_name uname 148 13 none] [get_name_string namet 600 14 none]
+G r c none [name_to_unit_name uname 152 13 none] [get_name_string namet 600 14 none]
+G r c none [name_to_unit_name uname 152 13 none] [name_find namet 343 13 none]
+G r c none [new_child uname 156 13 none] [get_name_string namet 600 14 none]
+G r c none [new_child uname 156 13 none] [name_find namet 343 13 none]
+G r c none [uname_ge uname 172 13 none] [get_name_string namet 600 14 none]
+G r c none [uname_gt uname 173 13 none] [get_name_string namet 600 14 none]
+G r c none [uname_le uname 174 13 none] [get_name_string namet 600 14 none]
+G r c none [uname_lt uname 175 13 none] [get_name_string namet 600 14 none]
+G r c none [write_unit_name uname 183 14 none] [get_decoded_name_string namet 596 14 none]
+G r c none [write_unit_name uname 183 14 none] [source_index lib 472 13 none]
+G r c none [write_unit_name uname 183 14 none] [identifier_casing sinput 302 13 none]
+G r c none [write_unit_name uname 183 14 none] [set_casing casing 84 14 none]
+G r c none [write_unit_name uname 183 14 none] [write_str output 130 14 none]
+X 7 atree.ads
+44K9*Atree 4321e10 54|32w6 32r20
+657V13*Nkind{28|8645E9} 54|229s39 349s16 363s10 369s13 373s10 374s17 384s12
+665V13*Parent{51|397I9} 54|350s18 376s18
+X 8 atree.adb
+2658V16 Traverse[7|601]{7|595E12} 2523b13[31|944]
+X 9 casing.ads
+35K9*Casing 98e11 54|33w6 33r20
+84U14*Set_Casing 54|436s7
+X 12 einfo.ads
+37K9*Einfo 9617e10 54|34w6 34r20
+7021I12*N{51|397I9}
+7597V13*Declaration_Node{7021I12} 54|364s18 370s18
+X 16 hostparm.ads
+38K9*Hostparm 73e13 54|35w6 177r39 684r35
+60N4*Max_Name_Length 54|177r48 684r44
+X 18 lib.ads
+40K9*Lib 1025e8 54|36w6 36r20
+472V13*Source_Index{51|575I9} 54|436s38
+X 22 namet.ads
+37K9*Namet 768e10 53|32w6 32r17
+169a4*Name_Buffer{string} 54|57r33 58r33 60r7 82r13 98r13 99r13 100r13 104r13
+. 104r37 120r13 125r7 127r7 140r13 148r7 150r7 164r33 165r33 167r7 220r23
+. 416r7 435r23 446r10 454r13 456r13 461r13 462r13 500r18 501r18 515r13 600r18
+. 601r18 611r7 612r7 631r37 644r13 686r37 699r41 740r18
+170i4*Name_Len{natural} 54|56r22 57r46 58r46 60r20 76r7 76r19 81r21 95r17
+. 97r29 109r7 109r19 120r26 121r25 122r10 122r22 125r20 126r7 126r19 127r20
+. 140r26 141r13 144r13 144r25 148r20 149r7 149r19 150r20 163r22 164r46 165r46
+. 167r20 219r24 418r7 435r36 447r10 447r22 454r26 454r42 456r26 456r42 460r21
+. 469r10 469r22 471r10 471r22 499r14 500r31 501r31 513r12 599r14 600r31 601r31
+. 611r20 612r20 613r7 613r19 631r55 635r10 635r22 643r13 643r25 644r26 687r38
+. 699r24 699r59 700r22 740r36
+188I9*Name_Id<integer> 53|152r36 54|191r34 215r34 608r36
+204I12*Valid_Name_Id{188I9}
+343V13*Name_Find{204I12} 54|61s14 128s14 151s14 168s14 419s14 614s14 648s17
+596U14*Get_Decoded_Name_String 54|434s7
+600U14*Get_Name_String 54|54s7 75s7 118s7 138s7 161s7 217s10 498s7 512s7
+. 598s7 610s7 628s7 634s10 698s7 701s7
+653I9*Unit_Name_Type<188I9> 53|72r32 72r55 76r39 76r62 79r39 79r62 84r49
+. 91r32 91r55 95r48 120r16 128r31 132r32 148r31 152r52 157r14 158r14 158r37
+. 172r37 173r37 174r37 175r37 183r35 54|52r32 52r55 68r49 116r39 116r62 136r39
+. 136r62 159r32 159r55 175r48 428r16 496r31 508r32 596r31 608r52 622r14 623r14
+. 623r37 656r37 665r37 674r37 683r37 737r35
+658i4*No_Unit_Name{653I9} 54|142r20
+X 23 nlists.ads
+41K9*Nlists 396e11 54|37w6 37r20
+124V13*First{51|406I12} 54|320s46
+X 26 output.ads
+44K9*Output 213e11 54|38w6 38r20
+130U14*Write_Str 54|740s7
+X 28 sinfo.ads
+54K9*Sinfo 14019e10 54|39w6 39r20
+8645E9*Node_Kind 9039e23 54|229r26
+8679n7*N_Defining_Identifier{8645E9} 54|241r21 363r25
+8680n7*N_Defining_Operator_Symbol{8645E9} 54|242r21
+8684n7*N_Expanded_Name{8645E9} 54|256r21 369r28
+8689n7*N_Identifier{8645E9} 54|243r21 402r15
+8799n7*N_Selected_Component{8645E9} 54|257r21 405r15
+8822n7*N_Protected_Type_Declaration{8645E9} 54|328r21 391r15
+8839n7*N_Task_Type_Declaration{8645E9} 54|331r21 396r15
+8843n7*N_Package_Body_Stub{8645E9} 54|303r21
+8844n7*N_Protected_Body_Stub{8645E9} 54|304r21
+8845n7*N_Subprogram_Body_Stub{8645E9} 54|295r21
+8846n7*N_Task_Body_Stub{8645E9} 54|305r21
+8860n7*N_Package_Body{8645E9} 54|278r21 403r15
+8861n7*N_Subprogram_Body{8645E9} 54|270r21 406r15
+8865n7*N_Protected_Body{8645E9} 54|281r21 404r15
+8866n7*N_Task_Body{8645E9} 54|282r21 408r15
+8871n7*N_Package_Declaration{8645E9} 54|269r21 388r15
+8872n7*N_Single_Task_Declaration{8645E9} 54|330r21 393r15
+8873n7*N_Subprogram_Declaration{8645E9} 54|271r21 394r15
+8890n7*N_Package_Renaming_Declaration{8645E9} 54|286r21 389r15
+8891n7*N_Subprogram_Renaming_Declaration{8645E9} 54|289r21 395r15
+8977n7*N_Compilation_Unit{8645E9} 54|300r21 349r29
+8985n7*N_Defining_Program_Unit_Name{8645E9} 54|251r21
+9020n7*N_Package_Specification{8645E9} 54|263r21 373r25
+9023n7*N_Pragma{8645E9} 54|319r21 390r15
+9029n7*N_Single_Protected_Declaration{8645E9} 54|329r21 392r15
+9030n7*N_Subunit{8645E9} 54|311r21 407r15
+9038n7*N_With_Clause{8645E9} 54|316r21 397r15
+9060E12*N_Body_Stub{8645E9} 54|401r15
+9086E12*N_Generic_Declaration{8645E9} 54|268r21 385r15
+9090E12*N_Generic_Instantiation{8645E9} 54|275r21 386r15
+9094E12*N_Generic_Renaming_Declaration{8645E9} 54|292r21 387r15
+9220E12*N_Subprogram_Specification{8645E9} 54|264r21 374r33
+9349V13*Chars{22|188I9} 54|249s29
+9475V13*Defining_Identifier{51|400I12} 54|254s34 284s34 309s34 333s34
+9478V13*Defining_Unit_Name{51|397I9} 54|266s34 276s34 279s34 287s34 293s34
+9568V13*Entity{51|397I9} 54|370s36
+9616V13*Expression{51|397I9} 54|320s34
+10000V13*Name{51|397I9} 54|252s34 312s34 317s34
+10102V13*Pragma_Argument_Associations{51|446I9} 54|321s22
+10117V13*Prefix{51|397I9} 54|259s34
+10144V13*Proper_Body{51|397I9} 54|314s34
+10219V13*Selector_Name{51|397I9} 54|261s34
+10231V13*Specification{51|397I9} 54|273s34 290s34 298s34
+10309V13*Unit{51|397I9} 54|301s34
+X 30 sinput.ads
+70K9*Sinput 967e11 54|40w6 40r20
+302V13*Identifier_Casing{9|48E9} 54|436s19
+X 31 sinput.adb
+944U17 Traverse[7|627] 8|2657b14
+X 35 system.ads
+67M9*Address
+X 38 s-memory.ads
+53V13*Alloc{35|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{35|67M9} 105i<c,__gnat_realloc>22
+X 51 types.ads
+52K9*Types 948e10 53|33w6 33r17
+59I9*Int<integer>
+397I9*Node_Id<integer> 53|95r32 54|175r32 185r14 194r39 197r35 197r51 228r39
+. 345r35 345r51 346r14
+400I12*Entity_Id{397I9}
+406I12*Node_Or_Entity_Id{397I9}
+422i4*Error{397I9} 54|234r20
+446I9*List_Id<integer>
+564I9*Unit_Number_Type<59I9>
+569i4*Main_Unit{564I9} 54|436r52
+575I9*Source_File_Index<59I9>
+X 53 uname.ads
+35K9*Uname 188l5 188e10 54|42b14 743l5 743t10
+72V13*Get_Body_Name{22|653I9} 72>28 54|52b13 62l8 62t21
+72i28 N{22|653I9} 54|52b28 54r24
+76V13*Get_Parent_Body_Name{22|653I9} 76>35 54|116b13 130l8 130t28
+76i35 N{22|653I9} 54|116b35 118r24
+79V13*Get_Parent_Spec_Name{22|653I9} 79>35 54|136b13 153l8 153t28
+79i35 N{22|653I9} 54|136b35 138r24
+84U14*Get_External_Unit_Name_String 84>45 54|68b14 110l8 110t37
+84i45 N{22|653I9} 54|68b45 75r24
+91V13*Get_Spec_Name{22|653I9} 91>28 54|159b13 169l8 169t21
+91i28 N{22|653I9} 54|159b28 161r24
+95V13*Get_Unit_Name{22|653I9} 95>28 54|175b13 421l8 421t21
+95i28 N{51|397I9} 54|175b28 359r15
+119U14*Get_Unit_Name_String 120>7 121>7 54|427b14 473l8 473t28 739s7
+120i7 N{22|653I9} 54|428b7 434r32
+121b7 Suffix{boolean} 54|429b7 452r10 468r10
+128V13*Is_Body_Name{boolean} 128>27 54|496b13 502l8 502t20
+128i27 N{22|653I9} 54|496b27 498r24
+132V13*Is_Child_Name{boolean} 132>28 54|508b13 524l8 524t21
+132i28 N{22|653I9} 54|508b28 512r24
+136V13*Is_Internal_Unit_Name{boolean} 137>7 138>7 54|530b13 546l8 546t29
+137a7 Name{string} 54|531b7 537r10 541r22 545r39
+138b7 Renamings_Included{boolean} 54|532b7 545r45
+142V13*Is_Predefined_Unit_Name{boolean} 143>7 144>7 54|545s14 552b13 590l8
+. 590t31
+143a7 Name{string} 54|553b7 561r10 562r17 563r17 568r22 569r29 570r29 582r9
+. 583r19 584r19 585r19 586r19 587r19 588r19 589r19
+144b7 Renamings_Included{boolean} 54|554b7 575r14
+148V13*Is_Spec_Name{boolean} 148>27 54|596b13 602l8 602t20
+148i27 N{22|653I9} 54|596b27 598r24
+152V13*Name_To_Unit_Name{22|653I9} 152>32 54|608b13 615l8 615t25
+152i32 N{22|188I9} 54|608b32 610r24
+156V13*New_Child{22|653I9} 157>7 158>7 54|621b13 650l8 650t17
+157i7 Old{22|653I9} 54|622b7 628r24
+158i7 Newp{22|653I9} 54|623b7 634r27
+172V13*Uname_Ge{boolean} 172>23 172>29 54|656b13 659l8 659t16
+172i23 Left{22|653I9} 54|656b23 658r14 658r45
+172i29 Right{22|653I9} 54|656b29 658r21 658r51
+173V13*Uname_Gt{boolean} 173>23 173>29 54|658s35 665b13 668l8 668t16
+173i23 Left{22|653I9} 54|665b23 667r14 667r51
+173i29 Right{22|653I9} 54|665b29 667r22 667r57
+174V13*Uname_Le{boolean} 174>23 174>29 54|674b13 677l8 677t16
+174i23 Left{22|653I9} 54|674b23 676r14 676r45
+174i29 Right{22|653I9} 54|674b29 676r21 676r51
+175V13*Uname_Lt{boolean} 175>23 175>29 54|667s41 676s35 683b13 731l8 731t16
+175i23 Left{22|653I9} 54|683b23 694r10 698r24
+175i29 Right{22|653I9} 54|683b29 694r17 701r24
+183U14*Write_Unit_Name 183>31 54|737b14 741l8 741t23
+183i31 N{22|653I9} 54|737b31 739r29
+X 54 uname.adb
+44V13 Has_Prefix{boolean} 44>25 44>28 479b13 490l8 490t18 541s10 568s10 569s17
+. 570s17
+44a25 X{string} 479b25 481r10 484r23 484r26 484r37
+44a28 Prefix{string} 479b28 481r22 484r47 486r28 541r28 568r28 569r35 570r35
+69i7 Pcount{natural} 80m7 83m13 83r23 89r10 95r28 109r30
+70i7 Newlen{natural} 95m7 99r26 100r26 101m13 101r23 104r26 105m13 105r23
+81i11 J{integer} 82r26
+97i11 J{integer} 98r26 104r50
+177a7 Unit_Name_Buffer{string} 208m10 417r9
+182i7 Unit_Name_Length{natural} 207m10 207r30 208r28 416r25 417r32 418r19
+185i7 Node{51|397I9} 359m7 363r17 364m10 364r36 369r20 370m10 370r44 373r17
+. 374r24 376m10 376r26 381r22 384r19
+188U17 Add_Char 188>27 204b17 209l11 209t19 220s13 253s19 260s19 297s19 308s19
+. 313s19 382s7 399s13 410s13
+188e27 C{character} 204b27 208r49
+191U17 Add_Name 191>27 215b17 222l11 222t19 249s19
+191i27 Name{22|188I9} 215b27 217r27
+194U17 Add_Node_Name 194>32 228b17 252s19 254s19 259s19 261s19 266s19 273s19
+. 276s19 279s19 284s19 287s19 290s19 293s19 296s19 298s19 301s19 307s19 309s19
+. 312s19 314s19 317s19 320s19 333s19 339l11 339t24 381s7
+194i32 Node{51|397I9} 228b32 229r46 234r13 249r36 252r40 254r55 259r42 261r49
+. 266r54 273r49 276r54 279r54 284r55 287r54 290r49 293r54 296r46 298r49 301r40
+. 307r46 309r55 312r40 314r47 317r40 321r52 333r55
+197V16 Get_Parent{51|397I9} 197>28 296s34 307s34 345b16 354l11 354t21
+197i28 Node{51|397I9} 345b28 346r25
+219i14 J{integer} 220r36
+229e10 Kind{28|8645E9} 240r18
+346i10 N{51|397I9} 349r23 350m13 350r26 353r17
+431b7 Unit_Is_Body{boolean} 435m7 453r13
+460i11 J{integer} 461r26 462r26
+483a13 Slice{string} 486r20
+509i7 J{natural} 513m7 515r26 516r13 519m13 519r18
+534a7 Gnat{string} 537r17 541r38
+556a7 Ada{string} 561r17 568r38
+557a7 Interfaces{string} 562r24 569r45
+558a7 System{string} 563r24 570r45
+625i7 P{natural} 637m10 638r23 639m13 639r18 642r16 644r46 645m13 645r18
+631a10 Child{string} 637r15 638r16 642r21 644r39
+684a7 Left_Name{string} 699m7 705r20 713r13 714r20 730r14
+685i7 Left_Length{natural} 700m7 711r30
+686a7 Right_Name=686:37{string} 707r13 713r30 714r36 722r10
+687i7 Right_Length=687:38{natural} 691r29 711r56
+688i7 J{natural} 702m7 705r31 707r25 711r25 711r51 713r24 713r42 714r31 714r48
+. 717m10 717r15 722r22 730r25
+

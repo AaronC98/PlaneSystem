@@ -1,0 +1,639 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>5.2. Subprogram Contracts &#8212; SPARK 2014 User&#39;s Guide 2019</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2019',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5.3. Package Contracts" href="package_contracts.html" />
+    <link rel="prev" title="5.1. Language Restrictions" href="language_restrictions.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="package_contracts.html" title="5.3. Package Contracts"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="language_restrictions.html" title="5.1. Language Restrictions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../spark_2014.html" accesskey="U">5. Overview of SPARK Language</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5.2. Subprogram Contracts</a><ul>
+<li><a class="reference internal" href="#preconditions">5.2.1. Preconditions</a></li>
+<li><a class="reference internal" href="#postconditions">5.2.2. Postconditions</a></li>
+<li><a class="reference internal" href="#contract-cases">5.2.3. Contract Cases</a></li>
+<li><a class="reference internal" href="#data-dependencies">5.2.4. Data Dependencies</a></li>
+<li><a class="reference internal" href="#flow-dependencies">5.2.5. Flow Dependencies</a></li>
+<li><a class="reference internal" href="#state-abstraction-and-contracts">5.2.6. State Abstraction and Contracts</a><ul>
+<li><a class="reference internal" href="#state-abstraction-and-dependencies">5.2.6.1. State Abstraction and Dependencies</a></li>
+<li><a class="reference internal" href="#state-abstraction-and-functional-contracts">5.2.6.2. State Abstraction and Functional Contracts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="language_restrictions.html"
+                        title="previous chapter">5.1. Language Restrictions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="package_contracts.html"
+                        title="next chapter">5.3. Package Contracts</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/en/source/subprogram_contracts.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="subprogram-contracts">
+<span id="id1"></span><h1>5.2. Subprogram Contracts<a class="headerlink" href="#subprogram-contracts" title="Permalink to this headline">¶</a></h1>
+<p>The most important feature to specify the intended behavior of a SPARK
+program is the ability to attach a contract to subprograms. In this document, a
+<cite>subprogram</cite> can be a procedure, a function or a protected entry. This contract
+is made up of various optional parts:</p>
+<ul class="simple">
+<li>The <cite>precondition</cite> introduced by aspect <code class="docutils literal"><span class="pre">Pre</span></code> specifies constraints on
+callers of the subprogram.</li>
+<li>The <cite>postcondition</cite> introduced by aspect <code class="docutils literal"><span class="pre">Post</span></code> specifies (partly or
+completely) the functional behavior of the subprogram.</li>
+<li>The <cite>contract cases</cite> introduced by aspect <code class="docutils literal"><span class="pre">Contract_Cases</span></code> is a way to
+partition the behavior of a subprogram. It can replace or complement a
+precondition and a postcondition.</li>
+<li>The <cite>data dependencies</cite> introduced by aspect <code class="docutils literal"><span class="pre">Global</span></code> specify the global
+data read and written by the subprogram.</li>
+<li>The <cite>flow dependencies</cite> introduced by aspect <code class="docutils literal"><span class="pre">Depends</span></code> specify how
+subprogram outputs depend on subprogram inputs.</li>
+</ul>
+<p>Which contracts to write for a given verification objective, and how
+GNATprove generates default contracts, is detailed in <a class="reference internal" href="how_to_write_subprogram_contracts.html#how-to-write-subprogram-contracts"><span class="std std-ref">How to Write Subprogram Contracts</span></a>.</p>
+<p>The contract on a subprogram describes the behavior of successful
+calls. Executions that end up by signalling an error, as described in
+<a class="reference internal" href="language_restrictions.html#raising-exceptions-and-other-error-signaling-mechanisms"><span class="std std-ref">Raising Exceptions and Other Error Signaling Mechanisms</span></a>, are not covered
+by the subprogram&#8217;s contract. A call to a subprogram is successful if execution
+terminates normally, or if execution loops without errors for a subprogram
+marked with aspect <code class="docutils literal"><span class="pre">No_Return</span></code> that has some outputs (this is typically the
+case of a non-terminating subprogram implementing the main loop of a
+controller).</p>
+<div class="section" id="preconditions">
+<span id="id2"></span><h2>5.2.1. Preconditions<a class="headerlink" href="#preconditions" title="Permalink to this headline">¶</a></h2>
+<p>[Ada 2012]</p>
+<p>The precondition of a subprogram specifies constraints on callers of the
+subprogram. Typically, preconditions are written as conjunctions of constraints
+that fall in one of the following categories:</p>
+<ul class="simple">
+<li>exclusion of forbidden values of parameter, for example <code class="docutils literal"><span class="pre">X</span> <span class="pre">/=</span> <span class="pre">0</span></code> or <code class="docutils literal"><span class="pre">Y</span> <span class="pre">not</span>
+<span class="pre">in</span> <span class="pre">Active_States</span></code></li>
+<li>specification of allowed parameter values, for example <code class="docutils literal"><span class="pre">X</span> <span class="pre">in</span> <span class="pre">1</span> <span class="pre">..</span> <span class="pre">10</span></code> or
+<code class="docutils literal"><span class="pre">Y</span> <span class="pre">in</span> <span class="pre">Idle_States</span></code></li>
+<li>relations that should hold between parameter values, for example <code class="docutils literal"><span class="pre">(if</span> <span class="pre">Y</span> <span class="pre">in</span>
+<span class="pre">Active_State</span> <span class="pre">then</span> <span class="pre">Z</span> <span class="pre">/=</span> <span class="pre">Null_State)</span></code></li>
+<li>expected values of global variables denoting the state of the computation,
+for example <code class="docutils literal"><span class="pre">Current_State</span> <span class="pre">in</span> <span class="pre">Active_States</span></code></li>
+<li>invariants about the global state that should hold when calling this
+subprogram, for example <code class="docutils literal"><span class="pre">Is_Complete</span> <span class="pre">(State_Mapping)</span></code></li>
+<li>relations involving the global state and input parameters that should hold
+when calling this subprogram, for example <code class="docutils literal"><span class="pre">X</span> <span class="pre">in</span> <span class="pre">Next_States</span> <span class="pre">(Global_Map,</span>
+<span class="pre">Y)</span></code></li>
+</ul>
+<p>When the program is compiled with assertions (for example with switch
+<code class="docutils literal"><span class="pre">-gnata</span></code> in GNAT), the precondition of a subprogram is checked at run
+time every time the subprogram is called. An exception is raised if the
+precondition fails. Not all assertions need to be enabled though. For example,
+a common idiom is to enable only preconditions (and not other assertions) in
+the production binary, by setting pragma <code class="docutils literal"><span class="pre">Assertion_Policy</span></code> as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">pragma</span><span class="p"> </span><span class="n">Assertion_Policy</span> <span class="o">(</span><span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">Check</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>When a subprogram is analyzed with GNATprove, its precondition is used to
+restrict the contexts in which it may be executed, which is required in general
+to prove that the subprogram&#8217;s implementation:</p>
+<ul class="simple">
+<li>is free from run-time errors (see <a class="reference internal" href="how_to_write_subprogram_contracts.html#writing-contracts-for-program-integrity"><span class="std std-ref">Writing Contracts for Program Integrity</span></a>); and</li>
+<li>ensures that the postcondition of the subprogram always holds (see
+<a class="reference internal" href="how_to_write_subprogram_contracts.html#writing-contracts-for-functional-correctness"><span class="std std-ref">Writing Contracts for Functional Correctness</span></a>).</li>
+</ul>
+<p>In particular, the default precondition of <code class="docutils literal"><span class="pre">True</span></code> used by GNATprove when no
+explicit one is given may not be precise enough, unless it can be analyzed in
+the context of its callers by GNATprove (see <a class="reference internal" href="how_to_write_subprogram_contracts.html#contextual-analysis-of-subprograms-without-contracts"><span class="std std-ref">Contextual Analysis of Subprograms Without Contracts</span></a>). When a caller is analyzed with GNATprove, it
+checks that the precondition of the called subprogram holds at the point of
+call. And even when the implementation of the subprogram is not analyzed with
+GNATprove, it may be necessary to add a precondition to the subprogram for
+analyzing its callers (see <a class="reference internal" href="how_to_write_subprogram_contracts.html#writing-contracts-on-imported-subprograms"><span class="std std-ref">Writing Contracts on Imported Subprograms</span></a>).</p>
+<p>For example, consider the procedure <code class="docutils literal"><span class="pre">Add_To_Total</span></code> which increments global
+counter <code class="docutils literal"><span class="pre">Total</span></code> by the value given in parameter <code class="docutils literal"><span class="pre">Incr</span></code>. To ensure that
+there are no integer overflows in the implementation, <code class="docutils literal"><span class="pre">Incr</span></code> should not be
+too large, which a user can express with the following precondition:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">Incr</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">Total</span> <span class="o">&lt;=</span> <span class="n">Integer</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="n">Incr</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>To ensure that the value of <code class="docutils literal"><span class="pre">Total</span></code> remains non-negative, one should also add
+the condition <code class="docutils literal"><span class="pre">Total</span> <span class="pre">&gt;=</span> <span class="pre">0</span></code> to the precondition:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Pre</span> <span class="o">=&gt;</span> <span class="n">Incr</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">Total</span> <span class="kr">in</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="n">Integer</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="n">Incr</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Finally, GNATprove also analyzes preconditions to ensure that they are free
+from run-time errors in all contexts. This may require writing the precondition
+in a special way. For example, the precondition of <code class="docutils literal"><span class="pre">Add_To_Total</span></code> above uses
+the shorcut boolean operator <code class="docutils literal"><span class="pre">and</span> <span class="pre">then</span></code> instead of <code class="docutils literal"><span class="pre">and</span></code>, so that calling
+the procedure in a context where <code class="docutils literal"><span class="pre">Incr</span></code> is negative does not result in an
+overflow when evaluating <code class="docutils literal"><span class="pre">Integer'Last</span> <span class="pre">-</span> <span class="pre">Incr</span></code>. Instead, the use of <code class="docutils literal"><span class="pre">and</span>
+<span class="pre">then</span></code> ensures that a precondition failure will occur before the expression
+<code class="docutils literal"><span class="pre">Integer'Last</span> <span class="pre">-</span> <span class="pre">Incr</span></code> is evaluated.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is good practice to use the shortcut boolean operator <code class="docutils literal"><span class="pre">and</span> <span class="pre">then</span></code>
+instead of <code class="docutils literal"><span class="pre">and</span></code> in preconditions. This is required in some cases by
+GNATprove to prove absence of run-time errors inside preconditions.</p>
+</div>
+</div>
+<div class="section" id="postconditions">
+<span id="id3"></span><h2>5.2.2. Postconditions<a class="headerlink" href="#postconditions" title="Permalink to this headline">¶</a></h2>
+<p>[Ada 2012]</p>
+<p>The postcondition of a subprogram specifies partly or completely the functional
+behavior of the subprogram. Typically, postconditions are written as
+conjunctions of properties that fall in one of the following categories:</p>
+<ul class="simple">
+<li>possible values returned by a function, using the special attribute
+<code class="docutils literal"><span class="pre">Result</span></code> (see <a class="reference internal" href="specification_features.html#attribute-result"><span class="std std-ref">Attribute Result</span></a>), for example <code class="docutils literal"><span class="pre">Get'Result</span> <span class="pre">in</span>
+<span class="pre">Active_States</span></code></li>
+<li>possible values of output parameters, for example <code class="docutils literal"><span class="pre">Y</span> <span class="pre">in</span> <span class="pre">Active_States</span></code></li>
+<li>expected relations between output parameter values, for example <code class="docutils literal"><span class="pre">if</span> <span class="pre">Success</span>
+<span class="pre">then</span> <span class="pre">Y</span> <span class="pre">/=</span> <span class="pre">Null_State</span></code></li>
+<li>expected relations between input and output parameter values, possibly using
+the special attribute <code class="docutils literal"><span class="pre">Old</span></code> (see <a class="reference internal" href="specification_features.html#attribute-old"><span class="std std-ref">Attribute Old</span></a>), for example <code class="docutils literal"><span class="pre">if</span>
+<span class="pre">Success</span> <span class="pre">then</span> <span class="pre">Y</span> <span class="pre">/=</span> <span class="pre">Y'Old</span></code></li>
+<li>expected values of global variables denoting updates to the state of the
+computation, for example <code class="docutils literal"><span class="pre">Current_State</span> <span class="pre">in</span> <span class="pre">Active_States</span></code></li>
+<li>invariants about the global state that should hold when returning from this
+subprogram, for example <code class="docutils literal"><span class="pre">Is_Complete</span> <span class="pre">(State_Mapping)</span></code></li>
+<li>relations involving the global state and output parameters that should hold
+when returning from this subprogram, for example <code class="docutils literal"><span class="pre">X</span> <span class="pre">in</span> <span class="pre">Next_States</span>
+<span class="pre">(Global_Map,</span> <span class="pre">Y)</span></code></li>
+</ul>
+<p>When the program is compiled with assertions (for example with switch
+<code class="docutils literal"><span class="pre">-gnata</span></code> in GNAT), the postcondition of a subprogram is checked at run
+time every time the subprogram returns. An exception is raised if the
+postcondition fails. Usually, postconditions are enabled during tests, as they
+provide dynamically checkable oracles of the intended behavior of the program,
+and disabled in the production binary for efficiency.</p>
+<p>When a subprogram is analyzed with GNATprove, it checks that the
+postcondition of a subprogram cannot fail. This verification is modular:
+GNATprove considers all calling contexts in which the precondition of the
+subprogram holds for the analysis of a subprogram. GNATprove also analyzes
+postconditions to ensure that they are free from run-time errors, like any
+other assertion.</p>
+<p>For example, consider the procedure <code class="docutils literal"><span class="pre">Add_To_Total</span></code> which increments global
+counter <code class="docutils literal"><span class="pre">Total</span></code> with the value given in parameter <code class="docutils literal"><span class="pre">Incr</span></code>. This intended
+behavior can be expressed in its postcondition:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Total</span> <span class="o">=</span> <span class="n">Total</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="n">Incr</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The postcondition of a subprogram is used to analyze calls to the
+subprograms. In particular, the default postcondition of <code class="docutils literal"><span class="pre">True</span></code> used by
+GNATprove when no explicit one is given may not be precise enough to prove
+properties of its callers, unless it analyzes the subprogam&#8217;s implementation in
+the context of its callers (see <a class="reference internal" href="how_to_write_subprogram_contracts.html#contextual-analysis-of-subprograms-without-contracts"><span class="std std-ref">Contextual Analysis of Subprograms Without Contracts</span></a>).</p>
+<p>Recursive subprograms and mutually recursive subprograms are treated in this
+respect exactly like non-recursive ones. Provided the execution of these
+subprograms always terminates (a property that is not verified by GNATprove),
+then GNATprove correctly checks that their postcondition is respected by
+using this postcondition for recursive calls.</p>
+<p>Special care should be exercized for functions that return a boolean, as a
+common mistake is to write the expected boolean result as the postcondition:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Total_Above_Threshold</span> <span class="o">(</span><span class="n">Threshold</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Total</span> <span class="o">&gt;</span> <span class="n">Threshold</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>while the correct postcondition uses <a class="reference internal" href="specification_features.html#attribute-result"><span class="std std-ref">Attribute Result</span></a>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Total_Above_Threshold</span> <span class="o">(</span><span class="n">Threshold</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Boolean</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Total_Above_Threshold</span><span class="na">&#39;Result</span> <span class="o">=</span> <span class="n">Total</span> <span class="o">&gt;</span> <span class="n">Threshold</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Both GNAT compiler and GNATprove issue a warning on the semantically
+correct but likely functionally wrong postcondition.</p>
+</div>
+<div class="section" id="contract-cases">
+<span id="id4"></span><h2>5.2.3. Contract Cases<a class="headerlink" href="#contract-cases" title="Permalink to this headline">¶</a></h2>
+<p>[SPARK]</p>
+<p>When a subprogram has a fixed set of different functional behaviors, it may be
+more convenient to specify these behaviors as contract cases rather than a
+postcondition. For example, consider a variant of procedure <code class="docutils literal"><span class="pre">Add_To_Total</span></code>
+which either increments global counter <code class="docutils literal"><span class="pre">Total</span></code> by the given parameter value
+when possible, or saturates at a given threshold. Each of these behaviors can
+be defined in a contract case as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Contract_Cases</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Total</span> <span class="o">+</span> <span class="n">Incr</span> <span class="o">&lt;</span> <span class="n">Threshold</span>  <span class="o">=&gt;</span> <span class="n">Total</span> <span class="o">=</span> <span class="n">Total</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="n">Incr</span><span class="p">,</span>
+                     <span class="n">Total</span> <span class="o">+</span> <span class="n">Incr</span> <span class="o">&gt;=</span> <span class="n">Threshold</span> <span class="o">=&gt;</span> <span class="n">Total</span> <span class="o">=</span> <span class="n">Threshold</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Each contract case consists in a guard and a consequence separated by the
+symbol <code class="docutils literal"><span class="pre">=&gt;</span></code>. When the guard evaluates to <code class="docutils literal"><span class="pre">True</span></code> on subprogram entry, the
+corresponding consequence should also evaluate to <code class="docutils literal"><span class="pre">True</span></code> on subprogram
+exit. We say that this contract case was enabled for the call. Exactly one
+contract case should be enabled for each call, or said equivalently, the
+contract cases should be disjoint and complete.</p>
+<p>For example, the contract cases of <code class="docutils literal"><span class="pre">Add_To_Total</span></code> express that the subprogram
+should be called in two distinct cases only:</p>
+<ul class="simple">
+<li>on inputs that can be added to <code class="docutils literal"><span class="pre">Total</span></code> to obtain a value strictly less than
+a given threshold, in which case <code class="docutils literal"><span class="pre">Add_To_Total</span></code> adds the input to
+<code class="docutils literal"><span class="pre">Total</span></code>.</li>
+<li>on inputs whose addition to <code class="docutils literal"><span class="pre">Total</span></code> exceeds the given threshold, in which
+case <code class="docutils literal"><span class="pre">Add_To_Total</span></code> sets <code class="docutils literal"><span class="pre">Total</span></code> to the threshold value.</li>
+</ul>
+<p>When the program is compiled with assertions (for example with switch
+<code class="docutils literal"><span class="pre">-gnata</span></code> in GNAT), all guards are evaluated on entry to the subprogram,
+and there is a run-time check that exactly one of them is <code class="docutils literal"><span class="pre">True</span></code>. For this
+enabled contract case, there is another run-time check when returning from the
+subprogram that the corresponding consequence evaluates to <code class="docutils literal"><span class="pre">True</span></code>.</p>
+<p>When a subprogram is analyzed with GNATprove, it checks that there is always
+exactly one contract case enabled, and that the consequence of the contract
+case enabled cannot fail. If the subprogram also has a precondition,
+GNATprove performs these checks only for inputs that satisfy the
+precondition, otherwise for all inputs.</p>
+<p>In the simple example presented above, there are various ways to express an
+equivalent postcondition, in particular using <a class="reference internal" href="specification_features.html#conditional-expressions"><span class="std std-ref">Conditional Expressions</span></a>:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Total</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="n">Incr</span> <span class="o">&lt;</span> <span class="n">Threshold</span>  <span class="kr">then</span><span class="p"></span>
+             <span class="n">Total</span> <span class="o">=</span> <span class="n">Total</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="n">Incr</span>
+           <span class="kr">else</span><span class="p"></span>
+             <span class="n">Total</span> <span class="o">=</span> <span class="n">Threshold</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Total</span> <span class="o">=</span> <span class="o">(</span><span class="kr">if</span><span class="p"> </span><span class="n">Total</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="n">Incr</span> <span class="o">&lt;</span> <span class="n">Threshold</span> <span class="kr">then</span><span class="p"> </span><span class="n">Total</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="n">Incr</span> <span class="kr">else</span><span class="p"> </span><span class="n">Threshold</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Total</span> <span class="o">=</span> <span class="n">Integer</span><span class="na">&#39;Min</span> <span class="o">(</span><span class="n">Total</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="n">Incr</span><span class="p">,</span> <span class="n">Threshold</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In general, an equivalent postcondition may be cumbersome to write and less
+readable. Contract cases also provide a way to automatically verify that the
+input space is partitioned in the specified cases, which may not be obvious
+with a single expression in a postcondition when there are many cases.</p>
+<p>The guard of the last case may be <code class="docutils literal"><span class="pre">others</span></code>, to denote all cases not captured
+by previous contract cases. For example, the contract of <code class="docutils literal"><span class="pre">Add_To_Total</span></code> may
+be written:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Contract_Cases</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Total</span> <span class="o">+</span> <span class="n">Incr</span> <span class="o">&lt;</span> <span class="n">Threshold</span> <span class="o">=&gt;</span> <span class="n">Total</span> <span class="o">=</span> <span class="n">Total</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="n">Incr</span><span class="p">,</span>
+                     <span class="kr">others</span><span class="p"> </span>                  <span class="o">=&gt;</span> <span class="n">Total</span> <span class="o">=</span> <span class="n">Threshold</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>When <code class="docutils literal"><span class="pre">others</span></code> is used as a guard, there is no need for verification (both at
+run-time and using GNATprove) that the set of contract cases covers all
+possible inputs. Only disjointness of contract cases is checked in that case.</p>
+</div>
+<div class="section" id="data-dependencies">
+<span id="id5"></span><h2>5.2.4. Data Dependencies<a class="headerlink" href="#data-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>[SPARK]</p>
+<p>The data dependencies of a subprogram specify the global data that a subprogram
+is allowed to read and write. Together with the parameters, they completely
+specify the inputs and outputs of a subprogram. Like parameters, the global
+variables mentioned in data dependencies have a mode: <code class="docutils literal"><span class="pre">Input</span></code> for inputs,
+<code class="docutils literal"><span class="pre">Output</span></code> for outputs and <code class="docutils literal"><span class="pre">In_Out</span></code> for global variables that are both inputs
+and outputs. A last mode of <code class="docutils literal"><span class="pre">Proof_In</span></code> is defined for inputs that are only
+read in contracts and assertions. For example, data dependencies can be
+specified for procedure <code class="docutils literal"><span class="pre">Add_To_Total</span></code> which increments global counter
+<code class="docutils literal"><span class="pre">Total</span></code> as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">Total</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>For protected subprograms, the protected object is considered as an implicit
+parameter of the subprogram:</p>
+<ul class="simple">
+<li>it is an implicit parameter of mode <code class="docutils literal"><span class="pre">in</span></code> of a protected function; and</li>
+<li>it is an implicit parameter of mode <code class="docutils literal"><span class="pre">in</span> <span class="pre">out</span></code> of a protected procedure or a
+protected entry.</li>
+</ul>
+<p>Data dependencies have no impact on compilation and the run-time behavior of a
+program. When a subprogram is analyzed with GNATprove, it checks that the
+implementation of the subprogram:</p>
+<ul class="simple">
+<li>only reads global inputs mentioned in its data dependencies,</li>
+<li>only writes global outputs mentioned in its data dependencies, and</li>
+<li>always completely initializes global outputs that are not also inputs.</li>
+</ul>
+<p>See <a class="reference internal" href="language_restrictions.html#data-initialization-policy"><span class="std std-ref">Data Initialization Policy</span></a> for more details on this analysis of
+GNATprove. During its analysis, GNATprove uses the specified data
+dependencies of callees to analyze callers, if present, otherwise a default
+data dependency contract is generated (see <a class="reference internal" href="how_to_write_subprogram_contracts.html#generation-of-dependency-contracts"><span class="std std-ref">Generation of Dependency Contracts</span></a>) for callees.</p>
+<p>There are various benefits when specifying data dependencies on a subprogram,
+which gives various reasons for users to add such contracts:</p>
+<ul class="simple">
+<li>GNATprove verifies automatically that the subprogram implementation
+respects the specified accesses to global data.</li>
+<li>GNATprove uses the specified contract during flow analysis, to analyze the
+data and flow dependencies of the subprogram&#8217;s callers, which may result in a
+more precise analysis (less false alarms) than with the generated data
+dependencies.</li>
+<li>GNATprove uses the specified contract during proof, to check absence of
+run-time errors and the functional contract of the subprogram&#8217;s callers,
+which may also result in a more precise analysis (less false alarms) than
+with the generated data dependencies.</li>
+</ul>
+<p>When data dependencies are specified on a subprogram, they should mention all
+global data read and written in the subprogram. When a subprogram has neither
+global inputs nor global outputs, it can be specified using the <code class="docutils literal"><span class="pre">null</span></code> data
+dependencies:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Get</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="n">T</span><span class="o">)</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Global</span> <span class="o">=&gt;</span> <span class="kr">null</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>When a subprogram has only global inputs but no global outputs, it can be
+specified either using the <code class="docutils literal"><span class="pre">Input</span></code> mode:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Get_Sum</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Input</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>or equivalently without any mode:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Get_Sum</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Note the use of parentheses around a list of global inputs or outputs for a
+given mode.</p>
+<p>Global data that is both read and written should be mentioned with the
+<code class="docutils literal"><span class="pre">In_Out</span></code> mode, and not as both input and output. For example, the following
+data dependencies on <code class="docutils literal"><span class="pre">Add_To_Total</span></code> are illegal and rejected by GNATprove:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Global</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Input</span>  <span class="o">=&gt;</span> <span class="n">Total</span><span class="p">,</span>
+             <span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">Total</span><span class="o">)</span><span class="p">;</span>  <span class="c">--  INCORRECT</span>
+</pre></div>
+</div>
+<p>Global data that is partially written in the subprogram should also be
+mentioned with the <code class="docutils literal"><span class="pre">In_Out</span></code> mode, and not as an output. See <a class="reference internal" href="language_restrictions.html#data-initialization-policy"><span class="std std-ref">Data Initialization Policy</span></a>.</p>
+</div>
+<div class="section" id="flow-dependencies">
+<span id="id6"></span><h2>5.2.5. Flow Dependencies<a class="headerlink" href="#flow-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>[SPARK]</p>
+<p>The flow dependencies of a subprogram specify how its outputs (both output
+parameters and global outputs) depend on its inputs (both input parameters and
+global inputs). For example, flow dependencies can be specified for procedure
+<code class="docutils literal"><span class="pre">Add_To_Total</span></code> which increments global counter <code class="docutils literal"><span class="pre">Total</span></code> as follows:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Total</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Total</span><span class="p">,</span> <span class="n">Incr</span><span class="o">))</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The above flow dependencies can be read as &#8220;the output value of global variable
+<code class="docutils literal"><span class="pre">Total</span></code> depends on the input values of global variable <code class="docutils literal"><span class="pre">Total</span></code> and
+parameter <code class="docutils literal"><span class="pre">Incr</span></code>&#8221;.</p>
+<p>Outputs (both parameters and global variables) may have an implicit input part
+depending on their type:</p>
+<ul class="simple">
+<li>an unconstrained array <code class="docutils literal"><span class="pre">A</span></code> has implicit input bounds <code class="docutils literal"><span class="pre">A'First</span></code> and
+<code class="docutils literal"><span class="pre">A'Last</span></code></li>
+<li>a discriminated record <code class="docutils literal"><span class="pre">R</span></code> has implicit input discriminants, for example
+<code class="docutils literal"><span class="pre">R.Discr</span></code></li>
+</ul>
+<p>Thus, an output array <code class="docutils literal"><span class="pre">A</span></code> and an output discriminated record <code class="docutils literal"><span class="pre">R</span></code> may appear
+in input position inside a flow-dependency contract, to denote the input value
+of the bounds (for the array) or the discriminants (for the record).</p>
+<p>For protected subprograms, the protected object is considered as an implicit
+parameter of the subprogram which may be mentioned in the flow dependencies,
+under the name of the protected unit (type or object) being declared:</p>
+<ul class="simple">
+<li>as an implicit parameter of mode <code class="docutils literal"><span class="pre">in</span></code> of a protected function, it can be
+mentioned on the right-hand side of flow dependencies; and</li>
+<li>as an implicit parameter of mode <code class="docutils literal"><span class="pre">in</span> <span class="pre">out</span></code> of a protected procedure or a
+protected entry, it can be mentioned on both sides of flow dependencies.</li>
+</ul>
+<p>Flow dependencies have no impact on compilation and the run-time behavior of a
+program. When a subprogram is analyzed with GNATprove, it checks that, in the
+implementation of the subprogram, outputs depend on inputs as specified in the
+flow dependencies. During its analysis, GNATprove uses the specified flow
+dependencies of callees to analyze callers, if present, otherwise a default
+flow dependency contract is generated for callees (see <a class="reference internal" href="how_to_write_subprogram_contracts.html#generation-of-dependency-contracts"><span class="std std-ref">Generation of Dependency Contracts</span></a>).</p>
+<p>When flow dependencies are specified on a subprogram, they should mention all
+flows from inputs to outputs. In particular, the output value of a parameter or
+global variable that is partially written by a subprogram depends on its input
+value (see <a class="reference internal" href="language_restrictions.html#data-initialization-policy"><span class="std std-ref">Data Initialization Policy</span></a>).</p>
+<p>When the output value of a parameter or global variable depends on its input
+value, the corresponding flow dependency can use the shorthand symbol <code class="docutils literal"><span class="pre">+</span></code> to
+denote that a variable&#8217;s output value depends on the variable&#8217;s input value
+plus any other input listed. For example, the flow dependencies of
+<code class="docutils literal"><span class="pre">Add_To_Total</span></code> above can be specified equivalently:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Total</span> <span class="o">=&gt;+</span> <span class="n">Incr</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>When an output value depends on no input value, meaning that it is completely
+(re)initialized with constants that do not depend on variables, the
+corresponding flow dependency should use the <code class="docutils literal"><span class="pre">null</span></code> input list:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Init_Total</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Total</span> <span class="o">=&gt;</span> <span class="n">null</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="state-abstraction-and-contracts">
+<span id="id7"></span><h2>5.2.6. State Abstraction and Contracts<a class="headerlink" href="#state-abstraction-and-contracts" title="Permalink to this headline">¶</a></h2>
+<p>[SPARK]</p>
+<p>The subprogram contracts mentioned so far always used directly global
+variables. In many cases, this is not possible because the global variables are
+defined in another unit and not directly visible (because they are defined in
+the private part of a package specification, or in a package
+implementation). The notion of abstract state in SPARK can be used in that
+case (see <a class="reference internal" href="package_contracts.html#state-abstraction"><span class="std std-ref">State Abstraction</span></a>) to name in contracts global data that is
+not visible.</p>
+<div class="section" id="state-abstraction-and-dependencies">
+<span id="id8"></span><h3>5.2.6.1. State Abstraction and Dependencies<a class="headerlink" href="#state-abstraction-and-dependencies" title="Permalink to this headline">¶</a></h3>
+<p>Suppose the global variable <code class="docutils literal"><span class="pre">Total</span></code> incremented by procedure <code class="docutils literal"><span class="pre">Add_To_Total</span></code>
+is defined in the package implementation, and a procedure <code class="docutils literal"><span class="pre">Cash_Tickets</span></code> in a
+client package calls <code class="docutils literal"><span class="pre">Add_To_Total</span></code>. Package <code class="docutils literal"><span class="pre">Account</span></code> which defines
+<code class="docutils literal"><span class="pre">Total</span></code> can define an abstract state <code class="docutils literal"><span class="pre">State</span></code> that represents <code class="docutils literal"><span class="pre">Total</span></code>, as
+seen in <a class="reference internal" href="package_contracts.html#state-abstraction"><span class="std std-ref">State Abstraction</span></a>, which allows using it in <code class="docutils literal"><span class="pre">Cash_Tickets</span></code>&#8216;s
+data and flow dependencies:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Cash_Tickets</span> <span class="o">(</span><span class="n">Tickets</span> <span class="o">:</span> <span class="n">Ticket_Array</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">Account.State</span><span class="o">)</span><span class="p">,</span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Account.State</span> <span class="o">=&gt;</span> <span class="n">Tickets</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>As global variable <code class="docutils literal"><span class="pre">Total</span></code> is not visible from clients of unit <code class="docutils literal"><span class="pre">Account</span></code>,
+it is not visible either in the visible part of <code class="docutils literal"><span class="pre">Account</span></code>&#8216;s
+specification. Hence, externally visible subprograms in <code class="docutils literal"><span class="pre">Account</span></code> must also
+use abstract state <code class="docutils literal"><span class="pre">State</span></code> in their data and flow dependencies, for example:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Init_Total</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">State</span><span class="o">)</span><span class="p">,</span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;</span> <span class="n">null</span><span class="o">)</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">State</span><span class="o">)</span><span class="p">,</span>
+  <span class="n">Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">State</span> <span class="o">=&gt;+</span> <span class="n">Incr</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Then, the implementations of <code class="docutils literal"><span class="pre">Init_Total</span></code> and <code class="docutils literal"><span class="pre">Add_To_Total</span></code> can
+define refined data and flow dependencies introduced respectively by
+<code class="docutils literal"><span class="pre">Refined_Global</span></code> and <code class="docutils literal"><span class="pre">Refined_Depends</span></code>, which give the precise
+dependencies for these subprograms in terms of concrete variables:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Init_Total</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Refined_Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Output</span> <span class="o">=&gt;</span> <span class="n">Total</span><span class="o">)</span><span class="p">,</span>
+  <span class="n">Refined_Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Total</span> <span class="o">=&gt;</span> <span class="n">null</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Total</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Init_Total</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Refined_Global</span>  <span class="o">=&gt;</span> <span class="o">(</span><span class="n">In_Out</span> <span class="o">=&gt;</span> <span class="n">Total</span><span class="o">)</span><span class="p">,</span>
+  <span class="n">Refined_Depends</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">Total</span> <span class="o">=&gt;+</span> <span class="n">Incr</span><span class="o">)</span>
+<span class="kr">is</span><span class="p"></span>
+<span class="kr">begin</span><span class="p"></span>
+   <span class="n">Total</span> <span class="o">:=</span> <span class="n">Total</span> <span class="o">+</span> <span class="n">Incr</span><span class="p">;</span>
+<span class="k">end </span><span class="nf">Add_To_Total</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Here, the refined dependencies are the same as the abstract ones where
+<code class="docutils literal"><span class="pre">State</span></code> has been replaced by <code class="docutils literal"><span class="pre">Total</span></code>, but that&#8217;s not always the case, in
+particular when the abstract state is refined into multiple concrete variables
+(see <a class="reference internal" href="package_contracts.html#state-abstraction"><span class="std std-ref">State Abstraction</span></a>). GNATprove checks that:</p>
+<ul class="simple">
+<li>each abstract global input has at least one of its constituents
+mentioned by the concrete global inputs</li>
+<li>each abstract global in_out has at least one of its constituents
+mentioned with mode input and one with mode output (or at least one
+constituent with mode in_out)</li>
+<li>each abstract global output has to have all its constituents
+mentioned by the concrete global outputs</li>
+<li>the concrete flow dependencies are a subset of the abstract flow
+dependencies</li>
+</ul>
+<p>GNATprove uses the abstract contract (data and flow dependencies) of
+<code class="docutils literal"><span class="pre">Init_Total</span></code> and <code class="docutils literal"><span class="pre">Add_To_Total</span></code> when analyzing calls outside package
+<code class="docutils literal"><span class="pre">Account</span></code> and the more precise refined contract (refined data and flow
+dependencies) of <code class="docutils literal"><span class="pre">Init_Total</span></code> and <code class="docutils literal"><span class="pre">Add_To_Total</span></code> when analyzing calls
+inside package <code class="docutils literal"><span class="pre">Account</span></code>.</p>
+<p>Refined dependencies can be specified on both subprograms and tasks for which
+data and/or flow dependencies that are specified include abstract states which
+are refined in the current unit.</p>
+</div>
+<div class="section" id="state-abstraction-and-functional-contracts">
+<span id="id9"></span><h3>5.2.6.2. State Abstraction and Functional Contracts<a class="headerlink" href="#state-abstraction-and-functional-contracts" title="Permalink to this headline">¶</a></h3>
+<p>If global variables are not visible for data dependencies, they are not visible
+either for functional contracts. For example, in the case of procedure
+<code class="docutils literal"><span class="pre">Add_To_Total</span></code>, if global variable <code class="docutils literal"><span class="pre">Total</span></code> is not visible, we cannot
+express anymore the precondition and postcondition of <code class="docutils literal"><span class="pre">Add_To_Total</span></code> as in
+<a class="reference internal" href="#preconditions"><span class="std std-ref">Preconditions</span></a> and <a class="reference internal" href="#postconditions"><span class="std std-ref">Postconditions</span></a>. Instead, we define accessor
+functions to retrieve properties of the state that we need to express, and we
+use these in contracts. For example here:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">function </span><span class="nf">Get_Total</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span><span class="p">;</span>
+
+<span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Pre</span>  <span class="o">=&gt;</span> <span class="n">Incr</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="kr">and</span><span class="p"> </span><span class="kr">then</span><span class="p"> </span><span class="n">Get_Total</span> <span class="kr">in</span><span class="p"> </span><span class="mi">0</span> <span class="o">..</span> <span class="n">Integer</span><span class="na">&#39;Last</span> <span class="o">-</span> <span class="n">Incr</span><span class="p">,</span>
+  <span class="n">Post</span> <span class="o">=&gt;</span> <span class="n">Get_Total</span> <span class="o">=</span> <span class="n">Get_Total</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="n">Incr</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Function <code class="docutils literal"><span class="pre">Get_Total</span></code> may be defined either in the private part of package
+<code class="docutils literal"><span class="pre">Account</span></code> or in its implementation. It may take the form of a regular
+function or an expression function (see <a class="reference internal" href="specification_features.html#expression-functions"><span class="std std-ref">Expression Functions</span></a>), for
+example:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">Total</span> <span class="o">:</span> <span class="n">Integer</span><span class="p">;</span>
+
+<span class="k">function </span><span class="nf">Get_Total</span> <span class="kr">return</span><span class="p"> </span><span class="n">Integer</span> <span class="kr">is</span><span class="p"> </span><span class="o">(</span><span class="n">Total</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Although no refined preconditions and postconditions are required on the
+implementation of <code class="docutils literal"><span class="pre">Add_To_Total</span></code>, it is possible to provide a refined
+postcondition introduced by <code class="docutils literal"><span class="pre">Refined_Post</span></code> in that case, which specifies a
+more precise functional behavior of the subprogram. For example, procedure
+<code class="docutils literal"><span class="pre">Add_To_Total</span></code> may also increment the value of a counter <code class="docutils literal"><span class="pre">Call_Count</span></code> at
+each call, which can be expressed in the refined postcondition:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="k">procedure </span><span class="nf">Add_To_Total</span> <span class="o">(</span><span class="n">Incr</span> <span class="o">:</span> <span class="kr">in</span><span class="p"> </span><span class="n">Integer</span><span class="o">)</span> <span class="kr">with</span><span class="p"></span>
+  <span class="n">Refined_Post</span> <span class="o">=&gt;</span> <span class="n">Total</span> <span class="o">=</span> <span class="n">Total</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="n">Incr</span> <span class="kr">and</span><span class="p"> </span><span class="n">Call_Count</span> <span class="o">=</span> <span class="n">Call_Count</span><span class="na">&#39;Old</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="kr">is</span><span class="p"></span>
+   <span class="o">...</span>
+<span class="k">end </span><span class="nf">Add_To_Total</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A refined postcondition can be given on a subprogram implementation even when
+the unit does not use state abstraction, and even when the default
+postcondition of <code class="docutils literal"><span class="pre">True</span></code> is used implicitly on the subprogram declaration.</p>
+<p>GNATprove uses the abstract contract (precondition and postcondition) of
+<code class="docutils literal"><span class="pre">Add_To_Total</span></code> when analyzing calls outside package <code class="docutils literal"><span class="pre">Account</span></code> and the more
+precise refined contract (precondition and refined postcondition) of
+<code class="docutils literal"><span class="pre">Add_To_Total</span></code> when analyzing calls inside package <code class="docutils literal"><span class="pre">Account</span></code>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="package_contracts.html" title="5.3. Package Contracts"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="language_restrictions.html" title="5.1. Language Restrictions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SPARK 2014 User&#39;s Guide 2019</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../spark_2014.html" >5. Overview of SPARK Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2011-2019, AdaCore and Altran UK Ltd.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

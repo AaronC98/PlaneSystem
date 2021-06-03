@@ -1,0 +1,369 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U switch.m%b		switch-m.adb		6ece0763 OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W debug%s		debug.adb		debug.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W opt%s			opt.adb			opt.ali
+W osint%s		osint.adb		osint.ali
+Z output%s		output.adb		output.ali  AD
+W switch%s		switch.adb		switch.ali
+W system%s		system.ads		system.ali
+W system.multiprocessors%s  s-multip.adb	s-multip.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W table%s		table.adb		table.ali
+
+U switch.m%s		switch-m.ads		36703766 EE NE OO PK
+W switch%s		switch.adb		switch.ali
+W system%s		system.ads		system.ali
+W system.os_lib%s	s-os_lib.adb		s-os_lib.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D gnatvsn.ads		20190518132638 aa5360c2 gnatvsn%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D namet.ads		20190518044709 b520bebe namet%s
+D opt.ads		20190518044710 3d2ce478 opt%s
+D osint.ads		20190518044709 56946067 osint%s
+D output.ads		20190518044709 a916e413 output%s
+D switch.ads		20190518044710 ba6092e6 switch%s
+D switch-m.ads		20190518044709 db136bcc switch.m%s
+D switch-m.adb		20190518044709 527c8f46 switch.m%b
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-multip.ads		20190518041255 38ac9f73 system.multiprocessors%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+G a e
+G c b b b [b switch__m 39 1 none]
+G c Z s b [scan_make_switches switch__m 49 14 none]
+G c Z s b [normalize_compiler_switches switch__m 61 14 none]
+G c Z s b [normalize_compiler_switches switch__m 80 13 none]
+G c Z b b [init switch__m__normalized_switches 142 17 41_4]
+G c Z b b [last switch__m__normalized_switches 149 16 41_4]
+G c Z b b [release switch__m__normalized_switches 156 17 41_4]
+G c Z b b [free switch__m__normalized_switches 168 17 41_4]
+G c Z b b [set_last switch__m__normalized_switches 175 17 41_4]
+G c Z b b [increment_last switch__m__normalized_switches 184 17 41_4]
+G c Z b b [decrement_last switch__m__normalized_switches 188 17 41_4]
+G c Z b b [append switch__m__normalized_switches 192 17 41_4]
+G c Z b b [append_all switch__m__normalized_switches 200 17 41_4]
+G c Z b b [set_item switch__m__normalized_switches 203 17 41_4]
+G c Z b b [save switch__m__normalized_switches 215 16 41_4]
+G c Z b b [restore switch__m__normalized_switches 219 17 41_4]
+G c Z b b [tree_write switch__m__normalized_switches 223 17 41_4]
+G c Z b b [tree_read switch__m__normalized_switches 226 17 41_4]
+G c Z b b [table_typeIP switch__m__normalized_switches 110 12 41_4]
+G c Z b b [saved_tableIP switch__m__normalized_switches 241 12 41_4]
+G c Z b b [reallocate switch__m__normalized_switches 58 17 41_4]
+G c Z b b [tree_get_table_address switch__m__normalized_switches 63 16 41_4]
+G c Z b b [to_address switch__m__normalized_switches 72 16 41_4]
+G c Z b b [to_pointer switch__m__normalized_switches 73 16 41_4]
+G r c none [b switch__m 39 1 none] [write_str output 130 14 none]
+G r c none [b switch__m 39 1 none] [write_int output 123 14 none]
+G r c none [b switch__m 39 1 none] [write_eol output 113 14 none]
+G r c none [b switch__m 39 1 none] [set_standard_error output 77 14 none]
+G r c none [b switch__m 39 1 none] [set_standard_output output 84 14 none]
+G r i none [b switch__m 39 1 none] [table table 59 12 none]
+G r c none [scan_make_switches switch__m 49 14 none] [bad_switch switch 136 14 none]
+G r c none [scan_make_switches switch__m 49 14 none] [fail osint 161 14 none]
+G r c none [scan_make_switches switch__m 49 14 none] [set_debug_flag debug 243 14 none]
+G r c none [scan_make_switches switch__m 49 14 none] [scan_pos switch 126 14 none]
+G r c none [scan_make_switches switch__m 49 14 none] [scan_nat switch 112 14 none]
+G r c none [normalize_compiler_switches switch__m 61 14 none] [write_str output 130 14 none]
+G r c none [normalize_compiler_switches switch__m 61 14 none] [write_int output 123 14 none]
+G r c none [normalize_compiler_switches switch__m 61 14 none] [write_eol output 113 14 none]
+G r c none [normalize_compiler_switches switch__m 61 14 none] [set_standard_error output 77 14 none]
+G r c none [normalize_compiler_switches switch__m 61 14 none] [set_standard_output output 84 14 none]
+G r c none [normalize_compiler_switches switch__m 80 13 none] [write_str output 130 14 none]
+G r c none [normalize_compiler_switches switch__m 80 13 none] [write_int output 123 14 none]
+G r c none [normalize_compiler_switches switch__m 80 13 none] [write_eol output 113 14 none]
+G r c none [normalize_compiler_switches switch__m 80 13 none] [set_standard_error output 77 14 none]
+G r c none [normalize_compiler_switches switch__m 80 13 none] [set_standard_output output 84 14 none]
+G r c none [init switch__m__normalized_switches 142 17 41_4] [write_str output 130 14 none]
+G r c none [init switch__m__normalized_switches 142 17 41_4] [write_int output 123 14 none]
+G r c none [init switch__m__normalized_switches 142 17 41_4] [write_eol output 113 14 none]
+G r c none [init switch__m__normalized_switches 142 17 41_4] [set_standard_error output 77 14 none]
+G r c none [init switch__m__normalized_switches 142 17 41_4] [set_standard_output output 84 14 none]
+G r c none [release switch__m__normalized_switches 156 17 41_4] [write_str output 130 14 none]
+G r c none [release switch__m__normalized_switches 156 17 41_4] [write_int output 123 14 none]
+G r c none [release switch__m__normalized_switches 156 17 41_4] [write_eol output 113 14 none]
+G r c none [release switch__m__normalized_switches 156 17 41_4] [set_standard_error output 77 14 none]
+G r c none [release switch__m__normalized_switches 156 17 41_4] [set_standard_output output 84 14 none]
+G r c none [set_last switch__m__normalized_switches 175 17 41_4] [write_str output 130 14 none]
+G r c none [set_last switch__m__normalized_switches 175 17 41_4] [write_int output 123 14 none]
+G r c none [set_last switch__m__normalized_switches 175 17 41_4] [write_eol output 113 14 none]
+G r c none [set_last switch__m__normalized_switches 175 17 41_4] [set_standard_error output 77 14 none]
+G r c none [set_last switch__m__normalized_switches 175 17 41_4] [set_standard_output output 84 14 none]
+G r c none [increment_last switch__m__normalized_switches 184 17 41_4] [write_str output 130 14 none]
+G r c none [increment_last switch__m__normalized_switches 184 17 41_4] [write_int output 123 14 none]
+G r c none [increment_last switch__m__normalized_switches 184 17 41_4] [write_eol output 113 14 none]
+G r c none [increment_last switch__m__normalized_switches 184 17 41_4] [set_standard_error output 77 14 none]
+G r c none [increment_last switch__m__normalized_switches 184 17 41_4] [set_standard_output output 84 14 none]
+G r c none [append switch__m__normalized_switches 192 17 41_4] [write_str output 130 14 none]
+G r c none [append switch__m__normalized_switches 192 17 41_4] [write_int output 123 14 none]
+G r c none [append switch__m__normalized_switches 192 17 41_4] [write_eol output 113 14 none]
+G r c none [append switch__m__normalized_switches 192 17 41_4] [set_standard_error output 77 14 none]
+G r c none [append switch__m__normalized_switches 192 17 41_4] [set_standard_output output 84 14 none]
+G r c none [append_all switch__m__normalized_switches 200 17 41_4] [write_str output 130 14 none]
+G r c none [append_all switch__m__normalized_switches 200 17 41_4] [write_int output 123 14 none]
+G r c none [append_all switch__m__normalized_switches 200 17 41_4] [write_eol output 113 14 none]
+G r c none [append_all switch__m__normalized_switches 200 17 41_4] [set_standard_error output 77 14 none]
+G r c none [append_all switch__m__normalized_switches 200 17 41_4] [set_standard_output output 84 14 none]
+G r c none [set_item switch__m__normalized_switches 203 17 41_4] [write_str output 130 14 none]
+G r c none [set_item switch__m__normalized_switches 203 17 41_4] [write_int output 123 14 none]
+G r c none [set_item switch__m__normalized_switches 203 17 41_4] [write_eol output 113 14 none]
+G r c none [set_item switch__m__normalized_switches 203 17 41_4] [set_standard_error output 77 14 none]
+G r c none [set_item switch__m__normalized_switches 203 17 41_4] [set_standard_output output 84 14 none]
+G r c none [save switch__m__normalized_switches 215 16 41_4] [write_str output 130 14 none]
+G r c none [save switch__m__normalized_switches 215 16 41_4] [write_int output 123 14 none]
+G r c none [save switch__m__normalized_switches 215 16 41_4] [write_eol output 113 14 none]
+G r c none [save switch__m__normalized_switches 215 16 41_4] [set_standard_error output 77 14 none]
+G r c none [save switch__m__normalized_switches 215 16 41_4] [set_standard_output output 84 14 none]
+G r c none [tree_write switch__m__normalized_switches 223 17 41_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write switch__m__normalized_switches 223 17 41_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read switch__m__normalized_switches 226 17 41_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read switch__m__normalized_switches 226 17 41_4] [write_str output 130 14 none]
+G r c none [tree_read switch__m__normalized_switches 226 17 41_4] [write_int output 123 14 none]
+G r c none [tree_read switch__m__normalized_switches 226 17 41_4] [write_eol output 113 14 none]
+G r c none [tree_read switch__m__normalized_switches 226 17 41_4] [set_standard_error output 77 14 none]
+G r c none [tree_read switch__m__normalized_switches 226 17 41_4] [set_standard_output output 84 14 none]
+G r c none [tree_read switch__m__normalized_switches 226 17 41_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate switch__m__normalized_switches 58 17 41_4] [write_str output 130 14 none]
+G r c none [reallocate switch__m__normalized_switches 58 17 41_4] [write_int output 123 14 none]
+G r c none [reallocate switch__m__normalized_switches 58 17 41_4] [write_eol output 113 14 none]
+G r c none [reallocate switch__m__normalized_switches 58 17 41_4] [set_standard_error output 77 14 none]
+G r c none [reallocate switch__m__normalized_switches 58 17 41_4] [set_standard_output output 84 14 none]
+X 6 debug.ads
+36K9*Debug 256e10 16|32w6 32r20
+243U14*Set_Debug_Flag 16|811s19
+X 11 opt.ads
+50K9*Opt 2414e8 16|34w6 34r20 765r13 768r13 771r13 774r13 790r47 791r47 792r47
+. 930r19 1024r38
+285b4*Bind_Only{boolean} 16|913m19
+300b4*Build_Bind_And_Link_Full_Project{boolean} 16|919m19
+340b4*Check_Readonly_Files{boolean} 16|908m19
+351b4*Check_Switches{boolean} 16|1018m19
+382b4*Commands_To_Stdout{boolean} 16|850m19
+395b4*Compile_Only{boolean} 16|924m19
+432b4*Create_Mapping_File{boolean} 16|930m23
+519b4*Do_Not_Execute{boolean} 16|988m19
+679b4*External_Unit_Compilation_Allowed{boolean} 16|1029m19
+698b4*Follow_Links_For_Files{boolean} 16|839m19
+706b4*Follow_Links_For_Dirs{boolean} 16|840m19
+717b4*Force_Compilations{boolean} 16|945m19
+732b4*Full_Path_Name_For_Brief_Errors{boolean} 16|950m19
+924b4*In_Place_Mode{boolean} 16|960m19
+930b4*Keep_Going{boolean} 16|972m19
+935b4*Keep_Temporary_Files{boolean} 16|774m17
+955b4*Link_Only{boolean} 16|977m19
+988b4*List_Dependencies{boolean} 16|983m19
+1085b4*Make_Steps{boolean} 16|914m19 925m19 978m19
+1090i4*Main_Index{34|59I9} 16|826m50
+1118i4*Maximum_Processes{positive} 16|878m19
+1178b4*No_Main_Subprogram{boolean} 16|1035m19
+1216b4*Object_Directory_Present{boolean} 16|935r22 939m22
+1225b4*One_Compilation_Per_Obj_Dir{boolean} 16|768m17
+1280b4*Output_File_Name_Present{boolean} 16|993r22 996m22
+1379b4*Quiet_Output{boolean} 16|1007m19
+1419b4*Run_Path_Option{boolean} 16|1012m19
+1437b4*Setup_Projects{boolean} 16|750m13 1002m19
+1640b4*Unchecked_Shared_Lib_Imports{boolean} 16|765m17
+1681b4*Use_Include_Path_File{boolean} 16|1030m19
+1686b4*Usage_Requested{boolean} 16|955m19
+1710b4*Verbose_Mode{boolean} 16|787m13 1023m19
+1716n40*Low{1716E9} 16|790r51
+1716n45*Medium{1716E9} 16|791r51
+1716n53*High{1716E9} 16|792r51 1024r42
+1718e4*Verbosity_Level{1716E9} 16|790m28 791m28 792m28 1024m19
+1934n7*Suppress{1933E9} 16|892r33
+1934n17*Normal{1933E9} 16|889r32
+1934n25*Treat_As_Error{1933E9} 16|886r32
+1935e4*Warning_Mode{1933E9} 16|886m16 889m16 892m16
+2106b4*No_Exit_Message{boolean} 16|771m17
+X 12 osint.ads
+50K9*Osint 785e10 16|33w6 33r20 936r22 994r22
+161U14*Fail 16|936s28 994s28
+X 14 switch.ads
+46K9*Switch 140e11 15|43r9 88r5 16|39r14 1051r5
+112U14 Scan_Nat 16|864s16
+126U14 Scan_Pos 16|826s16
+136U14 Bad_Switch 16|725s10 777s13 813s19 829s19 836s19 847s19 854s16 867s19
+. 967s19 1041s22
+X 15 switch-m.ads
+43K16*M 14|46k9 15|88l12 88e13 16|39b21 1051l12 1051t13
+45p4*Subdirs{34|113P9} 16|759m13
+49U14*Scan_Make_Switches 50>7 51<7 16|709b14 1049l8 1049t26
+50a7 Switch_Chars{string} 16|710b7 713r33 714r33 725r22 733r10 734r18 740r12
+. 748r10 749r13 752r16 754r14 755r17 756r17 760r27 761r29 762r29 764r16 767r16
+. 770r16 773r16 776r16 777r25 779r16 780r21 785r33 789r18 808r21 813r31 820r18
+. 826r26 829r31 836r31 847r31 854r28 864r26 867r31 882r33 885r16 888r19 891r19
+. 967r31 1041r34
+51b7 Success{boolean} 16|711b7 720m7 736m10 793m28 895m16 899m13 1044m22
+61U14*Normalize_Compiler_Switches 62>7 63=7 64<7 16|63b14 688l8 688t35 696s7
+62a7 Switch_Chars{string} 16|64b7 70r24 71r33 74r32 138r28 145r34 153r15
+. 163r19 163r48 170r22 177r22 183r22 190r22 192r20 192r34 192r56 195r41 199r22
+. 206r22 215r47 245r45 252r35 254r50 265r30 297r30 305r35 313r45 324r36 330r40
+. 337r38 359r34 372r36 394r27 418r43 423r39 435r33 438r50 453r33 456r50 460r36
+. 463r53 480r30 505r30 507r61 538r30 547r36 570r58 591r44 613r44 635r28 642r28
+. 665r44
+63p7 Switches{22|729P12} 16|65b7 91r13 92m13 96r23 100r45 100r63 102r35 102r55
+. 103r24 104m16 111r21 121r16 129r10 130r38
+64i7 Last{natural} 16|66b7 96r16 103m16 110r13 111m13 113m13 113r21 121r26
+. 129r20 130r48 136m7 278m28 293m25 355m34 379m31 390m25 409m25 490m28 513m31
+. 530m28 558m31 595m25 617m25 632m25 653m25 669m25 683m22
+80V13*Normalize_Compiler_Switches{22|724A12} 81>7 16|690b13 703l8 703t35
+81a7 Switch_Chars{string} 16|691b7 696r36
+X 16 switch-m.adb
+41K12 Normalized_Switches[31|59] 119r28 120r20 121r35 130r10
+52N4 Initial_Number_Of_Switches 92r49
+54p4 Global_Switches{22|729P12} 696m50 696r50 701r17 701r34
+57a4 Subdirs_Option{string} 752r38 756r38 757r61 761r50
+68b7 Switch_Starts_With_Gnat{boolean} 144m7 147r10 157r15
+70i7 Ptr{integer} 75r34 138r10 138r42 142m7 142r14 145r10 145r48 145r55 148m10
+. 148r17 149r26 152r13 153r29 237m22 237r29 245r25 245r59 246m25 246r32 250m25
+. 250r32 251r35 252r49 254r64 263r28 264m25 264r32 265r44 290m22 290r29 292r25
+. 297r44 299m31 299r38 304r63 305r49 308r57 309m31 313r59 314m31 314r38 318r63
+. 321m34 321r41 323r37 324r50 326m37 326r44 329r40 330r54 332m37 332r44 336r60
+. 337r61 340r54 344m31 344r38 348m31 348r38 352m31 352r38 354r34 359r48 360m34
+. 360r41 368r64 371r55 372r50 387m22 387r29 389r25 394r41 406m25 406r32 416m22
+. 416r29 418r25 418r57 423r53 432m22 432r29 434r25 435r47 438r64 439m25 439r32
+. 450m22 450r29 452r25 453r47 456r64 457m25 457r32 459r28 460r50 463r67 464m28
+. 464r35 477m22 477r29 479r28 480r44 487m28 487r35 502m22 502r29 504r25 505r44
+. 507r75 510m31 510r38 522m22 522r29 524r25 537r28 538r44 539m25 539r32 546r34
+. 547r50 551m31 551r38 568r48 570r72 571m28 571r35 589m22 589r29 591r25 591r58
+. 603m25 603r32 611m22 611r29 613r25 613r58 625m25 625r32 631r25 635r42 635r53
+. 640m25 642r42 642r53 647m25 663m22 663r29 665r25 665r58 677m25 677r32
+71i7 Max{integer} 138r16 145r21 152r20 245r32 251r41 263r34 292r31 304r57
+. 305r56 308r51 309r38 323r44 329r47 354r40 368r58 371r49 372r57 389r31 418r31
+. 423r60 434r32 452r32 459r35 479r35 504r32 524r31 537r35 546r41 568r55 591r32
+. 613r32 631r36 640r32 647r32 665r32
+72e7 C{character} 153m10 213r24 225r21 234r48 242r48 265m25 266r35 266r57
+. 267r35 269r28 270r28 271r28 273r58 394m22 396r25 397r32 398r32 399r32 400r32
+. 401r32 403r55 480m25 482r30 486r53 521r48 525r28 538m25 543r28 547m31 548r41
+. 550r56 568r31 578r58 588r47 610r47
+74a7 Storing{string} 234m22 236r25 236r34 242m22 254m25 258r25 258r34 261m22
+. 273m28 275r31 275r40 289m22 303m31 307r34 307r43 335m34 339r37 339r46 385m22
+. 403m25 405r28 405r37 431m22 438m25 443r25 443r34 449m22 456m25 463m28 469r25
+. 469r34 476m22 486m28 496r25 496r34 501m22 507m31 509r34 509r43 521m22 527r31
+. 527r40 543r45 545m28 550m31 563r34 563r43 569m28 570m28 573r31 573r40 578m28
+. 580r31 580r40 588m22 600m25 602r28 602r37 610m22 622m25 624r28 624r37 637m25
+. 639r28 639r37 644m25 646r28 646r37 662m22 674m25 676r28 676r37
+75i7 First_Stored{positive} 76r34 149m10 234r31 236r51 242r31 243r37 261r31
+. 273r37 275r57 289r31 303r40 304r42 308r36 335r43 336r45 340r39 385r31 403r34
+. 405r54 430r37 448r37 475r37 501r31 507r40 509r60 521r31 527r57 543r54 544r43
+. 557r45 569r37 570r37 573r57 578r37 580r57 587r37 609r37 636r40 637r34 643r40
+. 644r34 661r37
+76i7 Last_Stored{positive} 243m22 253m25 253r40 254r34 258r51 430m22 431r31
+. 437m25 437r40 438r34 443r51 448m22 449r31 455m25 455r40 456r34 462m28 462r43
+. 463r37 469r51 475m22 476r31 485m28 485r43 486r37 496r51 544m28 545r37 549m31
+. 549r46 550r40 557r31 563r60 587m22 588r31 599m25 599r40 600r34 602r54 609m22
+. 610r31 621m25 621r40 622r34 624r54 636m25 637r50 639r54 643m25 644r50 646r54
+. 661m22 662r31 673m25 673r40 674r34 676r54
+78U17 Add_Switch_Component 78>39 87b17 131l11 131t31 168s19 174s19 175s19
+. 181s19 187s19 188s19 195s19 200s22 207s19 215s25 235s22 257s22 274s28 300s31
+. 306s31 312s31 338s34 345s31 349s31 373s34 404s25 419s25 422s25 442s22 468s22
+. 495s22 508s31 526s28 562s31 572s28 579s28 601s25 623s25 638s25 645s25 675s25
+78a39 S{string} 87b39 120r16 129r41
+98p16 New_Switches{22|729P12} 102r16 104r28
+119i14 Index{integer} 120r47 121r62
+318i34 First{positive} 336r66 337r52 340r60
+368a34 To_Store{string} 370m34 371m34 373r56
+693i7 Last{natural} 696m67 698r10 701r59
+713i7 Ptr{integer} 724r10 728m10 728r17 733r33 734r32 734r39 740r26 776r30
+. 780r35 780r42 786m13 786r20 789r32 806r19 807m16 807r23 808r35 818m13 818r20
+. 820r32 825m16 825r23 826m45 826r45 828r19 835r19 846r19 858m13 858r20 864m45
+. 864r45 866r19 883m13 883r20 1017m19 1017r26
+714i7 Max{integer} 724r16 806r25 826r40 828r26 835r26 846r26 864r40 866r26
+715e7 C{character} 740m7 785r16 796r16 808m16 810r19 810r43 811r35 817r16
+. 826r62 857r16 864r60 882r16 906r18 1040r22
+861i16 Max_Proc{34|62I12} 864m50 870r22 871m22 873r25 874m25 878r50
+905q10 Check_Switch 1047l14 1047e26
+X 17 system.ads
+37K9*System 15|40r6 40r25 16|37r6 37r34 17|174e11
+67M9*Address
+X 20 s-memory.ads
+53V13*Alloc{17|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{17|67M9} 105i<c,__gnat_realloc>22
+X 21 s-multip.ads
+16K16*Multiprocessors 16|37w13 37r41 21|28e27
+19I9*CPU_Range<integer>
+21I12*CPU{19I9}
+25V13*Number_Of_CPUs{21I12} 16|871s39
+X 22 s-os_lib.ads
+56K16*OS_Lib 15|40w13 40r32 22|1114e18
+67P12*String_Access{27|45P9} 16|42r31
+74A12*String_List{27|54A9}<integer>
+88P12*String_List_Access{27|55P9}
+90V14*"="=92:66{boolean} 16|91r22
+724A12*Argument_List{74A12}<integer> 15|81r37 16|92r29 99r37 691r37
+729P12*Argument_List_Access{88P12} 15|63r29 16|54r22 65r29 98r40
+X 27 s-string.ads
+45P9*String_Access(string)
+54A9*String_List(45P9)<integer>
+55P9*String_List_Access(54A9)
+X 31 table.ads
+46K9*Table 16|35w6 41r39 31|248e10
+50+12 Table_Component_Type 16|42r7
+51I12 Table_Index_Type 16|43r7
+53*7 Table_Low_Bound{51I12} 16|44r7
+54i7 Table_Initial{34|65I12} 16|45r7
+55i7 Table_Increment{34|62I12} 16|46r7
+56a7 Table_Name{string} 16|47r7
+59k12*Table 16|41r45 31|247e13
+110A12*Table_Type(27|45P9)<integer>
+113A15*Big_Table_Type{110A12[16|41]}<integer>
+121P12*Table_Ptr(113A15[16|41])
+125p7*Table{121P12[16|41]} 16|120r40[41] 121r55[41]
+149V16*Last{integer} 16|119s48[41]
+192U17*Append 16|130s30[41]
+X 34 types.ads
+59I9*Int<integer>
+62I12*Nat{59I9} 16|861r27 871r34
+65I12*Pos{59I9}
+113P9*String_Ptr(string) 15|45r14
+

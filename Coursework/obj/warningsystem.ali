@@ -1,0 +1,86 @@
+V "GNAT Lib v2019"
+A -gnatA
+A -mtune=core2
+A -mmacosx-version-min=10.16.0
+A -fPIC
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IO
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U warningsystem%b	warningsystem.adb	bab05bc4 NE OO PK
+
+U warningsystem%s	warningsystem.ads	9e70f1b4 EE NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W dashboard%s		dashboard.ads		dashboard.ali
+
+D ada.ads		20190518041255 76789da1 ada%s
+D a-except.ads		20190518041255 291912d5 ada.exceptions%s
+D a-ioexce.ads		20190518041254 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20190518041255 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041256 491b781d ada.tags%s
+D a-textio.ads		20190518041256 aef4d56d ada.text_io%s
+D a-unccon.ads		20190518041255 0e9b276f ada.unchecked_conversion%s
+D dashboard.ads		20210506215837 e00f5082 dashboard%s
+D interfac.ads		20190518041254 5ab55268 interfaces%s
+D i-cstrea.ads		20190518041254 e53d8b8e interfaces.c_streams%s
+D system.ads		20190518041255 085b6ffb system%s
+D s-crtl.ads		20190518041254 0ebbdb71 system.crtl%s
+D s-exctab.ads		20190518041255 54135002 system.exception_table%s
+D s-ficobl.ads		20190518041256 078245e4 system.file_control_block%s
+D s-parame.ads		20190518041256 48ec542b system.parameters%s
+D s-secsta.ads		20190518041256 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041255 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041256 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041256 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041256 2dc34a04 system.storage_elements%s
+D s-traent.ads		20190518041254 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041255 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041255 1b7d22d2 system.wch_con%s
+D warningsystem.ads	20210507090515 d08b745b warningsystem%s
+D warningsystem.adb	20210506222641 6a3b2f9f warningsystem%b
+G a e
+G c Z s b [fuelwarning warningsystem 13 15 none]
+G c Z s b [speedwarning warningsystem 18 15 none]
+G c Z s b [altitudewarning warningsystem 23 17 none]
+G c Z s s [warning_systemIP warningsystem 7 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 24|2r6 2r23
+X 6 a-textio.ads
+57K13*Text_IO 727e16 24|2w10 2r27
+58@25*File_System 24|14r31 19r30 24r30
+508U14*Put_Line 25|7s11 15s11 19s11 27s13 31s11
+X 8 dashboard.ads
+1K9*Dashboard 13e14 24|1w6 1r21
+3I9*Fuel<short_short_integer>
+4I9*Airspeed<short_integer>
+5I9*Altitude<short_integer>
+7R9*DashboardSystem 11e14 24|13r75 18r76 23r81 25|3r73 11r75 23r78
+8i7*fuel_tank{3I9} 24|15r26 25|5r21
+9i7*velocity{4I9} 24|20r27 20r56 25|13r21 17r21
+10i7*height{5I9} 24|25r26 25r53 25|25r21 29r21
+X 24 warningsystem.ads
+4K9*WarningSystem 28l5 28e18 25|1b14 35l5 35t18
+6E9*WarningLight 6e44 8r20 9r22 10r21
+6n26*Green{6E9}
+6n33*Amber{6E9}
+6n40*Red{6E9} 16r37 21r38 26r39 25|6r31 14r32 18r32 26r33 30r33
+7R9*Warning_System 11e14 13r41 18r42 23r47 25|3r39 11r41 23r44
+8e7*fuelWarning{6E9} 16r23 25|6m16
+9e7*heightWarning{6E9} 26r23 25|26m16 30m16
+10e7*speedWarning{6E9} 21r23 25|14m16 18m16
+13U15*fuelWarning 13=27 13=57 25|3b13 9l8 9t19
+13r27 light{7R9} 16r17 25|3b25 6m10
+13r57 dashboard{8|7R9} 15r16 25|3b55 5r11
+18U15*speedWarning 18=28 18=58 25|11b14 21l8 21t20
+18r28 light{7R9} 21r17 25|11b27 14m10 18m10
+18r58 dashboard{8|7R9} 20r17 20r46 25|11b57 13r11 17r11
+23U17*altitudeWarning 23=33 23=63 25|23b14 33l8 33t23
+23r33 light{7R9} 26r17 25|23b30 26m10 30m10
+23r63 dashboard{8|7R9} 25r16 25r43 25|23b60 25r11 29r11
+

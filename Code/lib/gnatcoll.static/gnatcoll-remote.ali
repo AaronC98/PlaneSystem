@@ -1,0 +1,123 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatwa
+A -gnatwC
+A -gnatwJ
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U gnatcoll.remote%s	gnatcoll-remote.ads	3325c923 EE OO PF PK IU
+Z ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.expect%s		g-expect.adb		g-expect.ali
+W gnat.strings%s	g-string.ads		g-string.ali
+W gnatcoll%s		gnatcoll.ads		gnatcoll.ali
+W gnatcoll.vfs_types%s	gnatcoll-vfs_types.ads	gnatcoll-vfs_types.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-finali.ads		20190518041256 bf4f806b ada.finalization%s
+D a-stream.ads		20190518041256 119b8fb3 ada.streams%s
+D a-tags.ads		20190518041257 491b781d ada.tags%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-expect.ads		20190518041256 8c6f1a8c gnat.expect%s
+D g-os_lib.ads		20190518041255 0db74523 gnat.os_lib%s
+D g-regpat.ads		20190518041257 b85d88ef gnat.regpat%s
+D g-string.ads		20190518041257 c6abc540 gnat.strings%s
+D gnatcoll.ads		20190516174408 6a5da479 gnatcoll%s
+D gnatcoll-remote.ads	20190516174408 0702f81b gnatcoll.remote%s
+D gnatcoll-vfs_types.ads  20190516174409 14be4a8d gnatcoll.vfs_types%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-finmas.ads		20190518041256 7811a767 system.finalization_masters%s
+D s-finroo.ads		20190518041257 4ff27390 system.finalization_root%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-pooglo.ads		20190518041255 ede33ef8 system.pool_global%s
+D s-regpat.ads		20190518041256 825a9b7f system.regpat%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20190518041256 a7318a92 system.soft_links%s
+D s-stache.ads		20190518041257 a37c21ec system.stack_checking%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stalib.adb		20190518041255 f2fe2716 system.standard_library%b
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20190518041256 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20190518041256 b16154c2 system.storage_pools%s
+D s-stratt.ads		20190518041255 aedef97e system.stream_attributes%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+G a e
+X 8 gnat.ads
+34K9*GNAT 57e9 14|34r6 35r6 52r29 57r29 58r33 70r33 71r29
+X 9 g-expect.ads
+126K14*Expect 647e16 14|34w11 70r38
+157P9*Process_Descriptor_Access(151R9) 14|70r45
+X 12 g-string.ads
+38K14*Strings=38:37 14|35w11 52r34 57r34 58r38 71r34
+X 13 gnatcoll.ads
+24K9*GNATCOLL 27e13 14|36r6 36r30 38r9 77r5
+X 14 gnatcoll-remote.ads
+38K18*Remote 13|24k9 14|77l14 77e20
+42h9*Server_Record 43r37 45p13 46r16 47p13 48r16 50p14 51r36 55p14 56r36
+. 68p14 69r36
+43P9*Server_Access(42R9)
+45y13*Nickname{string} 46>7
+46r7 Server{42R9}
+47y13*Shell_FS{15|34E9} 48>7
+48r7 Server{42R9}
+50x14*Execute_Remotely 51^7 52>7 53<7 54>7
+51p7 Server(42R9)
+52a7 Args{34|54A9}
+53b7 Status{boolean}
+54a7 Execution_Directory{15|28A9}
+55x14*Execute_Remotely 56^7 57>7 58<7 59<7 60>7
+56p7 Server(42R9)
+57a7 Args{34|54A9}
+58p7 Result{34|45P9}
+59b7 Status{boolean}
+60a7 Execution_Directory{15|28A9}
+68x14*Spawn_Remotely 69^7 70<7 71>7
+69p7 Server(42R9)
+70p7 Descriptor{9|157P9}
+71a7 Args{34|54A9}
+X 15 gnatcoll-vfs_types.ads
+26K18*VFS_Types 14|36w15 36r39 15|36e23
+28A9*FS_String<string>(character)<integer> 14|54r29 60r29
+34E9*FS_Type 14|48r38 15|34e79
+X 16 system.ads
+67M9*Address
+X 20 s-memory.ads
+53V13*Alloc{16|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{16|67M9} 105i<c,__gnat_realloc>22
+X 29 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+X 34 s-string.ads
+45P9*String_Access(string) 14|58r46
+54A9*String_List(45P9)<integer> 14|52r42 57r42 71r42
+

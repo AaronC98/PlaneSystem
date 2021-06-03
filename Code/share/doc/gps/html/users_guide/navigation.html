@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>6. Source Navigation &#8212; GPS 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/adacore.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. Project Handling" href="projects.html" />
+    <link rel="prev" title="5. Editing Files" href="editing.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="projects.html" title="7. Project Handling"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="editing.html" title="5. Editing Files"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">6. Source Navigation</a><ul>
+<li><a class="reference internal" href="#support-for-cross-references">6.1. Support for Cross-References</a><ul>
+<li><a class="reference internal" href="#ada-cross-reference-heuristics">6.1.1. Ada cross-reference heuristics</a></li>
+<li><a class="reference internal" href="#the-cross-reference-database">6.1.2. The cross-reference database</a></li>
+<li><a class="reference internal" href="#cross-references-and-partially-compiled-projects">6.1.3. Cross-references and partially compiled projects</a></li>
+<li><a class="reference internal" href="#cross-reference-and-gnat-runtime">6.1.4. Cross-reference and GNAT runtime</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contextual-menus-for-source-navigation">6.2. Contextual Menus for Source Navigation</a></li>
+<li><a class="reference internal" href="#navigating-with-hyperlinks">6.3. Navigating with hyperlinks</a></li>
+<li><a class="reference internal" href="#highlighting-dispatching-calls">6.4. Highlighting dispatching calls</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="editing.html"
+                        title="previous chapter">5. Editing Files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="projects.html"
+                        title="next chapter">7. Project Handling</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/navigation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="source-navigation">
+<span id="id1"></span><h1>6. Source Navigation<a class="headerlink" href="#source-navigation" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="index-0"></span><span class="target" id="index-1"></span><div class="section" id="support-for-cross-references">
+<span id="index-2"></span><span id="id2"></span><h2>6.1. Support for Cross-References<a class="headerlink" href="#support-for-cross-references" title="Permalink to this headline">¶</a></h2>
+<p>GPS provides cross-reference navigation for program entities defined in
+your application such as types, procedures, functions, and variables.  This
+support relies on compiler-generated cross-reference information, so you
+need to compile your project before being able to navigate within it.
+Similarly, if you have modified your sources, you need to rebuild and
+recompute the xref information it you want your changes to be taken into
+account by GPS.</p>
+<p>Here is language specific information about source navigation:</p>
+<p><em>Ada</em></p>
+<blockquote>
+<div><p id="index-3">By default, GPS uses the GNAT compiler to generate the cross-reference
+information it needs.  However, if you are using the <strong class="command">-gnatD</strong> or
+<strong class="command">-gnatx</strong> switches, no cross reference information is available
+to GPS.</p>
+<span class="target" id="index-4"></span><p id="index-5">If you need to navigate through sources that do not compile (such as after
+modifications or while porting or initially developing an application),
+GNAT generates partial cross-reference information if you specify the
+<strong class="command">-gnatQ</strong> switch. Using this along with the <strong class="command">-k</strong> switch
+of <strong class="program">gnatmake</strong> generates as much relevant information from your
+non-compilable sources as possible.</p>
+<p id="index-6">Sometimes GPS cannot find the external files (called <code class="file docutils literal"><span class="pre">ALI</span> <span class="pre">files</span></code>)
+containing the cross-reference information. Most likely, this is either
+because you have not compiled your sources yet or because the sources
+changed since the <code class="file docutils literal"><span class="pre">ALI</span> <span class="pre">files</span></code> were generated.  Another possibility
+is that you have not included the object directories that contain the
+<code class="file docutils literal"><span class="pre">ALI</span> <span class="pre">files</span></code> in the project.</p>
+<span class="target" id="index-7"></span><p id="index-8">In addition, GPS cannot automatically handle one special case, when you
+have separate units whose file names have been crunched by the
+<strong class="program">gnatkr</strong> command.</p>
+</div></blockquote>
+<p><em>C/C++</em></p>
+<blockquote>
+<div><span class="target" id="index-9"></span><span class="target" id="index-10"></span><p id="index-11">You need to use the GCC C and C++ compilers that come with GNAT to
+generate the cross-references information needed by GPS and to call them
+with the <strong class="command">-fdump-xref</strong> switch, so you need to first add that
+switch to your project&#8217;s switches for C and C++ sources and compile your
+application before you browse through the cross-references.  If your
+sources have been modified, recompile the modified files.</p>
+</div></blockquote>
+<div class="section" id="ada-cross-reference-heuristics">
+<h3>6.1.1. Ada cross-reference heuristics<a class="headerlink" href="#ada-cross-reference-heuristics" title="Permalink to this headline">¶</a></h3>
+<p>GPS provides basic navigation support for Ada, C, and C++ sources even in
+the absence of information coming from the compiler by using a built-in
+parser, parsing the files both at startup and when they are modified.  This
+provides basic navigation in simple cases.</p>
+<p>In this mode, GPS can navigate to an entity body from the declaration and
+vice versa.  For other references, GPS can navigate to the declaration only
+if the heuristics provides the necessary information without ambiguity,
+which may not be the case with overloaded entities.</p>
+<p>GPS also uses this parser to provide the Ada outline view, code completion
+and entity view, but these heuristics are not used in global reference
+searching operations or to generate call graphs.</p>
+</div>
+<div class="section" id="the-cross-reference-database">
+<h3>6.1.2. The cross-reference database<a class="headerlink" href="#the-cross-reference-database" title="Permalink to this headline">¶</a></h3>
+<p>GPS parses the cross-reference information generated by the compiler (the
+<code class="file docutils literal"><span class="pre">.ali</span></code>) files into one or several <strong class="program">sqlite</strong> databases (e.g: if
+your project uses Ada and C). These database files can become quite large and
+should preferably be on a fast local disk.</p>
+<p>By default, GPS places these database files in the object directory of the
+currently-loaded root project, or, if specified, in the directory designated by
+the relative or absolute path given by the <span class="guilabel">Artifacts_Dir</span> attribute
+of the <span class="guilabel">IDE</span> package of your project file:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="c1">--  assume this is in /home/user1/work/default.gpr</span>
+<span class="n">project</span> <span class="n">Default</span> <span class="kr">is</span>
+   <span class="kr">for</span> <span class="n">Object_Dir</span> <span class="kn">use</span> <span class="s">&quot;obj&quot;</span><span class="p">;</span>
+
+   <span class="kd">package</span> <span class="nc">IDE</span> <span class="kr">is</span>
+      <span class="kr">for</span> <span class="n">Artifacts_Dir</span> <span class="kn">use</span> <span class="s">&quot;artifacts&quot;</span><span class="p">;</span>
+      <span class="c1">--  All the artifacts generated by GPS (including the xref databases)</span>
+      <span class="c1">--  will be put in the /home/user1/work/artifacts/ directory.</span>
+      <span class="c1">--</span>
+      <span class="c1">--  We could also have specified an absolute path here</span>
+      <span class="c1">--  (e.g: for Artifacts_Dir use &quot;/home/user1/work/artifacts/&quot;).</span>
+   <span class="kr">end</span> <span class="nf">IDE</span><span class="p">;</span>
+<span class="kr">end</span> <span class="nf">Default</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If you want to have more advanced control regarding the naming of the Ada
+cross-references database file, you can use the <span class="guilabel">Xref_Database</span> in
+the <span class="guilabel">IDE</span> package of your project file, either as an absolute path or
+a path relative to the location of the project file. We recommend this path to
+be specific to each use, and to each project this user might be working on, as
+in the following examples:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="c1">--  assume this is in /home/user1/work/default.gpr</span>
+<span class="n">project</span> <span class="n">Default</span> <span class="kr">is</span>
+   <span class="kr">for</span> <span class="n">Object_Dir</span> <span class="kn">use</span> <span class="s">&quot;obj&quot;</span><span class="p">;</span>
+
+   <span class="kd">package</span> <span class="nc">IDE</span> <span class="kr">is</span>
+      <span class="kr">for</span> <span class="n">Xref_Database</span> <span class="kn">use</span> <span class="s">&quot;xref_database.db&quot;</span><span class="p">;</span>
+      <span class="c1">--  This would be /home/user1/work/xref_database.db</span>
+
+      <span class="kr">for</span> <span class="n">Xref_Database</span> <span class="kn">use</span> <span class="nn">Project</span><span class="p">&#39;</span><span class="na">Object_Dir</span> <span class="o">&amp;</span> <span class="s">&quot;/xref_database.db&quot;</span><span class="p">;</span>
+      <span class="c1">--  This would be /home/user1/work/obj/xref_database.db</span>
+      <span class="c1">--  This is the default when this attribute is not specified</span>
+
+      <span class="kr">for</span> <span class="n">Xref_Database</span> <span class="kn">use</span> <span class="nn">external</span><span class="p">(</span><span class="s">&quot;HOME&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s">&quot;/prj1/database.db&quot;</span><span class="p">;</span>
+      <span class="c1">--  This would be /home/user1/prj1/database.db</span>
+   <span class="kr">end</span> <span class="nf">IDE</span><span class="p">;</span>
+<span class="kr">end</span> <span class="nf">Default</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>One drawback in altering the default location is that <strong class="program">gprclean</strong>
+will not remove these database files when you clean your project.  But it might
+speed up GPS if your project is not on a fast local disk and you can put the
+databases there.</p>
+<p><strong>WARNING</strong>: You should not store this file in a directory that is accessed via
+a network filesystem, like NFS, or Clearcase&#8217;s MVFS. If your obj directory is
+on such a filesystem, be sure to specify a local directory for IDE&#8217;Artifacts_Dir
+project attribute or, if you project only uses Ada, a custom local file path for
+the IDE&#8217;Xref_Database project attribute.</p>
+</div>
+<div class="section" id="cross-references-and-partially-compiled-projects">
+<h3>6.1.3. Cross-references and partially compiled projects<a class="headerlink" href="#cross-references-and-partially-compiled-projects" title="Permalink to this headline">¶</a></h3>
+<p>The cross-reference engine works best when the cross-reference
+information generated by the compiler (the <code class="file docutils literal"><span class="pre">.ali</span></code> files) is
+fully up to date.</p>
+<p>If you start from such a state and then modify the spec or body of an Ada
+package and recompile only that file, any reference to entities declared in
+that spec in other packages might no longer be found (until you recompile
+those other packages, as <strong class="program">gprbuild</strong> would).</p>
+<p>This is because GPS has no way to know for sure whether an entity
+<code class="samp docutils literal"><span class="pre">Foo</span></code> in the spec is the same entity as before or is a new one with
+the same name. It uses an approximate algorithm where the references are
+only preserved if an entity with the same name remains at precisely the
+same location in the new version of the source. But if a blank line in the
+file will change the declaration line for all entities declared further in
+the file, so those will lose their references from other source files.</p>
+</div>
+<div class="section" id="cross-reference-and-gnat-runtime">
+<span id="index-12"></span><h3>6.1.4. Cross-reference and GNAT runtime<a class="headerlink" href="#cross-reference-and-gnat-runtime" title="Permalink to this headline">¶</a></h3>
+<p>By default, GPS does not parse the GNAT runtime files because there is a
+large number of them and doing so would significantly slow down GPS, while
+producing only a minimal gain for most users.  However, the location of
+subprograms in those runtime files is available from the <code class="file docutils literal"><span class="pre">.ali</span></code> files
+corresponding to the sources of your project.</p>
+<p>From your own sources, you can navigate to one of the runtime files (for
+example, if you have a reference to <code class="xref py py-func docutils literal"><span class="pre">Put_Line()</span></code>, you will jump to its
+declaration in <code class="file docutils literal"><span class="pre">a-textio.ads</span></code>). But you cannot perform
+cross-reference queries from a runtime file itself.</p>
+<p>If you need this capability, enable the preference <span class="guilabel">Project/Cross
+References in Runtime Files</span>.</p>
+</div>
+</div>
+<div class="section" id="contextual-menus-for-source-navigation">
+<h2>6.2. Contextual Menus for Source Navigation<a class="headerlink" href="#contextual-menus-for-source-navigation" title="Permalink to this headline">¶</a></h2>
+<p>This contextual menu is available from any source editor.  If you
+right-click on an entity or selected text, the contextual menu applies to
+the selection or entity.  Most of these menus requires support for
+cross-references.</p>
+<ul>
+<li><p class="first"><span class="menuselection">Goto declaration of *entity*</span></p>
+<p>Go to the declaration (spec) of <em>entity</em>.</p>
+</li>
+</ul>
+<ul id="index-13">
+<li><p class="first"><span class="menuselection">Goto declarations of *entity*</span></p>
+<p>This entry appears when clicking on a dispatching subprogram call. In
+that case, GPS cannot know what subprogram will actually be called at run
+time, so it gives you a list of all entities in the tagged type hierarchy
+and lets you choose which of the declarations you want to jump to. See
+also the <code class="file docutils literal"><span class="pre">methods.py</span></code> plugin (enabled by default) which, given an
+object, lists all its primitive operations in a contextual menu so you
+can easily jump to them. See also the <span class="menuselection">References ‣ Find
+References To...</span> contextual menu, which allows you to find all calls to
+a subprogram or one of its overriding subprograms.</p>
+</li>
+<li><p class="first"><span class="menuselection">Goto full declaration of *entity*</span></p>
+<p>This entry appears for a private or limited private types. Go to the full
+declaration (spec) of <em>entity</em>.</p>
+</li>
+<li><p class="first"><span class="menuselection">Goto type declaration of *entity*</span></p>
+<p>Go to the type declaration of <em>entity</em>.</p>
+</li>
+<li><p class="first"><span class="menuselection">Display type hierarchy for *entity*</span></p>
+<p>This entry appears for derived or access types. Put the <span class="target" id="index-14"></span>type
+hierarchy for <em>entity</em> into the <span class="guilabel">Location</span> view.</p>
+</li>
+<li><p class="first"><span class="menuselection">Goto body of *entity*</span></p>
+<p>Go to the body (implementation of <em>entity</em>.) If <em>entity</em> is the
+declaration of an Ada subprogram imported from C, go to the location
+where the C function is defined.</p>
+</li>
+<li><p class="first"><span class="menuselection">Goto bodies of *entity*</span></p>
+<p>Similar to <span class="menuselection">Goto declarations of</span>, but applies to the
+bodies of entities.</p>
+</li>
+<li><p class="first"><span class="menuselection">Goto file spec/body</span></p>
+<p>Open the corresponding spec file if the current edited file is a body
+file, or the body file otherwise. This entry is only available for the
+Ada language.</p>
+</li>
+<li><p class="first"><span class="menuselection">*Entity* calls</span></p>
+<p>Display a list of all subprograms called by <em>entity</em> in a tree view. This
+is generally more convenient than using the corresponding
+<span class="menuselection">Browsers/</span> submenu if you expect many references.
+See <a class="reference internal" href="main_window.html#the-callgraph-view"><span class="std std-ref">The Call trees view and Callgraph browser</span></a>.</p>
+</li>
+<li><p class="first"><span class="menuselection">*Entity* is called by</span></p>
+<p>Display a list of all subprograms calling <em>entity</em> in a tree view. This
+is generally more convenient than using the corresponding
+<span class="menuselection">Browsers/</span> submenu if you expect many references.  See
+<a class="reference internal" href="main_window.html#the-callgraph-view"><span class="std std-ref">The Call trees view and Callgraph browser</span></a>.</p>
+</li>
+<li><p class="first"><span class="menuselection">References ‣ Find all references</span></p>
+<p><span class="xref std std-ref">Find all references</span> to <em>entity</em> in all the
+files in the project.</p>
+</li>
+<li><p class="first"><span class="menuselection">References ‣ Find all references...</span></p>
+<p>Similar to the entry above except you can select more precisely what
+kind of reference should be displayed.  You can also specify the scope
+of the search and whether the context (or caller) at each reference
+should be displayed.</p>
+<span class="target" id="index-15"></span><span class="target" id="index-16"></span><p id="index-17">The option <span class="guilabel">Include overriding and overridden operations</span>
+includes references to overridden or overriding entities.  This is
+particularly useful if you need to know whether you can easily modify
+the profile of a primitive operation or method since you can see which
+other entities would also be changed. If you select only the
+<span class="guilabel">declaration</span> check box, you see the list of all related
+primitive operations.</p>
+<p id="index-18">This dialog allows you to determine which entities are imported from a
+given file or unit. Click on any entity from that file (for example on
+the <strong class="command">with</strong> line for Ada code) and select the <span class="guilabel">All
+entities imported from same file</span> toggle, which displays in the
+<span class="guilabel">Location</span> view the list of all entities imported from the
+same file.</p>
+<p>Selecting the <span class="guilabel">Show context</span> option produces a list of all
+the references to these entities within the file.  If it is not
+selected, you just get a pointer to the declaration of the imported
+entities.</p>
+</li>
+<li><p class="first"><span class="menuselection">References ‣ Find all local references to *entity*</span></p>
+<p><span class="xref std std-ref">Find all references</span> to <em>entity</em> in the current
+file (or in the current top level unit for Ada sources).</p>
+</li>
+<li><p class="first"><span class="menuselection">References ‣ Variables used in *entity*</span></p>
+<p>Find all variables (local or global) used in <em>entity</em> and list each first
+reference in the locations window.</p>
+</li>
+<li><p class="first"><span class="menuselection">References ‣ Non Local variables used in *entity*</span></p>
+<p>Find all non-local variables used in the entity.</p>
+</li>
+</ul>
+<ul id="index-19">
+<li><p class="first"><span class="menuselection">References ‣ Methods of *entity*</span></p>
+<p>This entry is only visible if you activated the plugin
+<code class="file docutils literal"><span class="pre">methods.py</span></code> (the default) and when you click on a tagged type or
+an instance of a tagged type.  It lists all the <span class="target" id="index-20"></span>primitive
+operations or <span class="target" id="index-21"></span>methods of that type, allowing you to jump to the
+declaration of any of these operations or methods.</p>
+</li>
+<li><p class="first"><span class="menuselection">Browsers ‣ *Entity* calls</span></p>
+<p>Open or raise the <span class="guilabel">Callgraph</span> browser on the specified entity and
+display all the subprograms called by it. See <a class="reference internal" href="main_window.html#call-graph"><span class="std std-ref">Callgraph browser</span></a>.</p>
+</li>
+<li><p class="first"><span class="menuselection">Browsers ‣ *Entity* calls (recursively)</span></p>
+<p>Open or raise the <span class="guilabel">Callgraph</span> browser on the specified entity
+and display all the subprograms called by <em>entity</em>, transitively for all
+subprograms.  Since this can take a long time to compute and generate a
+very large graph, an intermediate dialog is displayed to limit the number
+of subprograms to display (1000 by default). See <a class="reference internal" href="main_window.html#call-graph"><span class="std std-ref">Callgraph browser</span></a>.</p>
+</li>
+<li><p class="first"><span class="menuselection">*Entity* is called by</span></p>
+<p>Open or raise the <span class="guilabel">Callgraph</span> browser on the specified entity
+and display all the subprograms calling <em>entity</em>. See <a class="reference internal" href="main_window.html#call-graph"><span class="std std-ref">Callgraph browser</span></a>.</p>
+</li>
+<li><p class="first"><span class="menuselection">Expanded code</span></p>
+<p>Present for Ada files only. Generates a <code class="file docutils literal"><span class="pre">.dg</span></code> file by calling the
+GNAT compiler with the <cite>:index:command:</cite>-gnatGL`` switch and displaying the
+expanded code.  Use this when investigating low-level issues and tracing
+how your source code is transformed by the GNAT front-end.</p>
+</li>
+<li><p class="first"><span class="menuselection">Expanded code ‣ Show subprogram</span></p>
+<p>Display expanded code for the current subprogram in the current editor.</p>
+</li>
+<li><p class="first"><span class="menuselection">Expanded code ‣ Show file</span></p>
+<p>Display expanded code for the current file in the current editor.</p>
+</li>
+<li><p class="first"><span class="menuselection">Expanded code ‣ Show in separate editor</span></p>
+<p>Display expanded code for the current file in a new editor.</p>
+</li>
+<li><p class="first"><span class="menuselection">Expanded code ‣ Clear</span></p>
+<p>Remove expanded code from the current editor.</p>
+</li>
+<li><p class="first"><span class="menuselection">Open *filename*</span></p>
+<p>When you click on a filename (for example, a C <strong class="command">#include</strong>, or an
+error message in a log file), this entry opens that file. If the file
+name is followed by <code class="samp docutils literal"><span class="pre">:</span></code> and a line number, the cursor points to
+that line.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="navigating-with-hyperlinks">
+<span id="index-22"></span><span id="id3"></span><h2>6.3. Navigating with hyperlinks<a class="headerlink" href="#navigating-with-hyperlinks" title="Permalink to this headline">¶</a></h2>
+<p>When you press the <code class="kbd docutils literal"><span class="pre">Control</span></code> key and start moving the mouse, entities
+in the editors under the pointer become hyperlinks and the form of the
+pointer changes.</p>
+<p>Left-clicking on a reference to an entity opens a source editor on the
+declaration of the entity and left-clicking on an entity declaration opens
+an editor on the implementation of the entity.  Left-clicking on the Ada
+declaration of a subprogram imported from C opens a source editor on the
+definition of the corresponding C entity. This capability requires support
+for cross-references.</p>
+<p>Middle-clicking on either a reference to an entity or the declaration of an
+entity jumps to the implementation (or type completion) of the entity.</p>
+<p>For efficiency, GPS may create hyperlinks for some entities which have no
+associated cross reference. In this case, clicking has no effect even
+though a hyperlink is displayed.</p>
+<p id="index-23">This behavior is controlled by the <span class="menuselection">General ‣ Hyper links</span>
+preference.</p>
+<span class="target" id="index-24"></span></div>
+<div class="section" id="highlighting-dispatching-calls">
+<span id="index-25"></span><span id="id4"></span><h2>6.4. Highlighting dispatching calls<a class="headerlink" href="#highlighting-dispatching-calls" title="Permalink to this headline">¶</a></h2>
+<p>By default, GPS highlights dispatching calls in Ada and C++ source code via
+the <code class="file docutils literal"><span class="pre">dispatching.py</span></code> plugin.  Based on the cross-reference
+information, this plugin highlights (with a special color you can
+configure in the preferences dialog) all Ada dispatching calls or calls to
+virtual methods in C++.  A dispatching call in Ada is a subprogram call
+where the actual subprogram called is not known until run time and is
+chosen based on the tag of the object.</p>
+<p>Disable this highlighting (which may be slow if you have large sources) by
+using the <span class="menuselection">Edit ‣ Preferences...</span> menu, going to the Plugins
+section and disabling the <code class="file docutils literal"><span class="pre">dispatching.py</span></code> plugin.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="projects.html" title="7. Project Handling"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="editing.html" title="5. Editing Files"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

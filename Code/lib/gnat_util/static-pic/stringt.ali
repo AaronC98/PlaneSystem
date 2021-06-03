@@ -1,0 +1,495 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P SS ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U stringt%b		stringt.adb		cc840dfd OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W alloc%s		alloc.ads		alloc.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W output%s		output.adb		output.ali  AD
+Z system%s		system.ads		system.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W table%s		table.adb		table.ali
+
+U stringt%s		stringt.ads		5422d5e5 BN EB EE NE OO PK
+W namet%s		namet.adb		namet.ali
+W system%s		system.ads		system.ali
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D alloc.ads		20190518044709 972e59bd alloc%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D namet.ads		20190518044709 b520bebe namet%s
+D namet.adb		20190518044709 64106062 namet%b
+D opt.ads		20190518044710 3d2ce478 opt%s
+D output.ads		20190518044709 a916e413 output%s
+D stringt.ads		20190518044709 36edeb84 stringt%s
+D stringt.adb		20190518044709 6a21e5ab stringt%b
+D system.ads		20190518041256 085b6ffb system%s
+D s-carun8.ads		20190518041257 a903718d system.compare_array_unsigned_8%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D types.adb		20190518044709 87ca568f types%b
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D widechar.ads		20190518044709 afb9abd7 widechar%s
+G a e
+G c b b b [b stringt 36 1 none]
+G c Z s b [initialize stringt 61 14 none]
+G c Z s b [lock stringt 65 14 none]
+G c Z s b [unlock stringt 68 14 none]
+G c Z s b [mark stringt 71 14 none]
+G c Z s b [release stringt 75 14 none]
+G c Z s b [start_string stringt 80 14 none]
+G c Z s b [start_string stringt 86 14 none]
+G c Z s b [store_string_char stringt 93 14 none]
+G c Z s b [store_string_char stringt 94 14 none]
+G c Z s b [store_string_chars stringt 97 14 none]
+G c Z s b [store_string_chars stringt 98 14 none]
+G c Z s b [store_string_int stringt 101 14 none]
+G c Z s b [unstore_string_char stringt 104 14 none]
+G c Z s b [end_string stringt 108 13 none]
+G c Z s b [string_length stringt 111 13 none]
+G c Z s b [get_string_char stringt 114 13 none]
+G c Z s b [string_equal stringt 119 13 none]
+G c Z s b [string_to_name stringt 122 13 none]
+G c Z s b [append stringt 125 14 none]
+G c Z s b [string_to_name_buffer stringt 130 14 none]
+G c Z s b [string_chars_address stringt 135 13 none]
+G c Z s b [string_from_name_buffer stringt 138 13 none]
+G c Z s b [strings_address stringt 142 13 none]
+G c Z s b [tree_read stringt 145 14 none]
+G c Z s b [tree_write stringt 150 14 none]
+G c Z s b [write_char_code stringt 154 14 none]
+G c Z s b [write_string_table_entry stringt 164 14 none]
+G c Z b b [init stringt__string_chars 142 17 42_4]
+G c Z b b [last stringt__string_chars 149 16 42_4]
+G c Z b b [release stringt__string_chars 156 17 42_4]
+G c Z b b [free stringt__string_chars 168 17 42_4]
+G c Z b b [set_last stringt__string_chars 175 17 42_4]
+G c Z b b [increment_last stringt__string_chars 184 17 42_4]
+G c Z b b [decrement_last stringt__string_chars 188 17 42_4]
+G c Z b b [append stringt__string_chars 192 17 42_4]
+G c Z b b [append_all stringt__string_chars 200 17 42_4]
+G c Z b b [set_item stringt__string_chars 203 17 42_4]
+G c Z b b [save stringt__string_chars 215 16 42_4]
+G c Z b b [restore stringt__string_chars 219 17 42_4]
+G c Z b b [tree_write stringt__string_chars 223 17 42_4]
+G c Z b b [tree_read stringt__string_chars 226 17 42_4]
+G c Z b b [table_typeIP stringt__string_chars 110 12 42_4]
+G c Z b b [saved_tableIP stringt__string_chars 241 12 42_4]
+G c Z b b [reallocate stringt__string_chars 58 17 42_4]
+G c Z b b [tree_get_table_address stringt__string_chars 63 16 42_4]
+G c Z b b [to_address stringt__string_chars 72 16 42_4]
+G c Z b b [to_pointer stringt__string_chars 73 16 42_4]
+G c Z b b [string_entryIP stringt 54 9 none]
+G c Z b b [init stringt__strings 142 17 59_4]
+G c Z b b [last stringt__strings 149 16 59_4]
+G c Z b b [release stringt__strings 156 17 59_4]
+G c Z b b [free stringt__strings 168 17 59_4]
+G c Z b b [set_last stringt__strings 175 17 59_4]
+G c Z b b [increment_last stringt__strings 184 17 59_4]
+G c Z b b [decrement_last stringt__strings 188 17 59_4]
+G c Z b b [append stringt__strings 192 17 59_4]
+G c Z b b [append_all stringt__strings 200 17 59_4]
+G c Z b b [set_item stringt__strings 203 17 59_4]
+G c Z b b [save stringt__strings 215 16 59_4]
+G c Z b b [restore stringt__strings 219 17 59_4]
+G c Z b b [tree_write stringt__strings 223 17 59_4]
+G c Z b b [tree_read stringt__strings 226 17 59_4]
+G c Z b b [table_typeIP stringt__strings 110 12 59_4]
+G c Z b b [saved_tableIP stringt__strings 241 12 59_4]
+G c Z b b [reallocate stringt__strings 58 17 59_4]
+G c Z b b [tree_get_table_address stringt__strings 63 16 59_4]
+G c Z b b [to_address stringt__strings 72 16 59_4]
+G c Z b b [to_pointer stringt__strings 73 16 59_4]
+G r c none [b stringt 36 1 none] [write_str output 130 14 none]
+G r c none [b stringt 36 1 none] [write_int output 123 14 none]
+G r c none [b stringt 36 1 none] [write_eol output 113 14 none]
+G r c none [b stringt 36 1 none] [set_standard_error output 77 14 none]
+G r c none [b stringt 36 1 none] [set_standard_output output 84 14 none]
+G r i none [b stringt 36 1 none] [table table 59 12 none]
+G r c none [initialize stringt 61 14 none] [write_str output 130 14 none]
+G r c none [initialize stringt 61 14 none] [write_int output 123 14 none]
+G r c none [initialize stringt 61 14 none] [write_eol output 113 14 none]
+G r c none [initialize stringt 61 14 none] [set_standard_error output 77 14 none]
+G r c none [initialize stringt 61 14 none] [set_standard_output output 84 14 none]
+G r c none [lock stringt 65 14 none] [write_str output 130 14 none]
+G r c none [lock stringt 65 14 none] [write_int output 123 14 none]
+G r c none [lock stringt 65 14 none] [write_eol output 113 14 none]
+G r c none [lock stringt 65 14 none] [set_standard_error output 77 14 none]
+G r c none [lock stringt 65 14 none] [set_standard_output output 84 14 none]
+G r c none [release stringt 75 14 none] [write_str output 130 14 none]
+G r c none [release stringt 75 14 none] [write_int output 123 14 none]
+G r c none [release stringt 75 14 none] [write_eol output 113 14 none]
+G r c none [release stringt 75 14 none] [set_standard_error output 77 14 none]
+G r c none [release stringt 75 14 none] [set_standard_output output 84 14 none]
+G r c none [start_string stringt 80 14 none] [write_str output 130 14 none]
+G r c none [start_string stringt 80 14 none] [write_int output 123 14 none]
+G r c none [start_string stringt 80 14 none] [write_eol output 113 14 none]
+G r c none [start_string stringt 80 14 none] [set_standard_error output 77 14 none]
+G r c none [start_string stringt 80 14 none] [set_standard_output output 84 14 none]
+G r c none [start_string stringt 86 14 none] [write_str output 130 14 none]
+G r c none [start_string stringt 86 14 none] [write_int output 123 14 none]
+G r c none [start_string stringt 86 14 none] [write_eol output 113 14 none]
+G r c none [start_string stringt 86 14 none] [set_standard_error output 77 14 none]
+G r c none [start_string stringt 86 14 none] [set_standard_output output 84 14 none]
+G r c none [store_string_char stringt 93 14 none] [write_str output 130 14 none]
+G r c none [store_string_char stringt 93 14 none] [write_int output 123 14 none]
+G r c none [store_string_char stringt 93 14 none] [write_eol output 113 14 none]
+G r c none [store_string_char stringt 93 14 none] [set_standard_error output 77 14 none]
+G r c none [store_string_char stringt 93 14 none] [set_standard_output output 84 14 none]
+G r c none [store_string_char stringt 94 14 none] [get_char_code types 532 13 none]
+G r c none [store_string_char stringt 94 14 none] [write_str output 130 14 none]
+G r c none [store_string_char stringt 94 14 none] [write_int output 123 14 none]
+G r c none [store_string_char stringt 94 14 none] [write_eol output 113 14 none]
+G r c none [store_string_char stringt 94 14 none] [set_standard_error output 77 14 none]
+G r c none [store_string_char stringt 94 14 none] [set_standard_output output 84 14 none]
+G r c none [store_string_chars stringt 97 14 none] [get_char_code types 532 13 none]
+G r c none [store_string_chars stringt 97 14 none] [write_str output 130 14 none]
+G r c none [store_string_chars stringt 97 14 none] [write_int output 123 14 none]
+G r c none [store_string_chars stringt 97 14 none] [write_eol output 113 14 none]
+G r c none [store_string_chars stringt 97 14 none] [set_standard_error output 77 14 none]
+G r c none [store_string_chars stringt 97 14 none] [set_standard_output output 84 14 none]
+G r c none [store_string_chars stringt 98 14 none] [write_str output 130 14 none]
+G r c none [store_string_chars stringt 98 14 none] [write_int output 123 14 none]
+G r c none [store_string_chars stringt 98 14 none] [write_eol output 113 14 none]
+G r c none [store_string_chars stringt 98 14 none] [set_standard_error output 77 14 none]
+G r c none [store_string_chars stringt 98 14 none] [set_standard_output output 84 14 none]
+G r c none [store_string_int stringt 101 14 none] [get_char_code types 532 13 none]
+G r c none [store_string_int stringt 101 14 none] [write_str output 130 14 none]
+G r c none [store_string_int stringt 101 14 none] [write_int output 123 14 none]
+G r c none [store_string_int stringt 101 14 none] [write_eol output 113 14 none]
+G r c none [store_string_int stringt 101 14 none] [set_standard_error output 77 14 none]
+G r c none [store_string_int stringt 101 14 none] [set_standard_output output 84 14 none]
+G r s bounded_string [string_to_name stringt 122 13 none] [bounded_stringIP namet 151 9 none]
+G r c none [string_to_name stringt 122 13 none] [get_character types 549 13 none]
+G r c none [string_to_name stringt 122 13 none] [append namet 376 14 none]
+G r c none [string_to_name stringt 122 13 none] [name_find namet 343 13 none]
+G r c none [append stringt 125 14 none] [get_character types 549 13 none]
+G r c none [append stringt 125 14 none] [append namet 376 14 none]
+G r c none [string_to_name_buffer stringt 130 14 none] [get_character types 549 13 none]
+G r c none [string_to_name_buffer stringt 130 14 none] [append namet 376 14 none]
+G r c none [string_from_name_buffer stringt 138 13 none] [write_str output 130 14 none]
+G r c none [string_from_name_buffer stringt 138 13 none] [write_int output 123 14 none]
+G r c none [string_from_name_buffer stringt 138 13 none] [write_eol output 113 14 none]
+G r c none [string_from_name_buffer stringt 138 13 none] [set_standard_error output 77 14 none]
+G r c none [string_from_name_buffer stringt 138 13 none] [set_standard_output output 84 14 none]
+G r c none [string_from_name_buffer stringt 138 13 none] [to_string namet 339 13 none]
+G r c none [string_from_name_buffer stringt 138 13 none] [get_char_code types 532 13 none]
+G r c none [tree_read stringt 145 14 none] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read stringt 145 14 none] [write_str output 130 14 none]
+G r c none [tree_read stringt 145 14 none] [write_int output 123 14 none]
+G r c none [tree_read stringt 145 14 none] [write_eol output 113 14 none]
+G r c none [tree_read stringt 145 14 none] [set_standard_error output 77 14 none]
+G r c none [tree_read stringt 145 14 none] [set_standard_output output 84 14 none]
+G r c none [tree_read stringt 145 14 none] [tree_read_data tree_io 76 14 none]
+G r c none [tree_write stringt 150 14 none] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write stringt 150 14 none] [tree_write_data tree_io 108 14 none]
+G r c none [write_char_code stringt 154 14 none] [write_char output 106 14 none]
+G r c none [write_string_table_entry stringt 164 14 none] [write_char output 106 14 none]
+G r c none [write_string_table_entry stringt 164 14 none] [write_str output 130 14 none]
+G r c none [write_string_table_entry stringt 164 14 none] [write_int output 123 14 none]
+G r c none [init stringt__string_chars 142 17 42_4] [write_str output 130 14 none]
+G r c none [init stringt__string_chars 142 17 42_4] [write_int output 123 14 none]
+G r c none [init stringt__string_chars 142 17 42_4] [write_eol output 113 14 none]
+G r c none [init stringt__string_chars 142 17 42_4] [set_standard_error output 77 14 none]
+G r c none [init stringt__string_chars 142 17 42_4] [set_standard_output output 84 14 none]
+G r c none [release stringt__string_chars 156 17 42_4] [write_str output 130 14 none]
+G r c none [release stringt__string_chars 156 17 42_4] [write_int output 123 14 none]
+G r c none [release stringt__string_chars 156 17 42_4] [write_eol output 113 14 none]
+G r c none [release stringt__string_chars 156 17 42_4] [set_standard_error output 77 14 none]
+G r c none [release stringt__string_chars 156 17 42_4] [set_standard_output output 84 14 none]
+G r c none [set_last stringt__string_chars 175 17 42_4] [write_str output 130 14 none]
+G r c none [set_last stringt__string_chars 175 17 42_4] [write_int output 123 14 none]
+G r c none [set_last stringt__string_chars 175 17 42_4] [write_eol output 113 14 none]
+G r c none [set_last stringt__string_chars 175 17 42_4] [set_standard_error output 77 14 none]
+G r c none [set_last stringt__string_chars 175 17 42_4] [set_standard_output output 84 14 none]
+G r c none [increment_last stringt__string_chars 184 17 42_4] [write_str output 130 14 none]
+G r c none [increment_last stringt__string_chars 184 17 42_4] [write_int output 123 14 none]
+G r c none [increment_last stringt__string_chars 184 17 42_4] [write_eol output 113 14 none]
+G r c none [increment_last stringt__string_chars 184 17 42_4] [set_standard_error output 77 14 none]
+G r c none [increment_last stringt__string_chars 184 17 42_4] [set_standard_output output 84 14 none]
+G r c none [append stringt__string_chars 192 17 42_4] [write_str output 130 14 none]
+G r c none [append stringt__string_chars 192 17 42_4] [write_int output 123 14 none]
+G r c none [append stringt__string_chars 192 17 42_4] [write_eol output 113 14 none]
+G r c none [append stringt__string_chars 192 17 42_4] [set_standard_error output 77 14 none]
+G r c none [append stringt__string_chars 192 17 42_4] [set_standard_output output 84 14 none]
+G r c none [append_all stringt__string_chars 200 17 42_4] [write_str output 130 14 none]
+G r c none [append_all stringt__string_chars 200 17 42_4] [write_int output 123 14 none]
+G r c none [append_all stringt__string_chars 200 17 42_4] [write_eol output 113 14 none]
+G r c none [append_all stringt__string_chars 200 17 42_4] [set_standard_error output 77 14 none]
+G r c none [append_all stringt__string_chars 200 17 42_4] [set_standard_output output 84 14 none]
+G r c none [set_item stringt__string_chars 203 17 42_4] [write_str output 130 14 none]
+G r c none [set_item stringt__string_chars 203 17 42_4] [write_int output 123 14 none]
+G r c none [set_item stringt__string_chars 203 17 42_4] [write_eol output 113 14 none]
+G r c none [set_item stringt__string_chars 203 17 42_4] [set_standard_error output 77 14 none]
+G r c none [set_item stringt__string_chars 203 17 42_4] [set_standard_output output 84 14 none]
+G r c none [save stringt__string_chars 215 16 42_4] [write_str output 130 14 none]
+G r c none [save stringt__string_chars 215 16 42_4] [write_int output 123 14 none]
+G r c none [save stringt__string_chars 215 16 42_4] [write_eol output 113 14 none]
+G r c none [save stringt__string_chars 215 16 42_4] [set_standard_error output 77 14 none]
+G r c none [save stringt__string_chars 215 16 42_4] [set_standard_output output 84 14 none]
+G r c none [tree_write stringt__string_chars 223 17 42_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write stringt__string_chars 223 17 42_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read stringt__string_chars 226 17 42_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read stringt__string_chars 226 17 42_4] [write_str output 130 14 none]
+G r c none [tree_read stringt__string_chars 226 17 42_4] [write_int output 123 14 none]
+G r c none [tree_read stringt__string_chars 226 17 42_4] [write_eol output 113 14 none]
+G r c none [tree_read stringt__string_chars 226 17 42_4] [set_standard_error output 77 14 none]
+G r c none [tree_read stringt__string_chars 226 17 42_4] [set_standard_output output 84 14 none]
+G r c none [tree_read stringt__string_chars 226 17 42_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate stringt__string_chars 58 17 42_4] [write_str output 130 14 none]
+G r c none [reallocate stringt__string_chars 58 17 42_4] [write_int output 123 14 none]
+G r c none [reallocate stringt__string_chars 58 17 42_4] [write_eol output 113 14 none]
+G r c none [reallocate stringt__string_chars 58 17 42_4] [set_standard_error output 77 14 none]
+G r c none [reallocate stringt__string_chars 58 17 42_4] [set_standard_output output 84 14 none]
+G r c none [init stringt__strings 142 17 59_4] [write_str output 130 14 none]
+G r c none [init stringt__strings 142 17 59_4] [write_int output 123 14 none]
+G r c none [init stringt__strings 142 17 59_4] [write_eol output 113 14 none]
+G r c none [init stringt__strings 142 17 59_4] [set_standard_error output 77 14 none]
+G r c none [init stringt__strings 142 17 59_4] [set_standard_output output 84 14 none]
+G r c none [release stringt__strings 156 17 59_4] [write_str output 130 14 none]
+G r c none [release stringt__strings 156 17 59_4] [write_int output 123 14 none]
+G r c none [release stringt__strings 156 17 59_4] [write_eol output 113 14 none]
+G r c none [release stringt__strings 156 17 59_4] [set_standard_error output 77 14 none]
+G r c none [release stringt__strings 156 17 59_4] [set_standard_output output 84 14 none]
+G r c none [set_last stringt__strings 175 17 59_4] [write_str output 130 14 none]
+G r c none [set_last stringt__strings 175 17 59_4] [write_int output 123 14 none]
+G r c none [set_last stringt__strings 175 17 59_4] [write_eol output 113 14 none]
+G r c none [set_last stringt__strings 175 17 59_4] [set_standard_error output 77 14 none]
+G r c none [set_last stringt__strings 175 17 59_4] [set_standard_output output 84 14 none]
+G r c none [increment_last stringt__strings 184 17 59_4] [write_str output 130 14 none]
+G r c none [increment_last stringt__strings 184 17 59_4] [write_int output 123 14 none]
+G r c none [increment_last stringt__strings 184 17 59_4] [write_eol output 113 14 none]
+G r c none [increment_last stringt__strings 184 17 59_4] [set_standard_error output 77 14 none]
+G r c none [increment_last stringt__strings 184 17 59_4] [set_standard_output output 84 14 none]
+G r c none [append stringt__strings 192 17 59_4] [write_str output 130 14 none]
+G r c none [append stringt__strings 192 17 59_4] [write_int output 123 14 none]
+G r c none [append stringt__strings 192 17 59_4] [write_eol output 113 14 none]
+G r c none [append stringt__strings 192 17 59_4] [set_standard_error output 77 14 none]
+G r c none [append stringt__strings 192 17 59_4] [set_standard_output output 84 14 none]
+G r c none [append_all stringt__strings 200 17 59_4] [write_str output 130 14 none]
+G r c none [append_all stringt__strings 200 17 59_4] [write_int output 123 14 none]
+G r c none [append_all stringt__strings 200 17 59_4] [write_eol output 113 14 none]
+G r c none [append_all stringt__strings 200 17 59_4] [set_standard_error output 77 14 none]
+G r c none [append_all stringt__strings 200 17 59_4] [set_standard_output output 84 14 none]
+G r c none [set_item stringt__strings 203 17 59_4] [write_str output 130 14 none]
+G r c none [set_item stringt__strings 203 17 59_4] [write_int output 123 14 none]
+G r c none [set_item stringt__strings 203 17 59_4] [write_eol output 113 14 none]
+G r c none [set_item stringt__strings 203 17 59_4] [set_standard_error output 77 14 none]
+G r c none [set_item stringt__strings 203 17 59_4] [set_standard_output output 84 14 none]
+G r c none [save stringt__strings 215 16 59_4] [write_str output 130 14 none]
+G r c none [save stringt__strings 215 16 59_4] [write_int output 123 14 none]
+G r c none [save stringt__strings 215 16 59_4] [write_eol output 113 14 none]
+G r c none [save stringt__strings 215 16 59_4] [set_standard_error output 77 14 none]
+G r c none [save stringt__strings 215 16 59_4] [set_standard_output output 84 14 none]
+G r c none [tree_write stringt__strings 223 17 59_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write stringt__strings 223 17 59_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read stringt__strings 226 17 59_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read stringt__strings 226 17 59_4] [write_str output 130 14 none]
+G r c none [tree_read stringt__strings 226 17 59_4] [write_int output 123 14 none]
+G r c none [tree_read stringt__strings 226 17 59_4] [write_eol output 113 14 none]
+G r c none [tree_read stringt__strings 226 17 59_4] [set_standard_error output 77 14 none]
+G r c none [tree_read stringt__strings 226 17 59_4] [set_standard_output output 84 14 none]
+G r c none [tree_read stringt__strings 226 17 59_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate stringt__strings 58 17 59_4] [write_str output 130 14 none]
+G r c none [reallocate stringt__strings 58 17 59_4] [write_int output 123 14 none]
+G r c none [reallocate stringt__strings 58 17 59_4] [write_eol output 113 14 none]
+G r c none [reallocate stringt__strings 58 17 59_4] [set_standard_error output 77 14 none]
+G r c none [reallocate stringt__strings 58 17 59_4] [set_standard_output output 84 14 none]
+X 5 alloc.ads
+42K9*Alloc 167e10 14|32w6 46r30 47r30 63r30 64r30
+131N4*String_Chars_Initial 14|46r36
+132N4*String_Chars_Increment 14|47r36
+134N4*Strings_Initial 14|63r36
+135N4*Strings_Increment 14|64r36
+X 9 namet.ads
+37K9*Namet 768e10 13|32w6 32r18
+151R9*Bounded_String 157e14 13|125r35 139r13 14|82r35 305r13 327r13
+168r4*Global_Name_Buffer{151R9} 13|139r31 14|305r31 340m15 340r15
+170i4*Name_Len{natural} 14|339r7
+188I9*Name_Id<integer> 13|122r51 14|326r51
+204I12*Valid_Name_Id{188I9}
+341V14*"+"=341:62{string} 14|309s27
+343V13*Name_Find{204I12} 14|330s14
+376U14*Append 14|85s10
+X 12 output.ads
+44K9*Output 213e11 14|33w6 33r18
+106U14*Write_Char 14|410s10 411s10 418s10 421s10 422s10 437s10 438s10 454s10
+. 475s10
+123U14*Write_Int 14|469s16
+130U14*Write_Str 14|451s10 460s16 468s16 470s16
+X 13 stringt.ads
+36K9*Stringt 180l5 180e12 14|36b14 479l5 479t12
+54i4*Null_String_Id{32|501I9} 14|122m7
+61U14*Initialize 14|114b14 123l8 123t18
+65U14*Lock 14|129b14 135l8 135t12
+68U14*Unlock 14|376b14 380l8 380t14
+71U14*Mark 14|141b14 145l8 145t12
+75U14*Release 14|151b14 155l8 155t15
+80U14*Start_String 14|121s7 163b14 166l8 166t20 308s7
+86U14*Start_String 86>28 14|170b14 198l8 198t20
+86i28 S{32|501I9} 14|170b28 177r25 177r58 181r27 189r39 191r51 197r61
+93U14*Store_String_Char 93>33 14|204b14 209l8 209t25 213s7 223s10
+93m33 C{32|528M12} 14|204b33 206r28
+94U14*Store_String_Char 94>33 14|211b14 214l8 214t25 258s10 266s10
+94e33 C{character} 14|211b33 213r41
+97U14*Store_String_Chars 97>34 14|220b14 225l8 225t26 309s7
+97a34 S{string} 14|220b34 222r16 222r27 223r44
+98U14*Store_String_Chars 98>34 14|227b14 249l8 249t26
+98i34 S{32|501I9} 14|227b34 238r49 239r49
+101U14*Store_String_Int 101>32 14|255b14 259s10 263s13 268l8 268t24
+101i32 N{32|59I9} 14|255b32 257r10 259r29 262r13 263r31 266r66
+104U14*Unstore_String_Char 14|386b14 391l8 391t27
+108V13*End_String{32|501I9} 177r19 14|93b13 96l8 96t18 122s25 310s14
+111V13*String_Length{32|62I12} 111>28 178r19 14|84s21 239s34 317b13 320l8
+. 320t21 456s24 469s27
+111i28 Id{32|501I9} 14|317b28 319r29
+114V13*Get_String_Char{32|528M12} 114>30 114>46 115r19 14|85s38 102b13 108l8
+. 108t23 291s16 291s42 457s18
+114i30 Id{32|501I9} 14|102b30 104r22 105r62 107r49
+114i46 Index{32|59I9} 14|102b46 105r33 107r68
+119V13*String_Equal{boolean} 119>27 119>30 14|283b13 298l8 298t20
+119i27 L{32|501I9} 14|283b27 284r44 291r33
+119i30 R{32|501I9} 14|283b30 287r32 291r59
+122V13*String_To_Name{9|188I9} 122>29 14|326b13 331l8 331t22
+122i29 S{32|501I9} 14|326b29 329r20
+125U14*Append 125=22 125>51 14|82b14 87l8 87t14 329s7 340s7
+125r22 Buf{9|151R9} 14|82b22 85m18
+125i51 S{32|501I9} 14|82b51 84r36 85r55
+130U14*String_To_Name_Buffer 130>37 14|337b14 341l8 341t29
+130i37 S{32|501I9} 14|337b37 340r35
+135V13*String_Chars_Address{15|67M9} 14|274b13 277l8 277t28
+138V13*String_From_Name_Buffer{32|501I9} 139>7 14|304b13 311l8 311t31
+139r7 Buf{9|151R9} 14|305b7 309r28
+142V13*Strings_Address{15|67M9} 14|347b13 350l8 350t23
+145U14*Tree_Read 14|356b14 360l8 360t17
+150U14*Tree_Write 14|366b14 370l8 370t18
+154U14*Write_Char_Code 154>31 14|397b14 440l8 440t23 462s16
+154m31 Code{32|528M12} 14|397b31 417r10 418r37 424r13 425r29 428r13 429r30
+. 432r13 433r30 436r26
+164U14*Write_String_Table_Entry 164>40 14|446b14 477l8 477t32
+164i40 Id{32|501I9} 14|446b40 450r10 456r39 457r35 469r42
+X 14 stringt.adb
+42K12 String_Chars[29|59] 107r14 116r7 131r7 132r7 144r28 154r7 165r40 178r53
+. 187r12 190r13 191r16 206r7 240r34 244r7 245r7 246r9 276r14 358r7 368r7
+. 378r7 388r7
+54R9 String_Entry 57e14 60r30
+55i7*String_Index{32|59I9} 107r53 165m24 177r28 180m39 181r30 186m39 191r54
+. 238r52
+56i7*Length{32|62I12} 105r66 165m63 177r61 189r42 197m36 197r64 207m36 208r38
+. 247m36 248r38 284r47 287r35 319r33 389m36 390r38
+59K12 Strings[29|59] 95r14 104r47 105r47 107r34 117r7 133r7 134r7 143r23
+. 153r7 165r7 172r7 177r10 177r43 180r10 180r25 181r12 186r10 186r25 189r24
+. 191r36 197r7 197r22 197r46 207r7 207r22 208r9 208r24 238r34 247r7 247r22
+. 248r9 248r24 284r29 287r17 319r14 349r14 359r7 369r7 379r7 389r7 389r22
+. 390r9 390r24
+72i4 Strings_Last{32|501I9} 143m7 153r25
+73i4 String_Chars_Last{32|59I9} 144m7 154r30
+84i11 X<integer> 85r58
+189i14 J<integer> 191r70
+222i11 J{integer} 223r47
+238i7 S_First{32|59I9} 246r29 246r40
+239i7 S_Len{32|62I12} 241r45 246r50 248r47
+240i7 Old_Last{32|59I9} 241r34 245r27
+241i7 New_Last{32|59I9} 244r30 245r43
+284i7 Len{32|62I12} 287r10 290r24
+290i14 J<integer> 291r36 291r62
+327r7 Buf{9|151R9} 329m15 329r15 330r25
+399U17 Write_Hex_Byte 399>33 406b17 412l11 412t25 425s13 429s13 433s13 436s10
+399m33 J{32|528M12} 406b33 410r28 411r28
+407a10 Hexd(character) 410r22 411r22
+447m7 C{32|528M12} 457m13 459r16 462r33
+456i14 J<integer> 457r39 467r16
+X 15 system.ads
+37K9*System 13|33w6 33r18 135r41 142r36 14|274r41 347r36 15|174e11
+67M9*Address 13|135r48 142r43 14|274r48 347r43
+X 19 s-memory.ads
+53V13*Alloc{15|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{15|67M9} 105i<c,__gnat_realloc>22
+X 29 table.ads
+46K9*Table 14|34w6 42r32 59r27 29|248e10
+50+12 Table_Component_Type 14|43r6 60r6
+51I12 Table_Index_Type 14|44r6 61r6
+53*7 Table_Low_Bound{51I12} 14|45r6 62r6
+54i7 Table_Initial{32|65I12} 14|46r6 63r6
+55i7 Table_Increment{32|62I12} 14|47r6 64r6
+56a7 Table_Name{string} 14|48r6 65r6
+59k12*Table 14|42r38 59r33 29|247e13
+110A12*Table_Type(14|54R9)<32|501I9>
+113A15*Big_Table_Type{110A12[14|59]}<32|501I9>
+121P12*Table_Ptr(113A15[14|59])
+125p7*Table{121P12[14|59]} 14|105r55[59] 107r27[42] 107r42[59] 177r18[59]
+. 177r51[59] 180r18[59] 181r20[59] 186r18[59] 189r31[59] 189r32[59] 191r29[42]
+. 191r44[59] 197r15[59] 197r54[59] 207r15[59] 208r17[59] 238r42[59] 245r20[42]
+. 246r22[42] 247r15[59] 248r17[59] 276r27[42] 284r37[59] 287r25[59] 319r22[59]
+. 349r22[59] 389r15[59] 390r17[59]
+132b7*Locked{boolean} 14|132m20[42] 134m15[59] 378m20[42] 379m15[59]
+142U17*Init 14|116s20[42] 117s15[59]
+149V16*Last{32|501I9} 14|95s22[59] 104s55[59] 143s31[59] 144s41[42] 165s53[42]
+. 178s66[42] 180s33[59] 186s33[59] 187s25[42] 197s30[59] 207s30[59] 208s32[59]
+. 240s47[42] 247s30[59] 248s32[59] 389s30[59] 390s32[59]
+156U17*Release 14|131s20[42] 133s15[59]
+175U17*Set_Last 14|153s15[59] 154s20[42] 244s20[42]
+184U17*Increment_Last 14|172s15[59]
+188U17*Decrement_Last 14|388s20[42]
+192U17*Append 14|165s15[59] 190s26[42] 206s20[42]
+223U17*Tree_Write 14|368s20[42] 369s15[59]
+226U17*Tree_Read 14|358s20[42] 359s15[59]
+X 32 types.ads
+52K9*Types 13|34w6 34r18 32|948e10
+59I9*Int<integer> 13|101r36 114r54 14|44r30 55r22 73r24 102r54 238r27 240r27
+. 241r27 255r36
+62I12*Nat{59I9} 13|111r51 14|56r22 239r27 284r22 317r51
+65I12*Pos{59I9}
+501I9*String_Id<integer> 13|54r21 86r32 98r38 108r31 111r33 114r35 119r34
+. 122r33 125r55 130r41 139r58 164r45 14|61r30 72r24 82r55 93r31 102r35 170r32
+. 227r38 283r34 305r58 317r33 326r33 337r41 446r45
+504i4*No_String{501I9} 14|450r15
+508i4*First_String_Id{501I9} 14|62r30 72r37 104r28 349r29
+525M9*Char_Code_Base
+528M12*Char_Code{525M9} 13|93r37 114r66 154r38 14|43r30 102r66 204r37 397r38
+. 399r37 406r37 407r33 447r11
+532V13*Get_Char_Code{528M12} 14|213s26 223s29
+549V13*Get_Character{character} 14|85s23
+

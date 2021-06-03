@@ -1,0 +1,790 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U ali.util%b		ali-util.adb		1284bdf5 OO PK IU
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ali%s			ali.adb			ali.ali
+Z atree%s		atree.adb		atree.ali
+W binderr%s		binderr.adb		binderr.ali
+Z casing%s		casing.adb		casing.ali
+Z csets%s		csets.adb		csets.ali
+W debug%s		debug.adb		debug.ali
+Z einfo%s		einfo.adb		einfo.ali
+Z err_vars%s		err_vars.ads		err_vars.ali
+Z hostparm%s		hostparm.ads		hostparm.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z namet%s		namet.adb		namet.ali
+W opt%s			opt.adb			opt.ali
+W osint%s		osint.adb		osint.ali
+W output%s		output.adb		output.ali  AD
+Z restrict%s		restrict.adb		restrict.ali
+Z rident%s		rident.ads		rident.ali
+W scans%s		scans.adb		scans.ali
+W scng%s		scng.adb		scng.ali  ED
+Z sinfo%s		sinfo.adb		sinfo.ali
+W sinput%s		sinput.adb		sinput.ali
+W sinput.c%s		sinput-c.adb		sinput-c.ali
+W snames%s		snames.adb		snames.ali
+W stringt%s		stringt.adb		stringt.ali
+W styleg%s		styleg.adb		styleg.ali  ED
+Z stylesw%s		stylesw.adb		stylesw.ali
+W system%s		system.ads		system.ali
+Z system.crc32%s	s-crc32.adb		s-crc32.ali
+W system.os_lib%s	s-os_lib.adb		s-os_lib.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.utf_32%s	s-utf_32.adb		s-utf_32.ali
+Z system.wch_con%s	s-wchcon.adb		s-wchcon.ali
+Z types%s		types.adb		types.ali
+Z uintp%s		uintp.adb		uintp.ali
+Z urealp%s		urealp.adb		urealp.ali
+Z widechar%s		widechar.adb		widechar.ali
+
+U ali.util%s		ali-util.ads		06cbbbfe BN EE OO PK IU
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ali%s			ali.adb			ali.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-except.ads		20190518041256 291912d5 ada.exceptions%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D ali.ads		20190518044709 088a5cf1 ali%s
+D ali.adb		20190518044709 c6ba200b ali%b
+D ali-util.ads		20190518044709 0e41e70f ali.util%s
+D ali-util.adb		20190518044709 fe857580 ali.util%b
+D alloc.ads		20190518044709 972e59bd alloc%s
+D aspects.ads		20190518044710 bc94048b aspects%s
+D atree.ads		20190518044709 2c9e949c atree%s
+D atree.adb		20190518044709 3ab87b63 atree%b
+D binderr.ads		20190518044709 6d99c947 binderr%s
+D butil.ads		20190518044709 67e1721b butil%s
+D casing.ads		20190518044709 9b922bd9 casing%s
+D csets.ads		20190518044709 e948558f csets%s
+D debug.ads		20190518044709 1ac546f9 debug%s
+D einfo.ads		20190518044709 0cc0e22d einfo%s
+D einfo.adb		20190518044709 ad5e25fd einfo%b
+D elists.ads		20190518044709 299e4c60 elists%s
+D err_vars.ads		20190518044709 572d4c83 err_vars%s
+D errout.ads		20190518044709 5a3f6b01 errout%s
+D erroutc.ads		20190518044709 4502cfdd erroutc%s
+D fname.ads		20190518044709 b3fc94d8 fname%s
+D fname-uf.ads		20190518044709 8161e886 fname.uf%s
+D gnat.ads		20190518041257 b5988c27 gnat%s
+D g-byorma.ads		20190518041256 2b13b02c gnat.byte_order_mark%s
+D g-dynhta.ads		20190518041255 b061de91 gnat.dynamic_htables%s
+D g-dyntab.ads		20190518041256 21cef781 gnat.dynamic_tables%s
+D g-dyntab.adb		20190518041257 8cc056dd gnat.dynamic_tables%b
+D g-hesorg.ads		20190518041255 106922da gnat.heap_sort_g%s
+D g-htable.ads		20190518041255 4b643b8d gnat.htable%s
+D gnatvsn.ads		20190518132638 aa5360c2 gnatvsn%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D lib.ads		20190518044709 a95956cc lib%s
+D namet.ads		20190518044709 b520bebe namet%s
+D namet.adb		20190518044709 64106062 namet%b
+D nlists.ads		20190518044709 0f3f40a5 nlists%s
+D opt.ads		20190518044710 3d2ce478 opt%s
+D osint.ads		20190518044709 56946067 osint%s
+D output.ads		20190518044709 a916e413 output%s
+D restrict.ads		20190518044709 be95cc18 restrict%s
+D restrict.adb		20190518044709 0a2a81a8 restrict%b
+D rident.ads		20190518044709 770cd2d0 rident%s
+D scans.ads		20190518044709 8b26a439 scans%s
+D scng.ads		20190518044709 638213eb scng%s
+D scng.adb		20190518044710 50cb5607 scng%b
+D sinfo.ads		20190518044709 4a0f957d sinfo%s
+D sinfo.adb		20190518044709 61e0e836 sinfo%b
+D sinput.ads		20190518044709 573062f0 sinput%s
+D sinput.adb		20190518044709 d9451392 sinput%b
+D sinput-c.ads		20190518044709 f9133dd2 sinput.c%s
+D snames.ads		20190518132638 5f03100c snames%s
+D stand.ads		20190518044709 4852f602 stand%s
+D stringt.ads		20190518044709 36edeb84 stringt%s
+D stringt.adb		20190518044709 6a21e5ab stringt%b
+D styleg.ads		20190518044709 78e87f0c styleg%s
+D styleg.adb		20190518044709 17c3734e styleg%b
+D stylesw.ads		20190518044709 63538eca stylesw%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-carun8.ads		20190518041257 a903718d system.compare_array_unsigned_8%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-crc32.ads		20190518041255 e3a788c7 system.crc32%s
+D s-crc32.adb		20190518041257 ff21072d system.crc32%b
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-htable.ads		20190518041257 84c2b3ea system.htable%s
+D s-htable.adb		20190518041257 34c239ad system.htable%b
+D s-memory.ads		20190518041256 597d6634 system.memory%s
+D s-os_lib.ads		20190518041256 5703ce4c system.os_lib%s
+D s-parame.ads		20190518041257 48ec542b system.parameters%s
+D s-rident.ads		20190518041257 50efdf23 system.rident%s
+D s-secsta.ads		20190518041257 20bbe636 system.secondary_stack%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-stoele.ads		20190518041257 2dc34a04 system.storage_elements%s
+D s-strhas.ads		20190518041255 269cd894 system.string_hash%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-traent.ads		20190518041255 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-utf_32.ads		20190518041256 9e89e9cc system.utf_32%s
+D s-utf_32.adb		20190518041257 b9451faf system.utf_32%b
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D table.ads		20190518044709 ae70be7c table%s
+D table.adb		20190518044709 41747fc3 table%b
+D tree_io.ads		20190518044709 6de0ef2c tree_io%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D types.adb		20190518044709 87ca568f types%b
+D uintp.ads		20190518044709 c6012b27 uintp%s
+D uintp.adb		20190518044709 db343839 uintp%b
+D uname.ads		20190518044709 1136d870 uname%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D urealp.ads		20190518044709 e500ee51 urealp%s
+D urealp.adb		20190518044709 a99724cd urealp%b
+D widechar.ads		20190518044709 afb9abd7 widechar%s
+G a e
+G c b b b [b ali__util 46 1 none]
+G c s s s [s ali__util 35 1 none]
+G c Z s s [source_recordIP ali__util 50 9 none]
+G c Z s s [init ali__util__source 142 17 101_4]
+G c Z s s [last ali__util__source 149 16 101_4]
+G c Z s s [release ali__util__source 156 17 101_4]
+G c Z s s [free ali__util__source 168 17 101_4]
+G c Z s s [set_last ali__util__source 175 17 101_4]
+G c Z s s [increment_last ali__util__source 184 17 101_4]
+G c Z s s [decrement_last ali__util__source 188 17 101_4]
+G c Z s s [append ali__util__source 192 17 101_4]
+G c Z s s [append_all ali__util__source 200 17 101_4]
+G c Z s s [set_item ali__util__source 203 17 101_4]
+G c Z s s [save ali__util__source 215 16 101_4]
+G c Z s s [restore ali__util__source 219 17 101_4]
+G c Z s s [tree_write ali__util__source 223 17 101_4]
+G c Z s s [tree_read ali__util__source 226 17 101_4]
+G c Z s s [table_typeIP ali__util__source 110 12 101_4]
+G c Z s s [saved_tableIP ali__util__source 241 12 101_4]
+G c Z s s [reallocate ali__util__source 58 17 101_4]
+G c Z s s [tree_get_table_address ali__util__source 63 16 101_4]
+G c Z s s [to_address ali__util__source 72 16 101_4]
+G c Z s s [to_pointer ali__util__source 73 16 101_4]
+G c Z s b [initialize_ali_source ali__util 109 14 none]
+G c Z s b [read_withed_alis ali__util 116 14 none]
+G c Z s b [set_source_table ali__util 126 14 none]
+G c Z s b [set_source_table ali__util 129 14 none]
+G c Z s b [time_stamp_mismatch ali__util 132 13 none]
+G c Z s b [get_file_checksum ali__util 156 13 none]
+G c Z s b [checksums_match ali__util 164 13 none]
+G c Z b b [post_scan ali__util 52 14 none]
+G c Z b b [error_msg ali__util 54 14 none]
+G c Z b b [error_msg_s ali__util 56 14 none]
+G c Z b b [error_msg_sc ali__util 58 14 none]
+G c Z b b [error_msg_sp ali__util 60 14 none]
+G c Z b b [check_abs_not ali__util__style 55 14 64_4]
+G c Z b b [check_apostrophe ali__util__style 58 14 64_4]
+G c Z b b [check_arrow ali__util__style 61 14 64_4]
+G c Z b b [check_attribute_name ali__util__style 66 14 64_4]
+G c Z b b [check_boolean_operator ali__util__style 72 14 64_4]
+G c Z b b [check_box ali__util__style 76 14 64_4]
+G c Z b b [check_binary_operator ali__util__style 79 14 64_4]
+G c Z b b [check_exponentiation_operator ali__util__style 83 14 64_4]
+G c Z b b [check_colon ali__util__style 87 14 64_4]
+G c Z b b [check_colon_equal ali__util__style 90 14 64_4]
+G c Z b b [check_comma ali__util__style 93 14 64_4]
+G c Z b b [check_comment ali__util__style 96 14 64_4]
+G c Z b b [check_defining_identifier_casing ali__util__style 100 14 64_4]
+G c Z b b [check_dot_dot ali__util__style 105 14 64_4]
+G c Z b b [check_eof ali__util__style 108 14 64_4]
+G c Z b b [check_ht ali__util__style 111 14 64_4]
+G c Z b b [check_indentation ali__util__style 114 14 64_4]
+G c Z b b [check_left_paren ali__util__style 120 14 64_4]
+G c Z b b [check_line_max_length ali__util__style 123 14 64_4]
+G c Z b b [check_line_terminator ali__util__style 128 14 64_4]
+G c Z b b [check_not_in ali__util__style 133 14 64_4]
+G c Z b b [check_pragma_name ali__util__style 137 14 64_4]
+G c Z b b [check_right_paren ali__util__style 141 14 64_4]
+G c Z b b [check_semicolon ali__util__style 144 14 64_4]
+G c Z b b [check_then ali__util__style 147 14 64_4]
+G c Z b b [check_separate_stmt_lines ali__util__style 152 14 64_4]
+G c Z b b [check_unary_plus_or_minus ali__util__style 159 14 64_4]
+G c Z b b [check_vertical_bar ali__util__style 165 14 64_4]
+G c Z b b [check_xtra_parens ali__util__style 168 14 64_4]
+G c Z b b [mode_in_check ali__util__style 172 13 64_4]
+G c Z b b [no_end_name ali__util__style 177 14 64_4]
+G c Z b b [no_exit_name ali__util__style 184 14 64_4]
+G c Z b b [non_lower_case_keyword ali__util__style 190 14 64_4]
+G c Z b b [check_no_space_after ali__util__style 65 14 64_4]
+G c Z b b [check_no_space_before ali__util__style 70 14 64_4]
+G c Z b b [check_separate_stmt_lines_cont ali__util__style 74 14 64_4]
+G c Z b b [determine_token_casing ali__util__style 77 13 64_4]
+G c Z b b [error_space_not_allowed ali__util__style 80 14 64_4]
+G c Z b b [error_space_required ali__util__style 84 14 64_4]
+G c Z b b [is_white_space ali__util__style 88 13 64_4]
+G c Z b b [require_following_space ali__util__style 93 14 64_4]
+G c Z b b [require_preceding_space ali__util__style 98 14 64_4]
+G c Z b b [check_end_of_line ali__util__scanner 65 14 70_4]
+G c Z b b [initialize_scanner ali__util__scanner 69 14 70_4]
+G c Z b b [scan ali__util__scanner 73 14 70_4]
+G c Z b b [determine_token_casing ali__util__scanner 81 13 70_4]
+G c Z b b [set_special_character ali__util__scanner 86 14 70_4]
+G c Z b b [reset_special_characters ali__util__scanner 92 14 70_4]
+G c Z b b [set_end_of_line_as_token ali__util__scanner 96 14 70_4]
+G c Z b b [set_comment_as_token ali__util__scanner 100 14 70_4]
+G c Z b b [set_start_column ali__util__scanner 104 13 70_4]
+G c Z b b [accumulate_token_checksum ali__util__scanner 73 14 70_4]
+G c Z b b [accumulate_token_checksum_gnat_6_3 ali__util__scanner 79 14 70_4]
+G c Z b b [accumulate_token_checksum_gnat_5_03 ali__util__scanner 85 14 70_4]
+G c Z b b [accumulate_checksum ali__util__scanner 92 14 70_4]
+G c Z b b [accumulate_checksum ali__util__scanner 103 14 70_4]
+G c Z b b [initialize_checksum ali__util__scanner 110 14 70_4]
+G c Z b b [hash ali__util 75 13 none]
+G c Z b b [set ali__util__interfaces 72 17 78_4]
+G c Z b b [reset ali__util__interfaces 76 17 78_4]
+G c Z b b [get ali__util__interfaces 79 16 78_4]
+G c Z b b [remove ali__util__interfaces 83 17 78_4]
+G c Z b b [get_first ali__util__interfaces 87 16 78_4]
+G c Z b b [get_next ali__util__interfaces 92 16 78_4]
+G c Z b b [get_first ali__util__interfaces 98 17 78_4]
+G c Z b b [get_next ali__util__interfaces 105 17 78_4]
+G c Z b b [element_wrapperIP ali__util__interfaces 232 12 78_4]
+G c Z b b [free ali__util__interfaces 238 17 78_4]
+G c Z b b [set_next ali__util__interfaces 241 17 78_4]
+G c Z b b [next ali__util__interfaces 242 17 78_4]
+G c Z b b [get_key ali__util__interfaces 243 17 78_4]
+G c Z b b [reset ali__util__interfaces__tab 170 17 245_7_78_4]
+G c Z b b [set ali__util__interfaces__tab 179 17 245_7_78_4]
+G c Z b b [get ali__util__interfaces__tab 182 16 245_7_78_4]
+G c Z b b [present ali__util__interfaces__tab 186 16 245_7_78_4]
+G c Z b b [set_if_not_present ali__util__interfaces__tab 189 16 245_7_78_4]
+G c Z b b [remove ali__util__interfaces__tab 194 17 245_7_78_4]
+G c Z b b [get_first ali__util__interfaces__tab 198 16 245_7_78_4]
+G c Z b b [get_next ali__util__interfaces__tab 203 16 245_7_78_4]
+G c Z b b [TtableBIP ali__util__interfaces__tab 45 7 245_7_78_4]
+G c Z b b [get_non_null ali__util__interfaces__tab 51 16 245_7_78_4]
+G r i none [b ali__util 46 1 none] [styleg standard 53 9 none]
+G r i none [b ali__util 46 1 none] [scng standard 63 9 none]
+G r i none [s ali__util 35 1 none] [table table 59 12 none]
+G r c none [s ali__util 35 1 none] [write_str output 130 14 none]
+G r c none [s ali__util 35 1 none] [write_int output 123 14 none]
+G r c none [s ali__util 35 1 none] [write_eol output 113 14 none]
+G r c none [s ali__util 35 1 none] [set_standard_error output 77 14 none]
+G r c none [s ali__util 35 1 none] [set_standard_output output 84 14 none]
+G r c none [init ali__util__source 142 17 101_4] [write_str output 130 14 none]
+G r c none [init ali__util__source 142 17 101_4] [write_int output 123 14 none]
+G r c none [init ali__util__source 142 17 101_4] [write_eol output 113 14 none]
+G r c none [init ali__util__source 142 17 101_4] [set_standard_error output 77 14 none]
+G r c none [init ali__util__source 142 17 101_4] [set_standard_output output 84 14 none]
+G r c none [release ali__util__source 156 17 101_4] [write_str output 130 14 none]
+G r c none [release ali__util__source 156 17 101_4] [write_int output 123 14 none]
+G r c none [release ali__util__source 156 17 101_4] [write_eol output 113 14 none]
+G r c none [release ali__util__source 156 17 101_4] [set_standard_error output 77 14 none]
+G r c none [release ali__util__source 156 17 101_4] [set_standard_output output 84 14 none]
+G r c none [set_last ali__util__source 175 17 101_4] [write_str output 130 14 none]
+G r c none [set_last ali__util__source 175 17 101_4] [write_int output 123 14 none]
+G r c none [set_last ali__util__source 175 17 101_4] [write_eol output 113 14 none]
+G r c none [set_last ali__util__source 175 17 101_4] [set_standard_error output 77 14 none]
+G r c none [set_last ali__util__source 175 17 101_4] [set_standard_output output 84 14 none]
+G r c none [increment_last ali__util__source 184 17 101_4] [write_str output 130 14 none]
+G r c none [increment_last ali__util__source 184 17 101_4] [write_int output 123 14 none]
+G r c none [increment_last ali__util__source 184 17 101_4] [write_eol output 113 14 none]
+G r c none [increment_last ali__util__source 184 17 101_4] [set_standard_error output 77 14 none]
+G r c none [increment_last ali__util__source 184 17 101_4] [set_standard_output output 84 14 none]
+G r c none [append ali__util__source 192 17 101_4] [write_str output 130 14 none]
+G r c none [append ali__util__source 192 17 101_4] [write_int output 123 14 none]
+G r c none [append ali__util__source 192 17 101_4] [write_eol output 113 14 none]
+G r c none [append ali__util__source 192 17 101_4] [set_standard_error output 77 14 none]
+G r c none [append ali__util__source 192 17 101_4] [set_standard_output output 84 14 none]
+G r c none [append_all ali__util__source 200 17 101_4] [write_str output 130 14 none]
+G r c none [append_all ali__util__source 200 17 101_4] [write_int output 123 14 none]
+G r c none [append_all ali__util__source 200 17 101_4] [write_eol output 113 14 none]
+G r c none [append_all ali__util__source 200 17 101_4] [set_standard_error output 77 14 none]
+G r c none [append_all ali__util__source 200 17 101_4] [set_standard_output output 84 14 none]
+G r c none [set_item ali__util__source 203 17 101_4] [write_str output 130 14 none]
+G r c none [set_item ali__util__source 203 17 101_4] [write_int output 123 14 none]
+G r c none [set_item ali__util__source 203 17 101_4] [write_eol output 113 14 none]
+G r c none [set_item ali__util__source 203 17 101_4] [set_standard_error output 77 14 none]
+G r c none [set_item ali__util__source 203 17 101_4] [set_standard_output output 84 14 none]
+G r c none [save ali__util__source 215 16 101_4] [write_str output 130 14 none]
+G r c none [save ali__util__source 215 16 101_4] [write_int output 123 14 none]
+G r c none [save ali__util__source 215 16 101_4] [write_eol output 113 14 none]
+G r c none [save ali__util__source 215 16 101_4] [set_standard_error output 77 14 none]
+G r c none [save ali__util__source 215 16 101_4] [set_standard_output output 84 14 none]
+G r c none [tree_write ali__util__source 223 17 101_4] [tree_write_int tree_io 118 14 none]
+G r c none [tree_write ali__util__source 223 17 101_4] [tree_write_data tree_io 108 14 none]
+G r c none [tree_read ali__util__source 226 17 101_4] [tree_read_int tree_io 91 14 none]
+G r c none [tree_read ali__util__source 226 17 101_4] [write_str output 130 14 none]
+G r c none [tree_read ali__util__source 226 17 101_4] [write_int output 123 14 none]
+G r c none [tree_read ali__util__source 226 17 101_4] [write_eol output 113 14 none]
+G r c none [tree_read ali__util__source 226 17 101_4] [set_standard_error output 77 14 none]
+G r c none [tree_read ali__util__source 226 17 101_4] [set_standard_output output 84 14 none]
+G r c none [tree_read ali__util__source 226 17 101_4] [tree_read_data tree_io 76 14 none]
+G r c none [reallocate ali__util__source 58 17 101_4] [write_str output 130 14 none]
+G r c none [reallocate ali__util__source 58 17 101_4] [write_int output 123 14 none]
+G r c none [reallocate ali__util__source 58 17 101_4] [write_eol output 113 14 none]
+G r c none [reallocate ali__util__source 58 17 101_4] [set_standard_error output 77 14 none]
+G r c none [reallocate ali__util__source 58 17 101_4] [set_standard_output output 84 14 none]
+G r c none [initialize_ali_source ali__util 109 14 none] [set_name_table_int namet 482 14 none]
+G r c none [initialize_ali_source ali__util 109 14 none] [write_str output 130 14 none]
+G r c none [initialize_ali_source ali__util 109 14 none] [write_int output 123 14 none]
+G r c none [initialize_ali_source ali__util 109 14 none] [write_eol output 113 14 none]
+G r c none [initialize_ali_source ali__util 109 14 none] [set_standard_error output 77 14 none]
+G r c none [initialize_ali_source ali__util 109 14 none] [set_standard_output output 84 14 none]
+G r c none [read_withed_alis ali__util 116 14 none] [get_name_table_int namet 469 13 none]
+G r c none [read_withed_alis ali__util 116 14 none] [read_library_info osint 565 13 none]
+G r c none [read_withed_alis ali__util 116 14 none] [scan_ali ali 1399 13 none]
+G r c none [read_withed_alis ali__util 116 14 none] [free types 155 14 none]
+G r c none [read_withed_alis ali__util 116 14 none] [error_msg binderr 113 14 none]
+G r c none [read_withed_alis ali__util 116 14 none] [set_name_table_int namet 482 14 none]
+G r c none [set_source_table ali__util 126 14 none] [get_name_table_int namet 469 13 none]
+G r c none [set_source_table ali__util 126 14 none] [Oeq types 626 13 none]
+G r c none [set_source_table ali__util 126 14 none] [get_name_string namet 370 13 none]
+G r c none [set_source_table ali__util 126 14 none] [source_file_stamp osint 479 13 none]
+G r c none [set_source_table ali__util 126 14 none] [Ogt types 630 13 none]
+G r c none [set_source_table ali__util 126 14 none] [write_str output 130 14 none]
+G r c none [set_source_table ali__util 126 14 none] [write_int output 123 14 none]
+G r c none [set_source_table ali__util 126 14 none] [write_eol output 113 14 none]
+G r c none [set_source_table ali__util 126 14 none] [set_standard_error output 77 14 none]
+G r c none [set_source_table ali__util 126 14 none] [set_standard_output output 84 14 none]
+G r c none [set_source_table ali__util 126 14 none] [set_name_table_int namet 482 14 none]
+G r c none [set_source_table ali__util 126 14 none] [error_msg binderr 113 14 none]
+G r c none [set_source_table ali__util 129 14 none] [last ali__alis 149 16 295_4]
+G r c none [set_source_table ali__util 129 14 none] [get_name_table_int namet 469 13 none]
+G r c none [set_source_table ali__util 129 14 none] [Oeq types 626 13 none]
+G r c none [set_source_table ali__util 129 14 none] [get_name_string namet 370 13 none]
+G r c none [set_source_table ali__util 129 14 none] [source_file_stamp osint 479 13 none]
+G r c none [set_source_table ali__util 129 14 none] [Ogt types 630 13 none]
+G r c none [set_source_table ali__util 129 14 none] [write_str output 130 14 none]
+G r c none [set_source_table ali__util 129 14 none] [write_int output 123 14 none]
+G r c none [set_source_table ali__util 129 14 none] [write_eol output 113 14 none]
+G r c none [set_source_table ali__util 129 14 none] [set_standard_error output 77 14 none]
+G r c none [set_source_table ali__util 129 14 none] [set_standard_output output 84 14 none]
+G r c none [set_source_table ali__util 129 14 none] [set_name_table_int namet 482 14 none]
+G r c none [set_source_table ali__util 129 14 none] [error_msg binderr 113 14 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [get_name_table_int namet 469 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [Oeq types 626 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [mark stringt 71 14 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [find_file osint 75 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [get_name_string namet 370 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [load_file sinput__c 40 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [initialize_ada_keywords scans 357 14 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [source_text sinput 315 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [source_first sinput 313 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [set_name_table_byte namet 478 14 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [source_last sinput 314 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [get_logical_line_number sinput 535 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [line_start sinput 568 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [backup_line sinput 503 14 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [get_column_number sinput 530 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [scan_wide widechar 54 14 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [name_find namet 343 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [restriction_check_required restrict 422 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [start_string stringt 80 14 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [unstore_string_char stringt 104 14 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [get_char_code types 532 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [store_string_char stringt 93 14 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [in_character_range types 539 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [in_wide_character_range types 544 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [end_string stringt 108 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [set_character_literal_name namet 612 14 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [ui_mul uintp 213 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [ui_add uintp 130 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [ui_gt uintp 176 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [ui_lt uintp 192 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [ui_to_int uintp 261 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [ui_mul uintp 211 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [ui_from_int uintp 248 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [ui_add uintp 128 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [ui_sub uintp 231 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [ui_eq uintp 154 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [ui_expon uintp 158 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [ui_negate uintp 222 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [ur_from_components urealp 195 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [skip_line_terminators sinput 639 14 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [store_encoded_character namet 614 14 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [get_character types 549 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [is_keyword_name snames 2160 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [get_name_table_byte namet 465 13 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [write_str output 130 14 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [write_eol output 113 14 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [release stringt 75 14 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [get_name_string namet 600 14 none]
+G r c none [time_stamp_mismatch ali__util 132 13 none] [write_line output 137 14 none]
+G r c none [get_file_checksum ali__util 156 13 none] [find_file osint 75 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [get_name_string namet 370 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [load_file sinput__c 40 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [initialize_ada_keywords scans 357 14 none]
+G r c none [get_file_checksum ali__util 156 13 none] [source_text sinput 315 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [source_first sinput 313 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [set_name_table_byte namet 478 14 none]
+G r c none [get_file_checksum ali__util 156 13 none] [source_last sinput 314 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [get_logical_line_number sinput 535 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [line_start sinput 568 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [backup_line sinput 503 14 none]
+G r c none [get_file_checksum ali__util 156 13 none] [get_column_number sinput 530 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [scan_wide widechar 54 14 none]
+G r c none [get_file_checksum ali__util 156 13 none] [name_find namet 343 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [restriction_check_required restrict 422 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [start_string stringt 80 14 none]
+G r c none [get_file_checksum ali__util 156 13 none] [unstore_string_char stringt 104 14 none]
+G r c none [get_file_checksum ali__util 156 13 none] [get_char_code types 532 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [store_string_char stringt 93 14 none]
+G r c none [get_file_checksum ali__util 156 13 none] [in_character_range types 539 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [in_wide_character_range types 544 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [end_string stringt 108 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [set_character_literal_name namet 612 14 none]
+G r c none [get_file_checksum ali__util 156 13 none] [ui_mul uintp 213 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [ui_add uintp 130 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [ui_gt uintp 176 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [ui_lt uintp 192 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [ui_to_int uintp 261 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [ui_mul uintp 211 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [ui_from_int uintp 248 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [ui_add uintp 128 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [ui_sub uintp 231 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [ui_eq uintp 154 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [ui_expon uintp 158 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [ui_negate uintp 222 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [ur_from_components urealp 195 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [skip_line_terminators sinput 639 14 none]
+G r c none [get_file_checksum ali__util 156 13 none] [store_encoded_character namet 614 14 none]
+G r c none [get_file_checksum ali__util 156 13 none] [get_character types 549 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [is_keyword_name snames 2160 13 none]
+G r c none [get_file_checksum ali__util 156 13 none] [get_name_table_byte namet 465 13 none]
+G r c none [check_arrow ali__util__style 61 14 64_4] [source_first sinput 313 13 none]
+G r c none [check_attribute_name ali__util__style 66 14 64_4] [determine_casing casing 93 13 none]
+G r c none [check_boolean_operator ali__util__style 72 14 64_4] [comes_from_source atree 645 13 none]
+G r c none [check_boolean_operator ali__util__style 72 14 64_4] [nkind_in atree 688 13 none]
+G r c none [check_boolean_operator ali__util__style 72 14 64_4] [nkind atree 657 13 none]
+G r c none [check_boolean_operator ali__util__style 72 14 64_4] [right_opnd sinfo 10192 13 none]
+G r c none [check_boolean_operator ali__util__style 72 14 64_4] [original_node atree 1157 13 none]
+G r c none [check_boolean_operator ali__util__style 72 14 64_4] [left_opnd sinfo 9946 13 none]
+G r c none [check_boolean_operator ali__util__style 72 14 64_4] [etype sinfo 9592 13 none]
+G r c none [check_boolean_operator ali__util__style 72 14 64_4] [is_modular_integer_type einfo 7568 13 none]
+G r c none [check_boolean_operator ali__util__style 72 14 64_4] [is_array_type einfo 7539 13 none]
+G r c none [check_boolean_operator ali__util__style 72 14 64_4] [sloc atree 678 13 none]
+G r c none [check_box ali__util__style 76 14 64_4] [source_first sinput 313 13 none]
+G r c none [check_binary_operator ali__util__style 79 14 64_4] [source_first sinput 313 13 none]
+G r c none [check_colon ali__util__style 87 14 64_4] [source_first sinput 313 13 none]
+G r c none [check_colon_equal ali__util__style 90 14 64_4] [source_first sinput 313 13 none]
+G r c none [check_comment ali__util__style 96 14 64_4] [source_first sinput 313 13 none]
+G r c none [check_comment ali__util__style 96 14 64_4] [line_start sinput 568 13 none]
+G r c none [check_comment ali__util__style 96 14 64_4] [backup_line sinput 503 14 none]
+G r c none [check_comment ali__util__style 96 14 64_4] [get_column_number sinput 530 13 none]
+G r c none [check_defining_identifier_casing ali__util__style 100 14 64_4] [determine_casing casing 93 13 none]
+G r c none [check_dot_dot ali__util__style 105 14 64_4] [source_first sinput 313 13 none]
+G r c none [check_left_paren ali__util__style 120 14 64_4] [source_first sinput 313 13 none]
+G r c none [check_line_terminator ali__util__style 128 14 64_4] [get_logical_line_number sinput 535 13 none]
+G r c none [check_pragma_name ali__util__style 137 14 64_4] [determine_casing casing 93 13 none]
+G r c none [check_then ali__util__style 147 14 64_4] [get_physical_line_number sinput 551 13 none]
+G r c none [check_vertical_bar ali__util__style 165 14 64_4] [source_first sinput 313 13 none]
+G r c none [determine_token_casing ali__util__style 77 13 64_4] [determine_casing casing 93 13 none]
+G r c none [require_preceding_space ali__util__style 98 14 64_4] [source_first sinput 313 13 none]
+G r c none [check_end_of_line ali__util__scanner 65 14 70_4] [get_logical_line_number sinput 535 13 none]
+G r c none [initialize_scanner ali__util__scanner 69 14 70_4] [initialize_ada_keywords scans 357 14 none]
+G r c none [initialize_scanner ali__util__scanner 69 14 70_4] [source_text sinput 315 13 none]
+G r c none [initialize_scanner ali__util__scanner 69 14 70_4] [source_first sinput 313 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [source_last sinput 314 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [get_logical_line_number sinput 535 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [source_first sinput 313 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [line_start sinput 568 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [backup_line sinput 503 14 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [get_column_number sinput 530 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [scan_wide widechar 54 14 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [name_find namet 343 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [restriction_check_required restrict 422 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [start_string stringt 80 14 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [unstore_string_char stringt 104 14 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [get_char_code types 532 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [store_string_char stringt 93 14 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [in_character_range types 539 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [in_wide_character_range types 544 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [end_string stringt 108 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [set_character_literal_name namet 612 14 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [ui_mul uintp 213 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [ui_add uintp 130 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [ui_gt uintp 176 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [ui_lt uintp 192 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [ui_to_int uintp 261 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [ui_mul uintp 211 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [ui_from_int uintp 248 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [ui_add uintp 128 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [ui_sub uintp 231 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [ui_eq uintp 154 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [ui_expon uintp 158 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [ui_negate uintp 222 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [ur_from_components urealp 195 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [skip_line_terminators sinput 639 14 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [store_encoded_character namet 614 14 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [get_character types 549 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [is_keyword_name snames 2160 13 none]
+G r c none [scan ali__util__scanner 73 14 70_4] [get_name_table_byte namet 465 13 none]
+G r c none [determine_token_casing ali__util__scanner 81 13 70_4] [determine_casing casing 93 13 none]
+X 5 ali.ads
+46K9*ALI 1461e8 7|35r9 171r5 8|46r14 553r5
+52I9*ALI_Id<integer> 7|117r23 126r36 133r19 8|225r23 230r16 330r36 483r19
+55I9*Unit_Id<integer>
+58I9*With_Id<integer>
+64I9*Sdep_Id<integer>
+67I9*Source_Id<integer> 7|44r28 44r41 47r34 103r30 8|332r15 402r21 460r18
+. 486r13 491r17
+139i7*Afile{37|624I9} 8|379r68 395r65 452r71
+158b7*SAL_Interface{boolean} 8|299r42
+161i7*First_Unit{55I9} 8|235r32
+164i7*Last_Unit{55I9} 8|235r62
+167i7*First_Sdep{64I9} 8|337r24 490r31
+170i7*Last_Sdep{64I9} 8|337r53 490r60
+223b7*Compile_Errors{boolean} 8|276r42
+238b7*No_Object{boolean} 8|286r45
+295K12*ALIs[83|59] 8|235r16 235r46 276r22 286r25 299r22 337r9 337r38 379r53
+. 395r50 452r56 473r16 473r30 490r16 490r45
+309i4*No_Unit_Id{55I9} 8|260r54 281r54 292r54
+384i7*First_With{58I9} 8|237r33
+387i7*Last_With{58I9} 8|237r63
+474K12*Units[83|59] 8|237r17 237r47
+652i7*Sfile{37|624I9} 8|258r58 279r58 290r58
+655i7*Afile{37|624I9} 8|239r38
+670b7*SAL_Interface{boolean} 8|300m38 320m32
+680K12*Withs[83|59] 8|239r22 258r42 279r42 290r42 300r22 320r16
+858i7*Sfile{37|624I9} 8|339r30 491r63 507r53 512r62 532r51
+861a7*Stamp{86|613A9} 8|377r63 393r60 414r34 450r40 451r66 494r36 518m31
+. 526r38 537r54
+865m7*Checksum{86|68M9} 8|355r60 407r41 461r57
+890K12*Sdep[83|59] 8|339r15 355r45 377r48 393r45 407r26 414r19 450r25 451r51
+. 461r42 491r48 494r21 507r38 512r47 518r16 526r23 532r36 537r39
+1399V13*Scan_ALI{52I9} 8|268s21
+1400i7 F{37|624I9} 8|269r24
+1401p7 T{86|151P9} 8|270r24
+1402b7 Ignore_ED{boolean} 8|271r24
+1403b7 Err{boolean} 8|272r24
+X 7 ali-util.ads
+35K13*Util 5|46k9 7|171l9 171e13 8|46b18 553l9 553t13
+44i4*No_Source_Id{5|67I9} 47r47
+47i4*First_Source_Entry{5|67I9} 104r30
+50R9*Source_Record 99e14 102r30
+52i7*Sfile{37|624I9} 8|203r47 350m33 545r42
+55a7*Stamp{86|613A9} 8|368m39 377m39 393m36 414r60 431m42 450r65 451m42 494r64
+. 518r59 526r66 540r58
+61b7*Source_Found{boolean} 8|204m27 369m39 378m39 394m36 432m42 441r39 524r56
+. 525r39 530r38
+66i7*Stamp_File{37|624I9} 8|370m39 379m39 395m36 433m42 452m42
+73b7*All_Timestamps_Match{boolean} 8|351m33 415m36
+80b7*All_Checksums_Match{boolean} 8|356m33 409m36
+91m7*Checksum{86|68M9} 8|355m33 407r68 461m30 508r38
+101K12*Source[83|59] 8|202r16 202r32 203r30 204r10 207r7 347r16 348r21 350r16
+. 351r16 355r16 356r16 368r22 369r22 370r22 377r22 378r22 379r22 393r19 394r19
+. 395r19 407r51 409r19 414r43 415r19 431r25 432r25 433r25 441r22 450r48 451r25
+. 452r25 461r13 494r45 508r19 518r40 524r37 525r20 526r47 530r19 540r39 545r23
+109U14*Initialize_ALI_Source 8|195b14 209l8 209t29
+116U14*Read_Withed_ALIs 117>7 118>7 8|224b14 312s22 324l8 324t24
+117i7 Id{5|52I9} 8|225b7 235r28 235r58
+118b7 Ignore_Errors{boolean} 8|226b7 256r26 277r34 288r34
+126U14*Set_Source_Table 126>32 8|330b14 465l8 465t24 474s10
+126i32 A{5|52I9} 8|330b32 337r21 337r50 379r65 395r62 452r68
+129U14*Set_Source_Table 8|471b14 476l8 476t24
+132V13*Time_Stamp_Mismatch{37|624I9} 133>7 134>7 8|482b13 551l8 551t27
+133i7 A{5|52I9} 8|483b7 490r28 490r57
+134b7 Read_Only{boolean} 8|484b7 524r18
+149m4*Checksum_Error{86|68M9} 8|92r58 152r17 158r17
+156V13*Get_File_Checksum{86|68M9} 156>32 8|140b13 180l8 180t25 507s19
+156i32 Fname{37|624I9} 8|140b32 145r31
+164V13*Checksums_Match{boolean} 164>30 164>41 165r19 8|90b13 93l8 93t23 406s23
+. 506s16
+164m30 Checksum1{86|68M9} 8|90b30 92r14 92r45
+164m41 Checksum2{86|68M9} 8|90b41 92r26
+X 8 ali-util.adb
+52U14 Post_Scan 71r7 215b14 218l8 218t17
+54U14 Error_Msg 54>25 54>39 65r7 71r18 99b14 104l8 104t17
+54a25 Msg{string} 99b25 100r29
+54i39 Flag_Location{86|220I12} 99b39 101r29
+56U14 Error_Msg_S 56>27 65r18 71r29 110b14 114l8 114t19
+56a27 Msg{string} 110b27 111r29
+58U14 Error_Msg_SC 58>28 65r31 71r42 120b14 124l8 124t20
+58a28 Msg{string} 120b28 121r29
+60U14 Error_Msg_SP 60>28 65r45 71r56 130b14 134l8 134t20
+60a28 Msg{string} 130b28 131r29
+64K12 Style[58|53] 71r70
+70K12 Scanner[47|63] 161r7 175r10
+73I9 Header_Num<short_integer> 75r46 79r20 186r46 188r14 188r38
+75V13 Hash{73I9} 75>19 83r20 186b13 189l8 189t12
+75i19 F{37|624I9} 186b19 188r31
+78K12 Interfaces[67|70] 208r7 307r22 319r51
+141i7 Full_Name{37|624I9} 145m7 151r10 155r60
+142i7 Source_Index{86|575I9} 155m7 157r10 161r35
+202i11 J<integer> 203r44 204r24
+228i7 Afile{37|624I9} 239m13 244r16 245r44 247r43 257r42 260r42 269r37 281r42
+. 292r42 307r38 319r67
+229p7 Text{86|151P9} 247m16 254r19 270r37 274m25 274r25
+230i7 Idread{5|52I9} 267m19 276r34 286r37 299r34 312r40
+235i11 U<integer> 237r30 237r60
+237i12 W<integer> 239r35 258r55 279r55 290r55 300r35 320r29
+331i7 F{37|624I9} 339m10 341r13 346r36 349r36 350r42 361r47 370r53 384r45
+. 402r52 426r64 428r50 433r56 460r49
+332i7 S{5|67I9} 348m16 349r44 350r30 351r30 355r30 356r30 368r36 369r36 370r36
+. 377r36 378r36 379r36 393r33 394r33 395r33 402m16 407r65 409r33 414r57 415r33
+. 431r39 432r39 433r39 441r36 450r62 451r39 452r39 460m13 461r27
+333a7 Stamp{86|613A9} 361m19 367r22 367r29 368r48 428m22 430r25 430r32 431r51
+336l7 Sdep_Loop 464l16 464e25
+336i23 D<integer> 339r27 355r57 377r60 393r57 407r38 414r31 450r37 451r63
+. 461r54
+473i11 A<integer> 474r28
+486i7 Src{5|67I9} 491m10 494r59 508r33 518r54 524r51 525r34 526r61 530r33
+. 540r53 545r37
+490i11 D<integer> 491r60 494r33 507r50 512r59 518r28 526r35 532r48 537r51
+X 12 atree.adb
+2658V16 Traverse[11|601]{11|595E12} 2523b13[52|944]
+X 13 binderr.ads
+38K9*Binderr 8|33w6 33r19 13|138e12
+97i4*Error_Msg_File_1{37|624I9} 8|257m22 279m22 290m22 384m25
+98i4*Error_Msg_File_2{37|624I9} 8|258m22
+113U14*Error_Msg 8|259s22 280s22 291s22 385s25
+X 17 debug.ads
+36K9*Debug 8|32w6 32r19 17|256e10
+70b4*Debug_Flag_T{boolean} 8|530r60
+X 32 g-htable.ads
+55k20*Simple_HTable 8|78r30
+X 37 namet.ads
+169a4*Name_Buffer{string} 8|533r30
+170i4*Name_Len{natural} 8|533r48
+188I9*Name_Id<integer>
+370V13*Get_Name_String{string} 8|155s43 426s47 512s30
+469V13*Get_Name_Table_Int{86|59I9} 8|245s24 346s16 402s32 460s29 491s28
+478U14*Set_Name_Table_Byte 8|167s7 168s7 169s7 170s7
+482U14*Set_Name_Table_Int 8|203s10 260s22 281s22 292s22 349s16
+600U14*Get_Name_String 8|532s19
+624I9*File_Name_Type<188I9> 7|52r15 66r20 134r44 156r40 8|75r23 82r20 140r40
+. 141r22 186r23 228r16 331r15 484r44
+629i4*No_File{624I9} 8|151r22 244r25 341r18 550r14
+X 40 opt.ads
+50K9*Opt 8|34w6 34r19 360r19 383r25 493r13 40|2414e8
+206b4*All_Sources{boolean} 8|383r29
+344b4*Check_Source_Files{boolean} 8|360r23 425r26
+908b4*Interface_Library_Unit{boolean} 8|301m22 319r19
+1129b4*Minimal_Recompilation{boolean} 8|493r17
+1710b4*Verbose_Mode{boolean} 8|510r19
+2259b4*GNATprove_Mode{boolean} 8|287r34
+X 41 osint.ads
+50K9*Osint 8|36w6 36r19 145r38 41|785e10
+73n23*Source{73E9} 8|145r44
+75V13*Find_File{37|624I9} 8|145s20
+479V13*Source_File_Stamp{86|613A9} 8|361s28 428s31
+565V13*Read_Library_Info{86|151P9} 8|247s24
+X 42 output.ads
+44K9*Output 8|35w6 35r19 42|213e11
+113U14*Write_Eol 8|515s19
+130U14*Write_Str 8|511s19 512s19 513s19 531s19 533s19 536s19 539s19
+137U14*Write_Line 8|534s19 537s19 540s19
+X 46 scans.ads
+37K9*Scans 8|37w6 37r19 179r14 46|537e10
+189n7*Tok_EOF{48E9} 8|176r28
+380e4*Token{48E9} 8|176r20
+400m4*Checksum{86|68M9} 8|179r20
+X 47 scng.ads
+63k9*Scng 8|38w6 70r27 47|112e9
+69U14*Initialize_Scanner 8|161s15[70]
+73U14*Scan 8|175s18[70]
+X 51 sinput.ads
+70K9*Sinput 8|39r6 155r23 51|967e11
+X 52 sinput.adb
+944U17 Traverse[11|627] 12|2657b14
+X 53 sinput-c.ads
+38K16*C 8|39w13 155r30 53|43e13
+40V13*Load_File{86|575I9} 8|155s32
+X 54 snames.ads
+34K9*Snames 8|40w6 40r19 54|2255e11
+540i4*Name_External{37|188I9} 8|169r28
+1386i4*Name_Extends{37|188I9} 8|168r28
+1387i4*Name_External_As_List{37|188I9} 8|170r28
+1473i4*Name_Project{37|188I9} 8|167r28
+X 56 stringt.ads
+36K9*Stringt 8|41w6 504r13 521r13 56|180e12
+71U14*Mark 8|504s21
+75U14*Release 8|521s21
+X 58 styleg.ads
+53k9*Styleg 8|42w6 64r25 58|196e11
+X 61 system.ads
+37K9*System 8|44r6 44r25 61|174e11
+67M9*Address
+X 67 s-htable.ads
+56I12 Header_Num 8|79r6
+59+12 Element 8|80r6
+62*7 No_Element{59+12} 8|81r6
+66+12 Key 8|82r6
+67V21 Hash{56I12} 8|83r6
+68V21 Equal{boolean} 8|84r6
+72U17*Set 8|307s33[78]
+76U17*Reset 8|208s18[78]
+79V16*Get{boolean} 8|319s62[78]
+X 69 s-memory.ads
+53V13*Alloc{61|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{61|67M9} 105i<c,__gnat_realloc>22
+X 70 s-os_lib.ads
+56K16*OS_Lib 8|44w13 44r32 70|1114e18
+439V13*Is_Regular_File{boolean} 8|426s30
+X 83 table.ads
+46K9*Table 7|101r26 83|248e10
+50+12 Table_Component_Type 7|102r6
+51I12 Table_Index_Type 7|103r6
+53*7 Table_Low_Bound{51I12} 7|104r6
+54i7 Table_Initial{86|65I12} 7|105r6
+55i7 Table_Increment{86|62I12} 7|106r6
+56a7 Table_Name{string} 7|107r6
+59k12*Table 7|101r32 83|247e13
+110A12*Table_Type(7|50R9)<5|67I9>
+113A15*Big_Table_Type{110A12[7|101]}<5|67I9>
+121P12*Table_Ptr(113A15[7|101])
+125p7*Table{121P12[7|101]} 8|203r37[7|101] 204r17[7|101] 235r20[5|295] 235r21[5|295]
+. 235r50[5|295] 235r51[5|295] 237r22[5|474] 237r23[5|474] 237r52[5|474] 237r53[5|474]
+. 239r28[5|680] 258r48[5|680] 276r27[5|295] 279r48[5|680] 286r30[5|295] 290r48[5|680]
+. 299r27[5|295] 300r28[5|680] 320r22[5|680] 337r13[5|295] 337r14[5|295] 337r42[5|295]
+. 337r43[5|295] 339r20[5|890] 350r23[7|101] 351r23[7|101] 355r23[7|101] 355r50[5|890]
+. 356r23[7|101] 368r29[7|101] 369r29[7|101] 370r29[7|101] 377r29[7|101] 377r53[5|890]
+. 378r29[7|101] 379r29[7|101] 379r58[5|295] 393r26[7|101] 393r50[5|890] 394r26[7|101]
+. 395r26[7|101] 395r55[5|295] 407r31[5|890] 407r58[7|101] 409r26[7|101] 414r24[5|890]
+. 414r50[7|101] 415r26[7|101] 431r32[7|101] 432r32[7|101] 433r32[7|101] 441r29[7|101]
+. 450r30[5|890] 450r55[7|101] 451r32[7|101] 451r56[5|890] 452r32[7|101] 452r61[5|295]
+. 461r20[7|101] 461r47[5|890] 490r20[5|295] 490r21[5|295] 490r49[5|295] 490r50[5|295]
+. 491r53[5|890] 494r26[5|890] 494r52[7|101] 507r43[5|890] 508r26[7|101] 512r52[5|890]
+. 518r21[5|890] 518r47[7|101] 524r44[7|101] 525r27[7|101] 526r28[5|890] 526r54[7|101]
+. 530r26[7|101] 532r41[5|890] 537r44[5|890] 540r46[7|101] 545r30[7|101]
+142U17*Init 8|207s14[7|101]
+149V16*Last{5|67I9} 8|202s39[7|101] 348s28[7|101] 473s35[5|295]
+172i7*First{5|67I9} 8|202r23[7|101] 473r21[5|295]
+184U17*Increment_Last 8|347s23[7|101]
+X 86 types.ads
+59I9*Int<integer> 8|188r26 260r49 281r49 292r49 349r39
+62I12*Nat{59I9}
+65I12*Pos{59I9}
+68M9*Word 7|91r18 149r30 156r63 164r53 8|90r53 140r63
+145I9*Text_Ptr<59I9>
+148A9*Text_Buffer(character)<145I9>
+151P9*Text_Buffer_Ptr(148A9) 8|229r16
+155U14*Free[92|20] 8|274s19
+220I12*Source_Ptr{145I9} 8|54r55 99r55
+575I9*Source_File_Index<59I9> 8|142r22
+578i4*No_Source_File{575I9} 8|157r26
+613A9*Time_Stamp_Type<string>(character)<integer> 7|55r15 8|333r15
+626V14*"="{boolean} 8|414s40 494s42 526s44
+630V14*">"{boolean} 8|450s46
+

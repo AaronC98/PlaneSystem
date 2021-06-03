@@ -1,0 +1,1876 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>18. Scripting API reference for GPS.Browsers &#8212; GPS 19.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/adacore.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="19. Useful plugins" href="plugins.html" />
+    <link rel="prev" title="17. Scripting API reference for GPS" href="GPS.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="plugins.html" title="19. Useful plugins"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="GPS.html" title="17. Scripting API reference for GPS"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/adacore_transparent.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">18. Scripting API reference for <cite>GPS.Browsers</cite></a><ul>
+<li><a class="reference internal" href="#classes">18.1. Classes</a><ul>
+<li><a class="reference internal" href="#gps-browsers-abstractitem">18.1.1. <code class="docutils literal"><span class="pre">GPS.Browsers.AbstractItem</span></code></a></li>
+<li><a class="reference internal" href="#gps-browsers-diagram">18.1.2. <code class="docutils literal"><span class="pre">GPS.Browsers.Diagram</span></code></a></li>
+<li><a class="reference internal" href="#gps-browsers-editabletextitem">18.1.3. <code class="docutils literal"><span class="pre">GPS.Browsers.EditableTextItem</span></code></a></li>
+<li><a class="reference internal" href="#gps-browsers-ellipseitem">18.1.4. <code class="docutils literal"><span class="pre">GPS.Browsers.EllipseItem</span></code></a></li>
+<li><a class="reference internal" href="#gps-browsers-hritem">18.1.5. <code class="docutils literal"><span class="pre">GPS.Browsers.HrItem</span></code></a></li>
+<li><a class="reference internal" href="#gps-browsers-imageitem">18.1.6. <code class="docutils literal"><span class="pre">GPS.Browsers.ImageItem</span></code></a></li>
+<li><a class="reference internal" href="#gps-browsers-item">18.1.7. <code class="docutils literal"><span class="pre">GPS.Browsers.Item</span></code></a></li>
+<li><a class="reference internal" href="#gps-browsers-link">18.1.8. <code class="docutils literal"><span class="pre">GPS.Browsers.Link</span></code></a></li>
+<li><a class="reference internal" href="#gps-browsers-polylineitem">18.1.9. <code class="docutils literal"><span class="pre">GPS.Browsers.PolylineItem</span></code></a></li>
+<li><a class="reference internal" href="#gps-browsers-rectitem">18.1.10. <code class="docutils literal"><span class="pre">GPS.Browsers.RectItem</span></code></a></li>
+<li><a class="reference internal" href="#gps-browsers-style">18.1.11. <code class="docutils literal"><span class="pre">GPS.Browsers.Style</span></code></a></li>
+<li><a class="reference internal" href="#gps-browsers-textitem">18.1.12. <code class="docutils literal"><span class="pre">GPS.Browsers.TextItem</span></code></a></li>
+<li><a class="reference internal" href="#gps-browsers-view">18.1.13. <code class="docutils literal"><span class="pre">GPS.Browsers.View</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="GPS.html"
+                        title="previous chapter">17. Scripting API reference for <cite>GPS</cite></a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="plugins.html"
+                        title="next chapter">19. Useful plugins</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/GPS.Browsers.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-GPS.Browsers">
+<span id="scripting-api-reference-for-gps-browsers"></span><h1>18. Scripting API reference for <cite>GPS.Browsers</cite><a class="headerlink" href="#module-GPS.Browsers" title="Permalink to this headline">¶</a></h1>
+<p>Interface to the graph drawing API in GPS.</p>
+<div class="section" id="classes">
+<h2>18.1. Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gps-browsers-abstractitem">
+<h3>18.1.1. <a class="reference internal" href="#GPS.Browsers.AbstractItem" title="GPS.Browsers.AbstractItem"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.AbstractItem</span></code></a><a class="headerlink" href="#gps-browsers-abstractitem" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="GPS.Browsers.AbstractItem">
+<em class="property">class </em><code class="descclassname">GPS.Browsers.</code><code class="descname">AbstractItem</code><a class="headerlink" href="#GPS.Browsers.AbstractItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>This abstract class represents either items or links displayed in the
+canvas, and provide common behavior.</p>
+<dl class="attribute">
+<dt id="GPS.Browsers.AbstractItem.height">
+<code class="descname">height</code><a class="headerlink" href="#GPS.Browsers.AbstractItem.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>The height of the item (in its own coordinate space)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">(read-write) int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.AbstractItem.is_link">
+<code class="descname">is_link</code><a class="headerlink" href="#GPS.Browsers.AbstractItem.is_link" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the item is a link.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">(read-only) bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.AbstractItem.parent">
+<code class="descname">parent</code><a class="headerlink" href="#GPS.Browsers.AbstractItem.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>The parent item (to which self was added)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">(read-only) <a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.Item</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.AbstractItem.style">
+<code class="descname">style</code><a class="headerlink" href="#GPS.Browsers.AbstractItem.style" title="Permalink to this definition">¶</a></dt>
+<dd><p>The style applied to the item</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">(read-write) <a class="reference internal" href="#GPS.Browsers.Style" title="GPS.Browsers.Style"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.Style</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.AbstractItem.width">
+<code class="descname">width</code><a class="headerlink" href="#GPS.Browsers.AbstractItem.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>The width of the item (in its own coordinate space)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">(read-write) int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.AbstractItem.x">
+<code class="descname">x</code><a class="headerlink" href="#GPS.Browsers.AbstractItem.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The position of the item. For a toplevel item, this is the position
+within the diagram. For an item that was added to another item, this is
+the position within its parent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">(read-write) int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.AbstractItem.y">
+<code class="descname">y</code><a class="headerlink" href="#GPS.Browsers.AbstractItem.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>The position of the item. For a toplevel item, this is the position
+within the diagram. For an item that was added to another item, this is
+the position within its parent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">(read-write) int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.AbstractItem.hide">
+<code class="descname">hide</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.AbstractItem.hide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Temporarily hide the item, until <cite>GPS.Browsers.Item.show</cite> is called.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.AbstractItem.show">
+<code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.AbstractItem.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show an item that has been hidden.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="gps-browsers-diagram">
+<h3>18.1.2. <a class="reference internal" href="#GPS.Browsers.Diagram" title="GPS.Browsers.Diagram"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.Diagram</span></code></a><a class="headerlink" href="#gps-browsers-diagram" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="GPS.Browsers.Diagram">
+<em class="property">class </em><code class="descclassname">GPS.Browsers.</code><code class="descname">Diagram</code><a class="headerlink" href="#GPS.Browsers.Diagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>A diagram contains a set of items.</p>
+<p>You can extend this class with your own, and declare the following
+special subprograms which are called automatically by GPS:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_selection_changed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Called when the selection status of item has changed.</span>
+
+<span class="sd">    :param GPS.Browsers.Item item: the item that was selected or</span>
+<span class="sd">      unselected. This is set to None when all items were</span>
+<span class="sd">      unselected.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="GPS.Browsers.Diagram.Selection">
+<code class="descname">Selection</code><em class="property"> = &lt;GPS.__enum_proxy object&gt;</em><a class="headerlink" href="#GPS.Browsers.Diagram.Selection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.Diagram.items">
+<code class="descname">items</code><em class="property"> = None</em><a class="headerlink" href="#GPS.Browsers.Diagram.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of all <a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.Item</span></code></a> in the diagram. This only
+include toplevel items, you will need to iterate their own children if
+you need access to them. This also includes links.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.Diagram.selected">
+<code class="descname">selected</code><em class="property"> = None</em><a class="headerlink" href="#GPS.Browsers.Diagram.selected" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of selected <a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.Item</span></code></a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Diagram.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Diagram.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new empty diagram.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Diagram.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Diagram.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new item to the diagram. The coordinates of the item
+are set through item.set_position().</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item</strong> (<a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><em>GPS.Browsers.Item</em></a>) &#8211; the item to add</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Diagram.changed">
+<code class="descname">changed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Diagram.changed" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method should be called whenever the contents of the diagram has
+changed, or some items have been modified. This will trigger a
+re-display of the diagram.
+Not needed when you only added a new item to the diagram.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Diagram.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Diagram.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all items from the diagram.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Diagram.clear_selection">
+<code class="descname">clear_selection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Diagram.clear_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unselect all items in the diagram.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Diagram.is_selected">
+<code class="descname">is_selected</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Diagram.is_selected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the item is selected.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item</strong> (<a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><em>GPS.Browsers.Item</em></a>) &#8211; the item to check</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Diagram.links">
+<code class="descname">links</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Diagram.links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the incoming or outgoing links for item (i.e. all links for
+which item is a source or a target)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item</strong> (<a class="reference internal" href="#GPS.Browsers.AbstractItem" title="GPS.Browsers.AbstractItem"><em>GPS.Browsers.AbstractItem</em></a>) &#8211; the source of the links</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of <a class="reference internal" href="#GPS.Browsers.AbstractItem" title="GPS.Browsers.AbstractItem"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.AbstractItem</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="GPS.Browsers.Diagram.load_json">
+<em class="property">static </em><code class="descname">load_json</code><span class="sig-paren">(</span><em>file</em>, <em>diagramFactory=None</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Diagram.load_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a JSON file into a series of diagrams.</p>
+<p>The format of the file is described below, and is basically a
+serialization of all the style and object attributes mentioned
+elsewhere in this documentation.</p>
+<p>The JSON file should contain an object (&#8220;{...}&#8221;) with the following
+attributes:</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><cite>styles</cite>: this is a dict of style objects. Each style is itself
+described as an object whose attributes are any of the valid
+parameters for <a class="reference internal" href="#GPS.Browsers.Style.__init__" title="GPS.Browsers.Style.__init__"><code class="xref py py-func docutils literal"><span class="pre">GPS.Browsers.Style.__init__()</span></code></a>.</p>
+<p>There are a few special ids that can be used to set the default
+properties or styles for the items defined in this json
+file. For instance, if the id starts with &#8220;__default_props_&#8221;
+followed by one of the valid item type, the object can define
+the default attribute for any of the valid attributes of items.</p>
+<p>If the id starts with &#8220;__default_style_&#8221;, the object defines the
+style properties for any of the item type.</p>
+<p>For instance:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;styles&quot;</span><span class="p">:</span> <span class="p">{</span>
+   <span class="s1">&#39;__default_props_text&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;margin&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">]},</span>
+   <span class="s1">&#39;__default_props_rect&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;minWidth&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">},</span>
+   <span class="s1">&#39;__default_style_text&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;fontName&quot;</span><span class="p">:</span> <span class="s2">&quot;arial 10&quot;</span><span class="p">},</span>
+   <span class="s1">&#39;customStyle1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;stroke&quot;</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">}</span>
+<span class="p">}}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><cite>templates</cite>: this is a dictionary of diagram objects (as
+described below. They are not created or inserted in the
+diagram. However, if a later description inside <cite>diagrams</cite>
+contains an attribute &#8216;template&#8217;, then that attribute will be
+replaced by all the attributes defined in the template. For
+instance:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s1">&#39;templates&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;#tmpl0&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;rect&#39;</span><span class="p">;</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">10</span> <span class="p">}</span>
+<span class="p">},</span>
+<span class="s1">&#39;diagrams&#39;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="s1">&#39;template&#39;</span><span class="p">:</span> <span class="s1">&#39;#tmp10&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">20</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>is equivalent to putting the type and the width inline in
+the objet definition, but provide better sharing.</p>
+</li>
+<li><p class="first"><cite>diagrams</cite>: this is a list of diagram object. A single file can
+contain multiple diagrams, but a browser window always only
+displays a single diagram.</p>
+<p>Each diagram object has two possible attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>items</cite>: this is a list of item objects (see below)</li>
+<li><cite>links</cite>: this is a list of link objects (see below)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>An item object is itself described with a JSON object, with the
+following possible attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>id</cite>: an optional string, which defines an id for an object.
+This id can be used when creating links. It is also stored
+as an id attribute in the instance of <a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.Item</span></code></a>
+that is created.</li>
+<li><cite>data</cite>: this field is stored as is in the generated instance
+of GPS.Browsers.Item. It can be used to store any application
+specific data, in particular since the instance will be passed
+to the callbacks to handle click events.</li>
+<li><cite>x</cite>, <cite>y</cite>, <cite>anchorx</cite>, <cite>anchory</cite>: optional float attributes. See
+the description of <a class="reference internal" href="#GPS.Browsers.Item.set_position" title="GPS.Browsers.Item.set_position"><code class="xref py py-func docutils literal"><span class="pre">GPS.Browsers.Item.set_position()</span></code></a>.</li>
+<li><cite>width</cite>, <cite>height</cite>: the size of the item. This can be specified
+as a positive float to specify a size in pixels. Alternatively
+it can be set to <cite>GPS.Browsers.Item.Size.FIT</cite> (-1) so that the
+item and its margins occupy the full width of its parent (for a
+vertical layout) or the full height (for a horizontal layout).
+It can also be set to <cite>GPS.Browsers.Item.Size.AUTO</cite> (-2) so that
+the item occupies the minimal size needed for all of its
+children. The default is FIT.</li>
+<li><cite>style</cite>: an optional string (which then references the id of one
+of the styles defined in the &#8220;styles&#8221; attribute described above,
+or an inline JSON object that describes a style as above.</li>
+<li><cite>type</cite>: the type of the item. Valid values are &#8220;rect&#8221;, &#8220;hr&#8221;,
+&#8220;ellipse&#8221;, &#8220;polyline&#8221; or &#8220;text&#8221; (see the corresponding classes in
+this documentation). This attribute is optional, and will be
+guessed automatically in some cases. For instance, when the
+object also has a <cite>text</cite> attribute, it is considered as a text
+item. If it has a &#8220;points&#8221; attribute it is considered as a
+polyline item. The default <cite>type</cite> is &#8220;rect&#8221;.</li>
+<li><cite>minWidth</cite> and <cite>minHeight</cite>: the minimal size for an item. See
+<code class="xref py py-func docutils literal"><span class="pre">GPS.Browsers.Item.set_min_size()</span></code>.</li>
+<li><cite>vbox</cite> and <cite>hbox</cite>: list of items, which are the children of the
+current item. These children are organized either vertically or
+horizontally (only one of the two attributes can be specified,
+vbox takes precedence).</li>
+</ul>
+</div></blockquote>
+<p>When an item is created as a child of another one (in its parent&#8217;s
+<cite>vbox</cite> or <cite>hbox</cite>), it may have the following additional attributes.
+See <a class="reference internal" href="#GPS.Browsers.Item.add" title="GPS.Browsers.Item.add"><code class="xref py py-func docutils literal"><span class="pre">GPS.Browsers.Item.add()</span></code></a> for more information.</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>margin</cite>: the margins around the item. This is either a single
+float (in which case all margins are equal), or a list of four
+floats which give the top, right, bottom and left margins
+respectively.</li>
+<li><cite>align</cite>: one of the values from <a class="reference internal" href="#GPS.Browsers.Item.Align" title="GPS.Browsers.Item.Align"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.Item.Align</span></code></a>.
+In a JSON file, though, you can only use the corresponding
+integer values.</li>
+<li><cite>float</cite>: whether the item is set as floating</li>
+<li><cite>overflow</cite>: one of the integer values for
+<code class="xref py py-class docutils literal"><span class="pre">GPS.Browers.Item.Overflow</span></code></li>
+</ul>
+</div></blockquote>
+<p>Text objects (corresponding to <a class="reference internal" href="#GPS.Browsers.TextItem" title="GPS.Browsers.TextItem"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.TextItem</span></code></a>) have the
+following additional attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>text</cite>: the text to display.</li>
+<li><cite>directed</cite>: one of the values from
+<code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.TextItem.Text_Arrow</span></code>, which indicates that
+an extra arrow should be displayed next to the text. This is
+mostly relevant when the text is used as a label on a link, in
+which case the actual arrow will be computed automatically from
+the orientation of the link.</li>
+</ul>
+</div></blockquote>
+<p>Hr objects (corresponding to <a class="reference internal" href="#GPS.Browsers.HrItem" title="GPS.Browsers.HrItem"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.HrItem</span></code></a>) have the
+following additional attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>text</cite>: the text to display.</li>
+</ul>
+</div></blockquote>
+<p>Polyline objects (corresponding to <a class="reference internal" href="#GPS.Browsers.PolylineItem" title="GPS.Browsers.PolylineItem"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.PolylineItem</span></code></a>)
+have the following additional attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>points</cite>: the points that describe the contour of the object, as
+a list of floats. They are grouped into pairs, each of which
+describes the coordinates of a point.</li>
+<li><cite>close</cite>: whether the last point should automatically be linked
+to the first.</li>
+<li><cite>relative</cite>: an optional boolean (defaults to false) that
+indicates whether the points are coordinates relative to the
+item&#8217;s topleft corner, or are relative to the previous point.</li>
+</ul>
+</div></blockquote>
+<p>Rect items (corresponding to <a class="reference internal" href="#GPS.Browsers.RectItem" title="GPS.Browsers.RectItem"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.RectItem</span></code></a>) have the
+following additional attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>radius</cite>: optional float indicating the radius for the corners
+of the rectangle.</li>
+</ul>
+</div></blockquote>
+<p>A link object contains the following attributes (see
+<code class="xref py py-class docutils literal"><span class="pre">GPS.Browser.Link</span></code> for more information on the parameters):</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><cite>id</cite>: an optional string id for the link, if you need to create
+links to it.</p>
+</li>
+<li><p class="first"><cite>from</cite> and <cite>to</cite>: these are record with one mandatory field,
+<cite>ref</cite>, which is the id of one of the objects or links created
+previously. In addition, these records can also specify the
+following attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>anchorx</cite>, <cite>anchory</cite>: floats in the range 0.0 .. 1.0
+which specify where the item is attached in its target
+item</li>
+<li><cite>side</cite> takes its value from GPS.Browsers.Link.Side, and
+is used to force the link to emerge from one specific
+side of the item.</li>
+<li><cite>label</cite> is a JSON object describing an item, as described
+earlier. This will generally be a text item.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><cite>label</cite>: one of <a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.Item</span></code></a>, to display in the
+middle of the link. This will generally be a text item. If it
+is directed, the arrow will be computed from the orientation of
+the link.</p>
+</li>
+<li><p class="first"><cite>route</cite>: one of <a class="reference internal" href="#GPS.Browsers.Link.Routing" title="GPS.Browsers.Link.Routing"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.Link.Routing</span></code></a> (as integer)
+to indicate how the link is displayed.</p>
+</li>
+<li><p class="first"><cite>waypoints</cite>: a list of floats, which will be grouped into pairs
+to define waypoints. See <a class="reference internal" href="#GPS.Browsers.Link.set_waypoints" title="GPS.Browsers.Link.set_waypoints"><code class="xref py py-func docutils literal"><span class="pre">GPS.Browsers.Link.set_waypoints()</span></code></a>.
+An alternative definition is to use an object with two fields,
+<cite>points</cite> which is the list of floats, and <cite>relative</cite> which is
+a bool indicating whether the points are in absolute coordinates
+or relative to the previous point.</p>
+</li>
+</ul>
+</div></blockquote>
+<p>Here is an example which draws two items linked together:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;styles&quot;</span><span class="p">:</span> <span class="p">{},</span>
+ <span class="s2">&quot;diagrams&quot;</span><span class="p">:</span> <span class="p">[</span>
+   <span class="p">{</span><span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="s2">&quot;customStyle1&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;first item&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+       <span class="s2">&quot;vbox&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;fontName&quot;</span><span class="p">:</span> <span class="s2">&quot;arial 20&quot;</span><span class="p">,</span> <span class="n">stroke</span><span class="p">:</span><span class="n">null</span><span class="p">}},</span>
+          <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;hr&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;attributes&quot;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;+attr:integer&quot;</span><span class="p">}</span>
+       <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span><span class="mi">200</span><span class="s2">&quot;,</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;second item&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Annotation&quot;</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;links&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span><span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;ref&quot;</span><span class="p">:</span> <span class="s2">&quot;first item&quot;</span><span class="p">},</span>
+       <span class="s2">&quot;to&quot;</span><span class="p">:</span>   <span class="p">{</span><span class="s2">&quot;ref&quot;</span><span class="p">:</span> <span class="s2">&quot;second item&quot;</span><span class="p">},</span>
+       <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;stroke&quot;</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;dashes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}}</span>
+    <span class="p">]</span>
+   <span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>file</strong> (<em>str</em>) &#8211; an object that has a read() function, or the name
+of a file as a string.</li>
+<li><strong>diagramFactory</strong> (<em>callable</em>) &#8211; a callback that creates a new instance
+of GPS.Browsers.Diagram or one of its derived classes. Typically,
+you could pass the class itself, since calling it will create a new
+instance.
+As a special case, the diagrams returned by this function include a
+special <cite>ids</cite> field, which is a dict mapping the id to the actual
+item.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the list of GPS.Browsers.Diagram objects created.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="GPS.Browsers.Diagram.load_json_data">
+<em class="property">static </em><code class="descname">load_json_data</code><span class="sig-paren">(</span><em>data</em>, <em>diagramFactory=None</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Diagram.load_json_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a JSON description and display the corresponding data.
+See <a class="reference internal" href="#GPS.Browsers.Diagram.load_json" title="GPS.Browsers.Diagram.load_json"><code class="xref py py-func docutils literal"><span class="pre">GPS.Browsers.Diagram.load_json()</span></code></a> for more information on the
+format of the JSON file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Diagram.lower_item">
+<code class="descname">lower_item</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Diagram.lower_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lower the item, so that it is displayed below all other items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item</strong> (<a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><em>GPS.Browsers.Item</em></a>) &#8211; the item to lower.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Diagram.raise_item">
+<code class="descname">raise_item</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Diagram.raise_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raise the item, so that it is displayed above all other items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item</strong> (<a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><em>GPS.Browsers.Item</em></a>) &#8211; the item to raise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Diagram.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Diagram.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an item from the diagram.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item</strong> (<a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><em>GPS.Browsers.Item</em></a>) &#8211; the item to remove.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Diagram.select">
+<code class="descname">select</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Diagram.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select the item. If the diagram is set up for single selection, any
+previously selected item is first unselected.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item</strong> (<a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><em>GPS.Browsers.Item</em></a>) &#8211; the item to select.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Diagram.set_selection_mode">
+<code class="descname">set_selection_mode</code><span class="sig-paren">(</span><em>mode='GPS.Browsers.Diagram.Selection.SINGLE'</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Diagram.set_selection_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Controls the selection in the views associated with this buffer.
+It can be used to indicate whether a single item or multiple items
+can be selected.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<a class="reference internal" href="#GPS.Browsers.Diagram.Selection" title="GPS.Browsers.Diagram.Selection"><em>GPS.Browsers.Diagram.Selection</em></a>) &#8211; the type of selection</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Diagram.unselect">
+<code class="descname">unselect</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Diagram.unselect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unselect the item.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item</strong> (<a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><em>GPS.Browsers.Item</em></a>) &#8211; the item to select.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="gps-browsers-editabletextitem">
+<h3>18.1.3. <a class="reference internal" href="#GPS.Browsers.EditableTextItem" title="GPS.Browsers.EditableTextItem"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.EditableTextItem</span></code></a><a class="headerlink" href="#gps-browsers-editabletextitem" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="GPS.Browsers.EditableTextItem">
+<em class="property">class </em><code class="descclassname">GPS.Browsers.</code><code class="descname">EditableTextItem</code><a class="headerlink" href="#GPS.Browsers.EditableTextItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>A text item (<a class="reference internal" href="#GPS.Browsers.TextItem" title="GPS.Browsers.TextItem"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.TextItem</span></code></a>) that can be double-clicked
+on to edit its text.
+See <a class="reference internal" href="#GPS.Browsers.View.start_editing" title="GPS.Browsers.View.start_editing"><code class="xref py py-func docutils literal"><span class="pre">GPS.Browsers.View.start_editing()</span></code></a> if you need to start the
+editing from the script, instead of having the user double-click on the
+item.</p>
+<img src="_images/inheritance-ba319bd745f0f3454d0b926a0414948b1079adeb.png" alt="Inheritance diagram of GPS.Browsers.EditableTextItem" usemap="#inheritanceac6738ba4a" class="inheritance"/>
+<map id="inheritanceac6738ba4a" name="inheritanceac6738ba4a">
+<area shape="rect" id="node1" href="#GPS.Browsers.AbstractItem" target="_top" title="This abstract class represents either items or links displayed in the" alt="" coords="5,4,173,27"/>
+<area shape="rect" id="node4" href="#GPS.Browsers.Item" target="_top" title="This abstract class represents any of the items that can be displayed in" alt="" coords="216,4,340,27"/>
+<area shape="rect" id="node2" href="#GPS.Browsers.EditableTextItem" target="_top" title="A text item (:class:`GPS.Browsers.TextItem`) that can be double&#45;clicked" alt="" coords="574,4,763,27"/>
+<area shape="rect" id="node3" href="#GPS.Browsers.TextItem" target="_top" title="An item that displays text (optionaly within a rectangular box)." alt="" coords="383,4,530,27"/>
+</map>
+<dl class="attribute">
+<dt id="GPS.Browsers.EditableTextItem.editable">
+<code class="descname">editable</code><em class="property"> = True</em><a class="headerlink" href="#GPS.Browsers.EditableTextItem.editable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether this item is currently editable by the user</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.EditableTextItem.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>style</em>, <em>text</em>, <em>directed='GPS.Browsers.TextItem.Text_Arrow.NONE'</em>, <em>on_edited=None</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.EditableTextItem.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new editable text item</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>style</strong> (<a class="reference internal" href="#GPS.Browsers.Style" title="GPS.Browsers.Style"><em>GPS.Browsers.Style</em></a>) &#8211; how to draw the item</li>
+<li><strong>text</strong> (<em>str</em>) &#8211; the text to display.</li>
+<li><strong>directed</strong> (<em>bool</em>) &#8211; whether to draw an additional arrow next
+to the text. This can be used for instance when the
+text is next to a link, and indicates in which direction
+the text applies.</li>
+<li><strong>on_edited</strong> &#8211; A callback whenever the text has been modified
+interactively by the user. The profile is
+<cite>on_edited(textitem, old_text)</cite></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="gps-browsers-ellipseitem">
+<h3>18.1.4. <a class="reference internal" href="#GPS.Browsers.EllipseItem" title="GPS.Browsers.EllipseItem"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.EllipseItem</span></code></a><a class="headerlink" href="#gps-browsers-ellipseitem" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="GPS.Browsers.EllipseItem">
+<em class="property">class </em><code class="descclassname">GPS.Browsers.</code><code class="descname">EllipseItem</code><a class="headerlink" href="#GPS.Browsers.EllipseItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>An item which displays an ellipse or a circle. It can contain
+children.</p>
+<img src="_images/inheritance-7671c4a3c4348238a295443082d77f7f0bc7d23f.png" alt="Inheritance diagram of GPS.Browsers.EllipseItem" usemap="#inheritancee0d4f9c809" class="inheritance"/>
+<map id="inheritancee0d4f9c809" name="inheritancee0d4f9c809">
+<area shape="rect" id="node1" href="#GPS.Browsers.AbstractItem" target="_top" title="This abstract class represents either items or links displayed in the" alt="" coords="6,5,194,30"/>
+<area shape="rect" id="node3" href="#GPS.Browsers.Item" target="_top" title="This abstract class represents any of the items that can be displayed in" alt="" coords="243,5,381,30"/>
+<area shape="rect" id="node2" href="#GPS.Browsers.EllipseItem" target="_top" title="An item which displays an ellipse or a circle. It can contain" alt="" coords="429,5,608,30"/>
+</map>
+<dl class="method">
+<dt id="GPS.Browsers.EllipseItem.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>style</em>, <em>width=-1.0</em>, <em>height=-1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.EllipseItem.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new ellipse/circle item, inscribed in the box
+given by the width and height.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>style</strong> (<a class="reference internal" href="#GPS.Browsers.Style" title="GPS.Browsers.Style"><em>GPS.Browsers.Style</em></a>) &#8211; how to draw the item</li>
+<li><strong>width</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; used to force a specific width for the item.
+If negative or null, the width is computed from the children
+of the item.</li>
+<li><strong>height</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; similar to width.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="gps-browsers-hritem">
+<h3>18.1.5. <a class="reference internal" href="#GPS.Browsers.HrItem" title="GPS.Browsers.HrItem"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.HrItem</span></code></a><a class="headerlink" href="#gps-browsers-hritem" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="GPS.Browsers.HrItem">
+<em class="property">class </em><code class="descclassname">GPS.Browsers.</code><code class="descname">HrItem</code><a class="headerlink" href="#GPS.Browsers.HrItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>A horizontal-line item, with optional text in the middle.
+This is basically represented as:</p>
+<blockquote>
+<div>&#8212;&#8211; text &#8212;&#8211;</div></blockquote>
+<img src="_images/inheritance-3d8724e6ea45b81a743d6ca1a6eb620b809f8769.png" alt="Inheritance diagram of GPS.Browsers.HrItem" usemap="#inheritance370511ce63" class="inheritance"/>
+<map id="inheritance370511ce63" name="inheritance370511ce63">
+<area shape="rect" id="node1" href="#GPS.Browsers.AbstractItem" target="_top" title="This abstract class represents either items or links displayed in the" alt="" coords="6,5,194,30"/>
+<area shape="rect" id="node3" href="#GPS.Browsers.Item" target="_top" title="This abstract class represents any of the items that can be displayed in" alt="" coords="243,5,381,30"/>
+<area shape="rect" id="node2" href="#GPS.Browsers.HrItem" target="_top" title="A horizontal&#45;line item, with optional text in the middle." alt="" coords="430,5,583,30"/>
+</map>
+<dl class="method">
+<dt id="GPS.Browsers.HrItem.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>style</em>, <em>text=''</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.HrItem.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new horizontal line.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>style</strong> (<a class="reference internal" href="#GPS.Browsers.Style" title="GPS.Browsers.Style"><em>GPS.Browsers.Style</em></a>) &#8211; how to draw the item</li>
+<li><strong>text</strong> (<em>str</em>) &#8211; the text to display.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="gps-browsers-imageitem">
+<h3>18.1.6. <a class="reference internal" href="#GPS.Browsers.ImageItem" title="GPS.Browsers.ImageItem"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.ImageItem</span></code></a><a class="headerlink" href="#gps-browsers-imageitem" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="GPS.Browsers.ImageItem">
+<em class="property">class </em><code class="descclassname">GPS.Browsers.</code><code class="descname">ImageItem</code><a class="headerlink" href="#GPS.Browsers.ImageItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>An item that shows an image.</p>
+<img src="_images/inheritance-379960ae47a647e64f6d8019e315d51239a35b4c.png" alt="Inheritance diagram of GPS.Browsers.ImageItem" usemap="#inheritancea93a3f43f9" class="inheritance"/>
+<map id="inheritancea93a3f43f9" name="inheritancea93a3f43f9">
+<area shape="rect" id="node1" href="#GPS.Browsers.AbstractItem" target="_top" title="This abstract class represents either items or links displayed in the" alt="" coords="6,5,194,30"/>
+<area shape="rect" id="node3" href="#GPS.Browsers.Item" target="_top" title="This abstract class represents any of the items that can be displayed in" alt="" coords="243,5,381,30"/>
+<area shape="rect" id="node2" href="#GPS.Browsers.ImageItem" target="_top" title="An item that shows an image." alt="" coords="430,5,605,30"/>
+</map>
+<dl class="method">
+<dt id="GPS.Browsers.ImageItem.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>style</em>, <em>filename</em>, <em>width=-1.0</em>, <em>height=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.ImageItem.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new image item.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>style</strong> (<a class="reference internal" href="#GPS.Browsers.Style" title="GPS.Browsers.Style"><em>GPS.Browsers.Style</em></a>) &#8211; how to draw the border of the item</li>
+<li><strong>filename</strong> (<em>str</em>) &#8211; the filename to load.</li>
+<li><strong>width</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; forcing a size for the item (the default is to use
+the image&#8217;s own size)</li>
+<li><strong>height</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; forcing a size for the item (the default is to use
+the image&#8217;s own size)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="gps-browsers-item">
+<h3>18.1.7. <a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.Item</span></code></a><a class="headerlink" href="#gps-browsers-item" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="GPS.Browsers.Item">
+<em class="property">class </em><code class="descclassname">GPS.Browsers.</code><code class="descname">Item</code><a class="headerlink" href="#GPS.Browsers.Item" title="Permalink to this definition">¶</a></dt>
+<dd><p>This abstract class represents any of the items that can be displayed in
+a browser.
+Such items have an outline, whose form depends on the type of the item
+(rectangular, polygone,...)
+They can almost all contain children. Unless you specified an explicit
+size for the item, its size will be computed to include all the children.
+The children are stacked either vertically or horizontally within their
+container, so that one child appears by default immediately below or to
+the right of the previous one.
+Extra margins can be specified to force extra space.</p>
+<img src="_images/inheritance-244140385e5c00fd1d5e81cb7fb1ed7b79a2186d.png" alt="Inheritance diagram of GPS.Browsers.Item" usemap="#inheritance1192a72cfc" class="inheritance"/>
+<map id="inheritance1192a72cfc" name="inheritance1192a72cfc">
+<area shape="rect" id="node1" href="#GPS.Browsers.AbstractItem" target="_top" title="This abstract class represents either items or links displayed in the" alt="" coords="6,5,194,30"/>
+<area shape="rect" id="node2" href="#GPS.Browsers.Item" target="_top" title="This abstract class represents any of the items that can be displayed in" alt="" coords="243,5,381,30"/>
+</map>
+<dl class="attribute">
+<dt id="GPS.Browsers.Item.Align">
+<code class="descname">Align</code><em class="property"> = &lt;GPS.__enum_proxy object&gt;</em><a class="headerlink" href="#GPS.Browsers.Item.Align" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.Item.Layout">
+<code class="descname">Layout</code><em class="property"> = &lt;GPS.__enum_proxy object&gt;</em><a class="headerlink" href="#GPS.Browsers.Item.Layout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.Item.Overflow">
+<code class="descname">Overflow</code><em class="property"> = &lt;GPS.__enum_proxy object&gt;</em><a class="headerlink" href="#GPS.Browsers.Item.Overflow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.Item.Size">
+<code class="descname">Size</code><em class="property"> = &lt;GPS.__enum_proxy object&gt;</em><a class="headerlink" href="#GPS.Browsers.Item.Size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describes the size of an item. In general, the size is given as a number
+of pixels. There are however a few special values.</p>
+<blockquote>
+<div><ul class="simple">
+<li>FIT indicates that the item is sized so that it fits exactly in its
+parent container, including the child margins. So for instance given a
+parent with a vertical layout, of width 200px, and a child with
+10px margins both on left and right, then the child&#8217;s width will be
+set to 180px.</li>
+<li>AUTO indicates that the item&#8217;s size is computed so that all of its
+children fit exactly inside the item.</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.Item.children">
+<code class="descname">children</code><em class="property"> = None</em><a class="headerlink" href="#GPS.Browsers.Item.children" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of <a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.Item</span></code></a> that were added to the item.
+This property is not writable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Item.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Item.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will raise an exception, this is an abstract class.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Item.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>item</em>, <em>align='GPS.Browsers.Item.Align.START'</em>, <em>margin=(0</em>, <em>0</em>, <em>0</em>, <em>0)</em>, <em>float=False</em>, <em>overflow='GPS.Browsers.Item.Overflow.PREVENT'</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Item.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a child item.
+This child will be displayed as part of the item, and will move with
+it. The size of the child will impact the size of its parent, unless
+you have forced a specific size for the latter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>item</strong> (<a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><em>GPS.Browsers.Item</em></a>) &#8211; the item to add</li>
+<li><strong>align</strong> (<a class="reference internal" href="#GPS.Browsers.Item.Align" title="GPS.Browsers.Item.Align"><em>GPS.Browsers.Item.Align</em></a>) &#8211; How the item should be aligned
+within its parent. When
+the size of the child is computed automatically, it will have the
+same width as its parent (for vertical layout) or the same height
+as its parent (for horizontal layout), minus the margins. In this
+case, the align parameter will play no role. But when the child is
+smaller than its parent, the align parameter indicates on which
+side an extra margin is added.</li>
+<li><strong>margin</strong> (<em>list_of_float</em>) &#8211; Extra margin to each side of the item
+(resp. top, right, bottom and left margin). These a float values.</li>
+<li><strong>float</strong> (<em>bool</em>) &#8211; Whether the child should be floating within its
+parent.
+This impacts the layout: by default, in a vertical layout, all
+children are put below one another, so that they do not overlap.
+However, when a child is floating, it will be put at the current
+y coordinate, but the next item will be put at the same coordinate
+as if the child was not there.</li>
+<li><strong>overflow</strong> (<a class="reference internal" href="#GPS.Browsers.Item.Overflow" title="GPS.Browsers.Item.Overflow"><em>GPS.Browsers.Item.Overflow</em></a>) &#8211; Whether the child&#8217;s size
+should impact the parent
+size. For instance, you might want to display as much text as
+possible in a box. When overflow is set to PREVENT, the box
+will be made as large as needed to have the whole text visible
+(unless you have specified an explicit size for the box, as
+usual). But when the overflow is set to HIDE, the box will
+get its size from the other children, and the text will simply
+be ellipsized if it does not fit in the box.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Item.get_parent_with_id">
+<code class="descname">get_parent_with_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Item.get_parent_with_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns either self (if it has an &#8220;id&#8221; attribute), or its first
+parent that does. It might return None if nothing is found.
+Such &#8220;id&#8221; attributes are in general used to identify items with
+semantic information, rather than just display purposes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Item.recurse">
+<code class="descname">recurse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Item.recurse" title="Permalink to this definition">¶</a></dt>
+<dd><p>A generator that returns self and all its child items.
+For instance:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>for it in item.recurse():</dt>
+<dd>...</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Item.set_child_layout">
+<code class="descname">set_child_layout</code><span class="sig-paren">(</span><em>layout='GPS.Browsers.Item.Layout.VERTICAL'</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Item.set_child_layout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Choose how children are organized within this item.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>layout</strong> (<a class="reference internal" href="#GPS.Browsers.Item.Layout" title="GPS.Browsers.Item.Layout"><em>GPS.Browsers.Item.Layout</em></a>) &#8211; if set to VERTICAL, then
+the child items are put below one another, otherwise they are
+put next to one another.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Item.set_height_range">
+<code class="descname">set_height_range</code><span class="sig-paren">(</span><em>min=-1.0</em>, <em>max=-1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Item.set_height_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constrain the range of height for self.
+Self could be make larger if its children request a larger size, but
+will not smaller than the given size.
+The default is for items to use the full width of their parent (for
+vertical layout) or the full height (for horizontal layout), and
+the size required by their children for the other axis.
+This overrides any previous call to set_size</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>min</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; minimal height</li>
+<li><strong>max</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; maximal height</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Item.set_position">
+<code class="descname">set_position</code><span class="sig-paren">(</span><em>x=None</em>, <em>y=None</em>, <em>anchorx=0.0</em>, <em>anchory=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Item.set_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the position of the item. This is the position within its
+parent item, or if there is no parent this is the absolute position
+of the item within the diagram.
+Calling this function should always be done for toplevel items, but
+is optional for children, since their position is computed
+automatically by their container (which is especially useful with
+text items, whose size might be hard to compute).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; coordinates relative to parent or browser.</li>
+<li><strong>y</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; coordinates relative to parent or browser.</li>
+<li><strong>anchorx</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; what position within the item x is refering to.
+If set to 0.0, x indicates the left side of the item. If set to
+0.5, x indicates the middle of the item. 1.0 indicates the right
+side of the item.</li>
+<li><strong>anchory</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; what position within the item y is refering to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Item.set_size">
+<code class="descname">set_size</code><span class="sig-paren">(</span><em>width=-1.0</em>, <em>height=-1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Item.set_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forces a specific size for self.
+This overrides any previous call to set_width_range and
+set_height_range.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>width</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; actual width. If -1, the width will be
+computed automatically.</li>
+<li><strong>height</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; actual height. If -1, the height will be
+computed automatically.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Item.set_width_range">
+<code class="descname">set_width_range</code><span class="sig-paren">(</span><em>min=-1.0</em>, <em>max=-1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Item.set_width_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constrain the range of width for self.
+Self could be make larger if its children request a larger size, but
+will not smaller than the given size.
+The default is for items to use the full width of their parent (for
+vertical layout) or the full height (for horizontal layout), and
+the size required by their children for the other axis.
+This overrides any previous call to set_size</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>min</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; minimal width</li>
+<li><strong>max</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; maximal width</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Item.toplevel">
+<code class="descname">toplevel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Item.toplevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>The item that contains self, or self
+itself if it is already a toplevel item. This is simply computed by
+using the <a class="reference internal" href="#GPS.Browsers.AbstractItem.parent" title="GPS.Browsers.AbstractItem.parent"><code class="xref py py-func docutils literal"><span class="pre">GPS.Browsers.AbstractItem.parent()</span></code></a> property.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="#GPS.Browsers.AbstractItem" title="GPS.Browsers.AbstractItem"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.AbstractItem</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="gps-browsers-link">
+<h3>18.1.8. <a class="reference internal" href="#GPS.Browsers.Link" title="GPS.Browsers.Link"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.Link</span></code></a><a class="headerlink" href="#gps-browsers-link" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="GPS.Browsers.Link">
+<em class="property">class </em><code class="descclassname">GPS.Browsers.</code><code class="descname">Link</code><a class="headerlink" href="#GPS.Browsers.Link" title="Permalink to this definition">¶</a></dt>
+<dd><p>A line between two items.
+When the items are moved, the line is automatically adjusted to
+stay connected to those items.</p>
+<img src="_images/inheritance-56087ccb77975a3d1b774e05eba62db6faafeaf8.png" alt="Inheritance diagram of GPS.Browsers.Link" usemap="#inheritancef8a1f0d2b9" class="inheritance"/>
+<map id="inheritancef8a1f0d2b9" name="inheritancef8a1f0d2b9">
+<area shape="rect" id="node1" href="#GPS.Browsers.AbstractItem" target="_top" title="This abstract class represents either items or links displayed in the" alt="" coords="6,5,194,30"/>
+<area shape="rect" id="node2" href="#GPS.Browsers.Link" target="_top" title="A line between two items." alt="" coords="243,5,381,30"/>
+</map>
+<dl class="attribute">
+<dt id="GPS.Browsers.Link.Routing">
+<code class="descname">Routing</code><em class="property"> = &lt;GPS.__enum_proxy object&gt;</em><a class="headerlink" href="#GPS.Browsers.Link.Routing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.Link.Side">
+<code class="descname">Side</code><em class="property"> = &lt;GPS.__enum_proxy object&gt;</em><a class="headerlink" href="#GPS.Browsers.Link.Side" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.Link.fromLabel">
+<code class="descname">fromLabel</code><em class="property"> = None</em><a class="headerlink" href="#GPS.Browsers.Link.fromLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <cite>GPS.Browsers.Item</cite> element (or None) corresponding to
+the link&#8217;s source label.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.Link.label">
+<code class="descname">label</code><em class="property"> = None</em><a class="headerlink" href="#GPS.Browsers.Link.label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <cite>GPS.Browsers.Item</cite> element (or None) corresponding to
+the link&#8217;s label.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.Link.source">
+<code class="descname">source</code><em class="property"> = None</em><a class="headerlink" href="#GPS.Browsers.Link.source" title="Permalink to this definition">¶</a></dt>
+<dd><p>The source <cite>GPS.Browsers.Item</cite> for the link</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.Link.target">
+<code class="descname">target</code><em class="property"> = None</em><a class="headerlink" href="#GPS.Browsers.Link.target" title="Permalink to this definition">¶</a></dt>
+<dd><p>The target <cite>GPS.Browsers.Item</cite> for the link</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.Link.toLabel">
+<code class="descname">toLabel</code><em class="property"> = None</em><a class="headerlink" href="#GPS.Browsers.Link.toLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <cite>GPS.Browsers.Item</cite> element (or None) corresponding to
+the link&#8217;s target label.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Link.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>origin</em>, <em>to</em>, <em>style</em>, <em>routing='GPS.Browsers.Link.Routing.STRAIGHT'</em>, <em>label=None</em>, <em>fromX=0.5</em>, <em>fromY=0.5</em>, <em>fromSide='GPS.Browsers.Link.Side.AUTO'</em>, <em>fromLabel=None</em>, <em>toX=0.5</em>, <em>toY=0.5</em>, <em>toSide='GPS.Browsers.Link.Side.AUTO'</em>, <em>toLabel=None</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Link.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new link attached to the two items FROM and TO.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>from</strong> (<a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><em>GPS.Browsers.Item</em></a>) &#8211; the origin of the link.</li>
+<li><strong>to</strong> (<a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><em>GPS.Browsers.Item</em></a>) &#8211; the target of the link.</li>
+<li><strong>style</strong> (<a class="reference internal" href="#GPS.Browsers.Style" title="GPS.Browsers.Style"><em>GPS.Browsers.Style</em></a>) &#8211; how to draw the item</li>
+<li><strong>routing</strong> (<a class="reference internal" href="#GPS.Browsers.Link.Routing" title="GPS.Browsers.Link.Routing"><em>GPS.Browsers.Link.Routing</em></a>) &#8211; the routing algorithm to
+use to compute how the
+link is displayed. A STRAIGHT link takes the shortest route
+between the two items, whereas an ORTHOGONAL link only uses
+horizontal and vertical lines to do so. A CURVE is almost
+the same as a straight link, but is slightly curves, which
+is useful when several links between the same two items exist.
+An ORTHOCURVE link uses bezier curves to link the two items.</li>
+<li><strong>fromX</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; the position within the origin where the link is
+attached. This is a float in the range 0.0 .. 1.0. The link
+itself is not displayed on top of the origin box, but changing
+the attachment point will change the point at which the link
+exits from the origin box.</li>
+<li><strong>fromY</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; similar to fromY, for the vertical axis</li>
+<li><strong>fromSide</strong> (<a class="reference internal" href="#GPS.Browsers.Link.Side" title="GPS.Browsers.Link.Side"><em>GPS.Browsers.Link.Side</em></a>) &#8211; This can be used to force the
+link to exist from
+a specific side of its toplevel container. For instance, if you
+set fromX to 0.0, the link will always exit from the left side
+of self. But if self itself is contained within another item,
+it is possible that the line from the left side of self to the
+target of the link will in fact exit from some other place
+in the container item. Setting fromSide to
+GPS.Browsers.Link.Side.LEFT will make sure the link exits from
+the left side of the parent item too.</li>
+<li><strong>label</strong> (<a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><em>GPS.Browsers.Item</em></a>) &#8211; a label (in general a TextItem) to
+display in the middle of the link.</li>
+<li><strong>fromLabel</strong> (<a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><em>GPS.Browsers.Item</em></a>) &#8211; a label (in general a TextItem) to
+display next to the origin of the link.</li>
+<li><strong>toX</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; This plays a similar role to fromX, but it can also
+have a negative value. In such a case, GPS will try to move the
+end position of the link along the border of the item, so as to get
+a horizontal or vertical segment. If this is not possible, the
+usual behavior applies to abs(toX) to find the attachment of the
+link in the item.</li>
+<li><strong>toY</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; similar to toX</li>
+<li><strong>toLabel</strong> (<a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><em>GPS.Browsers.Item</em></a>) &#8211; a label (in general a TextItem) to
+display next to the target of the link.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Link.recurse">
+<code class="descname">recurse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Link.recurse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns self and its labels.
+This matches <cite>GPS.Browsers.Item.recurse</cite>. Note that a label
+doesn&#8217;t have self as its parent, so you cannot get back to the
+link from one of its labels.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Link.set_waypoints">
+<code class="descname">set_waypoints</code><span class="sig-paren">(</span><em>points</em>, <em>relative=False</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Link.set_waypoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force specific waypoints for link.
+The lines will pass through each of these points when it is routed
+as straight or orthogonal lines.
+By default, the coordinates are absolute (in the same coordinate
+system as the items). If however you specify relative coordinates,
+then each point is relative to the previous one (and the first one
+is relative to the link&#8217;s attachment point on its origin item).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>points</strong> (<em>list_of_float</em>) &#8211; The floats are grouped into pair, each of which describes
+the coordinates of one points.</li>
+<li><strong>relative</strong> (<em>bool</em>) &#8211; whether the coordinates are relative to
+the previous point, or absolte.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="gps-browsers-polylineitem">
+<h3>18.1.9. <a class="reference internal" href="#GPS.Browsers.PolylineItem" title="GPS.Browsers.PolylineItem"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.PolylineItem</span></code></a><a class="headerlink" href="#gps-browsers-polylineitem" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="GPS.Browsers.PolylineItem">
+<em class="property">class </em><code class="descclassname">GPS.Browsers.</code><code class="descname">PolylineItem</code><a class="headerlink" href="#GPS.Browsers.PolylineItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>An item which displays a set of connected lines.
+It can be used to draw polygons for instance, or simple lines.</p>
+<img src="_images/inheritance-946f1b3b27aad1c3e340ee726cf07e31b546857c.png" alt="Inheritance diagram of GPS.Browsers.PolylineItem" usemap="#inheritance211c41af19" class="inheritance"/>
+<map id="inheritance211c41af19" name="inheritance211c41af19">
+<area shape="rect" id="node1" href="#GPS.Browsers.AbstractItem" target="_top" title="This abstract class represents either items or links displayed in the" alt="" coords="6,5,194,30"/>
+<area shape="rect" id="node2" href="#GPS.Browsers.Item" target="_top" title="This abstract class represents any of the items that can be displayed in" alt="" coords="243,5,381,30"/>
+<area shape="rect" id="node3" href="#GPS.Browsers.PolylineItem" target="_top" title="An item which displays a set of connected lines." alt="" coords="430,5,615,30"/>
+</map>
+<dl class="method">
+<dt id="GPS.Browsers.PolylineItem.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>style</em>, <em>points</em>, <em>close=False</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.PolylineItem.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new polyilne item.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>style</strong> (<a class="reference internal" href="#GPS.Browsers.Style" title="GPS.Browsers.Style"><em>GPS.Browsers.Style</em></a>) &#8211; how to draw the item</li>
+<li><strong>points</strong> (<em>list_of_float</em>) &#8211; <p>each points at which line
+ends. The coordinates are relative to the top-left corner
+of the item (so that (0,0) is the top-left corner itself).
+The floats are grouped into pair, each of which describes
+the coordinates of one points. For instance:</p>
+<blockquote>
+<div>(0,0,  100,100)</div></blockquote>
+<p>displays a single line which goes from the top-left corner
+to a point at coordinates (100,100).</p>
+</li>
+<li><strong>close</strong> (<em>bool</em>) &#8211; whether the last point should
+automatically be linked to the first. This ensures the
+polygone is properly closed and can be filled.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="gps-browsers-rectitem">
+<h3>18.1.10. <a class="reference internal" href="#GPS.Browsers.RectItem" title="GPS.Browsers.RectItem"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.RectItem</span></code></a><a class="headerlink" href="#gps-browsers-rectitem" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="GPS.Browsers.RectItem">
+<em class="property">class </em><code class="descclassname">GPS.Browsers.</code><code class="descname">RectItem</code><a class="headerlink" href="#GPS.Browsers.RectItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>A special kind of item, which displays a rectangular box, optionally
+with rounded corner. It can contain children items.</p>
+<img src="_images/inheritance-ec02eb3d3eecc4f7345c0c0aaffc81008f6ff390.png" alt="Inheritance diagram of GPS.Browsers.RectItem" usemap="#inheritancea27e42f2e2" class="inheritance"/>
+<map id="inheritancea27e42f2e2" name="inheritancea27e42f2e2">
+<area shape="rect" id="node1" href="#GPS.Browsers.AbstractItem" target="_top" title="This abstract class represents either items or links displayed in the" alt="" coords="6,5,194,30"/>
+<area shape="rect" id="node2" href="#GPS.Browsers.Item" target="_top" title="This abstract class represents any of the items that can be displayed in" alt="" coords="243,5,381,30"/>
+<area shape="rect" id="node3" href="#GPS.Browsers.RectItem" target="_top" title="A special kind of item, which displays a rectangular box, optionally" alt="" coords="430,5,597,30"/>
+</map>
+<dl class="method">
+<dt id="GPS.Browsers.RectItem.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>style</em>, <em>width=-1.0</em>, <em>height=-1.0</em>, <em>radius=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.RectItem.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new rectangular item.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>style</strong> (<a class="reference internal" href="#GPS.Browsers.Style" title="GPS.Browsers.Style"><em>GPS.Browsers.Style</em></a>) &#8211; how to draw the item</li>
+<li><strong>width</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; used to force a specific width for the item.
+If this is null or negative, the width will be computed from
+the children of the item.</li>
+<li><strong>height</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; used to force a specific height, which will be
+computed automatically if height is negative or null</li>
+<li><strong>radius</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; the radius for the angles.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="gps-browsers-style">
+<h3>18.1.11. <a class="reference internal" href="#GPS.Browsers.Style" title="GPS.Browsers.Style"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.Style</span></code></a><a class="headerlink" href="#gps-browsers-style" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="GPS.Browsers.Style">
+<em class="property">class </em><code class="descclassname">GPS.Browsers.</code><code class="descname">Style</code><a class="headerlink" href="#GPS.Browsers.Style" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides multiple drawing attributes that are used when
+drawing on a browser. This includes colors, dash patterns, arrows
+and symbols,...
+Very often, such a style will be reused for multiple objects.</p>
+<dl class="attribute">
+<dt id="GPS.Browsers.Style.Align">
+<code class="descname">Align</code><em class="property"> = &lt;GPS.__enum_proxy object&gt;</em><a class="headerlink" href="#GPS.Browsers.Style.Align" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.Style.Arrow">
+<code class="descname">Arrow</code><em class="property"> = &lt;GPS.__enum_proxy object&gt;</em><a class="headerlink" href="#GPS.Browsers.Style.Arrow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.Style.Symbol">
+<code class="descname">Symbol</code><em class="property"> = &lt;GPS.__enum_proxy object&gt;</em><a class="headerlink" href="#GPS.Browsers.Style.Symbol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.Style.Underline">
+<code class="descname">Underline</code><em class="property"> = &lt;GPS.__enum_proxy object&gt;</em><a class="headerlink" href="#GPS.Browsers.Style.Underline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.Style.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>stroke='black'</em>, <em>fill=''</em>, <em>lineWidth=1.0</em>, <em>dashes=[]</em>, <em>sloppy=False</em>, <em>fontName='sans 9'</em>, <em>fontUnderline='GPS.Browsers.Style.Underline.NONE'</em>, <em>fontStrike=False</em>, <em>fontColor='black'</em>, <em>fontLineSpacing=0</em>, <em>fontHalign='GPS.Browsers.Style.Align.LEFT'</em>, <em>arrowFrom='GPS.Browsers.Style.Arrow.NONE'</em>, <em>arrowFromLength=8.0</em>, <em>arrowFromAngle=0.4</em>, <em>arrowFromStroke='black'</em>, <em>arrowFromFill=''</em>, <em>arrowFromWidth=1.0</em>, <em>arrowTo='GPS.Browsers.Style.Arrow.NONE'</em>, <em>arrowToLength=8.0</em>, <em>arrowToAngle=0.4</em>, <em>arrowToStroke='black'</em>, <em>arrowToFill=''</em>, <em>arrowToWidth=1.0</em>, <em>symbolFrom='GPS.Browsers.Style.Symbol.NONE'</em>, <em>symbolFromStroke='black'</em>, <em>symbolFromDist=16.0</em>, <em>symbolFromWidth=1.0</em>, <em>symbolTo='GPS.Browsers.Style.Symbol.NONE'</em>, <em>symbolToStroke='black'</em>, <em>symbolToDist=16.0</em>, <em>symbolToWidth=1.0</em>, <em>shadowColor=None</em>, <em>shadowOffsetX=2.0</em>, <em>shadowOffsetY=2.0</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.Style.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a new style.
+This function takes a very large number of parameters, but they are
+all optional. Not all of them apply to all objects either.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>stroke</strong> (<em>str</em>) &#8211; the color to use to draw lines.
+The format is one of &#8220;rgb(255,255,255)&#8221;, &#8220;rgba(255,255,255,1.0)&#8221;
+or &#8220;#123456&#8221;. Transparency is supported when using rgba.</li>
+<li><strong>fill</strong> (<em>str</em>) &#8211; <p>how closed objects should be filled.
+The format is either a color, as for stroke, or a string describing
+a gradient as in
+<cite>&#8220;linear x0 y0 x1 y1 offset1 color1 offset2 color2 ...&#8221;</cite></p>
+<p>where (x0,y0) and (x1,y1) define the orientation of the gradient.
+It is recommended that they are defined in the range 0..1, since
+the gradient will be automatically transformed to extend to the
+whole size of the object. The rest of the parameters are used to
+define each color the gradient is going through, and the offset
+(in the range 0..1) where the color must occur. For instance
+<cite>&#8220;linear 0 0 1 1 0 rgba(255,0,0,0.2) 1 rgba(0,255,0,0.2)&#8221;</cite></p>
+</li>
+<li><strong>lineWidth</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; the width of a line</li>
+<li><strong>dashes</strong> (<em>list_of_floats</em>) &#8211; a dash pattern. The
+first number is the number of pixels which should get ink, then
+the number of transparent pixels, then again the number of inked
+pixels,... The pattern will automatically repeat itself.</li>
+<li><strong>sloppy</strong> (<em>boolean</em>) &#8211; when true, no straight line is
+displayed. They are instead approximated with curves. Combined with
+a hand-drawing font, this makes the display look as if it has been
+hand-drawn.</li>
+<li><strong>fontName</strong> (<em>str</em>) &#8211; the font to use and its size.</li>
+<li><strong>fontUnderline</strong> (<a class="reference internal" href="#GPS.Browsers.Style.Underline" title="GPS.Browsers.Style.Underline"><em>GPS.Browsers.Style.Underline</em></a>) &#8211; The underline to
+use for the text</li>
+<li><strong>fontStrike</strong> (<em>boolean</em>) &#8211; whether to strikethrough the text.</li>
+<li><strong>fontColor</strong> (<em>str</em>) &#8211; the color to use for text.</li>
+<li><strong>fontLineSpacing</strong> (<em>int</em>) &#8211; extra number of pixels to
+insert between each lines of text.</li>
+<li><strong>fontHalign</strong> (<a class="reference internal" href="#GPS.Browsers.Style.Align" title="GPS.Browsers.Style.Align"><em>GPS.Browsers.Style.Align</em></a>) &#8211; How text should be aligned
+horizontally within its bounding box.</li>
+<li><strong>arrowFrom</strong> (<a class="reference internal" href="#GPS.Browsers.Style.Arrow" title="GPS.Browsers.Style.Arrow"><em>GPS.Browsers.Style.Arrow</em></a>) &#8211; How should arrows be
+displayed on the origin of a line.</li>
+<li><strong>arrowFromLength</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; the size of an arrow.</li>
+<li><strong>arrowFromAngle</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; the angle for an arrow.</li>
+<li><strong>arrowFromStroke</strong> (<em>str</em>) &#8211; the stroke color for the arrow.</li>
+<li><strong>arrowFromFill</strong> (<em>str</em>) &#8211; the fill pattern for the arrow.</li>
+<li><strong>arrowTo</strong> (<a class="reference internal" href="#GPS.Browsers.Style.Arrow" title="GPS.Browsers.Style.Arrow"><em>GPS.Browsers.Style.Arrow</em></a>) &#8211; same as arrowFrom,
+but for the end of a line</li>
+<li><strong>arrowToLength</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; similar to arrowFromLength</li>
+<li><strong>arrowToAngle</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; similar to arrowFromAngle</li>
+<li><strong>arrowToStroke</strong> (<em>str</em>) &#8211; similar to arrowFromStroke</li>
+<li><strong>arrowToFill</strong> (<em>str</em>) &#8211; similar to arrowFromFill</li>
+<li><strong>symbolFrom</strong> (<a class="reference internal" href="#GPS.Browsers.Style.Symbol" title="GPS.Browsers.Style.Symbol"><em>GPS.Browsers.Style.Symbol</em></a>) &#8211; the extra symbol
+to display near the origin of a line.</li>
+<li><strong>symbolFromStroke</strong> (<em>str</em>) &#8211; the stroke color to use for the symbol.</li>
+<li><strong>symbolFromDist</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; the distance from the end of the line
+at which the symbol should be displayed.</li>
+<li><strong>shadowColor</strong> (<em>str</em>) &#8211; the color to use for shadows</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="gps-browsers-textitem">
+<h3>18.1.12. <a class="reference internal" href="#GPS.Browsers.TextItem" title="GPS.Browsers.TextItem"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.TextItem</span></code></a><a class="headerlink" href="#gps-browsers-textitem" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="GPS.Browsers.TextItem">
+<em class="property">class </em><code class="descclassname">GPS.Browsers.</code><code class="descname">TextItem</code><a class="headerlink" href="#GPS.Browsers.TextItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>An item that displays text (optionaly within a rectangular box).</p>
+<img src="_images/inheritance-52a1eddfbc8dc69a0e9b7fe7aafd83c7e15c5d98.png" alt="Inheritance diagram of GPS.Browsers.TextItem" usemap="#inheritancecd93209aaf" class="inheritance"/>
+<map id="inheritancecd93209aaf" name="inheritancecd93209aaf">
+<area shape="rect" id="node1" href="#GPS.Browsers.AbstractItem" target="_top" title="This abstract class represents either items or links displayed in the" alt="" coords="6,5,194,30"/>
+<area shape="rect" id="node2" href="#GPS.Browsers.Item" target="_top" title="This abstract class represents any of the items that can be displayed in" alt="" coords="243,5,381,30"/>
+<area shape="rect" id="node3" href="#GPS.Browsers.TextItem" target="_top" title="An item that displays text (optionaly within a rectangular box)." alt="" coords="429,5,595,30"/>
+</map>
+<dl class="attribute">
+<dt id="GPS.Browsers.TextItem.TextArrow">
+<code class="descname">TextArrow</code><em class="property"> = &lt;GPS.__enum_proxy object&gt;</em><a class="headerlink" href="#GPS.Browsers.TextItem.TextArrow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.TextItem.text">
+<code class="descname">text</code><em class="property"> = None</em><a class="headerlink" href="#GPS.Browsers.TextItem.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>The text to display. This can be modified as needed, but you then need to
+call <cite>GPS.Browsers.Diagram.changed</cite> to let GPS know of the change.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.TextItem.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>style</em>, <em>text</em>, <em>directed='GPS.Browsers.TextItem.Text_Arrow.NONE'</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.TextItem.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new text item</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>style</strong> (<a class="reference internal" href="#GPS.Browsers.Style" title="GPS.Browsers.Style"><em>GPS.Browsers.Style</em></a>) &#8211; how to draw the item</li>
+<li><strong>text</strong> (<em>str</em>) &#8211; the text to display.</li>
+<li><strong>directed</strong> (<em>bool</em>) &#8211; whether to draw an additional arrow next
+to the text. This can be used for instance when the
+text is next to a link, and indicates in which direction
+the text applies.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="gps-browsers-view">
+<h3>18.1.13. <a class="reference internal" href="#GPS.Browsers.View" title="GPS.Browsers.View"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.View</span></code></a><a class="headerlink" href="#gps-browsers-view" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="GPS.Browsers.View">
+<em class="property">class </em><code class="descclassname">GPS.Browsers.</code><code class="descname">View</code><a class="headerlink" href="#GPS.Browsers.View" title="Permalink to this definition">¶</a></dt>
+<dd><p>A view shows a part of a diagram and its objects.
+Multiple views can be associated with the same diagram.</p>
+<p>Although this class can be instantiated as is, it is most useful, in
+general, to extend it, in particular by adding a method on_item_clicked:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">My_View</span><span class="p">(</span><span class="n">GPS</span><span class="o">.</span><span class="n">Browsers</span><span class="o">.</span><span class="n">View</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">on_item_double_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topitem</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Called when the user double clicks on a specific item.</span>
+<span class="sd">        It is recommended to add &quot;*args&quot; in the list of parameters,</span>
+<span class="sd">        since new parameters might be added in the future.</span>
+
+<span class="sd">        :param GPS.Browsers.Item topitem: the toplevel item clicked on</span>
+<span class="sd">        :param GPS.Browsers.Item item: the item clicked on.</span>
+<span class="sd">           When the item was created from a JSON file (see</span>
+<span class="sd">           :func:`GPS.Browsers.Diagram.load_json`), it contains</span>
+<span class="sd">           additional fields like `data` and `id` that were extracted</span>
+<span class="sd">           from JSON.</span>
+<span class="sd">           This item is either topitem or a child of it.</span>
+<span class="sd">        :param float x: the coordinates of the mouse within the item.</span>
+<span class="sd">        :param float y: the coordinates of the mouse within the item.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">on_item_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topitem</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Called when the user releases the mouse button on a specific</span>
+<span class="sd">        item.</span>
+<span class="sd">        This method is called twice for a double-click (once per</span>
+<span class="sd">        actual click).</span>
+<span class="sd">        The parameters are the same as above.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">on_create_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">topitem</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Called when the user has right-clicked on an item.</span>
+<span class="sd">        This function should prepare the context for contextual menus,</span>
+<span class="sd">        although it does not directly add contextual menu entries.</span>
+<span class="sd">        Instead, declare those menus as usual with</span>
+<span class="sd">        :class:`GPS.Contextual` or :func:`gps_utils.make_interactive`.</span>
+
+<span class="sd">        :param GPS.Context context: the context.</span>
+<span class="sd">           The function should add custom fields to this context.</span>
+<span class="sd">           These fields can then be tested for the filter or the</span>
+<span class="sd">           action associated with a :class:`GPS.Contextual`.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">on_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topitem</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Called when the user presses a keyboard key while the view has</span>
+<span class="sd">        the focus.</span>
+
+<span class="sd">        :param GPS.Browsers.Item topitem: the toplevel item clicked on</span>
+<span class="sd">        :param GPS.Browsers.Item item: the specific item clicked on.</span>
+<span class="sd">        :param int key: the key that was pressed (see Gdk.KEY_*</span>
+<span class="sd">           constants)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<img src="_images/inheritance-b9608adedf06f442da2949e1ad55d17d07945e5a.png" alt="Inheritance diagram of GPS.Browsers.View" usemap="#inheritance16d1a54f9e" class="inheritance"/>
+<map id="inheritance16d1a54f9e" name="inheritance16d1a54f9e">
+<area shape="rect" id="node1" href="#GPS.Browsers.View" target="_top" title="A view shows a part of a diagram and its objects." alt="" coords="134,5,277,30"/>
+<area shape="rect" id="node2" href="GPS.html#GPS.GUI" target="_top" title="This is an abstract class (ie no instances of it can be created from your" alt="" coords="6,5,85,30"/>
+</map>
+<dl class="attribute">
+<dt id="GPS.Browsers.View.Background">
+<code class="descname">Background</code><em class="property"> = &lt;GPS.__enum_proxy object&gt;</em><a class="headerlink" href="#GPS.Browsers.View.Background" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.View.diagram">
+<code class="descname">diagram</code><em class="property"> = None</em><a class="headerlink" href="#GPS.Browsers.View.diagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="#GPS.Browsers.Diagram" title="GPS.Browsers.Diagram"><code class="xref py py-class docutils literal"><span class="pre">GPS.Browsers.Diagram</span></code></a> that the view is referring to.
+This is a writable property.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.View.editing_in_progress">
+<code class="descname">editing_in_progress</code><em class="property"> = False</em><a class="headerlink" href="#GPS.Browsers.View.editing_in_progress" title="Permalink to this definition">¶</a></dt>
+<dd><p>A read-only property that indicates whether the user is currently
+interactively modifying the contents of an item (for instance an
+EditableTextItem). See <a class="reference internal" href="#GPS.Browsers.View.start_editing" title="GPS.Browsers.View.start_editing"><code class="xref py py-func docutils literal"><span class="pre">GPS.Browsers.View.start_editing()</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.View.scale">
+<code class="descname">scale</code><em class="property"> = 1.0</em><a class="headerlink" href="#GPS.Browsers.View.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>The scaling factor for the view. This is a writable property</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="GPS.Browsers.View.topleft">
+<code class="descname">topleft</code><em class="property"> = (0.0, 0.0)</em><a class="headerlink" href="#GPS.Browsers.View.topleft" title="Permalink to this definition">¶</a></dt>
+<dd><p>The coordinates of the top-left corner of the view.
+This is a writable property</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.View.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.View.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the python class instance, but does not associate it with any
+window yet.
+Before any of the other functions can be called, you first need to
+call self.create() to create the actual window. This creation is done
+in two steps, so that you can create your own class extending view.
+This is in particular needed to provide support for user interaction.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.View.animate_item_position">
+<code class="descname">animate_item_position</code><span class="sig-paren">(</span><em>item</em>, <em>x</em>, <em>y</em>, <em>duration=0.4</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.View.animate_item_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves an item to a new position.
+This is animated, i.e. the item will go through various steps before
+reaching that position.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>item</strong> (<a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><em>GPS.Browsers.Item</em></a>) &#8211; the item to move</li>
+<li><strong>x</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; coordinates relative to parent or browser.</li>
+<li><strong>y</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; coordinates relative to parent or browser.</li>
+<li><strong>duration</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; how long the animation should take</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.View.cancel_editing">
+<code class="descname">cancel_editing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.View.cancel_editing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel any interactive editing that might be taking place</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.View.center_on">
+<code class="descname">center_on</code><span class="sig-paren">(</span><em>point</em>, <em>xpos=0.5</em>, <em>ypos=0.5</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.View.center_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scrolls the view so that the point is at the given position within
+the view (in the middle if xpos and ypos are both 0.5, or to the
+left if xpos is 0.0, or the right if xpos is 1.0, and so on).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<em>tuple</em>) &#8211; the point</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.View.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>diagram</em>, <em>title</em>, <em>save_desktop=None</em>, <em>snap_to_grid=True</em>, <em>snap_to_guides=False</em>, <em>toolbar='Browser'</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.View.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new view that shows the given diagram.
+This view is automatically made visible in GPS.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>diagram</strong> (<a class="reference internal" href="#GPS.Browsers.Diagram" title="GPS.Browsers.Diagram"><em>GPS.Browsers.Diagram</em></a>) &#8211; the diagram to display.</li>
+<li><strong>title</strong> (<em>str</em>) &#8211; the title used for the notebook tab.</li>
+<li><strong>save_desktop</strong> (<em>func</em><em>(</em><em>child</em><em>)</em><em></em>) &#8211; An optional callback when GPS is
+saving the desktop. It is passed the MDIWindow in which the view
+was put, and should return a string to store in the desktop (see
+<a class="reference internal" href="GPS.html#GPS.MDI.add" title="GPS.MDI.add"><code class="xref py py-func docutils literal"><span class="pre">GPS.MDI.add()</span></code></a> for more information). This is generally not
+useful, unless you are writting a custom python module, in which
+case the parameter should be set to &#8220;module._save_desktop&#8221;. See
+the documentation for <code class="file docutils literal"><span class="pre">modules.py</span></code> for more information.</li>
+<li><strong>snap_to_grid</strong> (<em>bool</em>) &#8211; whether items should preferably align on
+the grid when they are moved (ie they might be moved an additional
+small amount so that they are properly aligned). Snapping is
+systematically disabled when the user moves the item while pressing
+shift.</li>
+<li><strong>snap_to_guides</strong> (<em>bool</em>) &#8211; whether items should preferably align on
+smart guides. These guides are generated for particular points of
+interests of the other items (typically the top, middle and bottom
+of the bounding box). This feature is useful to help user align
+items.</li>
+<li><strong>toolbar</strong> (<em>str</em>) &#8211; The name of the toolbar definition to use for the
+local toolbar of the browser. Such definitions are found in the
+file share/gps/menus.xml in the GPS install. If the name is not
+defined in that file, a new definition will be used that extends
+the standard browsers toolbar. You can later add custom actions
+to the toolbar by using <a class="reference internal" href="GPS.html#GPS.Action.button" title="GPS.Action.button"><code class="xref py py-func docutils literal"><span class="pre">GPS.Action.button()</span></code></a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.View.export_pdf">
+<code class="descname">export_pdf</code><span class="sig-paren">(</span><em>filename</em>, <em>format='a4'</em>, <em>visible_only=True</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.View.export_pdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a PDF file with the contents of the view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filename</strong> (<a class="reference internal" href="GPS.html#GPS.File" title="GPS.File"><em>GPS.File</em></a>) &#8211; the name of the file to create or
+override.</li>
+<li><strong>format</strong> (<em>str</em>) &#8211; one of &#8220;a4&#8221;, &#8220;a4_portrait&#8221;, &#8220;a4_landscape&#8221;,
+or similar variants with &#8220;a3&#8221; and &#8220;letter&#8221;. It can also be
+a string &#8220;width,height&#8221; where the size is given in inches.</li>
+<li><strong>visible_only</strong> (<em>bool</em>) &#8211; if True, the output will match was is
+visible in the view. If False, the output will include the
+whole contents of the diagram.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.View.scale_to_fit">
+<code class="descname">scale_to_fit</code><span class="sig-paren">(</span><em>max_scale=4.0</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.View.scale_to_fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale and scroll the view so that all the items in the model are
+visible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>max_scale</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; maximum scaling factor to allow.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.View.scroll_into_view">
+<code class="descname">scroll_into_view</code><span class="sig-paren">(</span><em>item</em>, <em>duration=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.View.scroll_into_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scrolls the view as little as possible so that item becomes visible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>item</strong> (<a class="reference internal" href="#GPS.Browsers.Item" title="GPS.Browsers.Item"><em>GPS.Browsers.Item</em></a>) &#8211; the item to show</li>
+<li><strong>duration</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; if not null, scrolling will be animated over
+that period of time.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.View.set_background">
+<code class="descname">set_background</code><span class="sig-paren">(</span><em>type</em>, <em>style=None</em>, <em>size=20.0</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.View.set_background" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the type of background to display in the view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<a class="reference internal" href="#GPS.Browsers.View.Background" title="GPS.Browsers.View.Background"><em>GPS.Browsers.View.Background</em></a>) &#8211; the type of background
+to display.</li>
+<li><strong>style</strong> (<a class="reference internal" href="#GPS.Browsers.Style" title="GPS.Browsers.Style"><em>GPS.Browsers.Style</em></a>) &#8211; the style to use for the drawing.
+Depending on the style, the stroke or the fill should be set
+(or perhaps both). For instance the COLOR background uses the
+fill pattern (color or gradient). If you are using GRID, the
+fill should be unset, but the stroke should be set.
+When using a gradient, it is not resized to the size of the view
+(as opposed to what is done for items for instance), so it should
+be something like <cite>linear 0 0 1000 1000 0 black 1 yellow</cite></li>
+<li><strong>size</strong> (<a class="reference internal" href="GPS.html#GPS.MDIWindow.float" title="GPS.MDIWindow.float"><em>float</em></a>) &#8211; the size of the grid, when using GRID or DOTS.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.View.set_read_only">
+<code class="descname">set_read_only</code><span class="sig-paren">(</span><em>readonly=True</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.View.set_read_only" title="Permalink to this definition">¶</a></dt>
+<dd><p>A read-only view does not allow users to move items.
+It is still possible to click on items though, or zoom and scroll the
+view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>readonly</strong> (<em>bool</em>) &#8211; whether the view is read-only.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.View.set_selection_style">
+<code class="descname">set_selection_style</code><span class="sig-paren">(</span><em>style</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.View.set_selection_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>The style used to highlight the selected items (see
+<a class="reference internal" href="#GPS.Browsers.Diagram.set_selection_mode" title="GPS.Browsers.Diagram.set_selection_mode"><code class="xref py py-func docutils literal"><span class="pre">GPS.Browsers.Diagram.set_selection_mode()</span></code></a>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>style</strong> (<a class="reference internal" href="#GPS.Browsers.Style" title="GPS.Browsers.Style"><em>GPS.Browsers.Style</em></a>) &#8211; the style to use.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="GPS.Browsers.View.start_editing">
+<code class="descname">start_editing</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#GPS.Browsers.View.start_editing" title="Permalink to this definition">¶</a></dt>
+<dd><p>If <cite>item</cite> is editable, start interactive editing, as if the user
+had clicked on it.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="plugins.html" title="19. Useful plugins"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="GPS.html" title="17. Scripting API reference for GPS"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">GPS 19.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2019, AdaCore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

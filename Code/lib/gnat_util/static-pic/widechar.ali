@@ -1,0 +1,128 @@
+V "GNAT Lib v2019"
+A -O2
+A -gnatA
+A -gnatn
+A -gnatws
+A -mtune=core2
+A -mmacosx-version-min=10.13.0
+A -fPIC
+P ZX
+
+RN
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK_05
+
+U widechar%b		widechar.adb		fc9065e4 NE OO PK
+Z interfaces%s		interfac.ads		interfac.ali
+W opt%s			opt.adb			opt.ali
+W system%s		system.ads		system.ali
+W system.wch_cnv%s	s-wchcnv.adb		s-wchcnv.ali
+W system.wch_con%s	s-wchcon.adb		s-wchcon.ali
+
+U widechar%s		widechar.ads		700d44f3 BN EE NE OO PK
+W types%s		types.adb		types.ali
+
+D ada.ads		20190518041256 76789da1 ada%s
+D a-unccon.ads		20190518041256 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20190518041256 eff36322 ada.unchecked_deallocation%s
+D hostparm.ads		20190518044709 a20ca6cf hostparm%s
+D interfac.ads		20190518041255 5ab55268 interfaces%s
+D opt.ads		20190518044710 3d2ce478 opt%s
+D system.ads		20190518041256 085b6ffb system%s
+D s-conca2.ads		20190518041256 02a0d7d0 system.concat_2%s
+D s-exctab.ads		20190518041256 54135002 system.exception_table%s
+D s-stalib.ads		20190518041257 09bd3940 system.standard_library%s
+D s-string.ads		20190518041256 8fe54fb7 system.strings%s
+D s-unstyp.ads		20190518041256 34867c83 system.unsigned_types%s
+D s-wchcnv.ads		20190518041255 0fb7baf3 system.wch_cnv%s
+D s-wchcnv.adb		20190518041255 72f42cd5 system.wch_cnv%b
+D s-wchcon.ads		20190518041256 1b7d22d2 system.wch_con%s
+D s-wchjis.ads		20190518041257 94ba8100 system.wch_jis%s
+D types.ads		20190518044709 dfb4ef24 types%s
+D unchconv.ads		20190518041255 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20190518041257 214516a4 unchecked_deallocation%s
+D widechar.ads		20190518044709 afb9abd7 widechar%s
+D widechar.adb		20190518044709 7acfb26a widechar%b
+G a e
+G c Z s b [length_wide widechar 48 13 none]
+G c Z s b [scan_wide widechar 54 14 none]
+G c Z s b [set_wide widechar 68 14 none]
+G c Z s b [skip_wide widechar 80 14 none]
+G c Z s b [skip_wide widechar 88 14 none]
+G c Z s b [is_start_of_wide_char widechar 93 13 none]
+X 6 opt.ads
+50K9*Opt 2414e8 21|36w6 36r15
+1951i4*Wide_Character_Encoding_Method{15|94I9} 21|52r12 135r38 175r32 206r38
+. 238r38
+X 7 system.ads
+37K9*System 174e11 21|38r6 38r26 39r6 39r26
+X 13 s-wchcnv.ads
+50K16*WCh_Cnv 116e19 21|38w13 38r33
+53I9*UTF_32_Code<integer> 21|175r15 200r17 232r17
+83v13*Char_Sequence_To_UTF_32 21|121r29 198r31 230r31
+108u14*UTF_32_To_Char_Sequence 21|170r31
+X 15 s-wchcon.ads
+41K16*WCh_Con 220e19 21|39w13 39r33
+94I9*WC_Encoding_Method<short_short_integer>
+100i4*WCEM_Hex{94I9} 21|57r15
+108i4*WCEM_Upper{94I9} 21|79r15
+117i4*WCEM_Shift_JIS{94I9} 21|78r15
+126i4*WCEM_EUC{94I9} 21|77r15
+134i4*WCEM_UTF8{94I9} 21|80r15
+156i4*WCEM_Brackets{94I9} 21|64r15 133r38
+189N4*WC_Longest_Sequence 21|92r14
+X 17 types.ads
+52K9*Types 948e10 20|37w6 37r17
+59I9*Int<integer>
+62I12*Nat{59I9} 20|41r27 48r32 21|90r32 139r54 207r54 239r54
+145I9*Text_Ptr<59I9>
+148A9*Text_Buffer(character)<145I9>
+192A12*Source_Buffer{148A9}<145I9>
+200P9*Source_Buffer_Ptr(192A12) 20|55r13 88r29 94r11 21|48r11 100r13 214r29
+220I12*Source_Ptr{145I9} 20|56r20 88r59 95r11 21|49r11 101r20 105r25 214r59
+. 215r25
+525M9*Char_Code_Base
+528M12*Char_Code{525M9} 20|57r17 69r11 21|102r17 133r15 135r15 143r15 153r11
+X 20 widechar.ads
+39K9*Widechar 101l5 101e13 21|41b14 242l5 242t13
+41i4*Wide_Char_Byte_Count{17|62I12} 21|139m7 139r31 207m7 207r31 239m7 239r31
+48V13*Length_Wide{17|62I12} 21|90b13 93l8 93t19
+54U14*Scan_Wide 55>7 56=7 57<7 58<7 21|99b14 146l8 146t17
+55p7 S{17|200P9} 21|100b7 118r17
+56i7 P{17|220I12} 21|101b7 105r39 117m10 117r15 118r20 139r59 144m10 144r15
+57m7 C{17|528M12} 21|102b7 133m10 135m10 143m10
+58b7 Err{boolean} 21|103b7 138m7 145m10
+68U14*Set_Wide 69>7 70=7 71=7 21|152b14 176l8 176t16
+69m7 C{17|528M12} 21|153b7 175r28
+70a7 S{string} 21|154b7 167m10
+71i7 P{natural} 21|155b7 166m10 166r15 167r13
+80U14*Skip_Wide 80>25 80=37 21|182b14 208l8 208t17
+80a25 S{string} 21|182b25 195r17
+80i37 P{natural} 21|182b37 183r36 194m10 194r15 195r20 207r59
+88U14*Skip_Wide 88>25 88=48 21|214b14 240l8 240t17
+88p25 S{17|200P9} 21|214b25 227r17
+88i48 P{17|220I12} 21|214b48 215r39 226m10 226r15 227r20 239r59
+93V13*Is_Start_Of_Wide_Char{boolean} 94>7 95>7 99r19 21|47b13 84l8 84t29
+94p7 S{17|200P9} 21|48b7 58r20 65r25 66r24 67r24 68r25 70r28 72r25 82r20
+95i7 P{17|220I12} 21|49b7 58r23 65r20 66r27 67r27 68r28 70r31 72r28 82r23
+X 21 widechar.adb
+105i7 P_Init{17|220I12} 139r63
+106e7 Chr{character} 126m7 132r10 133r33 135r33
+108V16 In_Char{character} 115b16 119l11 119t18 121r54 126s14
+121V16 WC_In[13|83]{13|53I9} 14|44b13 21|133s26 135s26
+157U17 Out_Char 157>27 164b17 168l11 168t19 170r56
+157e27 C{character} 164b27 167r19
+170U17 WC_Out[13|108] 14|274b14 21|175s7
+183i7 P_Init{natural} 207r63
+185V16 Skip_Char{character} 192b16 196l11 196t20 198r56 206s27
+198V16 WC_Skip[13|83]{13|53I9} 14|44b13 21|206s18
+200i7 Discard{13|53I9} 201r29 206m7
+215i7 P_Init{17|220I12} 239r63
+217V16 Skip_Char{character} 224b16 228l11 228t20 230r56 238s27
+230V16 WC_Skip[13|83]{13|53I9} 14|44b13 21|238s18
+232i7 Discard{13|53I9} 233r29 238m7
+
